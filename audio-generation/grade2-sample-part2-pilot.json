@@ -1,0 +1,58 @@
+{
+  "outputSubdir": [
+    "CBT音源",
+    "2級",
+    "サンプル問題",
+    "Part2"
+  ],
+  "voices": {
+    "N": "en-CA-ClaraNeural"
+  },
+  "voicePairPlan": [
+    {
+      "start": 16,
+      "end": 20,
+      "voices": {
+        "N": "en-CA-ClaraNeural"
+      }
+    },
+    {
+      "start": 21,
+      "end": 25,
+      "voices": {
+        "N": "en-US-ChristopherNeural"
+      }
+    },
+    {
+      "start": 26,
+      "end": 30,
+      "voices": {
+        "N": "en-GB-SoniaNeural"
+      }
+    }
+  ],
+  "gapMs": 180,
+  "items": [
+    {
+      "id": "No16",
+      "number": 16,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "No. 16.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "N",
+          "text": "During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge. She knew the basic facts, but she often forgot important dates during busy tours. Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift. She can now explain the bridge's history more clearly.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What helped Nina explain the bridge's history better?",
+          "gapAfterMs": 0
+        }
+      ]
+    }
+  ]
+}

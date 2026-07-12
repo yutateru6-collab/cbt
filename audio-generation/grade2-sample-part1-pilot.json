@@ -1,0 +1,69 @@
+{
+  "outputSubdir": ["CBT音源", "2級", "サンプル問題", "Part1"],
+  "voices": {
+    "A": "en-CA-ClaraNeural",
+    "B": "en-US-ChristopherNeural"
+  },
+  "voicePairPlan": [
+    {
+      "start": 1,
+      "end": 5,
+      "voices": {
+        "A": "en-CA-ClaraNeural",
+        "B": "en-US-ChristopherNeural"
+      }
+    },
+    {
+      "start": 6,
+      "end": 10,
+      "voices": {
+        "A": "en-GB-SoniaNeural",
+        "B": "en-GB-RyanNeural"
+      }
+    },
+    {
+      "start": 11,
+      "end": 15,
+      "voices": {
+        "A": "en-US-JennyNeural",
+        "B": "en-US-ChristopherNeural"
+      }
+    }
+  ],
+  "gapMs": 180,
+  "items": [
+    {
+      "id": "No01",
+      "segments": [
+        {"speaker": "A", "text": "No. 1.", "gapAfterMs": 450},
+        {"speaker": "B", "text": "Did you finish the poster for tomorrow's science fair?"},
+        {"speaker": "A", "text": "Almost, but the printer in the library stopped working. Could you print the final page at home tonight?"},
+        {"speaker": "B", "text": "I can, but send me the file before seven. I have basketball practice after that."},
+        {"speaker": "A", "text": "Thanks. I'll email it during lunch and bring the other pages tomorrow.", "gapAfterMs": 650},
+        {"speaker": "A", "text": "Question. What does the girl ask the boy to do?", "gapAfterMs": 0}
+      ]
+    },
+    {
+      "id": "No02",
+      "segments": [
+        {"speaker": "A", "text": "No. 2.", "gapAfterMs": 450},
+        {"speaker": "A", "text": "Good afternoon. I reserved a quiet room for two nights under the name Laura Green."},
+        {"speaker": "B", "text": "I found your reservation, Ms. Green. The quiet room won't be ready until six, but a room near the elevator is available now."},
+        {"speaker": "A", "text": "I'd rather wait. Can I leave my suitcase here while I get something to eat?"},
+        {"speaker": "B", "text": "Certainly. We'll keep it behind the front desk and call you when your room is ready.", "gapAfterMs": 650},
+        {"speaker": "A", "text": "Question. What does the man say about the quiet room?", "gapAfterMs": 0}
+      ]
+    },
+    {
+      "id": "No03",
+      "segments": [
+        {"speaker": "A", "text": "No. 3.", "gapAfterMs": 450},
+        {"speaker": "B", "text": "I'm starting dinner now. We have an unexpected guest tonight."},
+        {"speaker": "A", "text": "Really? I thought we were going to eat at the new Thai restaurant."},
+        {"speaker": "B", "text": "Dad is bringing Grandma over, and she doesn't like spicy food. Could you set the table?"},
+        {"speaker": "A", "text": "Sure. I'll make a salad too. The soup and chicken should be enough for the main dishes.", "gapAfterMs": 650},
+        {"speaker": "A", "text": "Question. Why is the man preparing dinner at home?", "gapAfterMs": 0}
+      ]
+    }
+  ]
+}

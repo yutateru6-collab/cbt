@@ -5,6 +5,7 @@ const baseGradeCatalog = examCatalog.grades || { pre2: examCatalog };
 const gradeCatalog = applyImportedGradeOverrides(baseGradeCatalog, importedGradeOverrides);
 const GRADE_SELECTION_KEY = "scbt-selected-grade";
 const SET_SELECTION_KEY_PREFIX = "scbt-selected-set";
+const requestParams = new URLSearchParams(window.location.search);
 const requestedLockedGrade = window.APP_GRADE || examCatalog.appGrade || "";
 const availableGradeKeys = (examCatalog.gradeOrder || Object.keys(gradeCatalog)).filter((key) => gradeCatalog[key]);
 const fallbackGradeKey = availableGradeKeys[0] || "pre2";
@@ -19,6 +20,8 @@ const selectedGradeDisplay = examData.displayName || selectedGradeLabel;
 const selectedSetLabel = examData.setLabel || selectedSet.label || selectedSetKey;
 const selectedSetImported = isImportedSet(selectedGrade, selectedSet.key);
 const selectedGradeImported = selectedSetImported;
+
+document.title = `${selectedGradeLabel}CBT形式4技能トレーニング`;
 
 const GRADE_REQUIREMENTS = {
   pre2: {
@@ -155,6 +158,11 @@ function resolveSelectedSet(gradeKey) {
   const enabledSets = sets.filter((set) => set.enabled);
   const fallbackSet = enabledSets[0] || sets[0] || { key: "set-01" };
   const defaultSetKey = normalizeSetKey(grade.defaultSet || fallbackSet.key);
+  const requestedSet = requestParams.get("set") || requestParams.get("setKey");
+  if (requestedSet) {
+    const requestedSetKey = normalizeSetKey(requestedSet);
+    if (enabledSets.some((set) => set.key === requestedSetKey)) return requestedSetKey;
+  }
   try {
     const savedSet = normalizeSetKey(localStorage.getItem(getSetSelectionKey(gradeKey)));
     if (enabledSets.some((set) => set.key === savedSet)) return savedSet;
@@ -192,6 +200,8 @@ function isImportedSet(gradeKey, setKey) {
 
 function resolveSelectedGrade() {
   if (isGradeLocked) return requestedLockedGrade;
+  const requestedGrade = requestParams.get("grade");
+  if (requestedGrade && gradeCatalog[requestedGrade]) return requestedGrade;
   try {
     const savedGrade = localStorage.getItem(GRADE_SELECTION_KEY);
     if (savedGrade && gradeCatalog[savedGrade]) return savedGrade;
@@ -424,6 +434,9 @@ let speakingRecorder = null;
 let speakingRecorderStream = null;
 let speakingRecorderChunks = [];
 let speakingRecorderStep = null;
+let listeningAudioElement = null;
+let listeningPlaybackQuestionId = null;
+let listeningPlaybackPhase = "idle";
 
 const app = document.getElementById("app");
 document.title = `${selectedGradeLabel}CBT形式4技能トレーニング`;
@@ -435,22 +448,29 @@ function render() {
   const moduleInfo = modules[appState.module];
 
   if (!appState.started) {
+    stopListeningPlayback();
     app.innerHTML = renderStart(moduleInfo);
     return;
   }
 
   if (appState.modal === "complete") {
+    stopListeningPlayback();
     app.innerHTML = renderComplete();
     return;
   }
 
   if (appState.module === "speaking") {
+    stopListeningPlayback();
     app.innerHTML = renderSpeaking();
   } else if (appState.module === "listening") {
+    ensureListeningPlaybackState();
     app.innerHTML = renderListening();
+    mountListeningAudio();
   } else if (appState.module === "writing") {
+    stopListeningPlayback();
     app.innerHTML = renderWriting();
   } else {
+    stopListeningPlayback();
     app.innerHTML = renderReading();
   }
 }
@@ -1111,9 +1131,118 @@ function renderReview(id, text) {
   `;
 }
 
+function stopListeningPlayback() {
+  if (listeningAudioElement) {
+    listeningAudioElement.pause();
+    listeningAudioElement.removeAttribute("src");
+    listeningAudioElement.load();
+  }
+  listeningAudioElement = null;
+  listeningPlaybackQuestionId = null;
+  listeningPlaybackPhase = "idle";
+}
+
+function ensureListeningPlaybackState() {
+  const question = listeningQuestions[appState.listeningIndex];
+  if (!question || listeningPlaybackQuestionId === question.id) return;
+  stopListeningPlayback();
+  listeningPlaybackQuestionId = question.id;
+  listeningPlaybackPhase = question.audioFile ? "audio" : "answer";
+  appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
+}
+
+function updateListeningPlaybackUi() {
+  const question = listeningQuestions[appState.listeningIndex];
+  const hasAudio = Boolean(question?.audioFile);
+  const isAnswerPhase = !hasAudio || listeningPlaybackPhase === "answer";
+  const status = app.querySelector("[data-listening-audio-status] span");
+  const playButton = app.querySelector('[data-action="listen-play"]');
+  const answerTime = app.querySelector(".answer-time");
+  const phaseLabel = app.querySelector("[data-listening-phase-label]");
+  const timer = app.querySelector("[data-listening-timer]");
+  const timerUnit = app.querySelector("[data-listening-timer-unit]");
+  const timerBar = app.querySelector("[data-listening-answer-bar]");
+
+  if (status) {
+    status.textContent = !hasAudio
+      ? "音声ファイル未設定（仮スクリプトで問題管理中）"
+      : listeningPlaybackPhase === "answer"
+        ? "音声が終了しました。解答を選んでください。"
+        : listeningPlaybackPhase === "blocked" || listeningPlaybackPhase === "error"
+          ? "音声を再生するには再生ボタンを押してください。"
+          : "音声を再生しています。";
+  }
+  if (playButton) playButton.hidden = !["blocked", "error"].includes(listeningPlaybackPhase);
+  if (answerTime) answerTime.classList.toggle("waiting", !isAnswerPhase);
+  const audioPhaseLabel = ["blocked", "error"].includes(listeningPlaybackPhase) ? "音声再生待ち" : "音声再生中";
+  if (phaseLabel) phaseLabel.textContent = isAnswerPhase ? "解答時間" : audioPhaseLabel;
+  if (timer) timer.textContent = isAnswerPhase ? appState.listeningAnswerRemaining : "--";
+  if (timerUnit) timerUnit.textContent = isAnswerPhase ? "秒" : "";
+  if (timerBar) {
+    const percent = isAnswerPhase ? Math.max(0, Math.min(100, (appState.listeningAnswerRemaining / LISTENING_ANSWER_SECONDS) * 100)) : 100;
+    timerBar.style.width = `${percent}%`;
+  }
+}
+
+async function playListeningAudio() {
+  const question = listeningQuestions[appState.listeningIndex];
+  if (!question?.audioFile) return;
+  const audio = listeningAudioElement || app.querySelector("[data-listening-audio]");
+  if (!audio) return;
+  listeningAudioElement = audio;
+  listeningPlaybackPhase = "audio";
+  updateListeningPlaybackUi();
+  try {
+    audio.currentTime = 0;
+    await audio.play();
+  } catch {
+    listeningPlaybackPhase = "blocked";
+    updateListeningPlaybackUi();
+  }
+}
+
+function mountListeningAudio() {
+  const question = listeningQuestions[appState.listeningIndex];
+  if (!question?.audioFile || listeningPlaybackPhase === "answer") {
+    updateListeningPlaybackUi();
+    return;
+  }
+  const audio = app.querySelector("[data-listening-audio]");
+  if (!audio) return;
+  const questionId = question.id;
+  listeningAudioElement = audio;
+  audio.addEventListener("playing", () => {
+    if (listeningPlaybackQuestionId !== questionId) return;
+    listeningPlaybackPhase = "audio";
+    updateListeningPlaybackUi();
+  });
+  audio.addEventListener("ended", () => {
+    if (listeningPlaybackQuestionId !== questionId) return;
+    listeningPlaybackPhase = "answer";
+    appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
+    saveState();
+    updateListeningPlaybackUi();
+  });
+  audio.addEventListener("error", () => {
+    if (listeningPlaybackQuestionId !== questionId) return;
+    listeningPlaybackPhase = "error";
+    updateListeningPlaybackUi();
+  });
+  playListeningAudio();
+}
+
 function renderListening() {
   const question = listeningQuestions[appState.listeningIndex];
   const hasAudio = Boolean(question.audioFile);
+  const isRealLifeQuestion = question.part === "Part 3" && Boolean(question.situation);
+  const isAnswerPhase = !hasAudio || listeningPlaybackPhase === "answer";
+  const audioStatusText = !hasAudio
+    ? "音声ファイル未設定（仮スクリプトで問題管理中）"
+    : listeningPlaybackPhase === "answer"
+      ? "音声が終了しました。解答を選んでください。"
+      : listeningPlaybackPhase === "blocked" || listeningPlaybackPhase === "error"
+        ? "音声を再生するには再生ボタンを押してください。"
+        : "音声を再生しています。";
   return `
     ${renderHeader(`${question.section} No.${question.id}を再生中...`)}
     <section class="listen-frame">
@@ -1122,19 +1251,30 @@ function renderListening() {
           <div class="section-badge">${question.section}</div>
           <p>${question.instruction}</p>
         </div>
-        <div class="audio-status ${hasAudio ? "" : "muted"}">
-          ${hasAudio ? `音声ファイル: ${escapeHtml(question.audioFile)}` : "音声ファイル未設定（仮スクリプトで問題管理中）"}
+        <div class="audio-status ${hasAudio ? "" : "muted"}" data-listening-audio-status>
+          <span>${audioStatusText}</span>
+          ${hasAudio ? `<button class="listen-play-button" data-action="listen-play" ${listeningPlaybackPhase === "blocked" || listeningPlaybackPhase === "error" ? "" : "hidden"}>▶ 音声を再生</button>` : ""}
         </div>
+        ${hasAudio ? `<audio class="listen-audio-element" data-listening-audio preload="auto" src="${escapeHtml(question.audioFile)}"></audio>` : ""}
         <button class="nav-button prev" data-action="listen-prev" ${appState.listeningIndex === 0 ? "disabled" : ""}>▲ 前の問題へ</button>
         <div class="listen-question">
-          <p>No.${question.id}</p>
+          <p class="listen-question-number">No.${question.id}</p>
+          ${
+            isRealLifeQuestion
+              ? `<div class="listen-real-life">
+                  <p><strong>Situation</strong>${escapeHtml(question.situation)}</p>
+                  <p><strong>Question</strong>${escapeHtml(question.questionText || question.text || "")}</p>
+                </div>`
+              : ""
+          }
           ${question.choices
             .map((choice, index) => {
               const value = index + 1;
               const choiceText = typeof choice === "number" ? "" : String(choice);
               return `
-                <button class="listen-choice ${appState.answers.listening[question.id] === value ? "selected" : ""}" data-action="listen-answer" data-question="${question.id}" data-value="${value}" title="${escapeHtml(choiceText)}">
-                  ${value}
+                <button class="listen-choice ${appState.answers.listening[question.id] === value ? "selected" : ""}" data-action="listen-answer" data-question="${question.id}" data-value="${value}">
+                  <span class="listen-choice-number">${value}</span>
+                  ${choiceText ? `<span class="listen-choice-text">${escapeHtml(choiceText)}</span>` : ""}
                 </button>
               `;
             })
@@ -1142,9 +1282,12 @@ function renderListening() {
           ${renderReview(`l-${question.id}`, "目印をつける")}
         </div>
         <button class="nav-button next" data-action="listen-next">${appState.listeningIndex === listeningQuestions.length - 1 ? "リスニング終了 ▼" : "次の問題へ ▼"}</button>
-        <div class="answer-time">
-          <span>解答時間</span>
-          <div class="answer-time-box"><span data-listening-timer>${appState.listeningAnswerRemaining}</span>秒</div>
+        <div class="answer-time ${isAnswerPhase ? "" : "waiting"}">
+          <span data-listening-phase-label>${isAnswerPhase ? "解答時間" : ["blocked", "error"].includes(listeningPlaybackPhase) ? "音声再生待ち" : "音声再生中"}</span>
+          <div class="answer-time-meter">
+            <div class="answer-time-track" aria-hidden="true"><span data-listening-answer-bar style="width: ${isAnswerPhase ? Math.max(0, Math.min(100, (appState.listeningAnswerRemaining / LISTENING_ANSWER_SECONDS) * 100)) : 100}%"></span></div>
+            <div class="answer-time-box"><span data-listening-timer>${isAnswerPhase ? appState.listeningAnswerRemaining : "--"}</span><span data-listening-timer-unit>${isAnswerPhase ? "秒" : ""}</span></div>
+          </div>
         </div>
       </main>
       <aside class="listen-side">
@@ -1826,10 +1969,24 @@ async function handleClick(event) {
     const pasteText = appState.clipboardText || "I think this is a good idea because it can help many people.";
     appState.writingAnswers[task.id] = [current.trim(), pasteText].filter(Boolean).join(" ");
   } else if (action === "listen-answer") {
-    appState.answers.listening[Number(target.dataset.question)] = Number(target.dataset.value);
+    const questionId = Number(target.dataset.question);
+    const value = Number(target.dataset.value);
+    appState.answers.listening[questionId] = value;
+    saveState();
+    app.querySelectorAll(`[data-action="listen-answer"][data-question="${questionId}"]`).forEach((button) => {
+      button.classList.toggle("selected", Number(button.dataset.value) === value);
+    });
+    return;
+  } else if (action === "listen-play") {
+    await playListeningAudio();
+    return;
   } else if (action === "listen-next") {
-    appState.listeningIndex = Math.min(listeningQuestions.length - 1, appState.listeningIndex + 1);
-    appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
+    if (appState.listeningIndex >= listeningQuestions.length - 1) {
+      appState.modal = "complete";
+    } else {
+      appState.listeningIndex += 1;
+      appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
+    }
   } else if (action === "listen-prev") {
     appState.listeningIndex = Math.max(0, appState.listeningIndex - 1);
     appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
@@ -1893,6 +2050,7 @@ function handleChange(event) {
   if (reviewId) {
     appState.reviews[reviewId] = event.target.checked;
     saveState();
+    if (appState.module === "listening") return;
     render();
   }
 }
@@ -2634,8 +2792,8 @@ function loadState() {
   try {
     const savedText = localStorage.getItem(STORAGE_KEY) || (selectedSet.key === "set-01" ? localStorage.getItem(LEGACY_STORAGE_KEY) : null);
     const saved = JSON.parse(savedText || "null");
-    if (!saved || typeof saved !== "object") return structuredClone(defaultState);
-    return normalizeState({
+    if (!saved || typeof saved !== "object") return normalizeState(applyRequestStateOverrides(structuredClone(defaultState)));
+    return normalizeState(applyRequestStateOverrides({
       ...structuredClone(defaultState),
       ...saved,
       answers: {
@@ -2643,10 +2801,29 @@ function loadState() {
         ...(saved.answers || {}),
       },
       modal: null,
-    });
+    }));
   } catch {
-    return structuredClone(defaultState);
+    return normalizeState(applyRequestStateOverrides(structuredClone(defaultState)));
   }
+}
+
+function applyRequestStateOverrides(state) {
+  const requestedModule = requestParams.get("module");
+  if (requestedModule && isModuleAvailable(requestedModule)) {
+    state.module = requestedModule;
+  }
+
+  const requestedStart = requestParams.get("start") || requestParams.get("started");
+  if (requestedStart === "1") state.started = true;
+  if (requestedStart === "0") state.started = false;
+
+  const requestedQuestion = Number(requestParams.get("question") || requestParams.get("listen") || "");
+  if (state.module === "listening" && Number.isFinite(requestedQuestion)) {
+    const questionIndex = listeningQuestions.findIndex((question) => Number(question.id) === requestedQuestion);
+    if (questionIndex >= 0) state.listeningIndex = questionIndex;
+  }
+
+  return state;
 }
 
 function normalizeState(state) {
@@ -2699,6 +2876,7 @@ function prepareModuleStart() {
     appState.drawerOpen = false;
   }
   if (appState.module === "listening") {
+    stopListeningPlayback();
     appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
   }
   if (appState.module === "speaking") {
@@ -2719,9 +2897,18 @@ function tickTimers() {
   }
 
   if (appState.module === "listening") {
+    const question = listeningQuestions[appState.listeningIndex];
+    if (question?.audioFile && (listeningPlaybackQuestionId !== question.id || listeningPlaybackPhase !== "answer")) {
+      return;
+    }
     if (appState.listeningAnswerRemaining > 0) {
       appState.listeningAnswerRemaining -= 1;
       updateTimerText("[data-listening-timer]", appState.listeningAnswerRemaining);
+      const timerBar = app.querySelector("[data-listening-answer-bar]");
+      if (timerBar) {
+        const percent = Math.max(0, Math.min(100, (appState.listeningAnswerRemaining / LISTENING_ANSWER_SECONDS) * 100));
+        timerBar.style.width = `${percent}%`;
+      }
       saveState();
     } else if (appState.listeningIndex < listeningQuestions.length - 1) {
       appState.listeningIndex += 1;

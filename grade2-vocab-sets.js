@@ -7,7 +7,8 @@ window.scbtGrade2VocabSets = [
     "status": "ready",
     "enabled": true,
     "availableModules": [
-      "reading"
+      "reading",
+      "writing"
     ],
     "sourceNote": "Imported from user-provided DOCX: ???????.docx / ??????.docx / ?????????.docx / ????????.docx",
     "readingPages": [
@@ -511,7 +512,37 @@ window.scbtGrade2VocabSets = [
         ]
       }
     ],
-    "writingTasks": [],
+    "writingTasks": [
+      {
+        "id": 33,
+        "kind": "essay",
+        "label": "英作文",
+        "targetWords": "80〜100語",
+        "lead": "以下のTOPICについて、あなたの意見とその理由を2つ書きなさい。",
+        "note": "POINTSは理由を書く際の参考となる観点です。ただし、これら以外の観点から理由を書いてもかまいません。",
+        "sourceTitle": "TOPIC",
+        "source": [
+          "Today, some students use artificial intelligence tools to help them study. Do you think this is a good idea?"
+        ],
+        "fixedBefore": "",
+        "fixedAfter": "",
+        "points": [
+          "Learning",
+          "Mistakes",
+          "Rules"
+        ],
+        "pointsRule": "POINTSは参考です。使っても使わなくてもかまいません。",
+        "wordRule": "語数の目安",
+        "rubric": [
+          "TOPICの問いに対する立場を明確にする",
+          "理由を2つ書く",
+          "POINTSまたは自分の観点を具体的に使う",
+          "80〜100語に収める",
+          "文法・語彙・つづりを見直す"
+        ],
+        "modelAnswer": "I think this is a good idea. First, AI tools can help students understand difficult points quickly. For example, when they do not understand a grammar rule, they can ask for another explanation and keep studying at home. Second, students can save time because AI can suggest useful practice questions for their weak points. However, they should not copy answers without thinking, and teachers should explain when AI may be used. If schools make clear rules, AI can become a helpful study partner for many students."
+      }
+    ],
     "listeningQuestions": [],
     "speakingSteps": []
   },
@@ -523,7 +554,8 @@ window.scbtGrade2VocabSets = [
     "status": "ready",
     "enabled": true,
     "availableModules": [
-      "reading"
+      "reading",
+      "writing"
     ],
     "sourceNote": "Imported from user-provided DOCX: ???????.docx / ??????.docx / ?????????.docx / ????????.docx",
     "readingPages": [
@@ -1027,7 +1059,37 @@ window.scbtGrade2VocabSets = [
         ]
       }
     ],
-    "writingTasks": [],
+    "writingTasks": [
+      {
+        "id": 33,
+        "kind": "essay",
+        "label": "英作文",
+        "targetWords": "80〜100語",
+        "lead": "以下のTOPICについて、あなたの意見とその理由を2つ書きなさい。",
+        "note": "POINTSは理由を書く際の参考となる観点です。ただし、これら以外の観点から理由を書いてもかまいません。",
+        "sourceTitle": "TOPIC",
+        "source": [
+          "These days, many people use apps to buy tickets for trains, movies, and events. Do you think more people will use such apps in the future?"
+        ],
+        "fixedBefore": "",
+        "fixedAfter": "",
+        "points": [
+          "Convenience",
+          "Security",
+          "Older people"
+        ],
+        "pointsRule": "POINTSは参考です。使っても使わなくてもかまいません。",
+        "wordRule": "語数の目安",
+        "rubric": [
+          "TOPICの問いに対する立場を明確にする",
+          "理由を2つ書く",
+          "POINTSまたは自分の観点を具体的に使う",
+          "80〜100語に収める",
+          "文法・語彙・つづりを見直す"
+        ],
+        "modelAnswer": "I think more people will use such apps in the future. First, they are convenient. People can buy tickets at home and do not have to wait in long lines at stations or theaters. Second, digital tickets can be useful for companies because they can manage seats and payments more easily. Some older people may still prefer paper tickets, and security problems are possible. However, app designs are becoming simpler, and companies are improving safety. For these reasons, ticket apps will probably become more common."
+      }
+    ],
     "listeningQuestions": [],
     "speakingSteps": []
   },
@@ -1039,7 +1101,8 @@ window.scbtGrade2VocabSets = [
     "status": "ready",
     "enabled": true,
     "availableModules": [
-      "reading"
+      "reading",
+      "writing"
     ],
     "sourceNote": "Imported from user-provided DOCX: ???????.docx / ??????.docx / ?????????.docx / ????????.docx",
     "readingPages": [
@@ -1543,7 +1606,37 @@ window.scbtGrade2VocabSets = [
         ]
       }
     ],
-    "writingTasks": [],
+    "writingTasks": [
+      {
+        "id": 33,
+        "kind": "essay",
+        "label": "英作文",
+        "targetWords": "80〜100語",
+        "lead": "以下のTOPICについて、あなたの意見とその理由を2つ書きなさい。",
+        "note": "POINTSは理由を書く際の参考となる観点です。ただし、これら以外の観点から理由を書いてもかまいません。",
+        "sourceTitle": "TOPIC",
+        "source": [
+          "Some people choose to work for companies that help protect the environment. Do you think the number of such people will increase in the future?"
+        ],
+        "fixedBefore": "",
+        "fixedAfter": "",
+        "points": [
+          "Careers",
+          "Demand",
+          "Motivation"
+        ],
+        "pointsRule": "POINTSは参考です。使っても使わなくてもかまいません。",
+        "wordRule": "語数の目安",
+        "rubric": [
+          "TOPICの問いに対する立場を明確にする",
+          "理由を2つ書く",
+          "POINTSまたは自分の観点を具体的に使う",
+          "80〜100語に収める",
+          "文法・語彙・つづりを見直す"
+        ],
+        "modelAnswer": "I think the number of such people will increase. First, many young workers care about the environment and want their jobs to match their values. Working for a company that reduces waste or saves energy can give them strong motivation. Second, demand for environmentally friendly products is growing in many countries. If more customers choose these products, companies in this field will need more workers. Some jobs may require special knowledge, but students can prepare for them. Therefore, more people will choose these companies in the future."
+      }
+    ],
     "listeningQuestions": [],
     "speakingSteps": []
   },
@@ -1555,7 +1648,8 @@ window.scbtGrade2VocabSets = [
     "status": "ready",
     "enabled": true,
     "availableModules": [
-      "reading"
+      "reading",
+      "writing"
     ],
     "sourceNote": "Imported from user-provided DOCX: ???????.docx / ??????.docx / ?????????.docx / ????????.docx",
     "readingPages": [
@@ -2059,7 +2153,37 @@ window.scbtGrade2VocabSets = [
         ]
       }
     ],
-    "writingTasks": [],
+    "writingTasks": [
+      {
+        "id": 33,
+        "kind": "essay",
+        "label": "英作文",
+        "targetWords": "80〜100語",
+        "lead": "以下のTOPICについて、あなたの意見とその理由を2つ書きなさい。",
+        "note": "POINTSは理由を書く際の参考となる観点です。ただし、これら以外の観点から理由を書いてもかまいません。",
+        "sourceTitle": "TOPIC",
+        "source": [
+          "Today, some customers use lockers to receive packages instead of getting them directly at home. Do you think this kind of service will become more common in the future?"
+        ],
+        "fixedBefore": "",
+        "fixedAfter": "",
+        "points": [
+          "Convenience",
+          "Safety",
+          "Cost"
+        ],
+        "pointsRule": "POINTSは参考です。使っても使わなくてもかまいません。",
+        "wordRule": "語数の目安",
+        "rubric": [
+          "TOPICの問いに対する立場を明確にする",
+          "理由を2つ書く",
+          "POINTSまたは自分の観点を具体的に使う",
+          "80〜100語に収める",
+          "文法・語彙・つづりを見直す"
+        ],
+        "modelAnswer": "I think this kind of service will become more common. First, lockers are convenient for people who are not at home during the day. They can pick up their packages after school or work without asking for another delivery. Second, lockers may be safer than leaving packages in front of doors because fewer people can see them. Some companies must pay to install lockers, and small towns may have fewer places for them. However, the service can reduce missed deliveries and help customers."
+      }
+    ],
     "listeningQuestions": [],
     "speakingSteps": []
   },
@@ -2071,7 +2195,8 @@ window.scbtGrade2VocabSets = [
     "status": "ready",
     "enabled": true,
     "availableModules": [
-      "reading"
+      "reading",
+      "writing"
     ],
     "sourceNote": "Imported from user-provided DOCX: ???????.docx / ??????.docx / ?????????.docx / ????????.docx",
     "readingPages": [
@@ -2575,7 +2700,37 @@ window.scbtGrade2VocabSets = [
         ]
       }
     ],
-    "writingTasks": [],
+    "writingTasks": [
+      {
+        "id": 33,
+        "kind": "essay",
+        "label": "英作文",
+        "targetWords": "80〜100語",
+        "lead": "以下のTOPICについて、あなたの意見とその理由を2つ書きなさい。",
+        "note": "POINTSは理由を書く際の参考となる観点です。ただし、これら以外の観点から理由を書いてもかまいません。",
+        "sourceTitle": "TOPIC",
+        "source": [
+          "These days, many books and video games are turned into movies or TV shows. Do you think the number of such movies and shows will increase in the future?"
+        ],
+        "fixedBefore": "",
+        "fixedAfter": "",
+        "points": [
+          "Fans",
+          "Income",
+          "Quality"
+        ],
+        "pointsRule": "POINTSは参考です。使っても使わなくてもかまいません。",
+        "wordRule": "語数の目安",
+        "rubric": [
+          "TOPICの問いに対する立場を明確にする",
+          "理由を2つ書く",
+          "POINTSまたは自分の観点を具体的に使う",
+          "80〜100語に収める",
+          "文法・語彙・つづりを見直す"
+        ],
+        "modelAnswer": "I think the number of such movies and shows will increase. First, books and video games already have many fans, so movie companies can attract viewers more easily. Fans often want to see their favorite stories with actors, music, and strong images. Second, these works can bring income from tickets, streaming services, and goods. Quality is sometimes a problem because stories may be changed too much. However, if creators respect the original stories, more adaptations will be popular in the future."
+      }
+    ],
     "listeningQuestions": [],
     "speakingSteps": []
   }

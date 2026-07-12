@@ -1,0 +1,552 @@
+{
+  "outputSubdir": [
+    "CBT音源",
+    "2級",
+    "サンプル問題",
+    "Part1"
+  ],
+  "voices": {
+    "A": "en-CA-ClaraNeural",
+    "B": "en-US-ChristopherNeural"
+  },
+  "voicePairPlan": [
+    {
+      "start": 1,
+      "end": 3,
+      "voices": {
+        "A": "en-CA-ClaraNeural",
+        "B": "en-US-ChristopherNeural"
+      }
+    },
+    {
+      "start": 4,
+      "end": 6,
+      "voices": {
+        "A": "en-GB-SoniaNeural",
+        "B": "en-GB-RyanNeural"
+      }
+    },
+    {
+      "start": 7,
+      "end": 9,
+      "voices": {
+        "A": "en-US-JennyNeural",
+        "B": "en-US-GuyNeural"
+      }
+    },
+    {
+      "start": 10,
+      "end": 12,
+      "voices": {
+        "A": "en-US-AriaNeural",
+        "B": "en-US-EricNeural"
+      }
+    },
+    {
+      "start": 13,
+      "end": 15,
+      "voices": {
+        "A": "en-US-MichelleNeural",
+        "B": "en-CA-LiamNeural"
+      }
+    }
+  ],
+  "gapMs": 180,
+  "items": [
+    {
+      "id": "No01",
+      "number": 1,
+      "segments": [
+        {
+          "speaker": "B",
+          "text": "No. 1.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "B",
+          "text": "Did you finish the poster for tomorrow's science fair?"
+        },
+        {
+          "speaker": "A",
+          "text": "Almost, but the printer in the library stopped working. Could you print the final page at home tonight?"
+        },
+        {
+          "speaker": "B",
+          "text": "I can, but send me the file before seven. I have basketball practice after that."
+        },
+        {
+          "speaker": "A",
+          "text": "Thanks. I'll email it during lunch and bring the other pages tomorrow.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "B",
+          "text": "Question. What does the girl ask the boy to do?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "No02",
+      "number": 2,
+      "segments": [
+        {
+          "speaker": "A",
+          "text": "No. 2.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "A",
+          "text": "Good afternoon. I reserved a quiet room for two nights under the name Laura Green."
+        },
+        {
+          "speaker": "B",
+          "text": "I found your reservation, Ms. Green. The quiet room won't be ready until six, but a room near the elevator is available now."
+        },
+        {
+          "speaker": "A",
+          "text": "I'd rather wait. Can I leave my suitcase here while I get something to eat?"
+        },
+        {
+          "speaker": "B",
+          "text": "Certainly. We'll keep it behind the front desk and call you when your room is ready.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "A",
+          "text": "Question. What does the man say about the quiet room?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "No03",
+      "number": 3,
+      "segments": [
+        {
+          "speaker": "B",
+          "text": "No. 3.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "B",
+          "text": "I'm starting dinner now. We have an unexpected guest tonight."
+        },
+        {
+          "speaker": "A",
+          "text": "Really? I thought we were going to eat at the new Thai restaurant."
+        },
+        {
+          "speaker": "B",
+          "text": "Dad is bringing Grandma over, and she doesn't like spicy food. Could you set the table?"
+        },
+        {
+          "speaker": "A",
+          "text": "Sure. I'll make a salad too. The soup and chicken should be enough for the main dishes.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "B",
+          "text": "Question. Why is the man preparing dinner at home?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "No04",
+      "number": 4,
+      "segments": [
+        {
+          "speaker": "B",
+          "text": "No. 4.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "B",
+          "text": "The monthly sales report is due tomorrow, and I'm still checking the figures from our Osaka office."
+        },
+        {
+          "speaker": "A",
+          "text": "I finished my section early. I can review those figures after lunch if that would help."
+        },
+        {
+          "speaker": "B",
+          "text": "That would be great. I'll send you the spreadsheet and mark the numbers that look unusual."
+        },
+        {
+          "speaker": "A",
+          "text": "Perfect. I have a meeting at two, so I'll look at it before then.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "B",
+          "text": "Question. What does the woman offer to do?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "No05",
+      "number": 5,
+      "segments": [
+        {
+          "speaker": "A",
+          "text": "No. 5.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "A",
+          "text": "Excuse me, does this bus stop at the city art museum?"
+        },
+        {
+          "speaker": "B",
+          "text": "Not today. The road in front of the museum is closed, so this bus only goes as far as Central Station."
+        },
+        {
+          "speaker": "A",
+          "text": "I see. Is there another way to get there from the station?"
+        },
+        {
+          "speaker": "B",
+          "text": "Take the Green Line train one stop, then walk two blocks north. The museum entrance is across from the post office.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "A",
+          "text": "Question. Where will the woman probably go first?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "No06",
+      "number": 6,
+      "segments": [
+        {
+          "speaker": "A",
+          "text": "No. 6.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "A",
+          "text": "Are you still going to the outdoor movie Friday? We first planned to bring folding chairs."
+        },
+        {
+          "speaker": "B",
+          "text": "I was, but rain is likely, and I don't own an umbrella. I may watch at home."
+        },
+        {
+          "speaker": "A",
+          "text": "I have an extra one. The chairs may sink into wet ground, so a blanket would be better."
+        },
+        {
+          "speaker": "B",
+          "text": "Great. I'll meet you at the park gate and bring a large blanket.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "A",
+          "text": "Question. What will the man bring to the movie?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "No07",
+      "number": 7,
+      "segments": [
+        {
+          "speaker": "B",
+          "text": "No. 7.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "B",
+          "text": "I'd like to renew this travel guide, but the machine says I can't."
+        },
+        {
+          "speaker": "A",
+          "text": "Let me check. Another reader has requested it, so it must be returned today."
+        },
+        {
+          "speaker": "B",
+          "text": "That's unfortunate. I'm leaving for Italy next week and hoped to take it with me."
+        },
+        {
+          "speaker": "A",
+          "text": "We have an electronic copy you can borrow for two weeks. I can show you how to download it.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "B",
+          "text": "Question. What do we learn about returning the printed travel guide?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "No08",
+      "number": 8,
+      "segments": [
+        {
+          "speaker": "A",
+          "text": "No. 8.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "A",
+          "text": "I ordered the vegetable pasta, but this plate has chicken in it."
+        },
+        {
+          "speaker": "B",
+          "text": "I'm sorry. I must have picked up another table's order."
+        },
+        {
+          "speaker": "A",
+          "text": "Could you bring the vegetable pasta instead? Please leave the bread, though; we haven't touched it yet."
+        },
+        {
+          "speaker": "B",
+          "text": "Of course. I'll replace the pasta right away, and you can keep the bread.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "A",
+          "text": "Question. What does the woman ask the man to bring?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "No09",
+      "number": 9,
+      "segments": [
+        {
+          "speaker": "B",
+          "text": "No. 9.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "B",
+          "text": "Hello. I have an appointment at ten tomorrow, but my train has been canceled."
+        },
+        {
+          "speaker": "A",
+          "text": "I can move your appointment to two thirty, or you can come Thursday morning."
+        },
+        {
+          "speaker": "B",
+          "text": "Two thirty tomorrow would work. Do I need to arrive early for any forms?"
+        },
+        {
+          "speaker": "A",
+          "text": "Just ten minutes early. Your information from last year is still in our system.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "B",
+          "text": "Question. Why did the man call the woman?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "No10",
+      "number": 10,
+      "segments": [
+        {
+          "speaker": "A",
+          "text": "No. 10.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "A",
+          "text": "The neighborhood clean-up is this Saturday, but I heard you have a tennis match that morning."
+        },
+        {
+          "speaker": "B",
+          "text": "That's right. I can't help in the park, but I could collect the filled trash bags after my match."
+        },
+        {
+          "speaker": "A",
+          "text": "That would solve our transportation problem. I'll ask volunteers to leave the bags beside the east gate."
+        },
+        {
+          "speaker": "B",
+          "text": "Good. My brother has a small truck, and he said I could borrow it.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "A",
+          "text": "Question. What will the man do after his tennis match?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "No11",
+      "number": 11,
+      "segments": [
+        {
+          "speaker": "A",
+          "text": "No. 11.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "A",
+          "text": "Hi. I bought this jacket yesterday, but the zipper gets stuck halfway up."
+        },
+        {
+          "speaker": "B",
+          "text": "I'm sorry about that. We can exchange it, or I can give you a full refund."
+        },
+        {
+          "speaker": "A",
+          "text": "I'd like the same jacket in a larger size, if you have one."
+        },
+        {
+          "speaker": "B",
+          "text": "We have blue ones today. Gray jackets arrive Friday, and black ones won't be here until next Tuesday.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "A",
+          "text": "Question. When will the black jackets be available?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "No12",
+      "number": 12,
+      "segments": [
+        {
+          "speaker": "B",
+          "text": "No. 12.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "B",
+          "text": "Our flight leaves at six tomorrow morning. Should we book a taxi to the airport?"
+        },
+        {
+          "speaker": "A",
+          "text": "Taxis are expensive that early. The hotel shuttle begins at five, but it takes forty minutes."
+        },
+        {
+          "speaker": "B",
+          "text": "That would be too late. The night bus reaches the airport at four thirty and stops across the street."
+        },
+        {
+          "speaker": "A",
+          "text": "Then let's take the night bus. We can walk from the stop to the terminal.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "B",
+          "text": "Question. How will they travel to the airport?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "No13",
+      "number": 13,
+      "segments": [
+        {
+          "speaker": "A",
+          "text": "No. 13.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "A",
+          "text": "Mr. Clark, I finished my history presentation, but it's almost twelve minutes long."
+        },
+        {
+          "speaker": "B",
+          "text": "The limit is eight minutes, so you'll need to shorten it before Monday."
+        },
+        {
+          "speaker": "A",
+          "text": "I could remove the section about early trade routes. It has the most detailed map."
+        },
+        {
+          "speaker": "B",
+          "text": "Keep the map. Instead, cut the two examples at the end; they repeat points you already made.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "A",
+          "text": "Question. What does the man suggest removing?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "No14",
+      "number": 14,
+      "segments": [
+        {
+          "speaker": "B",
+          "text": "No. 14.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "B",
+          "text": "Could you cover the early shift tomorrow? I need to take my son to the dentist."
+        },
+        {
+          "speaker": "A",
+          "text": "I wish I could, but I have a video meeting with our Singapore office at eight."
+        },
+        {
+          "speaker": "B",
+          "text": "Then I'll ask someone else. Would you be able to take my Friday afternoon shift instead?"
+        },
+        {
+          "speaker": "A",
+          "text": "Yes, that works. My meeting on Friday ends before noon.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "B",
+          "text": "Question. Why can't the woman cover the early shift?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "No15",
+      "number": 15,
+      "segments": [
+        {
+          "speaker": "A",
+          "text": "No. 15.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "A",
+          "text": "This package was left outside my apartment, but the label has your unit number."
+        },
+        {
+          "speaker": "B",
+          "text": "Oh, it's the coffee maker I ordered. I thought it would arrive tomorrow."
+        },
+        {
+          "speaker": "A",
+          "text": "The box is wet from the rain, though. You should check whether anything inside was damaged."
+        },
+        {
+          "speaker": "B",
+          "text": "Thanks for bringing it over. I'll open it now and contact the store if there's a problem.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "A",
+          "text": "Question. What surprised the man about the package?",
+          "gapAfterMs": 0
+        }
+      ]
+    }
+  ]
+}

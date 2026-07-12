@@ -1,0 +1,331 @@
+{
+  "outputSubdir": [
+    "CBT音源",
+    "2級",
+    "サンプル問題",
+    "Part2"
+  ],
+  "voices": {
+    "N": "en-CA-ClaraNeural"
+  },
+  "voicePairPlan": [
+    {
+      "start": 16,
+      "end": 20,
+      "voices": {
+        "N": "en-CA-ClaraNeural"
+      }
+    },
+    {
+      "start": 21,
+      "end": 25,
+      "voices": {
+        "N": "en-US-ChristopherNeural"
+      }
+    },
+    {
+      "start": 26,
+      "end": 30,
+      "voices": {
+        "N": "en-GB-SoniaNeural"
+      }
+    }
+  ],
+  "gapMs": 180,
+  "items": [
+    {
+      "id": "No17",
+      "number": 17,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "No. 17.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "N",
+          "text": "The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday. Those rooms will be unavailable from 9 a.m. until 3 p.m., but the swimming pool will remain open as usual. Visitors should use the smaller changing area beside Court Two. Please bring your own lock, since the temporary lockers do not have built-in keys.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What should visitors bring to the sports center?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "No18",
+      "number": 18,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "No. 18.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "N",
+          "text": "A customer asked Leo to prepare a birthday cake without nuts. He carefully checked the ingredients, but the chocolate decorations he usually buys were made in a factory that also handles almonds. Leo called the customer and suggested using fresh fruit instead. The customer agreed, so he changed the design while keeping the same price and delivery time for Saturday.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "N",
+          "text": "Question. Why did Leo replace the chocolate decorations?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "No19",
+      "number": 19,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "No. 19.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "N",
+          "text": "Some desert plants open their flowers only at night. This helps them avoid losing too much water in the daytime heat. Night-flying insects, including certain moths, carry pollen between the flowers as they feed after sunset. Many of these flowers are pale and have a strong smell, making them easier for insects to find when there is little light.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What makes many night-opening flowers easy to find?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "No20",
+      "number": 20,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "No. 20.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "N",
+          "text": "Maya planned to take a large suitcase on her weekend train trip. Then she learned that the station near her hotel had no elevator and many stairs to climb. She considered sending the suitcase ahead, but the delivery would arrive too late. In the end, she packed fewer clothes in a backpack and decided to wash one outfit at the hotel.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What did Maya finally decide to do?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "No21",
+      "number": 21,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "No. 21.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "N",
+          "text": "Green Street Books is holding a travel-writing workshop this Saturday afternoon. The event is free, but space is limited to twenty people in total. Customers who registered online should collect a numbered ticket at the front desk by 1:45 before the workshop begins. Any tickets not collected by then will be offered to people waiting in the store.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What will happen to uncollected workshop tickets?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "No22",
+      "number": 22,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "No. 22.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "N",
+          "text": "After a dry summer, Omar's community garden was using more tap water than expected. He noticed that rain from the tool shed roof simply flowed onto the path. With permission from the garden manager, he connected a barrel to the roof's drainpipe. The stored water is now used for flowers, while vegetables are still watered from the regular supply for safety.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "N",
+          "text": "Question. How did Omar reduce the garden's tap-water use?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "No23",
+      "number": 23,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "No. 23.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "N",
+          "text": "As a child, Elena enjoyed recording the sounds of birds and trains on her phone. In college, she discovered that sound designers create background noise for films and games. She visited a small studio, where a designer showed her how ordinary objects can produce unusual effects. That experience led Elena to apply for a summer internship in professional audio production.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "N",
+          "text": "Question. Why did Elena apply for the internship?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "No24",
+      "number": 24,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "No. 24.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "N",
+          "text": "Passengers traveling on the 6:20 train to Lakeside should note a platform change. The train will leave from Platform 7 instead of Platform 4 because repair work is being done near the usual track. The departure time has not changed. Passengers with bicycles should use the elevator at the north end of the station to reach the new platform.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What change has been made to the train?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "No25",
+      "number": 25,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "No. 25.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "N",
+          "text": "Noise from the street had begun to wake Daniel before his alarm. He first tried wearing earplugs, but they made it hard for him to hear his baby at night. He then moved a tall bookshelf against the outside wall and added thick curtains. The room became quieter, although he still wakes early when garbage trucks stop nearby on Fridays.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What made Daniel's room quieter?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "No26",
+      "number": 26,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "No. 26.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "N",
+          "text": "A thermos bottle slows the movement of heat between a drink and the air around it. Many bottles have two walls with very little air between them. This space reduces heat transfer, so hot drinks stay hot and cold drinks stay cold longer. A tight lid also limits the amount of warm or cool air that can escape from the bottle.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "N",
+          "text": "Question. Why can a thermos keep drinks hot or cold?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "No27",
+      "number": 27,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "No. 27.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "N",
+          "text": "Priya ordered hiking shoes from an online store before a school trip. The shoes fit well, but one lace hook was loose. The store offered either a refund or a replacement, though a replacement would not arrive before her departure. Priya kept the shoes, had the hook repaired locally, and sent the receipt to the store for repayment afterward.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "N",
+          "text": "Question. Why did Priya keep the hiking shoes?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "No28",
+      "number": 28,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "No. 28.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "N",
+          "text": "Before his parents' anniversary dinner, Marcus promised to collect a special dessert from a bakery. On the day of the dinner, his work meeting was moved to a later time. His sister could visit the bakery, but she did not know which order to collect. Marcus forwarded her the confirmation message and asked her to pick it up on his behalf.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What did Marcus ask his sister to do?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "No29",
+      "number": 29,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "No. 29.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "N",
+          "text": "The City Library's second floor will be closed for painting from Monday through Thursday. Books from that floor can still be requested at the information desk, although they may take up to twenty minutes to arrive. Study tables have been moved to the meeting room downstairs. The children's area and computer room will operate normally throughout the painting work.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "N",
+          "text": "Question. Where have the library's study tables been moved?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "No30",
+      "number": 30,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "No. 30.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "N",
+          "text": "Recently, Hana discovered that several photos from a school event were missing from her laptop. She had copied them from her camera, but she had not checked whether the transfer was complete before deleting the originals. A technician recovered most of the files. Since then, Hana has kept two copies and checks both carefully before clearing her camera's memory card.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What new habit has Hana adopted?",
+          "gapAfterMs": 0
+        }
+      ]
+    }
+  ]
+}

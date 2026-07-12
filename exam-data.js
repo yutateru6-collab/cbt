@@ -1,6 +1,7 @@
 (() => {
   const grade2Set01 = window.scbtGrade2Set01 || {};
   const grade2VocabSets = window.scbtGrade2VocabSets || [];
+  const pre1ListeningSets = window.scbtPre1ListeningSets || [];
 
   const modules = {
     speaking: {
@@ -584,6 +585,20 @@
     };
     if (gradeKey === "grade2" && Array.isArray(grade2VocabSets) && grade2VocabSets.length > 0) {
       return [sampleSet, ...grade2VocabSets];
+    }
+    if (gradeKey === "pre1" && Array.isArray(pre1ListeningSets) && pre1ListeningSets.length > 0) {
+      return pre1ListeningSets.map((set, index) => ({
+        key: set.key || `set-${String(index + 1).padStart(2, "0")}`,
+        setId: `pre1-${set.key || `set-${String(index + 1).padStart(2, "0")}`}`,
+        label: set.label || `第${index + 1}回`,
+        description: "リスニングPart 1・2・3収録",
+        status: "ready",
+        enabled: true,
+        readingPages: grade.readingPages,
+        writingTasks: grade.writingTasks,
+        listeningQuestions: set.questions,
+        speakingSteps: grade.speakingSteps,
+      }));
     }
     return [
       sampleSet,
