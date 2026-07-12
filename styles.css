@@ -2059,6 +2059,533 @@ button {
   }
 }
 
+@media (max-width: 767px) {
+  body {
+    min-width: 0;
+    min-height: 100svh;
+    overflow: auto;
+  }
+
+  .app-shell {
+    width: 100%;
+    height: auto;
+    min-height: 100svh;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 5px;
+    padding: 8px 10px;
+    border-bottom: 1px solid #d2d6dc;
+  }
+
+  .grade {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 14px;
+  }
+
+  .grade small {
+    font-size: 11px;
+  }
+
+  .exam-title {
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.35;
+  }
+
+  .timer-pill,
+  .status-pill {
+    justify-self: stretch;
+    width: 100%;
+    min-width: 0;
+    height: 32px;
+    padding: 0 10px;
+    gap: 7px;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  .timer-label,
+  .status-label {
+    font-size: 12px;
+  }
+
+  .module-picker {
+    position: sticky;
+    top: 90px;
+    z-index: 24;
+    width: 100%;
+    max-width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 8px 10px;
+    background: var(--bg);
+    scrollbar-width: thin;
+  }
+
+  .module-tab {
+    flex: 0 0 auto;
+    min-width: 112px;
+    height: 34px;
+    font-size: 13px;
+  }
+
+  .module-tab.reset-tab {
+    min-width: 112px;
+    margin-left: 0;
+  }
+
+  .start-screen {
+    height: auto;
+    min-height: 100svh;
+    align-content: start;
+    gap: 18px;
+    padding: 18px 12px 32px;
+    overflow: visible;
+  }
+
+  .start-title {
+    font-size: 22px;
+    line-height: 1.35;
+  }
+
+  .legal-notice,
+  .import-panel {
+    width: 100%;
+  }
+
+  .grade-options,
+  .set-options {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .grade-option {
+    width: calc(50vw - 24px);
+    min-width: 142px;
+    padding: 10px;
+  }
+
+  .set-option {
+    width: calc(33.333vw - 18px);
+    min-width: 96px;
+    padding: 8px;
+  }
+
+  .start-button {
+    width: min(100%, 320px);
+    height: 62px;
+    border-radius: 14px;
+  }
+
+  .import-status,
+  .import-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .exam-frame,
+  .listen-frame,
+  .speaking-frame {
+    display: block;
+    height: auto;
+    min-height: calc(100svh - 124px);
+    padding: 8px 10px 78px;
+  }
+
+  .content-panel,
+  .listen-main {
+    min-height: calc(100svh - 176px);
+    overflow: visible;
+  }
+
+  .scroll-panel {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    padding: 84px 12px 98px;
+  }
+
+  .page-strip {
+    left: 8px;
+    right: 8px;
+    top: 8px;
+    height: 30px;
+    padding-right: 0;
+    overflow-x: auto;
+  }
+
+  .page-pill {
+    flex: 0 0 auto;
+    min-width: 118px;
+  }
+
+  .reading-instruction {
+    left: 8px;
+    right: 8px;
+    top: 44px;
+    min-height: 32px;
+  }
+
+  .reading-instruction.open {
+    min-height: auto;
+    padding: 10px;
+  }
+
+  .instruction-content {
+    grid-template-columns: 40px 1fr;
+    gap: 10px;
+  }
+
+  .instruction-badge {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .instruction-content p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .nav-button.prev {
+    top: 50px;
+    right: 12px;
+  }
+
+  .nav-button.next {
+    position: fixed;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    z-index: 42;
+    width: calc(100% - 20px);
+    height: 40px;
+    border-radius: 8px;
+    font-size: 13px;
+  }
+
+  .question-block {
+    grid-template-columns: 30px 1fr;
+    gap: 8px;
+    margin: 24px 0 44px;
+  }
+
+  .question-text,
+  .compact-question {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .choice-row,
+  .choice-row.compact {
+    grid-template-columns: 56px 1fr;
+  }
+
+  .choice-button {
+    height: 34px;
+  }
+
+  .reading-frame .answer-drawer,
+  .answer-drawer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: 0;
+    z-index: 50;
+    width: 100%;
+    height: min(72svh, 560px);
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 -12px 28px rgba(17, 24, 39, 0.22);
+  }
+
+  .reading-frame .answer-drawer.closed,
+  .answer-drawer.closed {
+    width: 100%;
+    height: 44px;
+    box-shadow: 0 -6px 16px rgba(17, 24, 39, 0.16);
+  }
+
+  .reading-frame .answer-drawer:not(.closed) .drawer-body,
+  .answer-drawer:not(.closed) .drawer-body {
+    display: block;
+  }
+
+  .drawer-body {
+    height: 100%;
+    padding: 12px 12px 60px;
+  }
+
+  .drawer-toggle {
+    left: 50%;
+    top: -18px;
+    width: 52px;
+    height: 28px;
+    border-radius: 14px 14px 0 0;
+    transform: translateX(-50%);
+  }
+
+  .answer-drawer.closed .drawer-toggle {
+    top: 0;
+  }
+
+  .answer-list {
+    height: calc(100% - 74px);
+    padding: 8px;
+  }
+
+  .answer-row {
+    grid-template-columns: 48px 22px repeat(4, minmax(36px, 1fr));
+  }
+
+  .answer-cell {
+    min-width: 0;
+  }
+
+  .finish-button {
+    width: 100%;
+    height: 38px;
+    border-radius: 8px;
+  }
+
+  .long-layout,
+  .writing-layout,
+  .reading-long-frame .long-layout {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .tool-row {
+    gap: 8px;
+    overflow-x: auto;
+  }
+
+  .tool-button {
+    flex: 0 0 auto;
+    width: 42px;
+  }
+
+  .full-button {
+    margin-left: auto;
+    min-width: 64px;
+  }
+
+  .passage-card,
+  .side-question,
+  .reading-long-frame .passage-card {
+    min-height: auto;
+    font-size: 16px;
+    line-height: 1.58;
+  }
+
+  .side-question {
+    padding-top: 0;
+  }
+
+  .listen-main {
+    padding: 14px 12px 118px;
+  }
+
+  .section-description {
+    grid-template-columns: 42px 1fr;
+    min-height: auto;
+    padding: 10px;
+  }
+
+  .section-badge {
+    width: 34px;
+    height: 34px;
+    font-size: 13px;
+  }
+
+  .section-description p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .audio-status {
+    width: 100%;
+    margin: 12px 0 0;
+    justify-content: space-between;
+  }
+
+  .listen-question {
+    max-width: none;
+    margin: 16px 0 0;
+  }
+
+  .listen-choice {
+    width: 100%;
+    grid-template-columns: 46px 1fr;
+    min-height: 44px;
+    font-size: 15px;
+  }
+
+  .listen-choice-text {
+    padding-right: 8px;
+  }
+
+  .answer-time {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 44;
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 8px;
+    padding: 10px 12px;
+  }
+
+  .answer-time-meter {
+    grid-template-columns: minmax(0, 1fr) 64px;
+    gap: 8px;
+  }
+
+  .answer-time-track {
+    height: 18px;
+  }
+
+  .answer-time-box {
+    height: 32px;
+    font-size: 16px;
+  }
+
+  .listen-side {
+    display: block;
+    margin-top: 12px;
+  }
+
+  .current-button,
+  .volume-box {
+    display: none;
+  }
+
+  .listen-list {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 6px;
+    padding: 8px;
+  }
+
+  .listen-list-row {
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 4px;
+    padding: 5px;
+  }
+
+  .listen-jump {
+    width: 100%;
+    font-size: 11px;
+  }
+
+  .listen-mark {
+    display: none;
+  }
+
+  .listen-box {
+    width: 100%;
+    height: 24px;
+  }
+
+  .speaking-frame {
+    background: #fff;
+  }
+
+  .speaking-head {
+    height: auto;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .speaking-body {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding-top: 12px;
+  }
+
+  .interviewer {
+    height: auto;
+    min-height: 220px;
+  }
+
+  .interviewer.card-visual .face-placeholder,
+  .speaking-visual-card,
+  .speaking-picture-card {
+    width: 100%;
+    min-height: 220px;
+    font-size: 16px;
+  }
+
+  .speaking-card {
+    padding: 14px;
+  }
+
+  .speaking-step-list {
+    flex-wrap: wrap;
+  }
+
+  .modal-backdrop,
+  .reading-full-backdrop {
+    position: fixed;
+    padding: 8px;
+  }
+
+  .confirm-modal {
+    width: calc(100vw - 24px);
+    min-height: 0;
+    padding: 18px;
+  }
+
+  .full-modal,
+  .reading-full-modal {
+    width: calc(100vw - 16px);
+    min-width: 0;
+    height: calc(100svh - 16px);
+  }
+
+  .reading-full-modal {
+    padding: 58px 12px 14px;
+  }
+
+  .reading-full-head {
+    height: 46px;
+    padding: 0 52px 0 10px;
+    overflow-x: auto;
+  }
+
+  .reading-full-scroll {
+    padding: 10px;
+  }
+
+  .reading-full-layout,
+  .reading-full-choice {
+    grid-template-columns: 1fr;
+  }
+
+  .full-passage-card,
+  .full-side-question {
+    font-size: 17px;
+  }
+
+  .modal-close {
+    top: 10px;
+    right: 10px;
+    width: 38px;
+    height: 38px;
+  }
+}
+
 @media (max-width: 1040px) {
   .review-columns {
     grid-template-columns: 1fr;

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="CBT">
+  <rect width="512" height="512" rx="104" fill="#404a50"/>
+  <rect x="72" y="92" width="368" height="278" rx="28" fill="#f8fafc"/>
+  <rect x="104" y="128" width="304" height="34" rx="17" fill="#dce3ea"/>
+  <rect x="104" y="194" width="224" height="22" rx="11" fill="#9aa7b4"/>
+  <rect x="104" y="246" width="304" height="22" rx="11" fill="#9aa7b4"/>
+  <rect x="104" y="298" width="168" height="22" rx="11" fill="#9aa7b4"/>
+  <rect x="176" y="392" width="160" height="26" rx="13" fill="#f4c542"/>
+  <text x="256" y="270" fill="#26313a" font-family="Arial, sans-serif" font-size="104" font-weight="700" text-anchor="middle">CBT</text>
+</svg>

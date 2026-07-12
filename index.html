@@ -3,11 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#404a50" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta
       name="description"
       content="英検® S-CBTの練習問題を本番形式で通し練習できる非公式アプリです。2級・準1級レベルの4技能を、録音、タイマー、入力、見直しまで直前に確認できます。"
     />
     <title>英検® S-CBTの本番形式リハーサル | 予想問題で4技能通し練習</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./assets/app-icon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="./lp.css" />
   </head>
   <body>
@@ -416,5 +421,12 @@
         このアプリは英検® S-CBTの受験前確認を目的にした非公式の体験アプリです。日本英語検定協会の公式サービスではありません。英検®は、公益財団法人 日本英語検定協会の登録商標です。このコンテンツは、公益財団法人 日本英語検定協会の承認や推奨、その他の検討を受けたものではありません。
       </p>
     </footer>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("./sw.js").catch(() => {});
+        });
+      }
+    </script>
   </body>
 </html>

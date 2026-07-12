@@ -1,0 +1,12 @@
+**/node_modules
+**/.DS_Store
+**/.git
+**/.git/**
+**/.wrangler
+**/.wrangler/**
+**/.codex
+**/.codex/**
+**/.agents
+**/.agents/**
+audio-generation/**
+assets/audio/**

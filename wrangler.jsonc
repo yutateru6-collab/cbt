@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cbt",
+  "compatibility_date": "2026-07-12",
+  "workers_dev": true,
+  "preview_urls": true,
+  "observability": {
+    "enabled": true
+  },
+  "build": {
+    "command": "node scripts/prepare-worker-assets.mjs"
+  },
+  "assets": {
+    "directory": "./worker-dist",
+    "not_found_handling": "single-page-application"
+  },
+  "compatibility_flags": ["nodejs_compat"]
+}

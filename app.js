@@ -400,7 +400,7 @@ const LEGACY_STORAGE_KEY = `scbt-${selectedGrade}-prototype-state`;
 const defaultState = {
   module: defaultModule,
   started: false,
-  drawerOpen: true,
+  drawerOpen: false,
   readingPage: 0,
   readingItemIndex: 0,
   writingTask: 0,
@@ -1255,7 +1255,7 @@ function renderListening() {
           <span>${audioStatusText}</span>
           ${hasAudio ? `<button class="listen-play-button" data-action="listen-play" ${listeningPlaybackPhase === "blocked" || listeningPlaybackPhase === "error" ? "" : "hidden"}>▶ 音声を再生</button>` : ""}
         </div>
-        ${hasAudio ? `<audio class="listen-audio-element" data-listening-audio preload="auto" src="${escapeHtml(question.audioFile)}"></audio>` : ""}
+        ${hasAudio ? `<audio class="listen-audio-element" data-listening-audio preload="metadata" src="${escapeHtml(question.audioFile)}"></audio>` : ""}
         <button class="nav-button prev" data-action="listen-prev" ${appState.listeningIndex === 0 ? "disabled" : ""}>▲ 前の問題へ</button>
         <div class="listen-question">
           <p class="listen-question-number">No.${question.id}</p>

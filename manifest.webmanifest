@@ -1,0 +1,19 @@
+{
+  "name": "CBT形式4技能トレーニング",
+  "short_name": "CBT練習",
+  "description": "PC形式の4技能トレーニングをスマホやタブレットでも確認できる自主練習アプリです。",
+  "start_url": "/exam.html?grade=grade2&set=sample",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#ececec",
+  "theme_color": "#404a50",
+  "icons": [
+    {
+      "src": "/assets/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,2 +1,4 @@
 .codex/
 .wrangler/
+worker-dist/
+.wrangler-dry-run-out/
