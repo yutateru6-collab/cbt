@@ -1,0 +1,69 @@
+{
+  "mode": "completed",
+  "item": "No04",
+  "model": "gpt-4o-mini-tts",
+  "voices": {
+    "A": "coral",
+    "B": "fable",
+    "N": "coral"
+  },
+  "speed": 1.0,
+  "responseFormat": "wav",
+  "sourceSegments": 6,
+  "synthesisSegments": 5,
+  "maxApiCalls": 5,
+  "maxRetriesPerSegment": 0,
+  "estimatedCostCapUsd": 0.05,
+  "instructionsProfile": "part1-normal",
+  "accent": "British English",
+  "instructions": "Voice: A clear, natural adult speaker using British English, suitable for a Japanese Eiken Grade 2 listening examination. Sound like a real person in an official language test, not a voice actor, commercial narrator, or artificial announcement.\n\nDelivery: Speak only slightly slower than ordinary conversational English, approximately five percent slower, while preserving natural rhythm, connected speech, and fluent intonation. Do not sound stretched, sleepy, robotic, or excessively slow.\n\nPronunciation: Use clear and accurate pronunciation appropriate to British English. Keep contractions and connected speech natural. Do not over-pronounce every word.\n\nPunctuation and pauses: Follow punctuation carefully. Use short, natural pauses at commas and full stops. Leave a clear pause before the final question, but do not insert unnecessary pauses inside a sentence.\n\nExam style: Maintain the neutral, clear, and realistic delivery of an official Eiken Grade 2 listening recording. Use only light, natural emotion. Do not emphasize words or details in a way that reveals the answer.\n\nAccuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain any words.\n\nAudio quality: Produce an ultra-clean, high-resolution studio-quality voice recording with crisp intelligibility and a full, natural vocal tone. Avoid background noise, hiss, reverb, distortion, clipping, metallic texture, muffled sound, breathiness, and compression artifacts.",
+  "estimate": {
+    "characters": 399,
+    "words": 73,
+    "estimatedDurationSeconds": 34.88,
+    "estimatedCostUsd": 0.0174,
+    "costBasis": "conservative duration estimate"
+  },
+  "output": "audio-generation\\openai-tts-trials\\grade2-four-question-sample-slight-slow\\part1\\No04.wav",
+  "segments": [
+    {
+      "speaker": "B",
+      "voice": "fable",
+      "text": "Number 4... The monthly sales report is due tomorrow, and I'm still checking the figures from our Osaka office.",
+      "gapAfterMs": 180
+    },
+    {
+      "speaker": "A",
+      "voice": "coral",
+      "text": "I finished my section early. I can review those figures after lunch if that would help.",
+      "gapAfterMs": 180
+    },
+    {
+      "speaker": "B",
+      "voice": "fable",
+      "text": "That would be great. I'll send you the spreadsheet and mark the numbers that look unusual.",
+      "gapAfterMs": 180
+    },
+    {
+      "speaker": "A",
+      "voice": "coral",
+      "text": "Perfect. I have a meeting at two, so I'll look at it before then.",
+      "gapAfterMs": 650
+    },
+    {
+      "speaker": "B",
+      "voice": "fable",
+      "text": "Question. What does the woman offer to do?",
+      "gapAfterMs": 0
+    }
+  ],
+  "apiCalls": 5,
+  "cachedSegments": 0,
+  "outputBytes": 1353198,
+  "outputMetadata": {
+    "codec_name": "pcm_s16le",
+    "sample_rate": "24000",
+    "channels": 1,
+    "duration": "28.190000"
+  }
+}

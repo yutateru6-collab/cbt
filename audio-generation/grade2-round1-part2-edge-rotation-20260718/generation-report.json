@@ -1,0 +1,3336 @@
+{
+  "sourceFiles": [
+    "audio-generation\\grade2-sample-part2-pilot.json",
+    "audio-generation\\grade2-sample-part2-rest.json"
+  ],
+  "outputDirectory": "audio-generation\\grade2-round1-part2-edge-rotation-20260718",
+  "publishDirectory": "audio-generation\\cloudflare-publish\\grade2-round1-part2-edge-rotation-20260718",
+  "provider": "Microsoft Edge TTS",
+  "audioRevision": "edge-rotation-v1-20260718",
+  "preflight": {
+    "items": [
+      "No16",
+      "No17",
+      "No18",
+      "No19",
+      "No20",
+      "No21",
+      "No22",
+      "No23",
+      "No24",
+      "No25",
+      "No26",
+      "No27",
+      "No28",
+      "No29",
+      "No30"
+    ],
+    "missing": {
+      "calls": 105,
+      "characters": 6262
+    },
+    "voices": [
+      {
+        "range": "No.16-No.20",
+        "voice": "en-GB-RyanNeural",
+        "display": "Ryan（英国男性）"
+      },
+      {
+        "range": "No.21-No.25",
+        "voice": "en-CA-ClaraNeural",
+        "display": "Clara（カナダ女性）"
+      },
+      {
+        "range": "No.26-No.30",
+        "voice": "en-US-EmmaMultilingualNeural",
+        "display": "Emma（米国女性）"
+      }
+    ],
+    "timingMs": {
+      "numberToBody": 1150,
+      "sentenceBreakHardSilence": 420,
+      "bodyToQuestion": 1300,
+      "questionLabelToText": 350
+    },
+    "speedPolicy": {
+      "master": 1.0,
+      "reviewPageDefault": 0.87
+    },
+    "segments": [
+      {
+        "item": "No16",
+        "role": "number",
+        "voice": "Ryan (British male)",
+        "ttsText": "Number sixteen.",
+        "inputCharacters": 15,
+        "cached": false,
+        "gapAfterMs": 1150
+      },
+      {
+        "item": "No16",
+        "role": "bodySentence",
+        "voice": "Ryan (British male)",
+        "ttsText": "During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge.",
+        "inputCharacters": 124,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No16",
+        "role": "bodySentence",
+        "voice": "Ryan (British male)",
+        "ttsText": "She knew the basic facts, but she often forgot important dates during busy tours.",
+        "inputCharacters": 81,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No16",
+        "role": "bodySentence",
+        "voice": "Ryan (British male)",
+        "ttsText": "Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift.",
+        "inputCharacters": 100,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No16",
+        "role": "bodySentence",
+        "voice": "Ryan (British male)",
+        "ttsText": "She can now explain the bridge's history more clearly.",
+        "inputCharacters": 54,
+        "cached": false,
+        "gapAfterMs": 1300
+      },
+      {
+        "item": "No16",
+        "role": "questionLabel",
+        "voice": "Ryan (British male)",
+        "ttsText": "Question.",
+        "inputCharacters": 9,
+        "cached": false,
+        "gapAfterMs": 350
+      },
+      {
+        "item": "No16",
+        "role": "questionText",
+        "voice": "Ryan (British male)",
+        "ttsText": "What helped Nina explain the bridge's history better?",
+        "inputCharacters": 53,
+        "cached": false,
+        "gapAfterMs": 0
+      },
+      {
+        "item": "No17",
+        "role": "number",
+        "voice": "Ryan (British male)",
+        "ttsText": "Number seventeen.",
+        "inputCharacters": 17,
+        "cached": false,
+        "gapAfterMs": 1150
+      },
+      {
+        "item": "No17",
+        "role": "bodySentence",
+        "voice": "Ryan (British male)",
+        "ttsText": "The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday.",
+        "inputCharacters": 92,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No17",
+        "role": "bodySentence",
+        "voice": "Ryan (British male)",
+        "ttsText": "Those rooms will be unavailable from nine A M until three P M, but the swimming pool will remain open as usual.",
+        "inputCharacters": 111,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No17",
+        "role": "bodySentence",
+        "voice": "Ryan (British male)",
+        "ttsText": "Visitors should use the smaller changing area beside Court Two.",
+        "inputCharacters": 63,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No17",
+        "role": "bodySentence",
+        "voice": "Ryan (British male)",
+        "ttsText": "Please bring your own lock, since the temporary lockers do not have built-in keys.",
+        "inputCharacters": 82,
+        "cached": false,
+        "gapAfterMs": 1300
+      },
+      {
+        "item": "No17",
+        "role": "questionLabel",
+        "voice": "Ryan (British male)",
+        "ttsText": "Question.",
+        "inputCharacters": 9,
+        "cached": false,
+        "gapAfterMs": 350
+      },
+      {
+        "item": "No17",
+        "role": "questionText",
+        "voice": "Ryan (British male)",
+        "ttsText": "What should visitors bring to the sports center?",
+        "inputCharacters": 48,
+        "cached": false,
+        "gapAfterMs": 0
+      },
+      {
+        "item": "No18",
+        "role": "number",
+        "voice": "Ryan (British male)",
+        "ttsText": "Number eighteen.",
+        "inputCharacters": 16,
+        "cached": false,
+        "gapAfterMs": 1150
+      },
+      {
+        "item": "No18",
+        "role": "bodySentence",
+        "voice": "Ryan (British male)",
+        "ttsText": "A customer asked Leo to prepare a birthday cake without nuts.",
+        "inputCharacters": 61,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No18",
+        "role": "bodySentence",
+        "voice": "Ryan (British male)",
+        "ttsText": "He carefully checked the ingredients, but the chocolate decorations he usually buys were made in a factory that also handles almonds.",
+        "inputCharacters": 133,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No18",
+        "role": "bodySentence",
+        "voice": "Ryan (British male)",
+        "ttsText": "Leo called the customer and suggested using fresh fruit instead.",
+        "inputCharacters": 64,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No18",
+        "role": "bodySentence",
+        "voice": "Ryan (British male)",
+        "ttsText": "The customer agreed, so he changed the design while keeping the same price and delivery time for Saturday.",
+        "inputCharacters": 106,
+        "cached": false,
+        "gapAfterMs": 1300
+      },
+      {
+        "item": "No18",
+        "role": "questionLabel",
+        "voice": "Ryan (British male)",
+        "ttsText": "Question.",
+        "inputCharacters": 9,
+        "cached": false,
+        "gapAfterMs": 350
+      },
+      {
+        "item": "No18",
+        "role": "questionText",
+        "voice": "Ryan (British male)",
+        "ttsText": "Why did Leo replace the chocolate decorations?",
+        "inputCharacters": 46,
+        "cached": false,
+        "gapAfterMs": 0
+      },
+      {
+        "item": "No19",
+        "role": "number",
+        "voice": "Ryan (British male)",
+        "ttsText": "Number nineteen.",
+        "inputCharacters": 16,
+        "cached": false,
+        "gapAfterMs": 1150
+      },
+      {
+        "item": "No19",
+        "role": "bodySentence",
+        "voice": "Ryan (British male)",
+        "ttsText": "Some desert plants open their flowers only at night.",
+        "inputCharacters": 52,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No19",
+        "role": "bodySentence",
+        "voice": "Ryan (British male)",
+        "ttsText": "This helps them avoid losing too much water in the daytime heat.",
+        "inputCharacters": 64,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No19",
+        "role": "bodySentence",
+        "voice": "Ryan (British male)",
+        "ttsText": "Night-flying insects, including certain moths, carry pollen between the flowers as they feed after sunset.",
+        "inputCharacters": 106,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No19",
+        "role": "bodySentence",
+        "voice": "Ryan (British male)",
+        "ttsText": "Many of these flowers are pale and have a strong smell, making them easier for insects to find when there is little light.",
+        "inputCharacters": 122,
+        "cached": false,
+        "gapAfterMs": 1300
+      },
+      {
+        "item": "No19",
+        "role": "questionLabel",
+        "voice": "Ryan (British male)",
+        "ttsText": "Question.",
+        "inputCharacters": 9,
+        "cached": false,
+        "gapAfterMs": 350
+      },
+      {
+        "item": "No19",
+        "role": "questionText",
+        "voice": "Ryan (British male)",
+        "ttsText": "What makes many night-opening flowers easy to find?",
+        "inputCharacters": 51,
+        "cached": false,
+        "gapAfterMs": 0
+      },
+      {
+        "item": "No20",
+        "role": "number",
+        "voice": "Ryan (British male)",
+        "ttsText": "Number twenty.",
+        "inputCharacters": 14,
+        "cached": false,
+        "gapAfterMs": 1150
+      },
+      {
+        "item": "No20",
+        "role": "bodySentence",
+        "voice": "Ryan (British male)",
+        "ttsText": "Maya planned to take a large suitcase on her weekend train trip.",
+        "inputCharacters": 64,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No20",
+        "role": "bodySentence",
+        "voice": "Ryan (British male)",
+        "ttsText": "Then she learned that the station near her hotel had no elevator and many stairs to climb.",
+        "inputCharacters": 90,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No20",
+        "role": "bodySentence",
+        "voice": "Ryan (British male)",
+        "ttsText": "She considered sending the suitcase ahead, but the delivery would arrive too late.",
+        "inputCharacters": 82,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No20",
+        "role": "bodySentence",
+        "voice": "Ryan (British male)",
+        "ttsText": "In the end, she packed fewer clothes in a backpack and decided to wash one outfit at the hotel.",
+        "inputCharacters": 95,
+        "cached": false,
+        "gapAfterMs": 1300
+      },
+      {
+        "item": "No20",
+        "role": "questionLabel",
+        "voice": "Ryan (British male)",
+        "ttsText": "Question.",
+        "inputCharacters": 9,
+        "cached": false,
+        "gapAfterMs": 350
+      },
+      {
+        "item": "No20",
+        "role": "questionText",
+        "voice": "Ryan (British male)",
+        "ttsText": "What did Maya finally decide to do?",
+        "inputCharacters": 35,
+        "cached": false,
+        "gapAfterMs": 0
+      },
+      {
+        "item": "No21",
+        "role": "number",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "Number twenty-one.",
+        "inputCharacters": 18,
+        "cached": false,
+        "gapAfterMs": 1150
+      },
+      {
+        "item": "No21",
+        "role": "bodySentence",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "Green Street Books is holding a travel-writing workshop this Saturday afternoon.",
+        "inputCharacters": 80,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No21",
+        "role": "bodySentence",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "The event is free, but space is limited to twenty people in total.",
+        "inputCharacters": 66,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No21",
+        "role": "bodySentence",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "Customers who registered online should collect a numbered ticket at the front desk by one forty-five before the workshop begins.",
+        "inputCharacters": 128,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No21",
+        "role": "bodySentence",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "Any tickets not collected by then will be offered to people waiting in the store.",
+        "inputCharacters": 81,
+        "cached": false,
+        "gapAfterMs": 1300
+      },
+      {
+        "item": "No21",
+        "role": "questionLabel",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "Question.",
+        "inputCharacters": 9,
+        "cached": false,
+        "gapAfterMs": 350
+      },
+      {
+        "item": "No21",
+        "role": "questionText",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "What will happen to uncollected workshop tickets?",
+        "inputCharacters": 49,
+        "cached": false,
+        "gapAfterMs": 0
+      },
+      {
+        "item": "No22",
+        "role": "number",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "Number twenty-two.",
+        "inputCharacters": 18,
+        "cached": false,
+        "gapAfterMs": 1150
+      },
+      {
+        "item": "No22",
+        "role": "bodySentence",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "After a dry summer, Omar's community garden was using more tap water than expected.",
+        "inputCharacters": 83,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No22",
+        "role": "bodySentence",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "He noticed that rain from the tool shed roof simply flowed onto the path.",
+        "inputCharacters": 73,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No22",
+        "role": "bodySentence",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "With permission from the garden manager, he connected a barrel to the roof's drainpipe.",
+        "inputCharacters": 87,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No22",
+        "role": "bodySentence",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "The stored water is now used for flowers, while vegetables are still watered from the regular supply for safety.",
+        "inputCharacters": 112,
+        "cached": false,
+        "gapAfterMs": 1300
+      },
+      {
+        "item": "No22",
+        "role": "questionLabel",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "Question.",
+        "inputCharacters": 9,
+        "cached": false,
+        "gapAfterMs": 350
+      },
+      {
+        "item": "No22",
+        "role": "questionText",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "How did Omar reduce the garden's tap-water use?",
+        "inputCharacters": 47,
+        "cached": false,
+        "gapAfterMs": 0
+      },
+      {
+        "item": "No23",
+        "role": "number",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "Number twenty-three.",
+        "inputCharacters": 20,
+        "cached": false,
+        "gapAfterMs": 1150
+      },
+      {
+        "item": "No23",
+        "role": "bodySentence",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "As a child, Elena enjoyed recording the sounds of birds and trains on her phone.",
+        "inputCharacters": 80,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No23",
+        "role": "bodySentence",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "In college, she discovered that sound designers create background noise for films and games.",
+        "inputCharacters": 92,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No23",
+        "role": "bodySentence",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "She visited a small studio, where a designer showed her how ordinary objects can produce unusual effects.",
+        "inputCharacters": 105,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No23",
+        "role": "bodySentence",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "That experience led Elena to apply for a summer internship in professional audio production.",
+        "inputCharacters": 92,
+        "cached": false,
+        "gapAfterMs": 1300
+      },
+      {
+        "item": "No23",
+        "role": "questionLabel",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "Question.",
+        "inputCharacters": 9,
+        "cached": false,
+        "gapAfterMs": 350
+      },
+      {
+        "item": "No23",
+        "role": "questionText",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "Why did Elena apply for the internship?",
+        "inputCharacters": 39,
+        "cached": false,
+        "gapAfterMs": 0
+      },
+      {
+        "item": "No24",
+        "role": "number",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "Number twenty-four.",
+        "inputCharacters": 19,
+        "cached": false,
+        "gapAfterMs": 1150
+      },
+      {
+        "item": "No24",
+        "role": "bodySentence",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "Passengers traveling on the six twenty train to Lakeside should note a platform change.",
+        "inputCharacters": 87,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No24",
+        "role": "bodySentence",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "The train will leave from Platform Seven instead of Platform Four because repair work is being done near the usual track.",
+        "inputCharacters": 121,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No24",
+        "role": "bodySentence",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "The departure time has not changed.",
+        "inputCharacters": 35,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No24",
+        "role": "bodySentence",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "Passengers with bicycles should use the elevator at the north end of the station to reach the new platform.",
+        "inputCharacters": 107,
+        "cached": false,
+        "gapAfterMs": 1300
+      },
+      {
+        "item": "No24",
+        "role": "questionLabel",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "Question.",
+        "inputCharacters": 9,
+        "cached": false,
+        "gapAfterMs": 350
+      },
+      {
+        "item": "No24",
+        "role": "questionText",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "What change has been made to the train?",
+        "inputCharacters": 39,
+        "cached": false,
+        "gapAfterMs": 0
+      },
+      {
+        "item": "No25",
+        "role": "number",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "Number twenty-five.",
+        "inputCharacters": 19,
+        "cached": false,
+        "gapAfterMs": 1150
+      },
+      {
+        "item": "No25",
+        "role": "bodySentence",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "Noise from the street had begun to wake Daniel before his alarm.",
+        "inputCharacters": 64,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No25",
+        "role": "bodySentence",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "He first tried wearing earplugs, but they made it hard for him to hear his baby at night.",
+        "inputCharacters": 89,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No25",
+        "role": "bodySentence",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "He then moved a tall bookshelf against the outside wall and added thick curtains.",
+        "inputCharacters": 81,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No25",
+        "role": "bodySentence",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "The room became quieter, although he still wakes early when garbage trucks stop nearby on Fridays.",
+        "inputCharacters": 98,
+        "cached": false,
+        "gapAfterMs": 1300
+      },
+      {
+        "item": "No25",
+        "role": "questionLabel",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "Question.",
+        "inputCharacters": 9,
+        "cached": false,
+        "gapAfterMs": 350
+      },
+      {
+        "item": "No25",
+        "role": "questionText",
+        "voice": "Clara (Canadian female)",
+        "ttsText": "What made Daniel's room quieter?",
+        "inputCharacters": 32,
+        "cached": false,
+        "gapAfterMs": 0
+      },
+      {
+        "item": "No26",
+        "role": "number",
+        "voice": "Emma (US female)",
+        "ttsText": "Number twenty-six.",
+        "inputCharacters": 18,
+        "cached": false,
+        "gapAfterMs": 1150
+      },
+      {
+        "item": "No26",
+        "role": "bodySentence",
+        "voice": "Emma (US female)",
+        "ttsText": "A thermos bottle slows the movement of heat between a drink and the air around it.",
+        "inputCharacters": 82,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No26",
+        "role": "bodySentence",
+        "voice": "Emma (US female)",
+        "ttsText": "Many bottles have two walls with very little air between them.",
+        "inputCharacters": 62,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No26",
+        "role": "bodySentence",
+        "voice": "Emma (US female)",
+        "ttsText": "This space reduces heat transfer, so hot drinks stay hot and cold drinks stay cold longer.",
+        "inputCharacters": 90,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No26",
+        "role": "bodySentence",
+        "voice": "Emma (US female)",
+        "ttsText": "A tight lid also limits the amount of warm or cool air that can escape from the bottle.",
+        "inputCharacters": 87,
+        "cached": false,
+        "gapAfterMs": 1300
+      },
+      {
+        "item": "No26",
+        "role": "questionLabel",
+        "voice": "Emma (US female)",
+        "ttsText": "Question.",
+        "inputCharacters": 9,
+        "cached": false,
+        "gapAfterMs": 350
+      },
+      {
+        "item": "No26",
+        "role": "questionText",
+        "voice": "Emma (US female)",
+        "ttsText": "Why can a thermos keep drinks hot or cold?",
+        "inputCharacters": 42,
+        "cached": false,
+        "gapAfterMs": 0
+      },
+      {
+        "item": "No27",
+        "role": "number",
+        "voice": "Emma (US female)",
+        "ttsText": "Number twenty-seven.",
+        "inputCharacters": 20,
+        "cached": false,
+        "gapAfterMs": 1150
+      },
+      {
+        "item": "No27",
+        "role": "bodySentence",
+        "voice": "Emma (US female)",
+        "ttsText": "Priya ordered hiking shoes from an online store before a school trip.",
+        "inputCharacters": 69,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No27",
+        "role": "bodySentence",
+        "voice": "Emma (US female)",
+        "ttsText": "The shoes fit well, but one lace hook was loose.",
+        "inputCharacters": 48,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No27",
+        "role": "bodySentence",
+        "voice": "Emma (US female)",
+        "ttsText": "The store offered either a refund or a replacement, though a replacement would not arrive before her departure.",
+        "inputCharacters": 111,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No27",
+        "role": "bodySentence",
+        "voice": "Emma (US female)",
+        "ttsText": "Priya kept the shoes, had the hook repaired locally, and sent the receipt to the store for repayment afterward.",
+        "inputCharacters": 111,
+        "cached": false,
+        "gapAfterMs": 1300
+      },
+      {
+        "item": "No27",
+        "role": "questionLabel",
+        "voice": "Emma (US female)",
+        "ttsText": "Question.",
+        "inputCharacters": 9,
+        "cached": false,
+        "gapAfterMs": 350
+      },
+      {
+        "item": "No27",
+        "role": "questionText",
+        "voice": "Emma (US female)",
+        "ttsText": "Why did Priya keep the hiking shoes?",
+        "inputCharacters": 36,
+        "cached": false,
+        "gapAfterMs": 0
+      },
+      {
+        "item": "No28",
+        "role": "number",
+        "voice": "Emma (US female)",
+        "ttsText": "Number twenty-eight.",
+        "inputCharacters": 20,
+        "cached": false,
+        "gapAfterMs": 1150
+      },
+      {
+        "item": "No28",
+        "role": "bodySentence",
+        "voice": "Emma (US female)",
+        "ttsText": "Before his parents' anniversary dinner, Marcus promised to collect a special dessert from a bakery.",
+        "inputCharacters": 99,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No28",
+        "role": "bodySentence",
+        "voice": "Emma (US female)",
+        "ttsText": "On the day of the dinner, his work meeting was moved to a later time.",
+        "inputCharacters": 69,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No28",
+        "role": "bodySentence",
+        "voice": "Emma (US female)",
+        "ttsText": "His sister could visit the bakery, but she did not know which order to collect.",
+        "inputCharacters": 79,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No28",
+        "role": "bodySentence",
+        "voice": "Emma (US female)",
+        "ttsText": "Marcus forwarded her the confirmation message and asked her to pick it up on his behalf.",
+        "inputCharacters": 88,
+        "cached": false,
+        "gapAfterMs": 1300
+      },
+      {
+        "item": "No28",
+        "role": "questionLabel",
+        "voice": "Emma (US female)",
+        "ttsText": "Question.",
+        "inputCharacters": 9,
+        "cached": false,
+        "gapAfterMs": 350
+      },
+      {
+        "item": "No28",
+        "role": "questionText",
+        "voice": "Emma (US female)",
+        "ttsText": "What did Marcus ask his sister to do?",
+        "inputCharacters": 37,
+        "cached": false,
+        "gapAfterMs": 0
+      },
+      {
+        "item": "No29",
+        "role": "number",
+        "voice": "Emma (US female)",
+        "ttsText": "Number twenty-nine.",
+        "inputCharacters": 19,
+        "cached": false,
+        "gapAfterMs": 1150
+      },
+      {
+        "item": "No29",
+        "role": "bodySentence",
+        "voice": "Emma (US female)",
+        "ttsText": "The City Library's second floor will be closed for painting from Monday through Thursday.",
+        "inputCharacters": 89,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No29",
+        "role": "bodySentence",
+        "voice": "Emma (US female)",
+        "ttsText": "Books from that floor can still be requested at the information desk, although they may take up to twenty minutes to arrive.",
+        "inputCharacters": 124,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No29",
+        "role": "bodySentence",
+        "voice": "Emma (US female)",
+        "ttsText": "Study tables have been moved to the meeting room downstairs.",
+        "inputCharacters": 60,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No29",
+        "role": "bodySentence",
+        "voice": "Emma (US female)",
+        "ttsText": "The children's area and computer room will operate normally throughout the painting work.",
+        "inputCharacters": 89,
+        "cached": false,
+        "gapAfterMs": 1300
+      },
+      {
+        "item": "No29",
+        "role": "questionLabel",
+        "voice": "Emma (US female)",
+        "ttsText": "Question.",
+        "inputCharacters": 9,
+        "cached": false,
+        "gapAfterMs": 350
+      },
+      {
+        "item": "No29",
+        "role": "questionText",
+        "voice": "Emma (US female)",
+        "ttsText": "Where have the library's study tables been moved?",
+        "inputCharacters": 49,
+        "cached": false,
+        "gapAfterMs": 0
+      },
+      {
+        "item": "No30",
+        "role": "number",
+        "voice": "Emma (US female)",
+        "ttsText": "Number thirty.",
+        "inputCharacters": 14,
+        "cached": false,
+        "gapAfterMs": 1150
+      },
+      {
+        "item": "No30",
+        "role": "bodySentence",
+        "voice": "Emma (US female)",
+        "ttsText": "Recently, Hana discovered that several photos from a school event were missing from her laptop.",
+        "inputCharacters": 95,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No30",
+        "role": "bodySentence",
+        "voice": "Emma (US female)",
+        "ttsText": "She had copied them from her camera, but she had not checked whether the transfer was complete before deleting the originals.",
+        "inputCharacters": 125,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No30",
+        "role": "bodySentence",
+        "voice": "Emma (US female)",
+        "ttsText": "A technician recovered most of the files.",
+        "inputCharacters": 41,
+        "cached": false,
+        "gapAfterMs": 420
+      },
+      {
+        "item": "No30",
+        "role": "bodySentence",
+        "voice": "Emma (US female)",
+        "ttsText": "Since then, Hana has kept two copies and checks both carefully before clearing her camera's memory card.",
+        "inputCharacters": 104,
+        "cached": false,
+        "gapAfterMs": 1300
+      },
+      {
+        "item": "No30",
+        "role": "questionLabel",
+        "voice": "Emma (US female)",
+        "ttsText": "Question.",
+        "inputCharacters": 9,
+        "cached": false,
+        "gapAfterMs": 350
+      },
+      {
+        "item": "No30",
+        "role": "questionText",
+        "voice": "Emma (US female)",
+        "ttsText": "What new habit has Hana adopted?",
+        "inputCharacters": 32,
+        "cached": false,
+        "gapAfterMs": 0
+      }
+    ]
+  },
+  "actualEdgeCalls": {
+    "calls": 105,
+    "inputCharacters": 6262
+  },
+  "generationRecords": [
+    {
+      "item": "No16",
+      "role": "number",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 15
+    },
+    {
+      "item": "No16",
+      "role": "bodySentence",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 124
+    },
+    {
+      "item": "No16",
+      "role": "bodySentence",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 81
+    },
+    {
+      "item": "No16",
+      "role": "bodySentence",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 100
+    },
+    {
+      "item": "No16",
+      "role": "bodySentence",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 54
+    },
+    {
+      "item": "No16",
+      "role": "questionLabel",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 9
+    },
+    {
+      "item": "No16",
+      "role": "questionText",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 53
+    },
+    {
+      "item": "No17",
+      "role": "number",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 17
+    },
+    {
+      "item": "No17",
+      "role": "bodySentence",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 92
+    },
+    {
+      "item": "No17",
+      "role": "bodySentence",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 111
+    },
+    {
+      "item": "No17",
+      "role": "bodySentence",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 63
+    },
+    {
+      "item": "No17",
+      "role": "bodySentence",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 82
+    },
+    {
+      "item": "No17",
+      "role": "questionLabel",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 9
+    },
+    {
+      "item": "No17",
+      "role": "questionText",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 48
+    },
+    {
+      "item": "No18",
+      "role": "number",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 16
+    },
+    {
+      "item": "No18",
+      "role": "bodySentence",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 61
+    },
+    {
+      "item": "No18",
+      "role": "bodySentence",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 133
+    },
+    {
+      "item": "No18",
+      "role": "bodySentence",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 64
+    },
+    {
+      "item": "No18",
+      "role": "bodySentence",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 106
+    },
+    {
+      "item": "No18",
+      "role": "questionLabel",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 9
+    },
+    {
+      "item": "No18",
+      "role": "questionText",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 46
+    },
+    {
+      "item": "No19",
+      "role": "number",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 16
+    },
+    {
+      "item": "No19",
+      "role": "bodySentence",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 52
+    },
+    {
+      "item": "No19",
+      "role": "bodySentence",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 64
+    },
+    {
+      "item": "No19",
+      "role": "bodySentence",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 106
+    },
+    {
+      "item": "No19",
+      "role": "bodySentence",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 122
+    },
+    {
+      "item": "No19",
+      "role": "questionLabel",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 9
+    },
+    {
+      "item": "No19",
+      "role": "questionText",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 51
+    },
+    {
+      "item": "No20",
+      "role": "number",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 14
+    },
+    {
+      "item": "No20",
+      "role": "bodySentence",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 64
+    },
+    {
+      "item": "No20",
+      "role": "bodySentence",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 90
+    },
+    {
+      "item": "No20",
+      "role": "bodySentence",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 82
+    },
+    {
+      "item": "No20",
+      "role": "bodySentence",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 95
+    },
+    {
+      "item": "No20",
+      "role": "questionLabel",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 9
+    },
+    {
+      "item": "No20",
+      "role": "questionText",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 35
+    },
+    {
+      "item": "No21",
+      "role": "number",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 18
+    },
+    {
+      "item": "No21",
+      "role": "bodySentence",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 80
+    },
+    {
+      "item": "No21",
+      "role": "bodySentence",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 66
+    },
+    {
+      "item": "No21",
+      "role": "bodySentence",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 128
+    },
+    {
+      "item": "No21",
+      "role": "bodySentence",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 81
+    },
+    {
+      "item": "No21",
+      "role": "questionLabel",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 9
+    },
+    {
+      "item": "No21",
+      "role": "questionText",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 49
+    },
+    {
+      "item": "No22",
+      "role": "number",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 18
+    },
+    {
+      "item": "No22",
+      "role": "bodySentence",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 83
+    },
+    {
+      "item": "No22",
+      "role": "bodySentence",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 73
+    },
+    {
+      "item": "No22",
+      "role": "bodySentence",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 87
+    },
+    {
+      "item": "No22",
+      "role": "bodySentence",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 112
+    },
+    {
+      "item": "No22",
+      "role": "questionLabel",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 9
+    },
+    {
+      "item": "No22",
+      "role": "questionText",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 47
+    },
+    {
+      "item": "No23",
+      "role": "number",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 20
+    },
+    {
+      "item": "No23",
+      "role": "bodySentence",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 80
+    },
+    {
+      "item": "No23",
+      "role": "bodySentence",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 92
+    },
+    {
+      "item": "No23",
+      "role": "bodySentence",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 105
+    },
+    {
+      "item": "No23",
+      "role": "bodySentence",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 92
+    },
+    {
+      "item": "No23",
+      "role": "questionLabel",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 9
+    },
+    {
+      "item": "No23",
+      "role": "questionText",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 39
+    },
+    {
+      "item": "No24",
+      "role": "number",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 19
+    },
+    {
+      "item": "No24",
+      "role": "bodySentence",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 87
+    },
+    {
+      "item": "No24",
+      "role": "bodySentence",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 121
+    },
+    {
+      "item": "No24",
+      "role": "bodySentence",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 35
+    },
+    {
+      "item": "No24",
+      "role": "bodySentence",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 107
+    },
+    {
+      "item": "No24",
+      "role": "questionLabel",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 9
+    },
+    {
+      "item": "No24",
+      "role": "questionText",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 39
+    },
+    {
+      "item": "No25",
+      "role": "number",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 19
+    },
+    {
+      "item": "No25",
+      "role": "bodySentence",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 64
+    },
+    {
+      "item": "No25",
+      "role": "bodySentence",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 89
+    },
+    {
+      "item": "No25",
+      "role": "bodySentence",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 81
+    },
+    {
+      "item": "No25",
+      "role": "bodySentence",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 98
+    },
+    {
+      "item": "No25",
+      "role": "questionLabel",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 9
+    },
+    {
+      "item": "No25",
+      "role": "questionText",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 32
+    },
+    {
+      "item": "No26",
+      "role": "number",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 18
+    },
+    {
+      "item": "No26",
+      "role": "bodySentence",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 82
+    },
+    {
+      "item": "No26",
+      "role": "bodySentence",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 62
+    },
+    {
+      "item": "No26",
+      "role": "bodySentence",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 90
+    },
+    {
+      "item": "No26",
+      "role": "bodySentence",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 87
+    },
+    {
+      "item": "No26",
+      "role": "questionLabel",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 9
+    },
+    {
+      "item": "No26",
+      "role": "questionText",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 42
+    },
+    {
+      "item": "No27",
+      "role": "number",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 20
+    },
+    {
+      "item": "No27",
+      "role": "bodySentence",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 69
+    },
+    {
+      "item": "No27",
+      "role": "bodySentence",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 48
+    },
+    {
+      "item": "No27",
+      "role": "bodySentence",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 111
+    },
+    {
+      "item": "No27",
+      "role": "bodySentence",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 111
+    },
+    {
+      "item": "No27",
+      "role": "questionLabel",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 9
+    },
+    {
+      "item": "No27",
+      "role": "questionText",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 36
+    },
+    {
+      "item": "No28",
+      "role": "number",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 20
+    },
+    {
+      "item": "No28",
+      "role": "bodySentence",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 99
+    },
+    {
+      "item": "No28",
+      "role": "bodySentence",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 69
+    },
+    {
+      "item": "No28",
+      "role": "bodySentence",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 79
+    },
+    {
+      "item": "No28",
+      "role": "bodySentence",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 88
+    },
+    {
+      "item": "No28",
+      "role": "questionLabel",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 9
+    },
+    {
+      "item": "No28",
+      "role": "questionText",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 37
+    },
+    {
+      "item": "No29",
+      "role": "number",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 19
+    },
+    {
+      "item": "No29",
+      "role": "bodySentence",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 89
+    },
+    {
+      "item": "No29",
+      "role": "bodySentence",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 124
+    },
+    {
+      "item": "No29",
+      "role": "bodySentence",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 60
+    },
+    {
+      "item": "No29",
+      "role": "bodySentence",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 89
+    },
+    {
+      "item": "No29",
+      "role": "questionLabel",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 9
+    },
+    {
+      "item": "No29",
+      "role": "questionText",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 49
+    },
+    {
+      "item": "No30",
+      "role": "number",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 14
+    },
+    {
+      "item": "No30",
+      "role": "bodySentence",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 95
+    },
+    {
+      "item": "No30",
+      "role": "bodySentence",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 125
+    },
+    {
+      "item": "No30",
+      "role": "bodySentence",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 41
+    },
+    {
+      "item": "No30",
+      "role": "bodySentence",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 104
+    },
+    {
+      "item": "No30",
+      "role": "questionLabel",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 9
+    },
+    {
+      "item": "No30",
+      "role": "questionText",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 32
+    }
+  ],
+  "outputs": [
+    {
+      "item": "No16",
+      "number": 16,
+      "voice": {
+        "id": "en-GB-RyanNeural",
+        "name": "Ryan",
+        "label": "Ryan (British male)",
+        "display": "Ryan（英国男性）"
+      },
+      "wav": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\wav-master\\No16.wav",
+      "mp3": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\audio\\No16.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "26.794667"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "26.794671"
+      },
+      "segments": [
+        {
+          "role": "number",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "Number 16.",
+          "ttsText": "Number sixteen.",
+          "gapAfterMs": 1150
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge.",
+          "ttsText": "During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "She knew the basic facts, but she often forgot important dates during busy tours.",
+          "ttsText": "She knew the basic facts, but she often forgot important dates during busy tours.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift.",
+          "ttsText": "Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "She can now explain the bridge's history more clearly.",
+          "ttsText": "She can now explain the bridge's history more clearly.",
+          "gapAfterMs": 1300
+        },
+        {
+          "role": "questionLabel",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "Question.",
+          "ttsText": "Question.",
+          "gapAfterMs": 350
+        },
+        {
+          "role": "questionText",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "What helped Nina explain the bridge's history better?",
+          "ttsText": "What helped Nina explain the bridge's history better?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "item": "No17",
+      "number": 17,
+      "voice": {
+        "id": "en-GB-RyanNeural",
+        "name": "Ryan",
+        "label": "Ryan (British male)",
+        "display": "Ryan（英国男性）"
+      },
+      "wav": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\wav-master\\No17.wav",
+      "mp3": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\audio\\No17.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "25.663708"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "25.663719"
+      },
+      "segments": [
+        {
+          "role": "number",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "Number 17.",
+          "ttsText": "Number seventeen.",
+          "gapAfterMs": 1150
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday.",
+          "ttsText": "The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "Those rooms will be unavailable from 9 a.m. until 3 p.m., but the swimming pool will remain open as usual.",
+          "ttsText": "Those rooms will be unavailable from nine A M until three P M, but the swimming pool will remain open as usual.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "Visitors should use the smaller changing area beside Court Two.",
+          "ttsText": "Visitors should use the smaller changing area beside Court Two.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "Please bring your own lock, since the temporary lockers do not have built-in keys.",
+          "ttsText": "Please bring your own lock, since the temporary lockers do not have built-in keys.",
+          "gapAfterMs": 1300
+        },
+        {
+          "role": "questionLabel",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "Question.",
+          "ttsText": "Question.",
+          "gapAfterMs": 350
+        },
+        {
+          "role": "questionText",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "What should visitors bring to the sports center?",
+          "ttsText": "What should visitors bring to the sports center?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "item": "No18",
+      "number": 18,
+      "voice": {
+        "id": "en-GB-RyanNeural",
+        "name": "Ryan",
+        "label": "Ryan (British male)",
+        "display": "Ryan（英国男性）"
+      },
+      "wav": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\wav-master\\No18.wav",
+      "mp3": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\audio\\No18.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "26.640958"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "26.640975"
+      },
+      "segments": [
+        {
+          "role": "number",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "Number 18.",
+          "ttsText": "Number eighteen.",
+          "gapAfterMs": 1150
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "A customer asked Leo to prepare a birthday cake without nuts.",
+          "ttsText": "A customer asked Leo to prepare a birthday cake without nuts.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "He carefully checked the ingredients, but the chocolate decorations he usually buys were made in a factory that also handles almonds.",
+          "ttsText": "He carefully checked the ingredients, but the chocolate decorations he usually buys were made in a factory that also handles almonds.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "Leo called the customer and suggested using fresh fruit instead.",
+          "ttsText": "Leo called the customer and suggested using fresh fruit instead.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "The customer agreed, so he changed the design while keeping the same price and delivery time for Saturday.",
+          "ttsText": "The customer agreed, so he changed the design while keeping the same price and delivery time for Saturday.",
+          "gapAfterMs": 1300
+        },
+        {
+          "role": "questionLabel",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "Question.",
+          "ttsText": "Question.",
+          "gapAfterMs": 350
+        },
+        {
+          "role": "questionText",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "Why did Leo replace the chocolate decorations?",
+          "ttsText": "Why did Leo replace the chocolate decorations?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "item": "No19",
+      "number": 19,
+      "voice": {
+        "id": "en-GB-RyanNeural",
+        "name": "Ryan",
+        "label": "Ryan (British male)",
+        "display": "Ryan（英国男性）"
+      },
+      "wav": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\wav-master\\No19.wav",
+      "mp3": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\audio\\No19.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "26.428875"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "26.428889"
+      },
+      "segments": [
+        {
+          "role": "number",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "Number 19.",
+          "ttsText": "Number nineteen.",
+          "gapAfterMs": 1150
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "Some desert plants open their flowers only at night.",
+          "ttsText": "Some desert plants open their flowers only at night.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "This helps them avoid losing too much water in the daytime heat.",
+          "ttsText": "This helps them avoid losing too much water in the daytime heat.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "Night-flying insects, including certain moths, carry pollen between the flowers as they feed after sunset.",
+          "ttsText": "Night-flying insects, including certain moths, carry pollen between the flowers as they feed after sunset.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "Many of these flowers are pale and have a strong smell, making them easier for insects to find when there is little light.",
+          "ttsText": "Many of these flowers are pale and have a strong smell, making them easier for insects to find when there is little light.",
+          "gapAfterMs": 1300
+        },
+        {
+          "role": "questionLabel",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "Question.",
+          "ttsText": "Question.",
+          "gapAfterMs": 350
+        },
+        {
+          "role": "questionText",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "What makes many night-opening flowers easy to find?",
+          "ttsText": "What makes many night-opening flowers easy to find?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "item": "No20",
+      "number": 20,
+      "voice": {
+        "id": "en-GB-RyanNeural",
+        "name": "Ryan",
+        "label": "Ryan (British male)",
+        "display": "Ryan（英国男性）"
+      },
+      "wav": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\wav-master\\No20.wav",
+      "mp3": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\audio\\No20.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "24.296083"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "24.296100"
+      },
+      "segments": [
+        {
+          "role": "number",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "Number 20.",
+          "ttsText": "Number twenty.",
+          "gapAfterMs": 1150
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "Maya planned to take a large suitcase on her weekend train trip.",
+          "ttsText": "Maya planned to take a large suitcase on her weekend train trip.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "Then she learned that the station near her hotel had no elevator and many stairs to climb.",
+          "ttsText": "Then she learned that the station near her hotel had no elevator and many stairs to climb.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "She considered sending the suitcase ahead, but the delivery would arrive too late.",
+          "ttsText": "She considered sending the suitcase ahead, but the delivery would arrive too late.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "In the end, she packed fewer clothes in a backpack and decided to wash one outfit at the hotel.",
+          "ttsText": "In the end, she packed fewer clothes in a backpack and decided to wash one outfit at the hotel.",
+          "gapAfterMs": 1300
+        },
+        {
+          "role": "questionLabel",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "Question.",
+          "ttsText": "Question.",
+          "gapAfterMs": 350
+        },
+        {
+          "role": "questionText",
+          "voice": {
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "label": "Ryan (British male)",
+            "display": "Ryan（英国男性）"
+          },
+          "plainText": "What did Maya finally decide to do?",
+          "ttsText": "What did Maya finally decide to do?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "item": "No21",
+      "number": 21,
+      "voice": {
+        "id": "en-CA-ClaraNeural",
+        "name": "Clara",
+        "label": "Clara (Canadian female)",
+        "display": "Clara（カナダ女性）"
+      },
+      "wav": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\wav-master\\No21.wav",
+      "mp3": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\audio\\No21.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "27.141792"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "27.142290"
+      },
+      "segments": [
+        {
+          "role": "number",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "Number 21.",
+          "ttsText": "Number twenty-one.",
+          "gapAfterMs": 1150
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "Green Street Books is holding a travel-writing workshop this Saturday afternoon.",
+          "ttsText": "Green Street Books is holding a travel-writing workshop this Saturday afternoon.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "The event is free, but space is limited to twenty people in total.",
+          "ttsText": "The event is free, but space is limited to twenty people in total.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "Customers who registered online should collect a numbered ticket at the front desk by 1:45 before the workshop begins.",
+          "ttsText": "Customers who registered online should collect a numbered ticket at the front desk by one forty-five before the workshop begins.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "Any tickets not collected by then will be offered to people waiting in the store.",
+          "ttsText": "Any tickets not collected by then will be offered to people waiting in the store.",
+          "gapAfterMs": 1300
+        },
+        {
+          "role": "questionLabel",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "Question.",
+          "ttsText": "Question.",
+          "gapAfterMs": 350
+        },
+        {
+          "role": "questionText",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "What will happen to uncollected workshop tickets?",
+          "ttsText": "What will happen to uncollected workshop tickets?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "item": "No22",
+      "number": 22,
+      "voice": {
+        "id": "en-CA-ClaraNeural",
+        "name": "Clara",
+        "label": "Clara (Canadian female)",
+        "display": "Clara（カナダ女性）"
+      },
+      "wav": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\wav-master\\No22.wav",
+      "mp3": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\audio\\No22.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "27.258917"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "27.258934"
+      },
+      "segments": [
+        {
+          "role": "number",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "Number 22.",
+          "ttsText": "Number twenty-two.",
+          "gapAfterMs": 1150
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "After a dry summer, Omar's community garden was using more tap water than expected.",
+          "ttsText": "After a dry summer, Omar's community garden was using more tap water than expected.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "He noticed that rain from the tool shed roof simply flowed onto the path.",
+          "ttsText": "He noticed that rain from the tool shed roof simply flowed onto the path.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "With permission from the garden manager, he connected a barrel to the roof's drainpipe.",
+          "ttsText": "With permission from the garden manager, he connected a barrel to the roof's drainpipe.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "The stored water is now used for flowers, while vegetables are still watered from the regular supply for safety.",
+          "ttsText": "The stored water is now used for flowers, while vegetables are still watered from the regular supply for safety.",
+          "gapAfterMs": 1300
+        },
+        {
+          "role": "questionLabel",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "Question.",
+          "ttsText": "Question.",
+          "gapAfterMs": 350
+        },
+        {
+          "role": "questionText",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "How did Omar reduce the garden's tap-water use?",
+          "ttsText": "How did Omar reduce the garden's tap-water use?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "item": "No23",
+      "number": 23,
+      "voice": {
+        "id": "en-CA-ClaraNeural",
+        "name": "Clara",
+        "label": "Clara (Canadian female)",
+        "display": "Clara（カナダ女性）"
+      },
+      "wav": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\wav-master\\No23.wav",
+      "mp3": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\audio\\No23.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "28.840625"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "28.840635"
+      },
+      "segments": [
+        {
+          "role": "number",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "Number 23.",
+          "ttsText": "Number twenty-three.",
+          "gapAfterMs": 1150
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "As a child, Elena enjoyed recording the sounds of birds and trains on her phone.",
+          "ttsText": "As a child, Elena enjoyed recording the sounds of birds and trains on her phone.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "In college, she discovered that sound designers create background noise for films and games.",
+          "ttsText": "In college, she discovered that sound designers create background noise for films and games.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "She visited a small studio, where a designer showed her how ordinary objects can produce unusual effects.",
+          "ttsText": "She visited a small studio, where a designer showed her how ordinary objects can produce unusual effects.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "That experience led Elena to apply for a summer internship in professional audio production.",
+          "ttsText": "That experience led Elena to apply for a summer internship in professional audio production.",
+          "gapAfterMs": 1300
+        },
+        {
+          "role": "questionLabel",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "Question.",
+          "ttsText": "Question.",
+          "gapAfterMs": 350
+        },
+        {
+          "role": "questionText",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "Why did Elena apply for the internship?",
+          "ttsText": "Why did Elena apply for the internship?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "item": "No24",
+      "number": 24,
+      "voice": {
+        "id": "en-CA-ClaraNeural",
+        "name": "Clara",
+        "label": "Clara (Canadian female)",
+        "display": "Clara（カナダ女性）"
+      },
+      "wav": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\wav-master\\No24.wav",
+      "mp3": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\audio\\No24.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "26.318750"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "26.318753"
+      },
+      "segments": [
+        {
+          "role": "number",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "Number 24.",
+          "ttsText": "Number twenty-four.",
+          "gapAfterMs": 1150
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "Passengers traveling on the 6:20 train to Lakeside should note a platform change.",
+          "ttsText": "Passengers traveling on the six twenty train to Lakeside should note a platform change.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "The train will leave from Platform 7 instead of Platform 4 because repair work is being done near the usual track.",
+          "ttsText": "The train will leave from Platform Seven instead of Platform Four because repair work is being done near the usual track.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "The departure time has not changed.",
+          "ttsText": "The departure time has not changed.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "Passengers with bicycles should use the elevator at the north end of the station to reach the new platform.",
+          "ttsText": "Passengers with bicycles should use the elevator at the north end of the station to reach the new platform.",
+          "gapAfterMs": 1300
+        },
+        {
+          "role": "questionLabel",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "Question.",
+          "ttsText": "Question.",
+          "gapAfterMs": 350
+        },
+        {
+          "role": "questionText",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "What change has been made to the train?",
+          "ttsText": "What change has been made to the train?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "item": "No25",
+      "number": 25,
+      "voice": {
+        "id": "en-CA-ClaraNeural",
+        "name": "Clara",
+        "label": "Clara (Canadian female)",
+        "display": "Clara（カナダ女性）"
+      },
+      "wav": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\wav-master\\No25.wav",
+      "mp3": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\audio\\No25.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "25.812458"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "25.812472"
+      },
+      "segments": [
+        {
+          "role": "number",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "Number 25.",
+          "ttsText": "Number twenty-five.",
+          "gapAfterMs": 1150
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "Noise from the street had begun to wake Daniel before his alarm.",
+          "ttsText": "Noise from the street had begun to wake Daniel before his alarm.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "He first tried wearing earplugs, but they made it hard for him to hear his baby at night.",
+          "ttsText": "He first tried wearing earplugs, but they made it hard for him to hear his baby at night.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "He then moved a tall bookshelf against the outside wall and added thick curtains.",
+          "ttsText": "He then moved a tall bookshelf against the outside wall and added thick curtains.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "The room became quieter, although he still wakes early when garbage trucks stop nearby on Fridays.",
+          "ttsText": "The room became quieter, although he still wakes early when garbage trucks stop nearby on Fridays.",
+          "gapAfterMs": 1300
+        },
+        {
+          "role": "questionLabel",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "Question.",
+          "ttsText": "Question.",
+          "gapAfterMs": 350
+        },
+        {
+          "role": "questionText",
+          "voice": {
+            "id": "en-CA-ClaraNeural",
+            "name": "Clara",
+            "label": "Clara (Canadian female)",
+            "display": "Clara（カナダ女性）"
+          },
+          "plainText": "What made Daniel's room quieter?",
+          "ttsText": "What made Daniel's room quieter?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "item": "No26",
+      "number": 26,
+      "voice": {
+        "id": "en-US-EmmaMultilingualNeural",
+        "name": "Emma",
+        "label": "Emma (US female)",
+        "display": "Emma（米国女性）",
+        "englishOnly": true
+      },
+      "wav": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\wav-master\\No26.wav",
+      "mp3": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\audio\\No26.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "25.284375"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "25.284376"
+      },
+      "segments": [
+        {
+          "role": "number",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "Number 26.",
+          "ttsText": "Number twenty-six.",
+          "gapAfterMs": 1150
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "A thermos bottle slows the movement of heat between a drink and the air around it.",
+          "ttsText": "A thermos bottle slows the movement of heat between a drink and the air around it.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "Many bottles have two walls with very little air between them.",
+          "ttsText": "Many bottles have two walls with very little air between them.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "This space reduces heat transfer, so hot drinks stay hot and cold drinks stay cold longer.",
+          "ttsText": "This space reduces heat transfer, so hot drinks stay hot and cold drinks stay cold longer.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "A tight lid also limits the amount of warm or cool air that can escape from the bottle.",
+          "ttsText": "A tight lid also limits the amount of warm or cool air that can escape from the bottle.",
+          "gapAfterMs": 1300
+        },
+        {
+          "role": "questionLabel",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "Question.",
+          "ttsText": "Question.",
+          "gapAfterMs": 350
+        },
+        {
+          "role": "questionText",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "Why can a thermos keep drinks hot or cold?",
+          "ttsText": "Why can a thermos keep drinks hot or cold?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "item": "No27",
+      "number": 27,
+      "voice": {
+        "id": "en-US-EmmaMultilingualNeural",
+        "name": "Emma",
+        "label": "Emma (US female)",
+        "display": "Emma（米国女性）",
+        "englishOnly": true
+      },
+      "wav": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\wav-master\\No27.wav",
+      "mp3": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\audio\\No27.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "25.450833"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "25.450839"
+      },
+      "segments": [
+        {
+          "role": "number",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "Number 27.",
+          "ttsText": "Number twenty-seven.",
+          "gapAfterMs": 1150
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "Priya ordered hiking shoes from an online store before a school trip.",
+          "ttsText": "Priya ordered hiking shoes from an online store before a school trip.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "The shoes fit well, but one lace hook was loose.",
+          "ttsText": "The shoes fit well, but one lace hook was loose.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "The store offered either a refund or a replacement, though a replacement would not arrive before her departure.",
+          "ttsText": "The store offered either a refund or a replacement, though a replacement would not arrive before her departure.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "Priya kept the shoes, had the hook repaired locally, and sent the receipt to the store for repayment afterward.",
+          "ttsText": "Priya kept the shoes, had the hook repaired locally, and sent the receipt to the store for repayment afterward.",
+          "gapAfterMs": 1300
+        },
+        {
+          "role": "questionLabel",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "Question.",
+          "ttsText": "Question.",
+          "gapAfterMs": 350
+        },
+        {
+          "role": "questionText",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "Why did Priya keep the hiking shoes?",
+          "ttsText": "Why did Priya keep the hiking shoes?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "item": "No28",
+      "number": 28,
+      "voice": {
+        "id": "en-US-EmmaMultilingualNeural",
+        "name": "Emma",
+        "label": "Emma (US female)",
+        "display": "Emma（米国女性）",
+        "englishOnly": true
+      },
+      "wav": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\wav-master\\No28.wav",
+      "mp3": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\audio\\No28.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "25.460125"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "25.460136"
+      },
+      "segments": [
+        {
+          "role": "number",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "Number 28.",
+          "ttsText": "Number twenty-eight.",
+          "gapAfterMs": 1150
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "Before his parents' anniversary dinner, Marcus promised to collect a special dessert from a bakery.",
+          "ttsText": "Before his parents' anniversary dinner, Marcus promised to collect a special dessert from a bakery.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "On the day of the dinner, his work meeting was moved to a later time.",
+          "ttsText": "On the day of the dinner, his work meeting was moved to a later time.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "His sister could visit the bakery, but she did not know which order to collect.",
+          "ttsText": "His sister could visit the bakery, but she did not know which order to collect.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "Marcus forwarded her the confirmation message and asked her to pick it up on his behalf.",
+          "ttsText": "Marcus forwarded her the confirmation message and asked her to pick it up on his behalf.",
+          "gapAfterMs": 1300
+        },
+        {
+          "role": "questionLabel",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "Question.",
+          "ttsText": "Question.",
+          "gapAfterMs": 350
+        },
+        {
+          "role": "questionText",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "What did Marcus ask his sister to do?",
+          "ttsText": "What did Marcus ask his sister to do?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "item": "No29",
+      "number": 29,
+      "voice": {
+        "id": "en-US-EmmaMultilingualNeural",
+        "name": "Emma",
+        "label": "Emma (US female)",
+        "display": "Emma（米国女性）",
+        "englishOnly": true
+      },
+      "wav": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\wav-master\\No29.wav",
+      "mp3": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\audio\\No29.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "26.848250"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "26.848254"
+      },
+      "segments": [
+        {
+          "role": "number",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "Number 29.",
+          "ttsText": "Number twenty-nine.",
+          "gapAfterMs": 1150
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "The City Library's second floor will be closed for painting from Monday through Thursday.",
+          "ttsText": "The City Library's second floor will be closed for painting from Monday through Thursday.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "Books from that floor can still be requested at the information desk, although they may take up to twenty minutes to arrive.",
+          "ttsText": "Books from that floor can still be requested at the information desk, although they may take up to twenty minutes to arrive.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "Study tables have been moved to the meeting room downstairs.",
+          "ttsText": "Study tables have been moved to the meeting room downstairs.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "The children's area and computer room will operate normally throughout the painting work.",
+          "ttsText": "The children's area and computer room will operate normally throughout the painting work.",
+          "gapAfterMs": 1300
+        },
+        {
+          "role": "questionLabel",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "Question.",
+          "ttsText": "Question.",
+          "gapAfterMs": 350
+        },
+        {
+          "role": "questionText",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "Where have the library's study tables been moved?",
+          "ttsText": "Where have the library's study tables been moved?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "item": "No30",
+      "number": 30,
+      "voice": {
+        "id": "en-US-EmmaMultilingualNeural",
+        "name": "Emma",
+        "label": "Emma (US female)",
+        "display": "Emma（米国女性）",
+        "englishOnly": true
+      },
+      "wav": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\wav-master\\No30.wav",
+      "mp3": "audio-generation\\grade2-round1-part2-edge-rotation-20260718\\audio\\No30.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "26.576417"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "26.576417"
+      },
+      "segments": [
+        {
+          "role": "number",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "Number 30.",
+          "ttsText": "Number thirty.",
+          "gapAfterMs": 1150
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "Recently, Hana discovered that several photos from a school event were missing from her laptop.",
+          "ttsText": "Recently, Hana discovered that several photos from a school event were missing from her laptop.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "She had copied them from her camera, but she had not checked whether the transfer was complete before deleting the originals.",
+          "ttsText": "She had copied them from her camera, but she had not checked whether the transfer was complete before deleting the originals.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "A technician recovered most of the files.",
+          "ttsText": "A technician recovered most of the files.",
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "Since then, Hana has kept two copies and checks both carefully before clearing her camera's memory card.",
+          "ttsText": "Since then, Hana has kept two copies and checks both carefully before clearing her camera's memory card.",
+          "gapAfterMs": 1300
+        },
+        {
+          "role": "questionLabel",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "Question.",
+          "ttsText": "Question.",
+          "gapAfterMs": 350
+        },
+        {
+          "role": "questionText",
+          "voice": {
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "label": "Emma (US female)",
+            "display": "Emma（米国女性）",
+            "englishOnly": true
+          },
+          "plainText": "What new habit has Hana adopted?",
+          "ttsText": "What new habit has Hana adopted?",
+          "gapAfterMs": 0
+        }
+      ]
+    }
+  ],
+  "secretsIncluded": false
+}

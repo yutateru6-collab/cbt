@@ -1,0 +1,596 @@
+{
+  "mode": "completed",
+  "generatedAt": "2026-07-19T06:13:03.242227+00:00",
+  "provider": "Azure Speech REST API",
+  "region": "eastus",
+  "voiceFamily": "Standard Neural only",
+  "parts": {
+    "Part 1": [
+      1,
+      2,
+      3
+    ],
+    "Part 2": [
+      16,
+      17,
+      18
+    ]
+  },
+  "sourceSet": "set-01",
+  "outputFormat": "riff-48khz-16bit-mono-pcm",
+  "trackCount": 6,
+  "apiRequestCount": 6,
+  "internalPeriodPauseMs": 180,
+  "timingMs": {
+    "numberToBody": 1150,
+    "turnGap": 550,
+    "bodyToQuestion": 1100,
+    "questionToText": 350
+  },
+  "deliveryContract": {
+    "azureDirectWav": true,
+    "sampleRateHz": 48000,
+    "bitsPerSample": 16,
+    "channels": 1,
+    "oneAzureRequestPerQuestion": true,
+    "part2WholeBodyOneRequest": true,
+    "sentenceLevelAudioSplit": false,
+    "postSynthesisConcatenation": false,
+    "postSynthesisConversion": false,
+    "lossyEncoding": false,
+    "remaster": false,
+    "playbackRate": 1.0,
+    "rangeWorkerIncluded": true
+  },
+  "preflight": {
+    "provider": "Azure Speech REST API",
+    "voiceFamily": "Standard Neural only",
+    "outputFormat": "riff-48khz-16bit-mono-pcm",
+    "trackCount": 6,
+    "apiRequestCount": 6,
+    "items": [
+      {
+        "id": "part1-No01",
+        "part": "Part 1",
+        "number": 1,
+        "voices": {
+          "A": "en-US-AriaNeural",
+          "B": "en-US-AndrewMultilingualNeural",
+          "narrator": "en-US-EmmaMultilingualNeural"
+        },
+        "oneAzureRequest": true,
+        "sentenceLevelAudioSplit": false,
+        "pausePlan": {
+          "internalPeriodPauseMs": 180,
+          "internalPeriodBreakCount": 2,
+          "finalPeriodsUseStructuralPause": true
+        },
+        "ssml": "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\"><voice name=\"en-US-EmmaMultilingualNeural\">Number one.<break time=\"1150ms\"/></voice><voice name=\"en-US-AndrewMultilingualNeural\">The recording for our school radio show still isn't in the shared folder.<break time=\"550ms\"/></voice><voice name=\"en-US-AriaNeural\">I finished editing it, but the file is too large to send by email.<break time=\"180ms\"/> Could you upload it from the media room?<break time=\"550ms\"/></voice><voice name=\"en-US-AndrewMultilingualNeural\">Sure, but I need the final title before lunch because the teacher checks everything at one.<break time=\"550ms\"/></voice><voice name=\"en-US-AriaNeural\">I'll message you the title now.<break time=\"180ms\"/> The interview section doesn't need any more changes.<break time=\"1100ms\"/></voice><voice name=\"en-US-EmmaMultilingualNeural\">Question.<break time=\"350ms\"/></voice><voice name=\"en-US-EmmaMultilingualNeural\">What does the girl ask the boy to do?</voice></speak>"
+      },
+      {
+        "id": "part1-No02",
+        "part": "Part 1",
+        "number": 2,
+        "voices": {
+          "A": "en-US-AriaNeural",
+          "B": "en-US-AndrewMultilingualNeural",
+          "narrator": "en-US-EmmaMultilingualNeural"
+        },
+        "oneAzureRequest": true,
+        "sentenceLevelAudioSplit": false,
+        "pausePlan": {
+          "internalPeriodPauseMs": 180,
+          "internalPeriodBreakCount": 3,
+          "finalPeriodsUseStructuralPause": true
+        },
+        "ssml": "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\"><voice name=\"en-US-EmmaMultilingualNeural\">Number two.<break time=\"1150ms\"/></voice><voice name=\"en-US-AriaNeural\">I signed up for the beginner yoga class that meets on Wednesday evenings.<break time=\"550ms\"/></voice><voice name=\"en-US-AndrewMultilingualNeural\">That class has moved to Thursday because the instructor is attending a training course.<break time=\"180ms\"/> The starting time is still seven.<break time=\"550ms\"/></voice><voice name=\"en-US-AriaNeural\">Thursday works for me.<break time=\"180ms\"/> Do I need to register again at the front desk?<break time=\"550ms\"/></voice><voice name=\"en-US-AndrewMultilingualNeural\">No, your name is already on the new list.<break time=\"180ms\"/> Just bring the same membership card.<break time=\"1100ms\"/></voice><voice name=\"en-US-EmmaMultilingualNeural\">Question.<break time=\"350ms\"/></voice><voice name=\"en-US-EmmaMultilingualNeural\">What is true about the yoga class?</voice></speak>"
+      },
+      {
+        "id": "part1-No03",
+        "part": "Part 1",
+        "number": 3,
+        "voices": {
+          "A": "en-US-AriaNeural",
+          "B": "en-US-AndrewMultilingualNeural",
+          "narrator": "en-US-EmmaMultilingualNeural"
+        },
+        "oneAzureRequest": true,
+        "sentenceLevelAudioSplit": false,
+        "pausePlan": {
+          "internalPeriodPauseMs": 180,
+          "internalPeriodBreakCount": 3,
+          "finalPeriodsUseStructuralPause": true
+        },
+        "ssml": "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\"><voice name=\"en-US-EmmaMultilingualNeural\">Number three.<break time=\"1150ms\"/></voice><voice name=\"en-US-AriaNeural\">I can't meet you at the cafe this afternoon.<break time=\"180ms\"/> A repair worker is coming to look at our washing machine.<break time=\"550ms\"/></voice><voice name=\"en-US-AndrewMultilingualNeural\">Didn't your brother say he would stay home for that?<break time=\"550ms\"/></voice><voice name=\"en-US-AriaNeural\">He was supposed to, but his manager asked him to work an extra shift.<break time=\"180ms\"/> The worker may arrive anytime between two and five.<break time=\"550ms\"/></voice><voice name=\"en-US-AndrewMultilingualNeural\">No problem.<break time=\"180ms\"/> We can meet tomorrow after my class instead.<break time=\"1100ms\"/></voice><voice name=\"en-US-EmmaMultilingualNeural\">Question.<break time=\"350ms\"/></voice><voice name=\"en-US-EmmaMultilingualNeural\">Why will the woman stay home this afternoon?</voice></speak>"
+      },
+      {
+        "id": "part2-No16",
+        "part": "Part 2",
+        "number": 16,
+        "voices": {
+          "body": "en-US-AriaNeural",
+          "narrator": "en-US-AndrewMultilingualNeural"
+        },
+        "oneAzureRequest": true,
+        "sentenceLevelAudioSplit": false,
+        "pausePlan": {
+          "internalPeriodPauseMs": 180,
+          "internalPeriodBreakCount": 3,
+          "finalPeriodsUseStructuralPause": true
+        },
+        "ssml": "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\"><voice name=\"en-US-AndrewMultilingualNeural\">Number sixteen.<break time=\"1150ms\"/></voice><voice name=\"en-US-AriaNeural\">During her first weeks at a design company, Nina tried to write down every comment made during team meetings.<break time=\"180ms\"/> She often missed later points because she was still writing.<break time=\"180ms\"/> A colleague showed her how to divide a page into decisions and tasks.<break time=\"180ms\"/> Nina used the new format at the next meeting and found it easier to follow the discussion.<break time=\"1100ms\"/></voice><voice name=\"en-US-AndrewMultilingualNeural\">Question.<break time=\"350ms\"/></voice><voice name=\"en-US-AndrewMultilingualNeural\">Why did Nina change how she took notes?</voice></speak>"
+      },
+      {
+        "id": "part2-No17",
+        "part": "Part 2",
+        "number": 17,
+        "voices": {
+          "body": "en-US-AndrewMultilingualNeural",
+          "narrator": "en-US-EmmaMultilingualNeural"
+        },
+        "oneAzureRequest": true,
+        "sentenceLevelAudioSplit": false,
+        "pausePlan": {
+          "internalPeriodPauseMs": 180,
+          "internalPeriodBreakCount": 3,
+          "finalPeriodsUseStructuralPause": true
+        },
+        "ssml": "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\"><voice name=\"en-US-EmmaMultilingualNeural\">Number seventeen.<break time=\"1150ms\"/></voice><voice name=\"en-US-AndrewMultilingualNeural\">The Riverside Science Center will open its space exhibition this Saturday.<break time=\"180ms\"/> The main hall will be available from nine, but the planetarium will remain closed until one because new equipment is being tested.<break time=\"180ms\"/> Visitors with morning planetarium tickets may use them for any afternoon show.<break time=\"180ms\"/> The cafe and gift shop will operate on their normal schedule.<break time=\"1100ms\"/></voice><voice name=\"en-US-EmmaMultilingualNeural\">Question.<break time=\"350ms\"/></voice><voice name=\"en-US-EmmaMultilingualNeural\">What can morning planetarium ticket holders do?</voice></speak>"
+      },
+      {
+        "id": "part2-No18",
+        "part": "Part 2",
+        "number": 18,
+        "voices": {
+          "body": "en-US-EmmaMultilingualNeural",
+          "narrator": "en-US-AndrewMultilingualNeural"
+        },
+        "oneAzureRequest": true,
+        "sentenceLevelAudioSplit": false,
+        "pausePlan": {
+          "internalPeriodPauseMs": 180,
+          "internalPeriodBreakCount": 4,
+          "finalPeriodsUseStructuralPause": true
+        },
+        "ssml": "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\"><voice name=\"en-US-AndrewMultilingualNeural\">Number eighteen.<break time=\"1150ms\"/></voice><voice name=\"en-US-EmmaMultilingualNeural\">For several years, Omar grew vegetables on his apartment balcony.<break time=\"180ms\"/> Last spring, nearby construction blocked most of the sunlight.<break time=\"180ms\"/> He considered moving the plants indoors, but there was not enough space.<break time=\"180ms\"/> Instead, he rented a small garden plot near his office.<break time=\"180ms\"/> He now checks the plants during his lunch break, though carrying tools there is sometimes inconvenient.<break time=\"1100ms\"/></voice><voice name=\"en-US-AndrewMultilingualNeural\">Question.<break time=\"350ms\"/></voice><voice name=\"en-US-AndrewMultilingualNeural\">How did Omar deal with the lack of sunlight?</voice></speak>"
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "part1-No01",
+      "part": "Part 1",
+      "number": 1,
+      "voices": {
+        "A": "en-US-AriaNeural",
+        "B": "en-US-AndrewMultilingualNeural",
+        "narrator": "en-US-EmmaMultilingualNeural"
+      },
+      "voiceLabel": "Aria × Andrew／案内 Emma",
+      "scriptHtml": "<p><strong>B</strong> The recording for our school radio show still isn&#x27;t in the shared folder.</p><p><strong>A</strong> I finished editing it, but the file is too large to send by email. Could you upload it from the media room?</p><p><strong>B</strong> Sure, but I need the final title before lunch because the teacher checks everything at one.</p><p><strong>A</strong> I&#x27;ll message you the title now. The interview section doesn&#x27;t need any more changes.</p><p class=\"question\"><strong>Question</strong> What does the girl ask the boy to do?</p>",
+      "ssml": "ssml/part1-No01-standard-neural-period-pause-48k.ssml",
+      "ssmlSha256": "62eddb2c1f78702810cbc71992d1a4a0ef3931912868adb2513a2b4b4da7777c",
+      "pausePlan": {
+        "internalPeriodPauseMs": 180,
+        "internalPeriodBreakCount": 2,
+        "finalPeriodsUseStructuralPause": true
+      },
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/x-wav",
+        "requestId": null,
+        "bytes": 3160604,
+        "elapsedSeconds": 8.215
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "httpStatus": 200,
+          "reason": null
+        }
+      ],
+      "wave": {
+        "channels": 1,
+        "sampleWidthBytes": 2,
+        "bitsPerSample": 16,
+        "sampleRateHz": 48000,
+        "frameCount": 1580280,
+        "durationSeconds": 32.922,
+        "compressionType": "NONE"
+      },
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "32.922500",
+          "bit_rate": "768010"
+        }
+      },
+      "loudness": {
+        "available": true,
+        "integratedLufs": -20.2,
+        "truePeakDbtp": -3.5
+      },
+      "masterWav": "audio/part1-No01-standard-neural-period-pause-48k.wav",
+      "publishedWav": "audio/part1-No01-standard-neural-period-pause-48k.wav",
+      "masterSha256": "07d69aa48c84b0efa9d761e7b56b98fca7dffc863811ef5c150763cf68420af4",
+      "publishedSha256": "07d69aa48c84b0efa9d761e7b56b98fca7dffc863811ef5c150763cf68420af4",
+      "publishedCopyHashMatch": true,
+      "fileBytes": 3160604,
+      "oneAzureRequest": true,
+      "postSynthesisConcatenation": false,
+      "postSynthesisConversion": false
+    },
+    {
+      "id": "part1-No02",
+      "part": "Part 1",
+      "number": 2,
+      "voices": {
+        "A": "en-US-AriaNeural",
+        "B": "en-US-AndrewMultilingualNeural",
+        "narrator": "en-US-EmmaMultilingualNeural"
+      },
+      "voiceLabel": "Aria × Andrew／案内 Emma",
+      "scriptHtml": "<p><strong>A</strong> I signed up for the beginner yoga class that meets on Wednesday evenings.</p><p><strong>B</strong> That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven.</p><p><strong>A</strong> Thursday works for me. Do I need to register again at the front desk?</p><p><strong>B</strong> No, your name is already on the new list. Just bring the same membership card.</p><p class=\"question\"><strong>Question</strong> What is true about the yoga class?</p>",
+      "ssml": "ssml/part1-No02-standard-neural-period-pause-48k.ssml",
+      "ssmlSha256": "4770b7276da3f656b15e45787273c033445c65bf46e3a272c6909d1ccd2d1117",
+      "pausePlan": {
+        "internalPeriodPauseMs": 180,
+        "internalPeriodBreakCount": 3,
+        "finalPeriodsUseStructuralPause": true
+      },
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/x-wav",
+        "requestId": null,
+        "bytes": 3005084,
+        "elapsedSeconds": 3.374
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "httpStatus": 200,
+          "reason": null
+        }
+      ],
+      "wave": {
+        "channels": 1,
+        "sampleWidthBytes": 2,
+        "bitsPerSample": 16,
+        "sampleRateHz": 48000,
+        "frameCount": 1502520,
+        "durationSeconds": 31.302,
+        "compressionType": "NONE"
+      },
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "31.302500",
+          "bit_rate": "768011"
+        }
+      },
+      "loudness": {
+        "available": true,
+        "integratedLufs": -19.7,
+        "truePeakDbtp": -1.7
+      },
+      "masterWav": "audio/part1-No02-standard-neural-period-pause-48k.wav",
+      "publishedWav": "audio/part1-No02-standard-neural-period-pause-48k.wav",
+      "masterSha256": "df9c8a79644b35465e86b6917d526ecef9a100c4533edfadff619063c097a31f",
+      "publishedSha256": "df9c8a79644b35465e86b6917d526ecef9a100c4533edfadff619063c097a31f",
+      "publishedCopyHashMatch": true,
+      "fileBytes": 3005084,
+      "oneAzureRequest": true,
+      "postSynthesisConcatenation": false,
+      "postSynthesisConversion": false
+    },
+    {
+      "id": "part1-No03",
+      "part": "Part 1",
+      "number": 3,
+      "voices": {
+        "A": "en-US-AriaNeural",
+        "B": "en-US-AndrewMultilingualNeural",
+        "narrator": "en-US-EmmaMultilingualNeural"
+      },
+      "voiceLabel": "Aria × Andrew／案内 Emma",
+      "scriptHtml": "<p><strong>A</strong> I can&#x27;t meet you at the café this afternoon. A repair worker is coming to look at our washing machine.</p><p><strong>B</strong> Didn&#x27;t your brother say he would stay home for that?</p><p><strong>A</strong> He was supposed to, but his manager asked him to work an extra shift. The worker may arrive anytime between two and five.</p><p><strong>B</strong> No problem. We can meet tomorrow after my class instead.</p><p class=\"question\"><strong>Question</strong> Why will the woman stay home this afternoon?</p>",
+      "ssml": "ssml/part1-No03-standard-neural-period-pause-48k.ssml",
+      "ssmlSha256": "b306ef188586a7eb1463394c133daee49e52e916fc716ade9b9d6772b6cf36b7",
+      "pausePlan": {
+        "internalPeriodPauseMs": 180,
+        "internalPeriodBreakCount": 3,
+        "finalPeriodsUseStructuralPause": true
+      },
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/x-wav",
+        "requestId": null,
+        "bytes": 3006284,
+        "elapsedSeconds": 3.198
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "httpStatus": 200,
+          "reason": null
+        }
+      ],
+      "wave": {
+        "channels": 1,
+        "sampleWidthBytes": 2,
+        "bitsPerSample": 16,
+        "sampleRateHz": 48000,
+        "frameCount": 1503120,
+        "durationSeconds": 31.315,
+        "compressionType": "NONE"
+      },
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "31.315000",
+          "bit_rate": "768011"
+        }
+      },
+      "loudness": {
+        "available": true,
+        "integratedLufs": -19.2,
+        "truePeakDbtp": -2.8
+      },
+      "masterWav": "audio/part1-No03-standard-neural-period-pause-48k.wav",
+      "publishedWav": "audio/part1-No03-standard-neural-period-pause-48k.wav",
+      "masterSha256": "033212d0bc6f971803fbac91b0765251ffc5c3f117e4dfd4024183ca969d60c7",
+      "publishedSha256": "033212d0bc6f971803fbac91b0765251ffc5c3f117e4dfd4024183ca969d60c7",
+      "publishedCopyHashMatch": true,
+      "fileBytes": 3006284,
+      "oneAzureRequest": true,
+      "postSynthesisConcatenation": false,
+      "postSynthesisConversion": false
+    },
+    {
+      "id": "part2-No16",
+      "part": "Part 2",
+      "number": 16,
+      "voices": {
+        "body": "en-US-AriaNeural",
+        "narrator": "en-US-AndrewMultilingualNeural"
+      },
+      "voiceLabel": "本文 Aria／案内 Andrew",
+      "scriptHtml": "<p>During her first weeks at a design company, Nina tried to write down every comment made during team meetings. She often missed later points because she was still writing. A colleague showed her how to divide a page into decisions and tasks. Nina used the new format at the next meeting and found it easier to follow the discussion.</p><p class=\"question\"><strong>Question</strong> Why did Nina change how she took notes?</p>",
+      "ssml": "ssml/part2-No16-standard-neural-period-pause-48k.ssml",
+      "ssmlSha256": "747a18f6463b566eeb3c7acbd40aba3044a651436f71ecefa1031057b1f8d509",
+      "pausePlan": {
+        "internalPeriodPauseMs": 180,
+        "internalPeriodBreakCount": 3,
+        "finalPeriodsUseStructuralPause": true
+      },
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/x-wav",
+        "requestId": null,
+        "bytes": 2766284,
+        "elapsedSeconds": 2.602
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "httpStatus": 200,
+          "reason": null
+        }
+      ],
+      "wave": {
+        "channels": 1,
+        "sampleWidthBytes": 2,
+        "bitsPerSample": 16,
+        "sampleRateHz": 48000,
+        "frameCount": 1383120,
+        "durationSeconds": 28.815,
+        "compressionType": "NONE"
+      },
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "28.815000",
+          "bit_rate": "768012"
+        }
+      },
+      "loudness": {
+        "available": true,
+        "integratedLufs": -20.1,
+        "truePeakDbtp": -2.2
+      },
+      "masterWav": "audio/part2-No16-standard-neural-period-pause-48k.wav",
+      "publishedWav": "audio/part2-No16-standard-neural-period-pause-48k.wav",
+      "masterSha256": "bd949058cde97cf1ad7da5f2cbb45b7e16d012351f862a98232baebd171e197c",
+      "publishedSha256": "bd949058cde97cf1ad7da5f2cbb45b7e16d012351f862a98232baebd171e197c",
+      "publishedCopyHashMatch": true,
+      "fileBytes": 2766284,
+      "oneAzureRequest": true,
+      "postSynthesisConcatenation": false,
+      "postSynthesisConversion": false
+    },
+    {
+      "id": "part2-No17",
+      "part": "Part 2",
+      "number": 17,
+      "voices": {
+        "body": "en-US-AndrewMultilingualNeural",
+        "narrator": "en-US-EmmaMultilingualNeural"
+      },
+      "voiceLabel": "本文 Andrew／案内 Emma",
+      "scriptHtml": "<p>The Riverside Science Center will open its space exhibition this Saturday. The main hall will be available from nine, but the planetarium will remain closed until one because new equipment is being tested. Visitors with morning planetarium tickets may use them for any afternoon show. The café and gift shop will operate on their normal schedule.</p><p class=\"question\"><strong>Question</strong> What can morning planetarium ticket holders do?</p>",
+      "ssml": "ssml/part2-No17-standard-neural-period-pause-48k.ssml",
+      "ssmlSha256": "5b7afb394d82454a7675635ac067bee91402c45f21486ebb6cc98fb7d4348f14",
+      "pausePlan": {
+        "internalPeriodPauseMs": 180,
+        "internalPeriodBreakCount": 3,
+        "finalPeriodsUseStructuralPause": true
+      },
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/x-wav",
+        "requestId": null,
+        "bytes": 2885084,
+        "elapsedSeconds": 4.583
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "httpStatus": 200,
+          "reason": null
+        }
+      ],
+      "wave": {
+        "channels": 1,
+        "sampleWidthBytes": 2,
+        "bitsPerSample": 16,
+        "sampleRateHz": 48000,
+        "frameCount": 1442520,
+        "durationSeconds": 30.052,
+        "compressionType": "NONE"
+      },
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "30.052500",
+          "bit_rate": "768011"
+        }
+      },
+      "loudness": {
+        "available": true,
+        "integratedLufs": -19.4,
+        "truePeakDbtp": -3.4
+      },
+      "masterWav": "audio/part2-No17-standard-neural-period-pause-48k.wav",
+      "publishedWav": "audio/part2-No17-standard-neural-period-pause-48k.wav",
+      "masterSha256": "f81704d05b964f2ac72c0f5c2b3e185054b6cd254ddadd372531283e83a71026",
+      "publishedSha256": "f81704d05b964f2ac72c0f5c2b3e185054b6cd254ddadd372531283e83a71026",
+      "publishedCopyHashMatch": true,
+      "fileBytes": 2885084,
+      "oneAzureRequest": true,
+      "postSynthesisConcatenation": false,
+      "postSynthesisConversion": false
+    },
+    {
+      "id": "part2-No18",
+      "part": "Part 2",
+      "number": 18,
+      "voices": {
+        "body": "en-US-EmmaMultilingualNeural",
+        "narrator": "en-US-AndrewMultilingualNeural"
+      },
+      "voiceLabel": "本文 Emma／案内 Andrew",
+      "scriptHtml": "<p>For several years, Omar grew vegetables on his apartment balcony. Last spring, nearby construction blocked most of the sunlight. He considered moving the plants indoors, but there was not enough space. Instead, he rented a small garden plot near his office. He now checks the plants during his lunch break, though carrying tools there is sometimes inconvenient.</p><p class=\"question\"><strong>Question</strong> How did Omar deal with the lack of sunlight?</p>",
+      "ssml": "ssml/part2-No18-standard-neural-period-pause-48k.ssml",
+      "ssmlSha256": "f30d823a76a90c825681e5deefadc2342a3222257aa915d46c9b303241efccd0",
+      "pausePlan": {
+        "internalPeriodPauseMs": 180,
+        "internalPeriodBreakCount": 4,
+        "finalPeriodsUseStructuralPause": true
+      },
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/x-wav",
+        "requestId": null,
+        "bytes": 2901164,
+        "elapsedSeconds": 3.274
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "httpStatus": 200,
+          "reason": null
+        }
+      ],
+      "wave": {
+        "channels": 1,
+        "sampleWidthBytes": 2,
+        "bitsPerSample": 16,
+        "sampleRateHz": 48000,
+        "frameCount": 1450560,
+        "durationSeconds": 30.22,
+        "compressionType": "NONE"
+      },
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "30.220000",
+          "bit_rate": "768011"
+        }
+      },
+      "loudness": {
+        "available": true,
+        "integratedLufs": -18.1,
+        "truePeakDbtp": -3.8
+      },
+      "masterWav": "audio/part2-No18-standard-neural-period-pause-48k.wav",
+      "publishedWav": "audio/part2-No18-standard-neural-period-pause-48k.wav",
+      "masterSha256": "a7e1f897033ca4a75a69d968fa2d271709025eff086fabf9bd6eec43b500ca61",
+      "publishedSha256": "a7e1f897033ca4a75a69d968fa2d271709025eff086fabf9bd6eec43b500ca61",
+      "publishedCopyHashMatch": true,
+      "fileBytes": 2901164,
+      "oneAzureRequest": true,
+      "postSynthesisConcatenation": false,
+      "postSynthesisConversion": false
+    }
+  ]
+}

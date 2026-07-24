@@ -1,0 +1,67 @@
+{
+  "mode": "completed",
+  "item": "No02",
+  "model": "tts-1-hd",
+  "voices": {
+    "A": "nova",
+    "B": "onyx",
+    "N": "nova"
+  },
+  "speed": 0.9,
+  "responseFormat": "wav",
+  "sourceSegments": 6,
+  "synthesisSegments": 5,
+  "maxApiCalls": 5,
+  "maxRetriesPerSegment": 0,
+  "estimatedCostCapUsd": 0.05,
+  "instructions": null,
+  "estimate": {
+    "characters": 434,
+    "words": 81,
+    "estimatedDurationSeconds": 42.73,
+    "estimatedCostUsd": 0.013,
+    "costBasis": "30 USD per 1M input characters"
+  },
+  "output": "audio-generation\\openai-tts-trials\\tts-1-hd-sample-0p9\\part1\\No02.wav",
+  "segments": [
+    {
+      "speaker": "A",
+      "voice": "nova",
+      "text": "Number 2... Good afternoon. I reserved a quiet room for two nights under the name Laura Green.",
+      "gapAfterMs": 180
+    },
+    {
+      "speaker": "B",
+      "voice": "onyx",
+      "text": "I found your reservation, Ms. Green. The quiet room won't be ready until six, but a room near the elevator is available now.",
+      "gapAfterMs": 180
+    },
+    {
+      "speaker": "A",
+      "voice": "nova",
+      "text": "I'd rather wait. Can I leave my suitcase here while I get something to eat?",
+      "gapAfterMs": 180
+    },
+    {
+      "speaker": "B",
+      "voice": "onyx",
+      "text": "Certainly. We'll keep it behind the front desk and call you when your room is ready.",
+      "gapAfterMs": 650
+    },
+    {
+      "speaker": "A",
+      "voice": "nova",
+      "text": "Question. What does the man say about the quiet room?",
+      "gapAfterMs": 0
+    }
+  ],
+  "apiCalls": 5,
+  "cachedSegments": 0,
+  "outputBytes": 1417864,
+  "outputMetadata": {
+    "codec_name": "pcm_s16le",
+    "sample_rate": "24000",
+    "channels": 1,
+    "duration": "29.537208"
+  }
+}

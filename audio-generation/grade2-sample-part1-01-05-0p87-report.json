@@ -1,0 +1,97 @@
+[
+  {
+    "id": "No01",
+    "number": 1,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No01.wav",
+    "bytes": 1397838,
+    "duration": "29.120000",
+    "bitRate": "384000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "-13%",
+      "B": "-13%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "48k",
+    "concatMode": "copy",
+    "outputFormat": "wav"
+  },
+  {
+    "id": "No02",
+    "number": 2,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No02.wav",
+    "bytes": 1819470,
+    "duration": "37.904000",
+    "bitRate": "384000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "-13%",
+      "B": "-13%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "48k",
+    "concatMode": "copy",
+    "outputFormat": "wav"
+  },
+  {
+    "id": "No03",
+    "number": 3,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No03.wav",
+    "bytes": 1589070,
+    "duration": "33.104000",
+    "bitRate": "384000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "-13%",
+      "B": "-13%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "48k",
+    "concatMode": "copy",
+    "outputFormat": "wav"
+  },
+  {
+    "id": "No04",
+    "number": 4,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No04.wav",
+    "bytes": 1578702,
+    "duration": "32.888000",
+    "bitRate": "384000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "-13%",
+      "B": "-13%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "48k",
+    "concatMode": "copy",
+    "outputFormat": "wav"
+  },
+  {
+    "id": "No05",
+    "number": 5,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No05.wav",
+    "bytes": 1492302,
+    "duration": "31.088000",
+    "bitRate": "384000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "-13%",
+      "B": "-13%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "48k",
+    "concatMode": "copy",
+    "outputFormat": "wav"
+  }
+]

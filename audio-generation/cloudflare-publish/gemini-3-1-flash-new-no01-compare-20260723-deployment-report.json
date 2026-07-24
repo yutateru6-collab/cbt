@@ -1,0 +1,22 @@
+{
+  "project": "scbt-tts-compare",
+  "branch": "main",
+  "deploymentId": "5c8fab0b",
+  "deploymentUrl": "https://5c8fab0b.scbt-tts-compare.pages.dev",
+  "publicUrl": "https://scbt-tts-compare.pages.dev/?v=20260723-gemini31-new-no01",
+  "sourceDirectory": "audio-generation/cloudflare-publish/gemini-3-1-flash-new-no01-compare-20260723",
+  "deployedWith": "wrangler 4.112.0",
+  "verification": {
+    "htmlStatus": 200,
+    "htmlContentType": "text/html; charset=utf-8",
+    "audioElementCount": 10,
+    "newSectionPresent": true,
+    "newAudioStatus": 200,
+    "newAudioContentType": "audio/wav",
+    "newAudioBytes": 1353228,
+    "newAudioSha256": "da575a1a2b25e65d7c33a65aaa525ca61186552a03eb8aa054921647ab014317",
+    "newAudioHashMatchesLocal": true,
+    "browserVisualVerification": false,
+    "browserVisualVerificationReason": "No browser was connected to the browser runtime."
+  }
+}

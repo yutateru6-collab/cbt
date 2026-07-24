@@ -1,0 +1,1547 @@
+{
+  "source": "grade2-listening-part2-sets.js",
+  "setKey": "set-01",
+  "label": "第1回",
+  "part": "Part 1",
+  "model": "gpt-4o-mini-tts",
+  "openaiSpeed": 1.0,
+  "edgeRate": "+0%",
+  "normalGapMs": 180,
+  "questionGapMs": 650,
+  "pairBlocks": [
+    {
+      "start": 1,
+      "end": 5,
+      "A": {
+        "provider": "edge",
+        "voice": "en-US-EmmaMultilingualNeural",
+        "gender": "female",
+        "language": "en-US",
+        "englishOnly": true,
+        "gainDb": -4.0
+      },
+      "B": {
+        "provider": "openai",
+        "voice": "cedar",
+        "gender": "male",
+        "accent": "American English",
+        "gainDb": 0.0
+      }
+    },
+    {
+      "start": 6,
+      "end": 10,
+      "A": {
+        "provider": "openai",
+        "voice": "marin",
+        "gender": "female",
+        "accent": "American English",
+        "gainDb": 0.0
+      },
+      "B": {
+        "provider": "edge",
+        "voice": "en-GB-RyanNeural",
+        "gender": "male",
+        "language": "en-GB",
+        "englishOnly": true,
+        "gainDb": 0.0
+      }
+    },
+    {
+      "start": 11,
+      "end": 15,
+      "A": {
+        "provider": "edge",
+        "voice": "en-US-AvaMultilingualNeural",
+        "gender": "female",
+        "language": "en-US",
+        "englishOnly": true,
+        "gainDb": -3.5
+      },
+      "B": {
+        "provider": "openai",
+        "voice": "cedar",
+        "gender": "male",
+        "accent": "American English",
+        "gainDb": 0.0
+      }
+    }
+  ],
+  "items": [
+    {
+      "id": "No01",
+      "number": 1,
+      "displayScript": "B: The recording for our school radio show still isn't in the shared folder. A: I finished editing it, but the file is too large to send by email. Could you upload it from the media room? B: Sure, but I need the final title before lunch because the teacher checks everything at one. A: I'll message you the title now. The interview section doesn't need any more changes.",
+      "questionText": "What does the girl ask the boy to do?",
+      "choices": [
+        "Edit the interview section again.",
+        "Email the recording to the teacher.",
+        "Upload the recording from the media room.",
+        "Choose a new title for the show."
+      ],
+      "correct": 3,
+      "voices": {
+        "A": {
+          "provider": "edge",
+          "voice": "en-US-EmmaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -4.0
+        },
+        "B": {
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "accent": "American English",
+          "gainDb": 0.0
+        }
+      },
+      "segments": [
+        {
+          "speaker": "B",
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Number 1... The recording for our school radio show still isn't in the shared folder.",
+          "text": "Number 1... The recording for our school radio show still isn't in the shared folder.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "provider": "edge",
+          "voice": "en-US-EmmaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -4.0,
+          "displayText": "I finished editing it, but the file is too large to send by email. Could you upload it from the media room?",
+          "text": "I finished editing it, but the file is too large to send by email. Could you upload it from the media room?",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Sure, but I need the final title before lunch because the teacher checks everything at one.",
+          "text": "Sure, but I need the final title before lunch because the teacher checks everything at one.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "provider": "edge",
+          "voice": "en-US-EmmaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -4.0,
+          "displayText": "I'll message you the title now. The interview section doesn't need any more changes.",
+          "text": "I'll message you the title now. The interview section doesn't need any more changes.",
+          "ttsOverrides": [],
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "B",
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Question. What does the girl ask the boy to do?",
+          "text": "Question. What does the girl ask the boy to do?",
+          "ttsOverrides": [],
+          "gapAfterMs": 0,
+          "role": "question"
+        }
+      ]
+    },
+    {
+      "id": "No02",
+      "number": 2,
+      "displayScript": "A: I signed up for the beginner yoga class that meets on Wednesday evenings. B: That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven. A: Thursday works for me. Do I need to register again at the front desk? B: No, your name is already on the new list. Just bring the same membership card.",
+      "questionText": "What is true about the yoga class?",
+      "choices": [
+        "It will be held on Thursday.",
+        "It will begin earlier than planned.",
+        "It needs a different instructor.",
+        "It requires another registration."
+      ],
+      "correct": 1,
+      "voices": {
+        "A": {
+          "provider": "edge",
+          "voice": "en-US-EmmaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -4.0
+        },
+        "B": {
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "accent": "American English",
+          "gainDb": 0.0
+        }
+      },
+      "segments": [
+        {
+          "speaker": "A",
+          "provider": "edge",
+          "voice": "en-US-EmmaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -4.0,
+          "displayText": "Number 2... I signed up for the beginner yoga class that meets on Wednesday evenings.",
+          "text": "Number 2... I signed up for the beginner yoga class that meets on Wednesday evenings.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven.",
+          "text": "That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "provider": "edge",
+          "voice": "en-US-EmmaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -4.0,
+          "displayText": "Thursday works for me. Do I need to register again at the front desk?",
+          "text": "Thursday works for me. Do I need to register again at the front desk?",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "No, your name is already on the new list. Just bring the same membership card.",
+          "text": "No, your name is already on the new list. Just bring the same membership card.",
+          "ttsOverrides": [],
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "A",
+          "provider": "edge",
+          "voice": "en-US-EmmaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -4.0,
+          "displayText": "Question. What is true about the yoga class?",
+          "text": "Question. What is true about the yoga class?",
+          "ttsOverrides": [],
+          "gapAfterMs": 0,
+          "role": "question"
+        }
+      ]
+    },
+    {
+      "id": "No03",
+      "number": 3,
+      "displayScript": "A: I can't meet you at the café this afternoon. A repair worker is coming to look at our washing machine. B: Didn't your brother say he would stay home for that? A: He was supposed to, but his manager asked him to work an extra shift. The worker may arrive anytime between two and five. B: No problem. We can meet tomorrow after my class instead.",
+      "questionText": "Why will the woman stay home this afternoon?",
+      "choices": [
+        "She has to finish some housework.",
+        "Her brother is visiting after work.",
+        "She is waiting for a café delivery.",
+        "She must meet a repair worker."
+      ],
+      "correct": 4,
+      "voices": {
+        "A": {
+          "provider": "edge",
+          "voice": "en-US-EmmaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -4.0
+        },
+        "B": {
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "accent": "American English",
+          "gainDb": 0.0
+        }
+      },
+      "segments": [
+        {
+          "speaker": "A",
+          "provider": "edge",
+          "voice": "en-US-EmmaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -4.0,
+          "displayText": "Number 3... I can't meet you at the café this afternoon. A repair worker is coming to look at our washing machine.",
+          "text": "Number 3... I can't meet you at the cafe this afternoon. A repair worker is coming to look at our washing machine.",
+          "ttsOverrides": [
+            {
+              "from": "café",
+              "to": "cafe"
+            }
+          ],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Didn't your brother say he would stay home for that?",
+          "text": "Didn't your brother say he would stay home for that?",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "provider": "edge",
+          "voice": "en-US-EmmaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -4.0,
+          "displayText": "He was supposed to, but his manager asked him to work an extra shift. The worker may arrive anytime between two and five.",
+          "text": "He was supposed to, but his manager asked him to work an extra shift. The worker may arrive anytime between two and five.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "No problem. We can meet tomorrow after my class instead.",
+          "text": "No problem. We can meet tomorrow after my class instead.",
+          "ttsOverrides": [],
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "A",
+          "provider": "edge",
+          "voice": "en-US-EmmaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -4.0,
+          "displayText": "Question. Why will the woman stay home this afternoon?",
+          "text": "Question. Why will the woman stay home this afternoon?",
+          "ttsOverrides": [],
+          "gapAfterMs": 0,
+          "role": "question"
+        }
+      ]
+    },
+    {
+      "id": "No04",
+      "number": 4,
+      "displayScript": "B: These boxes for the Sendai branch are ready, but I haven't printed the shipping labels. A: The printer beside my desk is working again. I can print the labels while you check the addresses. B: Thanks. Please use the express service for the two boxes marked urgent. A: All right. I'll separate those labels and bring everything to the mailroom before three.",
+      "questionText": "What does the woman offer to do?",
+      "choices": [
+        "Check the branch addresses.",
+        "Print the shipping labels.",
+        "Carry the boxes to Sendai.",
+        "Repair the office printer."
+      ],
+      "correct": 2,
+      "voices": {
+        "A": {
+          "provider": "edge",
+          "voice": "en-US-EmmaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -4.0
+        },
+        "B": {
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "accent": "American English",
+          "gainDb": 0.0
+        }
+      },
+      "segments": [
+        {
+          "speaker": "B",
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Number 4... These boxes for the Sendai branch are ready, but I haven't printed the shipping labels.",
+          "text": "Number 4... These boxes for the Sendai branch are ready, but I haven't printed the shipping labels.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "provider": "edge",
+          "voice": "en-US-EmmaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -4.0,
+          "displayText": "The printer beside my desk is working again. I can print the labels while you check the addresses.",
+          "text": "The printer beside my desk is working again. I can print the labels while you check the addresses.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Thanks. Please use the express service for the two boxes marked urgent.",
+          "text": "Thanks. Please use the express service for the two boxes marked urgent.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "provider": "edge",
+          "voice": "en-US-EmmaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -4.0,
+          "displayText": "All right. I'll separate those labels and bring everything to the mailroom before three.",
+          "text": "All right. I'll separate those labels and bring everything to the mailroom before three.",
+          "ttsOverrides": [],
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "B",
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Question. What does the woman offer to do?",
+          "text": "Question. What does the woman offer to do?",
+          "ttsOverrides": [],
+          "gapAfterMs": 0,
+          "role": "question"
+        }
+      ]
+    },
+    {
+      "id": "No05",
+      "number": 5,
+      "displayScript": "B: Excuse me, I left a black backpack on the train from Riverside this morning. A: Was it the train that arrived here at nine forty? Its lost items were taken to the service office downstairs. B: Yes, that was the one. I already checked the platform, but nobody had found it there. A: Then go to the service office and describe the key chain attached to the bag.",
+      "questionText": "Where should the man go?",
+      "choices": [
+        "The Riverside ticket counter",
+        "The arrival platform upstairs",
+        "The service office downstairs",
+        "The police station near the train line"
+      ],
+      "correct": 3,
+      "voices": {
+        "A": {
+          "provider": "edge",
+          "voice": "en-US-EmmaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -4.0
+        },
+        "B": {
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "accent": "American English",
+          "gainDb": 0.0
+        }
+      },
+      "segments": [
+        {
+          "speaker": "B",
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Number 5... Excuse me, I left a black backpack on the train from Riverside this morning.",
+          "text": "Number 5... Excuse me, I left a black backpack on the train from Riverside this morning.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "provider": "edge",
+          "voice": "en-US-EmmaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -4.0,
+          "displayText": "Was it the train that arrived here at nine forty? Its lost items were taken to the service office downstairs.",
+          "text": "Was it the train that arrived here at nine forty? Its lost items were taken to the service office downstairs.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Yes, that was the one. I already checked the platform, but nobody had found it there.",
+          "text": "Yes, that was the one. I already checked the platform, but nobody had found it there.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "provider": "edge",
+          "voice": "en-US-EmmaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -4.0,
+          "displayText": "Then go to the service office and describe the key chain attached to the bag.",
+          "text": "Then go to the service office and describe the key chain attached to the bag.",
+          "ttsOverrides": [],
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "B",
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Question. Where should the man go?",
+          "text": "Question. Where should the man go?",
+          "ttsOverrides": [],
+          "gapAfterMs": 0,
+          "role": "question"
+        }
+      ]
+    },
+    {
+      "id": "No06",
+      "number": 6,
+      "displayScript": "A: Are you ready for the hiking trip on Sunday? The weather report says it may get cold near the top. B: I packed a light jacket and some gloves. I was going to bring sandwiches, too. A: Mina is making lunch for everyone, but we still need something for hot drinks. B: Then I'll bring my small camping stove. We can use it to heat water during the break.",
+      "questionText": "What will the man bring for the group?",
+      "choices": [
+        "A small camping stove",
+        "Several pairs of gloves",
+        "Sandwiches for lunch",
+        "A detailed weather report"
+      ],
+      "correct": 1,
+      "voices": {
+        "A": {
+          "provider": "openai",
+          "voice": "marin",
+          "gender": "female",
+          "accent": "American English",
+          "gainDb": 0.0
+        },
+        "B": {
+          "provider": "edge",
+          "voice": "en-GB-RyanNeural",
+          "gender": "male",
+          "language": "en-GB",
+          "englishOnly": true,
+          "gainDb": 0.0
+        }
+      },
+      "segments": [
+        {
+          "speaker": "A",
+          "provider": "openai",
+          "voice": "marin",
+          "gender": "female",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Number 6... Are you ready for the hiking trip on Sunday? The weather report says it may get cold near the top.",
+          "text": "Number 6... Are you ready for the hiking trip on Sunday? The weather report says it may get cold near the top.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "provider": "edge",
+          "voice": "en-GB-RyanNeural",
+          "gender": "male",
+          "language": "en-GB",
+          "englishOnly": true,
+          "gainDb": 0.0,
+          "displayText": "I packed a light jacket and some gloves. I was going to bring sandwiches, too.",
+          "text": "I packed a light jacket and some gloves. I was going to bring sandwiches, too.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "provider": "openai",
+          "voice": "marin",
+          "gender": "female",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Mina is making lunch for everyone, but we still need something for hot drinks.",
+          "text": "Mina is making lunch for everyone, but we still need something for hot drinks.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "provider": "edge",
+          "voice": "en-GB-RyanNeural",
+          "gender": "male",
+          "language": "en-GB",
+          "englishOnly": true,
+          "gainDb": 0.0,
+          "displayText": "Then I'll bring my small camping stove. We can use it to heat water during the break.",
+          "text": "Then I'll bring my small camping stove. We can use it to heat water during the break.",
+          "ttsOverrides": [],
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "A",
+          "provider": "openai",
+          "voice": "marin",
+          "gender": "female",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Question. What will the man bring for the group?",
+          "text": "Question. What will the man bring for the group?",
+          "ttsOverrides": [],
+          "gapAfterMs": 0,
+          "role": "question"
+        }
+      ]
+    },
+    {
+      "id": "No07",
+      "number": 7,
+      "displayScript": "B: I'm here to pick up the medicine my doctor ordered yesterday. A: Let me check. The tablets are ready, but the liquid medicine won't arrive until tomorrow morning. B: I need both before I leave town tonight. Can another pharmacy fill the rest of the order? A: Yes. The pharmacy inside West Mall has it in stock, and I'll send your prescription there.",
+      "questionText": "Where can the man get the liquid medicine today?",
+      "choices": [
+        "At the pharmacy inside West Mall",
+        "At his doctor's office",
+        "At the current pharmacy",
+        "At a pharmacy near the station"
+      ],
+      "correct": 1,
+      "voices": {
+        "A": {
+          "provider": "openai",
+          "voice": "marin",
+          "gender": "female",
+          "accent": "American English",
+          "gainDb": 0.0
+        },
+        "B": {
+          "provider": "edge",
+          "voice": "en-GB-RyanNeural",
+          "gender": "male",
+          "language": "en-GB",
+          "englishOnly": true,
+          "gainDb": 0.0
+        }
+      },
+      "segments": [
+        {
+          "speaker": "B",
+          "provider": "edge",
+          "voice": "en-GB-RyanNeural",
+          "gender": "male",
+          "language": "en-GB",
+          "englishOnly": true,
+          "gainDb": 0.0,
+          "displayText": "Number 7... I'm here to pick up the medicine my doctor ordered yesterday.",
+          "text": "Number 7... I'm here to pick up the medicine my doctor ordered yesterday.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "provider": "openai",
+          "voice": "marin",
+          "gender": "female",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Let me check. The tablets are ready, but the liquid medicine won't arrive until tomorrow morning.",
+          "text": "Let me check. The tablets are ready, but the liquid medicine won't arrive until tomorrow morning.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "provider": "edge",
+          "voice": "en-GB-RyanNeural",
+          "gender": "male",
+          "language": "en-GB",
+          "englishOnly": true,
+          "gainDb": 0.0,
+          "displayText": "I need both before I leave town tonight. Can another pharmacy fill the rest of the order?",
+          "text": "I need both before I leave town tonight. Can another pharmacy fill the rest of the order?",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "provider": "openai",
+          "voice": "marin",
+          "gender": "female",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Yes. The pharmacy inside West Mall has it in stock, and I'll send your prescription there.",
+          "text": "Yes. The pharmacy inside West Mall has it in stock, and I'll send your prescription there.",
+          "ttsOverrides": [],
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "B",
+          "provider": "edge",
+          "voice": "en-GB-RyanNeural",
+          "gender": "male",
+          "language": "en-GB",
+          "englishOnly": true,
+          "gainDb": 0.0,
+          "displayText": "Question. Where can the man get the liquid medicine today?",
+          "text": "Question. Where can the man get the liquid medicine today?",
+          "ttsOverrides": [],
+          "gapAfterMs": 0,
+          "role": "question"
+        }
+      ]
+    },
+    {
+      "id": "No08",
+      "number": 8,
+      "displayScript": "A: I ordered the mushroom soup, but I think this one contains shrimp. I'm allergic to shellfish. B: I'm very sorry. The bowls look similar, and I brought the seafood soup by mistake. A: Could you replace it with the mushroom soup? I haven't touched the salad, so please leave that here. B: Certainly. I'll bring the correct soup and check the ingredients with the chef first.",
+      "questionText": "What does the woman ask the man to bring?",
+      "choices": [
+        "A different salad",
+        "The mushroom soup",
+        "A list of seafood dishes",
+        "Another bowl of shrimp soup"
+      ],
+      "correct": 2,
+      "voices": {
+        "A": {
+          "provider": "openai",
+          "voice": "marin",
+          "gender": "female",
+          "accent": "American English",
+          "gainDb": 0.0
+        },
+        "B": {
+          "provider": "edge",
+          "voice": "en-GB-RyanNeural",
+          "gender": "male",
+          "language": "en-GB",
+          "englishOnly": true,
+          "gainDb": 0.0
+        }
+      },
+      "segments": [
+        {
+          "speaker": "A",
+          "provider": "openai",
+          "voice": "marin",
+          "gender": "female",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Number 8... I ordered the mushroom soup, but I think this one contains shrimp. I'm allergic to shellfish.",
+          "text": "Number 8... I ordered the mushroom soup, but I think this one contains shrimp. I'm allergic to shellfish.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "provider": "edge",
+          "voice": "en-GB-RyanNeural",
+          "gender": "male",
+          "language": "en-GB",
+          "englishOnly": true,
+          "gainDb": 0.0,
+          "displayText": "I'm very sorry. The bowls look similar, and I brought the seafood soup by mistake.",
+          "text": "I'm very sorry. The bowls look similar, and I brought the seafood soup by mistake.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "provider": "openai",
+          "voice": "marin",
+          "gender": "female",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Could you replace it with the mushroom soup? I haven't touched the salad, so please leave that here.",
+          "text": "Could you replace it with the mushroom soup? I haven't touched the salad, so please leave that here.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "provider": "edge",
+          "voice": "en-GB-RyanNeural",
+          "gender": "male",
+          "language": "en-GB",
+          "englishOnly": true,
+          "gainDb": 0.0,
+          "displayText": "Certainly. I'll bring the correct soup and check the ingredients with the chef first.",
+          "text": "Certainly. I'll bring the correct soup and check the ingredients with the chef first.",
+          "ttsOverrides": [],
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "A",
+          "provider": "openai",
+          "voice": "marin",
+          "gender": "female",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Question. What does the woman ask the man to bring?",
+          "text": "Question. What does the woman ask the man to bring?",
+          "ttsOverrides": [],
+          "gapAfterMs": 0,
+          "role": "question"
+        }
+      ]
+    },
+    {
+      "id": "No09",
+      "number": 9,
+      "displayScript": "B: Hello. I have a dental cleaning scheduled for Friday morning, but my company has added an important meeting. A: We have an opening at four Friday afternoon, or you could come at eleven next Monday. B: Four on Friday is best. Will the same dentist be available then? A: Yes, Dr. Allen will see you. Please arrive five minutes early to update your address.",
+      "questionText": "Why did the man call the woman?",
+      "choices": [
+        "To request a different dentist",
+        "To report a change of address",
+        "To ask how long a cleaning takes",
+        "To change the time of his appointment"
+      ],
+      "correct": 4,
+      "voices": {
+        "A": {
+          "provider": "openai",
+          "voice": "marin",
+          "gender": "female",
+          "accent": "American English",
+          "gainDb": 0.0
+        },
+        "B": {
+          "provider": "edge",
+          "voice": "en-GB-RyanNeural",
+          "gender": "male",
+          "language": "en-GB",
+          "englishOnly": true,
+          "gainDb": 0.0
+        }
+      },
+      "segments": [
+        {
+          "speaker": "B",
+          "provider": "edge",
+          "voice": "en-GB-RyanNeural",
+          "gender": "male",
+          "language": "en-GB",
+          "englishOnly": true,
+          "gainDb": 0.0,
+          "displayText": "Number 9... Hello. I have a dental cleaning scheduled for Friday morning, but my company has added an important meeting.",
+          "text": "Number 9... Hello. I have a dental cleaning scheduled for Friday morning, but my company has added an important meeting.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "provider": "openai",
+          "voice": "marin",
+          "gender": "female",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "We have an opening at four Friday afternoon, or you could come at eleven next Monday.",
+          "text": "We have an opening at four Friday afternoon, or you could come at eleven next Monday.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "provider": "edge",
+          "voice": "en-GB-RyanNeural",
+          "gender": "male",
+          "language": "en-GB",
+          "englishOnly": true,
+          "gainDb": 0.0,
+          "displayText": "Four on Friday is best. Will the same dentist be available then?",
+          "text": "Four on Friday is best. Will the same dentist be available then?",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "provider": "openai",
+          "voice": "marin",
+          "gender": "female",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Yes, Dr. Allen will see you. Please arrive five minutes early to update your address.",
+          "text": "Yes, Dr. Allen will see you. Please arrive five minutes early to update your address.",
+          "ttsOverrides": [],
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "B",
+          "provider": "edge",
+          "voice": "en-GB-RyanNeural",
+          "gender": "male",
+          "language": "en-GB",
+          "englishOnly": true,
+          "gainDb": 0.0,
+          "displayText": "Question. Why did the man call the woman?",
+          "text": "Question. Why did the man call the woman?",
+          "ttsOverrides": [],
+          "gapAfterMs": 0,
+          "role": "question"
+        }
+      ]
+    },
+    {
+      "id": "No10",
+      "number": 10,
+      "displayScript": "A: The community garden needs volunteers Saturday morning. I can water the new plants, but I can't lift the soil bags. B: I can move the bags after I finish setting up the tables for the plant sale. A: Great. Please leave four bags beside each flower bed, not near the gate. B: Got it. I'll borrow the garden cart so I can carry several at once.",
+      "questionText": "What will the man do at the garden?",
+      "choices": [
+        "Water the new plants.",
+        "Sell flowers at the gate.",
+        "Move bags of soil.",
+        "Repair the garden cart."
+      ],
+      "correct": 3,
+      "voices": {
+        "A": {
+          "provider": "openai",
+          "voice": "marin",
+          "gender": "female",
+          "accent": "American English",
+          "gainDb": 0.0
+        },
+        "B": {
+          "provider": "edge",
+          "voice": "en-GB-RyanNeural",
+          "gender": "male",
+          "language": "en-GB",
+          "englishOnly": true,
+          "gainDb": 0.0
+        }
+      },
+      "segments": [
+        {
+          "speaker": "A",
+          "provider": "openai",
+          "voice": "marin",
+          "gender": "female",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Number 10... The community garden needs volunteers Saturday morning. I can water the new plants, but I can't lift the soil bags.",
+          "text": "Number 10... The community garden needs volunteers Saturday morning. I can water the new plants, but I can't lift the soil bags.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "provider": "edge",
+          "voice": "en-GB-RyanNeural",
+          "gender": "male",
+          "language": "en-GB",
+          "englishOnly": true,
+          "gainDb": 0.0,
+          "displayText": "I can move the bags after I finish setting up the tables for the plant sale.",
+          "text": "I can move the bags after I finish setting up the tables for the plant sale.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "provider": "openai",
+          "voice": "marin",
+          "gender": "female",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Great. Please leave four bags beside each flower bed, not near the gate.",
+          "text": "Great. Please leave four bags beside each flower bed, not near the gate.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "provider": "edge",
+          "voice": "en-GB-RyanNeural",
+          "gender": "male",
+          "language": "en-GB",
+          "englishOnly": true,
+          "gainDb": 0.0,
+          "displayText": "Got it. I'll borrow the garden cart so I can carry several at once.",
+          "text": "Got it. I'll borrow the garden cart so I can carry several at once.",
+          "ttsOverrides": [],
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "A",
+          "provider": "openai",
+          "voice": "marin",
+          "gender": "female",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Question. What will the man do at the garden?",
+          "text": "Question. What will the man do at the garden?",
+          "ttsOverrides": [],
+          "gapAfterMs": 0,
+          "role": "question"
+        }
+      ]
+    },
+    {
+      "id": "No11",
+      "number": 11,
+      "displayScript": "A: I ordered these running shoes online, but they feel too tight around the toes. B: We can exchange them here. This model is available in a larger size in gray today. A: I was hoping for the same blue color. When will the larger blue ones arrive? B: Our delivery is expected next Wednesday. I can reserve a pair under your name.",
+      "questionText": "When will the larger blue shoes arrive?",
+      "choices": [
+        "Later today",
+        "Next Wednesday",
+        "This weekend",
+        "At the end of the month"
+      ],
+      "correct": 2,
+      "voices": {
+        "A": {
+          "provider": "edge",
+          "voice": "en-US-AvaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -3.5
+        },
+        "B": {
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "accent": "American English",
+          "gainDb": 0.0
+        }
+      },
+      "segments": [
+        {
+          "speaker": "A",
+          "provider": "edge",
+          "voice": "en-US-AvaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -3.5,
+          "displayText": "Number 11... I ordered these running shoes online, but they feel too tight around the toes.",
+          "text": "Number 11... I ordered these running shoes online, but they feel too tight around the toes.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "We can exchange them here. This model is available in a larger size in gray today.",
+          "text": "We can exchange them here. This model is available in a larger size in gray today.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "provider": "edge",
+          "voice": "en-US-AvaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -3.5,
+          "displayText": "I was hoping for the same blue color. When will the larger blue ones arrive?",
+          "text": "I was hoping for the same blue color. When will the larger blue ones arrive?",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Our delivery is expected next Wednesday. I can reserve a pair under your name.",
+          "text": "Our delivery is expected next Wednesday. I can reserve a pair under your name.",
+          "ttsOverrides": [],
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "A",
+          "provider": "edge",
+          "voice": "en-US-AvaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -3.5,
+          "displayText": "Question. When will the larger blue shoes arrive?",
+          "text": "Question. When will the larger blue shoes arrive?",
+          "ttsOverrides": [],
+          "gapAfterMs": 0,
+          "role": "question"
+        }
+      ]
+    },
+    {
+      "id": "No12",
+      "number": 12,
+      "displayScript": "B: Our hotel is fifteen kilometers from the concert hall. Should we rent a car for tomorrow night? A: Parking near the hall costs a lot, and the last subway leaves before the concert ends. B: The hotel runs a concert shuttle at six thirty and brings guests back afterward. A: That sounds easiest. Let's reserve two seats at the front desk before dinner.",
+      "questionText": "How will they probably travel to the concert?",
+      "choices": [
+        "On the hotel shuttle",
+        "By the last subway",
+        "In a rented car",
+        "By walking from the hotel"
+      ],
+      "correct": 1,
+      "voices": {
+        "A": {
+          "provider": "edge",
+          "voice": "en-US-AvaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -3.5
+        },
+        "B": {
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "accent": "American English",
+          "gainDb": 0.0
+        }
+      },
+      "segments": [
+        {
+          "speaker": "B",
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Number 12... Our hotel is fifteen kilometers from the concert hall. Should we rent a car for tomorrow night?",
+          "text": "Number 12... Our hotel is fifteen kilometers from the concert hall. Should we rent a car for tomorrow night?",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "provider": "edge",
+          "voice": "en-US-AvaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -3.5,
+          "displayText": "Parking near the hall costs a lot, and the last subway leaves before the concert ends.",
+          "text": "Parking near the hall costs a lot, and the last subway leaves before the concert ends.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "The hotel runs a concert shuttle at six thirty and brings guests back afterward.",
+          "text": "The hotel runs a concert shuttle at six thirty and brings guests back afterward.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "provider": "edge",
+          "voice": "en-US-AvaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -3.5,
+          "displayText": "That sounds easiest. Let's reserve two seats at the front desk before dinner.",
+          "text": "That sounds easiest. Let's reserve two seats at the front desk before dinner.",
+          "ttsOverrides": [],
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "B",
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Question. How will they probably travel to the concert?",
+          "text": "Question. How will they probably travel to the concert?",
+          "ttsOverrides": [],
+          "gapAfterMs": 0,
+          "role": "question"
+        }
+      ]
+    },
+    {
+      "id": "No13",
+      "number": 13,
+      "displayScript": "B: Ms. Lee, my speech about space travel is nearly ten minutes, but the class limit is seven. A: Your explanation of the first moon landing is clear, so keep that part. B: Should I remove the section about future hotels in space? It has several examples. A: Keep one example, but cut the long description of the hotel's rooms and restaurants.",
+      "questionText": "What does the woman suggest removing?",
+      "choices": [
+        "The first moon landing explanation",
+        "Every example of space hotels",
+        "The detailed hotel description",
+        "The speech introduction"
+      ],
+      "correct": 3,
+      "voices": {
+        "A": {
+          "provider": "edge",
+          "voice": "en-US-AvaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -3.5
+        },
+        "B": {
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "accent": "American English",
+          "gainDb": 0.0
+        }
+      },
+      "segments": [
+        {
+          "speaker": "B",
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Number 13... Ms. Lee, my speech about space travel is nearly ten minutes, but the class limit is seven.",
+          "text": "Number 13... Ms. Lee, my speech about space travel is nearly ten minutes, but the class limit is seven.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "provider": "edge",
+          "voice": "en-US-AvaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -3.5,
+          "displayText": "Your explanation of the first moon landing is clear, so keep that part.",
+          "text": "Your explanation of the first moon landing is clear, so keep that part.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Should I remove the section about future hotels in space? It has several examples.",
+          "text": "Should I remove the section about future hotels in space? It has several examples.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "provider": "edge",
+          "voice": "en-US-AvaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -3.5,
+          "displayText": "Keep one example, but cut the long description of the hotel's rooms and restaurants.",
+          "text": "Keep one example, but cut the long description of the hotel's rooms and restaurants.",
+          "ttsOverrides": [],
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "B",
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Question. What does the woman suggest removing?",
+          "text": "Question. What does the woman suggest removing?",
+          "ttsOverrides": [],
+          "gapAfterMs": 0,
+          "role": "question"
+        }
+      ]
+    },
+    {
+      "id": "No14",
+      "number": 14,
+      "displayScript": "A: Could you open the shop tomorrow morning? My daughter has a school ceremony at eight thirty. B: I would, but the supplier is delivering new shelves to my apartment at that time. A: I see. Could you take my evening closing shift instead? I can ask Carlos about the morning. B: Yes, I can close tomorrow. My delivery should be finished before noon.",
+      "questionText": "Why can't the man open the shop?",
+      "choices": [
+        "He is attending a school ceremony.",
+        "He is expecting a delivery.",
+        "He has to close another store.",
+        "He is meeting Carlos at home."
+      ],
+      "correct": 2,
+      "voices": {
+        "A": {
+          "provider": "edge",
+          "voice": "en-US-AvaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -3.5
+        },
+        "B": {
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "accent": "American English",
+          "gainDb": 0.0
+        }
+      },
+      "segments": [
+        {
+          "speaker": "A",
+          "provider": "edge",
+          "voice": "en-US-AvaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -3.5,
+          "displayText": "Number 14... Could you open the shop tomorrow morning? My daughter has a school ceremony at eight thirty.",
+          "text": "Number 14... Could you open the shop tomorrow morning? My daughter has a school ceremony at eight thirty.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "I would, but the supplier is delivering new shelves to my apartment at that time.",
+          "text": "I would, but the supplier is delivering new shelves to my apartment at that time.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "provider": "edge",
+          "voice": "en-US-AvaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -3.5,
+          "displayText": "I see. Could you take my evening closing shift instead? I can ask Carlos about the morning.",
+          "text": "I see. Could you take my evening closing shift instead? I can ask Carlos about the morning.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Yes, I can close tomorrow. My delivery should be finished before noon.",
+          "text": "Yes, I can close tomorrow. My delivery should be finished before noon.",
+          "ttsOverrides": [],
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "A",
+          "provider": "edge",
+          "voice": "en-US-AvaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -3.5,
+          "displayText": "Question. Why can't the man open the shop?",
+          "text": "Question. Why can't the man open the shop?",
+          "ttsOverrides": [],
+          "gapAfterMs": 0,
+          "role": "question"
+        }
+      ]
+    },
+    {
+      "id": "No15",
+      "number": 15,
+      "displayScript": "A: This envelope was delivered to my office, but your company name is printed on it. B: That's the contract I sent to our lawyer. I used your floor number by mistake. A: I noticed it was marked urgent, so I brought it upstairs right away. B: Thanks. I expected it back next week, so I'm surprised the lawyer returned it so quickly.",
+      "questionText": "What surprised the man about the envelope?",
+      "choices": [
+        "It was addressed to another company.",
+        "It was marked as urgent.",
+        "It was sent to a lawyer.",
+        "It came back earlier than expected."
+      ],
+      "correct": 4,
+      "voices": {
+        "A": {
+          "provider": "edge",
+          "voice": "en-US-AvaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -3.5
+        },
+        "B": {
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "accent": "American English",
+          "gainDb": 0.0
+        }
+      },
+      "segments": [
+        {
+          "speaker": "A",
+          "provider": "edge",
+          "voice": "en-US-AvaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -3.5,
+          "displayText": "Number 15... This envelope was delivered to my office, but your company name is printed on it.",
+          "text": "Number 15... This envelope was delivered to my office, but your company name is printed on it.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "That's the contract I sent to our lawyer. I used your floor number by mistake.",
+          "text": "That's the contract I sent to our lawyer. I used your floor number by mistake.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "provider": "edge",
+          "voice": "en-US-AvaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -3.5,
+          "displayText": "I noticed it was marked urgent, so I brought it upstairs right away.",
+          "text": "I noticed it was marked urgent, so I brought it upstairs right away.",
+          "ttsOverrides": [],
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "provider": "openai",
+          "voice": "cedar",
+          "gender": "male",
+          "language": null,
+          "englishOnly": false,
+          "gainDb": 0.0,
+          "displayText": "Thanks. I expected it back next week, so I'm surprised the lawyer returned it so quickly.",
+          "text": "Thanks. I expected it back next week, so I'm surprised the lawyer returned it so quickly.",
+          "ttsOverrides": [],
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "A",
+          "provider": "edge",
+          "voice": "en-US-AvaMultilingualNeural",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true,
+          "gainDb": -3.5,
+          "displayText": "Question. What surprised the man about the envelope?",
+          "text": "Question. What surprised the man about the envelope?",
+          "ttsOverrides": [],
+          "gapAfterMs": 0,
+          "role": "question"
+        }
+      ]
+    }
+  ]
+}

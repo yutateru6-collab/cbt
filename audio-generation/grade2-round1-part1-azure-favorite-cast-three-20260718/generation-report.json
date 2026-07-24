@@ -1,0 +1,332 @@
+{
+  "mode": "completed",
+  "provider": "Azure Speech multi-voice SSML",
+  "isOfficialMultiTalkerModel": false,
+  "reason": "採用済みのRyan・Clara・Emma・Avaを自由に組み合わせるため",
+  "region": "eastus",
+  "naturalMasterRate": 1.0,
+  "reviewRates": [
+    0.87,
+    0.9,
+    1.0
+  ],
+  "defaultReviewRate": 0.87,
+  "preservesPitch": true,
+  "timingMs": {
+    "numberToBody": 1350,
+    "turnGap": 550,
+    "bodyToQuestion": 1300,
+    "questionLabelToText": 350
+  },
+  "items": [
+    {
+      "id": "No01",
+      "number": 1,
+      "castLabel": "Ava + Ryan / 案内 Emma",
+      "voices": {
+        "A": "en-US-AvaMultilingualNeural",
+        "B": "en-GB-RyanNeural",
+        "narrator": "en-US-EmmaMultilingualNeural"
+      },
+      "oneAzureRequest": true,
+      "sentenceLevelGeneration": false,
+      "postSynthesisConcatenation": false,
+      "ssml": "ssml/No01.ssml",
+      "parts": [
+        {
+          "role": "number",
+          "speaker": "narrator",
+          "text": "Number one.",
+          "gapAfterMs": 1350
+        },
+        {
+          "role": "turn1",
+          "speaker": "B",
+          "text": "The recording for our school radio show still isn't in the shared folder.",
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn2",
+          "speaker": "A",
+          "text": "I finished editing it, but the file is too large to send by email. Could you upload it from the media room?",
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn3",
+          "speaker": "B",
+          "text": "Sure, but I need the final title before lunch because the teacher checks everything at one.",
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn4",
+          "speaker": "A",
+          "text": "I'll message you the title now. The interview section doesn't need any more changes.",
+          "gapAfterMs": 1300
+        },
+        {
+          "role": "questionLabel",
+          "speaker": "narrator",
+          "text": "Question.",
+          "gapAfterMs": 350
+        },
+        {
+          "role": "questionText",
+          "speaker": "narrator",
+          "text": "What does the girl ask the boy to do?",
+          "gapAfterMs": 0
+        }
+      ],
+      "ok": true,
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/mpeg",
+        "requestId": null,
+        "bytes": 608160,
+        "elapsedSeconds": 3.245
+      },
+      "processing": {
+        "targetLufs": -20,
+        "truePeakLimitDb": -1.5,
+        "master": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "pcm_s16le",
+              "sample_rate": "24000",
+              "channels": 1
+            }
+          ],
+          "format": {
+            "duration": "30.408000",
+            "bit_rate": "384020"
+          }
+        },
+        "delivery": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "mp3",
+              "sample_rate": "24000",
+              "channels": 1
+            }
+          ],
+          "format": {
+            "duration": "30.408000",
+            "bit_rate": "128314"
+          }
+        }
+      },
+      "masterWav": "master/No01.wav",
+      "deliveryMp3": "audio/No01.mp3"
+    },
+    {
+      "id": "No02",
+      "number": 2,
+      "castLabel": "Emma + Ryan / 案内 Clara",
+      "voices": {
+        "A": "en-US-EmmaMultilingualNeural",
+        "B": "en-GB-RyanNeural",
+        "narrator": "en-CA-ClaraNeural"
+      },
+      "oneAzureRequest": true,
+      "sentenceLevelGeneration": false,
+      "postSynthesisConcatenation": false,
+      "ssml": "ssml/No02.ssml",
+      "parts": [
+        {
+          "role": "number",
+          "speaker": "narrator",
+          "text": "Number two.",
+          "gapAfterMs": 1350
+        },
+        {
+          "role": "turn1",
+          "speaker": "A",
+          "text": "I signed up for the beginner yoga class that meets on Wednesday evenings.",
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn2",
+          "speaker": "B",
+          "text": "That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven.",
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn3",
+          "speaker": "A",
+          "text": "Thursday works for me. Do I need to register again at the front desk?",
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn4",
+          "speaker": "B",
+          "text": "No, your name is already on the new list. Just bring the same membership card.",
+          "gapAfterMs": 1300
+        },
+        {
+          "role": "questionLabel",
+          "speaker": "narrator",
+          "text": "Question.",
+          "gapAfterMs": 350
+        },
+        {
+          "role": "questionText",
+          "speaker": "narrator",
+          "text": "What is true about the yoga class?",
+          "gapAfterMs": 0
+        }
+      ],
+      "ok": true,
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/mpeg",
+        "requestId": null,
+        "bytes": 677280,
+        "elapsedSeconds": 1.878
+      },
+      "processing": {
+        "targetLufs": -20,
+        "truePeakLimitDb": -1.5,
+        "master": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "pcm_s16le",
+              "sample_rate": "24000",
+              "channels": 1
+            }
+          ],
+          "format": {
+            "duration": "33.864000",
+            "bit_rate": "384018"
+          }
+        },
+        "delivery": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "mp3",
+              "sample_rate": "24000",
+              "channels": 1
+            }
+          ],
+          "format": {
+            "duration": "33.864000",
+            "bit_rate": "128282"
+          }
+        }
+      },
+      "masterWav": "master/No02.wav",
+      "deliveryMp3": "audio/No02.mp3"
+    },
+    {
+      "id": "No03",
+      "number": 3,
+      "castLabel": "Clara + Ryan / 案内 Ava",
+      "voices": {
+        "A": "en-CA-ClaraNeural",
+        "B": "en-GB-RyanNeural",
+        "narrator": "en-US-AvaMultilingualNeural"
+      },
+      "oneAzureRequest": true,
+      "sentenceLevelGeneration": false,
+      "postSynthesisConcatenation": false,
+      "ssml": "ssml/No03.ssml",
+      "parts": [
+        {
+          "role": "number",
+          "speaker": "narrator",
+          "text": "Number three.",
+          "gapAfterMs": 1350
+        },
+        {
+          "role": "turn1",
+          "speaker": "A",
+          "text": "I can't meet you at the cafe this afternoon. A repair worker is coming to look at our washing machine.",
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn2",
+          "speaker": "B",
+          "text": "Didn't your brother say he would stay home for that?",
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn3",
+          "speaker": "A",
+          "text": "He was supposed to, but his manager asked him to work an extra shift. The worker may arrive anytime between two and five.",
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn4",
+          "speaker": "B",
+          "text": "No problem. We can meet tomorrow after my class instead.",
+          "gapAfterMs": 1300
+        },
+        {
+          "role": "questionLabel",
+          "speaker": "narrator",
+          "text": "Question.",
+          "gapAfterMs": 350
+        },
+        {
+          "role": "questionText",
+          "speaker": "narrator",
+          "text": "Why will the woman stay home this afternoon?",
+          "gapAfterMs": 0
+        }
+      ],
+      "ok": true,
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/mpeg",
+        "requestId": null,
+        "bytes": 681600,
+        "elapsedSeconds": 1.787
+      },
+      "processing": {
+        "targetLufs": -20,
+        "truePeakLimitDb": -1.5,
+        "master": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "pcm_s16le",
+              "sample_rate": "24000",
+              "channels": 1
+            }
+          ],
+          "format": {
+            "duration": "34.080000",
+            "bit_rate": "384018"
+          }
+        },
+        "delivery": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "mp3",
+              "sample_rate": "24000",
+              "channels": 1
+            }
+          ],
+          "format": {
+            "duration": "34.080000",
+            "bit_rate": "128280"
+          }
+        }
+      },
+      "masterWav": "master/No03.wav",
+      "deliveryMp3": "audio/No03.mp3"
+    }
+  ]
+}

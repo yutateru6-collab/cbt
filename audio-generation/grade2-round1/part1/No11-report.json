@@ -1,0 +1,209 @@
+{
+  "item": "No11",
+  "number": 11,
+  "sourceScript": "A: I ordered these running shoes online, but they feel too tight around the toes. B: We can exchange them here. This model is available in a larger size in gray today. A: I was hoping for the same blue color. When will the larger blue ones arrive? B: Our delivery is expected next Wednesday. I can reserve a pair under your name.",
+  "questionText": "When will the larger blue shoes arrive?",
+  "voices": {
+    "A": {
+      "provider": "edge",
+      "voice": "en-US-AvaMultilingualNeural",
+      "gender": "female",
+      "language": "en-US",
+      "englishOnly": true,
+      "gainDb": -3.5
+    },
+    "B": {
+      "provider": "openai",
+      "voice": "cedar",
+      "gender": "male",
+      "accent": "American English",
+      "gainDb": 0.0
+    }
+  },
+  "output": "audio-generation\\grade2-round1\\part1\\No11.wav",
+  "outputBytes": 1250478,
+  "outputMetadata": {
+    "codec_name": "pcm_s16le",
+    "sample_fmt": "s16",
+    "sample_rate": "24000",
+    "channels": 1,
+    "bits_per_sample": 16,
+    "duration": "26.050000"
+  },
+  "openaiSegments": 2,
+  "edgeSegments": 3,
+  "openaiApiCallsThisRun": 0,
+  "edgeCallsThisRun": 0,
+  "initialVolume": {
+    "meanVolumeDb": -22.8,
+    "maxVolumeDb": -3.4
+  },
+  "globalAttenuationDb": 0.0,
+  "finalVolume": {
+    "meanVolumeDb": -22.8,
+    "maxVolumeDb": -3.4
+  },
+  "segments": [
+    {
+      "speaker": "A",
+      "provider": "edge",
+      "voice": "en-US-AvaMultilingualNeural",
+      "gender": "female",
+      "language": "en-US",
+      "englishOnly": true,
+      "gainDb": -3.5,
+      "displayText": "Number 11... I ordered these running shoes online, but they feel too tight around the toes.",
+      "text": "Number 11... I ordered these running shoes online, but they feel too tight around the toes.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 1,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "5.520000"
+      },
+      "volume": {
+        "meanVolumeDb": -19.0,
+        "maxVolumeDb": -2.6
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.5,
+        "maxVolumeDb": -6.1
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-US-AvaMultilingualNeural-d4b554a6409afa6f4e2adf0e.wav"
+    },
+    {
+      "speaker": "B",
+      "provider": "openai",
+      "voice": "cedar",
+      "gender": "male",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "We can exchange them here. This model is available in a larger size in gray today.",
+      "text": "We can exchange them here. This model is available in a larger size in gray today.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 2,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "5.950000"
+      },
+      "volume": {
+        "meanVolumeDb": -23.0,
+        "maxVolumeDb": -6.6
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -23.0,
+        "maxVolumeDb": -6.6
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\cedar-9a44c3d378aa473b9a9af288.wav"
+    },
+    {
+      "speaker": "A",
+      "provider": "edge",
+      "voice": "en-US-AvaMultilingualNeural",
+      "gender": "female",
+      "language": "en-US",
+      "englishOnly": true,
+      "gainDb": -3.5,
+      "displayText": "I was hoping for the same blue color. When will the larger blue ones arrive?",
+      "text": "I was hoping for the same blue color. When will the larger blue ones arrive?",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 3,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "4.728000"
+      },
+      "volume": {
+        "meanVolumeDb": -19.0,
+        "maxVolumeDb": -2.7
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.5,
+        "maxVolumeDb": -6.2
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-US-AvaMultilingualNeural-fded2b40736c3f95389e2c1f.wav"
+    },
+    {
+      "speaker": "B",
+      "provider": "openai",
+      "voice": "cedar",
+      "gender": "male",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "Our delivery is expected next Wednesday. I can reserve a pair under your name.",
+      "text": "Our delivery is expected next Wednesday. I can reserve a pair under your name.",
+      "ttsOverrides": [],
+      "gapAfterMs": 650,
+      "index": 4,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "5.350000"
+      },
+      "volume": {
+        "meanVolumeDb": -22.3,
+        "maxVolumeDb": -3.4
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.3,
+        "maxVolumeDb": -3.4
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\cedar-8b5f968124097c6f0dad47d0.wav"
+    },
+    {
+      "speaker": "A",
+      "provider": "edge",
+      "voice": "en-US-AvaMultilingualNeural",
+      "gender": "female",
+      "language": "en-US",
+      "englishOnly": true,
+      "gainDb": -3.5,
+      "displayText": "Question. When will the larger blue shoes arrive?",
+      "text": "Question. When will the larger blue shoes arrive?",
+      "ttsOverrides": [],
+      "gapAfterMs": 0,
+      "role": "question",
+      "index": 5,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "3.312000"
+      },
+      "volume": {
+        "meanVolumeDb": -19.1,
+        "maxVolumeDb": -3.3
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.6,
+        "maxVolumeDb": -6.8
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-US-AvaMultilingualNeural-46f7f3087843464d4e98c6f5.wav"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "id": "No01",
+    "number": 1,
+    "engine": "kokoro-onnx",
+    "speakerA": "af_heart",
+    "speakerB": "am_michael",
+    "speed": 0.87,
+    "sampleRate": 24000,
+    "segments": 6,
+    "duration": 25.874667,
+    "sourcePeak": 0.7817835807800293,
+    "peakScale": 0.9055521213347085,
+    "path": "audio-generation\\local-tts-trials\\kokoro\\No01.wav",
+    "bytes": 1242028
+  },
+  {
+    "id": "No02",
+    "number": 2,
+    "engine": "kokoro-onnx",
+    "speakerA": "af_heart",
+    "speakerB": "am_michael",
+    "speed": 0.87,
+    "sampleRate": 24000,
+    "segments": 6,
+    "duration": 30.525333,
+    "sourcePeak": 1.0242294073104858,
+    "peakScale": 0.691198451193652,
+    "path": "audio-generation\\local-tts-trials\\kokoro\\No02.wav",
+    "bytes": 1465260
+  },
+  {
+    "id": "No03",
+    "number": 3,
+    "engine": "kokoro-onnx",
+    "speakerA": "af_heart",
+    "speakerB": "am_michael",
+    "speed": 0.87,
+    "sampleRate": 24000,
+    "segments": 6,
+    "duration": 25.149333,
+    "sourcePeak": 0.7974147200584412,
+    "peakScale": 0.8878012434334243,
+    "path": "audio-generation\\local-tts-trials\\kokoro\\No03.wav",
+    "bytes": 1207212
+  }
+]

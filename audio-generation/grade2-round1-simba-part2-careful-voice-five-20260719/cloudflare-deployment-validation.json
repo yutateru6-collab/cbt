@@ -1,0 +1,39 @@
+{
+  "validatedAt": "2026-07-19T18:45:00+09:00",
+  "project": "scbt-simba-part2-beatrice-five",
+  "deploymentId": "a42e0c49-737f-4b54-a3ab-010f008d6ede",
+  "productionUrl": "https://scbt-simba-part2-beatrice-five.pages.dev/?v=20260719-part2-careful1",
+  "deploymentUrl": "https://a42e0c49.scbt-simba-part2-beatrice-five.pages.dev",
+  "selection": {
+    "selectedVoice": "beatrice_32",
+    "beatriceDurationSeconds": 22.257,
+    "beatriceWordsPerMinute": 159.1,
+    "edmundDurationSeconds": 21.642,
+    "edmundWordsPerMinute": 163.6,
+    "rule": "Longest stable No.16 reading at identical -10% rate"
+  },
+  "page": {
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "audioPlayerCount": 5,
+    "beatriceAndHarperTextPresent": true
+  },
+  "audioValidation": {
+    "fileCount": 5,
+    "allFullResponsesStatus200": true,
+    "allContentTypeAudioWav": true,
+    "allFullResponseHashesMatchLocal": true,
+    "allIphoneRangeResponsesStatus206": true,
+    "allAcceptRangesBytes": true,
+    "allRequestedRangeBytesMatchLocal": true,
+    "requestedRange": "bytes=0-1023",
+    "invalidRangeStatus": 416
+  },
+  "files": [
+    {"name": "part2-16-simba-3-2-final.wav", "sha256": "5b2c23501c9a7f203f2609c6f26a96e8dbccd6bbdcae9e77408b4c778322bd5d"},
+    {"name": "part2-17-simba-3-2-final.wav", "sha256": "e698e3643ea3d09e5a0e3d239cbf56c97e56bdcacf3ad7055e1e5d0c9d493cf9"},
+    {"name": "part2-18-simba-3-2-final.wav", "sha256": "c8932b54f9f22c12e14a8f6e246bffaf13ad5fc7770ce4da5b822a20c9ee15f8"},
+    {"name": "part2-19-simba-3-2-final.wav", "sha256": "4832a50af4fac46a3f83c7b1a97188111a691c637c87409fb71c7c095269a0d0"},
+    {"name": "part2-20-simba-3-2-final.wav", "sha256": "fe5c9de42aa8e1a78d797672237634b51cf20c2d642acf5260f1994a8597bca7"}
+  ]
+}

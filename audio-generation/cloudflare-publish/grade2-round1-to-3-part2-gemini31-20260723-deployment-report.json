@@ -1,0 +1,22 @@
+{
+  "deployedAt": "2026-07-23T17:12:20.7917903+09:00",
+  "provider": "Cloudflare Pages Direct Upload",
+  "project": "scbt-tts-compare",
+  "branch": "main",
+  "sourceDirectory": "audio-generation/cloudflare-publish/grade2-round1-to-3-part2-gemini31-20260723",
+  "deploymentId": "a990a736-4578-43de-bf9a-4ab32ddee83e",
+  "deploymentUrl": "https://a990a736.scbt-tts-compare.pages.dev",
+  "stableUrl": "https://scbt-tts-compare.pages.dev/?v=20260723-round1-3-part2",
+  "verification": {
+    "deploymentPageStatus": 200,
+    "stablePageStatus": 200,
+    "pageContentType": "text/html; charset=utf-8",
+    "expectedTitlePresent": true,
+    "audioElementCount": 45,
+    "roundSectionCount": 3,
+    "regularAudioStatus": 200,
+    "balancedAudioStatus": 200,
+    "audioContentType": "audio/wav",
+    "browserVisualCheck": "Unavailable because both in-app Browser and Chrome tab attachment timed out"
+  }
+}

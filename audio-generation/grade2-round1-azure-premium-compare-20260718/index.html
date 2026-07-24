@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Azure高品質音声 4方式比較</title>
+  <style>
+    :root { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:#17211c; background:#f2efe8; }
+    * { box-sizing:border-box; } body { margin:0; }
+    main { width:min(920px,calc(100% - 24px)); margin:auto; padding:28px 0 56px; }
+    h1 { margin:0 0 10px; font-size:clamp(26px,7vw,40px); line-height:1.2; }
+    .lead,.note { color:#566159; line-height:1.7; }
+    .toolbar { position:sticky; top:8px; z-index:5; display:flex; flex-wrap:wrap; gap:8px; align-items:center; padding:12px; margin:18px 0 26px; background:rgba(255,255,255,.96); border:1px solid #d6dbd5; border-radius:16px; box-shadow:0 8px 26px rgba(32,48,39,.10); }
+    .toolbar strong { margin-right:auto; }
+    button,a.tab { appearance:none; border:1px solid #97a39c; border-radius:999px; background:#fff; color:#20352a; padding:9px 13px; font-weight:700; text-decoration:none; }
+    button.active { background:#176b47; color:#fff; border-color:#176b47; }
+    .part-section { scroll-margin-top:90px; margin-top:34px; }
+    h2 { font-size:26px; }
+    .question-card { margin:18px 0 28px; padding:18px; background:#fff; border:1px solid #d9ddd8; border-radius:18px; }
+    h3 { margin:0 0 14px; font-size:22px; }
+    .players { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+    .player-card { padding:14px; border:1px solid #e0e4df; border-radius:14px; background:#fbfcfa; }
+    .player-title { display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap; margin-bottom:10px; }
+    .model-name { color:#176b47; font-weight:800; }
+    .model-detail { color:#5d6861; font-size:13px; line-height:1.55; margin:8px 0 0; }
+    audio { display:block; width:100%; }
+    details { margin-top:14px; border-top:1px solid #e2e5e1; padding-top:12px; }
+    summary { cursor:pointer; font-weight:750; } details p { line-height:1.65; } details strong { display:inline-block; min-width:28px; }
+    .pending { color:#9a3d2d; }
+    @media (max-width:680px) {
+      main { width:min(100% - 16px,920px); padding-top:20px; }
+      .players { grid-template-columns:1fr; }
+      .toolbar strong { width:100%; margin:0; }
+      .question-card { padding:14px; }
+    }
+  </style>
+</head>
+<body><main>
+  <h1>Azure高品質音声<br>4方式比較</h1>
+  <p class="lead">同じ問題を、通常Neural・Dragon HD・MAI-Voice-1・MAI-Voice-2で比較します。各音源は1問1リクエストで生成し、文・発話ごとの音源生成や後結合はしていません。</p>
+  <div class="toolbar">
+    <strong>再生速度</strong>
+    <button type="button" data-rate="0.87" class="active">0.87</button>
+    <button type="button" data-rate="0.90">0.90</button>
+    <button type="button" data-rate="1.00">1.00</button>
+    <button type="button" id="reveal-models">モデル名を表示</button>
+    <a class="tab" href="#part1">Part 1</a><a class="tab" href="#part2">Part 2</a>
+  </div>
+  <section id="part1" class="part-section"><h2>Part 1 会話</h2>
+                <section class="question-card">
+                  <h3>Number 1</h3>
+                  <div class="players">
+                    <article class="player-card">
+                      <div class="player-title">
+                        <strong>音声 A</strong>
+                        <span class="model-name" hidden>MAI-Voice-2</span>
+                      </div>
+                      <audio controls preload="metadata" src="audio/part1-No01-mai-voice-2.mp3"></audio>
+                      <p class="model-detail" hidden>最新の多言語・長文・複数話者向けMAI-Voice-2。スタイル強制なし。</p>
+                    </article>
+                    
+                    <article class="player-card">
+                      <div class="player-title">
+                        <strong>音声 B</strong>
+                        <span class="model-name" hidden>通常Neural</span>
+                      </div>
+                      <audio controls preload="metadata" src="audio/part1-No01-standard-neural.mp3"></audio>
+                      <p class="model-detail" hidden>現在の通常Neural／Multilingual品質の比較基準。</p>
+                    </article>
+                    
+                    <article class="player-card">
+                      <div class="player-title">
+                        <strong>音声 C</strong>
+                        <span class="model-name" hidden>Dragon HD</span>
+                      </div>
+                      <audio controls preload="metadata" src="audio/part1-No01-dragon-hd.mp3"></audio>
+                      <p class="model-detail" hidden>Part 1は公式MultiTalker、Part 2は単独Dragon HD音声。</p>
+                    </article>
+                    
+                    <article class="player-card">
+                      <div class="player-title">
+                        <strong>音声 D</strong>
+                        <span class="model-name" hidden>MAI-Voice-1</span>
+                      </div>
+                      <audio controls preload="metadata" src="audio/part1-No01-mai-voice-1.mp3"></audio>
+                      <p class="model-detail" hidden>表現豊かな米国英語向けMAI-Voice-1。スタイル強制なし。</p>
+                    </article>
+                    </div>
+                  <details><summary>原稿を見る</summary><p><strong>B</strong> The recording for our school radio show still isn&#x27;t in the shared folder.</p><p><strong>A</strong> I finished editing it, but the file is too large to send by email. Could you upload it from the media room?</p><p><strong>B</strong> Sure, but I need the final title before lunch because the teacher checks everything at one.</p><p><strong>A</strong> I&#x27;ll message you the title now. The interview section doesn&#x27;t need any more changes.</p><p><strong>Question</strong> What does the girl ask the boy to do?</p></details>
+                </section>
+                
+                <section class="question-card">
+                  <h3>Number 2</h3>
+                  <div class="players">
+                    <article class="player-card">
+                      <div class="player-title">
+                        <strong>音声 A</strong>
+                        <span class="model-name" hidden>MAI-Voice-2</span>
+                      </div>
+                      <audio controls preload="metadata" src="audio/part1-No02-mai-voice-2.mp3"></audio>
+                      <p class="model-detail" hidden>最新の多言語・長文・複数話者向けMAI-Voice-2。スタイル強制なし。</p>
+                    </article>
+                    
+                    <article class="player-card">
+                      <div class="player-title">
+                        <strong>音声 B</strong>
+                        <span class="model-name" hidden>通常Neural</span>
+                      </div>
+                      <audio controls preload="metadata" src="audio/part1-No02-standard-neural.mp3"></audio>
+                      <p class="model-detail" hidden>現在の通常Neural／Multilingual品質の比較基準。</p>
+                    </article>
+                    
+                    <article class="player-card">
+                      <div class="player-title">
+                        <strong>音声 C</strong>
+                        <span class="model-name" hidden>Dragon HD</span>
+                      </div>
+                      <audio controls preload="metadata" src="audio/part1-No02-dragon-hd.mp3"></audio>
+                      <p class="model-detail" hidden>Part 1は公式MultiTalker、Part 2は単独Dragon HD音声。</p>
+                    </article>
+                    
+                    <article class="player-card">
+                      <div class="player-title">
+                        <strong>音声 D</strong>
+                        <span class="model-name" hidden>MAI-Voice-1</span>
+                      </div>
+                      <audio controls preload="metadata" src="audio/part1-No02-mai-voice-1.mp3"></audio>
+                      <p class="model-detail" hidden>表現豊かな米国英語向けMAI-Voice-1。スタイル強制なし。</p>
+                    </article>
+                    </div>
+                  <details><summary>原稿を見る</summary><p><strong>A</strong> I signed up for the beginner yoga class that meets on Wednesday evenings.</p><p><strong>B</strong> That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven.</p><p><strong>A</strong> Thursday works for me. Do I need to register again at the front desk?</p><p><strong>B</strong> No, your name is already on the new list. Just bring the same membership card.</p><p><strong>Question</strong> What is true about the yoga class?</p></details>
+                </section>
+                </section><section id="part2" class="part-section"><h2>Part 2 ナレーション</h2>
+                <section class="question-card">
+                  <h3>Number 16</h3>
+                  <div class="players">
+                    <article class="player-card">
+                      <div class="player-title">
+                        <strong>音声 A</strong>
+                        <span class="model-name" hidden>MAI-Voice-2</span>
+                      </div>
+                      <audio controls preload="metadata" src="audio/part2-No16-mai-voice-2.mp3"></audio>
+                      <p class="model-detail" hidden>最新の多言語・長文・複数話者向けMAI-Voice-2。スタイル強制なし。</p>
+                    </article>
+                    
+                    <article class="player-card">
+                      <div class="player-title">
+                        <strong>音声 B</strong>
+                        <span class="model-name" hidden>通常Neural</span>
+                      </div>
+                      <audio controls preload="metadata" src="audio/part2-No16-standard-neural.mp3"></audio>
+                      <p class="model-detail" hidden>現在の通常Neural／Multilingual品質の比較基準。</p>
+                    </article>
+                    
+                    <article class="player-card">
+                      <div class="player-title">
+                        <strong>音声 C</strong>
+                        <span class="model-name" hidden>Dragon HD</span>
+                      </div>
+                      <audio controls preload="metadata" src="audio/part2-No16-dragon-hd.mp3"></audio>
+                      <p class="model-detail" hidden>Part 1は公式MultiTalker、Part 2は単独Dragon HD音声。</p>
+                    </article>
+                    
+                    <article class="player-card">
+                      <div class="player-title">
+                        <strong>音声 D</strong>
+                        <span class="model-name" hidden>MAI-Voice-1</span>
+                      </div>
+                      <audio controls preload="metadata" src="audio/part2-No16-mai-voice-1.mp3"></audio>
+                      <p class="model-detail" hidden>表現豊かな米国英語向けMAI-Voice-1。スタイル強制なし。</p>
+                    </article>
+                    </div>
+                  <details><summary>原稿を見る</summary><p>During her first weeks at a design company, Nina tried to write down every comment made during team meetings. She often missed later points because she was still writing. A colleague showed her how to divide a page into decisions and tasks. Nina used the new format at the next meeting and found it easier to follow the discussion.</p><p><strong>Question</strong> Why did Nina change how she took notes?</p></details>
+                </section>
+                
+                <section class="question-card">
+                  <h3>Number 17</h3>
+                  <div class="players">
+                    <article class="player-card">
+                      <div class="player-title">
+                        <strong>音声 A</strong>
+                        <span class="model-name" hidden>MAI-Voice-2</span>
+                      </div>
+                      <audio controls preload="metadata" src="audio/part2-No17-mai-voice-2.mp3"></audio>
+                      <p class="model-detail" hidden>最新の多言語・長文・複数話者向けMAI-Voice-2。スタイル強制なし。</p>
+                    </article>
+                    
+                    <article class="player-card">
+                      <div class="player-title">
+                        <strong>音声 B</strong>
+                        <span class="model-name" hidden>通常Neural</span>
+                      </div>
+                      <audio controls preload="metadata" src="audio/part2-No17-standard-neural.mp3"></audio>
+                      <p class="model-detail" hidden>現在の通常Neural／Multilingual品質の比較基準。</p>
+                    </article>
+                    
+                    <article class="player-card">
+                      <div class="player-title">
+                        <strong>音声 C</strong>
+                        <span class="model-name" hidden>Dragon HD</span>
+                      </div>
+                      <audio controls preload="metadata" src="audio/part2-No17-dragon-hd.mp3"></audio>
+                      <p class="model-detail" hidden>Part 1は公式MultiTalker、Part 2は単独Dragon HD音声。</p>
+                    </article>
+                    
+                    <article class="player-card">
+                      <div class="player-title">
+                        <strong>音声 D</strong>
+                        <span class="model-name" hidden>MAI-Voice-1</span>
+                      </div>
+                      <audio controls preload="metadata" src="audio/part2-No17-mai-voice-1.mp3"></audio>
+                      <p class="model-detail" hidden>表現豊かな米国英語向けMAI-Voice-1。スタイル強制なし。</p>
+                    </article>
+                    </div>
+                  <details><summary>原稿を見る</summary><p>The Riverside Science Center will open its space exhibition this Saturday. The main hall will be available from nine, but the planetarium will remain closed until one because new equipment is being tested. Visitors with morning planetarium tickets may use them for any afternoon show. The cafe and gift shop will operate on their normal schedule.</p><p><strong>Question</strong> What can morning planetarium ticket holders do?</p></details>
+                </section>
+                </section>
+  <p class="note">等倍マスターは加工していません。0.87・0.90は試聴時だけ音程保持を指定して再生します。最初はA〜Dを先入観なしで聴き、あとからモデル名を表示できます。</p>
+</main>
+<script>
+  let selectedRate = 0.87;
+  const audios = [...document.querySelectorAll('audio')];
+  const applyRate = audio => {
+    audio.playbackRate = selectedRate;
+    audio.defaultPlaybackRate = selectedRate;
+    audio.preservesPitch = true;
+    audio.webkitPreservesPitch = true;
+  };
+  audios.forEach(audio => {
+    applyRate(audio);
+    ['loadedmetadata','canplay','play','playing'].forEach(name => audio.addEventListener(name, () => applyRate(audio)));
+  });
+  document.querySelectorAll('[data-rate]').forEach(button => button.addEventListener('click', () => {
+    selectedRate = Number(button.dataset.rate);
+    document.querySelectorAll('[data-rate]').forEach(other => other.classList.toggle('active', other === button));
+    audios.forEach(applyRate);
+  }));
+  const revealButton = document.querySelector('#reveal-models');
+  let revealed = false;
+  revealButton.addEventListener('click', () => {
+    revealed = !revealed;
+    document.querySelectorAll('.model-name,.model-detail').forEach(node => node.hidden = !revealed);
+    revealButton.textContent = revealed ? 'モデル名を隠す' : 'モデル名を表示';
+  });
+</script>
+</body></html>

@@ -1,0 +1,287 @@
+[
+  {
+    "id": "No01",
+    "number": 1,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No01.wav",
+    "bytes": 1379406,
+    "duration": "28.736000",
+    "bitRate": "384000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "-10%",
+      "B": "-12%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "48k",
+    "concatMode": "reencode",
+    "outputFormat": "wav"
+  },
+  {
+    "id": "No02",
+    "number": 2,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No02.wav",
+    "bytes": 1761870,
+    "duration": "36.704000",
+    "bitRate": "384000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "-10%",
+      "B": "-12%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "48k",
+    "concatMode": "reencode",
+    "outputFormat": "wav"
+  },
+  {
+    "id": "No03",
+    "number": 3,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No03.wav",
+    "bytes": 1560270,
+    "duration": "32.504000",
+    "bitRate": "384000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "-10%",
+      "B": "-12%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "48k",
+    "concatMode": "reencode",
+    "outputFormat": "wav"
+  },
+  {
+    "id": "No04",
+    "number": 4,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No04.wav",
+    "bytes": 1551054,
+    "duration": "32.312000",
+    "bitRate": "384000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "-10%",
+      "B": "-12%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "48k",
+    "concatMode": "reencode",
+    "outputFormat": "wav"
+  },
+  {
+    "id": "No05",
+    "number": 5,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No05.wav",
+    "bytes": 1456590,
+    "duration": "30.344000",
+    "bitRate": "384000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "-10%",
+      "B": "-10%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "48k",
+    "concatMode": "reencode",
+    "outputFormat": "wav"
+  },
+  {
+    "id": "No06",
+    "number": 6,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No06.wav",
+    "bytes": 1437006,
+    "duration": "29.936000",
+    "bitRate": "384000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "-10%",
+      "B": "-10%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "48k",
+    "concatMode": "reencode",
+    "outputFormat": "wav"
+  },
+  {
+    "id": "No07",
+    "number": 7,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No07.wav",
+    "bytes": 1371342,
+    "duration": "28.568000",
+    "bitRate": "384000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "-10%",
+      "B": "-12%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "48k",
+    "concatMode": "reencode",
+    "outputFormat": "wav"
+  },
+  {
+    "id": "No08",
+    "number": 8,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No08.wav",
+    "bytes": 1267662,
+    "duration": "26.408000",
+    "bitRate": "384000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "-10%",
+      "B": "-12%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "48k",
+    "concatMode": "reencode",
+    "outputFormat": "wav"
+  },
+  {
+    "id": "No09",
+    "number": 9,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No09.wav",
+    "bytes": 1628238,
+    "duration": "33.920000",
+    "bitRate": "384000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "-10%",
+      "B": "-12%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "48k",
+    "concatMode": "reencode",
+    "outputFormat": "wav"
+  },
+  {
+    "id": "No10",
+    "number": 10,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No10.wav",
+    "bytes": 1786062,
+    "duration": "37.208000",
+    "bitRate": "384000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "-10%",
+      "B": "-12%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "48k",
+    "concatMode": "reencode",
+    "outputFormat": "wav"
+  },
+  {
+    "id": "No11",
+    "number": 11,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No11.wav",
+    "bytes": 1583310,
+    "duration": "32.984000",
+    "bitRate": "384000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "-12%",
+      "B": "-10%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "48k",
+    "concatMode": "reencode",
+    "outputFormat": "wav"
+  },
+  {
+    "id": "No12",
+    "number": 12,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No12.wav",
+    "bytes": 1601742,
+    "duration": "33.368000",
+    "bitRate": "384000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "-12%",
+      "B": "-10%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "48k",
+    "concatMode": "reencode",
+    "outputFormat": "wav"
+  },
+  {
+    "id": "No13",
+    "number": 13,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No13.wav",
+    "bytes": 1582158,
+    "duration": "32.960000",
+    "bitRate": "384000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "-12%",
+      "B": "-10%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "48k",
+    "concatMode": "reencode",
+    "outputFormat": "wav"
+  },
+  {
+    "id": "No14",
+    "number": 14,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No14.wav",
+    "bytes": 1473870,
+    "duration": "30.704000",
+    "bitRate": "384000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "-12%",
+      "B": "-10%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "48k",
+    "concatMode": "reencode",
+    "outputFormat": "wav"
+  },
+  {
+    "id": "No15",
+    "number": 15,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No15.wav",
+    "bytes": 1571790,
+    "duration": "32.744000",
+    "bitRate": "384000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "-12%",
+      "B": "-10%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "48k",
+    "concatMode": "reencode",
+    "outputFormat": "wav"
+  }
+]

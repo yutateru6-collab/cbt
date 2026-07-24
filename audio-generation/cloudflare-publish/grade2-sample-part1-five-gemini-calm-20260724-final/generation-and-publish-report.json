@@ -1,0 +1,246 @@
+{
+  "createdAt": "2026-07-23T15:14:44.614970+00:00",
+  "model": "gemini-3.1-flash-tts-preview",
+  "billingMode": "Batch API",
+  "requestCount": 5,
+  "sourceBatchJob": {
+    "submittedAt": "2026-07-23T15:06:53.745873+00:00",
+    "name": "batches/uglgym4tmor54cxhi04lrjdm029hon5xlbjj",
+    "displayName": "grade2-sample-part1-five-calm-20260724",
+    "model": "models/gemini-3.1-flash-tts-preview",
+    "state": "JOB_STATE_SUCCEEDED",
+    "requestCount": 5,
+    "checkedAt": "2026-07-23T15:11:25.356551+00:00",
+    "error": null
+  },
+  "usageTotals": {
+    "promptTokens": 1758,
+    "outputAudioTokens": 5031,
+    "totalTokens": 6789
+  },
+  "estimatedBatchCostUsd": {
+    "input": 0.000879,
+    "outputAudio": 0.05031,
+    "total": 0.051189
+  },
+  "voiceBlock": {
+    "numbers": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "voices": {
+      "A": "Kore",
+      "B": "Puck"
+    },
+    "reason": "keep one pair for the five-question block"
+  },
+  "paceValidation": {
+    "approvedPart2MedianWordsPerSecond": 2.219,
+    "approvedPart2ObservedRangeWordsPerSecond": [
+      1.85,
+      2.55
+    ],
+    "part1MedianWordsPerSecond": 2.36,
+    "maximumAcceptedPart1MedianWordsPerSecond": 2.42,
+    "speedProcessing": false
+  },
+  "loudnessProcessing": {
+    "targetActiveRmsDbfs": -18.6,
+    "method": "one constant linear PCM gain per complete item",
+    "nativeProviderFilesPreserved": true,
+    "normalization": false,
+    "eq": false,
+    "compression": false,
+    "resampling": false
+  },
+  "items": [
+    {
+      "id": "No01",
+      "number": 1,
+      "voices": {
+        "A": "Kore",
+        "B": "Puck"
+      },
+      "sourceFile": "No01.wav",
+      "sourceSha256": "fb7ee9c5999cbbd6eed44c9d1fb1b0c4727f06268f250d9e287b271d1922b540",
+      "file": "audio/sample-part1-no01-kore-puck-v20260724-final.wav",
+      "sha256": "fcddc38f62414322dab2fdd5331f3a8f0902ea99d7deda49d1adf80788a09987",
+      "gainDb": -3.2,
+      "wordCount": 66,
+      "wordsPerSecond": 2.295,
+      "paceInApprovedPart2ObservedRange": true,
+      "transcript": "B: Number 1.\nB: Did you finish the poster for tomorrow's science fair?\nA: Almost, but the printer in the library stopped working. Could you print the final page at home tonight?\nB: I can, but send me the file before seven. I have basketball practice after that.\nA: Thanks. I'll email it during lunch and bring the other pages tomorrow.\nB: Question. What does the girl ask the boy to do?",
+      "sourceMetrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 690236,
+        "durationSeconds": 28.76,
+        "peakDbfs": -1.28,
+        "rmsDbfs": -16.95,
+        "activeRmsDbfs": -15.4,
+        "activeThresholdDbfs": -50.0
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frameCount": 690236,
+      "durationSeconds": 28.76,
+      "peakDbfs": -4.48,
+      "rmsDbfs": -20.15,
+      "activeRmsDbfs": -18.4,
+      "activeThresholdDbfs": -50.0
+    },
+    {
+      "id": "No02",
+      "number": 2,
+      "voices": {
+        "A": "Kore",
+        "B": "Puck"
+      },
+      "sourceFile": "No02.wav",
+      "sourceSha256": "31c47b029f3f1b8778b98acc9509117b8e6ac3a7ae34b41b419ef77c170dca0e",
+      "file": "audio/sample-part1-no02-kore-puck-v20260724-final.wav",
+      "sha256": "22dbdc421b5c74b54372a846b6bde76abc743986eaeb4d74681f9786bf288cf8",
+      "gainDb": -3.69,
+      "wordCount": 81,
+      "wordsPerSecond": 2.412,
+      "paceInApprovedPart2ObservedRange": true,
+      "transcript": "A: Number 2.\nA: Good afternoon. I reserved a quiet room for two nights under the name Laura Green.\nB: I found your reservation, Ms. Green. The quiet room won't be ready until six, but a room near the elevator is available now.\nA: I'd rather wait. Can I leave my suitcase here while I get something to eat?\nB: Certainly. We'll keep it behind the front desk and call you when your room is ready.\nA: Question. What does the man say about the quiet room?",
+      "sourceMetrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 805848,
+        "durationSeconds": 33.577,
+        "peakDbfs": -1.66,
+        "rmsDbfs": -16.48,
+        "activeRmsDbfs": -14.91,
+        "activeThresholdDbfs": -50.0
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frameCount": 805848,
+      "durationSeconds": 33.577,
+      "peakDbfs": -5.35,
+      "rmsDbfs": -20.17,
+      "activeRmsDbfs": -18.46,
+      "activeThresholdDbfs": -50.0
+    },
+    {
+      "id": "No03",
+      "number": 3,
+      "voices": {
+        "A": "Kore",
+        "B": "Puck"
+      },
+      "sourceFile": "No03.wav",
+      "sourceSha256": "1c579e0aeecf5502613d0c319ab102a48f72cfd9750044efe1c2e6018f664fea",
+      "file": "audio/sample-part1-no03-kore-puck-v20260724-final.wav",
+      "sha256": "be98e097078ade6356086e32c51c28e96bbfaff297e43b58a0456b8a7051a72a",
+      "gainDb": 1.15,
+      "wordCount": 67,
+      "wordsPerSecond": 2.44,
+      "paceInApprovedPart2ObservedRange": true,
+      "transcript": "B: Number 3.\nB: I'm starting dinner now. We have an unexpected guest tonight.\nA: Really? I thought we were going to eat at the new Thai restaurant.\nB: Dad is bringing Grandma over, and she doesn't like spicy food. Could you set the table?\nA: Sure. I'll make a salad too. The soup and chicken should be enough for the main dishes.\nB: Question. Why is the man preparing dinner at home?",
+      "sourceMetrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 658932,
+        "durationSeconds": 27.456,
+        "peakDbfs": -1.9,
+        "rmsDbfs": -21.82,
+        "activeRmsDbfs": -19.75,
+        "activeThresholdDbfs": -50.0
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frameCount": 658932,
+      "durationSeconds": 27.456,
+      "peakDbfs": -0.75,
+      "rmsDbfs": -20.67,
+      "activeRmsDbfs": -18.67,
+      "activeThresholdDbfs": -50.0
+    },
+    {
+      "id": "No04",
+      "number": 4,
+      "voices": {
+        "A": "Kore",
+        "B": "Puck"
+      },
+      "sourceFile": "No04.wav",
+      "sourceSha256": "1d89b93e13a3dfc112791517fc22b2264584f976c97194f39c416045c35992d7",
+      "file": "audio/sample-part1-no04-kore-puck-v20260724-final.wav",
+      "sha256": "32e1a42b3aa4298e37af6f65e9de11840e324bf58e00f0c9bc73b16c4af2b3d2",
+      "gainDb": -2.48,
+      "wordCount": 73,
+      "wordsPerSecond": 2.36,
+      "paceInApprovedPart2ObservedRange": true,
+      "transcript": "B: Number 4.\nB: The monthly sales report is due tomorrow, and I'm still checking the figures from our Osaka office.\nA: I finished my section early. I can review those figures after lunch if that would help.\nB: That would be great. I'll send you the spreadsheet and mark the numbers that look unusual.\nA: Perfect. I have a meeting at two, so I'll look at it before then.\nB: Question. What does the woman offer to do?",
+      "sourceMetrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 742514,
+        "durationSeconds": 30.938,
+        "peakDbfs": -1.04,
+        "rmsDbfs": -17.98,
+        "activeRmsDbfs": -16.12,
+        "activeThresholdDbfs": -50.0
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frameCount": 742514,
+      "durationSeconds": 30.938,
+      "peakDbfs": -3.52,
+      "rmsDbfs": -20.46,
+      "activeRmsDbfs": -18.48,
+      "activeThresholdDbfs": -50.0
+    },
+    {
+      "id": "No05",
+      "number": 5,
+      "voices": {
+        "A": "Kore",
+        "B": "Puck"
+      },
+      "sourceFile": "No05.wav",
+      "sourceSha256": "18bb2810bb2066142ad4aa07eabacf03f22efcd349dd4bb437782b6234c519bc",
+      "file": "audio/sample-part1-no05-kore-puck-v20260724-final.wav",
+      "sha256": "ca8b115c2c8855676a66927a32b4f3f0ff868bbbf7e475d9c261e00752605d28",
+      "gainDb": 0.76,
+      "wordCount": 75,
+      "wordsPerSecond": 2.256,
+      "paceInApprovedPart2ObservedRange": true,
+      "transcript": "A: Number 5.\nA: Excuse me, does this bus stop at the city art museum?\nB: Not today. The road in front of the museum is closed, so this bus only goes as far as Central Station.\nA: I see. Is there another way to get there from the station?\nB: Take the Green Line train one stop, then walk two blocks north. The museum entrance is across from the post office.\nA: Question. Where will the woman probably go first?",
+      "sourceMetrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 798060,
+        "durationSeconds": 33.252,
+        "peakDbfs": -3.56,
+        "rmsDbfs": -21.51,
+        "activeRmsDbfs": -19.36,
+        "activeThresholdDbfs": -50.0
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frameCount": 798060,
+      "durationSeconds": 33.252,
+      "peakDbfs": -2.79,
+      "rmsDbfs": -20.75,
+      "activeRmsDbfs": -18.65,
+      "activeThresholdDbfs": -50.0
+    }
+  ]
+}

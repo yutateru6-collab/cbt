@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SCBT Part 2 Simba試作</title>
+<style>
+:root{color-scheme:light;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+*,*::before,*::after{box-sizing:border-box}html,body{max-width:100%;overflow-x:hidden}
+body{margin:0;background:#f4f1ea;color:#17211c}main{width:calc(100% - 24px);max-width:760px;margin:0 auto;padding:30px 0 56px}
+h1{font-size:clamp(24px,6vw,36px);line-height:1.2;margin:0 0 12px}.lead{color:#546058;line-height:1.75;margin:0 0 24px}
+.samples{display:grid;gap:14px}.sample-card{background:#fff;border:1px solid #d9ddd8;border-radius:18px;padding:18px;box-shadow:0 8px 26px rgba(31,52,41,.07)}
+h2{margin:0 0 6px;font-size:20px}.sample-card p{margin:0 0 13px;color:#526059;line-height:1.55}audio{display:block;width:100%;max-width:100%;min-width:0}
+.meta{margin-top:22px;color:#6b746e;font-size:13px;line-height:1.75}
+@media(max-width:560px){main{width:100%;padding:20px 5px 56px}.sample-card{padding:12px 8px;border-radius:12px}audio::-webkit-media-controls-mute-button,audio::-webkit-media-controls-volume-slider{display:none}}
+</style></head><body><main>
+<h1>SCBT Part 2・Simba試作3問</h1>
+<p class="lead">修正版：丁寧なナレーション速度、明確な文間、問題番号の読みを確認してください。</p>
+<section class="samples"><article class="sample-card"><h2>No16</h2><p>Geffen（本文）→ Dominic（設問）・約0.95相当</p><audio controls preload="metadata" src="audio/No16-r2.mp3"></audio></article><article class="sample-card"><h2>No17</h2><p>Wyatt（本文）→ Harper（設問）・Wyattは0.89相当</p><audio controls preload="metadata" src="audio/No17-r2.mp3"></audio></article><article class="sample-card"><h2>No18</h2><p>Imogen（本文）→ Hugh（設問）・約0.95相当</p><audio controls preload="metadata" src="audio/No18-r2.mp3"></audio></article></section>
+<p class="meta">本文：warmナレーション／Geffen・Imogenは約0.95相当／Wyattは0.89相当。文ごとに生成し、文間へ実音声420ms。問題番号は英単語読み。問題番号→本文1150ms、本文→Question 1100ms、-20 LUFS、MP3 44.1kHz/128kbps。</p>
+</main></body></html>

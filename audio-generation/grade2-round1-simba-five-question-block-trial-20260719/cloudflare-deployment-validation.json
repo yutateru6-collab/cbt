@@ -1,0 +1,36 @@
+{
+  "validatedAt": "2026-07-19T17:45:00+09:00",
+  "project": "scbt-simba-five-question-block",
+  "deploymentId": "404173a4-dd50-495c-8d93-d319af49eb04",
+  "productionUrl": "https://scbt-simba-five-question-block.pages.dev/?v=20260719-five-block1",
+  "deploymentUrl": "https://404173a4.scbt-simba-five-question-block.pages.dev",
+  "page": {
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "audioPlayerCount": 10,
+    "fixedCastTextPresent": true
+  },
+  "audioValidation": {
+    "fileCount": 10,
+    "allFullResponsesStatus200": true,
+    "allContentTypeAudioWav": true,
+    "allFullResponseHashesMatchLocal": true,
+    "allIphoneRangeResponsesStatus206": true,
+    "allAcceptRangesBytes": true,
+    "allRequestedRangeBytesMatchLocal": true,
+    "requestedRange": "bytes=0-1023",
+    "invalidRangeStatus": 416
+  },
+  "files": [
+    {"name": "part1-01-simba-3-2-final.wav", "sha256": "657425e4c701780722ad3f22afb9d09ed94bb82a7c9b874aa90b617e7fe20789"},
+    {"name": "part1-02-simba-3-2-final.wav", "sha256": "738f340d11bcfe10c14ae82fd46cea5fdcc7b52961080c5a0116908aaefbf3f6"},
+    {"name": "part1-03-simba-3-2-final.wav", "sha256": "c722bc230fc5c2ea42e373c143554aae9cadf5283ff5cd2585b8d0e52ab3060b"},
+    {"name": "part1-04-simba-3-2-final.wav", "sha256": "a1ec389931e0071307fd31c6278984dbf83db496b0580dafc481dcedcf36bcac"},
+    {"name": "part1-05-simba-3-2-final.wav", "sha256": "cc9efee0b65c57b17328e3b0eccb397403eb46ba99f171e4fc0f8a4cedd675eb"},
+    {"name": "part2-16-simba-3-2-final.wav", "sha256": "92dc7ac386cd6b5beff726913a44961f73f66409211e0d6ebbceb3263ff0bf45"},
+    {"name": "part2-17-simba-3-2-final.wav", "sha256": "43f75e5c91455b0c2c2356d791377c1cea38629c21a296f520bebb3b4a5b685b"},
+    {"name": "part2-18-simba-3-2-final.wav", "sha256": "033704d49216750a39c00d4a2d5565a90d475d3eda4b06a7a0c879b0b81d7e21"},
+    {"name": "part2-19-simba-3-2-final.wav", "sha256": "954d3520a0a24e57b665a8bddd5f03cdc120eabef07adeb6c035628882f0d291"},
+    {"name": "part2-20-simba-3-2-final.wav", "sha256": "b2c34c75899705f735e3ce6a5bed5c4c7301977fd017a13f7d3a78053abca390"}
+  ]
+}

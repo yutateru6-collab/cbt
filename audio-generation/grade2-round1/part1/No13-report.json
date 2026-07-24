@@ -1,0 +1,209 @@
+{
+  "item": "No13",
+  "number": 13,
+  "sourceScript": "B: Ms. Lee, my speech about space travel is nearly ten minutes, but the class limit is seven. A: Your explanation of the first moon landing is clear, so keep that part. B: Should I remove the section about future hotels in space? It has several examples. A: Keep one example, but cut the long description of the hotel's rooms and restaurants.",
+  "questionText": "What does the woman suggest removing?",
+  "voices": {
+    "A": {
+      "provider": "edge",
+      "voice": "en-US-AvaMultilingualNeural",
+      "gender": "female",
+      "language": "en-US",
+      "englishOnly": true,
+      "gainDb": -3.5
+    },
+    "B": {
+      "provider": "openai",
+      "voice": "cedar",
+      "gender": "male",
+      "accent": "American English",
+      "gainDb": 0.0
+    }
+  },
+  "output": "audio-generation\\grade2-round1\\part1\\No13.wav",
+  "outputBytes": 1226574,
+  "outputMetadata": {
+    "codec_name": "pcm_s16le",
+    "sample_fmt": "s16",
+    "sample_rate": "24000",
+    "channels": 1,
+    "bits_per_sample": 16,
+    "duration": "25.552000"
+  },
+  "openaiSegments": 3,
+  "edgeSegments": 2,
+  "openaiApiCallsThisRun": 0,
+  "edgeCallsThisRun": 0,
+  "initialVolume": {
+    "meanVolumeDb": -23.5,
+    "maxVolumeDb": -2.1
+  },
+  "globalAttenuationDb": 0.0,
+  "finalVolume": {
+    "meanVolumeDb": -23.5,
+    "maxVolumeDb": -2.1
+  },
+  "segments": [
+    {
+      "speaker": "B",
+      "provider": "openai",
+      "voice": "cedar",
+      "gender": "male",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "Number 13... Ms. Lee, my speech about space travel is nearly ten minutes, but the class limit is seven.",
+      "text": "Number 13... Ms. Lee, my speech about space travel is nearly ten minutes, but the class limit is seven.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 1,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "7.300000"
+      },
+      "volume": {
+        "meanVolumeDb": -22.8,
+        "maxVolumeDb": -2.1
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.8,
+        "maxVolumeDb": -2.1
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\cedar-dd50672ee3b278db61336ea3.wav"
+    },
+    {
+      "speaker": "A",
+      "provider": "edge",
+      "voice": "en-US-AvaMultilingualNeural",
+      "gender": "female",
+      "language": "en-US",
+      "englishOnly": true,
+      "gainDb": -3.5,
+      "displayText": "Your explanation of the first moon landing is clear, so keep that part.",
+      "text": "Your explanation of the first moon landing is clear, so keep that part.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 2,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "4.488000"
+      },
+      "volume": {
+        "meanVolumeDb": -19.8,
+        "maxVolumeDb": -2.4
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -23.3,
+        "maxVolumeDb": -5.9
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-US-AvaMultilingualNeural-18ca6b4a51ab0a9d51f1b05f.wav"
+    },
+    {
+      "speaker": "B",
+      "provider": "openai",
+      "voice": "cedar",
+      "gender": "male",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "Should I remove the section about future hotels in space? It has several examples.",
+      "text": "Should I remove the section about future hotels in space? It has several examples.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 3,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "4.300000"
+      },
+      "volume": {
+        "meanVolumeDb": -24.1,
+        "maxVolumeDb": -6.9
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -24.1,
+        "maxVolumeDb": -6.9
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\cedar-0da6877c460599e04a3c3293.wav"
+    },
+    {
+      "speaker": "A",
+      "provider": "edge",
+      "voice": "en-US-AvaMultilingualNeural",
+      "gender": "female",
+      "language": "en-US",
+      "englishOnly": true,
+      "gainDb": -3.5,
+      "displayText": "Keep one example, but cut the long description of the hotel's rooms and restaurants.",
+      "text": "Keep one example, but cut the long description of the hotel's rooms and restaurants.",
+      "ttsOverrides": [],
+      "gapAfterMs": 650,
+      "index": 4,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "5.424000"
+      },
+      "volume": {
+        "meanVolumeDb": -20.3,
+        "maxVolumeDb": -3.2
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -23.8,
+        "maxVolumeDb": -6.7
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-US-AvaMultilingualNeural-5ba8537997a6a40863172b44.wav"
+    },
+    {
+      "speaker": "B",
+      "provider": "openai",
+      "voice": "cedar",
+      "gender": "male",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "Question. What does the woman suggest removing?",
+      "text": "Question. What does the woman suggest removing?",
+      "ttsOverrides": [],
+      "gapAfterMs": 0,
+      "role": "question",
+      "index": 5,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "2.850000"
+      },
+      "volume": {
+        "meanVolumeDb": -22.7,
+        "maxVolumeDb": -2.3
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.7,
+        "maxVolumeDb": -2.3
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\cedar-a9084a14200e3b889b29cbf9.wav"
+    }
+  ]
+}

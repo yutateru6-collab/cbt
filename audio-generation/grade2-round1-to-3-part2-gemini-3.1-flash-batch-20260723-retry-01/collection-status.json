@@ -1,0 +1,67 @@
+{
+  "model": "gemini-3.1-flash-tts-preview",
+  "billingMode": "Batch API",
+  "batchJob": {
+    "submittedAt": "2026-07-23T07:54:16.420408+00:00",
+    "name": "batches/xqs1ibxwcf4hwoywm2ee2htipzomw03dstd8",
+    "displayName": "grade2-round1-to-3-part2-gemini31-20260723-retry-01",
+    "model": "models/gemini-3.1-flash-tts-preview",
+    "state": "JOB_STATE_SUCCEEDED",
+    "requestCount": 2,
+    "checkedAt": "2026-07-23T07:57:54.179528+00:00",
+    "error": null
+  },
+  "plannedRequestCount": 2,
+  "successfulRequestCount": 1,
+  "failedRequestCount": 1,
+  "usageTotals": {
+    "promptTokens": 269,
+    "outputAudioTokens": 935,
+    "totalTokens": 1204
+  },
+  "estimatedBatchCostUsd": {
+    "input": 0.0001345,
+    "outputAudio": 0.00935,
+    "total": 0.0094845
+  },
+  "items": [
+    {
+      "id": "set-02-No30",
+      "number": 30,
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "voices": {
+        "N": "Achird"
+      },
+      "file": "set-02-No30.wav",
+      "bytes": 1370888,
+      "sha256": "6e2fc512fed104dc8a57ca637d3bb398f4fabb0213efa1be4bdff7231cc1351d",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 308.75,
+        "trailingTrimMs": 332.0
+      },
+      "usage": {
+        "promptTokens": 269,
+        "outputAudioTokens": 935,
+        "totalTokens": 1204
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 685422,
+      "durationSeconds": 28.559
+    }
+  ],
+  "failures": [
+    {
+      "id": "set-02-No29",
+      "number": 29,
+      "setKey": "set-02",
+      "error": {
+        "code": 3,
+        "message": "Request contains an invalid argument."
+      }
+    }
+  ]
+}

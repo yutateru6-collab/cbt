@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-07-23T15:47:59.972793+00:00",
+  "model": "gemini-3.1-flash-tts-preview",
+  "billingMode": "Batch API",
+  "requestCount": 3,
+  "requestUnit": "one whole two-speaker listening item per independent request",
+  "finalPaceTargetWordsPerSecond": 2.44,
+  "calibrationTargetsWordsPerSecond": {
+    "1": 2.56,
+    "2": 2.3,
+    "4": 2.2
+  },
+  "pauseInstructions": {
+    "afterNumberSeconds": 0.8,
+    "afterQuestionLabelSeconds": 0.6
+  },
+  "postProcessingPlan": {
+    "speed": "none",
+    "loudness": "measure after selection; constant whole-file gain only"
+  },
+  "existingAudioPolicy": "never overwrite existing audio or output directories",
+  "items": [
+    {
+      "id": "No01",
+      "number": 1,
+      "manifest": "audio-generation\\grade2-sample-part1-full.json",
+      "segments": [
+        {
+          "speaker": "B",
+          "text": "Number 1.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "B",
+          "text": "Did you finish the poster for tomorrow's science fair?"
+        },
+        {
+          "speaker": "A",
+          "text": "Almost, but the printer in the library stopped working. Could you print the final page at home tonight?"
+        },
+        {
+          "speaker": "B",
+          "text": "I can, but send me the file before seven. I have basketball practice after that."
+        },
+        {
+          "speaker": "A",
+          "text": "Thanks. I'll email it during lunch and bring the other pages tomorrow.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "B",
+          "text": "Question. What does the girl ask the boy to do?",
+          "gapAfterMs": 0
+        }
+      ],
+      "voices": {
+        "A": "Kore",
+        "B": "Puck"
+      },
+      "mode": "dialogue",
+      "prompt": "Synthesize the exact dialogue below as audio for an English listening examination.\nDo not speak these instructions, the speaker labels, or the transcript boundary labels.\nSpeaker A is an adult woman. Speaker B is an adult man.\nUse natural American English suitable for Japanese high school learners.\nAim for an average spoken pace of approximately 2.56 words per second, excluding the two requested pauses.\nKeep every speaker turn at that same steady pace. Do not let turn-taking make either speaker speed up or slow down.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause clearly for about 0.8 seconds before beginning the dialogue.\nAfter saying \"Question,\" pause clearly for about 0.6 seconds before reading the question text.\nOtherwise, keep the dialogue responsive and realistic with ordinary natural turn transitions.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nB: Number 1.\nB: Did you finish the poster for tomorrow's science fair?\nA: Almost, but the printer in the library stopped working. Could you print the final page at home tonight?\nB: I can, but send me the file before seven. I have basketball practice after that.\nA: Thanks. I'll email it during lunch and bring the other pages tomorrow.\nB: Question. What does the girl ask the boy to do?\nEND TRANSCRIPT",
+      "calibrationTargetWordsPerSecond": 2.56
+    },
+    {
+      "id": "No02",
+      "number": 2,
+      "manifest": "audio-generation\\grade2-sample-part1-full.json",
+      "segments": [
+        {
+          "speaker": "A",
+          "text": "Number 2.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "A",
+          "text": "Good afternoon. I reserved a quiet room for two nights under the name Laura Green."
+        },
+        {
+          "speaker": "B",
+          "text": "I found your reservation, Ms. Green. The quiet room won't be ready until six, but a room near the elevator is available now."
+        },
+        {
+          "speaker": "A",
+          "text": "I'd rather wait. Can I leave my suitcase here while I get something to eat?"
+        },
+        {
+          "speaker": "B",
+          "text": "Certainly. We'll keep it behind the front desk and call you when your room is ready.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "A",
+          "text": "Question. What does the man say about the quiet room?",
+          "gapAfterMs": 0
+        }
+      ],
+      "voices": {
+        "A": "Kore",
+        "B": "Puck"
+      },
+      "mode": "dialogue",
+      "prompt": "Synthesize the exact dialogue below as audio for an English listening examination.\nDo not speak these instructions, the speaker labels, or the transcript boundary labels.\nSpeaker A is an adult woman. Speaker B is an adult man.\nUse natural American English suitable for Japanese high school learners.\nAim for an average spoken pace of approximately 2.30 words per second, excluding the two requested pauses.\nKeep every speaker turn at that same steady pace. Do not let turn-taking make either speaker speed up or slow down.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause clearly for about 0.8 seconds before beginning the dialogue.\nAfter saying \"Question,\" pause clearly for about 0.6 seconds before reading the question text.\nOtherwise, keep the dialogue responsive and realistic with ordinary natural turn transitions.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nA: Number 2.\nA: Good afternoon. I reserved a quiet room for two nights under the name Laura Green.\nB: I found your reservation, Ms. Green. The quiet room won't be ready until six, but a room near the elevator is available now.\nA: I'd rather wait. Can I leave my suitcase here while I get something to eat?\nB: Certainly. We'll keep it behind the front desk and call you when your room is ready.\nA: Question. What does the man say about the quiet room?\nEND TRANSCRIPT",
+      "calibrationTargetWordsPerSecond": 2.3
+    },
+    {
+      "id": "No04",
+      "number": 4,
+      "manifest": "audio-generation\\grade2-sample-part1-full.json",
+      "segments": [
+        {
+          "speaker": "B",
+          "text": "Number 4.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "B",
+          "text": "The monthly sales report is due tomorrow, and I'm still checking the figures from our Osaka office."
+        },
+        {
+          "speaker": "A",
+          "text": "I finished my section early. I can review those figures after lunch if that would help."
+        },
+        {
+          "speaker": "B",
+          "text": "That would be great. I'll send you the spreadsheet and mark the numbers that look unusual."
+        },
+        {
+          "speaker": "A",
+          "text": "Perfect. I have a meeting at two, so I'll look at it before then.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "B",
+          "text": "Question. What does the woman offer to do?",
+          "gapAfterMs": 0
+        }
+      ],
+      "voices": {
+        "A": "Kore",
+        "B": "Puck"
+      },
+      "mode": "dialogue",
+      "prompt": "Synthesize the exact dialogue below as audio for an English listening examination.\nDo not speak these instructions, the speaker labels, or the transcript boundary labels.\nSpeaker A is an adult woman. Speaker B is an adult man.\nUse natural American English suitable for Japanese high school learners.\nAim for an average spoken pace of approximately 2.20 words per second, excluding the two requested pauses.\nKeep every speaker turn at that same steady pace. Do not let turn-taking make either speaker speed up or slow down.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause clearly for about 0.8 seconds before beginning the dialogue.\nAfter saying \"Question,\" pause clearly for about 0.6 seconds before reading the question text.\nOtherwise, keep the dialogue responsive and realistic with ordinary natural turn transitions.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nB: Number 4.\nB: The monthly sales report is due tomorrow, and I'm still checking the figures from our Osaka office.\nA: I finished my section early. I can review those figures after lunch if that would help.\nB: That would be great. I'll send you the spreadsheet and mark the numbers that look unusual.\nA: Perfect. I have a meeting at two, so I'll look at it before then.\nB: Question. What does the woman offer to do?\nEND TRANSCRIPT",
+      "calibrationTargetWordsPerSecond": 2.2
+    }
+  ]
+}

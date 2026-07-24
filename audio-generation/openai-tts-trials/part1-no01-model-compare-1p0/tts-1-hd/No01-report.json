@@ -1,0 +1,68 @@
+{
+  "mode": "completed",
+  "item": "No01",
+  "model": "tts-1-hd",
+  "voices": {
+    "A": "nova",
+    "B": "onyx",
+    "N": "nova"
+  },
+  "speed": 1.0,
+  "responseFormat": "wav",
+  "sourceSegments": 6,
+  "synthesisSegments": 5,
+  "maxApiCalls": 5,
+  "maxRetriesPerSegment": 0,
+  "estimatedCostCapUsd": 0.05,
+  "instructionsProfile": "none",
+  "instructions": null,
+  "estimate": {
+    "characters": 370,
+    "words": 66,
+    "estimatedDurationSeconds": 31.65,
+    "estimatedCostUsd": 0.0111,
+    "costBasis": "30 USD per 1M input characters"
+  },
+  "output": "audio-generation\\openai-tts-trials\\part1-no01-model-compare-1p0\\tts-1-hd\\No01.wav",
+  "segments": [
+    {
+      "speaker": "B",
+      "voice": "onyx",
+      "text": "Number 1... Did you finish the poster for tomorrow's science fair?",
+      "gapAfterMs": 180
+    },
+    {
+      "speaker": "A",
+      "voice": "nova",
+      "text": "Almost, but the printer in the library stopped working. Could you print the final page at home tonight?",
+      "gapAfterMs": 180
+    },
+    {
+      "speaker": "B",
+      "voice": "onyx",
+      "text": "I can, but send me the file before seven. I have basketball practice after that.",
+      "gapAfterMs": 180
+    },
+    {
+      "speaker": "A",
+      "voice": "nova",
+      "text": "Thanks. I'll email it during lunch and bring the other pages tomorrow.",
+      "gapAfterMs": 650
+    },
+    {
+      "speaker": "B",
+      "voice": "onyx",
+      "text": "Question. What does the girl ask the boy to do?",
+      "gapAfterMs": 0
+    }
+  ],
+  "apiCalls": 5,
+  "cachedSegments": 0,
+  "outputBytes": 1129398,
+  "outputMetadata": {
+    "codec_name": "pcm_s16le",
+    "sample_rate": "24000",
+    "channels": 1,
+    "duration": "23.527500"
+  }
+}

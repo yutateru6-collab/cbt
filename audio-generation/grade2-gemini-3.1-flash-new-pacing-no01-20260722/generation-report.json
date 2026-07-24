@@ -1,0 +1,63 @@
+{
+  "model": "gemini-3.1-flash-tts-preview",
+  "sourceManifest": "audio-generation\\grade2-sample-part1-full.json",
+  "numbers": [
+    1
+  ],
+  "voices": {
+    "A": {
+      "voice": "Aoede",
+      "role": "adult woman"
+    },
+    "B": {
+      "voice": "Charon",
+      "role": "adult man"
+    },
+    "N": {
+      "voice": "Charon",
+      "role": "adult male narrator"
+    }
+  },
+  "format": {
+    "sampleRate": 24000,
+    "channels": 1,
+    "sampleWidth": 2,
+    "encoding": "PCM signed 16-bit little-endian WAV"
+  },
+  "assembly": {
+    "mode": "whole-item",
+    "requestsPerItem": 1,
+    "trimThreshold": 120,
+    "trimPaddingMs": 40,
+    "speedProcessing": "none",
+    "loudnessProcessing": "none"
+  },
+  "items": [
+    {
+      "id": "No01",
+      "number": 1,
+      "file": "No01.wav",
+      "bytes": 1353228,
+      "sha256": "da575a1a2b25e65d7c33a65aaa525ca61186552a03eb8aa054921647ab014317",
+      "sourceMimeTypes": {
+        "item": "audio/l16; rate=24000; channels=1"
+      },
+      "generationSeconds": 13.628,
+      "assembly": {
+        "mode": "one multi-speaker request",
+        "silenceProcessing": {
+          "mode": "preserve model-generated internal pauses",
+          "boundaryTrim": {
+            "leadingTrimMs": 319.583,
+            "trailingTrimMs": 329.083
+          }
+        }
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 676592,
+      "durationSeconds": 28.191
+    }
+  ]
+}

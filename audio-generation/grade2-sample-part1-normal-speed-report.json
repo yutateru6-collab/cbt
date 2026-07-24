@@ -1,0 +1,41 @@
+[
+  {
+    "id": "No01",
+    "number": 1,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No01.mp3",
+    "bytes": 366669,
+    "duration": "30.464000",
+    "bitRate": "96000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "96k"
+  },
+  {
+    "id": "No02",
+    "number": 2,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No02.mp3",
+    "bytes": 423405,
+    "duration": "35.192000",
+    "bitRate": "96000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "96k"
+  },
+  {
+    "id": "No03",
+    "number": 3,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No03.mp3",
+    "bytes": 383949,
+    "duration": "31.904000",
+    "bitRate": "96000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "96k"
+  }
+]

@@ -1,0 +1,209 @@
+{
+  "item": "No10",
+  "number": 10,
+  "sourceScript": "A: The community garden needs volunteers Saturday morning. I can water the new plants, but I can't lift the soil bags. B: I can move the bags after I finish setting up the tables for the plant sale. A: Great. Please leave four bags beside each flower bed, not near the gate. B: Got it. I'll borrow the garden cart so I can carry several at once.",
+  "questionText": "What will the man do at the garden?",
+  "voices": {
+    "A": {
+      "provider": "openai",
+      "voice": "marin",
+      "gender": "female",
+      "accent": "American English",
+      "gainDb": 0.0
+    },
+    "B": {
+      "provider": "edge",
+      "voice": "en-GB-RyanNeural",
+      "gender": "male",
+      "language": "en-GB",
+      "englishOnly": true,
+      "gainDb": 0.0
+    }
+  },
+  "output": "audio-generation\\grade2-round1\\part1\\No10.wav",
+  "outputBytes": 1375950,
+  "outputMetadata": {
+    "codec_name": "pcm_s16le",
+    "sample_fmt": "s16",
+    "sample_rate": "24000",
+    "channels": 1,
+    "bits_per_sample": 16,
+    "duration": "28.664000"
+  },
+  "openaiSegments": 3,
+  "edgeSegments": 2,
+  "openaiApiCallsThisRun": 0,
+  "edgeCallsThisRun": 0,
+  "initialVolume": {
+    "meanVolumeDb": -22.2,
+    "maxVolumeDb": -3.5
+  },
+  "globalAttenuationDb": 0.0,
+  "finalVolume": {
+    "meanVolumeDb": -22.2,
+    "maxVolumeDb": -3.5
+  },
+  "segments": [
+    {
+      "speaker": "A",
+      "provider": "openai",
+      "voice": "marin",
+      "gender": "female",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "Number 10... The community garden needs volunteers Saturday morning. I can water the new plants, but I can't lift the soil bags.",
+      "text": "Number 10... The community garden needs volunteers Saturday morning. I can water the new plants, but I can't lift the soil bags.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 1,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "8.650000"
+      },
+      "volume": {
+        "meanVolumeDb": -22.2,
+        "maxVolumeDb": -4.4
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.2,
+        "maxVolumeDb": -4.4
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\marin-6becf0aaacbfc3cd37f0dba7.wav"
+    },
+    {
+      "speaker": "B",
+      "provider": "edge",
+      "voice": "en-GB-RyanNeural",
+      "gender": "male",
+      "language": "en-GB",
+      "englishOnly": true,
+      "gainDb": 0.0,
+      "displayText": "I can move the bags after I finish setting up the tables for the plant sale.",
+      "text": "I can move the bags after I finish setting up the tables for the plant sale.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 2,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "4.728000"
+      },
+      "volume": {
+        "meanVolumeDb": -21.4,
+        "maxVolumeDb": -4.8
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -21.4,
+        "maxVolumeDb": -4.8
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-GB-RyanNeural-fd672798c3991b00296dc4d4.wav"
+    },
+    {
+      "speaker": "A",
+      "provider": "openai",
+      "voice": "marin",
+      "gender": "female",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "Great. Please leave four bags beside each flower bed, not near the gate.",
+      "text": "Great. Please leave four bags beside each flower bed, not near the gate.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 3,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "5.350000"
+      },
+      "volume": {
+        "meanVolumeDb": -23.1,
+        "maxVolumeDb": -8.0
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -23.1,
+        "maxVolumeDb": -8.0
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\marin-8d138185223f19fae07aa166.wav"
+    },
+    {
+      "speaker": "B",
+      "provider": "edge",
+      "voice": "en-GB-RyanNeural",
+      "gender": "male",
+      "language": "en-GB",
+      "englishOnly": true,
+      "gainDb": 0.0,
+      "displayText": "Got it. I'll borrow the garden cart so I can carry several at once.",
+      "text": "Got it. I'll borrow the garden cart so I can carry several at once.",
+      "ttsOverrides": [],
+      "gapAfterMs": 650,
+      "index": 4,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "5.496000"
+      },
+      "volume": {
+        "meanVolumeDb": -22.9,
+        "maxVolumeDb": -4.2
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.9,
+        "maxVolumeDb": -4.2
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-GB-RyanNeural-1087aeea13b6a7d203ce7fda.wav"
+    },
+    {
+      "speaker": "A",
+      "provider": "openai",
+      "voice": "marin",
+      "gender": "female",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "Question. What will the man do at the garden?",
+      "text": "Question. What will the man do at the garden?",
+      "ttsOverrides": [],
+      "gapAfterMs": 0,
+      "role": "question",
+      "index": 5,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "3.250000"
+      },
+      "volume": {
+        "meanVolumeDb": -20.0,
+        "maxVolumeDb": -3.5
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -20.0,
+        "maxVolumeDb": -3.5
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\marin-fcc1983e11293caaaa66e38a.wav"
+    }
+  ]
+}

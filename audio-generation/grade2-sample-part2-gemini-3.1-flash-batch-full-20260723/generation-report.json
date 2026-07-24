@@ -1,0 +1,417 @@
+{
+  "model": "gemini-3.1-flash-tts-preview",
+  "billingMode": "Batch API",
+  "batchJob": {
+    "submittedAt": "2026-07-22T17:35:37.902847+00:00",
+    "name": "batches/msieoh2a25rwdu8e4fqtlvm08xuquolq4typ",
+    "displayName": "grade2-sample-part2-gemini31-full-20260723",
+    "model": "models/gemini-3.1-flash-tts-preview",
+    "state": "JOB_STATE_SUCCEEDED",
+    "requestCount": 15,
+    "checkedAt": "2026-07-22T17:49:29.837136+00:00",
+    "error": null
+  },
+  "requestCount": 15,
+  "paceInstructions": [
+    "Maintain a steady pace.",
+    "Do not rush, accelerate, over-enunciate, or stretch individual words."
+  ],
+  "format": {
+    "sampleRate": 24000,
+    "channels": 1,
+    "sampleWidth": 2,
+    "encoding": "PCM signed 16-bit little-endian WAV"
+  },
+  "postProcessing": {
+    "speed": "none",
+    "loudness": "none",
+    "silence": "leading and trailing boundary trim only"
+  },
+  "usageTotals": {
+    "promptTokens": 4128,
+    "outputAudioTokens": 15411,
+    "totalTokens": 19539
+  },
+  "estimatedBatchCostUsd": {
+    "input": 0.002064,
+    "outputAudio": 0.15411,
+    "total": 0.156174
+  },
+  "items": [
+    {
+      "id": "No16",
+      "number": 16,
+      "voices": {
+        "N": "Kore"
+      },
+      "file": "No16.wav",
+      "bytes": 1538728,
+      "sha256": "d6b0fe1cadb2da9753e2bf646ebb11d7d39902e5d0d6868d39392867017a3d00",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 258.417,
+        "trailingTrimMs": 365.667
+      },
+      "usage": {
+        "promptTokens": 280,
+        "outputAudioTokens": 1046,
+        "totalTokens": 1326
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 769342,
+      "durationSeconds": 32.056
+    },
+    {
+      "id": "No17",
+      "number": 17,
+      "voices": {
+        "N": "Kore"
+      },
+      "file": "No17.wav",
+      "bytes": 1571522,
+      "sha256": "b4d76974783097c01e9d90adcf64a5efd7ad0ee5b6ea04933ae3c4b154677739",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 469.083,
+        "trailingTrimMs": 471.792
+      },
+      "usage": {
+        "promptTokens": 281,
+        "outputAudioTokens": 1078,
+        "totalTokens": 1359
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 785739,
+      "durationSeconds": 32.739
+    },
+    {
+      "id": "No18",
+      "number": 18,
+      "voices": {
+        "N": "Kore"
+      },
+      "file": "No18.wav",
+      "bytes": 1465246,
+      "sha256": "3ac9180305f261b50ab3776cf50cdcf8bcd7f849acba39205ae961978170f294",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 231.583,
+        "trailingTrimMs": 283.375
+      },
+      "usage": {
+        "promptTokens": 271,
+        "outputAudioTokens": 994,
+        "totalTokens": 1265
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 732601,
+      "durationSeconds": 30.525
+    },
+    {
+      "id": "No19",
+      "number": 19,
+      "voices": {
+        "N": "Kore"
+      },
+      "file": "No19.wav",
+      "bytes": 1694496,
+      "sha256": "7d267d8b2fc02fbd6ba5d1ece0faf52a1fc52e494449d0b1ea5c474acb5eed44",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 171.958,
+        "trailingTrimMs": 246.958
+      },
+      "usage": {
+        "promptTokens": 276,
+        "outputAudioTokens": 1144,
+        "totalTokens": 1420
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 847226,
+      "durationSeconds": 35.301
+    },
+    {
+      "id": "No20",
+      "number": 20,
+      "voices": {
+        "N": "Kore"
+      },
+      "file": "No20.wav",
+      "bytes": 1455184,
+      "sha256": "66b992a8c6451bd1a2500f56d7975ffc7df821c7783c578552eb0e9371ac6b4a",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 806.625,
+        "trailingTrimMs": 2397.958
+      },
+      "usage": {
+        "promptTokens": 272,
+        "outputAudioTokens": 1073,
+        "totalTokens": 1345
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 727570,
+      "durationSeconds": 30.315
+    },
+    {
+      "id": "No21",
+      "number": 21,
+      "voices": {
+        "N": "Achird"
+      },
+      "file": "No21.wav",
+      "bytes": 1447102,
+      "sha256": "0a3f26c106f99be9a791c82852c681e226b39582b872bc5c5f6587202703a499",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 238.625,
+        "trailingTrimMs": 454.333
+      },
+      "usage": {
+        "promptTokens": 275,
+        "outputAudioTokens": 987,
+        "totalTokens": 1262
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 723529,
+      "durationSeconds": 30.147
+    },
+    {
+      "id": "No22",
+      "number": 22,
+      "voices": {
+        "N": "Achird"
+      },
+      "file": "No22.wav",
+      "bytes": 1619800,
+      "sha256": "55f1ed4c51345edc377a81a4ce79e08aa90aeee8f1201d0f20b8f534a578d250",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 291.292,
+        "trailingTrimMs": 283.792
+      },
+      "usage": {
+        "promptTokens": 283,
+        "outputAudioTokens": 1099,
+        "totalTokens": 1382
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 809878,
+      "durationSeconds": 33.745
+    },
+    {
+      "id": "No23",
+      "number": 23,
+      "voices": {
+        "N": "Achird"
+      },
+      "file": "No23.wav",
+      "bytes": 1550708,
+      "sha256": "3c8d387056828b7e05d27bb07457d2ecb884eda99d1e0c053733c1d0403bd3c8",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 246.375,
+        "trailingTrimMs": 288.125
+      },
+      "usage": {
+        "promptTokens": 272,
+        "outputAudioTokens": 1051,
+        "totalTokens": 1323
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 775332,
+      "durationSeconds": 32.306
+    },
+    {
+      "id": "No24",
+      "number": 24,
+      "voices": {
+        "N": "Achird"
+      },
+      "file": "No24.wav",
+      "bytes": 1443396,
+      "sha256": "d5c79eae120c8865019b9ac13b92862a18803e6dc758946510b6075d72eb21dd",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 260.667,
+        "trailingTrimMs": 269.5
+      },
+      "usage": {
+        "promptTokens": 275,
+        "outputAudioTokens": 980,
+        "totalTokens": 1255
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 721676,
+      "durationSeconds": 30.07
+    },
+    {
+      "id": "No25",
+      "number": 25,
+      "voices": {
+        "N": "Achird"
+      },
+      "file": "No25.wav",
+      "bytes": 1401886,
+      "sha256": "38e843487a3d36b5e74586fb0566035325fc22a0bfd5a47584fd839e50400626",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 230.75,
+        "trailingTrimMs": 284.208
+      },
+      "usage": {
+        "promptTokens": 273,
+        "outputAudioTokens": 952,
+        "totalTokens": 1225
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 700921,
+      "durationSeconds": 29.205
+    },
+    {
+      "id": "No26",
+      "number": 26,
+      "voices": {
+        "N": "Leda"
+      },
+      "file": "No26.wav",
+      "bytes": 1599974,
+      "sha256": "859eb688032fbeca8edfa9b584647fce3f0e9a2b923c083682225f26d673f318",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 232.667,
+        "trailingTrimMs": 315.458
+      },
+      "usage": {
+        "promptTokens": 273,
+        "outputAudioTokens": 1085,
+        "totalTokens": 1358
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 799965,
+      "durationSeconds": 33.332
+    },
+    {
+      "id": "No27",
+      "number": 27,
+      "voices": {
+        "N": "Leda"
+      },
+      "file": "No27.wav",
+      "bytes": 1476296,
+      "sha256": "9615248db709aabcf86dcf2abf9b6890dd5d5ddb37e61914097c74cff957420b",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 230.667,
+        "trailingTrimMs": 254.083
+      },
+      "usage": {
+        "promptTokens": 273,
+        "outputAudioTokens": 1000,
+        "totalTokens": 1273
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 738126,
+      "durationSeconds": 30.755
+    },
+    {
+      "id": "No28",
+      "number": 28,
+      "voices": {
+        "N": "Leda"
+      },
+      "file": "No28.wav",
+      "bytes": 1386022,
+      "sha256": "17abdd65bf2fe8b405afbdfba873b1aedecaa564627b69325504807d5a87e4ff",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 240.167,
+        "trailingTrimMs": 285.292
+      },
+      "usage": {
+        "promptTokens": 275,
+        "outputAudioTokens": 941,
+        "totalTokens": 1216
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 692989,
+      "durationSeconds": 28.875
+    },
+    {
+      "id": "No29",
+      "number": 29,
+      "voices": {
+        "N": "Leda"
+      },
+      "file": "No29.wav",
+      "bytes": 1443874,
+      "sha256": "2768f713ca830844332cbec4c1745eb4b7d4ca3738a18b85d8640420d963cd81",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 262.417,
+        "trailingTrimMs": 337.792
+      },
+      "usage": {
+        "promptTokens": 276,
+        "outputAudioTokens": 982,
+        "totalTokens": 1258
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 721915,
+      "durationSeconds": 30.08
+    },
+    {
+      "id": "No30",
+      "number": 30,
+      "voices": {
+        "N": "Leda"
+      },
+      "file": "No30.wav",
+      "bytes": 1475538,
+      "sha256": "db697e03155083cc2a13f1b3164221c029fc335c080b2e23c494404b540c01dc",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 173.542,
+        "trailingTrimMs": 287.0
+      },
+      "usage": {
+        "promptTokens": 273,
+        "outputAudioTokens": 999,
+        "totalTokens": 1272
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 737747,
+      "durationSeconds": 30.739
+    }
+  ]
+}

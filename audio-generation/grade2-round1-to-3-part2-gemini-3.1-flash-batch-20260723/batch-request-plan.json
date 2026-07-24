@@ -1,0 +1,1235 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-07-23T07:37:55.951730+00:00",
+  "model": "gemini-3.1-flash-tts-preview",
+  "billingMode": "Batch API",
+  "requestCount": 45,
+  "requestLimit": 45,
+  "requestUnit": "one whole listening item per independent request",
+  "sets": [
+    "set-01",
+    "set-02",
+    "set-03"
+  ],
+  "voiceRotation": {
+    "set-01": [
+      {
+        "start": 16,
+        "end": 20,
+        "voice": "Achird"
+      },
+      {
+        "start": 21,
+        "end": 25,
+        "voice": "Zephyr"
+      },
+      {
+        "start": 26,
+        "end": 30,
+        "voice": "Kore"
+      }
+    ],
+    "set-02": [
+      {
+        "start": 16,
+        "end": 20,
+        "voice": "Zephyr"
+      },
+      {
+        "start": 21,
+        "end": 25,
+        "voice": "Kore"
+      },
+      {
+        "start": 26,
+        "end": 30,
+        "voice": "Achird"
+      }
+    ],
+    "set-03": [
+      {
+        "start": 16,
+        "end": 20,
+        "voice": "Kore"
+      },
+      {
+        "start": 21,
+        "end": 25,
+        "voice": "Achird"
+      },
+      {
+        "start": 26,
+        "end": 30,
+        "voice": "Zephyr"
+      }
+    ]
+  },
+  "paceInstructions": [
+    "Maintain a steady pace.",
+    "Do not rush, accelerate, over-enunciate, or stretch individual words."
+  ],
+  "pauseInstructions": {
+    "afterNumberSeconds": 0.6,
+    "beforeQuestion": "ordinary natural sentence-boundary timing only",
+    "afterQuestionLabelSeconds": 0.4,
+    "otherDeliberatePauses": "none"
+  },
+  "postProcessingPlan": {
+    "speed": "none",
+    "loudness": {
+      "Kore": "-3.0 dB whole-file gain after collection",
+      "Achird": "none",
+      "Zephyr": "none"
+    },
+    "silence": "trim leading and trailing boundaries only during collection",
+    "normalization": "none",
+    "eq": "none",
+    "compression": "none"
+  },
+  "sourceFiles": [
+    {
+      "path": "grade2-set-01.js",
+      "sha256": "c5dd9c8bee4c2293c84e2b39af7de9f9aa47633b82e4a32e2a533d2fa87a9093"
+    },
+    {
+      "path": "grade2-vocab-sets.js",
+      "sha256": "8866ebe1ce3e3a295708e8ffc1088d376aba96784493910d58489c256079ce81"
+    },
+    {
+      "path": "grade2-listening-part2-sets.js",
+      "sha256": "709210a5611fa0433be143f441e4338a32e8b7e887101a96344379b24fc3eff2"
+    },
+    {
+      "path": "exam-data.js",
+      "sha256": "fe37a76ecf1632bf6cad202600d30f1868992a05e1ce1245806395f680cdd3dd"
+    }
+  ],
+  "existingAudioPolicy": "never overwrite existing audio or output directories",
+  "items": [
+    {
+      "id": "set-01-No16",
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "number": 16,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 16."
+        },
+        {
+          "speaker": "N",
+          "text": "During her first weeks at a design company, Nina tried to write down every comment made during team meetings. She often missed later points because she was still writing. A colleague showed her how to divide a page into decisions and tasks. Nina used the new format at the next meeting and found it easier to follow the discussion."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. Why did Nina change how she took notes?"
+        }
+      ],
+      "voices": {
+        "N": "Achird"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 16.\nDuring her first weeks at a design company, Nina tried to write down every comment made during team meetings. She often missed later points because she was still writing. A colleague showed her how to divide a page into decisions and tasks. Nina used the new format at the next meeting and found it easier to follow the discussion.\nQuestion. Why did Nina change how she took notes?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-01-No17",
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "number": 17,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 17."
+        },
+        {
+          "speaker": "N",
+          "text": "The Riverside Science Center will open its space exhibition this Saturday. The main hall will be available from nine, but the planetarium will remain closed until one because new equipment is being tested. Visitors with morning planetarium tickets may use them for any afternoon show. The café and gift shop will operate on their normal schedule."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What can morning planetarium ticket holders do?"
+        }
+      ],
+      "voices": {
+        "N": "Achird"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 17.\nThe Riverside Science Center will open its space exhibition this Saturday. The main hall will be available from nine, but the planetarium will remain closed until one because new equipment is being tested. Visitors with morning planetarium tickets may use them for any afternoon show. The café and gift shop will operate on their normal schedule.\nQuestion. What can morning planetarium ticket holders do?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-01-No18",
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "number": 18,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 18."
+        },
+        {
+          "speaker": "N",
+          "text": "For several years, Omar grew vegetables on his apartment balcony. Last spring, nearby construction blocked most of the sunlight. He considered moving the plants indoors, but there was not enough space. Instead, he rented a small garden plot near his office. He now checks the plants during his lunch break, though carrying tools there is sometimes inconvenient."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. How did Omar deal with the lack of sunlight?"
+        }
+      ],
+      "voices": {
+        "N": "Achird"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 18.\nFor several years, Omar grew vegetables on his apartment balcony. Last spring, nearby construction blocked most of the sunlight. He considered moving the plants indoors, but there was not enough space. Instead, he rented a small garden plot near his office. He now checks the plants during his lunch break, though carrying tools there is sometimes inconvenient.\nQuestion. How did Omar deal with the lack of sunlight?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-01-No19",
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "number": 19,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 19."
+        },
+        {
+          "speaker": "N",
+          "text": "Attention, passengers. Because of repair work, trains will not stop at Lake Street Station after eight this evening. Passengers traveling there should leave the train at Central Station and use the free bus outside the north exit. The final bus will depart at eleven thirty. Regular train service at Lake Street will begin again tomorrow morning."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. How should passengers reach Lake Street tonight?"
+        }
+      ],
+      "voices": {
+        "N": "Achird"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 19.\nAttention, passengers. Because of repair work, trains will not stop at Lake Street Station after eight this evening. Passengers traveling there should leave the train at Central Station and use the free bus outside the north exit. The final bus will depart at eleven thirty. Regular train service at Lake Street will begin again tomorrow morning.\nQuestion. How should passengers reach Lake Street tonight?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-01-No20",
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "number": 20,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 20."
+        },
+        {
+          "speaker": "N",
+          "text": "When Elena joined a weekend running club, she expected every member to train at the same speed. During her first session, however, the coach placed runners in three groups based on experience. Elena chose the middle group, but after two weeks she moved to the slower one. She wanted to improve her breathing technique before trying to run faster."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. Why did Elena change running groups?"
+        }
+      ],
+      "voices": {
+        "N": "Achird"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 20.\nWhen Elena joined a weekend running club, she expected every member to train at the same speed. During her first session, however, the coach placed runners in three groups based on experience. Elena chose the middle group, but after two weeks she moved to the slower one. She wanted to improve her breathing technique before trying to run faster.\nQuestion. Why did Elena change running groups?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-01-No21",
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "number": 21,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 21."
+        },
+        {
+          "speaker": "N",
+          "text": "Some birds place ants among their feathers. Scientists call this unusual behavior anting. The ants release chemicals that may help remove tiny insects living on the birds’ bodies. Birds sometimes use other insects in a similar way. Researchers are still studying the behavior, so they cannot say that cleaning is its only purpose."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What is one possible benefit of anting?"
+        }
+      ],
+      "voices": {
+        "N": "Zephyr"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 21.\nSome birds place ants among their feathers. Scientists call this unusual behavior anting. The ants release chemicals that may help remove tiny insects living on the birds’ bodies. Birds sometimes use other insects in a similar way. Researchers are still studying the behavior, so they cannot say that cleaning is its only purpose.\nQuestion. What is one possible benefit of anting?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-01-No22",
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "number": 22,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 22."
+        },
+        {
+          "speaker": "N",
+          "text": "Before starting college, Marcus planned to buy a new laptop. He found one with excellent performance, but it was heavier than he expected. Another model was lighter and had a longer battery life, although its screen was smaller. Since he would carry it across campus every day, Marcus chose the lighter model instead of the more powerful one."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. Why did Marcus select the lighter laptop?"
+        }
+      ],
+      "voices": {
+        "N": "Zephyr"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 22.\nBefore starting college, Marcus planned to buy a new laptop. He found one with excellent performance, but it was heavier than he expected. Another model was lighter and had a longer battery life, although its screen was smaller. Since he would carry it across campus every day, Marcus chose the lighter model instead of the more powerful one.\nQuestion. Why did Marcus select the lighter laptop?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-01-No23",
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "number": 23,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 23."
+        },
+        {
+          "speaker": "N",
+          "text": "Students who plan to use the school art room during summer vacation must register by Friday. The room will be open on Tuesdays and Thursdays from ten to three. Paint and brushes will be provided, but students must bring their own paper or canvas. A teacher will be present, although regular art lessons will not be offered."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What must students bring to the art room?"
+        }
+      ],
+      "voices": {
+        "N": "Zephyr"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 23.\nStudents who plan to use the school art room during summer vacation must register by Friday. The room will be open on Tuesdays and Thursdays from ten to three. Paint and brushes will be provided, but students must bring their own paper or canvas. A teacher will be present, although regular art lessons will not be offered.\nQuestion. What must students bring to the art room?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-01-No24",
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "number": 24,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 24."
+        },
+        {
+          "speaker": "N",
+          "text": "Recently, noise from the street had made it difficult for Priya to sleep. She first thought the problem came from a nearby restaurant, but the noise continued after the restaurant closed. One night, she noticed delivery trucks stopping beside her building before sunrise. Priya contacted the building manager, who arranged for the trucks to use another entrance."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What was actually causing the noise?"
+        }
+      ],
+      "voices": {
+        "N": "Zephyr"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 24.\nRecently, noise from the street had made it difficult for Priya to sleep. She first thought the problem came from a nearby restaurant, but the noise continued after the restaurant closed. One night, she noticed delivery trucks stopping beside her building before sunrise. Priya contacted the building manager, who arranged for the trucks to use another entrance.\nQuestion. What was actually causing the noise?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-01-No25",
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "number": 25,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 25."
+        },
+        {
+          "speaker": "N",
+          "text": "A local theater planned to perform an outdoor play in the town square on Sunday. The weather report now says heavy rain is likely. The performance will therefore take place in the community hall at the same starting time. Tickets remain valid, but seating in the hall is limited. People without tickets will not be admitted."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What change has been made to the play?"
+        }
+      ],
+      "voices": {
+        "N": "Zephyr"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 25.\nA local theater planned to perform an outdoor play in the town square on Sunday. The weather report now says heavy rain is likely. The performance will therefore take place in the community hall at the same starting time. Tickets remain valid, but seating in the hall is limited. People without tickets will not be admitted.\nQuestion. What change has been made to the play?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-01-No26",
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "number": 26,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 26."
+        },
+        {
+          "speaker": "N",
+          "text": "After Daniel began working from home, he often forgot to take breaks. By late afternoon, he found it hard to concentrate. Rather than setting several phone alarms, he started using a kitchen timer that rings every fifty minutes. When it rings, he stands up and walks around for five minutes. The timer helps him separate work periods from short breaks."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. How does Daniel remember to take breaks?"
+        }
+      ],
+      "voices": {
+        "N": "Kore"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 26.\nAfter Daniel began working from home, he often forgot to take breaks. By late afternoon, he found it hard to concentrate. Rather than setting several phone alarms, he started using a kitchen timer that rings every fifty minutes. When it rings, he stands up and walks around for five minutes. The timer helps him separate work periods from short breaks.\nQuestion. How does Daniel remember to take breaks?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-01-No27",
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "number": 27,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 27."
+        },
+        {
+          "speaker": "N",
+          "text": "At the Green Market, customers can earn extra points this month by returning clean glass jars from products sold there. Each jar must still have the store’s label, and customers must show the receipt from the original purchase. Jars from other stores will be accepted for recycling, but they will not earn points. The offer ends on the last day of the month."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. Which jars can earn customers extra points?"
+        }
+      ],
+      "voices": {
+        "N": "Kore"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 27.\nAt the Green Market, customers can earn extra points this month by returning clean glass jars from products sold there. Each jar must still have the store’s label, and customers must show the receipt from the original purchase. Jars from other stores will be accepted for recycling, but they will not earn points. The offer ends on the last day of the month.\nQuestion. Which jars can earn customers extra points?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-01-No28",
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "number": 28,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 28."
+        },
+        {
+          "speaker": "N",
+          "text": "For her history project, Mei planned to interview her grandfather about the neighborhood where he grew up. He became ill on the day of their meeting, so she did not visit him. Instead, he sent her several voice messages describing local shops and festivals. Mei used those recordings in her presentation and postponed the interview until he recovered."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. How did Mei complete her presentation?"
+        }
+      ],
+      "voices": {
+        "N": "Kore"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 28.\nFor her history project, Mei planned to interview her grandfather about the neighborhood where he grew up. He became ill on the day of their meeting, so she did not visit him. Instead, he sent her several voice messages describing local shops and festivals. Mei used those recordings in her presentation and postponed the interview until he recovered.\nQuestion. How did Mei complete her presentation?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-01-No29",
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "number": 29,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 29."
+        },
+        {
+          "speaker": "N",
+          "text": "Visitors to West Hill Park may notice that several walking paths are covered with natural wood chips. The chips help keep the ground from becoming muddy after rain. They also reduce damage to tree roots by guiding visitors along marked routes. Park workers replace the chips each spring because they slowly break down over time."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What is one purpose of the wood chips?"
+        }
+      ],
+      "voices": {
+        "N": "Kore"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 29.\nVisitors to West Hill Park may notice that several walking paths are covered with natural wood chips. The chips help keep the ground from becoming muddy after rain. They also reduce damage to tree roots by guiding visitors along marked routes. Park workers replace the chips each spring because they slowly break down over time.\nQuestion. What is one purpose of the wood chips?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-01-No30",
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "number": 30,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 30."
+        },
+        {
+          "speaker": "N",
+          "text": "Last month, Theo volunteered to help at an animal shelter. He expected to walk dogs, but new volunteers were first asked to prepare food and clean bowls. After completing two training sessions, he was allowed to work with the dogs. Theo now helps on Saturday mornings, although he still spends part of each visit preparing meals."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What happened after Theo completed his training?"
+        }
+      ],
+      "voices": {
+        "N": "Kore"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 30.\nLast month, Theo volunteered to help at an animal shelter. He expected to walk dogs, but new volunteers were first asked to prepare food and clean bowls. After completing two training sessions, he was allowed to work with the dogs. Theo now helps on Saturday mornings, although he still spends part of each visit preparing meals.\nQuestion. What happened after Theo completed his training?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-02-No16",
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "number": 16,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 16."
+        },
+        {
+          "speaker": "N",
+          "text": "After joining the school newspaper, Leo was asked to photograph a basketball game. He took many pictures, but most of them were unclear because the players were moving quickly. A teacher explained that he should use a faster camera setting. At the next game, Leo changed the setting and produced several sharp photographs for the newspaper."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What helped Leo take clearer photographs?"
+        }
+      ],
+      "voices": {
+        "N": "Zephyr"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 16.\nAfter joining the school newspaper, Leo was asked to photograph a basketball game. He took many pictures, but most of them were unclear because the players were moving quickly. A teacher explained that he should use a faster camera setting. At the next game, Leo changed the setting and produced several sharp photographs for the newspaper.\nQuestion. What helped Leo take clearer photographs?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-02-No17",
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "number": 17,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 17."
+        },
+        {
+          "speaker": "N",
+          "text": "The City History Museum is offering free guided tours this weekend. Tours begin every hour from ten in the morning until three in the afternoon. Visitors do not need to pay, but they must collect a tour ticket at the information desk. Since each group is limited to fifteen people, tickets cannot be reserved by telephone."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What must visitors do to join a tour?"
+        }
+      ],
+      "voices": {
+        "N": "Zephyr"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 17.\nThe City History Museum is offering free guided tours this weekend. Tours begin every hour from ten in the morning until three in the afternoon. Visitors do not need to pay, but they must collect a tour ticket at the information desk. Since each group is limited to fifteen people, tickets cannot be reserved by telephone.\nQuestion. What must visitors do to join a tour?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-02-No18",
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "number": 18,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 18."
+        },
+        {
+          "speaker": "N",
+          "text": "When Sofia moved into her new apartment, she planned to put a desk beside the window. However, the afternoon sunlight made her computer screen difficult to see. She considered buying thicker curtains, but they would make the room too dark. In the end, she placed the desk against another wall and kept the window area open for plants."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What did Sofia finally decide to do?"
+        }
+      ],
+      "voices": {
+        "N": "Zephyr"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 18.\nWhen Sofia moved into her new apartment, she planned to put a desk beside the window. However, the afternoon sunlight made her computer screen difficult to see. She considered buying thicker curtains, but they would make the room too dark. In the end, she placed the desk against another wall and kept the window area open for plants.\nQuestion. What did Sofia finally decide to do?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-02-No19",
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "number": 19,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 19."
+        },
+        {
+          "speaker": "N",
+          "text": "Some people wash fruit as soon as they bring it home. However, certain kinds of fruit may stay fresh longer if they are washed just before they are eaten. Extra moisture can help mold grow during storage. For this reason, people should usually keep such fruit dry in the refrigerator and wash it only when they are ready to use it."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. Why should some fruit be stored without washing?"
+        }
+      ],
+      "voices": {
+        "N": "Zephyr"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 19.\nSome people wash fruit as soon as they bring it home. However, certain kinds of fruit may stay fresh longer if they are washed just before they are eaten. Extra moisture can help mold grow during storage. For this reason, people should usually keep such fruit dry in the refrigerator and wash it only when they are ready to use it.\nQuestion. Why should some fruit be stored without washing?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-02-No20",
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "number": 20,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 20."
+        },
+        {
+          "speaker": "N",
+          "text": "For months, Grace had been saving money for a concert ticket. When tickets went on sale, she discovered that the cheapest seats had already sold out. She could afford a more expensive ticket, but doing so would use nearly all her savings. Grace decided to watch the online broadcast instead and keep the money for a summer trip."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. Why did Grace not attend the concert?"
+        }
+      ],
+      "voices": {
+        "N": "Zephyr"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 20.\nFor months, Grace had been saving money for a concert ticket. When tickets went on sale, she discovered that the cheapest seats had already sold out. She could afford a more expensive ticket, but doing so would use nearly all her savings. Grace decided to watch the online broadcast instead and keep the money for a summer trip.\nQuestion. Why did Grace not attend the concert?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-02-No21",
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "number": 21,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 21."
+        },
+        {
+          "speaker": "N",
+          "text": "Thank you for using the Northside Library. Beginning next Monday, the second-floor study area will close for two weeks while new lights are installed. Books on that floor will still be available, and staff members can collect them for visitors. Additional desks have been placed in the meeting room on the first floor for anyone who needs a quiet place to study."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. Where can visitors study during the work?"
+        }
+      ],
+      "voices": {
+        "N": "Kore"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 21.\nThank you for using the Northside Library. Beginning next Monday, the second-floor study area will close for two weeks while new lights are installed. Books on that floor will still be available, and staff members can collect them for visitors. Additional desks have been placed in the meeting room on the first floor for anyone who needs a quiet place to study.\nQuestion. Where can visitors study during the work?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-02-No22",
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "number": 22,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 22."
+        },
+        {
+          "speaker": "N",
+          "text": "Recently, Aaron noticed that his electricity bill was higher than usual. He first blamed the air conditioner, but he had used it less than the previous month. Later, he found that an old refrigerator in the garage was running continuously because its door did not close properly. Aaron repaired the door, and the refrigerator began turning off normally again."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What caused Aaron’s higher electricity bill?"
+        }
+      ],
+      "voices": {
+        "N": "Kore"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 22.\nRecently, Aaron noticed that his electricity bill was higher than usual. He first blamed the air conditioner, but he had used it less than the previous month. Later, he found that an old refrigerator in the garage was running continuously because its door did not close properly. Aaron repaired the door, and the refrigerator began turning off normally again.\nQuestion. What caused Aaron’s higher electricity bill?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-02-No23",
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "number": 23,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 23."
+        },
+        {
+          "speaker": "N",
+          "text": "Maya hoped to volunteer at a food festival on Saturday morning. The organizers needed help at that time, but volunteers had to attend a training session on Friday evening. Maya had a school event then and could not attend. She therefore signed up for the Sunday afternoon shift, which had a separate training session early that same day."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. How did Maya change her volunteer plan?"
+        }
+      ],
+      "voices": {
+        "N": "Kore"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 23.\nMaya hoped to volunteer at a food festival on Saturday morning. The organizers needed help at that time, but volunteers had to attend a training session on Friday evening. Maya had a school event then and could not attend. She therefore signed up for the Sunday afternoon shift, which had a separate training session early that same day.\nQuestion. How did Maya change her volunteer plan?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-02-No24",
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "number": 24,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 24."
+        },
+        {
+          "speaker": "N",
+          "text": "A small bookstore near Olivia’s home began selling used books last year. Customers can bring in books, but the store does not pay cash for them. Instead, it gives store credit based on each book’s condition and popularity. Olivia brought in five novels, and the credit she received covered part of the cost of a new dictionary."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What did Olivia receive for her used books?"
+        }
+      ],
+      "voices": {
+        "N": "Kore"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 24.\nA small bookstore near Olivia’s home began selling used books last year. Customers can bring in books, but the store does not pay cash for them. Instead, it gives store credit based on each book’s condition and popularity. Olivia brought in five novels, and the credit she received covered part of the cost of a new dictionary.\nQuestion. What did Olivia receive for her used books?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-02-No25",
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "number": 25,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 25."
+        },
+        {
+          "speaker": "N",
+          "text": "Passengers traveling on bus route 18 should be aware of a temporary change. Because the road beside Central Park is being repaired, buses will not use the Park Gate stop until Friday. Passengers should use the stop in front of the post office instead. The timetable will remain the same, and no other stops on the route will be affected."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What should passengers on route 18 do?"
+        }
+      ],
+      "voices": {
+        "N": "Kore"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 25.\nPassengers traveling on bus route 18 should be aware of a temporary change. Because the road beside Central Park is being repaired, buses will not use the Park Gate stop until Friday. Passengers should use the stop in front of the post office instead. The timetable will remain the same, and no other stops on the route will be affected.\nQuestion. What should passengers on route 18 do?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-02-No26",
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "number": 26,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 26."
+        },
+        {
+          "speaker": "N",
+          "text": "During a family trip, Ben was responsible for choosing a restaurant for dinner. He found a popular seafood place, but his sister could not eat seafood. A nearby Italian restaurant had suitable dishes, although it did not accept reservations. Ben suggested arriving there before the usual dinner rush, and the family agreed to eat earlier than originally planned."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What did Ben’s family decide to do?"
+        }
+      ],
+      "voices": {
+        "N": "Achird"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 26.\nDuring a family trip, Ben was responsible for choosing a restaurant for dinner. He found a popular seafood place, but his sister could not eat seafood. A nearby Italian restaurant had suitable dishes, although it did not accept reservations. Ben suggested arriving there before the usual dinner rush, and the family agreed to eat earlier than originally planned.\nQuestion. What did Ben’s family decide to do?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-02-No27",
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "number": 27,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 27."
+        },
+        {
+          "speaker": "N",
+          "text": "Trees in cities can make streets more comfortable during hot weather. Their leaves block some sunlight, while water released from the leaves can cool the surrounding air. However, not every tree is suitable for every street. City planners must consider available space, local weather, and the amount of water a tree will need before choosing which kind to plant."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What is one benefit of city trees?"
+        }
+      ],
+      "voices": {
+        "N": "Achird"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 27.\nTrees in cities can make streets more comfortable during hot weather. Their leaves block some sunlight, while water released from the leaves can cool the surrounding air. However, not every tree is suitable for every street. City planners must consider available space, local weather, and the amount of water a tree will need before choosing which kind to plant.\nQuestion. What is one benefit of city trees?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-02-No28",
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "number": 28,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 28."
+        },
+        {
+          "speaker": "N",
+          "text": "Before giving a class presentation, Hannah practiced several times at home. Her speech was within the time limit, but she kept looking down at her notes. Rather than removing the notes completely, she wrote only key words on small cards. During the presentation, the cards helped her remember the main points while allowing her to look at the audience more often."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. How did Hannah improve her presentation?"
+        }
+      ],
+      "voices": {
+        "N": "Achird"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 28.\nBefore giving a class presentation, Hannah practiced several times at home. Her speech was within the time limit, but she kept looking down at her notes. Rather than removing the notes completely, she wrote only key words on small cards. During the presentation, the cards helped her remember the main points while allowing her to look at the audience more often.\nQuestion. How did Hannah improve her presentation?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-02-No29",
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "number": 29,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 29."
+        },
+        {
+          "speaker": "N",
+          "text": "The Lakeside Hotel will serve breakfast in the conference room tomorrow because the main dining room is being painted. Breakfast hours will not change. Guests should take the elevator to the third floor and follow the signs from there. Room service will also be available, but guests must order it before ten o’clock this evening."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. Where will breakfast be served tomorrow?"
+        }
+      ],
+      "voices": {
+        "N": "Achird"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 29.\nThe Lakeside Hotel will serve breakfast in the conference room tomorrow because the main dining room is being painted. Breakfast hours will not change. Guests should take the elevator to the third floor and follow the signs from there. Room service will also be available, but guests must order it before ten o’clock this evening.\nQuestion. Where will breakfast be served tomorrow?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-02-No30",
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "number": 30,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 30."
+        },
+        {
+          "speaker": "N",
+          "text": "When Isaac began learning to cook, he often chose recipes with many ingredients. He spent so much time preparing them that he sometimes lost interest before the food was ready. He then began choosing simpler meals that used only one pan. This reduced the preparation and cleaning time, so he now cooks at home more often."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. Why does Isaac cook at home more often now?"
+        }
+      ],
+      "voices": {
+        "N": "Achird"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 30.\nWhen Isaac began learning to cook, he often chose recipes with many ingredients. He spent so much time preparing them that he sometimes lost interest before the food was ready. He then began choosing simpler meals that used only one pan. This reduced the preparation and cleaning time, so he now cooks at home more often.\nQuestion. Why does Isaac cook at home more often now?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-03-No16",
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "number": 16,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 16."
+        },
+        {
+          "speaker": "N",
+          "text": "During a school orchestra rehearsal, Nadia noticed that two keys on her flute were sticking badly. The repair shop could fix them, but not before Friday’s concert. Buying another instrument was too expensive, and the school’s spare flute was already being used by another student. Nadia contacted her former music teacher, who agreed to lend her a flute for the performance."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. How did Nadia prepare for Friday’s concert?"
+        }
+      ],
+      "voices": {
+        "N": "Kore"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 16.\nDuring a school orchestra rehearsal, Nadia noticed that two keys on her flute were sticking badly. The repair shop could fix them, but not before Friday’s concert. Buying another instrument was too expensive, and the school’s spare flute was already being used by another student. Nadia contacted her former music teacher, who agreed to lend her a flute for the performance.\nQuestion. How did Nadia prepare for Friday’s concert?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-03-No17",
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "number": 17,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 17."
+        },
+        {
+          "speaker": "N",
+          "text": "Visitors to Harbor Aquarium must enter during the thirty-minute period printed on their tickets. Arriving early does not guarantee earlier admission, because each group is limited in size for visitor safety and comfort. Guests who miss their entry period should speak to staff at the ticket desk. They may be moved to a later period if space is available that day."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What should guests do after missing their entry period?"
+        }
+      ],
+      "voices": {
+        "N": "Kore"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 17.\nVisitors to Harbor Aquarium must enter during the thirty-minute period printed on their tickets. Arriving early does not guarantee earlier admission, because each group is limited in size for visitor safety and comfort. Guests who miss their entry period should speak to staff at the ticket desk. They may be moved to a later period if space is available that day.\nQuestion. What should guests do after missing their entry period?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-03-No18",
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "number": 18,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 18."
+        },
+        {
+          "speaker": "N",
+          "text": "Ethan planned to make a short cooking video for his history class using his grandmother’s soup recipe. While interviewing her, he learned that she had adapted the recipe after moving to a new country. Her story was more interesting than the cooking process itself. Ethan therefore changed his project into an audio report about how family recipes change over time."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. Why did Ethan change the form of his project?"
+        }
+      ],
+      "voices": {
+        "N": "Kore"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 18.\nEthan planned to make a short cooking video for his history class using his grandmother’s soup recipe. While interviewing her, he learned that she had adapted the recipe after moving to a new country. Her story was more interesting than the cooking process itself. Ethan therefore changed his project into an audio report about how family recipes change over time.\nQuestion. Why did Ethan change the form of his project?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-03-No19",
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "number": 19,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 19."
+        },
+        {
+          "speaker": "N",
+          "text": "Long bridges often contain small gaps between sections of the road. Materials such as steel and concrete expand when they become warm and shrink when they cool. The gaps allow the bridge sections to move slightly without pushing hard against one another. Without this extra space, repeated temperature changes could gradually damage important parts of the bridge over many years."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. Why do long bridges contain small gaps?"
+        }
+      ],
+      "voices": {
+        "N": "Kore"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 19.\nLong bridges often contain small gaps between sections of the road. Materials such as steel and concrete expand when they become warm and shrink when they cool. The gaps allow the bridge sections to move slightly without pushing hard against one another. Without this extra space, repeated temperature changes could gradually damage important parts of the bridge over many years.\nQuestion. Why do long bridges contain small gaps?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-03-No20",
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "number": 20,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 20."
+        },
+        {
+          "speaker": "N",
+          "text": "Lila ordered wall shelves for her home office, but the installer found water pipes behind the place where she wanted them. Moving the pipes would be costly and time-consuming. He suggested a freestanding bookcase, although the first model was too wide for the room. Lila selected a narrower one and used the remaining wall space for a small desk lamp."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What did Lila finally choose for her office?"
+        }
+      ],
+      "voices": {
+        "N": "Kore"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 20.\nLila ordered wall shelves for her home office, but the installer found water pipes behind the place where she wanted them. Moving the pipes would be costly and time-consuming. He suggested a freestanding bookcase, although the first model was too wide for the room. Lila selected a narrower one and used the remaining wall space for a small desk lamp.\nQuestion. What did Lila finally choose for her office?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-03-No21",
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "number": 21,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 21."
+        },
+        {
+          "speaker": "N",
+          "text": "Because of road construction, Route 18 buses will not stop at Central Market from Wednesday through Friday this week. Passengers should use the temporary stop outside the post office, about two blocks east. Buses will follow the usual schedule, but journeys may take ten minutes longer than normal. The market stop will reopen on Saturday morning after the work is completed."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. Where should Route 18 passengers board temporarily?"
+        }
+      ],
+      "voices": {
+        "N": "Achird"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 21.\nBecause of road construction, Route 18 buses will not stop at Central Market from Wednesday through Friday this week. Passengers should use the temporary stop outside the post office, about two blocks east. Buses will follow the usual schedule, but journeys may take ten minutes longer than normal. The market stop will reopen on Saturday morning after the work is completed.\nQuestion. Where should Route 18 passengers board temporarily?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-03-No22",
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "number": 22,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 22."
+        },
+        {
+          "speaker": "N",
+          "text": "Arturo had been training for a charity run when pain developed in his ankle. A doctor told him to stop running for several weeks, so he could not take part as planned. He had already collected donations from friends and relatives. Rather than withdraw completely, Arturo asked the organizers if he could help at a water station on race day."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What did Arturo ask the organizers to let him do?"
+        }
+      ],
+      "voices": {
+        "N": "Achird"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 22.\nArturo had been training for a charity run when pain developed in his ankle. A doctor told him to stop running for several weeks, so he could not take part as planned. He had already collected donations from friends and relatives. Rather than withdraw completely, Arturo asked the organizers if he could help at a water station on race day.\nQuestion. What did Arturo ask the organizers to let him do?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-03-No23",
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "number": 23,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 23."
+        },
+        {
+          "speaker": "N",
+          "text": "Members of Keiko’s English conversation club often became silent when the leader announced a broad topic. Keiko began placing everyday objects in a bag, and each person picked one without looking inside. Members then told a short story connected to the object. The activity gave them a clear starting point, and more members began speaking during each weekly meeting."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What helped more club members begin speaking?"
+        }
+      ],
+      "voices": {
+        "N": "Achird"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 23.\nMembers of Keiko’s English conversation club often became silent when the leader announced a broad topic. Keiko began placing everyday objects in a bag, and each person picked one without looking inside. Members then told a short story connected to the object. The activity gave them a clear starting point, and more members began speaking during each weekly meeting.\nQuestion. What helped more club members begin speaking?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-03-No24",
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "number": 24,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 24."
+        },
+        {
+          "speaker": "N",
+          "text": "Riverside Park will host an outdoor concert on Sunday evening. The picnic area beside the lake has been reserved for concert staff from noon onward, so regular visitors cannot use its tables that day. Other picnic areas across the park will remain open to the public. Guests attending the concert may bring folding chairs, but large tents are not permitted."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What area will regular park visitors be unable to use?"
+        }
+      ],
+      "voices": {
+        "N": "Achird"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 24.\nRiverside Park will host an outdoor concert on Sunday evening. The picnic area beside the lake has been reserved for concert staff from noon onward, so regular visitors cannot use its tables that day. Other picnic areas across the park will remain open to the public. Guests attending the concert may bring folding chairs, but large tents are not permitted.\nQuestion. What area will regular park visitors be unable to use?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-03-No25",
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "number": 25,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 25."
+        },
+        {
+          "speaker": "N",
+          "text": "Noah completed a design project for a local company and sent an invoice. The company’s accountant replied that its official business name had recently changed, so the document could not be processed. The amount and payment date were correct. Noah replaced only the company name, sent the invoice again, and soon received an email confirming that it had been accepted."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What information did Noah correct on the invoice?"
+        }
+      ],
+      "voices": {
+        "N": "Achird"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 25.\nNoah completed a design project for a local company and sent an invoice. The company’s accountant replied that its official business name had recently changed, so the document could not be processed. The amount and payment date were correct. Noah replaced only the company name, sent the invoice again, and soon received an email confirming that it had been accepted.\nQuestion. What information did Noah correct on the invoice?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-03-No26",
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "number": 26,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 26."
+        },
+        {
+          "speaker": "N",
+          "text": "Compost is made when small living organisms break down food scraps and plant material. These organisms need both moisture and air to work well. If a compost pile is packed too tightly, not enough air can move through it. Turning the material regularly mixes in air and can help the contents break down more evenly and quickly over time."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. Why can turning compost help it break down?"
+        }
+      ],
+      "voices": {
+        "N": "Zephyr"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 26.\nCompost is made when small living organisms break down food scraps and plant material. These organisms need both moisture and air to work well. If a compost pile is packed too tightly, not enough air can move through it. Turning the material regularly mixes in air and can help the contents break down more evenly and quickly over time.\nQuestion. Why can turning compost help it break down?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-03-No27",
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "number": 27,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 27."
+        },
+        {
+          "speaker": "N",
+          "text": "Sophie wanted an alternative to her crowded morning bus, so she tried cycling to work. The direct route was fast, but it had heavy traffic and left her feeling stressed. A coworker showed her a longer path beside the river. It takes ten extra minutes, but Sophie now uses it twice a week because it feels safer and much quieter."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. Why does Sophie use the riverside route?"
+        }
+      ],
+      "voices": {
+        "N": "Zephyr"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 27.\nSophie wanted an alternative to her crowded morning bus, so she tried cycling to work. The direct route was fast, but it had heavy traffic and left her feeling stressed. A coworker showed her a longer path beside the river. It takes ten extra minutes, but Sophie now uses it twice a week because it feels safer and much quieter.\nQuestion. Why does Sophie use the riverside route?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-03-No28",
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "number": 28,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 28."
+        },
+        {
+          "speaker": "N",
+          "text": "On the first day of a family camping trip, Ravi’s phone battery died while he was driving through an area with little mobile service. He could no longer use the map application on his phone. Fortunately, he had printed the campground’s directions from the booking email. His sister read them aloud, and the family reached the site before dark."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. How did Ravi’s family find the campground?"
+        }
+      ],
+      "voices": {
+        "N": "Zephyr"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 28.\nOn the first day of a family camping trip, Ravi’s phone battery died while he was driving through an area with little mobile service. He could no longer use the map application on his phone. Fortunately, he had printed the campground’s directions from the booking email. His sister read them aloud, and the family reached the site before dark.\nQuestion. How did Ravi’s family find the campground?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-03-No29",
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "number": 29,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 29."
+        },
+        {
+          "speaker": "N",
+          "text": "For one day next week, the college cafeteria will test a cashless payment system at all food counters. Students may pay by card or phone. Anyone who only has cash can buy a prepaid cafeteria card at the student services office before lunchtime. The vending machines in the lobby will continue to accept coins as usual throughout the test day."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. How can cash-only students pay at the food counters?"
+        }
+      ],
+      "voices": {
+        "N": "Zephyr"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 29.\nFor one day next week, the college cafeteria will test a cashless payment system at all food counters. Students may pay by card or phone. Anyone who only has cash can buy a prepaid cafeteria card at the student services office before lunchtime. The vending machines in the lobby will continue to accept coins as usual throughout the test day.\nQuestion. How can cash-only students pay at the food counters?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "set-03-No30",
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "number": 30,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 30."
+        },
+        {
+          "speaker": "N",
+          "text": "Isabel took a jacket to a tailor because the sleeves were too long for her graduation ceremony. Two days before the event, the tailor called to say a machine problem had delayed the work. Isabel’s cousin offered her a similar jacket that fit well. She borrowed it for the ceremony and collected her own jacket from the tailor the following week."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What did Isabel do for the graduation ceremony?"
+        }
+      ],
+      "voices": {
+        "N": "Zephyr"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 30.\nIsabel took a jacket to a tailor because the sleeves were too long for her graduation ceremony. Two days before the event, the tailor called to say a machine problem had delayed the work. Isabel’s cousin offered her a similar jacket that fit well. She borrowed it for the ceremony and collected her own jacket from the tailor the following week.\nQuestion. What did Isabel do for the graduation ceremony?\nEND TRANSCRIPT"
+    }
+  ]
+}

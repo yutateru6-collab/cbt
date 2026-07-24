@@ -1,0 +1,347 @@
+{
+  "mode": "completed",
+  "generatedAt": "2026-07-20T18:41:39.815586+00:00",
+  "provider": "Azure Speech REST API",
+  "region": "eastus",
+  "voiceFamily": "Standard Neural only",
+  "parts": {
+    "Part 1": [],
+    "Part 2": [
+      16,
+      17,
+      18
+    ]
+  },
+  "sourceSet": "set-02",
+  "outputFormat": "riff-48khz-16bit-mono-pcm",
+  "trackCount": 3,
+  "apiRequestCount": 3,
+  "internalPeriodPauseMs": 150,
+  "timingMs": {
+    "numberToBody": 1150,
+    "turnGap": 550,
+    "bodyToQuestion": 1100,
+    "questionToText": 350
+  },
+  "deliveryContract": {
+    "azureDirectWav": true,
+    "sampleRateHz": 48000,
+    "bitsPerSample": 16,
+    "channels": 1,
+    "oneAzureRequestPerQuestion": true,
+    "part2WholeBodyOneRequest": true,
+    "sentenceLevelAudioSplit": false,
+    "postSynthesisConcatenation": false,
+    "postSynthesisConversion": false,
+    "lossyEncoding": false,
+    "remaster": false,
+    "playbackRate": 1.0,
+    "rangeWorkerIncluded": true,
+    "rateAppliedToEveryRole": true,
+    "periodBreaks": true,
+    "commaBreaks": true
+  },
+  "preflight": {
+    "provider": "Azure Speech REST API",
+    "voiceFamily": "Standard Neural only",
+    "sourceSet": "set-02",
+    "rate": "-10%",
+    "outputFormat": "riff-48khz-16bit-mono-pcm",
+    "trackCount": 3,
+    "apiRequestCount": 3,
+    "items": [
+      {
+        "id": "part2-No16",
+        "part": "Part 2",
+        "number": 16,
+        "voices": {
+          "body": "en-US-AriaNeural",
+          "narrator": "en-US-EmmaMultilingualNeural"
+        },
+        "oneAzureRequest": true,
+        "sentenceLevelAudioSplit": false,
+        "pausePlan": {
+          "rate": "-10%",
+          "periodPauseMs": 150,
+          "periodBreakCount": 3,
+          "commaPauseMs": 80,
+          "commaBreakCount": 3
+        },
+        "ssml": "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\"><voice name=\"en-US-EmmaMultilingualNeural\"><prosody rate=\"-10%\">Number sixteen.</prosody><break time=\"1150ms\"/></voice><voice name=\"en-US-AriaNeural\"><prosody rate=\"-10%\">After joining the school newspaper,<break time=\"80ms\"/> Leo was asked to photograph a basketball game.<break time=\"150ms\"/> He took many pictures,<break time=\"80ms\"/> but most of them were unclear because the players were moving quickly.<break time=\"150ms\"/> A teacher explained that he should use a faster camera setting.<break time=\"150ms\"/> At the next game,<break time=\"80ms\"/> Leo changed the setting and produced several sharp photographs for the newspaper.</prosody><break time=\"1100ms\"/></voice><voice name=\"en-US-EmmaMultilingualNeural\"><prosody rate=\"-10%\">Question.</prosody><break time=\"350ms\"/></voice><voice name=\"en-US-EmmaMultilingualNeural\"><prosody rate=\"-10%\">What helped Leo take clearer photographs?</prosody></voice></speak>"
+      },
+      {
+        "id": "part2-No17",
+        "part": "Part 2",
+        "number": 17,
+        "voices": {
+          "body": "en-US-AndrewMultilingualNeural",
+          "narrator": "en-US-EmmaMultilingualNeural"
+        },
+        "oneAzureRequest": true,
+        "sentenceLevelAudioSplit": false,
+        "pausePlan": {
+          "rate": "-10%",
+          "periodPauseMs": 150,
+          "periodBreakCount": 3,
+          "commaPauseMs": 80,
+          "commaBreakCount": 2
+        },
+        "ssml": "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\"><voice name=\"en-US-EmmaMultilingualNeural\"><prosody rate=\"-10%\">Number seventeen.</prosody><break time=\"1150ms\"/></voice><voice name=\"en-US-AndrewMultilingualNeural\"><prosody rate=\"-10%\">The City History Museum is offering free guided tours this weekend.<break time=\"150ms\"/> Tours begin every hour from ten in the morning until three in the afternoon.<break time=\"150ms\"/> Visitors do not need to pay,<break time=\"80ms\"/> but they must collect a tour ticket at the information desk.<break time=\"150ms\"/> Since each group is limited to fifteen people,<break time=\"80ms\"/> tickets cannot be reserved by telephone.</prosody><break time=\"1100ms\"/></voice><voice name=\"en-US-EmmaMultilingualNeural\"><prosody rate=\"-10%\">Question.</prosody><break time=\"350ms\"/></voice><voice name=\"en-US-EmmaMultilingualNeural\"><prosody rate=\"-10%\">What must visitors do to join a tour?</prosody></voice></speak>"
+      },
+      {
+        "id": "part2-No18",
+        "part": "Part 2",
+        "number": 18,
+        "voices": {
+          "body": "en-US-EmmaMultilingualNeural",
+          "narrator": "en-US-EmmaMultilingualNeural"
+        },
+        "oneAzureRequest": true,
+        "sentenceLevelAudioSplit": false,
+        "pausePlan": {
+          "rate": "-10%",
+          "periodPauseMs": 150,
+          "periodBreakCount": 3,
+          "commaPauseMs": 80,
+          "commaBreakCount": 4
+        },
+        "ssml": "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\"><voice name=\"en-US-EmmaMultilingualNeural\"><prosody rate=\"-10%\">Number eighteen.</prosody><break time=\"1150ms\"/></voice><voice name=\"en-US-EmmaMultilingualNeural\"><prosody rate=\"-10%\">When Sofia moved into her new apartment,<break time=\"80ms\"/> she planned to put a desk beside the window.<break time=\"150ms\"/> However,<break time=\"80ms\"/> the afternoon sunlight made her computer screen difficult to see.<break time=\"150ms\"/> She considered buying thicker curtains,<break time=\"80ms\"/> but they would make the room too dark.<break time=\"150ms\"/> In the end,<break time=\"80ms\"/> she placed the desk against another wall and kept the window area open for plants.</prosody><break time=\"1100ms\"/></voice><voice name=\"en-US-EmmaMultilingualNeural\"><prosody rate=\"-10%\">Question.</prosody><break time=\"350ms\"/></voice><voice name=\"en-US-EmmaMultilingualNeural\"><prosody rate=\"-10%\">What did Sofia finally decide to do?</prosody></voice></speak>"
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "part2-No16",
+      "part": "Part 2",
+      "number": 16,
+      "voices": {
+        "body": "en-US-AriaNeural",
+        "narrator": "en-US-EmmaMultilingualNeural"
+      },
+      "voiceLabel": "本文 Aria／案内 Emma",
+      "scriptHtml": "<p>After joining the school newspaper, Leo was asked to photograph a basketball game. He took many pictures, but most of them were unclear because the players were moving quickly. A teacher explained that he should use a faster camera setting. At the next game, Leo changed the setting and produced several sharp photographs for the newspaper.</p><p class=\"question\"><strong>Question</strong> What helped Leo take clearer photographs?</p>",
+      "ssml": "ssml/part2-No16-standard-neural-period-pause-48k.ssml",
+      "ssmlSha256": "2ae98b896e7efa97cd4261b78d384a4921fed7d635111bea434837d80190efa7",
+      "pausePlan": {
+        "rate": "-10%",
+        "periodPauseMs": 150,
+        "periodBreakCount": 3,
+        "commaPauseMs": 80,
+        "commaBreakCount": 3
+      },
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/x-wav",
+        "requestId": null,
+        "bytes": 3142018,
+        "elapsedSeconds": 4.036
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "httpStatus": 200,
+          "reason": null
+        }
+      ],
+      "wave": {
+        "channels": 1,
+        "sampleWidthBytes": 2,
+        "bitsPerSample": 16,
+        "sampleRateHz": 48000,
+        "frameCount": 1570987,
+        "durationSeconds": 32.729,
+        "compressionType": "NONE"
+      },
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "32.728896",
+          "bit_rate": "768010"
+        }
+      },
+      "loudness": {
+        "available": true,
+        "integratedLufs": -19.9,
+        "truePeakDbtp": -2.7
+      },
+      "masterWav": "audio/part2-No16-standard-neural-period-pause-48k.wav",
+      "publishedWav": "audio/part2-No16-standard-neural-period-pause-48k.wav",
+      "masterSha256": "1121e11b57f9c109449faffedafd06a733c90b6653e6d4bd492308e70289bfda",
+      "publishedSha256": "1121e11b57f9c109449faffedafd06a733c90b6653e6d4bd492308e70289bfda",
+      "publishedCopyHashMatch": true,
+      "fileBytes": 3142018,
+      "oneAzureRequest": true,
+      "postSynthesisConcatenation": false,
+      "postSynthesisConversion": false
+    },
+    {
+      "id": "part2-No17",
+      "part": "Part 2",
+      "number": 17,
+      "voices": {
+        "body": "en-US-AndrewMultilingualNeural",
+        "narrator": "en-US-EmmaMultilingualNeural"
+      },
+      "voiceLabel": "本文 Andrew／案内 Emma",
+      "scriptHtml": "<p>The City History Museum is offering free guided tours this weekend. Tours begin every hour from ten in the morning until three in the afternoon. Visitors do not need to pay, but they must collect a tour ticket at the information desk. Since each group is limited to fifteen people, tickets cannot be reserved by telephone.</p><p class=\"question\"><strong>Question</strong> What must visitors do to join a tour?</p>",
+      "ssml": "ssml/part2-No17-standard-neural-period-pause-48k.ssml",
+      "ssmlSha256": "4290be64886420e615db27f8059844f28d674a926eda6796fc09a66b97141031",
+      "pausePlan": {
+        "rate": "-10%",
+        "periodPauseMs": 150,
+        "periodBreakCount": 3,
+        "commaPauseMs": 80,
+        "commaBreakCount": 2
+      },
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/x-wav",
+        "requestId": null,
+        "bytes": 3002820,
+        "elapsedSeconds": 13.754
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "httpStatus": 200,
+          "reason": null
+        }
+      ],
+      "wave": {
+        "channels": 1,
+        "sampleWidthBytes": 2,
+        "bitsPerSample": 16,
+        "sampleRateHz": 48000,
+        "frameCount": 1501388,
+        "durationSeconds": 31.279,
+        "compressionType": "NONE"
+      },
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "31.278917",
+          "bit_rate": "768011"
+        }
+      },
+      "loudness": {
+        "available": true,
+        "integratedLufs": -19.8,
+        "truePeakDbtp": -3.4
+      },
+      "masterWav": "audio/part2-No17-standard-neural-period-pause-48k.wav",
+      "publishedWav": "audio/part2-No17-standard-neural-period-pause-48k.wav",
+      "masterSha256": "95098300fd0f401eb146e82b5505de1b2ee231a16a3c3492358f4c79f8b4edac",
+      "publishedSha256": "95098300fd0f401eb146e82b5505de1b2ee231a16a3c3492358f4c79f8b4edac",
+      "publishedCopyHashMatch": true,
+      "fileBytes": 3002820,
+      "oneAzureRequest": true,
+      "postSynthesisConcatenation": false,
+      "postSynthesisConversion": false
+    },
+    {
+      "id": "part2-No18",
+      "part": "Part 2",
+      "number": 18,
+      "voices": {
+        "body": "en-US-EmmaMultilingualNeural",
+        "narrator": "en-US-EmmaMultilingualNeural"
+      },
+      "voiceLabel": "本文 Emma／案内 Emma",
+      "scriptHtml": "<p>When Sofia moved into her new apartment, she planned to put a desk beside the window. However, the afternoon sunlight made her computer screen difficult to see. She considered buying thicker curtains, but they would make the room too dark. In the end, she placed the desk against another wall and kept the window area open for plants.</p><p class=\"question\"><strong>Question</strong> What did Sofia finally decide to do?</p>",
+      "ssml": "ssml/part2-No18-standard-neural-period-pause-48k.ssml",
+      "ssmlSha256": "5bdc4d87ca16de6039a21d0de78ae1d7a4930f2291f7442849258a78a450a0e8",
+      "pausePlan": {
+        "rate": "-10%",
+        "periodPauseMs": 150,
+        "periodBreakCount": 3,
+        "commaPauseMs": 80,
+        "commaBreakCount": 4
+      },
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/x-wav",
+        "requestId": null,
+        "bytes": 3078968,
+        "elapsedSeconds": 4.474
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "httpStatus": 200,
+          "reason": null
+        }
+      ],
+      "wave": {
+        "channels": 1,
+        "sampleWidthBytes": 2,
+        "bitsPerSample": 16,
+        "sampleRateHz": 48000,
+        "frameCount": 1539462,
+        "durationSeconds": 32.072,
+        "compressionType": "NONE"
+      },
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "32.072125",
+          "bit_rate": "768010"
+        }
+      },
+      "loudness": {
+        "available": true,
+        "integratedLufs": -17.9,
+        "truePeakDbtp": -3.1
+      },
+      "masterWav": "audio/part2-No18-standard-neural-period-pause-48k.wav",
+      "publishedWav": "audio/part2-No18-standard-neural-period-pause-48k.wav",
+      "masterSha256": "ad3286eeccd066ecb3a2d13da463be17cfb166d49f1f2e1a49388658332e2e87",
+      "publishedSha256": "ad3286eeccd066ecb3a2d13da463be17cfb166d49f1f2e1a49388658332e2e87",
+      "publishedCopyHashMatch": true,
+      "fileBytes": 3078968,
+      "oneAzureRequest": true,
+      "postSynthesisConcatenation": false,
+      "postSynthesisConversion": false
+    }
+  ],
+  "rate": "-10%",
+  "periodPauseMs": 150,
+  "commaPauseMs": 80,
+  "preferredCast": {
+    "body": [
+      "en-US-AriaNeural",
+      "en-US-AndrewMultilingualNeural",
+      "en-US-EmmaMultilingualNeural"
+    ],
+    "numberAndQuestion": "en-US-EmmaMultilingualNeural"
+  }
+}

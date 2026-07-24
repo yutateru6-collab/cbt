@@ -1,0 +1,51 @@
+{
+  "mode": "completed",
+  "item": "No16",
+  "model": "gpt-4o-mini-tts",
+  "voices": {
+    "A": "marin",
+    "B": "cedar",
+    "N": "marin"
+  },
+  "speed": 1.0,
+  "responseFormat": "wav",
+  "sourceSegments": 3,
+  "synthesisSegments": 2,
+  "maxApiCalls": 2,
+  "maxRetriesPerSegment": 0,
+  "estimatedCostCapUsd": 0.05,
+  "instructionsProfile": "part2-normal",
+  "accent": "American English",
+  "instructions": "Voice: A clear, calm adult narrator using American English, suitable for a Japanese Eiken Grade 2 listening examination. Sound like a real official test narrator, not a storyteller, actor, documentary presenter, or artificial announcement.\n\nDelivery: Speak only slightly slower than ordinary conversational English, approximately five percent slower, while preserving natural rhythm and fluent intonation. Maintain an even pace through the final sentence without sounding stretched, sleepy, robotic, or excessively slow.\n\nPronunciation: Use clear and accurate pronunciation appropriate to American English. Keep connected speech natural and do not over-pronounce every word.\n\nPunctuation and pauses: Follow punctuation carefully. Use natural sentence pauses and leave a clear pause before the final question. Do not insert unnecessary pauses inside a sentence.\n\nExam style: Maintain the neutral, objective, and informative delivery of an official Eiken Grade 2 listening recording. Do not dramatize the passage or emphasize details that reveal the answer.\n\nAccuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain any words.\n\nAudio quality: Produce an ultra-clean, high-resolution studio-quality voice recording with crisp intelligibility and a full, natural vocal tone. Avoid background noise, hiss, reverb, distortion, clipping, metallic texture, muffled sound, breathiness, and compression artifacts.",
+  "estimate": {
+    "characters": 439,
+    "words": 72,
+    "estimatedDurationSeconds": 33.88,
+    "estimatedCostUsd": 0.0169,
+    "costBasis": "conservative duration estimate"
+  },
+  "output": "audio-generation\\openai-tts-trials\\grade2-four-question-sample-slight-slow\\part2\\No16.wav",
+  "segments": [
+    {
+      "speaker": "N",
+      "voice": "marin",
+      "text": "Number 16... During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge. She knew the basic facts, but she often forgot important dates during busy tours. Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift. She can now explain the bridge's history more clearly.",
+      "gapAfterMs": 650
+    },
+    {
+      "speaker": "N",
+      "voice": "marin",
+      "text": "Question. What helped Nina explain the bridge's history better?",
+      "gapAfterMs": 0
+    }
+  ],
+  "apiCalls": 2,
+  "cachedSegments": 0,
+  "outputBytes": 1324878,
+  "outputMetadata": {
+    "codec_name": "pcm_s16le",
+    "sample_rate": "24000",
+    "channels": 1,
+    "duration": "27.600000"
+  }
+}

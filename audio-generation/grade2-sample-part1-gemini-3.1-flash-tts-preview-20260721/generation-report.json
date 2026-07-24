@@ -1,0 +1,99 @@
+{
+  "model": "gemini-3.1-flash-tts-preview",
+  "sourceManifest": "audio-generation\\grade2-sample-part1-full.json",
+  "numbers": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "voices": {
+    "A": {
+      "voice": "Aoede",
+      "role": "adult woman"
+    },
+    "B": {
+      "voice": "Charon",
+      "role": "adult man"
+    }
+  },
+  "format": {
+    "sampleRate": 24000,
+    "channels": 1,
+    "sampleWidth": 2,
+    "encoding": "PCM signed 16-bit little-endian WAV"
+  },
+  "items": [
+    {
+      "id": "No01",
+      "number": 1,
+      "file": "No01.wav",
+      "bytes": 1280684,
+      "sha256": "62f19045910c0684708b3e3cb442fb5afe8e91b7dadbd0e164742b28dcae12c4",
+      "mimeType": "audio/l16; rate=24000; channels=1",
+      "generationSeconds": 12.876,
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 640320,
+      "durationSeconds": 26.68
+    },
+    {
+      "id": "No02",
+      "number": 2,
+      "file": "No02.wav",
+      "bytes": 3609644,
+      "sha256": "c3cae2d0c71e10b799c7a72619984053900d6570093fbd270b86bd93eaf36c19",
+      "mimeType": "audio/l16; rate=24000; channels=1",
+      "generationSeconds": 30.65,
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 1804800,
+      "durationSeconds": 75.2
+    },
+    {
+      "id": "No03",
+      "number": 3,
+      "file": "No03.wav",
+      "bytes": 1476524,
+      "sha256": "5cba40920d600bfd0d97eea248358e3c322003bb19d5b0d00d837b2098cc6d70",
+      "mimeType": "audio/l16; rate=24000; channels=1",
+      "generationSeconds": 15.378,
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 738240,
+      "durationSeconds": 30.76
+    },
+    {
+      "id": "No04",
+      "number": 4,
+      "file": "No04.wav",
+      "bytes": 1303724,
+      "sha256": "da13bd5b7031e2da3645130dca18932ab7c9081084829a145d867880ddb9e1c5",
+      "mimeType": "audio/l16; rate=24000; channels=1",
+      "generationSeconds": 13.934,
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 651840,
+      "durationSeconds": 27.16
+    },
+    {
+      "id": "No05",
+      "number": 5,
+      "file": "No05.wav",
+      "bytes": 1609004,
+      "sha256": "9eb8d9934a3eefe67a5d353dd56371deb6def60c2b05fb8adc237ffd2c2182ab",
+      "mimeType": "audio/l16; rate=24000; channels=1",
+      "generationSeconds": 14.524,
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 804480,
+      "durationSeconds": 33.52
+    }
+  ]
+}

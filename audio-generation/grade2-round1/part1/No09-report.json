@@ -1,0 +1,209 @@
+{
+  "item": "No09",
+  "number": 9,
+  "sourceScript": "B: Hello. I have a dental cleaning scheduled for Friday morning, but my company has added an important meeting. A: We have an opening at four Friday afternoon, or you could come at eleven next Monday. B: Four on Friday is best. Will the same dentist be available then? A: Yes, Dr. Allen will see you. Please arrive five minutes early to update your address.",
+  "questionText": "Why did the man call the woman?",
+  "voices": {
+    "A": {
+      "provider": "openai",
+      "voice": "marin",
+      "gender": "female",
+      "accent": "American English",
+      "gainDb": 0.0
+    },
+    "B": {
+      "provider": "edge",
+      "voice": "en-GB-RyanNeural",
+      "gender": "male",
+      "language": "en-GB",
+      "englishOnly": true,
+      "gainDb": 0.0
+    }
+  },
+  "output": "audio-generation\\grade2-round1\\part1\\No09.wav",
+  "outputBytes": 1522350,
+  "outputMetadata": {
+    "codec_name": "pcm_s16le",
+    "sample_fmt": "s16",
+    "sample_rate": "24000",
+    "channels": 1,
+    "bits_per_sample": 16,
+    "duration": "31.714000"
+  },
+  "openaiSegments": 2,
+  "edgeSegments": 3,
+  "openaiApiCallsThisRun": 0,
+  "edgeCallsThisRun": 0,
+  "initialVolume": {
+    "meanVolumeDb": -21.8,
+    "maxVolumeDb": -3.5
+  },
+  "globalAttenuationDb": 0.0,
+  "finalVolume": {
+    "meanVolumeDb": -21.8,
+    "maxVolumeDb": -3.5
+  },
+  "segments": [
+    {
+      "speaker": "B",
+      "provider": "edge",
+      "voice": "en-GB-RyanNeural",
+      "gender": "male",
+      "language": "en-GB",
+      "englishOnly": true,
+      "gainDb": 0.0,
+      "displayText": "Number 9... Hello. I have a dental cleaning scheduled for Friday morning, but my company has added an important meeting.",
+      "text": "Number 9... Hello. I have a dental cleaning scheduled for Friday morning, but my company has added an important meeting.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 1,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "9.408000"
+      },
+      "volume": {
+        "meanVolumeDb": -22.1,
+        "maxVolumeDb": -4.6
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.1,
+        "maxVolumeDb": -4.6
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-GB-RyanNeural-15635819597e9df769cd00b4.wav"
+    },
+    {
+      "speaker": "A",
+      "provider": "openai",
+      "voice": "marin",
+      "gender": "female",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "We have an opening at four Friday afternoon, or you could come at eleven next Monday.",
+      "text": "We have an opening at four Friday afternoon, or you could come at eleven next Monday.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 2,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "5.600000"
+      },
+      "volume": {
+        "meanVolumeDb": -21.3,
+        "maxVolumeDb": -4.8
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -21.3,
+        "maxVolumeDb": -4.8
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\marin-ab37a996c1a302c5c2241cc7.wav"
+    },
+    {
+      "speaker": "B",
+      "provider": "edge",
+      "voice": "en-GB-RyanNeural",
+      "gender": "male",
+      "language": "en-GB",
+      "englishOnly": true,
+      "gainDb": 0.0,
+      "displayText": "Four on Friday is best. Will the same dentist be available then?",
+      "text": "Four on Friday is best. Will the same dentist be available then?",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 3,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "5.232000"
+      },
+      "volume": {
+        "meanVolumeDb": -22.2,
+        "maxVolumeDb": -4.7
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.2,
+        "maxVolumeDb": -4.7
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-GB-RyanNeural-5325806360619d1c36585632.wav"
+    },
+    {
+      "speaker": "A",
+      "provider": "openai",
+      "voice": "marin",
+      "gender": "female",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "Yes, Dr. Allen will see you. Please arrive five minutes early to update your address.",
+      "text": "Yes, Dr. Allen will see you. Please arrive five minutes early to update your address.",
+      "ttsOverrides": [],
+      "gapAfterMs": 650,
+      "index": 4,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "6.300000"
+      },
+      "volume": {
+        "meanVolumeDb": -20.5,
+        "maxVolumeDb": -4.9
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -20.5,
+        "maxVolumeDb": -4.9
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\marin-20ffea233cf31e0f23ed4da5.wav"
+    },
+    {
+      "speaker": "B",
+      "provider": "edge",
+      "voice": "en-GB-RyanNeural",
+      "gender": "male",
+      "language": "en-GB",
+      "englishOnly": true,
+      "gainDb": 0.0,
+      "displayText": "Question. Why did the man call the woman?",
+      "text": "Question. Why did the man call the woman?",
+      "ttsOverrides": [],
+      "gapAfterMs": 0,
+      "role": "question",
+      "index": 5,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "3.984000"
+      },
+      "volume": {
+        "meanVolumeDb": -22.7,
+        "maxVolumeDb": -3.5
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.7,
+        "maxVolumeDb": -3.5
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-GB-RyanNeural-59ada5a683df649b1e69b808.wav"
+    }
+  ]
+}

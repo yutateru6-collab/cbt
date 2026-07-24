@@ -1,0 +1,1019 @@
+{
+  "sources": [
+    "audio-generation\\grade2-sample-part2-pilot.json",
+    "audio-generation\\grade2-sample-part2-rest.json"
+  ],
+  "outputDirectory": "audio-generation\\grade2-round1-simba-production-20260717\\part2",
+  "preflight": {
+    "items": [
+      "No16",
+      "No17",
+      "No18",
+      "No19",
+      "No20"
+    ],
+    "missing": {
+      "calls": 0,
+      "characters": 0
+    },
+    "ceilings": {
+      "calls": 40,
+      "totalCharacters": 9000,
+      "requestCharacters": 2000
+    },
+    "timingMs": {
+      "numberToBody": 1150,
+      "sentenceBreakHardSilence": 420,
+      "bodyToQuestion": 1300,
+      "questionLabelToText": 350
+    },
+    "speedPolicy": {
+      "allVoices": 0.87
+    },
+    "segments": [
+      {
+        "item": "No16",
+        "role": "number",
+        "voice": "Geffen",
+        "ttsText": "Number sixteen.",
+        "inputCharacters": 61,
+        "cached": true,
+        "gapAfterMs": 1150,
+        "ratePercent": -13
+      },
+      {
+        "item": "No16",
+        "role": "bodySentence",
+        "voice": "Geffen",
+        "ttsText": "During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge.",
+        "inputCharacters": 220,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": -13
+      },
+      {
+        "item": "No16",
+        "role": "bodySentence",
+        "voice": "Geffen",
+        "ttsText": "She knew the basic facts, but she often forgot important dates during busy tours.",
+        "inputCharacters": 177,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": -13
+      },
+      {
+        "item": "No16",
+        "role": "bodySentence",
+        "voice": "Geffen",
+        "ttsText": "Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift.",
+        "inputCharacters": 196,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": -13
+      },
+      {
+        "item": "No16",
+        "role": "bodySentence",
+        "voice": "Geffen",
+        "ttsText": "She can now explain the bridge's history more clearly.",
+        "inputCharacters": 150,
+        "cached": true,
+        "gapAfterMs": 1300,
+        "ratePercent": -13
+      },
+      {
+        "item": "No16",
+        "role": "questionLabel",
+        "voice": "Dominic",
+        "ttsText": "Question.",
+        "inputCharacters": 55,
+        "cached": true,
+        "gapAfterMs": 350,
+        "ratePercent": -13
+      },
+      {
+        "item": "No16",
+        "role": "questionText",
+        "voice": "Dominic",
+        "ttsText": "What helped Nina explain the bridge's history better?",
+        "inputCharacters": 99,
+        "cached": true,
+        "gapAfterMs": 0,
+        "ratePercent": -13
+      },
+      {
+        "item": "No17",
+        "role": "number",
+        "voice": "Wyatt",
+        "ttsText": "Number seventeen.",
+        "inputCharacters": 63,
+        "cached": true,
+        "gapAfterMs": 1150,
+        "ratePercent": -13
+      },
+      {
+        "item": "No17",
+        "role": "bodySentence",
+        "voice": "Wyatt",
+        "ttsText": "The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday.",
+        "inputCharacters": 188,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": -13
+      },
+      {
+        "item": "No17",
+        "role": "bodySentence",
+        "voice": "Wyatt",
+        "ttsText": "Those rooms will be unavailable from nine A M until three P M, but the swimming pool will remain open as usual.",
+        "inputCharacters": 207,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": -13
+      },
+      {
+        "item": "No17",
+        "role": "bodySentence",
+        "voice": "Wyatt",
+        "ttsText": "Visitors should use the smaller changing area beside Court Two.",
+        "inputCharacters": 159,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": -13
+      },
+      {
+        "item": "No17",
+        "role": "bodySentence",
+        "voice": "Wyatt",
+        "ttsText": "Please bring your own lock, since the temporary lockers do not have built-in keys.",
+        "inputCharacters": 178,
+        "cached": true,
+        "gapAfterMs": 1300,
+        "ratePercent": -13
+      },
+      {
+        "item": "No17",
+        "role": "questionLabel",
+        "voice": "Harper",
+        "ttsText": "Question.",
+        "inputCharacters": 55,
+        "cached": true,
+        "gapAfterMs": 350,
+        "ratePercent": -13
+      },
+      {
+        "item": "No17",
+        "role": "questionText",
+        "voice": "Harper",
+        "ttsText": "What should visitors bring to the sports center?",
+        "inputCharacters": 94,
+        "cached": true,
+        "gapAfterMs": 0,
+        "ratePercent": -13
+      },
+      {
+        "item": "No18",
+        "role": "number",
+        "voice": "Imogen",
+        "ttsText": "Number eighteen.",
+        "inputCharacters": 62,
+        "cached": true,
+        "gapAfterMs": 1150,
+        "ratePercent": -13
+      },
+      {
+        "item": "No18",
+        "role": "bodySentence",
+        "voice": "Imogen",
+        "ttsText": "A customer asked Leo to prepare a birthday cake without nuts.",
+        "inputCharacters": 157,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": -13
+      },
+      {
+        "item": "No18",
+        "role": "bodySentence",
+        "voice": "Imogen",
+        "ttsText": "He carefully checked the ingredients, but the chocolate decorations he usually buys were made in a factory that also handles almonds.",
+        "inputCharacters": 229,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": -13
+      },
+      {
+        "item": "No18",
+        "role": "bodySentence",
+        "voice": "Imogen",
+        "ttsText": "Leo called the customer and suggested using fresh fruit instead.",
+        "inputCharacters": 160,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": -13
+      },
+      {
+        "item": "No18",
+        "role": "bodySentence",
+        "voice": "Imogen",
+        "ttsText": "The customer agreed, so he changed the design while keeping the same price and delivery time for Saturday.",
+        "inputCharacters": 202,
+        "cached": true,
+        "gapAfterMs": 1300,
+        "ratePercent": -13
+      },
+      {
+        "item": "No18",
+        "role": "questionLabel",
+        "voice": "Hugh",
+        "ttsText": "Question.",
+        "inputCharacters": 55,
+        "cached": true,
+        "gapAfterMs": 350,
+        "ratePercent": -13
+      },
+      {
+        "item": "No18",
+        "role": "questionText",
+        "voice": "Hugh",
+        "ttsText": "Why did Leo replace the chocolate decorations?",
+        "inputCharacters": 92,
+        "cached": true,
+        "gapAfterMs": 0,
+        "ratePercent": -13
+      },
+      {
+        "item": "No19",
+        "role": "number",
+        "voice": "Hugh",
+        "ttsText": "Number nineteen.",
+        "inputCharacters": 62,
+        "cached": true,
+        "gapAfterMs": 1150,
+        "ratePercent": -13
+      },
+      {
+        "item": "No19",
+        "role": "bodySentence",
+        "voice": "Hugh",
+        "ttsText": "Some desert plants open their flowers only at night.",
+        "inputCharacters": 148,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": -13
+      },
+      {
+        "item": "No19",
+        "role": "bodySentence",
+        "voice": "Hugh",
+        "ttsText": "This helps them avoid losing too much water in the daytime heat.",
+        "inputCharacters": 160,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": -13
+      },
+      {
+        "item": "No19",
+        "role": "bodySentence",
+        "voice": "Hugh",
+        "ttsText": "Night-flying insects, including certain moths, carry pollen between the flowers as they feed after sunset.",
+        "inputCharacters": 202,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": -13
+      },
+      {
+        "item": "No19",
+        "role": "bodySentence",
+        "voice": "Hugh",
+        "ttsText": "Many of these flowers are pale and have a strong smell, making them easier for insects to find when there is little light.",
+        "inputCharacters": 218,
+        "cached": true,
+        "gapAfterMs": 1300,
+        "ratePercent": -13
+      },
+      {
+        "item": "No19",
+        "role": "questionLabel",
+        "voice": "Imogen",
+        "ttsText": "Question.",
+        "inputCharacters": 55,
+        "cached": true,
+        "gapAfterMs": 350,
+        "ratePercent": -13
+      },
+      {
+        "item": "No19",
+        "role": "questionText",
+        "voice": "Imogen",
+        "ttsText": "What makes many night-opening flowers easy to find?",
+        "inputCharacters": 97,
+        "cached": true,
+        "gapAfterMs": 0,
+        "ratePercent": -13
+      },
+      {
+        "item": "No20",
+        "role": "number",
+        "voice": "Harper",
+        "ttsText": "Number twenty.",
+        "inputCharacters": 60,
+        "cached": true,
+        "gapAfterMs": 1150,
+        "ratePercent": -13
+      },
+      {
+        "item": "No20",
+        "role": "bodySentence",
+        "voice": "Harper",
+        "ttsText": "Maya planned to take a large suitcase on her weekend train trip.",
+        "inputCharacters": 160,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": -13
+      },
+      {
+        "item": "No20",
+        "role": "bodySentence",
+        "voice": "Harper",
+        "ttsText": "Then she learned that the station near her hotel had no elevator and many stairs to climb.",
+        "inputCharacters": 186,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": -13
+      },
+      {
+        "item": "No20",
+        "role": "bodySentence",
+        "voice": "Harper",
+        "ttsText": "She considered sending the suitcase ahead, but the delivery would arrive too late.",
+        "inputCharacters": 178,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": -13
+      },
+      {
+        "item": "No20",
+        "role": "bodySentence",
+        "voice": "Harper",
+        "ttsText": "In the end, she packed fewer clothes in a backpack and decided to wash one outfit at the hotel.",
+        "inputCharacters": 191,
+        "cached": true,
+        "gapAfterMs": 1300,
+        "ratePercent": -13
+      },
+      {
+        "item": "No20",
+        "role": "questionLabel",
+        "voice": "Wyatt",
+        "ttsText": "Question.",
+        "inputCharacters": 55,
+        "cached": true,
+        "gapAfterMs": 350,
+        "ratePercent": -13
+      },
+      {
+        "item": "No20",
+        "role": "questionText",
+        "voice": "Wyatt",
+        "ttsText": "What did Maya finally decide to do?",
+        "inputCharacters": 81,
+        "cached": true,
+        "gapAfterMs": 0,
+        "ratePercent": -13
+      }
+    ]
+  },
+  "actual": {
+    "calls": 0,
+    "inputCharacters": 0,
+    "billableCharacters": 0
+  },
+  "records": [],
+  "outputs": [
+    {
+      "item": "No16",
+      "number": 16,
+      "segments": [
+        {
+          "role": "number",
+          "voice": {
+            "id": "geffen_32",
+            "name": "Geffen",
+            "gender": "female"
+          },
+          "plainText": "Number 16.",
+          "ttsText": "Number sixteen.",
+          "synthesisInput": "<speak><prosody rate=\"-13%\">Number sixteen.</prosody></speak>",
+          "gapAfterMs": 1150,
+          "ratePercent": -13,
+          "style": "neutral",
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "geffen_32",
+            "name": "Geffen",
+            "gender": "female"
+          },
+          "plainText": "During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge.",
+          "ttsText": "During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-13%\">During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge.</prosody></speechify:style></speak>",
+          "gapAfterMs": 420,
+          "ratePercent": -13,
+          "style": "warm",
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "geffen_32",
+            "name": "Geffen",
+            "gender": "female"
+          },
+          "plainText": "She knew the basic facts, but she often forgot important dates during busy tours.",
+          "ttsText": "She knew the basic facts, but she often forgot important dates during busy tours.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-13%\">She knew the basic facts, but she often forgot important dates during busy tours.</prosody></speechify:style></speak>",
+          "gapAfterMs": 420,
+          "ratePercent": -13,
+          "style": "warm",
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "geffen_32",
+            "name": "Geffen",
+            "gender": "female"
+          },
+          "plainText": "Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift.",
+          "ttsText": "Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-13%\">Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift.</prosody></speechify:style></speak>",
+          "gapAfterMs": 420,
+          "ratePercent": -13,
+          "style": "warm",
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "geffen_32",
+            "name": "Geffen",
+            "gender": "female"
+          },
+          "plainText": "She can now explain the bridge's history more clearly.",
+          "ttsText": "She can now explain the bridge's history more clearly.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-13%\">She can now explain the bridge's history more clearly.</prosody></speechify:style></speak>",
+          "gapAfterMs": 1300,
+          "ratePercent": -13,
+          "style": "warm",
+          "reused": false
+        },
+        {
+          "role": "questionLabel",
+          "voice": {
+            "id": "dominic_32",
+            "name": "Dominic",
+            "gender": "male"
+          },
+          "plainText": "Question.",
+          "ttsText": "Question.",
+          "synthesisInput": "<speak><prosody rate=\"-13%\">Question.</prosody></speak>",
+          "gapAfterMs": 350,
+          "ratePercent": -13,
+          "style": "neutral",
+          "reused": false
+        },
+        {
+          "role": "questionText",
+          "voice": {
+            "id": "dominic_32",
+            "name": "Dominic",
+            "gender": "male"
+          },
+          "plainText": "What helped Nina explain the bridge's history better?",
+          "ttsText": "What helped Nina explain the bridge's history better?",
+          "synthesisInput": "<speak><prosody rate=\"-13%\">What helped Nina explain the bridge's history better?</prosody></speak>",
+          "gapAfterMs": 0,
+          "ratePercent": -13,
+          "style": "neutral",
+          "reused": false
+        }
+      ],
+      "wav": "audio-generation\\grade2-round1-simba-production-20260717\\part2\\audio\\No16.wav",
+      "mp3": "audio-generation\\grade2-round1-simba-production-20260717\\part2\\audio\\No16.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "31.211250"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "31.211270"
+      }
+    },
+    {
+      "item": "No17",
+      "number": 17,
+      "segments": [
+        {
+          "role": "number",
+          "voice": {
+            "id": "wyatt_32",
+            "name": "Wyatt",
+            "gender": "male"
+          },
+          "plainText": "Number 17.",
+          "ttsText": "Number seventeen.",
+          "synthesisInput": "<speak><prosody rate=\"-13%\">Number seventeen.</prosody></speak>",
+          "gapAfterMs": 1150,
+          "ratePercent": -13,
+          "style": "neutral",
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "wyatt_32",
+            "name": "Wyatt",
+            "gender": "male"
+          },
+          "plainText": "The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday.",
+          "ttsText": "The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-13%\">The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday.</prosody></speechify:style></speak>",
+          "gapAfterMs": 420,
+          "ratePercent": -13,
+          "style": "warm",
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "wyatt_32",
+            "name": "Wyatt",
+            "gender": "male"
+          },
+          "plainText": "Those rooms will be unavailable from 9 a.m. until 3 p.m., but the swimming pool will remain open as usual.",
+          "ttsText": "Those rooms will be unavailable from nine A M until three P M, but the swimming pool will remain open as usual.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-13%\">Those rooms will be unavailable from nine A M until three P M, but the swimming pool will remain open as usual.</prosody></speechify:style></speak>",
+          "gapAfterMs": 420,
+          "ratePercent": -13,
+          "style": "warm",
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "wyatt_32",
+            "name": "Wyatt",
+            "gender": "male"
+          },
+          "plainText": "Visitors should use the smaller changing area beside Court Two.",
+          "ttsText": "Visitors should use the smaller changing area beside Court Two.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-13%\">Visitors should use the smaller changing area beside Court Two.</prosody></speechify:style></speak>",
+          "gapAfterMs": 420,
+          "ratePercent": -13,
+          "style": "warm",
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "wyatt_32",
+            "name": "Wyatt",
+            "gender": "male"
+          },
+          "plainText": "Please bring your own lock, since the temporary lockers do not have built-in keys.",
+          "ttsText": "Please bring your own lock, since the temporary lockers do not have built-in keys.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-13%\">Please bring your own lock, since the temporary lockers do not have built-in keys.</prosody></speechify:style></speak>",
+          "gapAfterMs": 1300,
+          "ratePercent": -13,
+          "style": "warm",
+          "reused": false
+        },
+        {
+          "role": "questionLabel",
+          "voice": {
+            "id": "harper_32",
+            "name": "Harper",
+            "gender": "female"
+          },
+          "plainText": "Question.",
+          "ttsText": "Question.",
+          "synthesisInput": "<speak><prosody rate=\"-13%\">Question.</prosody></speak>",
+          "gapAfterMs": 350,
+          "ratePercent": -13,
+          "style": "neutral",
+          "reused": false
+        },
+        {
+          "role": "questionText",
+          "voice": {
+            "id": "harper_32",
+            "name": "Harper",
+            "gender": "female"
+          },
+          "plainText": "What should visitors bring to the sports center?",
+          "ttsText": "What should visitors bring to the sports center?",
+          "synthesisInput": "<speak><prosody rate=\"-13%\">What should visitors bring to the sports center?</prosody></speak>",
+          "gapAfterMs": 0,
+          "ratePercent": -13,
+          "style": "neutral",
+          "reused": false
+        }
+      ],
+      "wav": "audio-generation\\grade2-round1-simba-production-20260717\\part2\\audio\\No17.wav",
+      "mp3": "audio-generation\\grade2-round1-simba-production-20260717\\part2\\audio\\No17.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "29.568000"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "29.568005"
+      }
+    },
+    {
+      "item": "No18",
+      "number": 18,
+      "segments": [
+        {
+          "role": "number",
+          "voice": {
+            "id": "imogen_32",
+            "name": "Imogen",
+            "gender": "female"
+          },
+          "plainText": "Number 18.",
+          "ttsText": "Number eighteen.",
+          "synthesisInput": "<speak><prosody rate=\"-13%\">Number eighteen.</prosody></speak>",
+          "gapAfterMs": 1150,
+          "ratePercent": -13,
+          "style": "neutral",
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "imogen_32",
+            "name": "Imogen",
+            "gender": "female"
+          },
+          "plainText": "A customer asked Leo to prepare a birthday cake without nuts.",
+          "ttsText": "A customer asked Leo to prepare a birthday cake without nuts.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-13%\">A customer asked Leo to prepare a birthday cake without nuts.</prosody></speechify:style></speak>",
+          "gapAfterMs": 420,
+          "ratePercent": -13,
+          "style": "warm",
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "imogen_32",
+            "name": "Imogen",
+            "gender": "female"
+          },
+          "plainText": "He carefully checked the ingredients, but the chocolate decorations he usually buys were made in a factory that also handles almonds.",
+          "ttsText": "He carefully checked the ingredients, but the chocolate decorations he usually buys were made in a factory that also handles almonds.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-13%\">He carefully checked the ingredients, but the chocolate decorations he usually buys were made in a factory that also handles almonds.</prosody></speechify:style></speak>",
+          "gapAfterMs": 420,
+          "ratePercent": -13,
+          "style": "warm",
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "imogen_32",
+            "name": "Imogen",
+            "gender": "female"
+          },
+          "plainText": "Leo called the customer and suggested using fresh fruit instead.",
+          "ttsText": "Leo called the customer and suggested using fresh fruit instead.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-13%\">Leo called the customer and suggested using fresh fruit instead.</prosody></speechify:style></speak>",
+          "gapAfterMs": 420,
+          "ratePercent": -13,
+          "style": "warm",
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "imogen_32",
+            "name": "Imogen",
+            "gender": "female"
+          },
+          "plainText": "The customer agreed, so he changed the design while keeping the same price and delivery time for Saturday.",
+          "ttsText": "The customer agreed, so he changed the design while keeping the same price and delivery time for Saturday.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-13%\">The customer agreed, so he changed the design while keeping the same price and delivery time for Saturday.</prosody></speechify:style></speak>",
+          "gapAfterMs": 1300,
+          "ratePercent": -13,
+          "style": "warm",
+          "reused": false
+        },
+        {
+          "role": "questionLabel",
+          "voice": {
+            "id": "hugh_32",
+            "name": "Hugh",
+            "gender": "male"
+          },
+          "plainText": "Question.",
+          "ttsText": "Question.",
+          "synthesisInput": "<speak><prosody rate=\"-13%\">Question.</prosody></speak>",
+          "gapAfterMs": 350,
+          "ratePercent": -13,
+          "style": "neutral",
+          "reused": false
+        },
+        {
+          "role": "questionText",
+          "voice": {
+            "id": "hugh_32",
+            "name": "Hugh",
+            "gender": "male"
+          },
+          "plainText": "Why did Leo replace the chocolate decorations?",
+          "ttsText": "Why did Leo replace the chocolate decorations?",
+          "synthesisInput": "<speak><prosody rate=\"-13%\">Why did Leo replace the chocolate decorations?</prosody></speak>",
+          "gapAfterMs": 0,
+          "ratePercent": -13,
+          "style": "neutral",
+          "reused": false
+        }
+      ],
+      "wav": "audio-generation\\grade2-round1-simba-production-20260717\\part2\\audio\\No18.wav",
+      "mp3": "audio-generation\\grade2-round1-simba-production-20260717\\part2\\audio\\No18.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "32.158875"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "32.158889"
+      }
+    },
+    {
+      "item": "No19",
+      "number": 19,
+      "segments": [
+        {
+          "role": "number",
+          "voice": {
+            "id": "hugh_32",
+            "name": "Hugh",
+            "gender": "male"
+          },
+          "plainText": "Number 19.",
+          "ttsText": "Number nineteen.",
+          "synthesisInput": "<speak><prosody rate=\"-13%\">Number nineteen.</prosody></speak>",
+          "gapAfterMs": 1150,
+          "ratePercent": -13,
+          "style": "neutral",
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "hugh_32",
+            "name": "Hugh",
+            "gender": "male"
+          },
+          "plainText": "Some desert plants open their flowers only at night.",
+          "ttsText": "Some desert plants open their flowers only at night.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-13%\">Some desert plants open their flowers only at night.</prosody></speechify:style></speak>",
+          "gapAfterMs": 420,
+          "ratePercent": -13,
+          "style": "warm",
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "hugh_32",
+            "name": "Hugh",
+            "gender": "male"
+          },
+          "plainText": "This helps them avoid losing too much water in the daytime heat.",
+          "ttsText": "This helps them avoid losing too much water in the daytime heat.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-13%\">This helps them avoid losing too much water in the daytime heat.</prosody></speechify:style></speak>",
+          "gapAfterMs": 420,
+          "ratePercent": -13,
+          "style": "warm",
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "hugh_32",
+            "name": "Hugh",
+            "gender": "male"
+          },
+          "plainText": "Night-flying insects, including certain moths, carry pollen between the flowers as they feed after sunset.",
+          "ttsText": "Night-flying insects, including certain moths, carry pollen between the flowers as they feed after sunset.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-13%\">Night-flying insects, including certain moths, carry pollen between the flowers as they feed after sunset.</prosody></speechify:style></speak>",
+          "gapAfterMs": 420,
+          "ratePercent": -13,
+          "style": "warm",
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "hugh_32",
+            "name": "Hugh",
+            "gender": "male"
+          },
+          "plainText": "Many of these flowers are pale and have a strong smell, making them easier for insects to find when there is little light.",
+          "ttsText": "Many of these flowers are pale and have a strong smell, making them easier for insects to find when there is little light.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-13%\">Many of these flowers are pale and have a strong smell, making them easier for insects to find when there is little light.</prosody></speechify:style></speak>",
+          "gapAfterMs": 1300,
+          "ratePercent": -13,
+          "style": "warm",
+          "reused": false
+        },
+        {
+          "role": "questionLabel",
+          "voice": {
+            "id": "imogen_32",
+            "name": "Imogen",
+            "gender": "female"
+          },
+          "plainText": "Question.",
+          "ttsText": "Question.",
+          "synthesisInput": "<speak><prosody rate=\"-13%\">Question.</prosody></speak>",
+          "gapAfterMs": 350,
+          "ratePercent": -13,
+          "style": "neutral",
+          "reused": false
+        },
+        {
+          "role": "questionText",
+          "voice": {
+            "id": "imogen_32",
+            "name": "Imogen",
+            "gender": "female"
+          },
+          "plainText": "What makes many night-opening flowers easy to find?",
+          "ttsText": "What makes many night-opening flowers easy to find?",
+          "synthesisInput": "<speak><prosody rate=\"-13%\">What makes many night-opening flowers easy to find?</prosody></speak>",
+          "gapAfterMs": 0,
+          "ratePercent": -13,
+          "style": "neutral",
+          "reused": false
+        }
+      ],
+      "wav": "audio-generation\\grade2-round1-simba-production-20260717\\part2\\audio\\No19.wav",
+      "mp3": "audio-generation\\grade2-round1-simba-production-20260717\\part2\\audio\\No19.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "32.876667"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "32.876667"
+      }
+    },
+    {
+      "item": "No20",
+      "number": 20,
+      "segments": [
+        {
+          "role": "number",
+          "voice": {
+            "id": "harper_32",
+            "name": "Harper",
+            "gender": "female"
+          },
+          "plainText": "Number 20.",
+          "ttsText": "Number twenty.",
+          "synthesisInput": "<speak><prosody rate=\"-13%\">Number twenty.</prosody></speak>",
+          "gapAfterMs": 1150,
+          "ratePercent": -13,
+          "style": "neutral",
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "harper_32",
+            "name": "Harper",
+            "gender": "female"
+          },
+          "plainText": "Maya planned to take a large suitcase on her weekend train trip.",
+          "ttsText": "Maya planned to take a large suitcase on her weekend train trip.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-13%\">Maya planned to take a large suitcase on her weekend train trip.</prosody></speechify:style></speak>",
+          "gapAfterMs": 420,
+          "ratePercent": -13,
+          "style": "warm",
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "harper_32",
+            "name": "Harper",
+            "gender": "female"
+          },
+          "plainText": "Then she learned that the station near her hotel had no elevator and many stairs to climb.",
+          "ttsText": "Then she learned that the station near her hotel had no elevator and many stairs to climb.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-13%\">Then she learned that the station near her hotel had no elevator and many stairs to climb.</prosody></speechify:style></speak>",
+          "gapAfterMs": 420,
+          "ratePercent": -13,
+          "style": "warm",
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "harper_32",
+            "name": "Harper",
+            "gender": "female"
+          },
+          "plainText": "She considered sending the suitcase ahead, but the delivery would arrive too late.",
+          "ttsText": "She considered sending the suitcase ahead, but the delivery would arrive too late.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-13%\">She considered sending the suitcase ahead, but the delivery would arrive too late.</prosody></speechify:style></speak>",
+          "gapAfterMs": 420,
+          "ratePercent": -13,
+          "style": "warm",
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "harper_32",
+            "name": "Harper",
+            "gender": "female"
+          },
+          "plainText": "In the end, she packed fewer clothes in a backpack and decided to wash one outfit at the hotel.",
+          "ttsText": "In the end, she packed fewer clothes in a backpack and decided to wash one outfit at the hotel.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-13%\">In the end, she packed fewer clothes in a backpack and decided to wash one outfit at the hotel.</prosody></speechify:style></speak>",
+          "gapAfterMs": 1300,
+          "ratePercent": -13,
+          "style": "warm",
+          "reused": false
+        },
+        {
+          "role": "questionLabel",
+          "voice": {
+            "id": "wyatt_32",
+            "name": "Wyatt",
+            "gender": "male"
+          },
+          "plainText": "Question.",
+          "ttsText": "Question.",
+          "synthesisInput": "<speak><prosody rate=\"-13%\">Question.</prosody></speak>",
+          "gapAfterMs": 350,
+          "ratePercent": -13,
+          "style": "neutral",
+          "reused": false
+        },
+        {
+          "role": "questionText",
+          "voice": {
+            "id": "wyatt_32",
+            "name": "Wyatt",
+            "gender": "male"
+          },
+          "plainText": "What did Maya finally decide to do?",
+          "ttsText": "What did Maya finally decide to do?",
+          "synthesisInput": "<speak><prosody rate=\"-13%\">What did Maya finally decide to do?</prosody></speak>",
+          "gapAfterMs": 0,
+          "ratePercent": -13,
+          "style": "neutral",
+          "reused": false
+        }
+      ],
+      "wav": "audio-generation\\grade2-round1-simba-production-20260717\\part2\\audio\\No20.wav",
+      "mp3": "audio-generation\\grade2-round1-simba-production-20260717\\part2\\audio\\No20.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "29.273750"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "29.273764"
+      }
+    }
+  ]
+}

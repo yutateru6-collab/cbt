@@ -1,0 +1,83 @@
+{
+  "setKey": "set-01",
+  "label": "第1回",
+  "part": "Part 1",
+  "model": "gpt-4o-mini-tts",
+  "openaiSpeed": 1.0,
+  "edgeRate": "+0%",
+  "edgeVolume": "+0%",
+  "normalGapMs": 180,
+  "questionGapMs": 650,
+  "outputFormat": {
+    "codec": "pcm_s16le",
+    "sampleRate": 24000,
+    "channels": 1,
+    "bits": 16
+  },
+  "limits": {
+    "maxApiCalls": 40,
+    "maxRetriesPerSegment": 1,
+    "estimatedCostCapUsd": 0.25,
+    "maxOpenAICharacters": 10000,
+    "conservativeCostUsdPerMinute": 0.03
+  },
+  "pairBlocks": [
+    {
+      "start": 1,
+      "end": 5,
+      "A": {
+        "provider": "edge",
+        "voice": "en-US-EmmaMultilingualNeural",
+        "gender": "female",
+        "language": "en-US",
+        "englishOnly": true,
+        "gainDb": -4.0
+      },
+      "B": {
+        "provider": "openai",
+        "voice": "cedar",
+        "gender": "male",
+        "accent": "American English",
+        "gainDb": 0.0
+      }
+    },
+    {
+      "start": 6,
+      "end": 10,
+      "A": {
+        "provider": "openai",
+        "voice": "marin",
+        "gender": "female",
+        "accent": "American English",
+        "gainDb": 0.0
+      },
+      "B": {
+        "provider": "edge",
+        "voice": "en-GB-RyanNeural",
+        "gender": "male",
+        "language": "en-GB",
+        "englishOnly": true,
+        "gainDb": 0.0
+      }
+    },
+    {
+      "start": 11,
+      "end": 15,
+      "A": {
+        "provider": "edge",
+        "voice": "en-US-AvaMultilingualNeural",
+        "gender": "female",
+        "language": "en-US",
+        "englishOnly": true,
+        "gainDb": -3.5
+      },
+      "B": {
+        "provider": "openai",
+        "voice": "cedar",
+        "gender": "male",
+        "accent": "American English",
+        "gainDb": 0.0
+      }
+    }
+  ]
+}

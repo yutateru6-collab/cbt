@@ -1,0 +1,97 @@
+{
+  "validatedAt": "2026-07-19",
+  "project": "scbt-simba-final-part1-part2-five",
+  "environment": "Production",
+  "branch": "main",
+  "deploymentId": "836cd07e-38c7-470b-9415-6d4c811c8e0d",
+  "deploymentUrl": "https://836cd07e.scbt-simba-final-part1-part2-five.pages.dev",
+  "fixedUrl": "https://scbt-simba-final-part1-part2-five.pages.dev/?v=20260719-range1",
+  "index": {
+    "status": 200,
+    "contentType": "text/html"
+  },
+  "htmlContract": {
+    "audioCount": 10,
+    "part1Cards": 5,
+    "part2Cards": 5,
+    "allAudioSourcesExist": true,
+    "defaultPlaybackRate": 1.0,
+    "playbackRate": 1.0,
+    "viewportMetaPresent": true,
+    "mobileMediaQueryPresent": true,
+    "responsiveWidthGuardPresent": true
+  },
+  "remoteAudioContract": {
+    "allStatus200": true,
+    "allContentTypeAudioWav": true,
+    "allRemoteSha256MatchLocal": true,
+    "allRangeStatus206": true,
+    "allAcceptRangesBytes": true,
+    "allContentRangesCorrect": true,
+    "allRangeHeadersMatchLocalWav": true,
+    "invalidRangeStatus416": true
+  },
+  "smartphonePlaybackFix": {
+    "rootCause": "Cloudflare Pages static assets returned 200 OK to byte Range requests instead of 206 Partial Content.",
+    "implementation": "A Pages advanced-mode Worker now serves exact byte ranges from the unchanged PCM WAV assets.",
+    "audioCacheVersion": "20260719-range1",
+    "speechAudioReencoded": false,
+    "speechPcmChanged": false
+  },
+  "browserVisualVerification": {
+    "completed": false,
+    "reason": "Codex in-app Browser webview did not attach after three attempts; HTTP, hash, and static responsive HTML checks completed instead."
+  },
+  "files": [
+    {
+      "name": "part1-01-simba-3-2-final.wav",
+      "bytes": 3104964,
+      "localAndRemoteSha256": "657425e4c701780722ad3f22afb9d09ed94bb82a7c9b874aa90b617e7fe20789"
+    },
+    {
+      "name": "part1-02-simba-3-2-final.wav",
+      "bytes": 3044956,
+      "localAndRemoteSha256": "6166ec08d00bb1f597af6c4a3bb97c9807382d6d238189e85ddb5dd3a364d4a7"
+    },
+    {
+      "name": "part1-03-simba-3-2-final.wav",
+      "bytes": 2921344,
+      "localAndRemoteSha256": "c722bc230fc5c2ea42e373c143554aae9cadf5283ff5cd2585b8d0e52ab3060b"
+    },
+    {
+      "name": "part1-04-simba-3-2-final.wav",
+      "bytes": 2991180,
+      "localAndRemoteSha256": "a22822f5e65cf6bb6ce1a13a66a6372aed09ee886579b931c021bfcc6453cad0"
+    },
+    {
+      "name": "part1-05-simba-3-2-final.wav",
+      "bytes": 2986828,
+      "localAndRemoteSha256": "cc9efee0b65c57b17328e3b0eccb397403eb46ba99f171e4fc0f8a4cedd675eb"
+    },
+    {
+      "name": "part2-16-simba-3-2-final.wav",
+      "bytes": 2698660,
+      "localAndRemoteSha256": "745d21e32706e631ec97f6b3285e0daca712b1f6b728af63bd01b0d7e54c5dff"
+    },
+    {
+      "name": "part2-17-simba-3-2-final.wav",
+      "bytes": 2939892,
+      "localAndRemoteSha256": "24b20d9029caef4830dc58e64ea96b2af5e4faf337f90b68a49a914ca5bd3a74"
+    },
+    {
+      "name": "part2-18-simba-3-2-final.wav",
+      "bytes": 2869668,
+      "localAndRemoteSha256": "e31c18560cf9440cf191f650c78cf746b636d3276197632b9bcf088592ef4d55"
+    },
+    {
+      "name": "part2-19-simba-3-2-final.wav",
+      "bytes": 2693176,
+      "localAndRemoteSha256": "2b0223bc8182c4cb1796aec7af57d67a11665cc4454a3124b4e7b83024912a98"
+    },
+    {
+      "name": "part2-20-simba-3-2-final.wav",
+      "bytes": 2606676,
+      "localAndRemoteSha256": "add98227602292b46cd3a124eb33f9830cb0b788f525847817c9abe31ddf7c55"
+    }
+  ]
+}

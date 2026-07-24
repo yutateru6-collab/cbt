@@ -1,0 +1,35 @@
+{
+  "deployedAt": "2026-07-16T02:39:50.1518342+09:00",
+  "service": "Cloudflare Pages",
+  "projectName": "scbt-grade2-round1-part1",
+  "environment": "Production",
+  "branch": "main",
+  "productionUrl": "https://scbt-grade2-round1-part1.pages.dev/",
+  "deploymentId": "c73746e9-c312-487c-a610-22f1f26bac06",
+  "deploymentUrl": "https://c73746e9.scbt-grade2-round1-part1.pages.dev/",
+  "sourceDirectory": "audio-generation/cloudflare-publish/grade2-round1-part1-20260716",
+  "publishedFiles": {
+    "html": 1,
+    "headers": 1,
+    "wav": 15,
+    "total": 17,
+    "wavBytes": 19730994
+  },
+  "verification": {
+    "indexStatus": 200,
+    "indexContentType": "text/html; charset=utf-8",
+    "indexTitleFound": true,
+    "robotsHeader": "noindex, nofollow",
+    "audioStatus200Count": 15,
+    "audioContentType": "audio/wav",
+    "audioSha256MatchCount": 15,
+    "audioSha256MismatchCount": 0,
+    "mobileViewportChecked": true,
+    "audioPlayerCount": 15,
+    "audioReadyCount": 15,
+    "audioErrorCount": 0,
+    "speedOptions": [0.85, 0.9, 1.0],
+    "speedControlVerified": 0.9,
+    "horizontalOverflow": false
+  }
+}

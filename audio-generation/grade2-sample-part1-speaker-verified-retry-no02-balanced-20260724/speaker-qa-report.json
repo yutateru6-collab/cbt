@@ -1,0 +1,70 @@
+{
+  "sourceBatchJob": {
+    "submittedAt": "2026-07-23T16:50:03.584914+00:00",
+    "name": "batches/1bd8b69arl7qwibpqv01kxne44g2ue7zu2n3",
+    "displayName": "grade2-sample-part1-speaker-verified-retry-no02-balanced-20260724",
+    "model": "models/gemini-3.1-flash-tts-preview",
+    "state": "JOB_STATE_SUCCEEDED",
+    "requestCount": 1,
+    "checkedAt": "2026-07-23T16:53:29.563438+00:00",
+    "error": null
+  },
+  "model": "gemini-3.1-flash-tts-preview",
+  "speakerReferences": {
+    "KoreMedianF0Hz": 190.5,
+    "PuckMedianF0Hz": 142.9,
+    "WomanMinimumF0Hz": 170.0,
+    "ManMaximumF0Hz": 165.0,
+    "MinimumWomanManRatio": 1.18
+  },
+  "paceTarget": {
+    "wordsPerSecond": 2.44,
+    "tolerance": 0.12
+  },
+  "selectionPolicy": "actual speaker correctness first; pace second; manual listening remains required before release",
+  "excludedFailedCandidates": [
+    {
+      "id": "No02-c1",
+      "number": 2,
+      "error": {
+        "code": 3,
+        "message": "Request contains an invalid argument."
+      }
+    }
+  ],
+  "results": [],
+  "selections": {
+    "No01": {
+      "selectedCandidateId": null,
+      "fullyPassed": false,
+      "speakerPassed": false,
+      "pacePassed": false
+    },
+    "No02": {
+      "selectedCandidateId": null,
+      "fullyPassed": false,
+      "speakerPassed": false,
+      "pacePassed": false
+    },
+    "No03": {
+      "selectedCandidateId": null,
+      "fullyPassed": false,
+      "speakerPassed": false,
+      "pacePassed": false
+    },
+    "No04": {
+      "selectedCandidateId": null,
+      "fullyPassed": false,
+      "speakerPassed": false,
+      "pacePassed": false
+    },
+    "No05": {
+      "selectedCandidateId": null,
+      "fullyPassed": false,
+      "speakerPassed": false,
+      "pacePassed": false
+    }
+  },
+  "allNumbersHaveSpeakerPassingCandidate": false,
+  "allNumbersHaveFullyPassingCandidate": false
+}

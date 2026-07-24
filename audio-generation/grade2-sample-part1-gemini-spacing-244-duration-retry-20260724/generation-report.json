@@ -1,0 +1,94 @@
+{
+  "model": "gemini-3.1-flash-tts-preview",
+  "billingMode": "Batch API",
+  "batchJob": {
+    "submittedAt": "2026-07-23T15:52:56.517670+00:00",
+    "name": "batches/0vh2iyaceh4chulc9wxuibpxsca60dd9xjsw",
+    "displayName": "grade2-sample-part1-spacing-244-duration-retry-20260724",
+    "model": "models/gemini-3.1-flash-tts-preview",
+    "state": "JOB_STATE_SUCCEEDED",
+    "requestCount": 2,
+    "checkedAt": "2026-07-23T15:55:48.198365+00:00",
+    "error": null
+  },
+  "requestCount": 2,
+  "paceInstructions": [
+    "Maintain a steady pace.",
+    "Do not rush, accelerate, over-enunciate, or stretch individual words."
+  ],
+  "format": {
+    "sampleRate": 24000,
+    "channels": 1,
+    "sampleWidth": 2,
+    "encoding": "PCM signed 16-bit little-endian WAV"
+  },
+  "postProcessing": {
+    "speed": "none",
+    "loudness": "none",
+    "silence": "leading and trailing boundary trim only"
+  },
+  "usageTotals": {
+    "promptTokens": 747,
+    "outputAudioTokens": 1834,
+    "totalTokens": 2581
+  },
+  "estimatedBatchCostUsd": {
+    "input": 0.0003735,
+    "outputAudio": 0.01834,
+    "total": 0.0187135
+  },
+  "items": [
+    {
+      "id": "No01",
+      "number": 1,
+      "voices": {
+        "A": "Kore",
+        "B": "Puck"
+      },
+      "file": "No01.wav",
+      "bytes": 1231152,
+      "sha256": "50914be41d1171521a30e47169d1f91f4619d3ea94d464beb01b5ff1d58c154e",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 253.458,
+        "trailingTrimMs": 298.458
+      },
+      "usage": {
+        "promptTokens": 364,
+        "outputAudioTokens": 839,
+        "totalTokens": 1203
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 615554,
+      "durationSeconds": 25.648
+    },
+    {
+      "id": "No02",
+      "number": 2,
+      "voices": {
+        "A": "Kore",
+        "B": "Puck"
+      },
+      "file": "No02.wav",
+      "bytes": 1468350,
+      "sha256": "f4e05ddccf7cbcece1663dedcda70f4902153ae81c87653da5c8ab25131dcdd9",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 240.083,
+        "trailingTrimMs": 250.208
+      },
+      "usage": {
+        "promptTokens": 383,
+        "outputAudioTokens": 995,
+        "totalTokens": 1378
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 734153,
+      "durationSeconds": 30.59
+    }
+  ]
+}

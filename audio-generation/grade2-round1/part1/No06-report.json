@@ -1,0 +1,209 @@
+{
+  "item": "No06",
+  "number": 6,
+  "sourceScript": "A: Are you ready for the hiking trip on Sunday? The weather report says it may get cold near the top. B: I packed a light jacket and some gloves. I was going to bring sandwiches, too. A: Mina is making lunch for everyone, but we still need something for hot drinks. B: Then I'll bring my small camping stove. We can use it to heat water during the break.",
+  "questionText": "What will the man bring for the group?",
+  "voices": {
+    "A": {
+      "provider": "openai",
+      "voice": "marin",
+      "gender": "female",
+      "accent": "American English",
+      "gainDb": 0.0
+    },
+    "B": {
+      "provider": "edge",
+      "voice": "en-GB-RyanNeural",
+      "gender": "male",
+      "language": "en-GB",
+      "englishOnly": true,
+      "gainDb": 0.0
+    }
+  },
+  "output": "audio-generation\\grade2-round1\\part1\\No06.wav",
+  "outputBytes": 1329582,
+  "outputMetadata": {
+    "codec_name": "pcm_s16le",
+    "sample_fmt": "s16",
+    "sample_rate": "24000",
+    "channels": 1,
+    "bits_per_sample": 16,
+    "duration": "27.698000"
+  },
+  "openaiSegments": 3,
+  "edgeSegments": 2,
+  "openaiApiCallsThisRun": 0,
+  "edgeCallsThisRun": 0,
+  "initialVolume": {
+    "meanVolumeDb": -22.5,
+    "maxVolumeDb": -4.0
+  },
+  "globalAttenuationDb": 0.0,
+  "finalVolume": {
+    "meanVolumeDb": -22.5,
+    "maxVolumeDb": -4.0
+  },
+  "segments": [
+    {
+      "speaker": "A",
+      "provider": "openai",
+      "voice": "marin",
+      "gender": "female",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "Number 6... Are you ready for the hiking trip on Sunday? The weather report says it may get cold near the top.",
+      "text": "Number 6... Are you ready for the hiking trip on Sunday? The weather report says it may get cold near the top.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 1,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "6.850000"
+      },
+      "volume": {
+        "meanVolumeDb": -22.3,
+        "maxVolumeDb": -6.4
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.3,
+        "maxVolumeDb": -6.4
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\marin-dba5709c999c1a688bac0358.wav"
+    },
+    {
+      "speaker": "B",
+      "provider": "edge",
+      "voice": "en-GB-RyanNeural",
+      "gender": "male",
+      "language": "en-GB",
+      "englishOnly": true,
+      "gainDb": 0.0,
+      "displayText": "I packed a light jacket and some gloves. I was going to bring sandwiches, too.",
+      "text": "I packed a light jacket and some gloves. I was going to bring sandwiches, too.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 2,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "6.144000"
+      },
+      "volume": {
+        "meanVolumeDb": -22.2,
+        "maxVolumeDb": -4.1
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.2,
+        "maxVolumeDb": -4.1
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-GB-RyanNeural-ca7c8e4c7f6d867b33fc9362.wav"
+    },
+    {
+      "speaker": "A",
+      "provider": "openai",
+      "voice": "marin",
+      "gender": "female",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "Mina is making lunch for everyone, but we still need something for hot drinks.",
+      "text": "Mina is making lunch for everyone, but we still need something for hot drinks.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 3,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "4.200000"
+      },
+      "volume": {
+        "meanVolumeDb": -23.4,
+        "maxVolumeDb": -8.2
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -23.4,
+        "maxVolumeDb": -8.2
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\marin-063676940c97d28e759a98e3.wav"
+    },
+    {
+      "speaker": "B",
+      "provider": "edge",
+      "voice": "en-GB-RyanNeural",
+      "gender": "male",
+      "language": "en-GB",
+      "englishOnly": true,
+      "gainDb": 0.0,
+      "displayText": "Then I'll bring my small camping stove. We can use it to heat water during the break.",
+      "text": "Then I'll bring my small camping stove. We can use it to heat water during the break.",
+      "ttsOverrides": [],
+      "gapAfterMs": 650,
+      "index": 4,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "6.264000"
+      },
+      "volume": {
+        "meanVolumeDb": -22.1,
+        "maxVolumeDb": -4.0
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.1,
+        "maxVolumeDb": -4.0
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-GB-RyanNeural-c633f677d645f1acb0c1f620.wav"
+    },
+    {
+      "speaker": "A",
+      "provider": "openai",
+      "voice": "marin",
+      "gender": "female",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "Question. What will the man bring for the group?",
+      "text": "Question. What will the man bring for the group?",
+      "ttsOverrides": [],
+      "gapAfterMs": 0,
+      "role": "question",
+      "index": 5,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "3.050000"
+      },
+      "volume": {
+        "meanVolumeDb": -21.9,
+        "maxVolumeDb": -6.5
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -21.9,
+        "maxVolumeDb": -6.5
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\marin-5e6b6ef6908bdf5c9542c86f.wav"
+    }
+  ]
+}

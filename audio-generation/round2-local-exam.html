@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#404a50" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="description" content="2級のPC・タブレット受験を中心に設計したCBT形式4技能トレーニングです。" />
+    <title>2級 CBT形式4技能トレーニング</title>
+    <link rel="manifest" href="./manifest.webmanifest?v=grade2-listening-round2-v4" />
+    <link rel="icon" href="./assets/app-icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css?v=grade2-listening-round2-v4" />
+  </head>
+  <body>
+    <main id="app" class="app-shell"></main>
+    <script src="./app-config-grade2.js?v=grade2-listening-round2-v4"></script>
+    <script src="./grade2-set-01.js?v=grade2-listening-round2-v4"></script>
+    <script src="./grade2-vocab-sets.js?v=grade2-listening-round2-v4"></script>
+    <script src="./grade2-listening-part2-sets.js?v=grade2-listening-round2-v4"></script>
+    <script src="./exam-data.js?v=grade2-listening-round2-v4"></script>
+    <script src="./app.js?v=grade2-listening-round2-v4"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("./sw.js?v=grade2-listening-round2-v4").catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>

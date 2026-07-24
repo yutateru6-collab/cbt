@@ -1,0 +1,10 @@
+{
+  "submittedAt": "2026-07-23T15:06:53.745873+00:00",
+  "name": "batches/uglgym4tmor54cxhi04lrjdm029hon5xlbjj",
+  "displayName": "grade2-sample-part1-five-calm-20260724",
+  "model": "models/gemini-3.1-flash-tts-preview",
+  "state": "JOB_STATE_SUCCEEDED",
+  "requestCount": 5,
+  "checkedAt": "2026-07-23T15:11:25.356551+00:00",
+  "error": null
+}

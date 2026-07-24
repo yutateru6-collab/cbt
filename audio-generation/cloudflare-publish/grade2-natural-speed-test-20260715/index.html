@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>英検2級 Edge・OpenAI 音声比較</title>
+  <style>
+    :root {
+      color: #17202a;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #f3f5f7;
+    }
+
+    main {
+      width: min(720px, calc(100% - 32px));
+      margin: 32px auto 56px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(24px, 6vw, 34px);
+    }
+
+    .lead,
+    .note,
+    article p {
+      color: #52606d;
+      line-height: 1.7;
+    }
+
+    .speed-panel,
+    article {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #d8e0e8;
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .speed-panel h2,
+    article h2 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    .speed-buttons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .speed-button {
+      min-height: 48px;
+      border: 1px solid #9aa9b8;
+      border-radius: 10px;
+      background: #fff;
+      color: #243b53;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .speed-button[aria-pressed="true"] {
+      border-color: #1769aa;
+      background: #1769aa;
+      color: #fff;
+    }
+
+    .current-speed {
+      margin: 12px 0 0;
+      color: #243b53;
+      font-weight: 700;
+    }
+
+    .engine-heading {
+      margin: 32px 0 6px;
+      font-size: 24px;
+    }
+
+    .engine-note {
+      margin: 0 0 14px;
+      color: #52606d;
+      line-height: 1.7;
+    }
+
+    article p {
+      margin: 0 0 14px;
+    }
+
+    audio { width: 100%; }
+
+    .note {
+      margin-top: 22px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Edge TTS × OpenAI 音声比較</h1>
+    <p class="lead">
+      同じ本文を使い、Edge女性声候補、OpenAI＋Edgeのハイブリッド版、各エンジン単独版を並べました。
+      どちらも自然速度で生成したWAVマスターを、ブラウザ側だけで速度変更します。
+    </p>
+
+    <section class="speed-panel" aria-labelledby="speed-title">
+      <h2 id="speed-title">再生速度</h2>
+      <div class="speed-buttons" role="group" aria-label="再生速度を選択">
+        <button class="speed-button" type="button" data-rate="0.85" aria-pressed="false">0.85倍</button>
+        <button class="speed-button" type="button" data-rate="0.9" aria-pressed="false">0.9倍</button>
+        <button class="speed-button" type="button" data-rate="1" aria-pressed="true">1.0倍</button>
+      </div>
+      <p class="current-speed" aria-live="polite">現在：<span id="current-speed">1.0</span>倍</p>
+    </section>
+
+    <section aria-labelledby="female-candidates-title">
+      <h2 class="engine-heading" id="female-candidates-title">Edge女性声候補：英語限定Multilingual</h2>
+      <p class="engine-note">女性声だけを変更し、Ryanの3発話は両方で同じ音源を共有／生成速度 +0%</p>
+
+      <article>
+        <h2>Part 1 No.3</h2>
+        <p>Emma Multilingual（アメリカ英語・女性）× Ryan（イギリス英語・男性）</p>
+        <audio controls preload="metadata" src="female-candidates/EmmaRyanNo03.wav"></audio>
+      </article>
+
+      <article>
+        <h2>Part 1 No.3</h2>
+        <p>Ava Multilingual（アメリカ英語・女性）× Ryan（イギリス英語・男性）</p>
+        <audio controls preload="metadata" src="female-candidates/AvaRyanNo03.wav"></audio>
+      </article>
+    </section>
+
+    <section aria-labelledby="hybrid-title">
+      <h2 class="engine-heading" id="hybrid-title">ハイブリッド：OpenAI API × Edge TTS</h2>
+      <p class="engine-note">異なるTTSエンジンの音声を、24kHz・16bit・モノラルWAVへ統一して会話順に結合</p>
+
+      <article>
+        <h2>Part 1 No.3</h2>
+        <p>Marin（OpenAI・女性）× Ryan（Edge・男性）</p>
+        <audio controls preload="metadata" src="hybrid/No03.wav"></audio>
+      </article>
+
+      <article>
+        <h2>Part 1 No.4</h2>
+        <p>Michelle（Edge・女性）× Cedar（OpenAI・男性）／Michelleのみ音量−3dB</p>
+        <audio controls preload="metadata" src="hybrid/No04.wav"></audio>
+      </article>
+    </section>
+
+    <section aria-labelledby="edge-title">
+      <h2 class="engine-heading" id="edge-title">Edge TTS：Clara × Ryan</h2>
+      <p class="engine-note">Clara（カナダ英語・女性）× Ryan（イギリス英語・男性）／生成速度 +0%</p>
+
+      <article>
+        <h2>Part 1 No.3</h2>
+        <p>Edge TTS版</p>
+        <audio controls preload="metadata" src="edge/No03.wav"></audio>
+      </article>
+
+      <article>
+        <h2>Part 1 No.4</h2>
+        <p>Edge TTS版</p>
+        <audio controls preload="metadata" src="edge/No04.wav"></audio>
+      </article>
+    </section>
+
+    <section aria-labelledby="michelle-title">
+      <h2 class="engine-heading" id="michelle-title">Edge TTS：Michelle × Ryan</h2>
+      <p class="engine-note">Michelle（アメリカ英語・女性）× Ryan（イギリス英語・男性）／生成速度 +0%</p>
+
+      <article>
+        <h2>Part 1 No.3</h2>
+        <p>Edge TTS版</p>
+        <audio controls preload="metadata" src="michelle/No03.wav"></audio>
+      </article>
+
+      <article>
+        <h2>Part 1 No.4</h2>
+        <p>Edge TTS版</p>
+        <audio controls preload="metadata" src="michelle/No04.wav"></audio>
+      </article>
+    </section>
+
+    <section aria-labelledby="openai-title">
+      <h2 class="engine-heading" id="openai-title">OpenAI：Marin × Cedar</h2>
+      <p class="engine-note">gpt-4o-mini-tts／API速度 1.0</p>
+
+      <article>
+        <h2>Part 1 No.3</h2>
+        <p>Marin（女性）× Cedar（男性）／自然速度指示</p>
+        <audio controls preload="metadata" src="part1/No03.wav"></audio>
+      </article>
+
+      <article>
+        <h2>Part 1 No.4</h2>
+        <p>Marin（女性）× Cedar（男性）／英国アクセント・自然速度指示</p>
+        <audio controls preload="metadata" src="part1/No04.wav"></audio>
+      </article>
+    </section>
+
+    <p class="note">
+      この音声はAIによって生成されています。速度変更でファイルの再圧縮は行いません。
+    </p>
+  </main>
+
+  <script>
+    const audios = [...document.querySelectorAll("audio")];
+    const speedButtons = [...document.querySelectorAll("[data-rate]")];
+    const currentSpeed = document.querySelector("#current-speed");
+
+    function applyPlaybackRate(rate) {
+      for (const audio of audios) {
+        audio.playbackRate = rate;
+        audio.defaultPlaybackRate = rate;
+        if ("preservesPitch" in audio) {
+          audio.preservesPitch = true;
+        }
+      }
+
+      for (const button of speedButtons) {
+        button.setAttribute("aria-pressed", String(Number(button.dataset.rate) === rate));
+      }
+
+      currentSpeed.textContent = rate === 1 ? "1.0" : String(rate);
+    }
+
+    for (const button of speedButtons) {
+      button.addEventListener("click", () => applyPlaybackRate(Number(button.dataset.rate)));
+    }
+
+    for (const audio of audios) {
+      audio.addEventListener("play", () => {
+        for (const otherAudio of audios) {
+          if (otherAudio !== audio) otherAudio.pause();
+        }
+      });
+    }
+
+    applyPlaybackRate(1);
+  </script>
+</body>
+</html>

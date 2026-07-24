@@ -1,0 +1,10 @@
+{
+  "submittedAt": "2026-07-23T16:39:25.238485+00:00",
+  "name": "batches/lfnvse222onmsllfmrfj6j5xvy2nh19k6cyq",
+  "displayName": "grade2-sample-part1-speaker-verified-retry-02-04-20260724",
+  "model": "models/gemini-3.1-flash-tts-preview",
+  "state": "JOB_STATE_SUCCEEDED",
+  "requestCount": 4,
+  "checkedAt": "2026-07-23T16:42:04.379908+00:00",
+  "error": null
+}

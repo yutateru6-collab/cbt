@@ -1,0 +1,110 @@
+{
+  "model": "gemini-3.1-flash-tts-preview",
+  "billingMode": "Batch API",
+  "batchJob": {
+    "submittedAt": "2026-07-23T16:39:25.238485+00:00",
+    "name": "batches/lfnvse222onmsllfmrfj6j5xvy2nh19k6cyq",
+    "displayName": "grade2-sample-part1-speaker-verified-retry-02-04-20260724",
+    "model": "models/gemini-3.1-flash-tts-preview",
+    "state": "JOB_STATE_SUCCEEDED",
+    "requestCount": 4,
+    "checkedAt": "2026-07-23T16:42:04.379908+00:00",
+    "error": null
+  },
+  "requestCount": 2,
+  "requestedCount": 4,
+  "failedCount": 2,
+  "failures": [
+    {
+      "id": "No04-c1",
+      "number": 4,
+      "error": {
+        "code": 3,
+        "message": "Request contains an invalid argument."
+      }
+    },
+    {
+      "id": "No04-c2",
+      "number": 4,
+      "error": {
+        "code": 3,
+        "message": "Request contains an invalid argument."
+      }
+    }
+  ],
+  "format": {
+    "sampleRate": 24000,
+    "channels": 1,
+    "sampleWidth": 2,
+    "encoding": "PCM signed 16-bit little-endian WAV"
+  },
+  "postProcessing": {
+    "speed": "none",
+    "loudness": "none",
+    "silence": "leading and trailing boundary trim only"
+  },
+  "usageTotals": {
+    "promptTokens": 894,
+    "outputAudioTokens": 1905,
+    "totalTokens": 2799
+  },
+  "estimatedBatchCostUsd": {
+    "input": 0.000447,
+    "outputAudio": 0.01905,
+    "total": 0.019497
+  },
+  "items": [
+    {
+      "id": "No02-c1",
+      "number": 2,
+      "voices": {
+        "Woman": "Kore",
+        "Man": "Puck"
+      },
+      "file": "No02-c1.wav",
+      "bytes": 1470724,
+      "sha256": "d203b93bfc06c56a575757d7e5322aaafcfe336b8fdeec8e9e07a04194297ab8",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 244.667,
+        "trailingTrimMs": 236.167
+      },
+      "usage": {
+        "promptTokens": 447,
+        "outputAudioTokens": 996,
+        "totalTokens": 1443
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 735340,
+      "durationSeconds": 30.639
+    },
+    {
+      "id": "No02-c2",
+      "number": 2,
+      "voices": {
+        "Woman": "Kore",
+        "Man": "Puck"
+      },
+      "file": "No02-c2.wav",
+      "bytes": 1344176,
+      "sha256": "36b84f3980652d0cfb2bcc26f105096098258070c484a1cdc5ef0f8b2e45b22c",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 173.625,
+        "trailingTrimMs": 223.625
+      },
+      "usage": {
+        "promptTokens": 447,
+        "outputAudioTokens": 909,
+        "totalTokens": 1356
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 672066,
+      "durationSeconds": 28.003
+    }
+  ]
+}

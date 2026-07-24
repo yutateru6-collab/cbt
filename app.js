@@ -1,15 +1,22 @@
-const IMPORT_STORAGE_KEY = "scbt-external-exam-overrides";
+const appConfig = window.APP_CONFIG || {};
+const storageNamespace = appConfig.storageNamespace || "scbt";
+const IMPORT_STORAGE_KEY = `${storageNamespace}-external-exam-overrides`;
+const LEGACY_IMPORT_STORAGE_KEY = "scbt-external-exam-overrides";
 const examCatalog = window.examData || {};
 const importedGradeOverrides = loadImportedGradeOverrides();
-const baseGradeCatalog = examCatalog.grades || { pre2: examCatalog };
+const fullGradeCatalog = examCatalog.grades || { pre2: examCatalog };
+const baseGradeCatalog = appConfig.grade && fullGradeCatalog[appConfig.grade]
+  ? { [appConfig.grade]: fullGradeCatalog[appConfig.grade] }
+  : fullGradeCatalog;
 const gradeCatalog = applyImportedGradeOverrides(baseGradeCatalog, importedGradeOverrides);
-const GRADE_SELECTION_KEY = "scbt-selected-grade";
-const SET_SELECTION_KEY_PREFIX = "scbt-selected-set";
+const GRADE_SELECTION_KEY = `${storageNamespace}-selected-grade`;
+const SET_SELECTION_KEY_PREFIX = `${storageNamespace}-selected-set`;
 const requestParams = new URLSearchParams(window.location.search);
-const requestedLockedGrade = window.APP_GRADE || examCatalog.appGrade || "";
+const requestedLockedGrade = appConfig.grade || window.APP_GRADE || examCatalog.appGrade || "";
 const availableGradeKeys = (examCatalog.gradeOrder || Object.keys(gradeCatalog)).filter((key) => gradeCatalog[key]);
 const fallbackGradeKey = availableGradeKeys[0] || "pre2";
 const isGradeLocked = Boolean(requestedLockedGrade && gradeCatalog[requestedLockedGrade]);
+const allowDataImport = appConfig.allowDataImport !== false;
 const selectedGrade = resolveSelectedGrade();
 const selectedSetKey = resolveSelectedSet(selectedGrade);
 const selectedGradeData = gradeCatalog[selectedGrade] || gradeCatalog[fallbackGradeKey] || {};
@@ -20,8 +27,10 @@ const selectedGradeDisplay = examData.displayName || selectedGradeLabel;
 const selectedSetLabel = examData.setLabel || selectedSet.label || selectedSetKey;
 const selectedSetImported = isImportedSet(selectedGrade, selectedSet.key);
 const selectedGradeImported = selectedSetImported;
+const isGrade2SpeakingExperience = appConfig.mode === "grade2-product" && selectedGrade === "grade2";
 
-document.title = `${selectedGradeLabel}CBT形式4技能トレーニング`;
+const appTitle = appConfig.title || `${selectedGradeLabel}CBT形式4技能トレーニング`;
+document.title = appTitle;
 
 const GRADE_REQUIREMENTS = {
   pre2: {
@@ -46,8 +55,13 @@ const GRADE_REQUIREMENTS = {
 
 function loadImportedGradeOverrides() {
   try {
-    const saved = JSON.parse(localStorage.getItem(IMPORT_STORAGE_KEY) || "{}");
-    return saved && typeof saved === "object" ? saved : {};
+    const savedText = localStorage.getItem(IMPORT_STORAGE_KEY) || (!appConfig.grade && IMPORT_STORAGE_KEY !== LEGACY_IMPORT_STORAGE_KEY ? localStorage.getItem(LEGACY_IMPORT_STORAGE_KEY) : null);
+    const saved = JSON.parse(savedText || "{}");
+    if (!saved || typeof saved !== "object") return {};
+    if (appConfig.grade) {
+      return saved[appConfig.grade] ? { [appConfig.grade]: saved[appConfig.grade] } : {};
+    }
+    return saved;
   } catch {
     return {};
   }
@@ -109,6 +123,7 @@ function pickImportableExamFields(source) {
 }
 
 function getSetSelectionKey(gradeKey) {
+  if (appConfig.grade) return SET_SELECTION_KEY_PREFIX;
   return `${SET_SELECTION_KEY_PREFIX}-${gradeKey}`;
 }
 
@@ -164,8 +179,11 @@ function resolveSelectedSet(gradeKey) {
     if (enabledSets.some((set) => set.key === requestedSetKey)) return requestedSetKey;
   }
   try {
-    const savedSet = normalizeSetKey(localStorage.getItem(getSetSelectionKey(gradeKey)));
-    if (enabledSets.some((set) => set.key === savedSet)) return savedSet;
+    const selectionKeys = [getSetSelectionKey(gradeKey), `scbt-selected-set-${gradeKey}`];
+    for (const key of [...new Set(selectionKeys)]) {
+      const savedSet = normalizeSetKey(localStorage.getItem(key));
+      if (enabledSets.some((set) => set.key === savedSet)) return savedSet;
+    }
   } catch {
     // Local storage can be unavailable in some preview modes.
   }
@@ -344,7 +362,7 @@ const listeningQuestions = examData.listeningQuestions || Array.from({ length: 3
   };
 });
 
-const speakingSteps = examData.speakingSteps || [
+const baseSpeakingSteps = examData.speakingSteps || [
   {
     label: "Warm-up 1",
     time: "00 : 10",
@@ -389,13 +407,262 @@ const speakingSteps = examData.speakingSteps || [
   },
 ];
 
+const speakingSteps = isGrade2SpeakingExperience ? buildGrade2SpeakingFlow(baseSpeakingSteps) : baseSpeakingSteps;
+
+function buildGrade2SpeakingFlow(sourceSteps) {
+  const byLabel = (label) => sourceSteps.find((step) => String(step.label || "").toLowerCase() === label.toLowerCase()) || {};
+  const warmup = byLabel("Warm-up");
+  const silentReading = byLabel("Silent Reading");
+  const readAloud = byLabel("Read Aloud");
+  const no1 = byLabel("No.1");
+  const no2 = byLabel("No.2");
+  const no3 = byLabel("No.3");
+  const no4 = byLabel("No.4");
+  const cardTitle = silentReading.cardTitle || readAloud.cardTitle || "Using Refill Stations";
+  const cardText =
+    silentReading.cardText ||
+    readAloud.cardText ||
+    "Some stores now have refill stations for soap, shampoo, and other daily products. Customers bring empty bottles and fill them again instead of buying new plastic containers. These stations can reduce waste and help people think about how they shop. However, stores must keep the machines clean and make the prices easy to understand.";
+  const pictureStory = {
+    cardTitle,
+    cardText,
+    imageSrc: "assets/grade2-speaking-picture-story-02.png",
+    imageAlt: "Three-panel picture story for speaking practice.",
+    openingSentence: "One day, Maya and her father went to a supermarket that had a refill station.",
+    firstSpeech: "Let's refill this bottle instead of buying a new one.",
+    firstSpeechSpeaker: "Maya's father",
+    firstSpeechTail: "right",
+    firstTimeLabel: "A few minutes later",
+    secondTimeLabel: "That evening at home",
+  };
+
+  return [
+    {
+      id: "preflight",
+      phase: "setup",
+      stage: "受験前チェック 1/5",
+      label: "スピーキング受験前の確認",
+      prompt: "音声とマイクを確認してから、2級スピーキングを開始します。",
+      visual: "setup",
+      recording: false,
+      seconds: 0,
+    },
+    {
+      id: "output-check",
+      phase: "output-check",
+      stage: "受験前チェック 2/5",
+      label: "音量の確認",
+      prompt: "確認音声を再生し、聞き取りやすい音量へ調整してください。",
+      visual: "setup",
+      recording: false,
+      seconds: 0,
+    },
+    {
+      id: "microphone-check",
+      phase: "microphone-check",
+      stage: "受験前チェック 3/5",
+      label: "マイク入力の確認",
+      prompt: "マイクを許可し、普段どおりの声で話してください。",
+      visual: "setup",
+      recording: false,
+      seconds: 0,
+    },
+    {
+      id: "test-recording",
+      phase: "test-recording",
+      stage: "受験前チェック 4/5",
+      label: "5秒間のテスト録音",
+      prompt: "My name is ... など、短い英語をマイクに向かって話してください。",
+      visual: "setup",
+      recording: true,
+      seconds: 5,
+    },
+    {
+      id: "test-playback",
+      phase: "test-playback",
+      stage: "受験前チェック 5/5",
+      label: "録音の再生確認",
+      prompt: "録音を再生し、声が十分に聞こえることを確認してください。",
+      visual: "setup",
+      recording: false,
+      seconds: 0,
+    },
+    {
+      id: "section-start",
+      phase: "section-start",
+      stage: "スピーキング開始",
+      label: "2級スピーキング",
+      prompt: "準備ができました。ここから先は本番形式で自動的に進みます。",
+      visual: "examiner",
+      recording: false,
+      seconds: 0,
+    },
+    {
+      id: "warmup-1",
+      phase: "question",
+      stage: "Warm-up 1",
+      label: "Warm-up 1",
+      prompt: "質問を聞いて英語で答えてください。ウォームアップは採点対象外です。",
+      promptSpeech: warmup.questionText || "What do you usually do after school?",
+      visual: "examiner",
+      recording: true,
+      seconds: 10,
+      autoStart: true,
+      replayLimit: 2,
+      practiceOnly: true,
+    },
+    {
+      id: "warmup-2",
+      phase: "question",
+      stage: "Warm-up 2",
+      label: "Warm-up 2",
+      prompt: "もう一つ短い質問に答えてください。ウォームアップは採点対象外です。",
+      promptSpeech: "What do you enjoy doing on weekends?",
+      visual: "examiner",
+      recording: true,
+      seconds: 10,
+      autoStart: true,
+      replayLimit: 2,
+      practiceOnly: true,
+    },
+    {
+      id: "silent-reading",
+      phase: "silent-reading",
+      stage: "問題カード",
+      label: "Silent Reading",
+      prompt: "次のパッセージを20秒間で黙読してください。",
+      promptSpeech: "Please read the passage silently for twenty seconds.",
+      visual: "card",
+      cardTitle,
+      cardText,
+      recording: false,
+      seconds: Number(silentReading.seconds) || 20,
+      autoStart: true,
+      timed: true,
+    },
+    {
+      id: "read-aloud",
+      phase: "read-aloud",
+      stage: "音読",
+      label: "Read Aloud",
+      prompt: "合図のあと、パッセージを声に出して読んでください。",
+      promptSpeech: "Now, please read the passage aloud.",
+      visual: "card",
+      cardTitle,
+      cardText,
+      recording: true,
+      seconds: Number(readAloud.seconds) || 45,
+      autoStart: true,
+    },
+    {
+      id: "no-1",
+      phase: "question",
+      stage: "No. 1",
+      label: "No. 1",
+      prompt: "パッセージについての質問を聞いて答えてください。",
+      promptSpeech: no1.questionText || "According to the passage, how can refill stations reduce waste?",
+      visual: "card",
+      cardTitle,
+      cardText,
+      recording: true,
+      seconds: Number(no1.seconds) || 30,
+      autoStart: true,
+      replayLimit: 2,
+    },
+    {
+      id: "no-2-preparation",
+      phase: "picture-preparation",
+      stage: "No. 2 準備",
+      label: "20秒の考慮時間",
+      prompt: "3コマの展開を確認し、説明する内容を20秒間で考えてください。",
+      promptSpeech: "Now, please look at the picture and describe the situation. You have twenty seconds to prepare. Your story should begin with the sentence on the card.",
+      visual: "picture",
+      pictureStory,
+      recording: false,
+      seconds: 20,
+      autoStart: true,
+      timed: true,
+    },
+    {
+      id: "no-2",
+      phase: "question",
+      stage: "No. 2",
+      label: "No. 2",
+      prompt: "合図のあと、3コマの展開を英語で説明してください。",
+      promptSpeech: "Please begin.",
+      visual: "picture",
+      pictureStory,
+      recording: true,
+      seconds: 60,
+      autoStart: true,
+      replayLimit: 2,
+    },
+    {
+      id: "turn-card",
+      phase: "turn-card",
+      stage: "カード終了",
+      label: "カードを閉じます",
+      prompt: "ここから先の質問では、問題カードは表示されません。",
+      promptSpeech: "Please turn over the card and put it down.",
+      visual: "examiner",
+      recording: false,
+      seconds: 3,
+      autoStart: true,
+      timed: true,
+    },
+    {
+      id: "no-3",
+      phase: "choice-question",
+      stage: "No. 3",
+      label: "No. 3",
+      prompt: "質問を聞き、YesまたはNoを選んでから理由を英語で答えてください。",
+      promptSpeech: no3.questionText || "Do you think more people will choose products with less packaging in the future?",
+      visual: "examiner",
+      recording: true,
+      seconds: 35,
+      autoStart: true,
+      replayLimit: 2,
+      requiresChoice: true,
+    },
+    {
+      id: "no-4",
+      phase: "choice-question",
+      stage: "No. 4",
+      label: "No. 4",
+      prompt: "質問を聞き、YesまたはNoを選んでから理由を英語で答えてください。",
+      promptSpeech: no4.questionText || "Do you think students should learn more practical skills at school?",
+      visual: "examiner",
+      recording: true,
+      seconds: 35,
+      autoStart: true,
+      replayLimit: 2,
+      requiresChoice: true,
+    },
+    {
+      id: "review",
+      phase: "review",
+      stage: "スピーキング終了",
+      label: "録音を確認する",
+      prompt: "スピーキングは終了です。録音はこの端末内に保存されています。",
+      visual: "review",
+      recording: false,
+      seconds: 0,
+    },
+  ];
+}
+
 const availableModuleKeys = new Set(Object.keys(modules).filter(isModuleAvailable));
 const defaultModule = availableModuleKeys.has("reading") ? "reading" : availableModuleKeys.values().next().value || "reading";
 
 const WRITTEN_EXAM_SECONDS = examData.writtenExamSeconds || 80 * 60;
 const LISTENING_ANSWER_SECONDS = examData.listeningAnswerSeconds || 10;
-const STORAGE_KEY = `scbt-${selectedGrade}-${selectedSet.key}-state`;
-const LEGACY_STORAGE_KEY = `scbt-${selectedGrade}-prototype-state`;
+const STORAGE_KEY = isGradeLocked
+  ? `${storageNamespace}-${selectedSet.key}-state`
+  : `${storageNamespace}-${selectedGrade}-${selectedSet.key}-state`;
+const LEGACY_STORAGE_KEYS = [
+  `scbt-${selectedGrade}-${selectedSet.key}-state`,
+  ...(selectedSet.key === "set-01" ? [`scbt-${selectedGrade}-prototype-state`] : []),
+].filter((key) => key !== STORAGE_KEY);
 
 const defaultState = {
   module: defaultModule,
@@ -419,6 +686,13 @@ const defaultState = {
   speakingRecordings: {},
   speakingSelfChecks: {},
   speakingRecordMessage: "",
+  speakingPhaseStatus: "idle",
+  speakingOutputVolume: 70,
+  speakingReplayCounts: {},
+  speakingChoices: {},
+  speakingMicReady: false,
+  speakingMicMessage: "",
+  speakingTestConfirmed: false,
   reviewFilter: "all",
   clipboardText: "",
   importOpen: false,
@@ -430,16 +704,41 @@ const defaultState = {
 
 const appState = loadState();
 const speakingRecordingUrls = {};
+const GRADE2_SPEAKING_OUTPUT_VOICE_PREFERENCES = [
+  "Microsoft AvaMultilingual",
+  "Microsoft Ava",
+  "en-US-AvaMultilingual",
+  "en-US Ava",
+  "Ava",
+  "Microsoft EmmaMultilingual",
+  "Microsoft Emma",
+  "Emma",
+  "Microsoft Jenny",
+  "Microsoft Aria",
+];
+const GRADE2_SPEAKING_MIC_LEVEL_GAIN = 520;
+const GRADE2_SPEAKING_AUDIO_BASE =
+  "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/speaking/examiner";
 let speakingRecorder = null;
 let speakingRecorderStream = null;
 let speakingRecorderChunks = [];
 let speakingRecorderStep = null;
+let speakingRecordingSavePromise = Promise.resolve();
+let speakingRecorderRenderAfterStop = true;
+let speakingMicCheckStream = null;
+let speakingAudioContext = null;
+let speakingAnalyser = null;
+let speakingMeterFrame = null;
+let grade2SpeakingDeadline = 0;
+let grade2SpeakingAdvanceInProgress = false;
+let grade2SpeakingActivationToken = 0;
 let listeningAudioElement = null;
 let listeningPlaybackQuestionId = null;
 let listeningPlaybackPhase = "idle";
+let listeningAnswerDeadline = 0;
 
 const app = document.getElementById("app");
-document.title = `${selectedGradeLabel}CBT形式4技能トレーニング`;
+document.title = appTitle;
 app.addEventListener("click", handleClick);
 app.addEventListener("change", handleChange);
 app.addEventListener("input", handleInput);
@@ -462,6 +761,7 @@ function render() {
   if (appState.module === "speaking") {
     stopListeningPlayback();
     app.innerHTML = renderSpeaking();
+    if (isGrade2SpeakingExperience) queueMicrotask(mountGrade2SpeakingStep);
   } else if (appState.module === "listening") {
     ensureListeningPlaybackState();
     app.innerHTML = renderListening();
@@ -522,7 +822,7 @@ function renderHeader(statusText) {
 
 function renderGradePicker() {
   if (isGradeLocked || availableGradeKeys.length <= 1) {
-    return `<div class="grade-locked">${selectedGradeLabel}</div>`;
+    return `<div class="grade-locked">${escapeHtml(appConfig.gradeLabel || selectedGradeLabel)}</div>`;
   }
 
   return `
@@ -572,6 +872,8 @@ function renderSetPicker() {
 }
 
 function renderImportPanel() {
+  if (!allowDataImport) return "";
+
   const requirement = GRADE_REQUIREMENTS[selectedGrade];
   const expectedText = requirement
     ? `リーディング ${requirement.readingPageCounts.join("+")}問 / リスニング ${requirement.listeningCount}問 / ライティング ${requirement.writingCount}題`
@@ -829,7 +1131,7 @@ function renderPassageCard(page, className = "") {
   const extraClass = className ? ` ${className}` : "";
   return `
     <div class="passage-card${extraClass}">
-      <strong>${escapeHtml(page.passageTitle || page.label || "長文")}</strong>
+      ${page.hidePassageTitle ? "" : `<strong>${escapeHtml(page.passageTitle || page.label || "長文")}</strong>`}
       ${(page.passage || []).map((line) => (line ? `<p>${escapeHtml(line)}</p>` : "<br />")).join("")}
     </div>
   `;
@@ -914,7 +1216,7 @@ function renderWriting() {
             <section class="writing-answer">
               <h3>解答欄</h3>
               ${task.fixedBefore ? `<p>${escapeHtml(task.fixedBefore).replace(/\n/g, "<br />")}</p>` : ""}
-              <div class="word-row">
+              <div data-word-row class="word-row ${wordStatus.className}">
                 <span data-word-status class="word-status ${wordStatus.className}">${escapeHtml(wordStatus.label)}</span>
                 <strong data-word-count class="word-count ${wordStatus.className}">${wordStatus.count}語</strong>
               </div>
@@ -1140,6 +1442,13 @@ function stopListeningPlayback() {
   listeningAudioElement = null;
   listeningPlaybackQuestionId = null;
   listeningPlaybackPhase = "idle";
+  listeningAnswerDeadline = 0;
+}
+
+function startListeningAnswerCountdown() {
+  listeningPlaybackPhase = "answer";
+  appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
+  listeningAnswerDeadline = Date.now() + LISTENING_ANSWER_SECONDS * 1000;
 }
 
 function ensureListeningPlaybackState() {
@@ -1147,8 +1456,12 @@ function ensureListeningPlaybackState() {
   if (!question || listeningPlaybackQuestionId === question.id) return;
   stopListeningPlayback();
   listeningPlaybackQuestionId = question.id;
-  listeningPlaybackPhase = question.audioFile ? "audio" : "answer";
-  appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
+  if (question.audioFile) {
+    listeningPlaybackPhase = "audio";
+    appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
+  } else {
+    startListeningAnswerCountdown();
+  }
 }
 
 function updateListeningPlaybackUi() {
@@ -1167,7 +1480,7 @@ function updateListeningPlaybackUi() {
     status.textContent = !hasAudio
       ? "音声ファイル未設定（仮スクリプトで問題管理中）"
       : listeningPlaybackPhase === "answer"
-        ? "音声が終了しました。解答を選んでください。"
+        ? "音声が終了しました。10秒後に自動で次の問題へ進みます。"
         : listeningPlaybackPhase === "blocked" || listeningPlaybackPhase === "error"
           ? "音声を再生するには再生ボタンを押してください。"
           : "音声を再生しています。";
@@ -1218,8 +1531,7 @@ function mountListeningAudio() {
   });
   audio.addEventListener("ended", () => {
     if (listeningPlaybackQuestionId !== questionId) return;
-    listeningPlaybackPhase = "answer";
-    appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
+    startListeningAnswerCountdown();
     saveState();
     updateListeningPlaybackUi();
   });
@@ -1239,7 +1551,7 @@ function renderListening() {
   const audioStatusText = !hasAudio
     ? "音声ファイル未設定（仮スクリプトで問題管理中）"
     : listeningPlaybackPhase === "answer"
-      ? "音声が終了しました。解答を選んでください。"
+      ? "音声が終了しました。10秒後に自動で次の問題へ進みます。"
       : listeningPlaybackPhase === "blocked" || listeningPlaybackPhase === "error"
         ? "音声を再生するには再生ボタンを押してください。"
         : "音声を再生しています。";
@@ -1321,6 +1633,7 @@ function renderListening() {
 }
 
 function renderSpeaking() {
+  if (isGrade2SpeakingExperience) return renderGrade2Speaking();
   const step = speakingSteps[appState.speakingStep];
   const stepIndex = appState.speakingStep;
   return `
@@ -1372,6 +1685,655 @@ function renderSpeaking() {
       </div>
     </section>
   `;
+}
+
+function renderGrade2Speaking() {
+  const step = speakingSteps[appState.speakingStep] || speakingSteps[0];
+  const status = appState.speakingPhaseStatus || "idle";
+  const timerVisible = step.seconds > 0 && !["idle", "awaiting-choice"].includes(status);
+  const replayCount = Number(appState.speakingReplayCounts[step.id]) || 0;
+  const replayRemaining = Math.max(0, Number(step.replayLimit || 0) - replayCount);
+
+  return `
+    ${renderHeader("スピーキング")}
+    <section class="speaking-frame grade2-speaking-flow">
+      <div class="speaking-head grade2-speaking-head">
+        <div>
+          <strong>${escapeHtml(selectedGradeDisplay)}</strong>
+          <span class="speaking-set-label">${escapeHtml(selectedSetLabel)}</span>
+        </div>
+        <label class="volume-row speaking-volume-control">
+          <span>音量</span>
+          <span>小</span>
+          <input data-speaking-volume type="range" min="0" max="100" value="${Number(appState.speakingOutputVolume) || 70}" aria-label="案内音声の音量" />
+          <span>大</span>
+        </label>
+      </div>
+      <div class="speaking-progress" aria-label="スピーキングの進行状況">
+        <div class="speaking-progress-bar" style="width:${Math.round(((appState.speakingStep + 1) / speakingSteps.length) * 100)}%"></div>
+      </div>
+      <div class="speaking-body grade2-speaking-body">
+        <div class="interviewer grade2-speaking-stage ${["card", "picture"].includes(step.visual) ? "card-visual" : ""}">
+          ${renderGrade2SpeakingVisual(step)}
+        </div>
+        <aside class="speaking-card grade2-speaking-panel">
+          <div class="speaking-stage-row">
+            <span class="speaking-stage-chip">${escapeHtml(step.stage || step.label)}</span>
+            ${step.practiceOnly ? `<span class="speaking-practice-chip">採点対象外</span>` : ""}
+          </div>
+          <h2>${escapeHtml(step.label)}</h2>
+          <p class="speaking-instruction">${escapeHtml(step.prompt || "")}</p>
+          ${renderGrade2SpeakingStatus(step, status, timerVisible)}
+          ${renderGrade2SpeakingMicMeter(step, status)}
+          ${renderGrade2SpeakingActions(step, status, replayRemaining)}
+          ${step.replayLimit ? `<p class="speaking-replay-note">質問の聞き直し：あと${replayRemaining}回</p>` : ""}
+          <p class="speaking-privacy-note">録音はこの端末内に保存されます。外部サービスには自動送信されません。</p>
+        </aside>
+      </div>
+    </section>
+  `;
+}
+
+function renderGrade2SpeakingVisual(step) {
+  if (step.visual === "card") {
+    return `
+      <article class="grade2-passage-card">
+        <div class="grade2-card-heading">2級 Speaking Card</div>
+        <h3>${escapeHtml(step.cardTitle || "Passage")}</h3>
+        <p>${escapeHtml(step.cardText || "")}</p>
+      </article>
+    `;
+  }
+
+  if (step.visual === "picture") {
+    if (step.pictureStory?.imageSrc) {
+      const story = step.pictureStory;
+      const firstSpeechTail = ["left", "center", "right"].includes(story.firstSpeechTail) ? story.firstSpeechTail : "center";
+      return `
+        <article class="grade2-picture-card grade2-picture-story-card">
+          <div class="grade2-card-heading">2級 Speaking Card</div>
+          <section class="grade2-picture-story-passage" aria-label="Passage">
+            <h3>${escapeHtml(story.cardTitle || "Passage")}</h3>
+            <p>${escapeHtml(story.cardText || "")}</p>
+          </section>
+          <p class="grade2-story-opening">
+            <span>Your story should begin with this sentence:</span>
+            <strong>${escapeHtml(story.openingSentence || "")}</strong>
+          </p>
+          <figure class="grade2-picture-story-visual" aria-label="3コマのイラスト">
+            <img src="${escapeHtml(story.imageSrc)}" alt="" />
+            <span
+              class="grade2-story-bubble grade2-story-bubble-first grade2-story-bubble-tail-${firstSpeechTail}"
+              aria-label="${escapeHtml(`${story.firstSpeechSpeaker || "A character"} says: ${story.firstSpeech || ""}`)}"
+            >${escapeHtml(story.firstSpeech || "")}</span>
+            <span class="grade2-story-time grade2-story-time-first">${escapeHtml(story.firstTimeLabel || "")}</span>
+            <span class="grade2-story-time grade2-story-time-second">${escapeHtml(story.secondTimeLabel || "")}</span>
+          </figure>
+        </article>
+      `;
+    }
+
+    return `
+      <article class="grade2-picture-card">
+        <div class="grade2-card-heading">Picture Story</div>
+        <div class="grade2-picture-panels">
+          ${(step.picturePanels || [])
+            .map(
+              (panel) => `
+                <section class="grade2-picture-panel">
+                  <span class="picture-panel-number">${Number(panel.number)}</span>
+                  <div class="picture-panel-icon" aria-hidden="true">${escapeHtml(panel.icon || "")}</div>
+                  <p>${escapeHtml(panel.text || "")}</p>
+                </section>
+              `,
+            )
+            .join("")}
+        </div>
+      </article>
+    `;
+  }
+
+  if (step.visual === "setup") {
+    return `
+      <div class="speaking-setup-visual">
+        <div class="speaking-headset-icon" aria-hidden="true">🎧</div>
+        <h3>音声・マイクチェック</h3>
+        <ol>
+          <li>案内音声を聞く</li>
+          <li>マイク入力を確認する</li>
+          <li>5秒録音して再生する</li>
+        </ol>
+      </div>
+    `;
+  }
+
+  if (step.visual === "review") {
+    return `
+      <div class="speaking-finish-visual">
+        <div class="speaking-finish-mark" aria-hidden="true">✓</div>
+        <h3>Speaking completed</h3>
+        <p>おつかれさまでした。</p>
+      </div>
+    `;
+  }
+
+  return `
+    <div class="grade2-examiner">
+      <div class="examiner-room">
+        <div class="examiner-avatar" aria-label="面接官">
+          <span class="examiner-hair"></span>
+          <span class="examiner-face"><i></i><i></i><b></b></span>
+          <span class="examiner-body"></span>
+        </div>
+        <div class="examiner-nameplate">
+          <strong>Examiner</strong>
+          <span>Grade 2 Speaking</span>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderGrade2SpeakingStatus(step, status, timerVisible) {
+  const statusMap = {
+    idle: step.autoStart ? "まもなく自動で始まります" : "準備してください",
+    prompting: "案内・質問を聞いてください",
+    counting: "準備時間です",
+    recording: "録音中です",
+    "awaiting-choice": "Yes または No を選んでください",
+    error: "確認が必要です",
+  };
+  const statusLabel = step.phase === "review" ? "すべての問題が終了しました" : statusMap[status] || "準備してください";
+  return `
+    <div class="speaking-live-status ${escapeHtml(status)}">
+      <span class="speaking-status-dot"></span>
+      <strong>${escapeHtml(statusLabel)}</strong>
+      ${timerVisible ? `<span class="speaking-large-timer" data-speaking-timer>${formatClock(appState.speakingRemaining)}</span>` : ""}
+    </div>
+    ${step.phase !== "review" && appState.speakingRecordMessage ? `<p class="speaking-system-message">${escapeHtml(appState.speakingRecordMessage)}</p>` : ""}
+  `;
+}
+
+function renderGrade2SpeakingMicMeter(step, status) {
+  const showMeter = step.phase === "microphone-check" || status === "recording";
+  if (!showMeter) return "";
+  return `
+    <div class="speaking-level-wrap">
+      <div class="speaking-level-label">
+        <span>マイク入力</span>
+        <span>小さすぎないように話してください</span>
+      </div>
+      <div class="speaking-level-track" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div class="speaking-level-fill"></div>
+        <span class="speaking-level-guide low"></span>
+        <span class="speaking-level-guide high"></span>
+      </div>
+    </div>
+  `;
+}
+
+function renderGrade2SpeakingActions(step, status, replayRemaining) {
+  if (step.phase === "setup") {
+    return `<div class="speaking-primary-actions"><button class="start-button compact" data-action="grade2-speaking-next">確認して次へ</button></div>`;
+  }
+
+  if (step.phase === "output-check") {
+    return `
+      <div class="speaking-primary-actions">
+        <button class="small-action" data-action="grade2-speaking-output-test">確認音声を再生</button>
+        <button class="start-button compact" data-action="grade2-speaking-next">この音量で次へ</button>
+      </div>
+    `;
+  }
+
+  if (step.phase === "microphone-check") {
+    return `
+      <div class="speaking-primary-actions">
+        <button class="small-action" data-action="grade2-speaking-mic-check">マイクを確認</button>
+        <button class="start-button compact" data-action="grade2-speaking-next" ${appState.speakingMicReady ? "" : "disabled"}>入力を確認して次へ</button>
+      </div>
+      ${appState.speakingMicMessage ? `<p class="speaking-check-message">${escapeHtml(appState.speakingMicMessage)}</p>` : ""}
+    `;
+  }
+
+  if (step.phase === "test-recording") {
+    return `
+      <div class="speaking-primary-actions">
+        ${
+          status === "recording"
+            ? `<button class="small-action danger" data-action="grade2-speaking-finish-answer">録音を終了</button>`
+            : `<button class="start-button compact" data-action="grade2-speaking-test-record">5秒録音する</button>`
+        }
+      </div>
+    `;
+  }
+
+  if (step.phase === "test-playback") {
+    const testIndex = speakingSteps.findIndex((item) => item.id === "test-recording");
+    const url = speakingRecordingUrls[testIndex] || "";
+    return `
+      <div class="speaking-test-playback">
+        ${url ? `<audio class="speaking-audio" controls src="${url}"></audio>` : `<p>録音を読み込んでいます。</p>`}
+      </div>
+      <div class="speaking-primary-actions">
+        <button class="small-action" data-action="grade2-speaking-test-retry">録音をやり直す</button>
+        <button class="start-button compact" data-action="grade2-speaking-test-confirm" ${url ? "" : "disabled"}>声を確認して次へ</button>
+      </div>
+    `;
+  }
+
+  if (step.phase === "section-start") {
+    return `<div class="speaking-primary-actions"><button class="start-button compact" data-action="grade2-speaking-start-exam">スピーキングを開始</button></div>`;
+  }
+
+  if (step.phase === "review") return renderGrade2SpeakingReview();
+
+  if (status === "awaiting-choice") {
+    return `
+      <div class="speaking-choice-actions" role="group" aria-label="YesまたはNoを選択">
+        <button data-action="grade2-speaking-choice" data-choice="yes">Yes</button>
+        <button data-action="grade2-speaking-choice" data-choice="no">No</button>
+      </div>
+    `;
+  }
+
+  if (status === "recording") {
+    return `
+      <div class="speaking-primary-actions">
+        ${step.replayLimit && replayRemaining > 0 ? `<button class="small-action" data-action="grade2-speaking-replay">もう一度聞いてやりなおす</button>` : ""}
+        <button class="small-action danger" data-action="grade2-speaking-finish-answer">回答を終える</button>
+      </div>
+    `;
+  }
+
+  if (status === "idle" && step.autoStart) {
+    return `<div class="speaking-primary-actions"><button class="small-action" data-action="grade2-speaking-begin">音声を開始する</button></div>`;
+  }
+
+  return "";
+}
+
+function renderGrade2SpeakingReview() {
+  const reviewItems = speakingSteps
+    .map((step, index) => ({ step, index }))
+    .filter(({ step }) => step.recording && step.id !== "test-recording");
+
+  return `
+    <div class="speaking-review-list">
+      ${reviewItems
+        .map(({ step, index }) => {
+          const recording = appState.speakingRecordings[index];
+          const url = speakingRecordingUrls[index] || "";
+          return `
+            <section class="speaking-review-item">
+              <div>
+                <strong>${escapeHtml(step.stage || step.label)}</strong>
+                <span>${recording ? formatBytes(recording.size || 0) : "録音なし"}</span>
+              </div>
+              ${url ? `<audio controls preload="metadata" src="${url}"></audio>` : `<p>録音データがありません。</p>`}
+              ${recording ? `<button class="small-action" data-action="speaking-record-download" data-step="${index}">ダウンロード</button>` : ""}
+            </section>
+          `;
+        })
+        .join("")}
+    </div>
+    <p class="speaking-ai-note">AIフィードバックを利用する場合も、公式採点ではなく練習用の目安として扱ってください。</p>
+  `;
+}
+
+function mountGrade2SpeakingStep() {
+  if (!isGrade2SpeakingExperience || !appState.started || appState.module !== "speaking") return;
+  const step = speakingSteps[appState.speakingStep];
+  if (!step?.autoStart || appState.speakingPhaseStatus !== "idle") return;
+  const token = ++grade2SpeakingActivationToken;
+  window.setTimeout(() => {
+    if (token !== grade2SpeakingActivationToken) return;
+    beginGrade2SpeakingStep().catch(handleGrade2SpeakingFailure);
+  }, 180);
+}
+
+async function handleGrade2SpeakingAction(action, target) {
+  if (action === "grade2-speaking-next") {
+    await advanceGrade2SpeakingStep();
+    return;
+  }
+
+  if (action === "grade2-speaking-output-test") {
+    appState.speakingRecordMessage = "確認音声を再生しています。";
+    saveState();
+    render();
+    await speakGrade2Prompt("This is a sound check. Please adjust the volume to a comfortable level.", "sound-check");
+    appState.speakingRecordMessage = "音量を確認できたら次へ進んでください。";
+    saveState();
+    render();
+    return;
+  }
+
+  if (action === "grade2-speaking-mic-check") {
+    const ready = await startGrade2MicrophoneCheck();
+    appState.speakingMicReady = ready;
+    saveState();
+    render();
+    return;
+  }
+
+  if (action === "grade2-speaking-test-record") {
+    stopGrade2MicrophoneCheck();
+    appState.speakingPhaseStatus = "prompting";
+    appState.speakingRecordMessage = "録音を開始します。";
+    saveState();
+    render();
+    await waitForGrade2Speaking(450);
+    const started = await startSpeakingRecording({ renderAfter: false });
+    if (!started) {
+      appState.speakingPhaseStatus = "error";
+      saveState();
+      render();
+      return;
+    }
+    startGrade2SpeakingTimer(5, "recording");
+    return;
+  }
+
+  if (action === "grade2-speaking-test-retry") {
+    const testIndex = speakingSteps.findIndex((step) => step.id === "test-recording");
+    appState.speakingStep = Math.max(0, testIndex);
+    appState.speakingPhaseStatus = "idle";
+    appState.speakingTestConfirmed = false;
+    appState.speakingRecordMessage = "";
+    appState.speakingRemaining = getSpeakingStepSeconds(appState.speakingStep);
+    saveState();
+    render();
+    return;
+  }
+
+  if (action === "grade2-speaking-test-confirm") {
+    appState.speakingTestConfirmed = true;
+    await advanceGrade2SpeakingStep();
+    return;
+  }
+
+  if (action === "grade2-speaking-start-exam") {
+    await advanceGrade2SpeakingStep();
+    return;
+  }
+
+  if (action === "grade2-speaking-begin") {
+    await beginGrade2SpeakingStep();
+    return;
+  }
+
+  if (action === "grade2-speaking-choice") {
+    const choice = target.dataset.choice === "no" ? "no" : "yes";
+    await startGrade2ChoiceRecording(choice);
+    return;
+  }
+
+  if (action === "grade2-speaking-finish-answer") {
+    await advanceGrade2SpeakingStep();
+    return;
+  }
+
+  if (action === "grade2-speaking-replay") {
+    await replayGrade2SpeakingQuestion();
+  }
+}
+
+async function beginGrade2SpeakingStep({ replay = false } = {}) {
+  const stepIndex = appState.speakingStep;
+  const step = speakingSteps[stepIndex];
+  if (!step || (!replay && appState.speakingPhaseStatus !== "idle")) return;
+
+  const token = ++grade2SpeakingActivationToken;
+  appState.speakingPhaseStatus = "prompting";
+  appState.speakingRecordMessage = "案内・質問音声を聞いてください。";
+  saveState();
+  render();
+
+  let speech = step.promptSpeech || "";
+  const savedChoice = appState.speakingChoices[step.id];
+  await speakGrade2Prompt(speech, step.id);
+  if (replay && step.requiresChoice && savedChoice) {
+    await waitForGrade2Speaking(350);
+    await speakGrade2Prompt(savedChoice === "yes" ? "Why?" : "Why not?", savedChoice === "yes" ? "why" : "why-not");
+  }
+  await waitForGrade2Speaking(650);
+  if (token !== grade2SpeakingActivationToken || appState.speakingStep !== stepIndex) return;
+
+  if (step.requiresChoice && !savedChoice) {
+    appState.speakingPhaseStatus = "awaiting-choice";
+    appState.speakingRecordMessage = "Yes または No を選んでください。";
+    saveState();
+    render();
+    return;
+  }
+
+  if (step.recording) {
+    await startGrade2RecordingForCurrentStep();
+    return;
+  }
+
+  if (step.timed) {
+    startGrade2SpeakingTimer(step.seconds, "counting");
+    return;
+  }
+
+  await advanceGrade2SpeakingStep();
+}
+
+async function startGrade2ChoiceRecording(choice) {
+  const stepIndex = appState.speakingStep;
+  const step = speakingSteps[stepIndex];
+  if (!step?.requiresChoice || appState.speakingPhaseStatus !== "awaiting-choice") return;
+  appState.speakingChoices[step.id] = choice;
+  appState.speakingPhaseStatus = "prompting";
+  appState.speakingRecordMessage = `${choice === "yes" ? "Yes" : "No"} を選択しました。続く質問を聞いてください。`;
+  saveState();
+  render();
+  const token = ++grade2SpeakingActivationToken;
+  await speakGrade2Prompt(choice === "yes" ? "Why?" : "Why not?", choice === "yes" ? "why" : "why-not");
+  await waitForGrade2Speaking(650);
+  if (token !== grade2SpeakingActivationToken || appState.speakingStep !== stepIndex) return;
+  await startGrade2RecordingForCurrentStep();
+}
+
+async function startGrade2RecordingForCurrentStep() {
+  stopGrade2MicrophoneCheck();
+  const started = await startSpeakingRecording({ renderAfter: false });
+  if (!started) {
+    appState.speakingPhaseStatus = "error";
+    saveState();
+    render();
+    return;
+  }
+  const step = speakingSteps[appState.speakingStep];
+  startGrade2SpeakingTimer(step.seconds, "recording");
+}
+
+function startGrade2SpeakingTimer(seconds, status) {
+  const safeSeconds = Math.max(1, Number(seconds) || 1);
+  grade2SpeakingDeadline = performance.now() + safeSeconds * 1000;
+  appState.speakingRemaining = safeSeconds;
+  appState.speakingPhaseStatus = status;
+  appState.speakingRecordMessage = status === "recording" ? "録音中です。話し終わった場合は「回答を終える」を押せます。" : "時間が終わると自動的に次へ進みます。";
+  saveState();
+  render();
+}
+
+async function replayGrade2SpeakingQuestion() {
+  const step = speakingSteps[appState.speakingStep];
+  const replayLimit = Number(step?.replayLimit) || 0;
+  const replayCount = Number(appState.speakingReplayCounts[step?.id]) || 0;
+  if (!step || replayCount >= replayLimit || grade2SpeakingAdvanceInProgress) return;
+  grade2SpeakingAdvanceInProgress = true;
+  grade2SpeakingActivationToken += 1;
+  if (isSpeakingRecordingActive()) await stopSpeakingRecording({ renderAfter: false });
+  appState.speakingReplayCounts[step.id] = replayCount + 1;
+  appState.speakingPhaseStatus = "idle";
+  appState.speakingRemaining = step.seconds;
+  grade2SpeakingDeadline = 0;
+  saveState();
+  render();
+  grade2SpeakingAdvanceInProgress = false;
+  await beginGrade2SpeakingStep({ replay: true });
+}
+
+async function advanceGrade2SpeakingStep() {
+  if (grade2SpeakingAdvanceInProgress) return;
+  grade2SpeakingAdvanceInProgress = true;
+  grade2SpeakingActivationToken += 1;
+  if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+  if (isSpeakingRecordingActive()) await stopSpeakingRecording({ renderAfter: false });
+  stopGrade2MicrophoneCheck();
+  grade2SpeakingDeadline = 0;
+  if (appState.speakingStep < speakingSteps.length - 1) appState.speakingStep += 1;
+  appState.speakingPhaseStatus = "idle";
+  appState.speakingRemaining = getSpeakingStepSeconds(appState.speakingStep);
+  appState.speakingRecordMessage = "";
+  saveState();
+  render();
+  grade2SpeakingAdvanceInProgress = false;
+}
+
+async function startGrade2MicrophoneCheck() {
+  if (!navigator.mediaDevices?.getUserMedia) {
+    appState.speakingMicMessage = "このブラウザではマイクを確認できません。ChromeまたはEdgeで開いてください。";
+    return false;
+  }
+  try {
+    stopGrade2MicrophoneCheck();
+    speakingMicCheckStream = await navigator.mediaDevices.getUserMedia({
+      audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true },
+    });
+    await startSpeakingLevelMonitor(speakingMicCheckStream);
+    appState.speakingMicMessage = "マイクを確認できました。メーターが動くことを確かめてください。";
+    return true;
+  } catch (error) {
+    stopGrade2MicrophoneCheck();
+    appState.speakingMicMessage = "マイクを使用できません。ブラウザのマイク許可と接続を確認してください。";
+    return false;
+  }
+}
+
+function stopGrade2MicrophoneCheck() {
+  if (speakingMicCheckStream) speakingMicCheckStream.getTracks().forEach((track) => track.stop());
+  speakingMicCheckStream = null;
+  stopSpeakingLevelMonitor();
+}
+
+function selectGrade2SpeakingOutputVoice(voices) {
+  const englishVoices = voices.filter((voice) => /^en/i.test(voice.lang || ""));
+  const candidates = englishVoices.length ? englishVoices : voices;
+  for (const preferredName of GRADE2_SPEAKING_OUTPUT_VOICE_PREFERENCES) {
+    const preferred = candidates.find((voice) => (voice.name || "").toLowerCase().includes(preferredName.toLowerCase()));
+    if (preferred) return preferred;
+  }
+  return candidates.find((voice) => /^en-US/i.test(voice.lang || "")) || candidates.find((voice) => /^en/i.test(voice.lang || "")) || null;
+}
+
+function getGrade2SpeakingVoices() {
+  if (!("speechSynthesis" in window)) return Promise.resolve([]);
+  const voices = window.speechSynthesis.getVoices();
+  if (voices.length) return Promise.resolve(voices);
+  return new Promise((resolve) => {
+    const finish = () => {
+      window.speechSynthesis.removeEventListener?.("voiceschanged", finish);
+      resolve(window.speechSynthesis.getVoices());
+    };
+    window.speechSynthesis.addEventListener?.("voiceschanged", finish, { once: true });
+    window.setTimeout(finish, 600);
+  });
+}
+
+async function startSpeakingLevelMonitor(stream) {
+  stopSpeakingLevelMonitor();
+  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContextClass || !stream) return;
+  speakingAudioContext = new AudioContextClass();
+  if (speakingAudioContext.state === "suspended") await speakingAudioContext.resume();
+  speakingAnalyser = speakingAudioContext.createAnalyser();
+  speakingAnalyser.fftSize = 1024;
+  speakingAnalyser.smoothingTimeConstant = 0.78;
+  speakingAudioContext.createMediaStreamSource(stream).connect(speakingAnalyser);
+  const samples = new Uint8Array(speakingAnalyser.fftSize);
+
+  const draw = () => {
+    if (!speakingAnalyser) return;
+    speakingAnalyser.getByteTimeDomainData(samples);
+    let sum = 0;
+    for (const sample of samples) {
+      const value = (sample - 128) / 128;
+      sum += value * value;
+    }
+    const rms = Math.sqrt(sum / samples.length);
+    const level = Math.max(0, Math.min(100, Math.round(rms * GRADE2_SPEAKING_MIC_LEVEL_GAIN)));
+    const fill = app.querySelector(".speaking-level-fill");
+    const meter = app.querySelector(".speaking-level-track");
+    if (fill) fill.style.width = `${level}%`;
+    if (meter) meter.setAttribute("aria-valuenow", String(level));
+    speakingMeterFrame = requestAnimationFrame(draw);
+  };
+  draw();
+}
+
+function stopSpeakingLevelMonitor() {
+  if (speakingMeterFrame) cancelAnimationFrame(speakingMeterFrame);
+  speakingMeterFrame = null;
+  speakingAnalyser = null;
+  if (speakingAudioContext && speakingAudioContext.state !== "closed") speakingAudioContext.close().catch(() => {});
+  speakingAudioContext = null;
+}
+
+function playGrade2SpeakingAudioPrompt(audioKey) {
+  if (!audioKey) return Promise.reject(new Error("missing audio key"));
+  return new Promise((resolve, reject) => {
+    const audio = new Audio(`${GRADE2_SPEAKING_AUDIO_BASE}/${audioKey}.mp3`);
+    audio.preload = "auto";
+    audio.volume = Math.max(0, Math.min(1, (Number(appState.speakingOutputVolume) || 70) / 100));
+    audio.addEventListener("ended", resolve, { once: true });
+    audio.addEventListener("error", reject, { once: true });
+    const playResult = audio.play();
+    if (playResult && typeof playResult.catch === "function") playResult.catch(reject);
+  });
+}
+
+async function speakGrade2Prompt(text, audioKey = "") {
+  const speechText = String(text || "").trim();
+  if (audioKey) {
+    try {
+      await playGrade2SpeakingAudioPrompt(audioKey);
+      return;
+    } catch {
+      // Fall back to browser TTS if the local audio file cannot be played.
+    }
+  }
+  if (!speechText || !("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") {
+    return waitForGrade2Speaking(500);
+  }
+  const voices = await getGrade2SpeakingVoices();
+  return new Promise((resolve) => {
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(speechText);
+    utterance.voice = selectGrade2SpeakingOutputVoice(voices);
+    utterance.lang = utterance.voice?.lang || "en-US";
+    utterance.rate = 0.92;
+    utterance.pitch = 1;
+    utterance.volume = Math.max(0, Math.min(1, (Number(appState.speakingOutputVolume) || 70) / 100));
+    utterance.addEventListener("end", resolve, { once: true });
+    utterance.addEventListener("error", resolve, { once: true });
+    window.speechSynthesis.speak(utterance);
+  });
+}
+
+function waitForGrade2Speaking(milliseconds) {
+  return new Promise((resolve) => window.setTimeout(resolve, milliseconds));
+}
+
+function handleGrade2SpeakingFailure() {
+  appState.speakingPhaseStatus = "error";
+  appState.speakingRecordMessage = "処理を続けられませんでした。マイク許可を確認して、もう一度お試しください。";
+  saveState();
+  render();
 }
 
 function renderSpeakingVisual(step) {
@@ -1840,6 +2802,7 @@ async function handleClick(event) {
   if (!target) return;
 
   if (target.dataset.grade) {
+    if (isGradeLocked) return;
     try {
       localStorage.setItem(GRADE_SELECTION_KEY, target.dataset.grade);
     } catch {
@@ -1876,7 +2839,25 @@ async function handleClick(event) {
   const action = target.dataset.action;
   if (!action) return;
 
+  if (isGrade2SpeakingExperience && action.startsWith("grade2-speaking-")) {
+    await handleGrade2SpeakingAction(action, target);
+    return;
+  }
+
   if (action === "start") {
+    if (isGrade2SpeakingExperience && appState.module === "speaking") {
+      grade2SpeakingActivationToken += 1;
+      grade2SpeakingDeadline = 0;
+      appState.speakingStep = 0;
+      appState.speakingPhaseStatus = "idle";
+      appState.speakingRemaining = getSpeakingStepSeconds(0);
+      appState.speakingReplayCounts = {};
+      appState.speakingChoices = {};
+      appState.speakingMicReady = false;
+      appState.speakingMicMessage = "";
+      appState.speakingTestConfirmed = false;
+      appState.speakingRecordMessage = "";
+    }
     appState.started = true;
     prepareModuleStart();
   } else if (action === "restart") {
@@ -2056,6 +3037,12 @@ function handleChange(event) {
 }
 
 function handleInput(event) {
+  if (event.target.matches("[data-speaking-volume]")) {
+    appState.speakingOutputVolume = Math.max(0, Math.min(100, Number(event.target.value) || 0));
+    saveState();
+    return;
+  }
+
   if (event.target.matches("[data-speaking-memo]")) {
     const stepIndex = Number(event.target.dataset.speakingMemo);
     appState.speakingSelfChecks[stepIndex] = {
@@ -2087,6 +3074,10 @@ function handleInput(event) {
   if (statusNode) {
     statusNode.textContent = wordStatus.label;
     statusNode.className = `word-status ${wordStatus.className}`;
+  }
+  const wordRow = app.querySelector("[data-word-row]");
+  if (wordRow) {
+    wordRow.className = `word-row ${wordStatus.className}`;
   }
   saveState();
 }
@@ -2424,24 +3415,26 @@ function clearImportedQuestionData(gradeKey, setKey = selectedSet.key) {
   return { ok: true, message: "取込データを解除しました。画面を再読み込みします。" };
 }
 
-async function startSpeakingRecording() {
+async function startSpeakingRecording({ renderAfter = true } = {}) {
   const step = speakingSteps[appState.speakingStep];
   if (!step?.recording) {
     appState.speakingRecordMessage = "このステップは録音対象ではありません。";
     saveState();
-    render();
-    return;
+    if (renderAfter) render();
+    return false;
   }
-  if (isSpeakingRecordingActive()) return;
+  if (isSpeakingRecordingActive()) return true;
   if (!navigator.mediaDevices?.getUserMedia || typeof MediaRecorder === "undefined") {
     appState.speakingRecordMessage = "このブラウザでは録音機能を使えません。";
     saveState();
-    render();
-    return;
+    if (renderAfter) render();
+    return false;
   }
 
   try {
-    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    const stream = await navigator.mediaDevices.getUserMedia({
+      audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true },
+    });
     const mimeType = getSupportedRecordingMimeType();
     const options = mimeType ? { mimeType } : {};
     const recorder = new MediaRecorder(stream, options);
@@ -2459,37 +3452,41 @@ async function startSpeakingRecording() {
       const stoppedStep = speakingRecorderStep;
       const type = recorder.mimeType || mimeType || "audio/webm";
       const blob = new Blob(speakingRecorderChunks, { type });
+      const renderAfterSave = speakingRecorderRenderAfterStop;
       cleanupSpeakingRecorder();
-      saveSpeakingRecording(stoppedStep, blob, type);
+      speakingRecorderRenderAfterStop = true;
+      speakingRecordingSavePromise = saveSpeakingRecording(stoppedStep, blob, type, { renderAfter: renderAfterSave });
     });
 
     recorder.start();
+    startSpeakingLevelMonitor(stream).catch(() => {});
     appState.speakingRecordMessage = "録音中です。答え終わったら停止して保存してください。";
     saveState();
-    render();
+    if (renderAfter) render();
+    return true;
   } catch (error) {
     cleanupSpeakingRecorder();
     appState.speakingRecordMessage = "マイクを使えませんでした。ブラウザのマイク許可を確認してください。";
     saveState();
-    render();
+    if (renderAfter) render();
+    return false;
   }
 }
 
-function stopSpeakingRecording({ renderAfter = true } = {}) {
-  return new Promise((resolve) => {
-    if (!isSpeakingRecordingActive()) {
-      resolve();
-      return;
-    }
+async function stopSpeakingRecording({ renderAfter = true } = {}) {
+  if (!isSpeakingRecordingActive()) return false;
+  speakingRecorderRenderAfterStop = renderAfter;
+  await new Promise((resolve) => {
     const recorder = speakingRecorder;
     const finish = () => resolve();
     recorder.addEventListener("stop", finish, { once: true });
     recorder.stop();
-    if (!renderAfter) return;
   });
+  await speakingRecordingSavePromise.catch(() => {});
+  return true;
 }
 
-async function saveSpeakingRecording(stepIndex, blob, type) {
+async function saveSpeakingRecording(stepIndex, blob, type, { renderAfter = true } = {}) {
   if (!Number.isInteger(stepIndex) || stepIndex < 0) return;
   const fileName = buildSpeakingRecordingFileName(stepIndex, type);
   const record = {
@@ -2523,7 +3520,7 @@ async function saveSpeakingRecording(stepIndex, blob, type) {
     appState.speakingRecordMessage = `${fileName} を保存しました。`;
   }
   saveState();
-  render();
+  if (renderAfter) render();
 }
 
 async function downloadSpeakingRecording(stepIndex) {
@@ -2686,6 +3683,7 @@ async function loadStoredSpeakingRecordings() {
 }
 
 function cleanupSpeakingRecorder() {
+  stopSpeakingLevelMonitor();
   if (speakingRecorderStream) {
     speakingRecorderStream.getTracks().forEach((track) => track.stop());
   }
@@ -2790,7 +3788,9 @@ function formatClock(totalSeconds) {
 
 function loadState() {
   try {
-    const savedText = localStorage.getItem(STORAGE_KEY) || (selectedSet.key === "set-01" ? localStorage.getItem(LEGACY_STORAGE_KEY) : null);
+    const savedText = [STORAGE_KEY, ...LEGACY_STORAGE_KEYS]
+      .map((key) => localStorage.getItem(key))
+      .find((value) => Boolean(value));
     const saved = JSON.parse(savedText || "null");
     if (!saved || typeof saved !== "object") return normalizeState(applyRequestStateOverrides(structuredClone(defaultState)));
     return normalizeState(applyRequestStateOverrides({
@@ -2823,6 +3823,14 @@ function applyRequestStateOverrides(state) {
     if (questionIndex >= 0) state.listeningIndex = questionIndex;
   }
 
+  const localPreviewHost = ["127.0.0.1", "localhost"].includes(window.location.hostname);
+  const requestedSpeakingStep = Number(requestParams.get("speakingStep"));
+  if (localPreviewHost && isGrade2SpeakingExperience && state.module === "speaking" && Number.isInteger(requestedSpeakingStep)) {
+    state.speakingStep = Math.min(Math.max(requestedSpeakingStep, 0), speakingSteps.length - 1);
+    state.speakingRemaining = getSpeakingStepSeconds(state.speakingStep);
+    state.speakingPhaseStatus = "idle";
+  }
+
   return state;
 }
 
@@ -2843,6 +3851,14 @@ function normalizeState(state) {
   if (!state.speakingRecordings || typeof state.speakingRecordings !== "object") state.speakingRecordings = {};
   if (!state.speakingSelfChecks || typeof state.speakingSelfChecks !== "object") state.speakingSelfChecks = {};
   if (typeof state.speakingRecordMessage !== "string") state.speakingRecordMessage = "";
+  if (!state.speakingReplayCounts || typeof state.speakingReplayCounts !== "object") state.speakingReplayCounts = {};
+  if (!state.speakingChoices || typeof state.speakingChoices !== "object") state.speakingChoices = {};
+  state.speakingOutputVolume = Math.max(0, Math.min(100, Number(state.speakingOutputVolume) || 70));
+  state.speakingMicReady = Boolean(state.speakingMicReady);
+  state.speakingTestConfirmed = Boolean(state.speakingTestConfirmed);
+  if (typeof state.speakingMicMessage !== "string") state.speakingMicMessage = "";
+  if (!['idle', 'prompting', 'counting', 'recording', 'awaiting-choice', 'error'].includes(state.speakingPhaseStatus)) state.speakingPhaseStatus = "idle";
+  if (isGrade2SpeakingExperience && ['prompting', 'counting', 'recording'].includes(state.speakingPhaseStatus)) state.speakingPhaseStatus = "idle";
   if (!["all", "wrong", "unanswered", "marked"].includes(state.reviewFilter)) state.reviewFilter = "all";
   return state;
 }
@@ -2866,7 +3882,7 @@ function resetState() {
   Object.keys(appState).forEach((key) => delete appState[key]);
   Object.assign(appState, fresh);
   localStorage.removeItem(STORAGE_KEY);
-  if (selectedSet.key === "set-01") localStorage.removeItem(LEGACY_STORAGE_KEY);
+  LEGACY_STORAGE_KEYS.forEach((key) => localStorage.removeItem(key));
 }
 
 function prepareModuleStart() {
@@ -2880,6 +3896,10 @@ function prepareModuleStart() {
     appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
   }
   if (appState.module === "speaking") {
+    if (isGrade2SpeakingExperience) {
+      grade2SpeakingDeadline = 0;
+      appState.speakingPhaseStatus = "idle";
+    }
     appState.speakingRemaining = getSpeakingStepSeconds(appState.speakingStep);
   }
 }
@@ -2901,8 +3921,12 @@ function tickTimers() {
     if (question?.audioFile && (listeningPlaybackQuestionId !== question.id || listeningPlaybackPhase !== "answer")) {
       return;
     }
-    if (appState.listeningAnswerRemaining > 0) {
-      appState.listeningAnswerRemaining -= 1;
+    if (!listeningAnswerDeadline) {
+      listeningAnswerDeadline = Date.now() + appState.listeningAnswerRemaining * 1000;
+    }
+    const remaining = Math.max(0, Math.ceil((listeningAnswerDeadline - Date.now()) / 1000));
+    if (remaining !== appState.listeningAnswerRemaining) {
+      appState.listeningAnswerRemaining = remaining;
       updateTimerText("[data-listening-timer]", appState.listeningAnswerRemaining);
       const timerBar = app.querySelector("[data-listening-answer-bar]");
       if (timerBar) {
@@ -2910,9 +3934,19 @@ function tickTimers() {
         timerBar.style.width = `${percent}%`;
       }
       saveState();
-    } else if (appState.listeningIndex < listeningQuestions.length - 1) {
-      appState.listeningIndex += 1;
-      appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
+    }
+    if (appState.listeningAnswerRemaining > 0) {
+      return;
+    }
+
+    if (appState.listeningAnswerRemaining <= 0) {
+      listeningAnswerDeadline = 0;
+      if (appState.listeningIndex >= listeningQuestions.length - 1) {
+        appState.modal = "complete";
+      } else {
+        appState.listeningIndex += 1;
+        appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
+      }
       saveState();
       render();
     }
@@ -2920,6 +3954,10 @@ function tickTimers() {
   }
 
   if (appState.module === "speaking") {
+    if (isGrade2SpeakingExperience) {
+      tickGrade2SpeakingTimer();
+      return;
+    }
     if (appState.speakingRemaining > 0) {
       appState.speakingRemaining -= 1;
       updateTimerText("[data-speaking-timer]", formatClock(appState.speakingRemaining));
@@ -2932,6 +3970,28 @@ function tickTimers() {
       render();
     }
   }
+}
+
+function tickGrade2SpeakingTimer() {
+  if (!grade2SpeakingDeadline || !["counting", "recording"].includes(appState.speakingPhaseStatus)) return;
+  const remaining = Math.max(0, Math.ceil((grade2SpeakingDeadline - performance.now()) / 1000));
+  if (remaining !== appState.speakingRemaining) {
+    appState.speakingRemaining = remaining;
+    updateTimerText("[data-speaking-timer]", formatClock(remaining));
+    saveState();
+  }
+  if (remaining > 0 || grade2SpeakingAdvanceInProgress) return;
+  finishGrade2TimedStep().catch(handleGrade2SpeakingFailure);
+}
+
+async function finishGrade2TimedStep() {
+  if (grade2SpeakingAdvanceInProgress) return;
+  grade2SpeakingAdvanceInProgress = true;
+  grade2SpeakingActivationToken += 1;
+  grade2SpeakingDeadline = 0;
+  if (isSpeakingRecordingActive()) await stopSpeakingRecording({ renderAfter: false });
+  grade2SpeakingAdvanceInProgress = false;
+  await advanceGrade2SpeakingStep();
 }
 
 function updateTimerText(selector, value) {

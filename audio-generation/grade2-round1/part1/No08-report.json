@@ -1,0 +1,209 @@
+{
+  "item": "No08",
+  "number": 8,
+  "sourceScript": "A: I ordered the mushroom soup, but I think this one contains shrimp. I'm allergic to shellfish. B: I'm very sorry. The bowls look similar, and I brought the seafood soup by mistake. A: Could you replace it with the mushroom soup? I haven't touched the salad, so please leave that here. B: Certainly. I'll bring the correct soup and check the ingredients with the chef first.",
+  "questionText": "What does the woman ask the man to bring?",
+  "voices": {
+    "A": {
+      "provider": "openai",
+      "voice": "marin",
+      "gender": "female",
+      "accent": "American English",
+      "gainDb": 0.0
+    },
+    "B": {
+      "provider": "edge",
+      "voice": "en-GB-RyanNeural",
+      "gender": "male",
+      "language": "en-GB",
+      "englishOnly": true,
+      "gainDb": 0.0
+    }
+  },
+  "output": "audio-generation\\grade2-round1\\part1\\No08.wav",
+  "outputBytes": 1437198,
+  "outputMetadata": {
+    "codec_name": "pcm_s16le",
+    "sample_fmt": "s16",
+    "sample_rate": "24000",
+    "channels": 1,
+    "bits_per_sample": 16,
+    "duration": "29.940000"
+  },
+  "openaiSegments": 3,
+  "edgeSegments": 2,
+  "openaiApiCallsThisRun": 0,
+  "edgeCallsThisRun": 0,
+  "initialVolume": {
+    "meanVolumeDb": -22.2,
+    "maxVolumeDb": -4.0
+  },
+  "globalAttenuationDb": 0.0,
+  "finalVolume": {
+    "meanVolumeDb": -22.2,
+    "maxVolumeDb": -4.0
+  },
+  "segments": [
+    {
+      "speaker": "A",
+      "provider": "openai",
+      "voice": "marin",
+      "gender": "female",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "Number 8... I ordered the mushroom soup, but I think this one contains shrimp. I'm allergic to shellfish.",
+      "text": "Number 8... I ordered the mushroom soup, but I think this one contains shrimp. I'm allergic to shellfish.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 1,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "6.800000"
+      },
+      "volume": {
+        "meanVolumeDb": -22.3,
+        "maxVolumeDb": -5.3
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.3,
+        "maxVolumeDb": -5.3
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\marin-f0b399f100f3e8c69d065865.wav"
+    },
+    {
+      "speaker": "B",
+      "provider": "edge",
+      "voice": "en-GB-RyanNeural",
+      "gender": "male",
+      "language": "en-GB",
+      "englishOnly": true,
+      "gainDb": 0.0,
+      "displayText": "I'm very sorry. The bowls look similar, and I brought the seafood soup by mistake.",
+      "text": "I'm very sorry. The bowls look similar, and I brought the seafood soup by mistake.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 2,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "6.192000"
+      },
+      "volume": {
+        "meanVolumeDb": -21.6,
+        "maxVolumeDb": -4.0
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -21.6,
+        "maxVolumeDb": -4.0
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-GB-RyanNeural-0af01e8364da67bf969fa550.wav"
+    },
+    {
+      "speaker": "A",
+      "provider": "openai",
+      "voice": "marin",
+      "gender": "female",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "Could you replace it with the mushroom soup? I haven't touched the salad, so please leave that here.",
+      "text": "Could you replace it with the mushroom soup? I haven't touched the salad, so please leave that here.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 3,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "6.750000"
+      },
+      "volume": {
+        "meanVolumeDb": -22.2,
+        "maxVolumeDb": -4.9
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.2,
+        "maxVolumeDb": -4.9
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\marin-c24ebaec904fc68c8f4514df.wav"
+    },
+    {
+      "speaker": "B",
+      "provider": "edge",
+      "voice": "en-GB-RyanNeural",
+      "gender": "male",
+      "language": "en-GB",
+      "englishOnly": true,
+      "gainDb": 0.0,
+      "displayText": "Certainly. I'll bring the correct soup and check the ingredients with the chef first.",
+      "text": "Certainly. I'll bring the correct soup and check the ingredients with the chef first.",
+      "ttsOverrides": [],
+      "gapAfterMs": 650,
+      "index": 4,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "5.808000"
+      },
+      "volume": {
+        "meanVolumeDb": -22.1,
+        "maxVolumeDb": -4.0
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.1,
+        "maxVolumeDb": -4.0
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-GB-RyanNeural-26faa34e9bc3b263a2dcbcf2.wav"
+    },
+    {
+      "speaker": "A",
+      "provider": "openai",
+      "voice": "marin",
+      "gender": "female",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "Question. What does the woman ask the man to bring?",
+      "text": "Question. What does the woman ask the man to bring?",
+      "ttsOverrides": [],
+      "gapAfterMs": 0,
+      "role": "question",
+      "index": 5,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "3.200000"
+      },
+      "volume": {
+        "meanVolumeDb": -22.1,
+        "maxVolumeDb": -4.2
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.1,
+        "maxVolumeDb": -4.2
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\marin-84db208f28b04773e8787c7a.wav"
+    }
+  ]
+}

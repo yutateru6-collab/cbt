@@ -1,0 +1,893 @@
+{
+  "mode": "completed",
+  "generatedAt": "2026-07-20T06:37:32.423702+00:00",
+  "provider": "SpeechifyAI",
+  "endpoint": "https://api.speechify.ai/v1/audio/speech",
+  "apiVersion": "2026-07-07",
+  "model": "simba-3.2",
+  "language": "en-US",
+  "parts": {
+    "Part 1": [],
+    "Part 2": [
+      16,
+      17,
+      18
+    ]
+  },
+  "sourceSet": "sample",
+  "apiRequestCount": 9,
+  "billableCharacters": 1302,
+  "rates": {
+    "part1NumberAndDialogue": "-10%",
+    "part2NumberAndBody": "-10%",
+    "questionAndText": "-10%"
+  },
+  "timingMs": {
+    "numberToBody": 1150,
+    "turnGap": 550,
+    "bodyToQuestion": 1100,
+    "questionToText": 350
+  },
+  "deliveryContract": {
+    "approvedVoicesOnly": [
+      "geffen_32",
+      "hugh_32"
+    ],
+    "part1FemaleMalePair": true,
+    "part1CompleteTurnRequests": true,
+    "part2WholeBodyOneRequest": true,
+    "sentenceLevelSplit": false,
+    "questionAndQuestionTextOneRequest": true,
+    "speechifyDirectWav": true,
+    "losslessPcmConcatenation": true,
+    "speechPcmSamplesChanged": false,
+    "silenceInsertionOnly": true,
+    "ffmpegProcessing": false,
+    "postSynthesisReencoding": false,
+    "postSynthesisResampling": false,
+    "lossyEncoding": false,
+    "silenceTrimming": false,
+    "loudnessNormalization": false,
+    "eqDenoiseRemaster": false,
+    "playbackRate": 1.0
+  },
+  "preflight": {
+    "provider": "SpeechifyAI",
+    "model": "simba-3.2",
+    "language": "en-US",
+    "apiVersion": "2026-07-07",
+    "audioFormat": "wav",
+    "expectedRequestUnits": 9,
+    "missingCalls": 9,
+    "missingInputCharacters": 2108,
+    "maxCalls": 9,
+    "maxInputCharacters": 8000,
+    "items": [
+      {
+        "id": "part2-No16",
+        "part": "Part 2",
+        "wholeBodyOneRequest": true,
+        "sentenceLevelSplit": false,
+        "segments": [
+          {
+            "role": "number",
+            "speaker": "narrator",
+            "voice": "Hugh",
+            "voiceId": "hugh_32",
+            "rate": "-10%",
+            "input": "<speak><prosody rate=\"-10%\">Number sixteen.</prosody></speak>",
+            "gapAfterMs": 1150,
+            "cached": false
+          },
+          {
+            "role": "body",
+            "speaker": "body",
+            "voice": "Geffen",
+            "voiceId": "geffen_32",
+            "rate": "-10%",
+            "input": "<speak><prosody rate=\"-10%\">During her first month as a volunteer at a local museum,<break time=\"80ms\"/> Nina had trouble answering visitors’ questions about an old bridge.<break time=\"150ms\"/> She knew the basic facts,<break time=\"80ms\"/> but she often forgot important dates during busy tours.<break time=\"150ms\"/> Instead of memorizing a long guidebook,<break time=\"80ms\"/> she made a small timeline and reviewed it before each shift.<break time=\"150ms\"/> She can now explain the bridge’s history more clearly.</prosody></speak>",
+            "gapAfterMs": 1100,
+            "cached": false
+          },
+          {
+            "role": "question",
+            "speaker": "narrator",
+            "voice": "Hugh",
+            "voiceId": "hugh_32",
+            "rate": "-10%",
+            "input": "<speak><prosody rate=\"-10%\">Question.<break time=\"350ms\"/>What helped Nina explain the bridge’s history better?</prosody></speak>",
+            "gapAfterMs": 0,
+            "cached": false
+          }
+        ]
+      },
+      {
+        "id": "part2-No17",
+        "part": "Part 2",
+        "wholeBodyOneRequest": true,
+        "sentenceLevelSplit": false,
+        "segments": [
+          {
+            "role": "number",
+            "speaker": "narrator",
+            "voice": "Hugh",
+            "voiceId": "hugh_32",
+            "rate": "-10%",
+            "input": "<speak><prosody rate=\"-10%\">Number seventeen.</prosody></speak>",
+            "gapAfterMs": 1150,
+            "cached": false
+          },
+          {
+            "role": "body",
+            "speaker": "body",
+            "voice": "Geffen",
+            "voiceId": "geffen_32",
+            "rate": "-10%",
+            "input": "<speak><prosody rate=\"-10%\">The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday.<break time=\"150ms\"/> Those rooms will be unavailable from nine a m until three p m,<break time=\"80ms\"/> but the swimming pool will remain open as usual.<break time=\"150ms\"/> Visitors should use the smaller changing area beside Court Two.<break time=\"150ms\"/> Please bring your own lock,<break time=\"80ms\"/> since the temporary lockers do not have built-in keys.</prosody></speak>",
+            "gapAfterMs": 1100,
+            "cached": false
+          },
+          {
+            "role": "question",
+            "speaker": "narrator",
+            "voice": "Hugh",
+            "voiceId": "hugh_32",
+            "rate": "-10%",
+            "input": "<speak><prosody rate=\"-10%\">Question.<break time=\"350ms\"/>What should visitors bring to the sports center?</prosody></speak>",
+            "gapAfterMs": 0,
+            "cached": false
+          }
+        ]
+      },
+      {
+        "id": "part2-No18",
+        "part": "Part 2",
+        "wholeBodyOneRequest": true,
+        "sentenceLevelSplit": false,
+        "segments": [
+          {
+            "role": "number",
+            "speaker": "narrator",
+            "voice": "Hugh",
+            "voiceId": "hugh_32",
+            "rate": "-10%",
+            "input": "<speak><prosody rate=\"-10%\">Number eighteen.</prosody></speak>",
+            "gapAfterMs": 1150,
+            "cached": false
+          },
+          {
+            "role": "body",
+            "speaker": "body",
+            "voice": "Geffen",
+            "voiceId": "geffen_32",
+            "rate": "-10%",
+            "input": "<speak><prosody rate=\"-10%\">A customer asked Leo to prepare a birthday cake without nuts.<break time=\"150ms\"/> He carefully checked the ingredients,<break time=\"80ms\"/> but the chocolate decorations he usually buys were made in a factory that also handles almonds.<break time=\"150ms\"/> Leo called the customer and suggested using fresh fruit instead.<break time=\"150ms\"/> The customer agreed,<break time=\"80ms\"/> so he changed the design while keeping the same price and delivery time for Saturday.</prosody></speak>",
+            "gapAfterMs": 1100,
+            "cached": false
+          },
+          {
+            "role": "question",
+            "speaker": "narrator",
+            "voice": "Hugh",
+            "voiceId": "hugh_32",
+            "rate": "-10%",
+            "input": "<speak><prosody rate=\"-10%\">Question.<break time=\"350ms\"/>Why did Leo replace the chocolate decorations?</prosody></speak>",
+            "gapAfterMs": 0,
+            "cached": false
+          }
+        ]
+      }
+    ],
+    "rate": "-10%",
+    "nominalSpeed": 0.9,
+    "punctuationPauses": {
+      "internalPeriodMs": 150,
+      "commaMs": 80,
+      "finalPeriodUsesStructuralBodyGap": true,
+      "counts": {
+        "16": {
+          "internalPeriods": 3,
+          "commas": 3
+        },
+        "17": {
+          "internalPeriods": 3,
+          "commas": 2
+        },
+        "18": {
+          "internalPeriods": 3,
+          "commas": 2
+        }
+      }
+    }
+  },
+  "items": [
+    {
+      "id": "part2-No16",
+      "part": "Part 2",
+      "number": 16,
+      "voices": {
+        "body": {
+          "id": "geffen_32",
+          "name": "Geffen",
+          "gender": "female"
+        },
+        "narrator": {
+          "id": "hugh_32",
+          "name": "Hugh",
+          "gender": "male"
+        }
+      },
+      "scriptHtml": "<p>During her first month as a volunteer at a local museum, Nina had trouble answering visitors’ questions about an old bridge. She knew the basic facts, but she often forgot important dates during busy tours. Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift. She can now explain the bridge’s history more clearly.</p><p class=\"question\"><strong>Question</strong> What helped Nina explain the bridge’s history better?</p>",
+      "segments": [
+        {
+          "role": "number",
+          "speaker": "narrator",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "displayText": "Number 16.",
+          "ttsText": "Number sixteen.",
+          "ttsOverrides": [
+            {
+              "from": "16",
+              "to": "sixteen"
+            }
+          ],
+          "rate": "-10%",
+          "input": "<speak><prosody rate=\"-10%\">Number sixteen.</prosody></speak>",
+          "gapAfterMs": 1150,
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-18-simba-punctuation-breaks-0p90-20260720\\segments\\part2-No16\\number-hugh_32-a723f8a82a15ff09dafe4d9a.wav",
+          "sourceFileSha256": "df1f90b31c8369e730a32b44eaedd17efbe8bf53aa1fb314502d85927383a64d",
+          "sourcePcmSha256": "13225d76bb952b1b2535cae835a058773a41cdc9b8c14650a5e709fc720fdb60",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 69198,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 1.442
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 2.797,
+            "billableCharacters": 15,
+            "requestId": "dc4f66f2d214b8f8a8532fc0"
+          }
+        },
+        {
+          "role": "body",
+          "speaker": "body",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "displayText": "During her first month as a volunteer at a local museum, Nina had trouble answering visitors’ questions about an old bridge. She knew the basic facts, but she often forgot important dates during busy tours. Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift. She can now explain the bridge’s history more clearly.",
+          "ttsText": "During her first month as a volunteer at a local museum, Nina had trouble answering visitors’ questions about an old bridge. She knew the basic facts, but she often forgot important dates during busy tours. Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift. She can now explain the bridge’s history more clearly.",
+          "ttsOverrides": [],
+          "rate": "-10%",
+          "input": "<speak><prosody rate=\"-10%\">During her first month as a volunteer at a local museum,<break time=\"80ms\"/> Nina had trouble answering visitors’ questions about an old bridge.<break time=\"150ms\"/> She knew the basic facts,<break time=\"80ms\"/> but she often forgot important dates during busy tours.<break time=\"150ms\"/> Instead of memorizing a long guidebook,<break time=\"80ms\"/> she made a small timeline and reviewed it before each shift.<break time=\"150ms\"/> She can now explain the bridge’s history more clearly.</prosody></speak>",
+          "gapAfterMs": 1100,
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-18-simba-punctuation-breaks-0p90-20260720\\segments\\part2-No16\\body-geffen_32-d31d030401bca9498175a7c0.wav",
+          "sourceFileSha256": "6618eb960e0cf57c157d5d9f66a966408066c6db82e2ff032cce91f0c8414c46",
+          "sourcePcmSha256": "65d275866bdb885310e1f223b1f95dcbfb828b3a112617119ea14f178c85970a",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 1184732,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 24.682
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 8.75,
+            "billableCharacters": 362,
+            "requestId": "79e8eb2d7ce9ad7d04d4d5be"
+          }
+        },
+        {
+          "role": "question",
+          "speaker": "narrator",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "displayText": "Question. What helped Nina explain the bridge’s history better?",
+          "ttsText": "Question. What helped Nina explain the bridge’s history better?",
+          "ttsOverrides": [],
+          "rate": "-10%",
+          "input": "<speak><prosody rate=\"-10%\">Question.<break time=\"350ms\"/>What helped Nina explain the bridge’s history better?</prosody></speak>",
+          "gapAfterMs": 0,
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-18-simba-punctuation-breaks-0p90-20260720\\segments\\part2-No16\\question-hugh_32-0cad42a40b7ce9f15fc22b37.wav",
+          "sourceFileSha256": "58b8eb76c9300893198deb82b37e770f34c888d033878e06f2fa45c5f66534b1",
+          "sourcePcmSha256": "8f37f2fb29248cae9b165994e86dc5e6e4fba01178a87f81feb67ac653e910f9",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 251220,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 5.234
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 3.016,
+            "billableCharacters": 62,
+            "requestId": "a95fd464190323ed136e3699"
+          }
+        }
+      ],
+      "pcmVerification": {
+        "wave": {
+          "channels": 1,
+          "sampleWidthBytes": 2,
+          "bitsPerSample": 16,
+          "sampleRateHz": 48000,
+          "frameCount": 1613150,
+          "declaredFrameCount": 1613150,
+          "sourceHeaderOpenEnded": false,
+          "compressionType": "NONE",
+          "durationSeconds": 33.607
+        },
+        "expectedPcmSha256": "1d5a748f1431557960995699bc455d5f9d323b7607556e2e0202c1beb9efab46",
+        "finalPcmSha256": "1d5a748f1431557960995699bc455d5f9d323b7607556e2e0202c1beb9efab46",
+        "pcmExactMatch": true,
+        "allSpeechSlicesExact": true
+      },
+      "sliceVerification": [
+        {
+          "role": "number",
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-18-simba-punctuation-breaks-0p90-20260720\\segments\\part2-No16\\number-hugh_32-a723f8a82a15ff09dafe4d9a.wav",
+          "sourceFileSha256": "df1f90b31c8369e730a32b44eaedd17efbe8bf53aa1fb314502d85927383a64d",
+          "sourcePcmSha256": "13225d76bb952b1b2535cae835a058773a41cdc9b8c14650a5e709fc720fdb60",
+          "finalPcmStartByte": 0,
+          "finalPcmEndByte": 138396,
+          "gapAfterMs": 1150,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 69198,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 1.442
+          },
+          "finalSlicePcmSha256": "13225d76bb952b1b2535cae835a058773a41cdc9b8c14650a5e709fc720fdb60",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "body",
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-18-simba-punctuation-breaks-0p90-20260720\\segments\\part2-No16\\body-geffen_32-d31d030401bca9498175a7c0.wav",
+          "sourceFileSha256": "6618eb960e0cf57c157d5d9f66a966408066c6db82e2ff032cce91f0c8414c46",
+          "sourcePcmSha256": "65d275866bdb885310e1f223b1f95dcbfb828b3a112617119ea14f178c85970a",
+          "finalPcmStartByte": 248796,
+          "finalPcmEndByte": 2618260,
+          "gapAfterMs": 1100,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 1184732,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 24.682
+          },
+          "finalSlicePcmSha256": "65d275866bdb885310e1f223b1f95dcbfb828b3a112617119ea14f178c85970a",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "question",
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-18-simba-punctuation-breaks-0p90-20260720\\segments\\part2-No16\\question-hugh_32-0cad42a40b7ce9f15fc22b37.wav",
+          "sourceFileSha256": "58b8eb76c9300893198deb82b37e770f34c888d033878e06f2fa45c5f66534b1",
+          "sourcePcmSha256": "8f37f2fb29248cae9b165994e86dc5e6e4fba01178a87f81feb67ac653e910f9",
+          "finalPcmStartByte": 2723860,
+          "finalPcmEndByte": 3226300,
+          "gapAfterMs": 0,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 251220,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 5.234
+          },
+          "finalSlicePcmSha256": "8f37f2fb29248cae9b165994e86dc5e6e4fba01178a87f81feb67ac653e910f9",
+          "pcmSliceMatch": true
+        }
+      ],
+      "masterWav": "audio-generation\\grade2-sample-part2-16-18-simba-punctuation-breaks-0p90-20260720\\audio\\part2-16-simba-3-2-final.wav",
+      "publishedWav": "audio/part2-16-simba-3-2-final.wav",
+      "masterSha256": "525d3cffd4eea8cd47af367f04fa3ad159a8160245fcd7de5ac11fed1fbaa832",
+      "publishedSha256": "525d3cffd4eea8cd47af367f04fa3ad159a8160245fcd7de5ac11fed1fbaa832",
+      "publishedCopyHashMatch": true,
+      "fileBytes": 3226344,
+      "samplePeak": {
+        "minimumSample": -27651,
+        "maximumSample": 29652,
+        "fullScaleSampleCount": 0,
+        "maxConsecutiveFullScaleSamples": 0,
+        "noFullScalePlateau": true
+      }
+    },
+    {
+      "id": "part2-No17",
+      "part": "Part 2",
+      "number": 17,
+      "voices": {
+        "body": {
+          "id": "geffen_32",
+          "name": "Geffen",
+          "gender": "female"
+        },
+        "narrator": {
+          "id": "hugh_32",
+          "name": "Hugh",
+          "gender": "male"
+        }
+      },
+      "scriptHtml": "<p>The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday. Those rooms will be unavailable from 9 a.m. until 3 p.m., but the swimming pool will remain open as usual. Visitors should use the smaller changing area beside Court Two. Please bring your own lock, since the temporary lockers do not have built-in keys.</p><p class=\"question\"><strong>Question</strong> What should visitors bring to the sports center?</p>",
+      "segments": [
+        {
+          "role": "number",
+          "speaker": "narrator",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "displayText": "Number 17.",
+          "ttsText": "Number seventeen.",
+          "ttsOverrides": [
+            {
+              "from": "17",
+              "to": "seventeen"
+            }
+          ],
+          "rate": "-10%",
+          "input": "<speak><prosody rate=\"-10%\">Number seventeen.</prosody></speak>",
+          "gapAfterMs": 1150,
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-18-simba-punctuation-breaks-0p90-20260720\\segments\\part2-No17\\number-hugh_32-521420a0bc9cb98e042466a0.wav",
+          "sourceFileSha256": "47f3fe49962c8703dfc08df48c915966eb1f44e9d52d596acb645c1daa772eca",
+          "sourcePcmSha256": "c3e04b93859228c9c365e971b1735da06d4bc997bfb5a7c55dacce47f988cfd1",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 76154,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 1.587
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 1.812,
+            "billableCharacters": 17,
+            "requestId": "3961a50888cc92ba6850a1bc"
+          }
+        },
+        {
+          "role": "body",
+          "speaker": "body",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "displayText": "The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday. Those rooms will be unavailable from 9 a.m. until 3 p.m., but the swimming pool will remain open as usual. Visitors should use the smaller changing area beside Court Two. Please bring your own lock, since the temporary lockers do not have built-in keys.",
+          "ttsText": "The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday. Those rooms will be unavailable from nine a m until three p m, but the swimming pool will remain open as usual. Visitors should use the smaller changing area beside Court Two. Please bring your own lock, since the temporary lockers do not have built-in keys.",
+          "ttsOverrides": [
+            {
+              "from": "9 a.m.",
+              "to": "nine a m"
+            },
+            {
+              "from": "3 p.m.",
+              "to": "three p m"
+            }
+          ],
+          "rate": "-10%",
+          "input": "<speak><prosody rate=\"-10%\">The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday.<break time=\"150ms\"/> Those rooms will be unavailable from nine a m until three p m,<break time=\"80ms\"/> but the swimming pool will remain open as usual.<break time=\"150ms\"/> Visitors should use the smaller changing area beside Court Two.<break time=\"150ms\"/> Please bring your own lock,<break time=\"80ms\"/> since the temporary lockers do not have built-in keys.</prosody></speak>",
+          "gapAfterMs": 1100,
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-18-simba-punctuation-breaks-0p90-20260720\\segments\\part2-No17\\body-geffen_32-5f2d0b41c8a6170f3b801ab2.wav",
+          "sourceFileSha256": "445a174ae66c9c3df6a5e1c5acf839d8591e9534a9b142108d418151e95f2f3b",
+          "sourcePcmSha256": "862b6e3dc3be641669546faf555d5b6a60eb50a6c18d90a27d8bb1fb6bed3a5f",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 1100076,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 22.918
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 8.953,
+            "billableCharacters": 351,
+            "requestId": "84508d54aaf5ed24014a2eee"
+          }
+        },
+        {
+          "role": "question",
+          "speaker": "narrator",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "displayText": "Question. What should visitors bring to the sports center?",
+          "ttsText": "Question. What should visitors bring to the sports center?",
+          "ttsOverrides": [],
+          "rate": "-10%",
+          "input": "<speak><prosody rate=\"-10%\">Question.<break time=\"350ms\"/>What should visitors bring to the sports center?</prosody></speak>",
+          "gapAfterMs": 0,
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-18-simba-punctuation-breaks-0p90-20260720\\segments\\part2-No17\\question-hugh_32-1cac602d7e3604452b2a19ba.wav",
+          "sourceFileSha256": "70d2422e1010fbc0815577b8ba027f4d998d7743a69021c9ede156cb2a49043f",
+          "sourcePcmSha256": "32a7498b6395060810eb439ec74b692ed2bb8bb31a6811a5fd4a401c97492bc9",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 207936,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 4.332
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 2.203,
+            "billableCharacters": 57,
+            "requestId": "2173b3cdf7984f1a6bb9f4e8"
+          }
+        }
+      ],
+      "pcmVerification": {
+        "wave": {
+          "channels": 1,
+          "sampleWidthBytes": 2,
+          "bitsPerSample": 16,
+          "sampleRateHz": 48000,
+          "frameCount": 1492166,
+          "declaredFrameCount": 1492166,
+          "sourceHeaderOpenEnded": false,
+          "compressionType": "NONE",
+          "durationSeconds": 31.087
+        },
+        "expectedPcmSha256": "bdaaa057108d347a6c7a325d59db6895e1fb5d47b4ed27e487621a776761b8b0",
+        "finalPcmSha256": "bdaaa057108d347a6c7a325d59db6895e1fb5d47b4ed27e487621a776761b8b0",
+        "pcmExactMatch": true,
+        "allSpeechSlicesExact": true
+      },
+      "sliceVerification": [
+        {
+          "role": "number",
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-18-simba-punctuation-breaks-0p90-20260720\\segments\\part2-No17\\number-hugh_32-521420a0bc9cb98e042466a0.wav",
+          "sourceFileSha256": "47f3fe49962c8703dfc08df48c915966eb1f44e9d52d596acb645c1daa772eca",
+          "sourcePcmSha256": "c3e04b93859228c9c365e971b1735da06d4bc997bfb5a7c55dacce47f988cfd1",
+          "finalPcmStartByte": 0,
+          "finalPcmEndByte": 152308,
+          "gapAfterMs": 1150,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 76154,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 1.587
+          },
+          "finalSlicePcmSha256": "c3e04b93859228c9c365e971b1735da06d4bc997bfb5a7c55dacce47f988cfd1",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "body",
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-18-simba-punctuation-breaks-0p90-20260720\\segments\\part2-No17\\body-geffen_32-5f2d0b41c8a6170f3b801ab2.wav",
+          "sourceFileSha256": "445a174ae66c9c3df6a5e1c5acf839d8591e9534a9b142108d418151e95f2f3b",
+          "sourcePcmSha256": "862b6e3dc3be641669546faf555d5b6a60eb50a6c18d90a27d8bb1fb6bed3a5f",
+          "finalPcmStartByte": 262708,
+          "finalPcmEndByte": 2462860,
+          "gapAfterMs": 1100,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 1100076,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 22.918
+          },
+          "finalSlicePcmSha256": "862b6e3dc3be641669546faf555d5b6a60eb50a6c18d90a27d8bb1fb6bed3a5f",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "question",
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-18-simba-punctuation-breaks-0p90-20260720\\segments\\part2-No17\\question-hugh_32-1cac602d7e3604452b2a19ba.wav",
+          "sourceFileSha256": "70d2422e1010fbc0815577b8ba027f4d998d7743a69021c9ede156cb2a49043f",
+          "sourcePcmSha256": "32a7498b6395060810eb439ec74b692ed2bb8bb31a6811a5fd4a401c97492bc9",
+          "finalPcmStartByte": 2568460,
+          "finalPcmEndByte": 2984332,
+          "gapAfterMs": 0,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 207936,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 4.332
+          },
+          "finalSlicePcmSha256": "32a7498b6395060810eb439ec74b692ed2bb8bb31a6811a5fd4a401c97492bc9",
+          "pcmSliceMatch": true
+        }
+      ],
+      "masterWav": "audio-generation\\grade2-sample-part2-16-18-simba-punctuation-breaks-0p90-20260720\\audio\\part2-17-simba-3-2-final.wav",
+      "publishedWav": "audio/part2-17-simba-3-2-final.wav",
+      "masterSha256": "ca878032466541ad56bc03c7b50f18475d5c7406c341951f1117173a8849b28f",
+      "publishedSha256": "ca878032466541ad56bc03c7b50f18475d5c7406c341951f1117173a8849b28f",
+      "publishedCopyHashMatch": true,
+      "fileBytes": 2984376,
+      "samplePeak": {
+        "minimumSample": -31456,
+        "maximumSample": 27040,
+        "fullScaleSampleCount": 0,
+        "maxConsecutiveFullScaleSamples": 0,
+        "noFullScalePlateau": true
+      }
+    },
+    {
+      "id": "part2-No18",
+      "part": "Part 2",
+      "number": 18,
+      "voices": {
+        "body": {
+          "id": "geffen_32",
+          "name": "Geffen",
+          "gender": "female"
+        },
+        "narrator": {
+          "id": "hugh_32",
+          "name": "Hugh",
+          "gender": "male"
+        }
+      },
+      "scriptHtml": "<p>A customer asked Leo to prepare a birthday cake without nuts. He carefully checked the ingredients, but the chocolate decorations he usually buys were made in a factory that also handles almonds. Leo called the customer and suggested using fresh fruit instead. The customer agreed, so he changed the design while keeping the same price and delivery time for Saturday.</p><p class=\"question\"><strong>Question</strong> Why did Leo replace the chocolate decorations?</p>",
+      "segments": [
+        {
+          "role": "number",
+          "speaker": "narrator",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "displayText": "Number 18.",
+          "ttsText": "Number eighteen.",
+          "ttsOverrides": [
+            {
+              "from": "18",
+              "to": "eighteen"
+            }
+          ],
+          "rate": "-10%",
+          "input": "<speak><prosody rate=\"-10%\">Number eighteen.</prosody></speak>",
+          "gapAfterMs": 1150,
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-18-simba-punctuation-breaks-0p90-20260720\\segments\\part2-No18\\number-hugh_32-10b5543794a2110f25a119ae.wav",
+          "sourceFileSha256": "df2c4e0f8b34cc1ef2f09dfb6ad79a12fea86c38746c42f2ce1b4712f9672492",
+          "sourcePcmSha256": "c9f0f3ec2910c6c6acc85ecbf2969ea6693f70e80fbde24c0087c67af30650df",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 71904,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 1.498
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 1.328,
+            "billableCharacters": 16,
+            "requestId": "9640eeaaafd072fde0a8a55e"
+          }
+        },
+        {
+          "role": "body",
+          "speaker": "body",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "displayText": "A customer asked Leo to prepare a birthday cake without nuts. He carefully checked the ingredients, but the chocolate decorations he usually buys were made in a factory that also handles almonds. Leo called the customer and suggested using fresh fruit instead. The customer agreed, so he changed the design while keeping the same price and delivery time for Saturday.",
+          "ttsText": "A customer asked Leo to prepare a birthday cake without nuts. He carefully checked the ingredients, but the chocolate decorations he usually buys were made in a factory that also handles almonds. Leo called the customer and suggested using fresh fruit instead. The customer agreed, so he changed the design while keeping the same price and delivery time for Saturday.",
+          "ttsOverrides": [],
+          "rate": "-10%",
+          "input": "<speak><prosody rate=\"-10%\">A customer asked Leo to prepare a birthday cake without nuts.<break time=\"150ms\"/> He carefully checked the ingredients,<break time=\"80ms\"/> but the chocolate decorations he usually buys were made in a factory that also handles almonds.<break time=\"150ms\"/> Leo called the customer and suggested using fresh fruit instead.<break time=\"150ms\"/> The customer agreed,<break time=\"80ms\"/> so he changed the design while keeping the same price and delivery time for Saturday.</prosody></speak>",
+          "gapAfterMs": 1100,
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-18-simba-punctuation-breaks-0p90-20260720\\segments\\part2-No18\\body-geffen_32-86b12d9a25382ddd8d1236a3.wav",
+          "sourceFileSha256": "ab1916aa18bfcaa0903067c0c00c0549d70ac205c42b64b511c54d0af6e41986",
+          "sourcePcmSha256": "87075d22c02a87f355feb7e5666bf375ad417f7f440f99ef93f0e62fe8f9289a",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 1163720,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 24.244
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 9.578,
+            "billableCharacters": 367,
+            "requestId": "0fab29abb80988190c523b6c"
+          }
+        },
+        {
+          "role": "question",
+          "speaker": "narrator",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "displayText": "Question. Why did Leo replace the chocolate decorations?",
+          "ttsText": "Question. Why did Leo replace the chocolate decorations?",
+          "ttsOverrides": [],
+          "rate": "-10%",
+          "input": "<speak><prosody rate=\"-10%\">Question.<break time=\"350ms\"/>Why did Leo replace the chocolate decorations?</prosody></speak>",
+          "gapAfterMs": 0,
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-18-simba-punctuation-breaks-0p90-20260720\\segments\\part2-No18\\question-hugh_32-95e80ca903919db0e0287c93.wav",
+          "sourceFileSha256": "effaf3752e3cbd24deadd6abec9b25126fd7e9912a69a97a84ece04081378cfe",
+          "sourcePcmSha256": "c5c1a79d82fb27da21a037e5c694a86f8b7d4a69c689c934407cd2d65f220dbc",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 226204,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 4.713
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 3.344,
+            "billableCharacters": 55,
+            "requestId": "5306f44ad8b4cc5b61230982"
+          }
+        }
+      ],
+      "pcmVerification": {
+        "wave": {
+          "channels": 1,
+          "sampleWidthBytes": 2,
+          "bitsPerSample": 16,
+          "sampleRateHz": 48000,
+          "frameCount": 1569828,
+          "declaredFrameCount": 1569828,
+          "sourceHeaderOpenEnded": false,
+          "compressionType": "NONE",
+          "durationSeconds": 32.705
+        },
+        "expectedPcmSha256": "c11947d62d77e0ebb715113dca188a0553ba7e71d54c2f06ba7887b5b006d0eb",
+        "finalPcmSha256": "c11947d62d77e0ebb715113dca188a0553ba7e71d54c2f06ba7887b5b006d0eb",
+        "pcmExactMatch": true,
+        "allSpeechSlicesExact": true
+      },
+      "sliceVerification": [
+        {
+          "role": "number",
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-18-simba-punctuation-breaks-0p90-20260720\\segments\\part2-No18\\number-hugh_32-10b5543794a2110f25a119ae.wav",
+          "sourceFileSha256": "df2c4e0f8b34cc1ef2f09dfb6ad79a12fea86c38746c42f2ce1b4712f9672492",
+          "sourcePcmSha256": "c9f0f3ec2910c6c6acc85ecbf2969ea6693f70e80fbde24c0087c67af30650df",
+          "finalPcmStartByte": 0,
+          "finalPcmEndByte": 143808,
+          "gapAfterMs": 1150,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 71904,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 1.498
+          },
+          "finalSlicePcmSha256": "c9f0f3ec2910c6c6acc85ecbf2969ea6693f70e80fbde24c0087c67af30650df",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "body",
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-18-simba-punctuation-breaks-0p90-20260720\\segments\\part2-No18\\body-geffen_32-86b12d9a25382ddd8d1236a3.wav",
+          "sourceFileSha256": "ab1916aa18bfcaa0903067c0c00c0549d70ac205c42b64b511c54d0af6e41986",
+          "sourcePcmSha256": "87075d22c02a87f355feb7e5666bf375ad417f7f440f99ef93f0e62fe8f9289a",
+          "finalPcmStartByte": 254208,
+          "finalPcmEndByte": 2581648,
+          "gapAfterMs": 1100,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 1163720,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 24.244
+          },
+          "finalSlicePcmSha256": "87075d22c02a87f355feb7e5666bf375ad417f7f440f99ef93f0e62fe8f9289a",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "question",
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-18-simba-punctuation-breaks-0p90-20260720\\segments\\part2-No18\\question-hugh_32-95e80ca903919db0e0287c93.wav",
+          "sourceFileSha256": "effaf3752e3cbd24deadd6abec9b25126fd7e9912a69a97a84ece04081378cfe",
+          "sourcePcmSha256": "c5c1a79d82fb27da21a037e5c694a86f8b7d4a69c689c934407cd2d65f220dbc",
+          "finalPcmStartByte": 2687248,
+          "finalPcmEndByte": 3139656,
+          "gapAfterMs": 0,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 226204,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 4.713
+          },
+          "finalSlicePcmSha256": "c5c1a79d82fb27da21a037e5c694a86f8b7d4a69c689c934407cd2d65f220dbc",
+          "pcmSliceMatch": true
+        }
+      ],
+      "masterWav": "audio-generation\\grade2-sample-part2-16-18-simba-punctuation-breaks-0p90-20260720\\audio\\part2-18-simba-3-2-final.wav",
+      "publishedWav": "audio/part2-18-simba-3-2-final.wav",
+      "masterSha256": "f9994898dde1be583264c75bf61182a91f3ac1ff7f2bcfae26cb6fd0ab69cdfd",
+      "publishedSha256": "f9994898dde1be583264c75bf61182a91f3ac1ff7f2bcfae26cb6fd0ab69cdfd",
+      "publishedCopyHashMatch": true,
+      "fileBytes": 3139700,
+      "samplePeak": {
+        "minimumSample": -29139,
+        "maximumSample": 28637,
+        "fullScaleSampleCount": 0,
+        "maxConsecutiveFullScaleSamples": 0,
+        "noFullScalePlateau": true
+      }
+    }
+  ],
+  "rateOverrideReason": "Part 2 default 0.90x",
+  "punctuationPauses": {
+    "internalPeriodMs": 150,
+    "commaMs": 80,
+    "finalPeriodUsesStructuralBodyGap": true,
+    "counts": {
+      "16": {
+        "internalPeriods": 3,
+        "commas": 3
+      },
+      "17": {
+        "internalPeriods": 3,
+        "commas": 2
+      },
+      "18": {
+        "internalPeriods": 3,
+        "commas": 2
+      }
+    }
+  },
+  "style": null,
+  "requestUnitCount": 9
+}

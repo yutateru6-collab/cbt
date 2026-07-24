@@ -1,0 +1,209 @@
+{
+  "item": "No01",
+  "number": 1,
+  "sourceScript": "B: The recording for our school radio show still isn't in the shared folder. A: I finished editing it, but the file is too large to send by email. Could you upload it from the media room? B: Sure, but I need the final title before lunch because the teacher checks everything at one. A: I'll message you the title now. The interview section doesn't need any more changes.",
+  "questionText": "What does the girl ask the boy to do?",
+  "voices": {
+    "A": {
+      "provider": "edge",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "gender": "female",
+      "language": "en-US",
+      "englishOnly": true,
+      "gainDb": -4.0
+    },
+    "B": {
+      "provider": "openai",
+      "voice": "cedar",
+      "gender": "male",
+      "accent": "American English",
+      "gainDb": 0.0
+    }
+  },
+  "output": "audio-generation\\grade2-round1\\part1\\No01.wav",
+  "outputBytes": 1274574,
+  "outputMetadata": {
+    "codec_name": "pcm_s16le",
+    "sample_fmt": "s16",
+    "sample_rate": "24000",
+    "channels": 1,
+    "bits_per_sample": 16,
+    "duration": "26.552000"
+  },
+  "openaiSegments": 3,
+  "edgeSegments": 2,
+  "openaiApiCallsThisRun": 0,
+  "edgeCallsThisRun": 0,
+  "initialVolume": {
+    "meanVolumeDb": -21.9,
+    "maxVolumeDb": -2.1
+  },
+  "globalAttenuationDb": 0.0,
+  "finalVolume": {
+    "meanVolumeDb": -21.9,
+    "maxVolumeDb": -2.1
+  },
+  "segments": [
+    {
+      "speaker": "B",
+      "provider": "openai",
+      "voice": "cedar",
+      "gender": "male",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "Number 1... The recording for our school radio show still isn't in the shared folder.",
+      "text": "Number 1... The recording for our school radio show still isn't in the shared folder.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 1,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "5.150000"
+      },
+      "volume": {
+        "meanVolumeDb": -22.7,
+        "maxVolumeDb": -4.2
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.7,
+        "maxVolumeDb": -4.2
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\cedar-6af218d7a16e2308688dbc9f.wav"
+    },
+    {
+      "speaker": "A",
+      "provider": "edge",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "gender": "female",
+      "language": "en-US",
+      "englishOnly": true,
+      "gainDb": -4.0,
+      "displayText": "I finished editing it, but the file is too large to send by email. Could you upload it from the media room?",
+      "text": "I finished editing it, but the file is too large to send by email. Could you upload it from the media room?",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 2,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "6.552000"
+      },
+      "volume": {
+        "meanVolumeDb": -17.6,
+        "maxVolumeDb": -3.4
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -21.6,
+        "maxVolumeDb": -7.4
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-US-EmmaMultilingualNeural-e56eae9691442751e83acd8c.wav"
+    },
+    {
+      "speaker": "B",
+      "provider": "openai",
+      "voice": "cedar",
+      "gender": "male",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "Sure, but I need the final title before lunch because the teacher checks everything at one.",
+      "text": "Sure, but I need the final title before lunch because the teacher checks everything at one.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 3,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "4.900000"
+      },
+      "volume": {
+        "meanVolumeDb": -22.4,
+        "maxVolumeDb": -6.4
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.4,
+        "maxVolumeDb": -6.4
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\cedar-4193278a7218560d54676110.wav"
+    },
+    {
+      "speaker": "A",
+      "provider": "edge",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "gender": "female",
+      "language": "en-US",
+      "englishOnly": true,
+      "gainDb": -4.0,
+      "displayText": "I'll message you the title now. The interview section doesn't need any more changes.",
+      "text": "I'll message you the title now. The interview section doesn't need any more changes.",
+      "ttsOverrides": [],
+      "gapAfterMs": 650,
+      "index": 4,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "5.160000"
+      },
+      "volume": {
+        "meanVolumeDb": -16.8,
+        "maxVolumeDb": -4.4
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -20.8,
+        "maxVolumeDb": -8.4
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-US-EmmaMultilingualNeural-3a4bb470b7b356fd9c11a103.wav"
+    },
+    {
+      "speaker": "B",
+      "provider": "openai",
+      "voice": "cedar",
+      "gender": "male",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "Question. What does the girl ask the boy to do?",
+      "text": "Question. What does the girl ask the boy to do?",
+      "ttsOverrides": [],
+      "gapAfterMs": 0,
+      "role": "question",
+      "index": 5,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "3.600000"
+      },
+      "volume": {
+        "meanVolumeDb": -21.3,
+        "maxVolumeDb": -2.1
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -21.3,
+        "maxVolumeDb": -2.1
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\cedar-2490e173fc6407c17ffb5d5b.wav"
+    }
+  ]
+}

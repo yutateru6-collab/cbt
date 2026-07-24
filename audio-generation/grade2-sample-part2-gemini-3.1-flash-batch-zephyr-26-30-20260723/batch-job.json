@@ -1,0 +1,10 @@
+{
+  "submittedAt": "2026-07-23T01:20:20.159675+00:00",
+  "name": "batches/m3m40e0l7vcbdipze98o3vpyr3ex4phv0g61",
+  "displayName": "grade2-sample-part2-zephyr-26-30-20260723",
+  "model": "models/gemini-3.1-flash-tts-preview",
+  "state": "JOB_STATE_SUCCEEDED",
+  "requestCount": 5,
+  "checkedAt": "2026-07-23T01:23:14.444466+00:00",
+  "error": null
+}

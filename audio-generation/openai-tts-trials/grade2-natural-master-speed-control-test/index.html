@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>英検2級 自然速度マスター比較</title>
+  <style>
+    :root {
+      color: #17202a;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #f3f5f7;
+    }
+
+    main {
+      width: min(720px, calc(100% - 32px));
+      margin: 32px auto 56px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(24px, 6vw, 34px);
+    }
+
+    .lead,
+    .note,
+    article p {
+      color: #52606d;
+      line-height: 1.7;
+    }
+
+    .speed-panel,
+    article {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #d8e0e8;
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .speed-panel h2,
+    article h2 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    .speed-buttons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .speed-button {
+      min-height: 48px;
+      border: 1px solid #9aa9b8;
+      border-radius: 10px;
+      background: #fff;
+      color: #243b53;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .speed-button[aria-pressed="true"] {
+      border-color: #1769aa;
+      background: #1769aa;
+      color: #fff;
+    }
+
+    .current-speed {
+      margin: 12px 0 0;
+      color: #243b53;
+      font-weight: 700;
+    }
+
+    article p {
+      margin: 0 0 14px;
+    }
+
+    audio { width: 100%; }
+
+    .note {
+      margin-top: 22px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>自然速度マスター×再生速度比較</h1>
+    <p class="lead">
+      gpt-4o-mini-ttsのAPI速度1.0で生成し、「5％遅く」という指示は外しました。
+      同じWAVマスターを、ブラウザ側だけで速度変更します。
+    </p>
+
+    <section class="speed-panel" aria-labelledby="speed-title">
+      <h2 id="speed-title">再生速度</h2>
+      <div class="speed-buttons" role="group" aria-label="再生速度を選択">
+        <button class="speed-button" type="button" data-rate="0.85" aria-pressed="false">0.85倍</button>
+        <button class="speed-button" type="button" data-rate="0.9" aria-pressed="false">0.9倍</button>
+        <button class="speed-button" type="button" data-rate="1" aria-pressed="true">1.0倍</button>
+      </div>
+      <p class="current-speed" aria-live="polite">現在：<span id="current-speed">1.0</span>倍</p>
+    </section>
+
+    <article>
+      <h2>No.3：アメリカ英語</h2>
+      <p>Marin（女性）× Cedar（男性）／自然速度指示</p>
+      <audio controls preload="metadata" src="part1/No03.wav"></audio>
+    </article>
+
+    <article>
+      <h2>No.4：イギリス英語</h2>
+      <p>Marin（女性）× Cedar（男性）／英国アクセント・自然速度指示</p>
+      <audio controls preload="metadata" src="part1/No04.wav"></audio>
+    </article>
+
+    <p class="note">
+      この音声はAIによって生成されています。速度変更でファイルの再圧縮は行いません。
+    </p>
+  </main>
+
+  <script>
+    const audios = [...document.querySelectorAll("audio")];
+    const speedButtons = [...document.querySelectorAll("[data-rate]")];
+    const currentSpeed = document.querySelector("#current-speed");
+
+    function applyPlaybackRate(rate) {
+      for (const audio of audios) {
+        audio.playbackRate = rate;
+        audio.defaultPlaybackRate = rate;
+        if ("preservesPitch" in audio) {
+          audio.preservesPitch = true;
+        }
+      }
+
+      for (const button of speedButtons) {
+        button.setAttribute("aria-pressed", String(Number(button.dataset.rate) === rate));
+      }
+
+      currentSpeed.textContent = rate === 1 ? "1.0" : String(rate);
+    }
+
+    for (const button of speedButtons) {
+      button.addEventListener("click", () => applyPlaybackRate(Number(button.dataset.rate)));
+    }
+
+    for (const audio of audios) {
+      audio.addEventListener("play", () => {
+        for (const otherAudio of audios) {
+          if (otherAudio !== audio) otherAudio.pause();
+        }
+      });
+    }
+
+    applyPlaybackRate(1);
+  </script>
+</body>
+</html>

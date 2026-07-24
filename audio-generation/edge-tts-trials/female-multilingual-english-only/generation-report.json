@@ -1,0 +1,134 @@
+{
+  "language": "en-US",
+  "englishOnly": true,
+  "edgeCallsThisRun": 7,
+  "sharedRyanSegments": 3,
+  "items": [
+    {
+      "id": "EmmaRyanNo03",
+      "path": "audio-generation\\edge-tts-trials\\female-multilingual-english-only\\EmmaRyanNo03.wav",
+      "bytes": 1369326,
+      "metadata": {
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "28.526000",
+        "bit_rate": "384000"
+      },
+      "segments": [
+        {
+          "index": 1,
+          "speaker": "B",
+          "voice": "en-GB-RyanNeural",
+          "rate": "+0%",
+          "text": "Number 3... I'm starting dinner now. We have an unexpected guest tonight.",
+          "gapAfterMs": 180,
+          "path": "audio-generation\\edge-tts-trials\\female-multilingual-english-only\\segments\\en-GB-RyanNeural-3cae6e31646ddb1c.wav",
+          "generatedThisRun": true
+        },
+        {
+          "index": 2,
+          "speaker": "A",
+          "voice": "en-US-EmmaMultilingualNeural",
+          "rate": "+0%",
+          "text": "Really? I thought we were going to eat at the new Thai restaurant.",
+          "gapAfterMs": 180,
+          "path": "audio-generation\\edge-tts-trials\\female-multilingual-english-only\\segments\\en-US-EmmaMultilingualNeural-05b452e66af3d5b7.wav",
+          "generatedThisRun": true
+        },
+        {
+          "index": 3,
+          "speaker": "B",
+          "voice": "en-GB-RyanNeural",
+          "rate": "+0%",
+          "text": "Dad is bringing Grandma over, and she doesn't like spicy food. Could you set the table?",
+          "gapAfterMs": 180,
+          "path": "audio-generation\\edge-tts-trials\\female-multilingual-english-only\\segments\\en-GB-RyanNeural-2bdce77c9d50851f.wav",
+          "generatedThisRun": true
+        },
+        {
+          "index": 4,
+          "speaker": "A",
+          "voice": "en-US-EmmaMultilingualNeural",
+          "rate": "+0%",
+          "text": "Sure. I'll make a salad too. The soup and chicken should be enough for the main dishes.",
+          "gapAfterMs": 650,
+          "path": "audio-generation\\edge-tts-trials\\female-multilingual-english-only\\segments\\en-US-EmmaMultilingualNeural-8e2cfcde7b87373c.wav",
+          "generatedThisRun": true
+        },
+        {
+          "index": 5,
+          "speaker": "B",
+          "voice": "en-GB-RyanNeural",
+          "rate": "+0%",
+          "text": "Question. Why is the man preparing dinner at home?",
+          "gapAfterMs": 0,
+          "path": "audio-generation\\edge-tts-trials\\female-multilingual-english-only\\segments\\en-GB-RyanNeural-b34dbb509f182eb7.wav",
+          "generatedThisRun": true
+        }
+      ]
+    },
+    {
+      "id": "AvaRyanNo03",
+      "path": "audio-generation\\edge-tts-trials\\female-multilingual-english-only\\AvaRyanNo03.wav",
+      "bytes": 1362414,
+      "metadata": {
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "28.382000",
+        "bit_rate": "384000"
+      },
+      "segments": [
+        {
+          "index": 1,
+          "speaker": "B",
+          "voice": "en-GB-RyanNeural",
+          "rate": "+0%",
+          "text": "Number 3... I'm starting dinner now. We have an unexpected guest tonight.",
+          "gapAfterMs": 180,
+          "path": "audio-generation\\edge-tts-trials\\female-multilingual-english-only\\segments\\en-GB-RyanNeural-3cae6e31646ddb1c.wav",
+          "generatedThisRun": false
+        },
+        {
+          "index": 2,
+          "speaker": "A",
+          "voice": "en-US-AvaMultilingualNeural",
+          "rate": "+0%",
+          "text": "Really? I thought we were going to eat at the new Thai restaurant.",
+          "gapAfterMs": 180,
+          "path": "audio-generation\\edge-tts-trials\\female-multilingual-english-only\\segments\\en-US-AvaMultilingualNeural-20044ce2b2f52059.wav",
+          "generatedThisRun": true
+        },
+        {
+          "index": 3,
+          "speaker": "B",
+          "voice": "en-GB-RyanNeural",
+          "rate": "+0%",
+          "text": "Dad is bringing Grandma over, and she doesn't like spicy food. Could you set the table?",
+          "gapAfterMs": 180,
+          "path": "audio-generation\\edge-tts-trials\\female-multilingual-english-only\\segments\\en-GB-RyanNeural-2bdce77c9d50851f.wav",
+          "generatedThisRun": false
+        },
+        {
+          "index": 4,
+          "speaker": "A",
+          "voice": "en-US-AvaMultilingualNeural",
+          "rate": "+0%",
+          "text": "Sure. I'll make a salad too. The soup and chicken should be enough for the main dishes.",
+          "gapAfterMs": 650,
+          "path": "audio-generation\\edge-tts-trials\\female-multilingual-english-only\\segments\\en-US-AvaMultilingualNeural-871e4f8a639d7e2b.wav",
+          "generatedThisRun": true
+        },
+        {
+          "index": 5,
+          "speaker": "B",
+          "voice": "en-GB-RyanNeural",
+          "rate": "+0%",
+          "text": "Question. Why is the man preparing dinner at home?",
+          "gapAfterMs": 0,
+          "path": "audio-generation\\edge-tts-trials\\female-multilingual-english-only\\segments\\en-GB-RyanNeural-b34dbb509f182eb7.wav",
+          "generatedThisRun": false
+        }
+      ]
+    }
+  ]
+}

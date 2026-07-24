@@ -1,0 +1,54 @@
+{
+  "validatedAt": "2026-07-19T15:20:00+09:00",
+  "project": "scbt-azure-neural-period-pause-3x3",
+  "deploymentId": "ada4c032-43b8-4185-b6cd-c4f7c1021d3e",
+  "productionUrl": "https://scbt-azure-neural-period-pause-3x3.pages.dev/?v=20260719-azure-period1",
+  "deploymentUrl": "https://ada4c032.scbt-azure-neural-period-pause-3x3.pages.dev",
+  "page": {
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "audioPlayerCount": 6
+  },
+  "audioValidation": {
+    "fileCount": 6,
+    "allFullResponsesStatus200": true,
+    "allContentTypeAudioWav": true,
+    "allFullResponseHashesMatchLocal": true,
+    "allIphoneRangeResponsesStatus206": true,
+    "allAcceptRangesBytes": true,
+    "allRequestedRangeBytesMatchLocal": true,
+    "invalidRangeStatus": 416
+  },
+  "files": [
+    {
+      "name": "part1-No01-standard-neural-period-pause-48k.wav",
+      "sha256": "07d69aa48c84b0efa9d761e7b56b98fca7dffc863811ef5c150763cf68420af4",
+      "range": "bytes 0-43/3160604"
+    },
+    {
+      "name": "part1-No02-standard-neural-period-pause-48k.wav",
+      "sha256": "df9c8a79644b35465e86b6917d526ecef9a100c4533edfadff619063c097a31f",
+      "range": "bytes 0-43/3005084"
+    },
+    {
+      "name": "part1-No03-standard-neural-period-pause-48k.wav",
+      "sha256": "033212d0bc6f971803fbac91b0765251ffc5c3f117e4dfd4024183ca969d60c7",
+      "range": "bytes 0-43/3006284"
+    },
+    {
+      "name": "part2-No16-standard-neural-period-pause-48k.wav",
+      "sha256": "bd949058cde97cf1ad7da5f2cbb45b7e16d012351f862a98232baebd171e197c",
+      "range": "bytes 0-43/2766284"
+    },
+    {
+      "name": "part2-No17-standard-neural-period-pause-48k.wav",
+      "sha256": "f81704d05b964f2ac72c0f5c2b3e185054b6cd254ddadd372531283e83a71026",
+      "range": "bytes 0-43/2885084"
+    },
+    {
+      "name": "part2-No18-standard-neural-period-pause-48k.wav",
+      "sha256": "a7e1f897033ca4a75a69d968fa2d271709025eff086fabf9bd6eec43b500ca61",
+      "range": "bytes 0-43/2901164"
+    }
+  ]
+}

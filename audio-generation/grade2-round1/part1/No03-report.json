@@ -1,0 +1,214 @@
+{
+  "item": "No03",
+  "number": 3,
+  "sourceScript": "A: I can't meet you at the café this afternoon. A repair worker is coming to look at our washing machine. B: Didn't your brother say he would stay home for that? A: He was supposed to, but his manager asked him to work an extra shift. The worker may arrive anytime between two and five. B: No problem. We can meet tomorrow after my class instead.",
+  "questionText": "Why will the woman stay home this afternoon?",
+  "voices": {
+    "A": {
+      "provider": "edge",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "gender": "female",
+      "language": "en-US",
+      "englishOnly": true,
+      "gainDb": -4.0
+    },
+    "B": {
+      "provider": "openai",
+      "voice": "cedar",
+      "gender": "male",
+      "accent": "American English",
+      "gainDb": 0.0
+    }
+  },
+  "output": "audio-generation\\grade2-round1\\part1\\No03.wav",
+  "outputBytes": 1342542,
+  "outputMetadata": {
+    "codec_name": "pcm_s16le",
+    "sample_fmt": "s16",
+    "sample_rate": "24000",
+    "channels": 1,
+    "bits_per_sample": 16,
+    "duration": "27.968000"
+  },
+  "openaiSegments": 2,
+  "edgeSegments": 3,
+  "openaiApiCallsThisRun": 0,
+  "edgeCallsThisRun": 0,
+  "initialVolume": {
+    "meanVolumeDb": -22.4,
+    "maxVolumeDb": -4.5
+  },
+  "globalAttenuationDb": 0.0,
+  "finalVolume": {
+    "meanVolumeDb": -22.4,
+    "maxVolumeDb": -4.5
+  },
+  "segments": [
+    {
+      "speaker": "A",
+      "provider": "edge",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "gender": "female",
+      "language": "en-US",
+      "englishOnly": true,
+      "gainDb": -4.0,
+      "displayText": "Number 3... I can't meet you at the café this afternoon. A repair worker is coming to look at our washing machine.",
+      "text": "Number 3... I can't meet you at the cafe this afternoon. A repair worker is coming to look at our washing machine.",
+      "ttsOverrides": [
+        {
+          "from": "café",
+          "to": "cafe"
+        }
+      ],
+      "gapAfterMs": 180,
+      "index": 1,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "7.032000"
+      },
+      "volume": {
+        "meanVolumeDb": -17.7,
+        "maxVolumeDb": -4.4
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -21.7,
+        "maxVolumeDb": -8.4
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-US-EmmaMultilingualNeural-c51babb840c8150e698086b6.wav"
+    },
+    {
+      "speaker": "B",
+      "provider": "openai",
+      "voice": "cedar",
+      "gender": "male",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "Didn't your brother say he would stay home for that?",
+      "text": "Didn't your brother say he would stay home for that?",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 2,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "3.500000"
+      },
+      "volume": {
+        "meanVolumeDb": -22.5,
+        "maxVolumeDb": -4.5
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.5,
+        "maxVolumeDb": -4.5
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\cedar-dd8f69826cf1fe46326b67f8.wav"
+    },
+    {
+      "speaker": "A",
+      "provider": "edge",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "gender": "female",
+      "language": "en-US",
+      "englishOnly": true,
+      "gainDb": -4.0,
+      "displayText": "He was supposed to, but his manager asked him to work an extra shift. The worker may arrive anytime between two and five.",
+      "text": "He was supposed to, but his manager asked him to work an extra shift. The worker may arrive anytime between two and five.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 3,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "7.608000"
+      },
+      "volume": {
+        "meanVolumeDb": -17.7,
+        "maxVolumeDb": -4.8
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -21.7,
+        "maxVolumeDb": -8.8
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-US-EmmaMultilingualNeural-7240608a9d5c7e7441088935.wav"
+    },
+    {
+      "speaker": "B",
+      "provider": "openai",
+      "voice": "cedar",
+      "gender": "male",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "No problem. We can meet tomorrow after my class instead.",
+      "text": "No problem. We can meet tomorrow after my class instead.",
+      "ttsOverrides": [],
+      "gapAfterMs": 650,
+      "index": 4,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "4.750000"
+      },
+      "volume": {
+        "meanVolumeDb": -24.0,
+        "maxVolumeDb": -5.4
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -24.0,
+        "maxVolumeDb": -5.4
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\cedar-6848c206f0b2e05540831c97.wav"
+    },
+    {
+      "speaker": "A",
+      "provider": "edge",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "gender": "female",
+      "language": "en-US",
+      "englishOnly": true,
+      "gainDb": -4.0,
+      "displayText": "Question. Why will the woman stay home this afternoon?",
+      "text": "Question. Why will the woman stay home this afternoon?",
+      "ttsOverrides": [],
+      "gapAfterMs": 0,
+      "role": "question",
+      "index": 5,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "3.888000"
+      },
+      "volume": {
+        "meanVolumeDb": -18.4,
+        "maxVolumeDb": -4.5
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.4,
+        "maxVolumeDb": -8.5
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-US-EmmaMultilingualNeural-a917c7f622dfcb26fc3130d6.wav"
+    }
+  ]
+}

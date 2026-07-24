@@ -1,0 +1,209 @@
+{
+  "item": "No02",
+  "number": 2,
+  "sourceScript": "A: I signed up for the beginner yoga class that meets on Wednesday evenings. B: That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven. A: Thursday works for me. Do I need to register again at the front desk? B: No, your name is already on the new list. Just bring the same membership card.",
+  "questionText": "What is true about the yoga class?",
+  "voices": {
+    "A": {
+      "provider": "edge",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "gender": "female",
+      "language": "en-US",
+      "englishOnly": true,
+      "gainDb": -4.0
+    },
+    "B": {
+      "provider": "openai",
+      "voice": "cedar",
+      "gender": "male",
+      "accent": "American English",
+      "gainDb": 0.0
+    }
+  },
+  "output": "audio-generation\\grade2-round1\\part1\\No02.wav",
+  "outputBytes": 1244814,
+  "outputMetadata": {
+    "codec_name": "pcm_s16le",
+    "sample_fmt": "s16",
+    "sample_rate": "24000",
+    "channels": 1,
+    "bits_per_sample": 16,
+    "duration": "25.932000"
+  },
+  "openaiSegments": 2,
+  "edgeSegments": 3,
+  "openaiApiCallsThisRun": 0,
+  "edgeCallsThisRun": 0,
+  "initialVolume": {
+    "meanVolumeDb": -22.5,
+    "maxVolumeDb": -3.0
+  },
+  "globalAttenuationDb": 0.0,
+  "finalVolume": {
+    "meanVolumeDb": -22.5,
+    "maxVolumeDb": -3.0
+  },
+  "segments": [
+    {
+      "speaker": "A",
+      "provider": "edge",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "gender": "female",
+      "language": "en-US",
+      "englishOnly": true,
+      "gainDb": -4.0,
+      "displayText": "Number 2... I signed up for the beginner yoga class that meets on Wednesday evenings.",
+      "text": "Number 2... I signed up for the beginner yoga class that meets on Wednesday evenings.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 1,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "5.136000"
+      },
+      "volume": {
+        "meanVolumeDb": -17.6,
+        "maxVolumeDb": -4.0
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -21.6,
+        "maxVolumeDb": -8.0
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-US-EmmaMultilingualNeural-1fdd4e8c53dbd01d1c751d4d.wav"
+    },
+    {
+      "speaker": "B",
+      "provider": "openai",
+      "voice": "cedar",
+      "gender": "male",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven.",
+      "text": "That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 2,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "7.100000"
+      },
+      "volume": {
+        "meanVolumeDb": -23.2,
+        "maxVolumeDb": -3.0
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -23.2,
+        "maxVolumeDb": -3.0
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\cedar-9a9b749bcb809063291aa770.wav"
+    },
+    {
+      "speaker": "A",
+      "provider": "edge",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "gender": "female",
+      "language": "en-US",
+      "englishOnly": true,
+      "gainDb": -4.0,
+      "displayText": "Thursday works for me. Do I need to register again at the front desk?",
+      "text": "Thursday works for me. Do I need to register again at the front desk?",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 3,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "4.392000"
+      },
+      "volume": {
+        "meanVolumeDb": -17.4,
+        "maxVolumeDb": -3.3
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -21.4,
+        "maxVolumeDb": -7.3
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-US-EmmaMultilingualNeural-ae3d51aa90eb92b52cd4b15c.wav"
+    },
+    {
+      "speaker": "B",
+      "provider": "openai",
+      "voice": "cedar",
+      "gender": "male",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "No, your name is already on the new list. Just bring the same membership card.",
+      "text": "No, your name is already on the new list. Just bring the same membership card.",
+      "ttsOverrides": [],
+      "gapAfterMs": 650,
+      "index": 4,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "4.850000"
+      },
+      "volume": {
+        "meanVolumeDb": -22.1,
+        "maxVolumeDb": -5.7
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.1,
+        "maxVolumeDb": -5.7
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\cedar-9ed6b8a22f19444e3937dc17.wav"
+    },
+    {
+      "speaker": "A",
+      "provider": "edge",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "gender": "female",
+      "language": "en-US",
+      "englishOnly": true,
+      "gainDb": -4.0,
+      "displayText": "Question. What is true about the yoga class?",
+      "text": "Question. What is true about the yoga class?",
+      "ttsOverrides": [],
+      "gapAfterMs": 0,
+      "role": "question",
+      "index": 5,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "3.264000"
+      },
+      "volume": {
+        "meanVolumeDb": -19.5,
+        "maxVolumeDb": -4.9
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -23.5,
+        "maxVolumeDb": -8.9
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-US-EmmaMultilingualNeural-f8876c69597356d98f36ba0e.wav"
+    }
+  ]
+}

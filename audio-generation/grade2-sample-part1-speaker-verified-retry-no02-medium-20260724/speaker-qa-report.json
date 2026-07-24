@@ -1,0 +1,316 @@
+{
+  "sourceBatchJob": {
+    "submittedAt": "2026-07-23T16:54:40.454332+00:00",
+    "name": "batches/u45kwfd5t931w34t50oyehaungvospkdgs3w",
+    "displayName": "grade2-sample-part1-speaker-verified-retry-no02-medium-20260724",
+    "model": "models/gemini-3.1-flash-tts-preview",
+    "state": "JOB_STATE_SUCCEEDED",
+    "requestCount": 2,
+    "checkedAt": "2026-07-23T16:57:08.815879+00:00",
+    "error": null
+  },
+  "model": "gemini-3.1-flash-tts-preview",
+  "speakerReferences": {
+    "KoreMedianF0Hz": 190.5,
+    "PuckMedianF0Hz": 142.9,
+    "WomanMinimumF0Hz": 170.0,
+    "ManMaximumF0Hz": 165.0,
+    "MinimumWomanManRatio": 1.18
+  },
+  "paceTarget": {
+    "wordsPerSecond": 2.44,
+    "tolerance": 0.12
+  },
+  "selectionPolicy": "actual speaker correctness first; pace second; manual listening remains required before release",
+  "excludedFailedCandidates": [],
+  "results": [
+    {
+      "id": "No02-c1",
+      "baseId": "No02",
+      "number": 2,
+      "candidate": 1,
+      "file": "No02-c1.wav",
+      "durationSeconds": 33.922,
+      "wordCount": 81,
+      "wordsPerSecond": 2.388,
+      "paceDeltaFromTarget": -0.052,
+      "pacePassed": true,
+      "speakerPassed": true,
+      "allTurnsPassed": true,
+      "separationPassed": true,
+      "womanMedianF0Hz": 190.48,
+      "manMedianF0Hz": 135.63,
+      "womanManRatio": 1.404,
+      "bodyTurns": [
+        {
+          "bodyTurn": 1,
+          "speaker": "Woman",
+          "text": "Good afternoon. I reserved a quiet room for two nights under the name Laura Green.",
+          "startSeconds": 1.77,
+          "endSeconds": 7.869,
+          "medianF0Hz": 190.48,
+          "p10F0Hz": 121.21,
+          "p90F0Hz": 266.67,
+          "medianCorrelation": 0.923,
+          "reliableFrameCount": 205,
+          "expectedRole": "Woman",
+          "observedClass": "Kore-like",
+          "distanceToKoreHz": 0.02,
+          "distanceToPuckHz": 47.58,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 2,
+          "speaker": "Man",
+          "text": "I found your reservation, Ms. Green. The quiet room won't be ready until six, but a room near the elevator is available now.",
+          "startSeconds": 8.756,
+          "endSeconds": 14.56,
+          "medianF0Hz": 137.93,
+          "p10F0Hz": 100.0,
+          "p90F0Hz": 222.22,
+          "medianCorrelation": 0.848,
+          "reliableFrameCount": 168,
+          "expectedRole": "Man",
+          "observedClass": "Puck-like",
+          "distanceToKoreHz": 52.57,
+          "distanceToPuckHz": 4.97,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 3,
+          "speaker": "Woman",
+          "text": "I'd rather wait. Can I leave my suitcase here while I get something to eat?",
+          "startSeconds": 14.869,
+          "endSeconds": 23.219,
+          "medianF0Hz": 190.48,
+          "p10F0Hz": 125.0,
+          "p90F0Hz": 285.71,
+          "medianCorrelation": 0.891,
+          "reliableFrameCount": 273,
+          "expectedRole": "Woman",
+          "observedClass": "Kore-like",
+          "distanceToKoreHz": 0.02,
+          "distanceToPuckHz": 47.58,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 4,
+          "speaker": "Man",
+          "text": "Certainly. We'll keep it behind the front desk and call you when your room is ready.",
+          "startSeconds": 24.009,
+          "endSeconds": 28.486,
+          "medianF0Hz": 133.33,
+          "p10F0Hz": 95.24,
+          "p90F0Hz": 250.0,
+          "medianCorrelation": 0.87,
+          "reliableFrameCount": 119,
+          "expectedRole": "Man",
+          "observedClass": "Puck-like",
+          "distanceToKoreHz": 57.17,
+          "distanceToPuckHz": 9.57,
+          "turnPassed": true
+        }
+      ],
+      "selectedBoundaries": [
+        {
+          "startSeconds": 0.903,
+          "endSeconds": 1.77,
+          "durationMs": 867.0,
+          "activeFraction": 0.0358,
+          "expectedActiveFraction": 0.0247
+        },
+        {
+          "startSeconds": 7.869,
+          "endSeconds": 8.756,
+          "durationMs": 887.0,
+          "activeFraction": 0.2568,
+          "expectedActiveFraction": 0.2099
+        },
+        {
+          "startSeconds": 14.56,
+          "endSeconds": 14.869,
+          "durationMs": 309.5,
+          "activeFraction": 0.4492,
+          "expectedActiveFraction": 0.4938
+        },
+        {
+          "startSeconds": 23.219,
+          "endSeconds": 24.009,
+          "durationMs": 789.3,
+          "activeFraction": 0.7343,
+          "expectedActiveFraction": 0.679
+        },
+        {
+          "startSeconds": 28.486,
+          "endSeconds": 29.62,
+          "durationMs": 1134.1,
+          "activeFraction": 0.873,
+          "expectedActiveFraction": 0.8765
+        }
+      ],
+      "detectedBoundaryCandidateCount": 10,
+      "candidatePassed": true
+    },
+    {
+      "id": "No02-c2",
+      "baseId": "No02",
+      "number": 2,
+      "candidate": 2,
+      "file": "No02-c2.wav",
+      "durationSeconds": 30.593,
+      "wordCount": 81,
+      "wordsPerSecond": 2.648,
+      "paceDeltaFromTarget": 0.208,
+      "pacePassed": false,
+      "speakerPassed": false,
+      "allTurnsPassed": false,
+      "separationPassed": false,
+      "womanMedianF0Hz": 190.48,
+      "manMedianF0Hz": 178.57,
+      "womanManRatio": 1.067,
+      "bodyTurns": [
+        {
+          "bodyTurn": 1,
+          "speaker": "Woman",
+          "text": "Good afternoon. I reserved a quiet room for two nights under the name Laura Green.",
+          "startSeconds": 1.629,
+          "endSeconds": 7.199,
+          "medianF0Hz": 190.48,
+          "p10F0Hz": 133.33,
+          "p90F0Hz": 266.67,
+          "medianCorrelation": 0.914,
+          "reliableFrameCount": 203,
+          "expectedRole": "Woman",
+          "observedClass": "Kore-like",
+          "distanceToKoreHz": 0.02,
+          "distanceToPuckHz": 47.58,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 2,
+          "speaker": "Man",
+          "text": "I found your reservation, Ms. Green. The quiet room won't be ready until six, but a room near the elevator is available now.",
+          "startSeconds": 8.02,
+          "endSeconds": 13.193,
+          "medianF0Hz": 166.67,
+          "p10F0Hz": 88.89,
+          "p90F0Hz": 222.22,
+          "medianCorrelation": 0.87,
+          "reliableFrameCount": 160,
+          "expectedRole": "Man",
+          "observedClass": "Puck-like",
+          "distanceToKoreHz": 23.83,
+          "distanceToPuckHz": 23.77,
+          "turnPassed": false
+        },
+        {
+          "bodyTurn": 3,
+          "speaker": "Woman",
+          "text": "I'd rather wait. Can I leave my suitcase here while I get something to eat?",
+          "startSeconds": 13.453,
+          "endSeconds": 17.952,
+          "medianF0Hz": 190.48,
+          "p10F0Hz": 111.11,
+          "p90F0Hz": 235.29,
+          "medianCorrelation": 0.913,
+          "reliableFrameCount": 151,
+          "expectedRole": "Woman",
+          "observedClass": "Kore-like",
+          "distanceToKoreHz": 0.02,
+          "distanceToPuckHz": 47.58,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 4,
+          "speaker": "Man",
+          "text": "Certainly. We'll keep it behind the front desk and call you when your room is ready.",
+          "startSeconds": 18.383,
+          "endSeconds": 26.203,
+          "medianF0Hz": 190.48,
+          "p10F0Hz": 95.24,
+          "p90F0Hz": 285.71,
+          "medianCorrelation": 0.911,
+          "reliableFrameCount": 211,
+          "expectedRole": "Man",
+          "observedClass": "Kore-like",
+          "distanceToKoreHz": 0.02,
+          "distanceToPuckHz": 47.58,
+          "turnPassed": false
+        }
+      ],
+      "selectedBoundaries": [
+        {
+          "startSeconds": 0.942,
+          "endSeconds": 1.629,
+          "durationMs": 687.0,
+          "activeFraction": 0.0421,
+          "expectedActiveFraction": 0.0247
+        },
+        {
+          "startSeconds": 7.199,
+          "endSeconds": 8.02,
+          "durationMs": 820.8,
+          "activeFraction": 0.2692,
+          "expectedActiveFraction": 0.2099
+        },
+        {
+          "startSeconds": 13.193,
+          "endSeconds": 13.453,
+          "durationMs": 259.8,
+          "activeFraction": 0.4626,
+          "expectedActiveFraction": 0.4938
+        },
+        {
+          "startSeconds": 17.952,
+          "endSeconds": 18.383,
+          "durationMs": 431.2,
+          "activeFraction": 0.6311,
+          "expectedActiveFraction": 0.679
+        },
+        {
+          "startSeconds": 26.203,
+          "endSeconds": 26.949,
+          "durationMs": 746.1,
+          "activeFraction": 0.8888,
+          "expectedActiveFraction": 0.8765
+        }
+      ],
+      "detectedBoundaryCandidateCount": 11,
+      "candidatePassed": false
+    }
+  ],
+  "selections": {
+    "No01": {
+      "selectedCandidateId": null,
+      "fullyPassed": false,
+      "speakerPassed": false,
+      "pacePassed": false
+    },
+    "No02": {
+      "selectedCandidateId": "No02-c1",
+      "fullyPassed": true,
+      "speakerPassed": true,
+      "pacePassed": true
+    },
+    "No03": {
+      "selectedCandidateId": null,
+      "fullyPassed": false,
+      "speakerPassed": false,
+      "pacePassed": false
+    },
+    "No04": {
+      "selectedCandidateId": null,
+      "fullyPassed": false,
+      "speakerPassed": false,
+      "pacePassed": false
+    },
+    "No05": {
+      "selectedCandidateId": null,
+      "fullyPassed": false,
+      "speakerPassed": false,
+      "pacePassed": false
+    }
+  },
+  "allNumbersHaveSpeakerPassingCandidate": false,
+  "allNumbersHaveFullyPassingCandidate": false
+}

@@ -1,0 +1,53 @@
+[
+  {
+    "id": "No01",
+    "number": 1,
+    "engine": "pocket-tts",
+    "speakerA": "alba",
+    "speakerB": "charles",
+    "language": "english",
+    "speed": 0.87,
+    "quantize": false,
+    "sampleRate": 24000,
+    "segments": 6,
+    "duration": 26.098875,
+    "sourcePeak": 0.78515625,
+    "peakScale": 0.9016622869651741,
+    "path": "audio-generation\\local-tts-trials\\pocket\\No01.wav",
+    "bytes": 1252790
+  },
+  {
+    "id": "No02",
+    "number": 2,
+    "engine": "pocket-tts",
+    "speakerA": "alba",
+    "speakerB": "charles",
+    "language": "english",
+    "speed": 0.87,
+    "quantize": false,
+    "sampleRate": 24000,
+    "segments": 6,
+    "duration": 28.967875,
+    "sourcePeak": 0.81048583984375,
+    "peakScale": 0.8734832185797123,
+    "path": "audio-generation\\local-tts-trials\\pocket\\No02.wav",
+    "bytes": 1390502
+  },
+  {
+    "id": "No03",
+    "number": 3,
+    "engine": "pocket-tts",
+    "speakerA": "alba",
+    "speakerB": "charles",
+    "language": "english",
+    "speed": 0.87,
+    "quantize": false,
+    "sampleRate": 24000,
+    "segments": 6,
+    "duration": 28.976333,
+    "sourcePeak": 0.734527587890625,
+    "peakScale": 0.9638110149586605,
+    "path": "audio-generation\\local-tts-trials\\pocket\\No03.wav",
+    "bytes": 1390908
+  }
+]

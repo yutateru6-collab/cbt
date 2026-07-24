@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>第1回 リスニング本番音声確認</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #17211c;
+      background: #f3f1eb;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { width: min(760px, calc(100% - 24px)); margin: 0 auto; padding: 28px 0 56px; }
+    h1 { margin: 0 0 10px; font-size: clamp(24px, 6vw, 36px); line-height: 1.2; }
+    .lead, .notice { color: #526058; line-height: 1.75; }
+    .notice { padding: 12px 14px; border-radius: 12px; background: #e9f3ed; }
+    .speed-panel { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 18px 0 6px; padding: 12px 14px; border: 1px solid #d9ddd8; border-radius: 14px; background: #fff; }
+    .speed-panel strong { margin-right: 4px; }
+    .speed-button { padding: 8px 13px; border: 1px solid #aeb8b1; border-radius: 999px; color: #26362d; background: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+    .speed-button[aria-pressed="true"] { border-color: #216a45; color: #fff; background: #216a45; }
+    section { margin-top: 30px; }
+    h2 { margin: 0 0 14px; font-size: 22px; }
+    .grid { display: grid; gap: 12px; }
+    article { padding: 15px; border: 1px solid #d9ddd8; border-radius: 16px; background: #fff; box-shadow: 0 7px 22px rgba(31, 52, 41, .06); }
+    h3 { margin: 0 0 5px; font-size: 19px; }
+    article p { margin: 0 0 11px; color: #5d6861; font-size: 14px; line-height: 1.55; }
+    audio { display: block; width: 100%; min-width: 0; }
+    footer { margin-top: 28px; color: #6a746e; font-size: 13px; line-height: 1.7; }
+    @media (max-width: 560px) {
+      main { width: 100%; padding: 20px 5px 52px; }
+      article { padding: 12px 7px; border-radius: 12px; }
+      audio::-webkit-media-controls-mute-button,
+      audio::-webkit-media-controls-volume-slider { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>第1回 リスニング本番音声確認</h1>
+    <p class="lead">SIMBA 3.2の自然な等倍マスターです。Part 1 No.1〜3とPart 2 No.16〜17を確認できます。</p>
+    <p class="notice">初期再生速度は0.87倍です。音源自体には速度加工をせず、ページ側でピッチを保って再生速度を変更します。</p>
+    <div class="speed-panel" aria-label="再生速度">
+      <strong>再生速度</strong>
+      <button class="speed-button" type="button" data-rate="0.87" aria-pressed="true">0.87倍</button>
+      <button class="speed-button" type="button" data-rate="0.90" aria-pressed="false">0.90倍</button>
+      <button class="speed-button" type="button" data-rate="1.00" aria-pressed="false">1.00倍</button>
+    </div>
+
+    <section>
+      <h2>Part 1</h2>
+      <div class="grid">
+        <article><h3>No.1</h3><p>Geffen × Dominic／番号・設問：Hugh</p><audio controls preload="metadata" src="audio/part1/No01.mp3?v=natural-master-20260717-2"></audio></article>
+        <article><h3>No.2</h3><p>Geffen × Dominic／番号・設問：Imogen</p><audio controls preload="metadata" src="audio/part1/No02.mp3?v=natural-master-20260717-2"></audio></article>
+        <article><h3>No.3</h3><p>Geffen × Dominic／番号・設問：Harper</p><audio controls preload="metadata" src="audio/part1/No03.mp3?v=natural-master-20260717-2"></audio></article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Part 2</h2>
+      <div class="grid">
+        <article><h3>No.16</h3><p>本文：Geffen／設問：Dominic</p><audio controls preload="metadata" src="audio/part2/No16.mp3?v=natural-master-20260717-2"></audio></article>
+        <article><h3>No.17</h3><p>本文：Wyatt／設問：Harper</p><audio controls preload="metadata" src="audio/part2/No17.mp3?v=natural-master-20260717-2"></audio></article>
+      </div>
+    </section>
+
+    <footer>
+      Part 1：番号→会話1350ms／話者交代550ms／会話→Question 1300ms。<br>
+      Part 2：番号→本文1150ms／文間420ms／本文→Question 1300ms。<br>
+      共通：Question→設問350ms。
+    </footer>
+  </main>
+  <script>
+    const audioElements = [...document.querySelectorAll("audio")];
+    const speedButtons = [...document.querySelectorAll("[data-rate]")];
+    let selectedRate = 0.87;
+
+    function applyPlaybackRate(audio) {
+      audio.preservesPitch = true;
+      audio.webkitPreservesPitch = true;
+      audio.defaultPlaybackRate = selectedRate;
+      audio.playbackRate = selectedRate;
+    }
+
+    audioElements.forEach((audio) => {
+      applyPlaybackRate(audio);
+      audio.addEventListener("loadedmetadata", () => applyPlaybackRate(audio));
+      audio.addEventListener("play", () => applyPlaybackRate(audio));
+    });
+
+    speedButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        selectedRate = Number(button.dataset.rate);
+        speedButtons.forEach((candidate) => {
+          candidate.setAttribute("aria-pressed", String(candidate === button));
+        });
+        audioElements.forEach((audio) => applyPlaybackRate(audio));
+      });
+    });
+  </script>
+</body>
+</html>

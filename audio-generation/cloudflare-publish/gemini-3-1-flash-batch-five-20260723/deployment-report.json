@@ -1,0 +1,23 @@
+{
+  "deployedAt": "2026-07-23T02:02:31.0221121+09:00",
+  "provider": "Cloudflare Pages Direct Upload",
+  "project": "scbt-tts-compare",
+  "branch": "main",
+  "sourceDirectory": "audio-generation/cloudflare-publish/gemini-3-1-flash-batch-five-20260723",
+  "deploymentUrl": "https://1a00c7f9.scbt-tts-compare.pages.dev",
+  "stableUrl": "https://scbt-tts-compare.pages.dev/?v=20260723-gemini31-batch-five",
+  "verification": {
+    "deploymentPageStatus": 200,
+    "stablePageStatus": 200,
+    "pageContentType": "text/html; charset=utf-8",
+    "expectedTitlePresent": true,
+    "audioElementCount": 5,
+    "audioFiles": [
+      { "name": "No01.wav", "status": 200, "contentType": "audio/wav", "bytes": 1171052 },
+      { "name": "No02.wav", "status": 200, "contentType": "audio/wav", "bytes": 1373820 },
+      { "name": "No03.wav", "status": 200, "contentType": "audio/wav", "bytes": 1304168 },
+      { "name": "No16.wav", "status": 200, "contentType": "audio/wav", "bytes": 1951318 },
+      { "name": "No17.wav", "status": 200, "contentType": "audio/wav", "bytes": 1465714 }
+    ]
+  }
+}

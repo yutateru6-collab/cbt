@@ -1,0 +1,21 @@
+[
+  {
+    "id": "No01",
+    "number": 1,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No01.wav",
+    "bytes": 1375950,
+    "duration": "28.664000",
+    "bitRate": "384000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "-10%",
+      "B": "-13%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "48k",
+    "concatMode": "reencode",
+    "outputFormat": "wav"
+  }
+]

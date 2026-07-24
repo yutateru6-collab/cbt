@@ -14,7 +14,7 @@ window.scbtGrade2Set01 = {
           "id": 1,
           "section": "短文語句",
           "type": "vocabulary",
-          "text": "(1) After tasting a new soup at lunch, Leo felt his lips swell and saw spots on his neck. A doctor later said the swelling was a possible (　　　) of an allergy.",
+          "text": "(1) After trying a new soup at lunch, Leo noticed that his lips had begun to swell and that red spots had appeared on his neck. A doctor later said the swelling was a possible (　　　) of an allergic reaction.",
           "choices": [
             "cause",
             "treatment",
@@ -28,7 +28,7 @@ window.scbtGrade2Set01 = {
           "id": 2,
           "section": "短文語句",
           "type": "vocabulary",
-          "text": "(2) A: Can we use this website for our school presentation?\nB: Maybe, but we should check the editor’s name and the date. The source needs to be (　　　).",
+          "text": "(2) A: Can we use this website for our school presentation?\nB: Maybe, but we should check the author’s name and the date. The source needs to be (　　　).",
           "choices": [
             "credible",
             "familiar",
@@ -84,98 +84,98 @@ window.scbtGrade2Set01 = {
           "id": 6,
           "section": "短文語句",
           "type": "vocabulary",
-          "text": "(6) During the staff meeting, Kento did not try to hide his mistake. When his supervisor asked directly, he (　　　) that he had sent the file to the wrong address.",
+          "text": "(6) Kento realized that he had used the wrong address when he checked his sent-mail folder. He immediately (　　　) his mistake and apologized to his supervisor.",
           "choices": [
-            "admitted",
             "insisted",
             "predicted",
-            "suggested"
+            "suggested",
+            "admitted"
           ],
-          "correct": 1,
+          "correct": 4,
           "explanation": "文脈から「admitted」が最も自然です。空所の前後関係と選択肢の意味を確認しましょう。"
         },
         {
           "id": 7,
           "section": "短文語句",
           "type": "vocabulary",
-          "text": "(7) At the shelter, volunteers gave blankets to families who arrived early. Only twenty blankets were (　　　), so others had to wait for the next delivery.",
+          "text": "(7) Only twenty blankets were (　　　) at the shelter, so the remaining families had to wait for the next delivery.",
           "choices": [
             "suitable",
+            "available",
             "common",
-            "official",
-            "available"
+            "official"
           ],
-          "correct": 4,
+          "correct": 2,
           "explanation": "文脈から「available」が最も自然です。空所の前後関係と選択肢の意味を確認しましょう。"
         },
         {
           "id": 8,
           "section": "短文語句",
           "type": "vocabulary",
-          "text": "(8) To rent a bicycle for the day, customers must pay a small (　　　). The money is returned when the bicycle is brought back safely.",
+          "text": "(8) Customers who rent a bicycle for the day must pay a small (　　　). The money is returned when the bicycle is brought back on time and in good condition.",
           "choices": [
-            "donation",
             "deposit",
-            "profit",
+            "fee",
+            "donation",
             "salary"
           ],
-          "correct": 2,
+          "correct": 1,
           "explanation": "文脈から「deposit」が最も自然です。空所の前後関係と選択肢の意味を確認しましょう。"
         },
         {
           "id": 9,
           "section": "短文語句",
           "type": "vocabulary",
-          "text": "(9) When no one was waiting at the café counter, Haru (　　　) that the shop was closed. Then he noticed a sign telling customers to order upstairs.",
+          "text": "(9) Haru saw that no employee was standing behind the café counter, so he started to leave because he (　　　) that the shop was closed without checking the sign. A moment later, he learned that customers had to order upstairs.",
           "choices": [
-            "hoped",
-            "feared",
-            "joked",
-            "assumed"
+            "announced",
+            "doubted",
+            "assumed",
+            "proved"
           ],
-          "correct": 4,
+          "correct": 3,
           "explanation": "文脈から「assumed」が最も自然です。空所の前後関係と選択肢の意味を確認しましょう。"
         },
         {
           "id": 10,
           "section": "短文語句",
           "type": "vocabulary",
-          "text": "(10) Near the station, taxi drivers are told to stay (　　　) because pedestrians often step into the road after checking bus arrival times.",
+          "text": "(10) Taxi drivers near the station are told to stay (　　　) because pedestrians sometimes step into the road while checking bus arrival times on their phones.",
           "choices": [
-            "anxious",
             "alert",
+            "anxious",
             "polite",
             "patient"
           ],
-          "correct": 2,
+          "correct": 1,
           "explanation": "文脈から「alert」が最も自然です。空所の前後関係と選択肢の意味を確認しましょう。"
         },
         {
           "id": 11,
           "section": "短文語句",
           "type": "phrase",
-          "text": "(11) A: Where did you find that old map?\nB: I (　　　) the map while cleaning my grandfather’s desk. I had no idea it was there.",
+          "text": "(11) A: Where did you find that old map?\nB: I (　　　) the map while cleaning out my grandfather’s desk. I had no idea it was there.",
           "choices": [
-            "came across",
             "looked over",
+            "came across",
             "searched through",
             "picked up"
           ],
-          "correct": 1,
+          "correct": 2,
           "explanation": "文脈から「came across」が最も自然です。空所の前後関係と選択肢の意味を確認しましょう。"
         },
         {
           "id": 12,
           "section": "短文語句",
           "type": "phrase",
-          "text": "(12) Since several parents paid in cash, Reina used a notebook to (　　　) each payment and avoid charging anyone twice.",
+          "text": "(12) Several parents paid in cash, so Reina used a notebook to (　　　) each payment and avoid asking anyone to pay twice.",
           "choices": [
             "take care of",
             "make sense of",
-            "keep track of",
-            "get hold of"
+            "get hold of",
+            "keep track of"
           ],
-          "correct": 3,
+          "correct": 4,
           "explanation": "文脈から「keep track of」が最も自然です。空所の前後関係と選択肢の意味を確認しましょう。"
         },
         {
@@ -185,32 +185,32 @@ window.scbtGrade2Set01 = {
           "text": "(13) A: Are you joining the weekend hiking trip?\nB: I had to (　　　) the offer because my cousin’s wedding is on the same day.",
           "choices": [
             "look into",
+            "pass up",
             "think over",
-            "bring up",
-            "pass up"
+            "bring up"
           ],
-          "correct": 4,
+          "correct": 2,
           "explanation": "文脈から「pass up」が最も自然です。空所の前後関係と選択肢の意味を確認しましょう。"
         },
         {
           "id": 14,
           "section": "短文語句",
           "type": "phrase",
-          "text": "(14) After checking the festival map, the guide (　　　) a route that avoided the busiest street and still passed all three main stages.",
+          "text": "(14) The usual street was closed, so the festival guide had to (　　　) a new route that would still pass all three main stages.",
           "choices": [
-            "pointed out",
-            "worked out",
+            "set aside",
             "followed up",
-            "marked off"
+            "work out",
+            "take over"
           ],
-          "correct": 2,
-          "explanation": "文脈から「worked out」が最も自然です。空所の前後関係と選択肢の意味を確認しましょう。"
+          "correct": 3,
+          "explanation": "文脈から「work out」が最も自然です。空所の前後関係と選択肢の意味を確認しましょう。"
         },
         {
           "id": 15,
           "section": "短文語句",
           "type": "phrase",
-          "text": "(15) You may use the music room after school (　　　) you sign the sheet at the office and leave before the evening club arrives.",
+          "text": "(15) You may use the music room after school (　　　) you sign the sheet at the office and leave before the evening music club begins its practice.",
           "choices": [
             "as long as",
             "as far as",
@@ -228,17 +228,17 @@ window.scbtGrade2Set01 = {
           "choices": [
             "in case",
             "at once",
-            "by chance",
-            "for once"
+            "for once",
+            "by chance"
           ],
-          "correct": 3,
+          "correct": 4,
           "explanation": "文脈から「by chance」が最も自然です。空所の前後関係と選択肢の意味を確認しましょう。"
         },
         {
           "id": 17,
           "section": "短文語句",
           "type": "phrase",
-          "text": "(17) Because several staff members are training new workers, the service counter will remain closed at lunchtime (　　　). Another notice will be posted when regular hours return.",
+          "text": "(17) The service counter will remain closed during lunchtime (　　　) while several staff members train new workers. Another notice will be posted when regular hours return.",
           "choices": [
             "in the long run",
             "for the time being",
@@ -254,11 +254,11 @@ window.scbtGrade2Set01 = {
       "label": "長文語句 2A",
       "kind": "long",
       "instruction": "本文を読み、空所に入る最も適切な語句を選びなさい。",
-      "passageTitle": "A. Drum Messages",
+      "passageTitle": "A. How Drums Carried Messages",
       "passage": [
-        "Long before telephones, some communities in West Africa used drums to send news across forests and valleys. The drums did not simply make loud sounds. Skilled players changed the pitch and rhythm to copy patterns of local speech, so listeners could recognize familiar phrases. Some messages moved from one player to another. A short beat might be confused with another word, so messages were often repeated with extra words and names. In this way, drum language helped people (18) before a runner could arrive.",
-        "Sending information by sound had limits. Rain, hills, and competing noises could make the pattern hard to hear, and outsiders who did not know the language could misunderstand it. (19), the system worked best when both villages shared the same speech patterns and social knowledge. A drummer might include a person's family name or a place connected with a story, because such details narrowed the meaning. The extra information made the message slower, but it also made it safer.",
-        "Today, researchers and musicians study these drum systems not as a replacement for writing, but as evidence of how people adapted language to a difficult environment. Recordings made by older performers are compared with spoken phrases, village histories, and reports from travelers. This work can (20), especially when few written documents describe daily communication. It also reminds students that technology does not always require metal parts or electricity; sometimes it begins with careful listening and shared knowledge."
+        "Long before telephones, people in some West African communities used drums to carry news across long distances. In communities where tonal languages were spoken, skilled drummers changed pitch and rhythm to imitate patterns in speech. However, drum sounds could not reproduce every feature of spoken language, so different words could create similar patterns. To make meanings clearer, drummers expanded short messages by adding familiar names, titles, or descriptions. A message could also pass from one drummer to the next. In this way, drum language helped people (18) more quickly than a runner could.",
+        "Sending information by sound had limits. Rain, hills, and other noises could make a pattern difficult to hear, and outsiders who did not know the language could misunderstand it. (19), the system worked best when both communities shared the same speech patterns and social knowledge. A drummer might mention a person's family name or a place connected with a familiar story. Such details made the message longer, but they also narrowed its meaning and reduced the chance of confusion.",
+        "Today, researchers and musicians study these drum systems as evidence of how people adapted language to a difficult environment. Recordings made by older performers are compared with spoken phrases, local histories, and accounts from travelers. This work can (20), especially when few written documents describe everyday communication. The studies also help younger musicians understand how the systems worked and why shared knowledge was so important. These systems show that technology does not always require metal parts or electricity. It can begin with careful listening and knowledge built within a community."
       ],
       "questions": [
         {
@@ -267,13 +267,13 @@ window.scbtGrade2Set01 = {
           "type": "long-blank",
           "text": "空所(18)に入る最も適切なものを選びなさい。",
           "choices": [
-            "share warnings over long distances",
+            "send important news over long distances",
             "announce prices at nearby markets",
             "preserve songs for family ceremonies",
             "guide travelers along forest paths"
           ],
           "correct": 1,
-          "explanation": "正答: share warnings over long distances / 正答根拠: send news across forests and valleys / messages moved from one player to another / before a runner could arrive / 誤答の設計: 2は市場情報で通信領域だが本文根拠なし。3は太鼓と文化には近いが「news」ではない。4は森・移動に近いが、太鼓が道案内をしたとは述べていない。"
+          "explanation": "正答: send important news over long distances / 正答根拠: carry news across long distances / pass from one drummer to the next / more quickly than a runner / 誤答の設計: 2は市場情報、3は歌の保存、4は道案内であり、いずれも本文の説明にはない。"
         },
         {
           "id": 19,
@@ -281,13 +281,13 @@ window.scbtGrade2Set01 = {
           "type": "long-blank",
           "text": "空所(19)に入る最も適切なものを選びなさい。",
           "choices": [
-            "During festivals",
             "By comparison",
-            "In practice",
-            "Without a messenger"
+            "For example",
+            "For this reason",
+            "Nevertheless"
           ],
           "correct": 3,
-          "explanation": "正答: In practice / 正答根拠: 音による通信には限界があり、共有された言語・社会知識が必要だった、という実際の運用条件 / 誤答の設計: 1は祭りに限定され本文の中心とずれる。2は比較対象がない。4はrunner/messengerに関係するが、運用条件全体をまとめない。"
+          "explanation": "正答: For this reason / 正答根拠: 雨や騒音、言語知識の不足による誤解の可能性を受け、その結果として共通の言語的・社会的知識が必要だったことを示す / 誤答の設計: 1は比較、2は例示、4は逆接で、前後の因果関係に合わない。"
         },
         {
           "id": 20,
@@ -295,13 +295,13 @@ window.scbtGrade2Set01 = {
           "type": "long-blank",
           "text": "空所(20)に入る最も適切なものを選びなさい。",
           "choices": [
-            "test which drums sounded louder",
-            "give historians another kind of source",
-            "train performers for public concerts",
-            "compare forests with open fields"
+            "prove that writing was unnecessary",
+            "provide historians with another source of evidence",
+            "explain why all communities used the same language",
+            "show that drums were mainly used for entertainment"
           ],
           "correct": 2,
-          "explanation": "正答: give historians another kind of source / 正答根拠: researchers / recordings / village histories / few written documents describe daily communication / 誤答の設計: 1は音響研究に寄りすぎ。3は演奏継承として可能性はあるが本文の中心ではない。4は環境比較で、歴史資料としての価値からずれる。"
+          "explanation": "正答: provide historians with another source of evidence / 正答根拠: recordings / local histories / accounts from travelers / few written documents / 誤答の設計: 1は文字が不要だったとは述べない。3はすべての共同体が同じ言語だったとは述べない。4は娯楽が主目的だったとは述べない。"
         }
       ]
     },
@@ -309,11 +309,11 @@ window.scbtGrade2Set01 = {
       "label": "長文語句 2B",
       "kind": "long",
       "instruction": "本文を読み、空所に入る最も適切な語句を選びなさい。",
-      "passageTitle": "B. Moths and Light",
+      "passageTitle": "B. When Artificial Light Confuses Insects",
       "passage": [
-        "Many people have seen moths gather around outdoor lamps at night, but the behavior is more complex than simple attraction. In natural darkness, a moth often keeps a steady angle to the moon or other distant light while it flies. Because such light is far away, this strategy can help the insect travel in a fairly straight line. A nearby lamp changes that geometry. As the moth keeps adjusting to the new light source, it may end up (21) instead of moving across the landscape.",
-        "Scientists have tested this idea with cameras and outdoor experiments. They found that moths do not always fly directly toward the brightest point. Some tilt their bodies or make sharp turns when a lamp is close, which supports the view that the light disturbs a control system rather than simply pulls them forward. (22), warmer lamps and lamps that shine upward tend to affect more insects, because they are visible from more directions and for longer distances.",
-        "Understanding this behavior has changed some lighting plans. In several towns, conservation groups have asked buildings near rivers or parks to use shades, timers, and lower lamps during important seasons. The goal is not to make streets completely dark. It is to keep useful light on paths while reducing light that spreads into the sky. Some changes are small enough to test quickly. Careful designs can (23), and they are usually cheaper than replacing an entire lighting system."
+        "Many people have seen moths and other insects gather around lamps at night. People once thought that insects treated lamps like the moon and tried to keep a fixed angle to them. Recent camera studies support a different explanation. In natural darkness, many flying insects keep the upper side of their bodies facing the brightest part of the sky. This helps them tell which direction is up. A nearby lamp can give them the wrong information. When insects keep turning their upper sides toward it, they may end up (21) instead of continuing forward.",
+        "High-speed cameras showed that insects usually did not fly straight at the light. Instead, many turned their upper sides toward it, then circled, climbed too sharply, or flew upside down. This suggests that artificial light interferes with their sense of up and down. (22), lamps directed upward or sideways caused more disruption than shielded lamps aimed at the ground. The response differed among species, and light color also mattered.",
+        "These findings have led to tests of safer outdoor lighting. At several sites in Germany, researchers compared ordinary road lights with lamps that limited light to streets and paths. The shielded lamps attracted fewer insects while still meeting safety standards for people. This does not mean all outdoor lighting is harmless. However, it shows that carefully planned changes can (23). Adding shields, keeping light inside the target area, and using lights only when necessary may reduce the effect on wildlife without leaving roads dark."
       ],
       "questions": [
         {
@@ -322,13 +322,13 @@ window.scbtGrade2Set01 = {
           "type": "long-blank",
           "text": "空所(21)に入る最も適切なものを選びなさい。",
           "choices": [
-            "following moonlight across fields",
-            "resting on cooler tree bark",
-            "sending signals to nearby insects",
-            "flying in tight loops near the lamp"
+            "moving away from the lamp in a straight line",
+            "resting safely on nearby tree bark",
+            "sending signals to other insects",
+            "circling or losing control near the lamp"
           ],
           "correct": 4,
-          "explanation": "正答: flying in tight loops near the lamp / 正答根拠: steady angle strategy / nearby lamp changes geometry / keeps adjusting to the new light source / 誤答の設計: 1は自然光の使い方には近いが、nearby lamp の結果ではない。2は行動領域だが飛行の説明から外れる。3は昆虫行動には近いが、本文に信号の話はない。"
+          "explanation": "正答: circling or losing control near the lamp / 正答根拠: artificial light gives the wrong information about which direction is up / 誤答の設計: 1は本文と逆。2と3は本文で説明されていない行動。"
         },
         {
           "id": 22,
@@ -336,13 +336,13 @@ window.scbtGrade2Set01 = {
           "type": "long-blank",
           "text": "空所(22)に入る最も適切なものを選びなさい。",
           "choices": [
-            "After the insects land",
-            "At the same time",
-            "For a shorter flight",
-            "Under a covered box"
+            "For example",
+            "In addition",
+            "Nevertheless",
+            "As a result"
           ],
           "correct": 2,
-          "explanation": "正答: At the same time / 正答根拠: 前半で飛び方の乱れを述べ、後半で光の種類・向きという追加要因を述べる / 誤答の設計: 1は着地後ではない。3は飛行ルートの目的ではない。4は実験環境として一見ありそうだが、本文は屋外実験と照明条件の話。"
+          "explanation": "正答: In addition / 正答根拠: 飛び方を乱す仕組みの説明に、照明の向きによる影響を追加している / 誤答の設計: 1は例示、3は逆接、4は結果であり、単純な追加関係に合わない。"
         },
         {
           "id": 23,
@@ -350,13 +350,13 @@ window.scbtGrade2Set01 = {
           "type": "long-blank",
           "text": "空所(23)に入る最も適切なものを選びなさい。",
           "choices": [
-            "guide visitors to riverside paths",
-            "compare different moth species",
-            "reduce confusion for night-flying insects",
-            "send insects toward shaded walls"
+            "help drivers see wildlife from farther away",
+            "allow researchers to count every insect",
+            "reduce disruption to night-flying insects",
+            "make parks brighter in every direction"
           ],
           "correct": 3,
-          "explanation": "正答: reduce confusion for night-flying insects / 正答根拠: shades / timers / lower lamps / reducing light that spreads into the sky / 誤答の設計: 1はpathsに関係するが人間向けの案内にずれる。2は研究分類であり、設計の効果ではない。4はshadedという本文語に近いが、昆虫を壁へ送る目的はない。"
+          "explanation": "正答: reduce disruption to night-flying insects / 正答根拠: shielded lamps attracted fewer insects / limiting light to the target area / 誤答の設計: 1と2は本文にない目的。4は光を限定する設計と反対。"
         }
       ]
     },
@@ -364,13 +364,14 @@ window.scbtGrade2Set01 = {
       "label": "メール 3A",
       "kind": "long",
       "instruction": "Eメールを読み、質問に対する最も適切な答えを選びなさい。",
-      "passageTitle": "Details for Saturday's Photo Walk",
+      "passageTitle": "",
+      "hidePassageTitle": true,
       "passage": [
-        "From: Rachel Norton 'r.norton@example.org'\nTo: Kenji Park 'k.park@example.org'\nDate: April 8, 2026\nSubject: Details for Saturday's Photo Walk",
+        "From: Rachel Norton <r.norton@riverside-center.test>\nTo: Kenji Park <k.park@eastfield-media.test>\nDate: April 8\nSubject: Details for Saturday's Photo Walk",
         "Dear Mr. Park,",
-        "Thank you for applying for the Riverside Community Center’s spring photo walk. I am writing to let you know that you have been accepted as one of the twelve participants. We chose people who live or work near Riverside because the program is meant to help residents notice places in their own neighborhood. Since you take pictures for your company newsletter, we thought you would be a good fit.",
-        "The walk will be held on Saturday, April 18, from 9:30 a.m. to noon. We first planned to meet at the old market square, but road work will begin there next week. Instead, please come to Room 204 of the community center by 9:20. After a short explanation, the group will visit Maple Street and the riverside garden. You may use either a phone or a camera, but please bring a notebook. A light jacket is also recommended because most of the morning will be outside.",
-        "Before the event, please reply to this e-mail by Monday, April 13. Tell me whether you can attend and whether you would like to borrow one of our camera straps. Only five straps are available, so I will lend them in the order I receive requests. If you need to arrive after 9:20, include your mobile number so that I can send you the first meeting point.",
+        "Thank you for applying for the Riverside Community Center’s spring photo walk. I am writing to let you know that you have been accepted as one of the twelve participants. We chose people who live or work near Riverside because the program is meant to help local people notice familiar places from a new point of view. Since you take pictures for your company newsletter, we thought you would be a good fit.",
+        "The walk will be held on Saturday, April 18, from 9:30 a.m. to noon. We first planned to meet at the old market square, but the square will be closed for road work that weekend. Instead, please come to Room 204 of the community center by 9:20. After a short explanation, the group will visit Maple Street and the riverside garden. You may use either a phone or a camera, but please bring a notebook. A light jacket is also recommended because most of the morning will be outside.",
+        "Before the event, please reply to this e-mail by Monday, April 13. Tell me whether you can attend and whether you would like to borrow one of our camera straps. Only five straps are available, so I will lend them in the order I receive requests. If you expect to arrive after 9:30, include your mobile number so that I can tell you where to join the group.",
         "Best regards,\nRachel Norton\nProgram Coordinator"
       ],
       "questions": [
@@ -380,13 +381,13 @@ window.scbtGrade2Set01 = {
           "type": "email",
           "text": "(24) Why is Rachel Norton writing this e-mail?",
           "choices": [
-            "To ask Mr. Park to organize a new program for people who work near Riverside.",
+            "To ask Mr. Park to write a newsletter article about the people chosen for the photo walk.",
             "To tell Mr. Park that he has a place in the photo walk and provide information before the event.",
-            "To invite Mr. Park to teach residents how to take pictures for newsletters.",
-            "To explain that the community center wants more people to move to Riverside."
+            "To inform Mr. Park that the photo walk will be held on a different weekend because of road work.",
+            "To ask Mr. Park to help the community center choose the other participants."
           ],
           "correct": 2,
-          "explanation": "正答根拠: accepted as one of the twelve participants と当日情報の案内 / 正答の言い換え: has a place in the photo walk and provide information / 誤答設計: 会社ニュースレター、地域勤務者、住民向け講座をずらした"
+          "explanation": "正答根拠: accepted as one of the twelve participants と当日の集合・持ち物の案内 / 正答の言い換え: has a place in the photo walk and provide information / 誤答設計: ニュースレター、道路工事、参加者選考という本文中の情報を別目的に組み替えた"
         },
         {
           "id": 25,
@@ -394,13 +395,13 @@ window.scbtGrade2Set01 = {
           "type": "email",
           "text": "(25) According to the e-mail, on the day of the photo walk, Mr. Park should ...",
           "choices": [
-            "go to the old market square at 9:30 and bring his own camera.",
+            "meet at the old market square by 9:20 and bring a notebook.",
             "meet in Room 204 by 9:20 and then choose either Maple Street or the riverside garden.",
-            "come to the community center before 9:30 and bring a notebook.",
-            "wait at Maple Street at noon and wear a light jacket."
+            "arrive at the community center at least ten minutes before the walk and bring something to write in.",
+            "arrive at the community center at 9:30 and bring a light jacket instead of a notebook."
           ],
           "correct": 3,
-          "explanation": "正答根拠: Room 204 by 9:20、phone or camera、bring a notebook / 正答の言い換え: community center before 9:30 and bring a notebook / 誤答設計: 旧集合場所、訪問場所、服装助言を混ぜた"
+          "explanation": "正答根拠: Room 204 by 9:20、開始は9:30、bring a notebook / 正答の言い換え: at least ten minutes before と something to write in / 誤答設計: 旧集合場所、訪問先の選択、服装の助言を正しい時刻情報と組み替えた"
         },
         {
           "id": 26,
@@ -408,13 +409,13 @@ window.scbtGrade2Set01 = {
           "type": "email",
           "text": "(26) What does Rachel ask Mr. Park to do by Monday, April 13?",
           "choices": [
-            "Reply to say whether he will attend and whether he wants to borrow a camera strap.",
-            "Send his company newsletter and ask for one of the five camera straps.",
-            "Call the community center if he wants to receive the first meeting point.",
-            "Visit Room 204 to pick up a camera strap before the event."
+            "Reply with whether he can attend and whether he wants to borrow a camera strap.",
+            "Send his company newsletter and reserve a camera strap for another participant.",
+            "Call the community center and ask where the group will be at 9:20.",
+            "Visit Room 204 and collect a camera strap before the event."
           ],
           "correct": 1,
-          "explanation": "正答根拠: reply by Monday, April 13、attend、borrow camera straps / 正答の言い換え: reply to say whether he will attend and whether he wants to borrow / 誤答設計: 会社ニュースレター、携帯番号、Room 204を別行動にずらした"
+          "explanation": "正答根拠: reply by Monday, April 13、can attend、borrow one of our camera straps / 正答の言い換え: reply with both pieces of information / 誤答設計: ニュースレター、携帯番号、Room 204を期限までの別行動に組み替えた"
         }
       ]
     },
@@ -422,27 +423,27 @@ window.scbtGrade2Set01 = {
       "label": "長文内容 3B",
       "kind": "long",
       "instruction": "英文を読み、質問に対する最も適切な答えを選びなさい。",
-      "passageTitle": "Cork and Its Second Life",
+      "passageTitle": "Cork: An Old Material with New Uses",
       "passage": [
-        "Cork is a light brown material that many people know from bottle stoppers, but it has a longer story than that. It comes from the outer bark of the cork oak, a tree that grows in dry areas around the Mediterranean Sea. For centuries, people used pieces of cork to help fishing nets float, to close jars, and to make simple shoes and small boat parts. Because the bark can be removed while the tree remains alive, cork became valuable in places where wood was not always easy to spare.",
-        "The usefulness of cork comes from its unusual structure. Under a microscope, it looks like a mass of tiny closed rooms filled mostly with air. This makes cork light, soft, and difficult for water to pass through. When it is pressed, it can return to nearly its original shape, which is why it works well as a bottle stopper. In the past, workers cut the bark into thick sheets by hand, boiled them to make them easier to flatten, and then punched out stoppers or cut pieces for floors and fishing tools.",
-        "However, cork faced a serious challenge in the late twentieth century. Some wine makers began using metal or plastic closures because natural cork sometimes affected the smell of wine, and because each piece of cork was slightly different. At the same time, lower demand made some landowners think about replacing cork forests with faster-paying crops. This worried scientists and local communities, since old cork oak forests provide homes for birds and insects and also reduce soil loss in dry regions. In some villages, losing these forests also meant losing seasonal work.",
-        "In recent years, cork has found new uses beyond wine bottles. Factories now grind leftover pieces into small grains and press them into boards for walls, shoes, bags, and even parts of public buildings. Designers like cork because it is quiet underfoot, warm to touch, and made from bark that can grow again. Still, there are problems. Harvesting skilled workers are needed, and young trees take many years before their bark can be used. For this reason, researchers and companies are trying to improve processing methods while keeping traditional cork forests healthy."
+        "Cork is a light brown material that many people know from bottle stoppers, but its history is much longer. It comes from the outer bark of the cork oak, a tree that grows mainly in dry parts of southern Europe and northern Africa. For centuries, people used pieces of cork as fishing floats, jar stoppers, simple shoes, and roof coverings. The bark can be removed while the tree remains alive. Since the tree does not have to be cut down, people can collect cork from it repeatedly.",
+        "The usefulness of cork comes from its unusual structure. Under a microscope, it looks like a mass of tiny closed rooms filled mostly with air. This structure makes cork light, soft, and difficult for water and air to pass through. When pressed, it can return to nearly its original shape, which is why it works well as a bottle stopper. Traditionally, workers removed the bark by hand in large, thick sheets and boiled it to make it flatter and easier to process. They then punched out stoppers or cut pieces for floors and fishing equipment.",
+        "However, cork faced a serious challenge in the late twentieth century. Some wine producers began using metal screw caps and synthetic stoppers because some cork stoppers could give wine an unpleasant smell and because natural pieces were not always identical. Conservationists worried that if demand continued to fall, some landowners might convert cork oak woodlands into land for other, more profitable uses. Traditional cork oak woodlands provide homes for birds and insects and help reduce soil loss in dry regions. A decline in cork production could also threaten seasonal jobs in local villages.",
+        "Factories also reuse leftover cork. They grind it into small grains and press it into sheets, blocks, and boards used in flooring, walls, shoes, bags, and building components. Designers use cork for flooring because it absorbs sound and feels warm underfoot. They also value the material because the bark grows back after harvesting. Still, cork production has challenges. Cork harvesting requires skilled workers, and young trees take many years before their bark can be used. To meet these challenges, researchers, companies, and land managers are working to improve processing, train new workers, and support healthy cork oak woodlands."
       ],
       "questions": [
         {
           "id": 27,
           "section": "長文内容 3B",
           "type": "long-content",
-          "text": "(27) According to the first paragraph, why was cork useful to people in some dry areas?",
+          "text": "(27) According to the first paragraph, why did cork become a useful material long ago?",
           "choices": [
-            "It was mainly used as firewood because cork oak trees grew very quickly.",
-            "It was valuable because people could use the whole tree only after cutting it down.",
+            "Its bark was thick enough to make useful objects, but only after the tree was cut down.",
+            "It was easier to shape than other materials because it came from young trees.",
             "It could be used for several practical purposes without killing the tree.",
-            "It replaced all other materials for shoes because it was stronger than wood."
+            "Its bark grew back so quickly that workers could remove it several times each year."
           ],
           "correct": 3,
-          "explanation": "根拠: 第1段落の「漁網・瓶・靴・船部品への利用」と「木を生かしたまま樹皮を取れる」 / 正答の作り方: 複数用途＋木を殺さない特徴を統合 / 誤答設計: 1は用途ずらし、2は条件の反対、4は範囲の言いすぎ"
+          "explanation": "根拠: 第1段落の複数の実用品への利用と、木を切らずに樹皮を繰り返し採取できる点 / 正答の作り方: 複数用途＋木を殺さない特徴を統合 / 誤答設計: 木の伐採、若木、採取間隔という本文情報に近い要素を誤って組み合わせた"
         },
         {
           "id": 28,
@@ -450,41 +451,41 @@ window.scbtGrade2Set01 = {
           "type": "long-content",
           "text": "(28) How does cork’s structure help it work well as a bottle stopper?",
           "choices": [
-            "Its tiny air-filled spaces help it keep water out and return to its shape after pressure.",
-            "Its surface becomes harder than metal after workers boil it for a long time.",
-            "Its open spaces allow liquid to pass through slowly without changing its smell.",
-            "Its bark can be punched into stoppers before it is cut into sheets."
+            "Its tiny air-filled spaces help block liquid and allow it to return to its shape after pressure.",
+            "Boiling creates the closed spaces that make every piece of cork exactly the same.",
+            "Its air-filled spaces allow liquid to pass through while keeping the cork soft.",
+            "Because the bark grows back, a stopper can recover its shape after pressure."
           ],
           "correct": 1,
-          "explanation": "根拠: 第2段落の「tiny closed rooms」「air」「difficult for water to pass」「return to nearly its original shape」 / 正答の作り方: 構造と機能をまとめて言い換え / 誤答設計: 2はboiledを利用した結果ずらし、3はclosedをopenに反転、4は加工順序のずらし"
+          "explanation": "根拠: 第2段落の「tiny closed rooms」「difficult for water and air to pass through」「return to nearly its original shape」 / 正答の作り方: 構造と機能をまとめて言い換え / 誤答設計: 煮沸、液体の通過、樹皮の再生という別情報を構造の効果と取り違えた"
         },
         {
           "id": 29,
           "section": "長文内容 3B",
           "type": "long-content",
-          "text": "(29) What problem did cork face in the late twentieth century?",
+          "text": "(29) Why were conservationists concerned when demand for cork began to fall?",
           "choices": [
-            "Scientists discovered that cork oak forests were harmful to birds and insects.",
-            "Cork became less attractive to some wine makers, which also created concern about the future of cork forests.",
-            "Landowners were forced to plant cork oak trees because faster-paying crops had disappeared.",
-            "Wine makers stopped using metal and plastic closures because those closures changed the smell of wine."
+            "They believed that screw caps would require more cork oak trees than traditional stoppers.",
+            "They feared that some cork oak woodlands could disappear if landowners found more profitable uses for the land.",
+            "They expected repeated bark harvesting to cause unpleasant smells in wine and greater soil loss.",
+            "They worried that synthetic stoppers would directly harm birds and insects living in cork oak woodlands."
           ],
           "correct": 2,
-          "explanation": "根拠: 第3段落の「metal or plastic closures」「lower demand」「replacing cork forests」「worried scientists」 / 正答の作り方: 需要低下と森林への不安を統合 / 誤答設計: 1は影響の反対、3は土地利用の因果ずらし、4は原因対象の入れ替え"
+          "explanation": "根拠: 第3段落の「convert cork oak woodlands」「more profitable uses」 / 正答の作り方: 需要低下から土地利用転換へ進む因果を言い換え / 誤答設計: screw caps、樹皮採取、synthetic stoppersを森林への影響と誤って直結させた"
         },
         {
           "id": 30,
           "section": "長文内容 3B",
           "type": "long-content",
-          "text": "(30) What is one thing happening with cork today?",
+          "text": "(30) What do some factories do with cork left over from making other products?",
           "choices": [
-            "Factories are throwing away leftover cork because it cannot be used outside wine bottles.",
-            "People are making new products from cork while also looking for ways to protect cork forests.",
-            "Young cork oak trees are now useful because their bark can be harvested within a few months.",
-            "Designers avoid cork in buildings because it is noisy and cold underfoot."
+            "They boil it into large sheets before workers remove bark from the trees.",
+            "They grind it into small grains and form it into materials for new products.",
+            "They use it only to make bottle stoppers that are all the same size.",
+            "They return it to young cork oak trees so that new bark will grow sooner."
           ],
           "correct": 2,
-          "explanation": "根拠: 第4段落の「leftover pieces」「boards」「walls, shoes, bags」「keeping traditional cork forests healthy」 / 正答の作り方: 現在の新利用＋森林保護を結合 / 誤答設計: 1はleftover利用の反対、3は若木の条件ずらし、4は性質の反対"
+          "explanation": "根拠: 第4段落の「grind it into small grains」「press it into sheets, blocks, and boards」 / 正答の作り方: 加工工程と再利用の目的を言い換え / 誤答設計: 樹皮の一次加工、用途の限定、若木の成長という別情報を混ぜた"
         },
         {
           "id": 31,
@@ -492,13 +493,13 @@ window.scbtGrade2Set01 = {
           "type": "long-content",
           "text": "(31) Which of the following statements is true?",
           "choices": [
-            "Cork became useful only after metal and plastic closures were developed for wine bottles.",
-            "Cork forests worried scientists mainly because they increased soil loss in dry areas.",
-            "Cork has long had practical uses, and people are now trying to use it in new ways while preserving cork forests.",
-            "Wine makers first used other closures in order to make cork forests more valuable."
+            "The supply of usable cork can be increased quickly because bark from young trees is ready in a few months.",
+            "Cork production no longer depends on trained workers because leftover pieces can be pressed by machines.",
+            "It can take many years before young cork oaks provide usable bark, so production cannot be expanded quickly.",
+            "Land managers can protect cork oak woodlands only by stopping the reuse of leftover cork."
           ],
           "correct": 3,
-          "explanation": "根拠: 第1段落の歴史的用途、第4段落の現代利用・森林保全 / 正答の作り方: 本文全体の流れを要約 / 誤答設計: 1は時期ずらし、2は森林の働きの反対、4は目的・因果ずらし"
+          "explanation": "根拠: 第4段落の「young trees take many years before their bark can be used」 / 正答の作り方: 若木の成長期間から、生産を短期間で増やしにくいことを推論 / 誤答設計: 数か月、熟練者不要、再利用中止という本文と矛盾する説明を置いた"
         }
       ]
     }
@@ -508,7 +509,7 @@ window.scbtGrade2Set01 = {
       "id": 1,
       "section": "第1部",
       "instruction": "会話の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l01.mp3",
+      "audioFile": "assets/audio/grade2/sample/part1/simba-3.2-final/No01.wav",
       "script": "M: Are you still going to the science fair tomorrow? W: Yes, but I need to leave early. My younger brother has a piano concert in the evening. M: Then we should look at the student projects first. W: Good idea. I can visit the sales booths after lunch if there is time.",
       "questionText": "What will the speakers probably do first at the science fair?",
       "choices": [
@@ -524,7 +525,7 @@ window.scbtGrade2Set01 = {
       "id": 2,
       "section": "第1部",
       "instruction": "会話の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l02.mp3",
+      "audioFile": "assets/audio/grade2/sample/part1/simba-3.2-final/No02.wav",
       "script": "W: Did you return the history book to the library? M: Not yet. I found an article inside it that I want to copy. W: Be careful. The library closes at five today. M: I know. I will go there right after soccer practice ends at four thirty.",
       "questionText": "What will the boy do after soccer practice?",
       "choices": [
@@ -540,7 +541,7 @@ window.scbtGrade2Set01 = {
       "id": 3,
       "section": "第1部",
       "instruction": "会話の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l03.mp3",
+      "audioFile": "assets/audio/grade2/sample/part1/simba-3.2-final/No03.wav",
       "script": "M: This jacket is nice, but the sleeves are too long. W: We can shorten them for free if you buy it today. M: How long will that take? W: Usually three days. We can call you when it is ready.",
       "questionText": "What does the woman say the store can do?",
       "choices": [
@@ -556,7 +557,7 @@ window.scbtGrade2Set01 = {
       "id": 4,
       "section": "第1部",
       "instruction": "会話の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l04.mp3",
+      "audioFile": "assets/audio/grade2/sample/part1/simba-3.2-final/No04.wav",
       "script": "W: Your presentation about local birds was easy to understand. M: Thanks. I wanted to use more photos, but the file became too large. W: The simple drawings worked well, though. M: Really? I drew them because I could not find clear pictures online.",
       "questionText": "Why did the boy use drawings in his presentation?",
       "choices": [
@@ -572,7 +573,7 @@ window.scbtGrade2Set01 = {
       "id": 5,
       "section": "第1部",
       "instruction": "会話の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l05.mp3",
+      "audioFile": "assets/audio/grade2/sample/part1/simba-3.2-final/No05.wav",
       "script": "M: I thought the bus to the stadium left every ten minutes. W: It usually does, but today there is roadwork near the bridge. M: So what should we do? W: The train will be faster. The station is only five minutes from here.",
       "questionText": "How will the speakers probably go to the stadium?",
       "choices": [
@@ -588,7 +589,7 @@ window.scbtGrade2Set01 = {
       "id": 6,
       "section": "第1部",
       "instruction": "会話の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l06.mp3",
+      "audioFile": "assets/audio/grade2/sample/part1/simba-3.2-final/No06.wav",
       "script": "W: I heard you stopped working at the coffee shop. M: Yes. The job was fun, but the evening hours made it hard to study. W: Did you find another job? M: I am helping at my uncle's bookstore on Saturday mornings.",
       "questionText": "Why did the boy leave the coffee shop job?",
       "choices": [
@@ -604,7 +605,7 @@ window.scbtGrade2Set01 = {
       "id": 7,
       "section": "第1部",
       "instruction": "会話の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l07.mp3",
+      "audioFile": "assets/audio/grade2/sample/part1/simba-3.2-final/No07.wav",
       "script": "M: The vegetables in this soup taste different from usual. W: I used carrots from the school garden. M: That is why they are so sweet. W: The cooking club will sell the soup at the festival if the teacher approves the recipe.",
       "questionText": "What is true about the soup?",
       "choices": [
@@ -620,7 +621,7 @@ window.scbtGrade2Set01 = {
       "id": 8,
       "section": "第1部",
       "instruction": "会話の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l08.mp3",
+      "audioFile": "assets/audio/grade2/sample/part1/simba-3.2-final/No08.wav",
       "script": "W: You look tired. Did you stay up late again? M: No, I woke up early to walk my dog. My mother usually does it, but she had to leave for work before six. W: That was nice of you. M: It was cold, but the park was quiet.",
       "questionText": "Why did the boy walk the dog this morning?",
       "choices": [
@@ -636,7 +637,7 @@ window.scbtGrade2Set01 = {
       "id": 9,
       "section": "第1部",
       "instruction": "会話の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l09.mp3",
+      "audioFile": "assets/audio/grade2/sample/part1/simba-3.2-final/No09.wav",
       "script": "M: Are you joining the art club trip to the museum? W: I want to, but I have a dentist appointment that morning. M: The bus leaves at noon, not in the morning. W: Really? Then I can go if I finish lunch quickly.",
       "questionText": "What does the girl learn about the trip?",
       "choices": [
@@ -652,7 +653,7 @@ window.scbtGrade2Set01 = {
       "id": 10,
       "section": "第1部",
       "instruction": "会話の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l10.mp3",
+      "audioFile": "assets/audio/grade2/sample/part1/simba-3.2-final/No10.wav",
       "script": "W: The printer is making strange marks on every page. M: Did you change the ink? W: Yes, but that did not help. M: Then the glass inside may be dirty. I can clean it before the meeting starts.",
       "questionText": "What will the man probably do?",
       "choices": [
@@ -668,7 +669,7 @@ window.scbtGrade2Set01 = {
       "id": 11,
       "section": "第1部",
       "instruction": "会話の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l11.mp3",
+      "audioFile": "assets/audio/grade2/sample/part1/simba-3.2-final/No11.wav",
       "script": "M: I thought the movie started at seven thirty. W: It did last week, but the time changed. Tonight it starts at seven. M: We only have twenty minutes, then. W: The theater is nearby. If we leave now, we can still get there before the previews finish.",
       "questionText": "What is the problem?",
       "choices": [
@@ -684,7 +685,7 @@ window.scbtGrade2Set01 = {
       "id": 12,
       "section": "第1部",
       "instruction": "会話の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l12.mp3",
+      "audioFile": "assets/audio/grade2/sample/part1/simba-3.2-final/No12.wav",
       "script": "W: How was your first day volunteering at the animal shelter? M: Busy. I expected to play with cats, but I mostly washed food bowls. W: Was it boring? M: Not really. The staff said clean bowls help prevent animals from getting sick.",
       "questionText": "What did the boy mainly do at the shelter?",
       "choices": [
@@ -700,7 +701,7 @@ window.scbtGrade2Set01 = {
       "id": 13,
       "section": "第1部",
       "instruction": "会話の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l13.mp3",
+      "audioFile": "assets/audio/grade2/sample/part1/simba-3.2-final/No13.wav",
       "script": "M: I saw your photo in the city newspaper. W: It was from the river cleanup. I did not know a reporter was there. M: The article said your group collected twenty bags of trash. W: Yes, and we found three old bicycles too.",
       "questionText": "Why was the girl in the newspaper?",
       "choices": [
@@ -716,7 +717,7 @@ window.scbtGrade2Set01 = {
       "id": 14,
       "section": "第1部",
       "instruction": "会話の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l14.mp3",
+      "audioFile": "assets/audio/grade2/sample/part1/simba-3.2-final/No14.wav",
       "script": "W: This bread is softer than the one I bought yesterday. M: It was baked this morning. Yesterday's bread was from the afternoon before. W: I see. I will take two loaves. M: If you freeze one, it will stay fresh for several days.",
       "questionText": "What does the man suggest?",
       "choices": [
@@ -732,7 +733,7 @@ window.scbtGrade2Set01 = {
       "id": 15,
       "section": "第1部",
       "instruction": "会話の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l15.mp3",
+      "audioFile": "assets/audio/grade2/sample/part1/simba-3.2-final/No15.wav",
       "script": "M: Did the city office answer your question about the bike path? W: Yes. They said construction will begin after the school entrance exams. M: Why after that? W: Because many students use that road to get to the exam center in February.",
       "questionText": "Why will construction start later?",
       "choices": [
@@ -748,7 +749,7 @@ window.scbtGrade2Set01 = {
       "id": 16,
       "section": "第2部",
       "instruction": "英文の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l16.mp3",
+      "audioFile": "assets/audio/grade2/sample/part2/simba-3.2-final/No16.wav",
       "script": "A community center is starting a tool-sharing program next month. Members can borrow drills, ladders, and other items for up to three days. Before borrowing anything, they must watch a short safety video online. The center hopes the program will help people complete small home projects without buying expensive tools.",
       "questionText": "What must members do before borrowing tools?",
       "choices": [
@@ -764,7 +765,7 @@ window.scbtGrade2Set01 = {
       "id": 17,
       "section": "第2部",
       "instruction": "英文の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l17.mp3",
+      "audioFile": "assets/audio/grade2/sample/part2/simba-3.2-final/No17.wav",
       "script": "A high school in Harbor City has changed the way students clean classrooms. Instead of cleaning only their own rooms, students now work in mixed groups and clean shared spaces such as hallways and stairways. Teachers say the new system helps students notice areas that everyone uses but no one feels responsible for.",
       "questionText": "Why did the school change the cleaning system?",
       "choices": [
@@ -780,7 +781,7 @@ window.scbtGrade2Set01 = {
       "id": 18,
       "section": "第2部",
       "instruction": "英文の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l18.mp3",
+      "audioFile": "assets/audio/grade2/sample/part2/simba-3.2-final/No18.wav",
       "script": "The city art museum will offer free evening tickets on the first Friday of each month. The museum hopes that people who work during the day will have more chances to visit. Special talks by local artists will also be held, but visitors must reserve seats for those talks online.",
       "questionText": "Who does the museum especially want to help?",
       "choices": [
@@ -796,7 +797,7 @@ window.scbtGrade2Set01 = {
       "id": 19,
       "section": "第2部",
       "instruction": "英文の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l19.mp3",
+      "audioFile": "assets/audio/grade2/sample/part2/simba-3.2-final/No19.wav",
       "script": "Maya used to throw away notebooks when only a few pages were left. Last year, she began cutting out the unused pages and making small memo pads. She gave some to classmates before exams. Now her homeroom teacher asks students to leave unused paper in a box for Maya's project.",
       "questionText": "What did Maya start doing?",
       "choices": [
@@ -812,7 +813,7 @@ window.scbtGrade2Set01 = {
       "id": 20,
       "section": "第2部",
       "instruction": "英文の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l20.mp3",
+      "audioFile": "assets/audio/grade2/sample/part2/simba-3.2-final/No20.wav",
       "script": "Passengers using East Line trains should check the new platform numbers this weekend. Because workers will repair the old bridge near Central Station, trains to Lake Town will leave from Platform 4 instead of Platform 2. Extra staff will stand near the ticket gates to guide passengers.",
       "questionText": "What will change this weekend?",
       "choices": [
@@ -828,7 +829,7 @@ window.scbtGrade2Set01 = {
       "id": 21,
       "section": "第2部",
       "instruction": "英文の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l21.mp3",
+      "audioFile": "assets/audio/grade2/sample/part2/simba-3.2-final/No21.wav",
       "script": "A small bakery has begun selling bread made with rice flour from nearby farms. The owner says the bread has a different texture from regular bread and stays soft for a long time. She also hopes the product will encourage customers to learn more about local agriculture.",
       "questionText": "What is special about the bakery's new bread?",
       "choices": [
@@ -844,7 +845,7 @@ window.scbtGrade2Set01 = {
       "id": 22,
       "section": "第2部",
       "instruction": "英文の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l22.mp3",
+      "audioFile": "assets/audio/grade2/sample/part2/simba-3.2-final/No22.wav",
       "script": "The word deadline originally referred to a line around a prison that prisoners were not allowed to cross. Later, newspaper workers began using the word to mean the latest time an article could be handed in. Today, deadline is used in schools, offices, and many other places.",
       "questionText": "What does the speaker explain?",
       "choices": [
@@ -860,7 +861,7 @@ window.scbtGrade2Set01 = {
       "id": 23,
       "section": "第2部",
       "instruction": "英文の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l23.mp3",
+      "audioFile": "assets/audio/grade2/sample/part2/simba-3.2-final/No23.wav",
       "script": "An online clothing store noticed that many customers returned shirts because they chose the wrong size. The store now lets customers compare a shirt's measurements with clothes they already own. Since the change, fewer shirts have been returned, and customer comments have become more positive.",
       "questionText": "What did the online store do?",
       "choices": [
@@ -876,7 +877,7 @@ window.scbtGrade2Set01 = {
       "id": 24,
       "section": "第2部",
       "instruction": "英文の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l24.mp3",
+      "audioFile": "assets/audio/grade2/sample/part2/simba-3.2-final/No24.wav",
       "script": "A town sports club is starting a morning walking group for older residents. The group will meet in front of the community hall every Tuesday at eight. A nurse will join the first walk and explain how to check pulse rates safely during exercise.",
       "questionText": "What will happen during the first walk?",
       "choices": [
@@ -892,7 +893,7 @@ window.scbtGrade2Set01 = {
       "id": 25,
       "section": "第2部",
       "instruction": "英文の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l25.mp3",
+      "audioFile": "assets/audio/grade2/sample/part2/simba-3.2-final/No25.wav",
       "script": "A student named Leo started recording short interviews with grandparents in his neighborhood. At first, he wanted stories for a history project. However, he discovered that many older residents enjoyed being asked about their memories. He now posts edited interviews on the town website once a month.",
       "questionText": "What did Leo discover?",
       "choices": [
@@ -908,7 +909,7 @@ window.scbtGrade2Set01 = {
       "id": 26,
       "section": "第2部",
       "instruction": "英文の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l26.mp3",
+      "audioFile": "assets/audio/grade2/sample/part2/simba-3.2-final/No26.wav",
       "script": "The Green Theater asks visitors to bring their own cups when buying drinks. People who do so receive a small discount. The theater used to sell drinks only in paper cups, but managers found that thousands of cups were thrown away after weekend performances.",
       "questionText": "Why does the theater give a discount?",
       "choices": [
@@ -924,7 +925,7 @@ window.scbtGrade2Set01 = {
       "id": 27,
       "section": "第2部",
       "instruction": "英文の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l27.mp3",
+      "audioFile": "assets/audio/grade2/sample/part2/simba-3.2-final/No27.wav",
       "script": "A new phone app helps people practice speaking foreign languages. Users record short answers to daily questions, and the app shows a simple graph of their speaking time each week. The company says the graph is meant to encourage regular practice, not to judge pronunciation.",
       "questionText": "What is the purpose of the graph?",
       "choices": [
@@ -940,7 +941,7 @@ window.scbtGrade2Set01 = {
       "id": 28,
       "section": "第2部",
       "instruction": "英文の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l28.mp3",
+      "audioFile": "assets/audio/grade2/sample/part2/simba-3.2-final/No28.wav",
       "script": "A restaurant near the station has changed its menu signs. The old signs listed only food names and prices. The new signs include pictures and information about ingredients that often cause allergies. The owner says tourists and children now ask fewer questions before ordering.",
       "questionText": "What information do the new signs include?",
       "choices": [
@@ -956,7 +957,7 @@ window.scbtGrade2Set01 = {
       "id": 29,
       "section": "第2部",
       "instruction": "英文の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l29.mp3",
+      "audioFile": "assets/audio/grade2/sample/part2/simba-3.2-final/No29.wav",
       "script": "A city park is testing lights that become brighter only when people walk nearby. Regular lights stay bright all night, but the new ones use less electricity because they become dim when paths are empty. If the test goes well, the city may put the lights in other parks.",
       "questionText": "How do the new park lights save electricity?",
       "choices": [
@@ -972,7 +973,7 @@ window.scbtGrade2Set01 = {
       "id": 30,
       "section": "第2部",
       "instruction": "英文の内容に関する質問に答えなさい。",
-      "audioFile": "audio/grade2-set-01-l30.mp3",
+      "audioFile": "assets/audio/grade2/sample/part2/simba-3.2-final/No30.wav",
       "script": "A high school cooking class invited parents to taste the students' dishes. The teacher expected parents to choose the most difficult dishes as their favorites. Instead, many chose simple soup because the students explained how they used leftover vegetables from the school cafeteria.",
       "questionText": "Why did many parents like the soup?",
       "choices": [
@@ -1121,3 +1122,17 @@ window.scbtGrade2Set01 = {
     }
   ]
 };
+
+(() => {
+  const listeningAudioBase =
+    "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32";
+  const questions = Array.isArray(window.scbtGrade2Set01?.listeningQuestions)
+    ? window.scbtGrade2Set01.listeningQuestions
+    : [];
+
+  questions.forEach((question) => {
+    const partFolder = question.part === "Part 1" ? "part1" : "part2";
+    const number = String(question.id).padStart(2, "0");
+    question.audioFile = `${listeningAudioBase}/sample/listening/${partFolder}/No${number}.wav`;
+  });
+})();

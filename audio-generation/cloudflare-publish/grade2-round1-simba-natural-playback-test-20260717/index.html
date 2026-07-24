@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <title>第1回 SIMBA等倍マスター・速度比較</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f4f1ea;
+      color: #17211c;
+    }
+    * { box-sizing: border-box; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    body { margin: 0; background: #f4f1ea; }
+    main {
+      width: min(100% - 24px, 760px);
+      margin: 0 auto;
+      padding: max(24px, env(safe-area-inset-top)) 0 calc(56px + env(safe-area-inset-bottom));
+    }
+    h1 { margin: 0 0 10px; font-size: clamp(24px, 6vw, 36px); line-height: 1.25; }
+    h2 { margin: 30px 0 12px; font-size: 23px; }
+    h3 { margin: 0 0 6px; font-size: 20px; }
+    p { line-height: 1.7; }
+    .lead { margin: 0 0 14px; color: #536059; }
+    .notice {
+      margin: 0 0 18px;
+      padding: 13px 14px;
+      border-radius: 12px;
+      background: #edf7f1;
+      color: #315343;
+    }
+    .rate-panel {
+      position: sticky;
+      top: 8px;
+      z-index: 5;
+      margin: 18px 0 24px;
+      padding: 15px;
+      border: 1px solid #cbd5cf;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, .96);
+      box-shadow: 0 8px 28px rgba(31, 52, 41, .12);
+      backdrop-filter: blur(10px);
+    }
+    .rate-label { margin: 0 0 10px; font-weight: 750; }
+    .rate-buttons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .rate-button {
+      min-height: 46px;
+      border: 1px solid #9faea5;
+      border-radius: 12px;
+      background: #fff;
+      color: #24352c;
+      font: inherit;
+      font-weight: 750;
+      cursor: pointer;
+    }
+    .rate-button[aria-pressed="true"] {
+      border-color: #176a47;
+      background: #176a47;
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(23, 106, 71, .24);
+    }
+    .rate-status { margin: 10px 0 0; font-size: 14px; color: #536059; }
+    .samples { display: grid; gap: 14px; }
+    .sample-card {
+      padding: 17px;
+      border: 1px solid #d8ddd9;
+      border-radius: 17px;
+      background: #fff;
+      box-shadow: 0 7px 24px rgba(31, 52, 41, .07);
+    }
+    .sample-card p { margin: 0 0 12px; color: #59655e; }
+    audio { display: block; width: 100%; max-width: 100%; min-width: 0; }
+    .meta { margin-top: 25px; color: #6b746e; font-size: 13px; }
+    @media (max-width: 560px) {
+      main { width: 100%; padding-left: 6px; padding-right: 6px; }
+      h1, .lead, .notice, h2, .meta { margin-left: 4px; margin-right: 4px; }
+      .rate-panel { top: 4px; border-radius: 13px; }
+      .sample-card { padding: 13px 8px; border-radius: 13px; }
+      audio::-webkit-media-controls-mute-button,
+      audio::-webkit-media-controls-volume-slider { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>SIMBA等倍マスター・速度比較</h1>
+    <p class="lead">Part 1 No.1〜2、Part 2 No.16〜17。SIMBAでは速度を落とさず、自然な等倍で生成しています。</p>
+    <p class="notice">このページの音声はAI生成音声です。再生時だけ速度を変更し、声の高さは維持します。</p>
+
+    <section class="rate-panel" aria-labelledby="rate-heading">
+      <p class="rate-label" id="rate-heading">再生速度</p>
+      <div class="rate-buttons" role="group" aria-label="再生速度を選択">
+        <button class="rate-button" type="button" data-rate="0.87" aria-pressed="true">0.87倍</button>
+        <button class="rate-button" type="button" data-rate="0.9" aria-pressed="false">0.90倍</button>
+        <button class="rate-button" type="button" data-rate="1" aria-pressed="false">1.00倍</button>
+      </div>
+      <p class="rate-status" id="rate-status" aria-live="polite">現在：0.87倍（初期設定）</p>
+    </section>
+
+    <h2>Part 1</h2>
+    <section class="samples" aria-label="Part 1試聴音声">
+      <article class="sample-card">
+        <h3>No.1</h3>
+        <p>会話：Geffen × Dominic／番号・設問：Hugh</p>
+        <audio controls preload="metadata" src="audio/part1/No01.mp3?v=natural-playback-20260717-1"></audio>
+      </article>
+      <article class="sample-card">
+        <h3>No.2</h3>
+        <p>会話：Geffen × Dominic／番号・設問：Imogen</p>
+        <audio controls preload="metadata" src="audio/part1/No02.mp3?v=natural-playback-20260717-1"></audio>
+      </article>
+    </section>
+
+    <h2>Part 2</h2>
+    <section class="samples" aria-label="Part 2試聴音声">
+      <article class="sample-card">
+        <h3>No.16</h3>
+        <p>本文：Geffen／設問：Dominic</p>
+        <audio controls preload="metadata" src="audio/part2/No16.mp3?v=natural-playback-20260717-1"></audio>
+      </article>
+      <article class="sample-card">
+        <h3>No.17</h3>
+        <p>本文：Wyatt／設問：Harper</p>
+        <audio controls preload="metadata" src="audio/part2/No17.mp3?v=natural-playback-20260717-1"></audio>
+      </article>
+    </section>
+
+    <p class="meta">元音源：SIMBA 3.2・等倍マスター。初期再生速度：0.87倍。選択した速度は4問すべてへ同時に適用されます。</p>
+  </main>
+
+  <script>
+    (() => {
+      const DEFAULT_RATE = 0.87;
+      const audios = [...document.querySelectorAll("audio")];
+      const buttons = [...document.querySelectorAll("[data-rate]")];
+      const status = document.querySelector("#rate-status");
+      let currentRate = DEFAULT_RATE;
+
+      const setPitchPreservation = (audio) => {
+        audio.preservesPitch = true;
+        if ("webkitPreservesPitch" in audio) audio.webkitPreservesPitch = true;
+        if ("mozPreservesPitch" in audio) audio.mozPreservesPitch = true;
+      };
+
+      const syncAudioRate = (audio) => {
+        setPitchPreservation(audio);
+        audio.defaultPlaybackRate = currentRate;
+        audio.playbackRate = currentRate;
+      };
+
+      const applyRate = (rate) => {
+        currentRate = rate;
+        audios.forEach(syncAudioRate);
+        buttons.forEach((button) => {
+          button.setAttribute("aria-pressed", String(Number(button.dataset.rate) === rate));
+        });
+        status.textContent = `現在：${rate.toFixed(2)}倍${rate === DEFAULT_RATE ? "（初期設定）" : ""}`;
+      };
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => applyRate(Number(button.dataset.rate)));
+      });
+      audios.forEach((audio) => {
+        ["loadstart", "loadedmetadata", "loadeddata", "canplay", "play", "playing"].forEach((eventName) => {
+          audio.addEventListener(eventName, () => syncAudioRate(audio));
+        });
+        audio.addEventListener("ratechange", () => {
+          if (Math.abs(audio.playbackRate - currentRate) > 0.001) syncAudioRate(audio);
+        });
+      });
+      applyRate(DEFAULT_RATE);
+      window.setInterval(() => {
+        audios.forEach((audio) => {
+          if (Math.abs(audio.playbackRate - currentRate) > 0.001) syncAudioRate(audio);
+        });
+      }, 250);
+    })();
+  </script>
+</body>
+</html>

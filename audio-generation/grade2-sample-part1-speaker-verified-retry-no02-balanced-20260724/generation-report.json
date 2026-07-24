@@ -1,0 +1,49 @@
+{
+  "model": "gemini-3.1-flash-tts-preview",
+  "billingMode": "Batch API",
+  "batchJob": {
+    "submittedAt": "2026-07-23T16:50:03.584914+00:00",
+    "name": "batches/1bd8b69arl7qwibpqv01kxne44g2ue7zu2n3",
+    "displayName": "grade2-sample-part1-speaker-verified-retry-no02-balanced-20260724",
+    "model": "models/gemini-3.1-flash-tts-preview",
+    "state": "JOB_STATE_SUCCEEDED",
+    "requestCount": 1,
+    "checkedAt": "2026-07-23T16:53:29.563438+00:00",
+    "error": null
+  },
+  "requestCount": 0,
+  "requestedCount": 1,
+  "failedCount": 1,
+  "failures": [
+    {
+      "id": "No02-c1",
+      "number": 2,
+      "error": {
+        "code": 3,
+        "message": "Request contains an invalid argument."
+      }
+    }
+  ],
+  "format": {
+    "sampleRate": 24000,
+    "channels": 1,
+    "sampleWidth": 2,
+    "encoding": "PCM signed 16-bit little-endian WAV"
+  },
+  "postProcessing": {
+    "speed": "none",
+    "loudness": "none",
+    "silence": "leading and trailing boundary trim only"
+  },
+  "usageTotals": {
+    "promptTokens": 0,
+    "outputAudioTokens": 0,
+    "totalTokens": 0
+  },
+  "estimatedBatchCostUsd": {
+    "input": 0.0,
+    "outputAudio": 0.0,
+    "total": 0.0
+  },
+  "items": []
+}

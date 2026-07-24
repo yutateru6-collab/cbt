@@ -1,0 +1,1350 @@
+{
+  "mode": "completed",
+  "generatedAt": "2026-07-18T17:06:34.953901+00:00",
+  "provider": "SpeechifyAI",
+  "endpoint": "https://api.speechify.ai/v1/audio/speech",
+  "apiVersion": "2026-07-07",
+  "model": "simba-3.2",
+  "part": "Part 1",
+  "numbers": [
+    1,
+    2,
+    3
+  ],
+  "sourceSet": "set-01",
+  "apiRequestCount": 17,
+  "billableCharacters": 1193,
+  "timingMs": {
+    "numberToBody": 1150,
+    "turnGap": 550,
+    "bodyToQuestion": 1100,
+    "questionToText": 350
+  },
+  "deliveryContract": {
+    "speechifyDirectWav": true,
+    "speakerTurnRequests": true,
+    "sentenceLevelSplit": false,
+    "questionAndQuestionTextOneRequest": true,
+    "losslessPcmConcatenation": true,
+    "speechPcmSamplesChanged": false,
+    "silenceInsertionOnly": true,
+    "ffmpeg": false,
+    "postSynthesisReencoding": false,
+    "postSynthesisResampling": false,
+    "lossyEncoding": false,
+    "silenceTrimming": false,
+    "loudnessNormalization": false,
+    "remaster": false,
+    "playbackRateModification": false,
+    "prosody": false,
+    "emotionStyle": false
+  },
+  "preflight": {
+    "provider": "SpeechifyAI",
+    "model": "simba-3.2",
+    "language": "en-US",
+    "apiVersion": "2026-07-07",
+    "audioFormat": "wav",
+    "missingCalls": 17,
+    "missingInputCharacters": 1511,
+    "maxCalls": 24,
+    "maxInputCharacters": 8000,
+    "items": [
+      {
+        "id": "No01",
+        "segments": [
+          {
+            "role": "number",
+            "speaker": "narrator",
+            "voice": "Harper",
+            "voiceId": "harper_32",
+            "input": "<speak>Number one.</speak>",
+            "gapAfterMs": 1150,
+            "cached": true
+          },
+          {
+            "role": "turn1",
+            "speaker": "B",
+            "voice": "Dominic",
+            "voiceId": "dominic_32",
+            "input": "<speak>The recording for our school radio show still isn't in the shared folder.</speak>",
+            "gapAfterMs": 550,
+            "cached": false
+          },
+          {
+            "role": "turn2",
+            "speaker": "A",
+            "voice": "Geffen",
+            "voiceId": "geffen_32",
+            "input": "<speak>I finished editing it, but the file is too large to send by email. Could you upload it from the media room?</speak>",
+            "gapAfterMs": 550,
+            "cached": false
+          },
+          {
+            "role": "turn3",
+            "speaker": "B",
+            "voice": "Dominic",
+            "voiceId": "dominic_32",
+            "input": "<speak>Sure, but I need the final title before lunch because the teacher checks everything at one.</speak>",
+            "gapAfterMs": 550,
+            "cached": false
+          },
+          {
+            "role": "turn4",
+            "speaker": "A",
+            "voice": "Geffen",
+            "voiceId": "geffen_32",
+            "input": "<speak>I'll message you the title now. The interview section doesn't need any more changes.</speak>",
+            "gapAfterMs": 1100,
+            "cached": false
+          },
+          {
+            "role": "question",
+            "speaker": "narrator",
+            "voice": "Harper",
+            "voiceId": "harper_32",
+            "input": "<speak>Question.<break time=\"350ms\"/>What does the girl ask the boy to do?</speak>",
+            "gapAfterMs": 0,
+            "cached": false
+          }
+        ]
+      },
+      {
+        "id": "No02",
+        "segments": [
+          {
+            "role": "number",
+            "speaker": "narrator",
+            "voice": "Harper",
+            "voiceId": "harper_32",
+            "input": "<speak>Number two.</speak>",
+            "gapAfterMs": 1150,
+            "cached": false
+          },
+          {
+            "role": "turn1",
+            "speaker": "A",
+            "voice": "Geffen",
+            "voiceId": "geffen_32",
+            "input": "<speak>I signed up for the beginner yoga class that meets on Wednesday evenings.</speak>",
+            "gapAfterMs": 550,
+            "cached": false
+          },
+          {
+            "role": "turn2",
+            "speaker": "B",
+            "voice": "Dominic",
+            "voiceId": "dominic_32",
+            "input": "<speak>That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven.</speak>",
+            "gapAfterMs": 550,
+            "cached": false
+          },
+          {
+            "role": "turn3",
+            "speaker": "A",
+            "voice": "Geffen",
+            "voiceId": "geffen_32",
+            "input": "<speak>Thursday works for me. Do I need to register again at the front desk?</speak>",
+            "gapAfterMs": 550,
+            "cached": false
+          },
+          {
+            "role": "turn4",
+            "speaker": "B",
+            "voice": "Dominic",
+            "voiceId": "dominic_32",
+            "input": "<speak>No, your name is already on the new list. Just bring the same membership card.</speak>",
+            "gapAfterMs": 1100,
+            "cached": false
+          },
+          {
+            "role": "question",
+            "speaker": "narrator",
+            "voice": "Harper",
+            "voiceId": "harper_32",
+            "input": "<speak>Question.<break time=\"350ms\"/>What is true about the yoga class?</speak>",
+            "gapAfterMs": 0,
+            "cached": false
+          }
+        ]
+      },
+      {
+        "id": "No03",
+        "segments": [
+          {
+            "role": "number",
+            "speaker": "narrator",
+            "voice": "Harper",
+            "voiceId": "harper_32",
+            "input": "<speak>Number three.</speak>",
+            "gapAfterMs": 1150,
+            "cached": false
+          },
+          {
+            "role": "turn1",
+            "speaker": "A",
+            "voice": "Geffen",
+            "voiceId": "geffen_32",
+            "input": "<speak>I can't meet you at the cafe this afternoon. A repair worker is coming to look at our washing machine.</speak>",
+            "gapAfterMs": 550,
+            "cached": false
+          },
+          {
+            "role": "turn2",
+            "speaker": "B",
+            "voice": "Dominic",
+            "voiceId": "dominic_32",
+            "input": "<speak>Didn't your brother say he would stay home for that?</speak>",
+            "gapAfterMs": 550,
+            "cached": false
+          },
+          {
+            "role": "turn3",
+            "speaker": "A",
+            "voice": "Geffen",
+            "voiceId": "geffen_32",
+            "input": "<speak>He was supposed to, but his manager asked him to work an extra shift. The worker may arrive anytime between two and five.</speak>",
+            "gapAfterMs": 550,
+            "cached": false
+          },
+          {
+            "role": "turn4",
+            "speaker": "B",
+            "voice": "Dominic",
+            "voiceId": "dominic_32",
+            "input": "<speak>No problem. We can meet tomorrow after my class instead.</speak>",
+            "gapAfterMs": 1100,
+            "cached": false
+          },
+          {
+            "role": "question",
+            "speaker": "narrator",
+            "voice": "Harper",
+            "voiceId": "harper_32",
+            "input": "<speak>Question.<break time=\"350ms\"/>Why will the woman stay home this afternoon?</speak>",
+            "gapAfterMs": 0,
+            "cached": false
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "No01",
+      "number": 1,
+      "voices": {
+        "A": {
+          "id": "geffen_32",
+          "name": "Geffen",
+          "gender": "female"
+        },
+        "B": {
+          "id": "dominic_32",
+          "name": "Dominic",
+          "gender": "male"
+        },
+        "narrator": {
+          "id": "harper_32",
+          "name": "Harper",
+          "gender": "female"
+        }
+      },
+      "scriptHtml": "<p><strong>B</strong> The recording for our school radio show still isn&#x27;t in the shared folder.</p><p><strong>A</strong> I finished editing it, but the file is too large to send by email. Could you upload it from the media room?</p><p><strong>B</strong> Sure, but I need the final title before lunch because the teacher checks everything at one.</p><p><strong>A</strong> I&#x27;ll message you the title now. The interview section doesn&#x27;t need any more changes.</p><p class=\"question\"><strong>Question</strong> What does the girl ask the boy to do?</p>",
+      "segments": [
+        {
+          "role": "number",
+          "speaker": "narrator",
+          "voice": "Harper",
+          "voiceId": "harper_32",
+          "displayText": "Number 1.",
+          "ttsText": "Number one.",
+          "ttsOverrides": [
+            {
+              "from": "1",
+              "to": "one"
+            }
+          ],
+          "input": "<speak>Number one.</speak>",
+          "gapAfterMs": 1150,
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No01\\number-harper_32-ae0f2aa063e57fc8f7ea2212.wav",
+          "sourceFileSha256": "4a90651d21c1f5dddcb8f0cc37dfeafd3f152dedcf8f6126a1f72b5040c02f16",
+          "sourcePcmSha256": "38f31fd357ee2fd78bd742953d83e8354032badbb60f9ab64c0e8e87aa3b0a38",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 47040,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 0.98
+          },
+          "api": null
+        },
+        {
+          "role": "turn1",
+          "speaker": "B",
+          "voice": "Dominic",
+          "voiceId": "dominic_32",
+          "displayText": "The recording for our school radio show still isn't in the shared folder.",
+          "ttsText": "The recording for our school radio show still isn't in the shared folder.",
+          "ttsOverrides": [],
+          "input": "<speak>The recording for our school radio show still isn't in the shared folder.</speak>",
+          "gapAfterMs": 550,
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No01\\turn1-dominic_32-2f1a5785dd6ad0e9b9f58aed.wav",
+          "sourceFileSha256": "4b3ae203aac7ce9a8b1b58ca5cadf80755e0f7ef942f8766698e76594e69522a",
+          "sourcePcmSha256": "f3fbf8a390f0cee4f3f1412db57d7c3ff410faf0a0db23ee88dabc4a785d0784",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 212992,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 4.437
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 2.093,
+            "billableCharacters": 73,
+            "requestId": "aeedd9f0644892c1bb42c1a3"
+          }
+        },
+        {
+          "role": "turn2",
+          "speaker": "A",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "displayText": "I finished editing it, but the file is too large to send by email. Could you upload it from the media room?",
+          "ttsText": "I finished editing it, but the file is too large to send by email. Could you upload it from the media room?",
+          "ttsOverrides": [],
+          "input": "<speak>I finished editing it, but the file is too large to send by email. Could you upload it from the media room?</speak>",
+          "gapAfterMs": 550,
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No01\\turn2-geffen_32-6188b5310b6f3fa76af17dfe.wav",
+          "sourceFileSha256": "eeec2fc0080e2af14ebd2b78fc4eb14f90cf7c93247bc7f2b5eeb5f030c0a8e6",
+          "sourcePcmSha256": "59450ec94049f4c0173b3ad007a1b1d352c74ce95ad1fdf9ad5eaf1d62db5f26",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 292800,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 6.1
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 2.961,
+            "billableCharacters": 107,
+            "requestId": "2c89d1fc93126b489ab604b8"
+          }
+        },
+        {
+          "role": "turn3",
+          "speaker": "B",
+          "voice": "Dominic",
+          "voiceId": "dominic_32",
+          "displayText": "Sure, but I need the final title before lunch because the teacher checks everything at one.",
+          "ttsText": "Sure, but I need the final title before lunch because the teacher checks everything at one.",
+          "ttsOverrides": [],
+          "input": "<speak>Sure, but I need the final title before lunch because the teacher checks everything at one.</speak>",
+          "gapAfterMs": 550,
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No01\\turn3-dominic_32-a59c0c942535271dbaf1035d.wav",
+          "sourceFileSha256": "4538cf51080e2764ffffd6d9928d2f889873432d6c08bf5e2526d4d06d773ec4",
+          "sourcePcmSha256": "f9b3670c757628feee73b3cd469c854b5cb020f0f93c8047491d323fdf5846b0",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 284640,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 5.93
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 3.1,
+            "billableCharacters": 91,
+            "requestId": "d91a7943f6bbb7d96dd90ea8"
+          }
+        },
+        {
+          "role": "turn4",
+          "speaker": "A",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "displayText": "I'll message you the title now. The interview section doesn't need any more changes.",
+          "ttsText": "I'll message you the title now. The interview section doesn't need any more changes.",
+          "ttsOverrides": [],
+          "input": "<speak>I'll message you the title now. The interview section doesn't need any more changes.</speak>",
+          "gapAfterMs": 1100,
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No01\\turn4-geffen_32-ef2bf5031fb53d9551b799a1.wav",
+          "sourceFileSha256": "778a806784a148b26833a3b3e4c4137a127b7de773455af4dc1281c2f7762495",
+          "sourcePcmSha256": "4187b70543f8f391674c99fe210e2e90a7931e4aa1231628ecff02b6cdbc3b91",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 209760,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 4.37
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 2.479,
+            "billableCharacters": 84,
+            "requestId": "af8aaef78af4542d6792a877"
+          }
+        },
+        {
+          "role": "question",
+          "speaker": "narrator",
+          "voice": "Harper",
+          "voiceId": "harper_32",
+          "displayText": "Question. What does the girl ask the boy to do?",
+          "ttsText": "Question. What does the girl ask the boy to do?",
+          "ttsOverrides": [],
+          "input": "<speak>Question.<break time=\"350ms\"/>What does the girl ask the boy to do?</speak>",
+          "gapAfterMs": 0,
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No01\\question-harper_32-2bb957a15f67219e2e9e305e.wav",
+          "sourceFileSha256": "862ef72339f7638eb616917e86bfa40d14b1e81b599532c230ae8f659edc95ca",
+          "sourcePcmSha256": "402bfb0973726b9c804639a6021bada7c532764585c12098fab173663cdcf71e",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 154080,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 3.21
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 2.083,
+            "billableCharacters": 46,
+            "requestId": "24553d381fd9334240ab97b9"
+          }
+        }
+      ],
+      "pcmVerification": {
+        "wave": {
+          "channels": 1,
+          "sampleWidthBytes": 2,
+          "bitsPerSample": 16,
+          "sampleRateHz": 48000,
+          "frameCount": 1388512,
+          "declaredFrameCount": 1388512,
+          "sourceHeaderOpenEnded": false,
+          "compressionType": "NONE",
+          "durationSeconds": 28.927
+        },
+        "expectedPcmSha256": "cf1e1fa40ed65e0a37fcfdb978abb890afbfe283d24aaa7cf9378ee09e11e3a4",
+        "finalPcmSha256": "cf1e1fa40ed65e0a37fcfdb978abb890afbfe283d24aaa7cf9378ee09e11e3a4",
+        "pcmExactMatch": true,
+        "allSpeechSlicesExact": true
+      },
+      "sliceVerification": [
+        {
+          "role": "number",
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No01\\number-harper_32-ae0f2aa063e57fc8f7ea2212.wav",
+          "sourceFileSha256": "4a90651d21c1f5dddcb8f0cc37dfeafd3f152dedcf8f6126a1f72b5040c02f16",
+          "sourcePcmSha256": "38f31fd357ee2fd78bd742953d83e8354032badbb60f9ab64c0e8e87aa3b0a38",
+          "finalPcmStartByte": 0,
+          "finalPcmEndByte": 94080,
+          "gapAfterMs": 1150,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 47040,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 0.98
+          },
+          "finalSlicePcmSha256": "38f31fd357ee2fd78bd742953d83e8354032badbb60f9ab64c0e8e87aa3b0a38",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "turn1",
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No01\\turn1-dominic_32-2f1a5785dd6ad0e9b9f58aed.wav",
+          "sourceFileSha256": "4b3ae203aac7ce9a8b1b58ca5cadf80755e0f7ef942f8766698e76594e69522a",
+          "sourcePcmSha256": "f3fbf8a390f0cee4f3f1412db57d7c3ff410faf0a0db23ee88dabc4a785d0784",
+          "finalPcmStartByte": 204480,
+          "finalPcmEndByte": 630464,
+          "gapAfterMs": 550,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 212992,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 4.437
+          },
+          "finalSlicePcmSha256": "f3fbf8a390f0cee4f3f1412db57d7c3ff410faf0a0db23ee88dabc4a785d0784",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "turn2",
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No01\\turn2-geffen_32-6188b5310b6f3fa76af17dfe.wav",
+          "sourceFileSha256": "eeec2fc0080e2af14ebd2b78fc4eb14f90cf7c93247bc7f2b5eeb5f030c0a8e6",
+          "sourcePcmSha256": "59450ec94049f4c0173b3ad007a1b1d352c74ce95ad1fdf9ad5eaf1d62db5f26",
+          "finalPcmStartByte": 683264,
+          "finalPcmEndByte": 1268864,
+          "gapAfterMs": 550,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 292800,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 6.1
+          },
+          "finalSlicePcmSha256": "59450ec94049f4c0173b3ad007a1b1d352c74ce95ad1fdf9ad5eaf1d62db5f26",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "turn3",
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No01\\turn3-dominic_32-a59c0c942535271dbaf1035d.wav",
+          "sourceFileSha256": "4538cf51080e2764ffffd6d9928d2f889873432d6c08bf5e2526d4d06d773ec4",
+          "sourcePcmSha256": "f9b3670c757628feee73b3cd469c854b5cb020f0f93c8047491d323fdf5846b0",
+          "finalPcmStartByte": 1321664,
+          "finalPcmEndByte": 1890944,
+          "gapAfterMs": 550,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 284640,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 5.93
+          },
+          "finalSlicePcmSha256": "f9b3670c757628feee73b3cd469c854b5cb020f0f93c8047491d323fdf5846b0",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "turn4",
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No01\\turn4-geffen_32-ef2bf5031fb53d9551b799a1.wav",
+          "sourceFileSha256": "778a806784a148b26833a3b3e4c4137a127b7de773455af4dc1281c2f7762495",
+          "sourcePcmSha256": "4187b70543f8f391674c99fe210e2e90a7931e4aa1231628ecff02b6cdbc3b91",
+          "finalPcmStartByte": 1943744,
+          "finalPcmEndByte": 2363264,
+          "gapAfterMs": 1100,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 209760,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 4.37
+          },
+          "finalSlicePcmSha256": "4187b70543f8f391674c99fe210e2e90a7931e4aa1231628ecff02b6cdbc3b91",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "question",
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No01\\question-harper_32-2bb957a15f67219e2e9e305e.wav",
+          "sourceFileSha256": "862ef72339f7638eb616917e86bfa40d14b1e81b599532c230ae8f659edc95ca",
+          "sourcePcmSha256": "402bfb0973726b9c804639a6021bada7c532764585c12098fab173663cdcf71e",
+          "finalPcmStartByte": 2468864,
+          "finalPcmEndByte": 2777024,
+          "gapAfterMs": 0,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 154080,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 3.21
+          },
+          "finalSlicePcmSha256": "402bfb0973726b9c804639a6021bada7c532764585c12098fab173663cdcf71e",
+          "pcmSliceMatch": true
+        }
+      ],
+      "masterWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\audio\\part1-No01-simba-3-2-native-pcm-lossless.wav",
+      "publishedWav": "audio/part1-No01-simba-3-2-native-pcm-lossless.wav",
+      "masterSha256": "746097567b529de1b4ef4156d77cced626e00516f1281dcf87d8941c1522c60b",
+      "publishedSha256": "746097567b529de1b4ef4156d77cced626e00516f1281dcf87d8941c1522c60b",
+      "publishedCopyHashMatch": true,
+      "fileBytes": 2777068
+    },
+    {
+      "id": "No02",
+      "number": 2,
+      "voices": {
+        "A": {
+          "id": "geffen_32",
+          "name": "Geffen",
+          "gender": "female"
+        },
+        "B": {
+          "id": "dominic_32",
+          "name": "Dominic",
+          "gender": "male"
+        },
+        "narrator": {
+          "id": "harper_32",
+          "name": "Harper",
+          "gender": "female"
+        }
+      },
+      "scriptHtml": "<p><strong>A</strong> I signed up for the beginner yoga class that meets on Wednesday evenings.</p><p><strong>B</strong> That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven.</p><p><strong>A</strong> Thursday works for me. Do I need to register again at the front desk?</p><p><strong>B</strong> No, your name is already on the new list. Just bring the same membership card.</p><p class=\"question\"><strong>Question</strong> What is true about the yoga class?</p>",
+      "segments": [
+        {
+          "role": "number",
+          "speaker": "narrator",
+          "voice": "Harper",
+          "voiceId": "harper_32",
+          "displayText": "Number 2.",
+          "ttsText": "Number two.",
+          "ttsOverrides": [
+            {
+              "from": "2",
+              "to": "two"
+            }
+          ],
+          "input": "<speak>Number two.</speak>",
+          "gapAfterMs": 1150,
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No02\\number-harper_32-45da41702d77f965605f29ee.wav",
+          "sourceFileSha256": "f027c1501393a2123b86f0e0a9b948c7ef701dcbfe7328c006b1abd8411f93f6",
+          "sourcePcmSha256": "5667287318b957ebc006fa1f254dc693641b31fd7577ca089854f53791452d3c",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 33600,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 0.7
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 1.103,
+            "billableCharacters": 11,
+            "requestId": "d68b5208c6b2e70838210393"
+          }
+        },
+        {
+          "role": "turn1",
+          "speaker": "A",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "displayText": "I signed up for the beginner yoga class that meets on Wednesday evenings.",
+          "ttsText": "I signed up for the beginner yoga class that meets on Wednesday evenings.",
+          "ttsOverrides": [],
+          "input": "<speak>I signed up for the beginner yoga class that meets on Wednesday evenings.</speak>",
+          "gapAfterMs": 550,
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No02\\turn1-geffen_32-059859d3001dd5dc5d02823e.wav",
+          "sourceFileSha256": "2dedc4d21bd2dd5b8ca6416aa9f44b95d01c8aa91302606361701ddce9b7b6ad",
+          "sourcePcmSha256": "50394ef9fc35bbf766795de0948a7c75067f9975321ee144d915ba2be1fab70b",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 190560,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 3.97
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 2.521,
+            "billableCharacters": 73,
+            "requestId": "8682b3eb8215dddeac67c67b"
+          }
+        },
+        {
+          "role": "turn2",
+          "speaker": "B",
+          "voice": "Dominic",
+          "voiceId": "dominic_32",
+          "displayText": "That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven.",
+          "ttsText": "That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven.",
+          "ttsOverrides": [],
+          "input": "<speak>That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven.</speak>",
+          "gapAfterMs": 550,
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No02\\turn2-dominic_32-3d6319cba0f94c11efbf16e7.wav",
+          "sourceFileSha256": "0735285d2a0ed06724c2f6eac943fb11761ecb2240f0de3cba825903f5376ccf",
+          "sourcePcmSha256": "09e021cdfb1cb5d1f8b8a715df43b0fef379291919c868a09285713d477da698",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 376800,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 7.85
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 2.862,
+            "billableCharacters": 121,
+            "requestId": "b48194800594cbb158d6cd26"
+          }
+        },
+        {
+          "role": "turn3",
+          "speaker": "A",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "displayText": "Thursday works for me. Do I need to register again at the front desk?",
+          "ttsText": "Thursday works for me. Do I need to register again at the front desk?",
+          "ttsOverrides": [],
+          "input": "<speak>Thursday works for me. Do I need to register again at the front desk?</speak>",
+          "gapAfterMs": 550,
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No02\\turn3-geffen_32-49cd964a41d2f31b324f4348.wav",
+          "sourceFileSha256": "0516f8c5442d016afa96c5be8733d982fa5b40b1318d4620430d0b65cb441fe7",
+          "sourcePcmSha256": "d9e43c0218bcf776bae4bc781eb2fe4408100cf414ebccaef4da98f34beded0e",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 200640,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 4.18
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 3.753,
+            "billableCharacters": 69,
+            "requestId": "a45125a825f60b5857efba3b"
+          }
+        },
+        {
+          "role": "turn4",
+          "speaker": "B",
+          "voice": "Dominic",
+          "voiceId": "dominic_32",
+          "displayText": "No, your name is already on the new list. Just bring the same membership card.",
+          "ttsText": "No, your name is already on the new list. Just bring the same membership card.",
+          "ttsOverrides": [],
+          "input": "<speak>No, your name is already on the new list. Just bring the same membership card.</speak>",
+          "gapAfterMs": 1100,
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No02\\turn4-dominic_32-189cd266eaa32fa5f2a68a00.wav",
+          "sourceFileSha256": "57adc293fdfbf78c99a3ef350e06faac74b63abc1db24dbc9bf167fee3f71c2f",
+          "sourcePcmSha256": "8f8c83b33ee8b16b6d56d8fbfa403cdbd8cb4941f49e0a0f4570f67d5f18d259",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 253920,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 5.29
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 2.609,
+            "billableCharacters": 78,
+            "requestId": "e9b109c6e2b099fef2b31c4f"
+          }
+        },
+        {
+          "role": "question",
+          "speaker": "narrator",
+          "voice": "Harper",
+          "voiceId": "harper_32",
+          "displayText": "Question. What is true about the yoga class?",
+          "ttsText": "Question. What is true about the yoga class?",
+          "ttsOverrides": [],
+          "input": "<speak>Question.<break time=\"350ms\"/>What is true about the yoga class?</speak>",
+          "gapAfterMs": 0,
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No02\\question-harper_32-5d0a6750ae239bb907e1a993.wav",
+          "sourceFileSha256": "69916e0749e87d8cb17054d16504a9585cde5265b284fc28029a6c58e5a02dc7",
+          "sourcePcmSha256": "893b3aab347a21084fd30c8e064e0271ae1b2d23b185db712477db3285b5c357",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 178848,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 3.726
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 2.465,
+            "billableCharacters": 43,
+            "requestId": "c59b208f00f408ed7b0a466e"
+          }
+        }
+      ],
+      "pcmVerification": {
+        "wave": {
+          "channels": 1,
+          "sampleWidthBytes": 2,
+          "bitsPerSample": 16,
+          "sampleRateHz": 48000,
+          "frameCount": 1421568,
+          "declaredFrameCount": 1421568,
+          "sourceHeaderOpenEnded": false,
+          "compressionType": "NONE",
+          "durationSeconds": 29.616
+        },
+        "expectedPcmSha256": "7a0594d5aa1c64315eeed31baf10040216cfd361aea2d7789fdada95831b358c",
+        "finalPcmSha256": "7a0594d5aa1c64315eeed31baf10040216cfd361aea2d7789fdada95831b358c",
+        "pcmExactMatch": true,
+        "allSpeechSlicesExact": true
+      },
+      "sliceVerification": [
+        {
+          "role": "number",
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No02\\number-harper_32-45da41702d77f965605f29ee.wav",
+          "sourceFileSha256": "f027c1501393a2123b86f0e0a9b948c7ef701dcbfe7328c006b1abd8411f93f6",
+          "sourcePcmSha256": "5667287318b957ebc006fa1f254dc693641b31fd7577ca089854f53791452d3c",
+          "finalPcmStartByte": 0,
+          "finalPcmEndByte": 67200,
+          "gapAfterMs": 1150,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 33600,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 0.7
+          },
+          "finalSlicePcmSha256": "5667287318b957ebc006fa1f254dc693641b31fd7577ca089854f53791452d3c",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "turn1",
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No02\\turn1-geffen_32-059859d3001dd5dc5d02823e.wav",
+          "sourceFileSha256": "2dedc4d21bd2dd5b8ca6416aa9f44b95d01c8aa91302606361701ddce9b7b6ad",
+          "sourcePcmSha256": "50394ef9fc35bbf766795de0948a7c75067f9975321ee144d915ba2be1fab70b",
+          "finalPcmStartByte": 177600,
+          "finalPcmEndByte": 558720,
+          "gapAfterMs": 550,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 190560,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 3.97
+          },
+          "finalSlicePcmSha256": "50394ef9fc35bbf766795de0948a7c75067f9975321ee144d915ba2be1fab70b",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "turn2",
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No02\\turn2-dominic_32-3d6319cba0f94c11efbf16e7.wav",
+          "sourceFileSha256": "0735285d2a0ed06724c2f6eac943fb11761ecb2240f0de3cba825903f5376ccf",
+          "sourcePcmSha256": "09e021cdfb1cb5d1f8b8a715df43b0fef379291919c868a09285713d477da698",
+          "finalPcmStartByte": 611520,
+          "finalPcmEndByte": 1365120,
+          "gapAfterMs": 550,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 376800,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 7.85
+          },
+          "finalSlicePcmSha256": "09e021cdfb1cb5d1f8b8a715df43b0fef379291919c868a09285713d477da698",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "turn3",
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No02\\turn3-geffen_32-49cd964a41d2f31b324f4348.wav",
+          "sourceFileSha256": "0516f8c5442d016afa96c5be8733d982fa5b40b1318d4620430d0b65cb441fe7",
+          "sourcePcmSha256": "d9e43c0218bcf776bae4bc781eb2fe4408100cf414ebccaef4da98f34beded0e",
+          "finalPcmStartByte": 1417920,
+          "finalPcmEndByte": 1819200,
+          "gapAfterMs": 550,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 200640,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 4.18
+          },
+          "finalSlicePcmSha256": "d9e43c0218bcf776bae4bc781eb2fe4408100cf414ebccaef4da98f34beded0e",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "turn4",
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No02\\turn4-dominic_32-189cd266eaa32fa5f2a68a00.wav",
+          "sourceFileSha256": "57adc293fdfbf78c99a3ef350e06faac74b63abc1db24dbc9bf167fee3f71c2f",
+          "sourcePcmSha256": "8f8c83b33ee8b16b6d56d8fbfa403cdbd8cb4941f49e0a0f4570f67d5f18d259",
+          "finalPcmStartByte": 1872000,
+          "finalPcmEndByte": 2379840,
+          "gapAfterMs": 1100,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 253920,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 5.29
+          },
+          "finalSlicePcmSha256": "8f8c83b33ee8b16b6d56d8fbfa403cdbd8cb4941f49e0a0f4570f67d5f18d259",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "question",
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No02\\question-harper_32-5d0a6750ae239bb907e1a993.wav",
+          "sourceFileSha256": "69916e0749e87d8cb17054d16504a9585cde5265b284fc28029a6c58e5a02dc7",
+          "sourcePcmSha256": "893b3aab347a21084fd30c8e064e0271ae1b2d23b185db712477db3285b5c357",
+          "finalPcmStartByte": 2485440,
+          "finalPcmEndByte": 2843136,
+          "gapAfterMs": 0,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 178848,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 3.726
+          },
+          "finalSlicePcmSha256": "893b3aab347a21084fd30c8e064e0271ae1b2d23b185db712477db3285b5c357",
+          "pcmSliceMatch": true
+        }
+      ],
+      "masterWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\audio\\part1-No02-simba-3-2-native-pcm-lossless.wav",
+      "publishedWav": "audio/part1-No02-simba-3-2-native-pcm-lossless.wav",
+      "masterSha256": "61d214d5fd48a07be9d29b20c2482295d9f496966b8dd4be22f2a8b02560ca68",
+      "publishedSha256": "61d214d5fd48a07be9d29b20c2482295d9f496966b8dd4be22f2a8b02560ca68",
+      "publishedCopyHashMatch": true,
+      "fileBytes": 2843180
+    },
+    {
+      "id": "No03",
+      "number": 3,
+      "voices": {
+        "A": {
+          "id": "geffen_32",
+          "name": "Geffen",
+          "gender": "female"
+        },
+        "B": {
+          "id": "dominic_32",
+          "name": "Dominic",
+          "gender": "male"
+        },
+        "narrator": {
+          "id": "harper_32",
+          "name": "Harper",
+          "gender": "female"
+        }
+      },
+      "scriptHtml": "<p><strong>A</strong> I can&#x27;t meet you at the café this afternoon. A repair worker is coming to look at our washing machine.</p><p><strong>B</strong> Didn&#x27;t your brother say he would stay home for that?</p><p><strong>A</strong> He was supposed to, but his manager asked him to work an extra shift. The worker may arrive anytime between two and five.</p><p><strong>B</strong> No problem. We can meet tomorrow after my class instead.</p><p class=\"question\"><strong>Question</strong> Why will the woman stay home this afternoon?</p>",
+      "segments": [
+        {
+          "role": "number",
+          "speaker": "narrator",
+          "voice": "Harper",
+          "voiceId": "harper_32",
+          "displayText": "Number 3.",
+          "ttsText": "Number three.",
+          "ttsOverrides": [
+            {
+              "from": "3",
+              "to": "three"
+            }
+          ],
+          "input": "<speak>Number three.</speak>",
+          "gapAfterMs": 1150,
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No03\\number-harper_32-979690620b62135d558f4e15.wav",
+          "sourceFileSha256": "e4618afb8be1f16621e92c5f06f633e2fcac94af981eb613f12b809916d96a92",
+          "sourcePcmSha256": "966712522803074ea1b0b0d195bd36bf44ae98556bd6315601978f838e8e7e07",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 45472,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 0.947
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 1.036,
+            "billableCharacters": 13,
+            "requestId": "5599c8618922eef49ab3d755"
+          }
+        },
+        {
+          "role": "turn1",
+          "speaker": "A",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "displayText": "I can't meet you at the café this afternoon. A repair worker is coming to look at our washing machine.",
+          "ttsText": "I can't meet you at the cafe this afternoon. A repair worker is coming to look at our washing machine.",
+          "ttsOverrides": [
+            {
+              "from": "café",
+              "to": "cafe"
+            }
+          ],
+          "input": "<speak>I can't meet you at the cafe this afternoon. A repair worker is coming to look at our washing machine.</speak>",
+          "gapAfterMs": 550,
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No03\\turn1-geffen_32-a924f73951844fc63e9413a7.wav",
+          "sourceFileSha256": "376e27cb1746e09ca5ece16accec78d62fd8d358656406477dd9c4e691d602de",
+          "sourcePcmSha256": "a3f64088d5203aae6ffc4a95eeaa5d5ee431f35910adb462d7058794e6a61cb6",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 268320,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 5.59
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 2.32,
+            "billableCharacters": 102,
+            "requestId": "d0252048cda5bd0c8daf6091"
+          }
+        },
+        {
+          "role": "turn2",
+          "speaker": "B",
+          "voice": "Dominic",
+          "voiceId": "dominic_32",
+          "displayText": "Didn't your brother say he would stay home for that?",
+          "ttsText": "Didn't your brother say he would stay home for that?",
+          "ttsOverrides": [],
+          "input": "<speak>Didn't your brother say he would stay home for that?</speak>",
+          "gapAfterMs": 550,
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No03\\turn2-dominic_32-eea86a6cdf8188f188c2a3b2.wav",
+          "sourceFileSha256": "15a14f07367a74687f9378345bd8b0995a51ed9d3b96024a1b60908f238de089",
+          "sourcePcmSha256": "92b3022042ebe3856763c632982b884fab4f7ef6acb671b8f72b36dd98b99793",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 135360,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 2.82
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 1.983,
+            "billableCharacters": 52,
+            "requestId": "1fa339d2b340234a60d66cc8"
+          }
+        },
+        {
+          "role": "turn3",
+          "speaker": "A",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "displayText": "He was supposed to, but his manager asked him to work an extra shift. The worker may arrive anytime between two and five.",
+          "ttsText": "He was supposed to, but his manager asked him to work an extra shift. The worker may arrive anytime between two and five.",
+          "ttsOverrides": [],
+          "input": "<speak>He was supposed to, but his manager asked him to work an extra shift. The worker may arrive anytime between two and five.</speak>",
+          "gapAfterMs": 550,
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No03\\turn3-geffen_32-02b2133d032105945dac38b5.wav",
+          "sourceFileSha256": "cf3c9be981995077d3f9dd7311f236d5c6b391df39749207a1234d16e1cfd847",
+          "sourcePcmSha256": "82fc30510058ddd017717da14f7fb614f6314f2dd1b0b2109dac35fc3f89936c",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 354240,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 7.38
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 2.941,
+            "billableCharacters": 121,
+            "requestId": "1aec18f72ddb4375632e8e18"
+          }
+        },
+        {
+          "role": "turn4",
+          "speaker": "B",
+          "voice": "Dominic",
+          "voiceId": "dominic_32",
+          "displayText": "No problem. We can meet tomorrow after my class instead.",
+          "ttsText": "No problem. We can meet tomorrow after my class instead.",
+          "ttsOverrides": [],
+          "input": "<speak>No problem. We can meet tomorrow after my class instead.</speak>",
+          "gapAfterMs": 1100,
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No03\\turn4-dominic_32-20f5ca4c56870ee1a7b281d9.wav",
+          "sourceFileSha256": "46bd0a2299d34d2b074fdc5c595881eeff7a66f819db37e74023961f679b5f03",
+          "sourcePcmSha256": "e76e9ada62da8479d77fdff72cac8a6798d4a4c98c72938af4c854a6e7bfdf26",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 174720,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 3.64
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 2.795,
+            "billableCharacters": 56,
+            "requestId": "f3c2a2edae2f9334061f9426"
+          }
+        },
+        {
+          "role": "question",
+          "speaker": "narrator",
+          "voice": "Harper",
+          "voiceId": "harper_32",
+          "displayText": "Question. Why will the woman stay home this afternoon?",
+          "ttsText": "Question. Why will the woman stay home this afternoon?",
+          "ttsOverrides": [],
+          "input": "<speak>Question.<break time=\"350ms\"/>Why will the woman stay home this afternoon?</speak>",
+          "gapAfterMs": 0,
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No03\\question-harper_32-002e37de89845695aa5005a9.wav",
+          "sourceFileSha256": "fb0c2f65a702d2eb2384616af445cc28ca0335518ea4280bf70205d82655a7a5",
+          "sourcePcmSha256": "26b36601528f72c8b861359b9d9b4bea165f2673149ec4d3e817f44d0268b261",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 170656,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 3.555
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 2.284,
+            "billableCharacters": 53,
+            "requestId": "78a7369fda3bbd00177029f6"
+          }
+        }
+      ],
+      "pcmVerification": {
+        "wave": {
+          "channels": 1,
+          "sampleWidthBytes": 2,
+          "bitsPerSample": 16,
+          "sampleRateHz": 48000,
+          "frameCount": 1335968,
+          "declaredFrameCount": 1335968,
+          "sourceHeaderOpenEnded": false,
+          "compressionType": "NONE",
+          "durationSeconds": 27.833
+        },
+        "expectedPcmSha256": "95e489feacc8866ffaf43f007e05d0bd7e61914418b8394128a2eb0965269956",
+        "finalPcmSha256": "95e489feacc8866ffaf43f007e05d0bd7e61914418b8394128a2eb0965269956",
+        "pcmExactMatch": true,
+        "allSpeechSlicesExact": true
+      },
+      "sliceVerification": [
+        {
+          "role": "number",
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No03\\number-harper_32-979690620b62135d558f4e15.wav",
+          "sourceFileSha256": "e4618afb8be1f16621e92c5f06f633e2fcac94af981eb613f12b809916d96a92",
+          "sourcePcmSha256": "966712522803074ea1b0b0d195bd36bf44ae98556bd6315601978f838e8e7e07",
+          "finalPcmStartByte": 0,
+          "finalPcmEndByte": 90944,
+          "gapAfterMs": 1150,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 45472,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 0.947
+          },
+          "finalSlicePcmSha256": "966712522803074ea1b0b0d195bd36bf44ae98556bd6315601978f838e8e7e07",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "turn1",
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No03\\turn1-geffen_32-a924f73951844fc63e9413a7.wav",
+          "sourceFileSha256": "376e27cb1746e09ca5ece16accec78d62fd8d358656406477dd9c4e691d602de",
+          "sourcePcmSha256": "a3f64088d5203aae6ffc4a95eeaa5d5ee431f35910adb462d7058794e6a61cb6",
+          "finalPcmStartByte": 201344,
+          "finalPcmEndByte": 737984,
+          "gapAfterMs": 550,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 268320,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 5.59
+          },
+          "finalSlicePcmSha256": "a3f64088d5203aae6ffc4a95eeaa5d5ee431f35910adb462d7058794e6a61cb6",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "turn2",
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No03\\turn2-dominic_32-eea86a6cdf8188f188c2a3b2.wav",
+          "sourceFileSha256": "15a14f07367a74687f9378345bd8b0995a51ed9d3b96024a1b60908f238de089",
+          "sourcePcmSha256": "92b3022042ebe3856763c632982b884fab4f7ef6acb671b8f72b36dd98b99793",
+          "finalPcmStartByte": 790784,
+          "finalPcmEndByte": 1061504,
+          "gapAfterMs": 550,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 135360,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 2.82
+          },
+          "finalSlicePcmSha256": "92b3022042ebe3856763c632982b884fab4f7ef6acb671b8f72b36dd98b99793",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "turn3",
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No03\\turn3-geffen_32-02b2133d032105945dac38b5.wav",
+          "sourceFileSha256": "cf3c9be981995077d3f9dd7311f236d5c6b391df39749207a1234d16e1cfd847",
+          "sourcePcmSha256": "82fc30510058ddd017717da14f7fb614f6314f2dd1b0b2109dac35fc3f89936c",
+          "finalPcmStartByte": 1114304,
+          "finalPcmEndByte": 1822784,
+          "gapAfterMs": 550,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 354240,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 7.38
+          },
+          "finalSlicePcmSha256": "82fc30510058ddd017717da14f7fb614f6314f2dd1b0b2109dac35fc3f89936c",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "turn4",
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No03\\turn4-dominic_32-20f5ca4c56870ee1a7b281d9.wav",
+          "sourceFileSha256": "46bd0a2299d34d2b074fdc5c595881eeff7a66f819db37e74023961f679b5f03",
+          "sourcePcmSha256": "e76e9ada62da8479d77fdff72cac8a6798d4a4c98c72938af4c854a6e7bfdf26",
+          "finalPcmStartByte": 1875584,
+          "finalPcmEndByte": 2225024,
+          "gapAfterMs": 1100,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 174720,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 3.64
+          },
+          "finalSlicePcmSha256": "e76e9ada62da8479d77fdff72cac8a6798d4a4c98c72938af4c854a6e7bfdf26",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "question",
+          "sourceWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\segments\\No03\\question-harper_32-002e37de89845695aa5005a9.wav",
+          "sourceFileSha256": "fb0c2f65a702d2eb2384616af445cc28ca0335518ea4280bf70205d82655a7a5",
+          "sourcePcmSha256": "26b36601528f72c8b861359b9d9b4bea165f2673149ec4d3e817f44d0268b261",
+          "finalPcmStartByte": 2330624,
+          "finalPcmEndByte": 2671936,
+          "gapAfterMs": 0,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 170656,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 3.555
+          },
+          "finalSlicePcmSha256": "26b36601528f72c8b861359b9d9b4bea165f2673149ec4d3e817f44d0268b261",
+          "pcmSliceMatch": true
+        }
+      ],
+      "masterWav": "audio-generation\\grade2-round1-part1-simba-3-2-native-wav-lossless-20260719\\audio\\part1-No03-simba-3-2-native-pcm-lossless.wav",
+      "publishedWav": "audio/part1-No03-simba-3-2-native-pcm-lossless.wav",
+      "masterSha256": "bb0857bc4fd0122f8f27e19dc74c5f07406ae9c2b284af72d46805b3e30d5b67",
+      "publishedSha256": "bb0857bc4fd0122f8f27e19dc74c5f07406ae9c2b284af72d46805b3e30d5b67",
+      "publishedCopyHashMatch": true,
+      "fileBytes": 2671980
+    }
+  ]
+}

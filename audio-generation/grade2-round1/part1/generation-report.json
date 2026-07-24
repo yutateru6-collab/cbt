@@ -1,0 +1,287 @@
+{
+  "setKey": "set-01",
+  "label": "第1回",
+  "part": "Part 1",
+  "model": "gpt-4o-mini-tts",
+  "openaiSpeed": 1.0,
+  "edgeRate": "+0%",
+  "normalGapMs": 180,
+  "questionGapMs": 650,
+  "pairBlocks": [
+    {
+      "start": 1,
+      "end": 5,
+      "A": {
+        "provider": "edge",
+        "voice": "en-US-EmmaMultilingualNeural",
+        "gender": "female",
+        "language": "en-US",
+        "englishOnly": true,
+        "gainDb": -4.0
+      },
+      "B": {
+        "provider": "openai",
+        "voice": "cedar",
+        "gender": "male",
+        "accent": "American English",
+        "gainDb": 0.0
+      }
+    },
+    {
+      "start": 6,
+      "end": 10,
+      "A": {
+        "provider": "openai",
+        "voice": "marin",
+        "gender": "female",
+        "accent": "American English",
+        "gainDb": 0.0
+      },
+      "B": {
+        "provider": "edge",
+        "voice": "en-GB-RyanNeural",
+        "gender": "male",
+        "language": "en-GB",
+        "englishOnly": true,
+        "gainDb": 0.0
+      }
+    },
+    {
+      "start": 11,
+      "end": 15,
+      "A": {
+        "provider": "edge",
+        "voice": "en-US-AvaMultilingualNeural",
+        "gender": "female",
+        "language": "en-US",
+        "englishOnly": true,
+        "gainDb": -3.5
+      },
+      "B": {
+        "provider": "openai",
+        "voice": "cedar",
+        "gender": "male",
+        "accent": "American English",
+        "gainDb": 0.0
+      }
+    }
+  ],
+  "safetyLimits": {
+    "maxApiCalls": 40,
+    "maxRetriesPerSegment": 1,
+    "estimatedCostCapUsd": 0.25,
+    "maxOpenAICharacters": 10000,
+    "conservativeCostUsdPerMinute": 0.03
+  },
+  "fullProductionEstimate": {
+    "items": 15,
+    "totalSegments": 75,
+    "openaiSegments": 38,
+    "edgeSegments": 37,
+    "openaiCharacters": 3033,
+    "openaiWords": 539,
+    "estimatedOpenaiMinutes": 4.146,
+    "estimatedCostUsd": 0.1244,
+    "costBasis": "conservative estimate at $0.030 per generated OpenAI minute"
+  },
+  "latestRunPreflight": {
+    "selectedItems": 15,
+    "totalSegments": 75,
+    "openaiSegments": 38,
+    "edgeSegments": 37,
+    "missingOpenaiApiCalls": 0,
+    "cachedOpenaiSegments": 38,
+    "missingEdgeCalls": 0,
+    "cachedEdgeSegments": 37,
+    "openaiCharacters": 3033,
+    "missingOpenaiCharacters": 0,
+    "missingOpenaiWords": 0,
+    "estimatedMissingOpenaiMinutes": 0.0,
+    "estimatedCostUsd": 0.0,
+    "costBasis": "conservative estimate at $0.030 per generated OpenAI minute"
+  },
+  "latestRunApiCalls": 0,
+  "latestRunEdgeCalls": 0,
+  "completedItems": [
+    "No01",
+    "No02",
+    "No03",
+    "No04",
+    "No05",
+    "No06",
+    "No07",
+    "No08",
+    "No09",
+    "No10",
+    "No11",
+    "No12",
+    "No13",
+    "No14",
+    "No15"
+  ],
+  "completedItemCount": 15,
+  "totalDurationSeconds": 411.038,
+  "averageSegmentMeanVolumeDbByProvider": {
+    "openai": -22.58,
+    "edge": -22.36
+  },
+  "averageSegmentMeanVolumeDbByVoice": {
+    "cedar": -22.96,
+    "en-GB-RyanNeural": -22.16,
+    "en-US-AvaMultilingualNeural": -23.02,
+    "en-US-EmmaMultilingualNeural": -21.85,
+    "marin": -21.83
+  },
+  "items": [
+    {
+      "item": "No01",
+      "output": "audio-generation\\grade2-round1\\part1\\No01.wav",
+      "duration": "26.552000",
+      "finalVolume": {
+        "meanVolumeDb": -21.9,
+        "maxVolumeDb": -2.1
+      },
+      "globalAttenuationDb": 0.0
+    },
+    {
+      "item": "No02",
+      "output": "audio-generation\\grade2-round1\\part1\\No02.wav",
+      "duration": "25.932000",
+      "finalVolume": {
+        "meanVolumeDb": -22.5,
+        "maxVolumeDb": -3.0
+      },
+      "globalAttenuationDb": 0.0
+    },
+    {
+      "item": "No03",
+      "output": "audio-generation\\grade2-round1\\part1\\No03.wav",
+      "duration": "27.968000",
+      "finalVolume": {
+        "meanVolumeDb": -22.4,
+        "maxVolumeDb": -4.5
+      },
+      "globalAttenuationDb": 0.0
+    },
+    {
+      "item": "No04",
+      "output": "audio-generation\\grade2-round1\\part1\\No04.wav",
+      "duration": "24.778000",
+      "finalVolume": {
+        "meanVolumeDb": -22.6,
+        "maxVolumeDb": -2.8
+      },
+      "globalAttenuationDb": 0.0
+    },
+    {
+      "item": "No05",
+      "output": "audio-generation\\grade2-round1\\part1\\No05.wav",
+      "duration": "25.786000",
+      "finalVolume": {
+        "meanVolumeDb": -22.8,
+        "maxVolumeDb": -3.0
+      },
+      "globalAttenuationDb": 0.0
+    },
+    {
+      "item": "No06",
+      "output": "audio-generation\\grade2-round1\\part1\\No06.wav",
+      "duration": "27.698000",
+      "finalVolume": {
+        "meanVolumeDb": -22.5,
+        "maxVolumeDb": -4.0
+      },
+      "globalAttenuationDb": 0.0
+    },
+    {
+      "item": "No07",
+      "output": "audio-generation\\grade2-round1\\part1\\No07.wav",
+      "duration": "29.796000",
+      "finalVolume": {
+        "meanVolumeDb": -22.0,
+        "maxVolumeDb": -3.9
+      },
+      "globalAttenuationDb": 0.0
+    },
+    {
+      "item": "No08",
+      "output": "audio-generation\\grade2-round1\\part1\\No08.wav",
+      "duration": "29.940000",
+      "finalVolume": {
+        "meanVolumeDb": -22.2,
+        "maxVolumeDb": -4.0
+      },
+      "globalAttenuationDb": 0.0
+    },
+    {
+      "item": "No09",
+      "output": "audio-generation\\grade2-round1\\part1\\No09.wav",
+      "duration": "31.714000",
+      "finalVolume": {
+        "meanVolumeDb": -21.8,
+        "maxVolumeDb": -3.5
+      },
+      "globalAttenuationDb": 0.0
+    },
+    {
+      "item": "No10",
+      "output": "audio-generation\\grade2-round1\\part1\\No10.wav",
+      "duration": "28.664000",
+      "finalVolume": {
+        "meanVolumeDb": -22.2,
+        "maxVolumeDb": -3.5
+      },
+      "globalAttenuationDb": 0.0
+    },
+    {
+      "item": "No11",
+      "output": "audio-generation\\grade2-round1\\part1\\No11.wav",
+      "duration": "26.050000",
+      "finalVolume": {
+        "meanVolumeDb": -22.8,
+        "maxVolumeDb": -3.4
+      },
+      "globalAttenuationDb": 0.0
+    },
+    {
+      "item": "No12",
+      "output": "audio-generation\\grade2-round1\\part1\\No12.wav",
+      "duration": "26.998000",
+      "finalVolume": {
+        "meanVolumeDb": -23.4,
+        "maxVolumeDb": -2.0
+      },
+      "globalAttenuationDb": 0.0
+    },
+    {
+      "item": "No13",
+      "output": "audio-generation\\grade2-round1\\part1\\No13.wav",
+      "duration": "25.552000",
+      "finalVolume": {
+        "meanVolumeDb": -23.5,
+        "maxVolumeDb": -2.1
+      },
+      "globalAttenuationDb": 0.0
+    },
+    {
+      "item": "No14",
+      "output": "audio-generation\\grade2-round1\\part1\\No14.wav",
+      "duration": "27.270000",
+      "finalVolume": {
+        "meanVolumeDb": -23.0,
+        "maxVolumeDb": -2.8
+      },
+      "globalAttenuationDb": 0.0
+    },
+    {
+      "item": "No15",
+      "output": "audio-generation\\grade2-round1\\part1\\No15.wav",
+      "duration": "26.340000",
+      "finalVolume": {
+        "meanVolumeDb": -23.4,
+        "maxVolumeDb": -5.0
+      },
+      "globalAttenuationDb": 0.0
+    }
+  ]
+}

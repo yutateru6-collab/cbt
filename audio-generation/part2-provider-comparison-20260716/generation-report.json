@@ -1,0 +1,264 @@
+{
+  "source": "audio-generation/grade2-sample-part2-pilot.json",
+  "outputDirectory": "audio-generation\\part2-provider-comparison-20260716",
+  "item": {
+    "id": "No16",
+    "number": 16,
+    "bodyText": "During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge. She knew the basic facts, but she often forgot important dates during busy tours. Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift. She can now explain the bridge's history more clearly.",
+    "questionText": "What helped Nina explain the bridge's history better?",
+    "segments": [
+      {
+        "role": "number",
+        "voiceRole": "body",
+        "text": "Number 16.",
+        "gapAfterMs": 1150
+      },
+      {
+        "role": "body",
+        "voiceRole": "body",
+        "text": "During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge. She knew the basic facts, but she often forgot important dates during busy tours. Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift. She can now explain the bridge's history more clearly.",
+        "gapAfterMs": 1100
+      },
+      {
+        "role": "question",
+        "voiceRole": "question",
+        "text": "Question. What helped Nina explain the bridge's history better?",
+        "gapAfterMs": 0
+      }
+    ]
+  },
+  "preflight": {
+    "item": "No16",
+    "variants": [
+      {
+        "label": "A",
+        "name": "Microsoft Edge — Emma → Ryan",
+        "provider": "edge",
+        "bodyVoice": {
+          "id": "en-US-EmmaMultilingualNeural",
+          "name": "Emma",
+          "gender": "female",
+          "language": "en-US",
+          "englishOnly": true
+        },
+        "questionVoice": {
+          "id": "en-GB-RyanNeural",
+          "name": "Ryan",
+          "gender": "male",
+          "language": "en-GB",
+          "englishOnly": true
+        }
+      },
+      {
+        "label": "B",
+        "name": "OpenAI gpt-4o-mini-tts — marin → cedar",
+        "provider": "openai",
+        "bodyVoice": {
+          "id": "marin",
+          "name": "marin",
+          "gender": "female"
+        },
+        "questionVoice": {
+          "id": "cedar",
+          "name": "cedar",
+          "gender": "male"
+        }
+      },
+      {
+        "label": "C",
+        "name": "SpeechifyAI Simba 3.2 — Geffen → Dominic",
+        "provider": "speechify",
+        "bodyVoice": {
+          "id": "geffen_32",
+          "name": "Geffen",
+          "gender": "female"
+        },
+        "questionVoice": {
+          "id": "dominic_32",
+          "name": "Dominic",
+          "gender": "male"
+        }
+      }
+    ],
+    "missing": {
+      "edge": {
+        "calls": 3,
+        "characters": 435
+      },
+      "openai": {
+        "calls": 3,
+        "characters": 435
+      },
+      "speechify": {
+        "calls": 3,
+        "characters": 435
+      }
+    },
+    "ceilings": {
+      "edge": {
+        "calls": 3,
+        "characters": 500
+      },
+      "openai": {
+        "calls": 3,
+        "characters": 500
+      },
+      "speechify": {
+        "calls": 3,
+        "characters": 500
+      }
+    },
+    "timingMs": {
+      "numberToBody": 1150,
+      "bodyToQuestion": 1100
+    }
+  },
+  "actual": {
+    "edge": {
+      "calls": 3,
+      "characters": 435
+    },
+    "openai": {
+      "calls": 3,
+      "characters": 435
+    },
+    "speechify": {
+      "calls": 3,
+      "characters": 435
+    }
+  },
+  "records": [
+    {
+      "provider": "edge",
+      "model": "Edge Neural TTS",
+      "role": "number",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "characters": 10
+    },
+    {
+      "provider": "edge",
+      "model": "Edge Neural TTS",
+      "role": "body",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "characters": 362
+    },
+    {
+      "provider": "edge",
+      "model": "Edge Neural TTS",
+      "role": "question",
+      "voice": "en-GB-RyanNeural",
+      "characters": 63
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "role": "number",
+      "voice": "marin",
+      "characters": 10,
+      "requestId": "req_f2a341fb0a674bd38a7dabb3344e3b44"
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "role": "body",
+      "voice": "marin",
+      "characters": 362,
+      "requestId": "req_b6f8dc91ec1847b2a16814c7688a3af9"
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "role": "question",
+      "voice": "cedar",
+      "characters": 63,
+      "requestId": "req_29cea03f428f4de2ae994a86ed8e4ea6"
+    },
+    {
+      "provider": "speechify",
+      "model": "simba-3.2",
+      "role": "number",
+      "voice": "geffen_32",
+      "characters": 10,
+      "billableCharacters": 10,
+      "requestId": "997cac01dd3b44a2b90fdd28"
+    },
+    {
+      "provider": "speechify",
+      "model": "simba-3.2",
+      "role": "body",
+      "voice": "geffen_32",
+      "characters": 362,
+      "billableCharacters": 362,
+      "requestId": "a2a38311a989807cc5df1a0b"
+    },
+    {
+      "provider": "speechify",
+      "model": "simba-3.2",
+      "role": "question",
+      "voice": "dominic_32",
+      "characters": 63,
+      "billableCharacters": 63,
+      "requestId": "b327d4bdc82f17daa9dfbf68"
+    }
+  ],
+  "outputs": [
+    {
+      "item": "No16",
+      "label": "A",
+      "variant": "Microsoft Edge — Emma → Ryan",
+      "wav": "audio-generation\\part2-provider-comparison-20260716\\edge-emma-ryan\\No16.wav",
+      "mp3": "audio-generation\\part2-provider-comparison-20260716\\edge-emma-ryan\\No16.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "25.699083"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "25.699093"
+      }
+    },
+    {
+      "item": "No16",
+      "label": "B",
+      "variant": "OpenAI gpt-4o-mini-tts — marin → cedar",
+      "wav": "audio-generation\\part2-provider-comparison-20260716\\openai-marin-cedar\\No16.wav",
+      "mp3": "audio-generation\\part2-provider-comparison-20260716\\openai-marin-cedar\\No16.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "26.218542"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "26.218549"
+      }
+    },
+    {
+      "item": "No16",
+      "label": "C",
+      "variant": "SpeechifyAI Simba 3.2 — Geffen → Dominic",
+      "wav": "audio-generation\\part2-provider-comparison-20260716\\simba-geffen-dominic\\No16.wav",
+      "mp3": "audio-generation\\part2-provider-comparison-20260716\\simba-geffen-dominic\\No16.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "28.489708"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "28.489728"
+      }
+    }
+  ],
+  "secretsIncluded": false
+}

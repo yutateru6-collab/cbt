@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-07-23T01:19:23.451657+00:00",
+  "model": "gemini-3.1-flash-tts-preview",
+  "billingMode": "Batch API",
+  "requestCount": 5,
+  "requestUnit": "one whole listening item per independent request",
+  "voiceBlocks": [
+    {
+      "start": 26,
+      "end": 30,
+      "voice": "Zephyr"
+    }
+  ],
+  "paceInstructions": [
+    "Maintain a steady pace.",
+    "Do not rush, accelerate, over-enunciate, or stretch individual words."
+  ],
+  "pauseInstructions": {
+    "afterNumberSeconds": 0.6,
+    "beforeQuestion": "ordinary natural sentence-boundary timing only",
+    "afterQuestionLabelSeconds": 0.4,
+    "otherDeliberatePauses": "none"
+  },
+  "loudnessInstructions": "none; preserve the native Zephyr output",
+  "postProcessing": {
+    "speed": "none",
+    "loudness": "none",
+    "silence": "trim leading and trailing boundaries only"
+  },
+  "existingAudioPolicy": "never overwrite existing audio",
+  "items": [
+    {
+      "id": "No26",
+      "number": 26,
+      "manifest": "audio-generation\\grade2-sample-part2-rest.json",
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 26.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "N",
+          "text": "A thermos bottle slows the movement of heat between a drink and the air around it. Many bottles have two walls with very little air between them. This space reduces heat transfer, so hot drinks stay hot and cold drinks stay cold longer. A tight lid also limits the amount of warm or cool air that can escape from the bottle.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "N",
+          "text": "Question. Why can a thermos keep drinks hot or cold?",
+          "gapAfterMs": 0
+        }
+      ],
+      "voices": {
+        "N": "Zephyr"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 26.\nA thermos bottle slows the movement of heat between a drink and the air around it. Many bottles have two walls with very little air between them. This space reduces heat transfer, so hot drinks stay hot and cold drinks stay cold longer. A tight lid also limits the amount of warm or cool air that can escape from the bottle.\nQuestion. Why can a thermos keep drinks hot or cold?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "No27",
+      "number": 27,
+      "manifest": "audio-generation\\grade2-sample-part2-rest.json",
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 27.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "N",
+          "text": "Priya ordered hiking shoes from an online store before a school trip. The shoes fit well, but one lace hook was loose. The store offered either a refund or a replacement, though a replacement would not arrive before her departure. Priya kept the shoes, had the hook repaired locally, and sent the receipt to the store for repayment afterward.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "N",
+          "text": "Question. Why did Priya keep the hiking shoes?",
+          "gapAfterMs": 0
+        }
+      ],
+      "voices": {
+        "N": "Zephyr"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 27.\nPriya ordered hiking shoes from an online store before a school trip. The shoes fit well, but one lace hook was loose. The store offered either a refund or a replacement, though a replacement would not arrive before her departure. Priya kept the shoes, had the hook repaired locally, and sent the receipt to the store for repayment afterward.\nQuestion. Why did Priya keep the hiking shoes?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "No28",
+      "number": 28,
+      "manifest": "audio-generation\\grade2-sample-part2-rest.json",
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 28.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "N",
+          "text": "Before his parents' anniversary dinner, Marcus promised to collect a special dessert from a bakery. On the day of the dinner, his work meeting was moved to a later time. His sister could visit the bakery, but she did not know which order to collect. Marcus forwarded her the confirmation message and asked her to pick it up on his behalf.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What did Marcus ask his sister to do?",
+          "gapAfterMs": 0
+        }
+      ],
+      "voices": {
+        "N": "Zephyr"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 28.\nBefore his parents' anniversary dinner, Marcus promised to collect a special dessert from a bakery. On the day of the dinner, his work meeting was moved to a later time. His sister could visit the bakery, but she did not know which order to collect. Marcus forwarded her the confirmation message and asked her to pick it up on his behalf.\nQuestion. What did Marcus ask his sister to do?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "No29",
+      "number": 29,
+      "manifest": "audio-generation\\grade2-sample-part2-rest.json",
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 29.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "N",
+          "text": "The City Library's second floor will be closed for painting from Monday through Thursday. Books from that floor can still be requested at the information desk, although they may take up to twenty minutes to arrive. Study tables have been moved to the meeting room downstairs. The children's area and computer room will operate normally throughout the painting work.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "N",
+          "text": "Question. Where have the library's study tables been moved?",
+          "gapAfterMs": 0
+        }
+      ],
+      "voices": {
+        "N": "Zephyr"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 29.\nThe City Library's second floor will be closed for painting from Monday through Thursday. Books from that floor can still be requested at the information desk, although they may take up to twenty minutes to arrive. Study tables have been moved to the meeting room downstairs. The children's area and computer room will operate normally throughout the painting work.\nQuestion. Where have the library's study tables been moved?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "No30",
+      "number": 30,
+      "manifest": "audio-generation\\grade2-sample-part2-rest.json",
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 30.",
+          "gapAfterMs": 450
+        },
+        {
+          "speaker": "N",
+          "text": "Recently, Hana discovered that several photos from a school event were missing from her laptop. She had copied them from her camera, but she had not checked whether the transfer was complete before deleting the originals. A technician recovered most of the files. Since then, Hana has kept two copies and checks both carefully before clearing her camera's memory card.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "N",
+          "text": "Question. What new habit has Hana adopted?",
+          "gapAfterMs": 0
+        }
+      ],
+      "voices": {
+        "N": "Zephyr"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 30.\nRecently, Hana discovered that several photos from a school event were missing from her laptop. She had copied them from her camera, but she had not checked whether the transfer was complete before deleting the originals. A technician recovered most of the files. Since then, Hana has kept two copies and checks both carefully before clearing her camera's memory card.\nQuestion. What new habit has Hana adopted?\nEND TRANSCRIPT"
+    }
+  ]
+}

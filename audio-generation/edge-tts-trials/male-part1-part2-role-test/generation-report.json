@@ -1,0 +1,200 @@
+{
+  "language": "en-US",
+  "englishOnly": true,
+  "edgeCallsThisRun": 11,
+  "uniqueSegmentsGeneratedThisRun": 11,
+  "items": [
+    {
+      "id": "Part1-Andrew",
+      "path": "audio-generation\\edge-tts-trials\\male-part1-part2-role-test\\Part1-Andrew.wav",
+      "bytes": 1130862,
+      "metadata": {
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "23.558000",
+        "bit_rate": "384000"
+      },
+      "segments": [
+        {
+          "index": 1,
+          "speaker": "B",
+          "voice": "en-US-AndrewMultilingualNeural",
+          "rate": "+0%",
+          "text": "Number 3... I'm starting dinner now. We have an unexpected guest tonight.",
+          "gapAfterMs": 180,
+          "path": "audio-generation\\edge-tts-trials\\male-part1-part2-role-test\\segments\\en-US-AndrewMultilingualNeural-7ef5a139c729a43f.wav",
+          "generatedThisRun": true
+        },
+        {
+          "index": 2,
+          "speaker": "A",
+          "voice": "en-US-AvaMultilingualNeural",
+          "rate": "+0%",
+          "text": "Really? I thought we were going to eat at the new Thai restaurant.",
+          "gapAfterMs": 180,
+          "path": "audio-generation\\edge-tts-trials\\male-part1-part2-role-test\\segments\\en-US-AvaMultilingualNeural-20044ce2b2f52059.wav",
+          "generatedThisRun": true
+        },
+        {
+          "index": 3,
+          "speaker": "B",
+          "voice": "en-US-AndrewMultilingualNeural",
+          "rate": "+0%",
+          "text": "Dad is bringing Grandma over, and she doesn't like spicy food. Could you set the table?",
+          "gapAfterMs": 180,
+          "path": "audio-generation\\edge-tts-trials\\male-part1-part2-role-test\\segments\\en-US-AndrewMultilingualNeural-f48eb64a11311914.wav",
+          "generatedThisRun": true
+        },
+        {
+          "index": 4,
+          "speaker": "A",
+          "voice": "en-US-AvaMultilingualNeural",
+          "rate": "+0%",
+          "text": "Sure. I'll make a salad too. The soup and chicken should be enough for the main dishes.",
+          "gapAfterMs": 650,
+          "path": "audio-generation\\edge-tts-trials\\male-part1-part2-role-test\\segments\\en-US-AvaMultilingualNeural-871e4f8a639d7e2b.wav",
+          "generatedThisRun": true
+        },
+        {
+          "index": 5,
+          "speaker": "B",
+          "voice": "en-US-AndrewMultilingualNeural",
+          "rate": "+0%",
+          "text": "Question. Why is the man preparing dinner at home?",
+          "gapAfterMs": 0,
+          "path": "audio-generation\\edge-tts-trials\\male-part1-part2-role-test\\segments\\en-US-AndrewMultilingualNeural-0ba83d7f42c0c33c.wav",
+          "generatedThisRun": true
+        }
+      ]
+    },
+    {
+      "id": "Part1-Roger",
+      "path": "audio-generation\\edge-tts-trials\\male-part1-part2-role-test\\Part1-Roger.wav",
+      "bytes": 1355502,
+      "metadata": {
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "28.238000",
+        "bit_rate": "384000"
+      },
+      "segments": [
+        {
+          "index": 1,
+          "speaker": "B",
+          "voice": "en-US-RogerNeural",
+          "rate": "+0%",
+          "text": "Number 3... I'm starting dinner now. We have an unexpected guest tonight.",
+          "gapAfterMs": 180,
+          "path": "audio-generation\\edge-tts-trials\\male-part1-part2-role-test\\segments\\en-US-RogerNeural-783d8d20ca7580c0.wav",
+          "generatedThisRun": true
+        },
+        {
+          "index": 2,
+          "speaker": "A",
+          "voice": "en-US-AvaMultilingualNeural",
+          "rate": "+0%",
+          "text": "Really? I thought we were going to eat at the new Thai restaurant.",
+          "gapAfterMs": 180,
+          "path": "audio-generation\\edge-tts-trials\\male-part1-part2-role-test\\segments\\en-US-AvaMultilingualNeural-20044ce2b2f52059.wav",
+          "generatedThisRun": false
+        },
+        {
+          "index": 3,
+          "speaker": "B",
+          "voice": "en-US-RogerNeural",
+          "rate": "+0%",
+          "text": "Dad is bringing Grandma over, and she doesn't like spicy food. Could you set the table?",
+          "gapAfterMs": 180,
+          "path": "audio-generation\\edge-tts-trials\\male-part1-part2-role-test\\segments\\en-US-RogerNeural-44aebe4744538132.wav",
+          "generatedThisRun": true
+        },
+        {
+          "index": 4,
+          "speaker": "A",
+          "voice": "en-US-AvaMultilingualNeural",
+          "rate": "+0%",
+          "text": "Sure. I'll make a salad too. The soup and chicken should be enough for the main dishes.",
+          "gapAfterMs": 650,
+          "path": "audio-generation\\edge-tts-trials\\male-part1-part2-role-test\\segments\\en-US-AvaMultilingualNeural-871e4f8a639d7e2b.wav",
+          "generatedThisRun": false
+        },
+        {
+          "index": 5,
+          "speaker": "B",
+          "voice": "en-US-RogerNeural",
+          "rate": "+0%",
+          "text": "Question. Why is the man preparing dinner at home?",
+          "gapAfterMs": 0,
+          "path": "audio-generation\\edge-tts-trials\\male-part1-part2-role-test\\segments\\en-US-RogerNeural-109e776c4d2f6d5d.wav",
+          "generatedThisRun": true
+        }
+      ]
+    },
+    {
+      "id": "Part2-Andrew",
+      "path": "audio-generation\\edge-tts-trials\\male-part1-part2-role-test\\Part2-Andrew.wav",
+      "bytes": 1405614,
+      "metadata": {
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "29.282000",
+        "bit_rate": "384000"
+      },
+      "segments": [
+        {
+          "index": 1,
+          "speaker": "N",
+          "voice": "en-US-AndrewMultilingualNeural",
+          "rate": "+0%",
+          "text": "Number 16... During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge. She knew the basic facts, but she often forgot important dates during busy tours. Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift. She can now explain the bridge's history more clearly.",
+          "gapAfterMs": 650,
+          "path": "audio-generation\\edge-tts-trials\\male-part1-part2-role-test\\segments\\en-US-AndrewMultilingualNeural-06f511358e5f9eeb.wav",
+          "generatedThisRun": true
+        },
+        {
+          "index": 2,
+          "speaker": "Q",
+          "voice": "en-US-AvaMultilingualNeural",
+          "rate": "+0%",
+          "text": "Question. What helped Nina explain the bridge's history better?",
+          "gapAfterMs": 0,
+          "path": "audio-generation\\edge-tts-trials\\male-part1-part2-role-test\\segments\\en-US-AvaMultilingualNeural-050756e21f242011.wav",
+          "generatedThisRun": true
+        }
+      ]
+    },
+    {
+      "id": "Part2-Roger",
+      "path": "audio-generation\\edge-tts-trials\\male-part1-part2-role-test\\Part2-Roger.wav",
+      "bytes": 1540398,
+      "metadata": {
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "32.090000",
+        "bit_rate": "384000"
+      },
+      "segments": [
+        {
+          "index": 1,
+          "speaker": "N",
+          "voice": "en-US-RogerNeural",
+          "rate": "+0%",
+          "text": "Number 16... During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge. She knew the basic facts, but she often forgot important dates during busy tours. Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift. She can now explain the bridge's history more clearly.",
+          "gapAfterMs": 650,
+          "path": "audio-generation\\edge-tts-trials\\male-part1-part2-role-test\\segments\\en-US-RogerNeural-3ac05440318319e1.wav",
+          "generatedThisRun": true
+        },
+        {
+          "index": 2,
+          "speaker": "Q",
+          "voice": "en-US-AvaMultilingualNeural",
+          "rate": "+0%",
+          "text": "Question. What helped Nina explain the bridge's history better?",
+          "gapAfterMs": 0,
+          "path": "audio-generation\\edge-tts-trials\\male-part1-part2-role-test\\segments\\en-US-AvaMultilingualNeural-050756e21f242011.wav",
+          "generatedThisRun": false
+        }
+      ]
+    }
+  ]
+}

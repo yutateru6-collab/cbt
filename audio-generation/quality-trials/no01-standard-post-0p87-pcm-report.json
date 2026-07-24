@@ -1,0 +1,24 @@
+[
+  {
+    "id": "No01",
+    "number": 1,
+    "path": "audio-generation\\quality-trials\\no01-standard-post-0p87-pcm\\No01.wav",
+    "bytes": 1416410,
+    "duration": "29.506917",
+    "bitRate": "384000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "-13%",
+      "B": "-13%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "48k",
+    "concatMode": "copy",
+    "outputFormat": "wav",
+    "forceRate": "+0%",
+    "pcmPipeline": true,
+    "postTempo": 0.87
+  }
+]

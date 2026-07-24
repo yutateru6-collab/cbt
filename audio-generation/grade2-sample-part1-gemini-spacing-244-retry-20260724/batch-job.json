@@ -1,0 +1,10 @@
+{
+  "submittedAt": "2026-07-23T15:48:28.608274+00:00",
+  "name": "batches/eq5rkr7xrc7fuv43lzjk1pthj3d5pcbnvh2a",
+  "displayName": "grade2-sample-part1-spacing-244-retry-20260724",
+  "model": "models/gemini-3.1-flash-tts-preview",
+  "state": "JOB_STATE_SUCCEEDED",
+  "requestCount": 3,
+  "checkedAt": "2026-07-23T15:51:19.307472+00:00",
+  "error": null
+}

@@ -1,0 +1,209 @@
+{
+  "item": "No05",
+  "number": 5,
+  "sourceScript": "B: Excuse me, I left a black backpack on the train from Riverside this morning. A: Was it the train that arrived here at nine forty? Its lost items were taken to the service office downstairs. B: Yes, that was the one. I already checked the platform, but nobody had found it there. A: Then go to the service office and describe the key chain attached to the bag.",
+  "questionText": "Where should the man go?",
+  "voices": {
+    "A": {
+      "provider": "edge",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "gender": "female",
+      "language": "en-US",
+      "englishOnly": true,
+      "gainDb": -4.0
+    },
+    "B": {
+      "provider": "openai",
+      "voice": "cedar",
+      "gender": "male",
+      "accent": "American English",
+      "gainDb": 0.0
+    }
+  },
+  "output": "audio-generation\\grade2-round1\\part1\\No05.wav",
+  "outputBytes": 1237806,
+  "outputMetadata": {
+    "codec_name": "pcm_s16le",
+    "sample_fmt": "s16",
+    "sample_rate": "24000",
+    "channels": 1,
+    "bits_per_sample": 16,
+    "duration": "25.786000"
+  },
+  "openaiSegments": 3,
+  "edgeSegments": 2,
+  "openaiApiCallsThisRun": 0,
+  "edgeCallsThisRun": 0,
+  "initialVolume": {
+    "meanVolumeDb": -22.8,
+    "maxVolumeDb": -3.0
+  },
+  "globalAttenuationDb": 0.0,
+  "finalVolume": {
+    "meanVolumeDb": -22.8,
+    "maxVolumeDb": -3.0
+  },
+  "segments": [
+    {
+      "speaker": "B",
+      "provider": "openai",
+      "voice": "cedar",
+      "gender": "male",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "Number 5... Excuse me, I left a black backpack on the train from Riverside this morning.",
+      "text": "Number 5... Excuse me, I left a black backpack on the train from Riverside this morning.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 1,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "5.800000"
+      },
+      "volume": {
+        "meanVolumeDb": -23.8,
+        "maxVolumeDb": -4.1
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -23.8,
+        "maxVolumeDb": -4.1
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\cedar-827f22a5efa331061ee4cd2f.wav"
+    },
+    {
+      "speaker": "A",
+      "provider": "edge",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "gender": "female",
+      "language": "en-US",
+      "englishOnly": true,
+      "gainDb": -4.0,
+      "displayText": "Was it the train that arrived here at nine forty? Its lost items were taken to the service office downstairs.",
+      "text": "Was it the train that arrived here at nine forty? Its lost items were taken to the service office downstairs.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 2,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "6.576000"
+      },
+      "volume": {
+        "meanVolumeDb": -18.0,
+        "maxVolumeDb": -2.3
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.0,
+        "maxVolumeDb": -6.3
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-US-EmmaMultilingualNeural-49a984cfdbf0114aa59906b6.wav"
+    },
+    {
+      "speaker": "B",
+      "provider": "openai",
+      "voice": "cedar",
+      "gender": "male",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "Yes, that was the one. I already checked the platform, but nobody had found it there.",
+      "text": "Yes, that was the one. I already checked the platform, but nobody had found it there.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 3,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "5.000000"
+      },
+      "volume": {
+        "meanVolumeDb": -23.9,
+        "maxVolumeDb": -5.2
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -23.9,
+        "maxVolumeDb": -5.2
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\cedar-b2b71e752b36a1e42859f4db.wav"
+    },
+    {
+      "speaker": "A",
+      "provider": "edge",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "gender": "female",
+      "language": "en-US",
+      "englishOnly": true,
+      "gainDb": -4.0,
+      "displayText": "Then go to the service office and describe the key chain attached to the bag.",
+      "text": "Then go to the service office and describe the key chain attached to the bag.",
+      "ttsOverrides": [],
+      "gapAfterMs": 650,
+      "index": 4,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "4.320000"
+      },
+      "volume": {
+        "meanVolumeDb": -18.0,
+        "maxVolumeDb": -4.2
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.0,
+        "maxVolumeDb": -8.2
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-US-EmmaMultilingualNeural-b98c6359f0abb317f43420b9.wav"
+    },
+    {
+      "speaker": "B",
+      "provider": "openai",
+      "voice": "cedar",
+      "gender": "male",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "Question. Where should the man go?",
+      "text": "Question. Where should the man go?",
+      "ttsOverrides": [],
+      "gapAfterMs": 0,
+      "role": "question",
+      "index": 5,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "2.900000"
+      },
+      "volume": {
+        "meanVolumeDb": -21.5,
+        "maxVolumeDb": -3.0
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -21.5,
+        "maxVolumeDb": -3.0
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\cedar-55304384c460feb7e1960045.wav"
+    }
+  ]
+}

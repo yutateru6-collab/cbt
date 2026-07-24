@@ -1,0 +1,209 @@
+{
+  "item": "No12",
+  "number": 12,
+  "sourceScript": "B: Our hotel is fifteen kilometers from the concert hall. Should we rent a car for tomorrow night? A: Parking near the hall costs a lot, and the last subway leaves before the concert ends. B: The hotel runs a concert shuttle at six thirty and brings guests back afterward. A: That sounds easiest. Let's reserve two seats at the front desk before dinner.",
+  "questionText": "How will they probably travel to the concert?",
+  "voices": {
+    "A": {
+      "provider": "edge",
+      "voice": "en-US-AvaMultilingualNeural",
+      "gender": "female",
+      "language": "en-US",
+      "englishOnly": true,
+      "gainDb": -3.5
+    },
+    "B": {
+      "provider": "openai",
+      "voice": "cedar",
+      "gender": "male",
+      "accent": "American English",
+      "gainDb": 0.0
+    }
+  },
+  "output": "audio-generation\\grade2-round1\\part1\\No12.wav",
+  "outputBytes": 1295982,
+  "outputMetadata": {
+    "codec_name": "pcm_s16le",
+    "sample_fmt": "s16",
+    "sample_rate": "24000",
+    "channels": 1,
+    "bits_per_sample": 16,
+    "duration": "26.998000"
+  },
+  "openaiSegments": 3,
+  "edgeSegments": 2,
+  "openaiApiCallsThisRun": 0,
+  "edgeCallsThisRun": 0,
+  "initialVolume": {
+    "meanVolumeDb": -23.4,
+    "maxVolumeDb": -2.0
+  },
+  "globalAttenuationDb": 0.0,
+  "finalVolume": {
+    "meanVolumeDb": -23.4,
+    "maxVolumeDb": -2.0
+  },
+  "segments": [
+    {
+      "speaker": "B",
+      "provider": "openai",
+      "voice": "cedar",
+      "gender": "male",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "Number 12... Our hotel is fifteen kilometers from the concert hall. Should we rent a car for tomorrow night?",
+      "text": "Number 12... Our hotel is fifteen kilometers from the concert hall. Should we rent a car for tomorrow night?",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 1,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "6.250000"
+      },
+      "volume": {
+        "meanVolumeDb": -23.1,
+        "maxVolumeDb": -4.3
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -23.1,
+        "maxVolumeDb": -4.3
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\cedar-c27f474a13fe6c6b285cd1fc.wav"
+    },
+    {
+      "speaker": "A",
+      "provider": "edge",
+      "voice": "en-US-AvaMultilingualNeural",
+      "gender": "female",
+      "language": "en-US",
+      "englishOnly": true,
+      "gainDb": -3.5,
+      "displayText": "Parking near the hall costs a lot, and the last subway leaves before the concert ends.",
+      "text": "Parking near the hall costs a lot, and the last subway leaves before the concert ends.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 2,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "5.496000"
+      },
+      "volume": {
+        "meanVolumeDb": -20.3,
+        "maxVolumeDb": -2.9
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -23.8,
+        "maxVolumeDb": -6.4
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-US-AvaMultilingualNeural-d312f48fe303f0307c6ea256.wav"
+    },
+    {
+      "speaker": "B",
+      "provider": "openai",
+      "voice": "cedar",
+      "gender": "male",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "The hotel runs a concert shuttle at six thirty and brings guests back afterward.",
+      "text": "The hotel runs a concert shuttle at six thirty and brings guests back afterward.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 3,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "5.150000"
+      },
+      "volume": {
+        "meanVolumeDb": -22.6,
+        "maxVolumeDb": -4.7
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.6,
+        "maxVolumeDb": -4.7
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\cedar-5836b17650b3d35f5fae649c.wav"
+    },
+    {
+      "speaker": "A",
+      "provider": "edge",
+      "voice": "en-US-AvaMultilingualNeural",
+      "gender": "female",
+      "language": "en-US",
+      "englishOnly": true,
+      "gainDb": -3.5,
+      "displayText": "That sounds easiest. Let's reserve two seats at the front desk before dinner.",
+      "text": "That sounds easiest. Let's reserve two seats at the front desk before dinner.",
+      "ttsOverrides": [],
+      "gapAfterMs": 650,
+      "index": 4,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "5.112000"
+      },
+      "volume": {
+        "meanVolumeDb": -20.1,
+        "maxVolumeDb": -3.6
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -23.6,
+        "maxVolumeDb": -7.1
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-US-AvaMultilingualNeural-2907d46d9f2089c73729d52f.wav"
+    },
+    {
+      "speaker": "B",
+      "provider": "openai",
+      "voice": "cedar",
+      "gender": "male",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "Question. How will they probably travel to the concert?",
+      "text": "Question. How will they probably travel to the concert?",
+      "ttsOverrides": [],
+      "gapAfterMs": 0,
+      "role": "question",
+      "index": 5,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "3.800000"
+      },
+      "volume": {
+        "meanVolumeDb": -22.8,
+        "maxVolumeDb": -2.0
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.8,
+        "maxVolumeDb": -2.0
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\cedar-c9150c71ce56d1687dace126.wav"
+    }
+  ]
+}

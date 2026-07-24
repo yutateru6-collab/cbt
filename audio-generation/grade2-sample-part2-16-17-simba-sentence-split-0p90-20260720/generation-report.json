@@ -1,0 +1,845 @@
+{
+  "mode": "completed",
+  "generatedAt": "2026-07-20T08:04:07.193136+00:00",
+  "provider": "SpeechifyAI",
+  "model": "simba-3.2",
+  "language": "en-US",
+  "numbers": [
+    16,
+    17
+  ],
+  "rate": "-10%",
+  "nominalSpeed": 0.9,
+  "apiRequestCount": 12,
+  "billableCharacters": 858,
+  "comparisonOnly": true,
+  "wholeBodyOneRequest": false,
+  "sentenceLevelSplit": true,
+  "sentenceGapMs": 150,
+  "commaBreakMs": 80,
+  "deliveryContract": {
+    "directPcmSentenceConcatenation": true,
+    "speechPcmSamplesChanged": false,
+    "silenceInsertionOnly": true,
+    "postSynthesisReencoding": false,
+    "postSynthesisResampling": false,
+    "silenceTrimming": false,
+    "lossyEncoding": false
+  },
+  "preflight": {
+    "provider": "SpeechifyAI",
+    "model": "simba-3.2",
+    "rate": "-10%",
+    "nominalSpeed": 0.9,
+    "missingCalls": 12,
+    "missingInputCharacters": 1552,
+    "maxCalls": 12,
+    "maxInputCharacters": 6000,
+    "sentenceGapMs": 150,
+    "commaBreakMs": 80,
+    "items": [
+      {
+        "id": "part2-No16-sentence-split-0p90",
+        "number": 16,
+        "wholeBodyOneRequest": false,
+        "sentenceLevelSplit": true,
+        "bodySentenceRequestCount": 4,
+        "segments": [
+          {
+            "role": "number",
+            "voice": "Hugh",
+            "rate": "-10%",
+            "input": "<speak><prosody rate=\"-10%\">Number sixteen.</prosody></speak>",
+            "gapAfterMs": 1150,
+            "cached": false
+          },
+          {
+            "role": "bodySentence1",
+            "voice": "Geffen",
+            "rate": "-10%",
+            "input": "<speak><prosody rate=\"-10%\">During her first month as a volunteer at a local museum,<break time=\"80ms\"/> Nina had trouble answering visitors’ questions about an old bridge.</prosody></speak>",
+            "gapAfterMs": 150,
+            "cached": false
+          },
+          {
+            "role": "bodySentence2",
+            "voice": "Geffen",
+            "rate": "-10%",
+            "input": "<speak><prosody rate=\"-10%\">She knew the basic facts,<break time=\"80ms\"/> but she often forgot important dates during busy tours.</prosody></speak>",
+            "gapAfterMs": 150,
+            "cached": false
+          },
+          {
+            "role": "bodySentence3",
+            "voice": "Geffen",
+            "rate": "-10%",
+            "input": "<speak><prosody rate=\"-10%\">Instead of memorizing a long guidebook,<break time=\"80ms\"/> she made a small timeline and reviewed it before each shift.</prosody></speak>",
+            "gapAfterMs": 150,
+            "cached": false
+          },
+          {
+            "role": "bodySentence4",
+            "voice": "Geffen",
+            "rate": "-10%",
+            "input": "<speak><prosody rate=\"-10%\">She can now explain the bridge’s history more clearly.</prosody></speak>",
+            "gapAfterMs": 1100,
+            "cached": false
+          },
+          {
+            "role": "question",
+            "voice": "Hugh",
+            "rate": "-10%",
+            "input": "<speak><prosody rate=\"-10%\">Question.<break time=\"350ms\"/>What helped Nina explain the bridge’s history better?</prosody></speak>",
+            "gapAfterMs": 0,
+            "cached": false
+          }
+        ]
+      },
+      {
+        "id": "part2-No17-sentence-split-0p90",
+        "number": 17,
+        "wholeBodyOneRequest": false,
+        "sentenceLevelSplit": true,
+        "bodySentenceRequestCount": 4,
+        "segments": [
+          {
+            "role": "number",
+            "voice": "Hugh",
+            "rate": "-10%",
+            "input": "<speak><prosody rate=\"-10%\">Number seventeen.</prosody></speak>",
+            "gapAfterMs": 1150,
+            "cached": false
+          },
+          {
+            "role": "bodySentence1",
+            "voice": "Geffen",
+            "rate": "-10%",
+            "input": "<speak><prosody rate=\"-10%\">The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday.</prosody></speak>",
+            "gapAfterMs": 150,
+            "cached": false
+          },
+          {
+            "role": "bodySentence2",
+            "voice": "Geffen",
+            "rate": "-10%",
+            "input": "<speak><prosody rate=\"-10%\">Those rooms will be unavailable from nine a m until three p m,<break time=\"80ms\"/> but the swimming pool will remain open as usual.</prosody></speak>",
+            "gapAfterMs": 150,
+            "cached": false
+          },
+          {
+            "role": "bodySentence3",
+            "voice": "Geffen",
+            "rate": "-10%",
+            "input": "<speak><prosody rate=\"-10%\">Visitors should use the smaller changing area beside Court Two.</prosody></speak>",
+            "gapAfterMs": 150,
+            "cached": false
+          },
+          {
+            "role": "bodySentence4",
+            "voice": "Geffen",
+            "rate": "-10%",
+            "input": "<speak><prosody rate=\"-10%\">Please bring your own lock,<break time=\"80ms\"/> since the temporary lockers do not have built-in keys.</prosody></speak>",
+            "gapAfterMs": 1100,
+            "cached": false
+          },
+          {
+            "role": "question",
+            "voice": "Hugh",
+            "rate": "-10%",
+            "input": "<speak><prosody rate=\"-10%\">Question.<break time=\"350ms\"/>What should visitors bring to the sports center?</prosody></speak>",
+            "gapAfterMs": 0,
+            "cached": false
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "part2-No16-sentence-split-0p90",
+      "number": 16,
+      "segments": [
+        {
+          "role": "number",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "displayText": "Number 16.",
+          "ttsText": "Number sixteen.",
+          "input": "<speak><prosody rate=\"-10%\">Number sixteen.</prosody></speak>",
+          "rate": "-10%",
+          "gapAfterMs": 1150,
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-17-simba-sentence-split-0p90-20260720\\segments\\part2-No16-sentence-split-0p90\\number-hugh_32-acead48d1e9b418e15b1d0e4.wav",
+          "sourceFileSha256": "27c9a7a39fe0f7592a8731b1b2dc49929ed5ed4eaf3ec969a7eaa21befddea4b",
+          "sourcePcmSha256": "237f8a26b6887a99181c4d4309d9af9c67afe2f36a771c057bbe2b632e25b858",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 62824,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 1.309
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 3.687,
+            "billableCharacters": 15,
+            "requestId": "01f1e725b5ca04bc0031cea0"
+          }
+        },
+        {
+          "role": "bodySentence1",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "displayText": "During her first month as a volunteer at a local museum, Nina had trouble answering visitors’ questions about an old bridge.",
+          "ttsText": "During her first month as a volunteer at a local museum, Nina had trouble answering visitors’ questions about an old bridge.",
+          "input": "<speak><prosody rate=\"-10%\">During her first month as a volunteer at a local museum,<break time=\"80ms\"/> Nina had trouble answering visitors’ questions about an old bridge.</prosody></speak>",
+          "rate": "-10%",
+          "gapAfterMs": 150,
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-17-simba-sentence-split-0p90-20260720\\segments\\part2-No16-sentence-split-0p90\\bodySentence1-geffen_32-025520318f92a39dda6bbeff.wav",
+          "sourceFileSha256": "d792d19b24a40229218cfcb279ba3896c24b7698ea9dd8c0bddf7b5386ab695e",
+          "sourcePcmSha256": "804f46bc617884b6b7ed269fdedba228e5e2cf5f96ccae845365db530873694b",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 383186,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 7.983
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 3.407,
+            "billableCharacters": 124,
+            "requestId": "c5a77b844fb6493dce7fda71"
+          }
+        },
+        {
+          "role": "bodySentence2",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "displayText": "She knew the basic facts, but she often forgot important dates during busy tours.",
+          "ttsText": "She knew the basic facts, but she often forgot important dates during busy tours.",
+          "input": "<speak><prosody rate=\"-10%\">She knew the basic facts,<break time=\"80ms\"/> but she often forgot important dates during busy tours.</prosody></speak>",
+          "rate": "-10%",
+          "gapAfterMs": 150,
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-17-simba-sentence-split-0p90-20260720\\segments\\part2-No16-sentence-split-0p90\\bodySentence2-geffen_32-a49ae682c929a845fa33f581.wav",
+          "sourceFileSha256": "c65fa9004082a0eb90388de4089151590c8ba9fd29205af97c672d45b2874bfb",
+          "sourcePcmSha256": "171554f226cdbfbcc78b839e85e88ae20c67c60dd724f9aff383767f37361115",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 268722,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 5.598
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 3.375,
+            "billableCharacters": 81,
+            "requestId": "dc8fbe24ff3e3d4150e2db10"
+          }
+        },
+        {
+          "role": "bodySentence3",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "displayText": "Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift.",
+          "ttsText": "Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift.",
+          "input": "<speak><prosody rate=\"-10%\">Instead of memorizing a long guidebook,<break time=\"80ms\"/> she made a small timeline and reviewed it before each shift.</prosody></speak>",
+          "rate": "-10%",
+          "gapAfterMs": 150,
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-17-simba-sentence-split-0p90-20260720\\segments\\part2-No16-sentence-split-0p90\\bodySentence3-geffen_32-12755b7c2c35fe14387db02d.wav",
+          "sourceFileSha256": "95903524414d3cb6f474c2791b013a6a3e17613a3a7e2e752a674e49b9d0f14c",
+          "sourcePcmSha256": "843ddc9a8789a7fff1894ac348da2abaed0fd8fc3b27cb71e4ce76cf3cc29821",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 328216,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 6.838
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 3.031,
+            "billableCharacters": 100,
+            "requestId": "a3989239625322a1a42af248"
+          }
+        },
+        {
+          "role": "bodySentence4",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "displayText": "She can now explain the bridge’s history more clearly.",
+          "ttsText": "She can now explain the bridge’s history more clearly.",
+          "input": "<speak><prosody rate=\"-10%\">She can now explain the bridge’s history more clearly.</prosody></speak>",
+          "rate": "-10%",
+          "gapAfterMs": 1100,
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-17-simba-sentence-split-0p90-20260720\\segments\\part2-No16-sentence-split-0p90\\bodySentence4-geffen_32-d64cfa3cd305f785c35f6a19.wav",
+          "sourceFileSha256": "045cf40111beaa8cf990415466fec2c2b91e40fdc354741c20ce0e3960a742cd",
+          "sourcePcmSha256": "d68593f31ba5c7fc62e196b99b8a839c8e87abddaa927d44f476908d7b585c2e",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 165598,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 3.45
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 1.859,
+            "billableCharacters": 54,
+            "requestId": "bb865661c0eeae52ab9bf62c"
+          }
+        },
+        {
+          "role": "question",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "displayText": "Question. What helped Nina explain the bridge’s history better?",
+          "ttsText": "Question. What helped Nina explain the bridge’s history better?",
+          "input": "<speak><prosody rate=\"-10%\">Question.<break time=\"350ms\"/>What helped Nina explain the bridge’s history better?</prosody></speak>",
+          "rate": "-10%",
+          "gapAfterMs": 0,
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-17-simba-sentence-split-0p90-20260720\\segments\\part2-No16-sentence-split-0p90\\question-hugh_32-f5318a5283c7e18882e68394.wav",
+          "sourceFileSha256": "d74b227e38db8926bb5b9f996324e402170cfcfa0d58877ed86dc7ff01b0a3a5",
+          "sourcePcmSha256": "03c09a216a7e2734a528ab022fc96a023e4381f53b351fe2a191bdebf7581c11",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 251118,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 5.232
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 4.016,
+            "billableCharacters": 62,
+            "requestId": "9386acb7e5cba20d8051d06c"
+          }
+        }
+      ],
+      "pcmVerification": {
+        "wave": {
+          "channels": 1,
+          "sampleWidthBytes": 2,
+          "bitsPerSample": 16,
+          "sampleRateHz": 48000,
+          "frameCount": 1589264,
+          "declaredFrameCount": 1589264,
+          "sourceHeaderOpenEnded": false,
+          "compressionType": "NONE",
+          "durationSeconds": 33.11
+        },
+        "expectedPcmSha256": "4314de6a7e399c2cd6ccf3b43000cb3dff664deb6ec3c27edf6d029af6e56375",
+        "finalPcmSha256": "4314de6a7e399c2cd6ccf3b43000cb3dff664deb6ec3c27edf6d029af6e56375",
+        "pcmExactMatch": true,
+        "allSpeechSlicesExact": true
+      },
+      "sliceVerification": [
+        {
+          "role": "number",
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-17-simba-sentence-split-0p90-20260720\\segments\\part2-No16-sentence-split-0p90\\number-hugh_32-acead48d1e9b418e15b1d0e4.wav",
+          "sourceFileSha256": "27c9a7a39fe0f7592a8731b1b2dc49929ed5ed4eaf3ec969a7eaa21befddea4b",
+          "sourcePcmSha256": "237f8a26b6887a99181c4d4309d9af9c67afe2f36a771c057bbe2b632e25b858",
+          "finalPcmStartByte": 0,
+          "finalPcmEndByte": 125648,
+          "gapAfterMs": 1150,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 62824,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 1.309
+          },
+          "finalSlicePcmSha256": "237f8a26b6887a99181c4d4309d9af9c67afe2f36a771c057bbe2b632e25b858",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "bodySentence1",
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-17-simba-sentence-split-0p90-20260720\\segments\\part2-No16-sentence-split-0p90\\bodySentence1-geffen_32-025520318f92a39dda6bbeff.wav",
+          "sourceFileSha256": "d792d19b24a40229218cfcb279ba3896c24b7698ea9dd8c0bddf7b5386ab695e",
+          "sourcePcmSha256": "804f46bc617884b6b7ed269fdedba228e5e2cf5f96ccae845365db530873694b",
+          "finalPcmStartByte": 236048,
+          "finalPcmEndByte": 1002420,
+          "gapAfterMs": 150,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 383186,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 7.983
+          },
+          "finalSlicePcmSha256": "804f46bc617884b6b7ed269fdedba228e5e2cf5f96ccae845365db530873694b",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "bodySentence2",
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-17-simba-sentence-split-0p90-20260720\\segments\\part2-No16-sentence-split-0p90\\bodySentence2-geffen_32-a49ae682c929a845fa33f581.wav",
+          "sourceFileSha256": "c65fa9004082a0eb90388de4089151590c8ba9fd29205af97c672d45b2874bfb",
+          "sourcePcmSha256": "171554f226cdbfbcc78b839e85e88ae20c67c60dd724f9aff383767f37361115",
+          "finalPcmStartByte": 1016820,
+          "finalPcmEndByte": 1554264,
+          "gapAfterMs": 150,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 268722,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 5.598
+          },
+          "finalSlicePcmSha256": "171554f226cdbfbcc78b839e85e88ae20c67c60dd724f9aff383767f37361115",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "bodySentence3",
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-17-simba-sentence-split-0p90-20260720\\segments\\part2-No16-sentence-split-0p90\\bodySentence3-geffen_32-12755b7c2c35fe14387db02d.wav",
+          "sourceFileSha256": "95903524414d3cb6f474c2791b013a6a3e17613a3a7e2e752a674e49b9d0f14c",
+          "sourcePcmSha256": "843ddc9a8789a7fff1894ac348da2abaed0fd8fc3b27cb71e4ce76cf3cc29821",
+          "finalPcmStartByte": 1568664,
+          "finalPcmEndByte": 2225096,
+          "gapAfterMs": 150,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 328216,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 6.838
+          },
+          "finalSlicePcmSha256": "843ddc9a8789a7fff1894ac348da2abaed0fd8fc3b27cb71e4ce76cf3cc29821",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "bodySentence4",
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-17-simba-sentence-split-0p90-20260720\\segments\\part2-No16-sentence-split-0p90\\bodySentence4-geffen_32-d64cfa3cd305f785c35f6a19.wav",
+          "sourceFileSha256": "045cf40111beaa8cf990415466fec2c2b91e40fdc354741c20ce0e3960a742cd",
+          "sourcePcmSha256": "d68593f31ba5c7fc62e196b99b8a839c8e87abddaa927d44f476908d7b585c2e",
+          "finalPcmStartByte": 2239496,
+          "finalPcmEndByte": 2570692,
+          "gapAfterMs": 1100,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 165598,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 3.45
+          },
+          "finalSlicePcmSha256": "d68593f31ba5c7fc62e196b99b8a839c8e87abddaa927d44f476908d7b585c2e",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "question",
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-17-simba-sentence-split-0p90-20260720\\segments\\part2-No16-sentence-split-0p90\\question-hugh_32-f5318a5283c7e18882e68394.wav",
+          "sourceFileSha256": "d74b227e38db8926bb5b9f996324e402170cfcfa0d58877ed86dc7ff01b0a3a5",
+          "sourcePcmSha256": "03c09a216a7e2734a528ab022fc96a023e4381f53b351fe2a191bdebf7581c11",
+          "finalPcmStartByte": 2676292,
+          "finalPcmEndByte": 3178528,
+          "gapAfterMs": 0,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 251118,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 5.232
+          },
+          "finalSlicePcmSha256": "03c09a216a7e2734a528ab022fc96a023e4381f53b351fe2a191bdebf7581c11",
+          "pcmSliceMatch": true
+        }
+      ],
+      "masterWav": "audio-generation\\grade2-sample-part2-16-17-simba-sentence-split-0p90-20260720\\audio\\part2-16-simba-3-2-0p90-sentence-split.wav",
+      "publishedWav": "audio/part2-16-simba-3-2-0p90-sentence-split.wav",
+      "masterSha256": "c4b7ce1f4f7f5f62a77531ff53f821094914883f506556a16f79e2f4121487da",
+      "publishedSha256": "c4b7ce1f4f7f5f62a77531ff53f821094914883f506556a16f79e2f4121487da",
+      "publishedCopyHashMatch": true,
+      "fileBytes": 3178572
+    },
+    {
+      "id": "part2-No17-sentence-split-0p90",
+      "number": 17,
+      "segments": [
+        {
+          "role": "number",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "displayText": "Number 17.",
+          "ttsText": "Number seventeen.",
+          "input": "<speak><prosody rate=\"-10%\">Number seventeen.</prosody></speak>",
+          "rate": "-10%",
+          "gapAfterMs": 1150,
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-17-simba-sentence-split-0p90-20260720\\segments\\part2-No17-sentence-split-0p90\\number-hugh_32-a9dd958a29f5024bace0a033.wav",
+          "sourceFileSha256": "a69334600e3a9d07dca05e34c90a4560d9593340066677a84ceea8b43d6867f1",
+          "sourcePcmSha256": "cff465534d353b58c0d6ba5383f464fe527d8405701ff6b27d66e5d2946019bb",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 60212,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 1.254
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 1.125,
+            "billableCharacters": 17,
+            "requestId": "c3eaa8df2d05f51011d7dc3a"
+          }
+        },
+        {
+          "role": "bodySentence1",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "displayText": "The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday.",
+          "ttsText": "The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday.",
+          "input": "<speak><prosody rate=\"-10%\">The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday.</prosody></speak>",
+          "rate": "-10%",
+          "gapAfterMs": 150,
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-17-simba-sentence-split-0p90-20260720\\segments\\part2-No17-sentence-split-0p90\\bodySentence1-geffen_32-e1012b3e209fa0a4d6a0e3e7.wav",
+          "sourceFileSha256": "94bee08a269ee5d311dd958317d8f0a79fc404bba7099c2acb997794ef49bd3a",
+          "sourcePcmSha256": "b6964bf44d43701a4ec91da2414f6e6bb7a735d5000c75e01281939e6089f6f6",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 288234,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 6.005
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 2.968,
+            "billableCharacters": 92,
+            "requestId": "1d16250baf2a81d80506d940"
+          }
+        },
+        {
+          "role": "bodySentence2",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "displayText": "Those rooms will be unavailable from nine a m until three p m, but the swimming pool will remain open as usual.",
+          "ttsText": "Those rooms will be unavailable from nine a m until three p m, but the swimming pool will remain open as usual.",
+          "input": "<speak><prosody rate=\"-10%\">Those rooms will be unavailable from nine a m until three p m,<break time=\"80ms\"/> but the swimming pool will remain open as usual.</prosody></speak>",
+          "rate": "-10%",
+          "gapAfterMs": 150,
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-17-simba-sentence-split-0p90-20260720\\segments\\part2-No17-sentence-split-0p90\\bodySentence2-geffen_32-b69986e46bbc0ad0b2e72513.wav",
+          "sourceFileSha256": "5f074876f5ea77eb5c15789fb5d379f53801370601a8a1b552bf9d8c3a3db3c5",
+          "sourcePcmSha256": "64e04d9fc2eed183591b7d6dfbac203761dea70a043e72652edd4d491b613942",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 374116,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 7.794
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 3.281,
+            "billableCharacters": 111,
+            "requestId": "0e772a8e71e96cf0dd00c749"
+          }
+        },
+        {
+          "role": "bodySentence3",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "displayText": "Visitors should use the smaller changing area beside Court Two.",
+          "ttsText": "Visitors should use the smaller changing area beside Court Two.",
+          "input": "<speak><prosody rate=\"-10%\">Visitors should use the smaller changing area beside Court Two.</prosody></speak>",
+          "rate": "-10%",
+          "gapAfterMs": 150,
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-17-simba-sentence-split-0p90-20260720\\segments\\part2-No17-sentence-split-0p90\\bodySentence3-geffen_32-5571a702f6632fe9abf33802.wav",
+          "sourceFileSha256": "444709c153f97a53de0b55337066df6519c12464188fc1489e4fe938ead690c7",
+          "sourcePcmSha256": "f297a6d4a7329248d3f70b056281a4abf44648aa3016b70281dc8f8c3a6ca677",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 213410,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 4.446
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 2.234,
+            "billableCharacters": 63,
+            "requestId": "a896b879ac7ce88e427aba15"
+          }
+        },
+        {
+          "role": "bodySentence4",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "displayText": "Please bring your own lock, since the temporary lockers do not have built-in keys.",
+          "ttsText": "Please bring your own lock, since the temporary lockers do not have built-in keys.",
+          "input": "<speak><prosody rate=\"-10%\">Please bring your own lock,<break time=\"80ms\"/> since the temporary lockers do not have built-in keys.</prosody></speak>",
+          "rate": "-10%",
+          "gapAfterMs": 1100,
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-17-simba-sentence-split-0p90-20260720\\segments\\part2-No17-sentence-split-0p90\\bodySentence4-geffen_32-dc56719dd861df1a5cea79b4.wav",
+          "sourceFileSha256": "2bf28e322ee591550c68c669fdc9f246c304ad036e6cb6cbe4e7fb9c45e96b98",
+          "sourcePcmSha256": "58aa06c5ac13ecdc197ceb49732c0e20f3b3d2148f2dffa48e42cbc61abfddc4",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 245796,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 5.121
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 2.938,
+            "billableCharacters": 82,
+            "requestId": "73b6491c32b434f8f036e0d8"
+          }
+        },
+        {
+          "role": "question",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "displayText": "Question. What should visitors bring to the sports center?",
+          "ttsText": "Question. What should visitors bring to the sports center?",
+          "input": "<speak><prosody rate=\"-10%\">Question.<break time=\"350ms\"/>What should visitors bring to the sports center?</prosody></speak>",
+          "rate": "-10%",
+          "gapAfterMs": 0,
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-17-simba-sentence-split-0p90-20260720\\segments\\part2-No17-sentence-split-0p90\\question-hugh_32-81fff2d6807b48fa9fa17c37.wav",
+          "sourceFileSha256": "13a6e093f8ba3ec04f38adeda369ebe9263f08bbc868a649f7c03e5b399c996c",
+          "sourcePcmSha256": "fffa4d553eee83f868e61fe36e5e6960c152e11e11a0a4ac0d51a1e3170938f2",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 226100,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 4.71
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 3.797,
+            "billableCharacters": 57,
+            "requestId": "3ce77776da490af09d318e42"
+          }
+        }
+      ],
+      "pcmVerification": {
+        "wave": {
+          "channels": 1,
+          "sampleWidthBytes": 2,
+          "bitsPerSample": 16,
+          "sampleRateHz": 48000,
+          "frameCount": 1537468,
+          "declaredFrameCount": 1537468,
+          "sourceHeaderOpenEnded": false,
+          "compressionType": "NONE",
+          "durationSeconds": 32.031
+        },
+        "expectedPcmSha256": "0d3d8dbcb960726f7121dc7266d319f6b19eb741d77c1b5b2b91eae879a260a1",
+        "finalPcmSha256": "0d3d8dbcb960726f7121dc7266d319f6b19eb741d77c1b5b2b91eae879a260a1",
+        "pcmExactMatch": true,
+        "allSpeechSlicesExact": true
+      },
+      "sliceVerification": [
+        {
+          "role": "number",
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-17-simba-sentence-split-0p90-20260720\\segments\\part2-No17-sentence-split-0p90\\number-hugh_32-a9dd958a29f5024bace0a033.wav",
+          "sourceFileSha256": "a69334600e3a9d07dca05e34c90a4560d9593340066677a84ceea8b43d6867f1",
+          "sourcePcmSha256": "cff465534d353b58c0d6ba5383f464fe527d8405701ff6b27d66e5d2946019bb",
+          "finalPcmStartByte": 0,
+          "finalPcmEndByte": 120424,
+          "gapAfterMs": 1150,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 60212,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 1.254
+          },
+          "finalSlicePcmSha256": "cff465534d353b58c0d6ba5383f464fe527d8405701ff6b27d66e5d2946019bb",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "bodySentence1",
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-17-simba-sentence-split-0p90-20260720\\segments\\part2-No17-sentence-split-0p90\\bodySentence1-geffen_32-e1012b3e209fa0a4d6a0e3e7.wav",
+          "sourceFileSha256": "94bee08a269ee5d311dd958317d8f0a79fc404bba7099c2acb997794ef49bd3a",
+          "sourcePcmSha256": "b6964bf44d43701a4ec91da2414f6e6bb7a735d5000c75e01281939e6089f6f6",
+          "finalPcmStartByte": 230824,
+          "finalPcmEndByte": 807292,
+          "gapAfterMs": 150,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 288234,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 6.005
+          },
+          "finalSlicePcmSha256": "b6964bf44d43701a4ec91da2414f6e6bb7a735d5000c75e01281939e6089f6f6",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "bodySentence2",
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-17-simba-sentence-split-0p90-20260720\\segments\\part2-No17-sentence-split-0p90\\bodySentence2-geffen_32-b69986e46bbc0ad0b2e72513.wav",
+          "sourceFileSha256": "5f074876f5ea77eb5c15789fb5d379f53801370601a8a1b552bf9d8c3a3db3c5",
+          "sourcePcmSha256": "64e04d9fc2eed183591b7d6dfbac203761dea70a043e72652edd4d491b613942",
+          "finalPcmStartByte": 821692,
+          "finalPcmEndByte": 1569924,
+          "gapAfterMs": 150,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 374116,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 7.794
+          },
+          "finalSlicePcmSha256": "64e04d9fc2eed183591b7d6dfbac203761dea70a043e72652edd4d491b613942",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "bodySentence3",
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-17-simba-sentence-split-0p90-20260720\\segments\\part2-No17-sentence-split-0p90\\bodySentence3-geffen_32-5571a702f6632fe9abf33802.wav",
+          "sourceFileSha256": "444709c153f97a53de0b55337066df6519c12464188fc1489e4fe938ead690c7",
+          "sourcePcmSha256": "f297a6d4a7329248d3f70b056281a4abf44648aa3016b70281dc8f8c3a6ca677",
+          "finalPcmStartByte": 1584324,
+          "finalPcmEndByte": 2011144,
+          "gapAfterMs": 150,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 213410,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 4.446
+          },
+          "finalSlicePcmSha256": "f297a6d4a7329248d3f70b056281a4abf44648aa3016b70281dc8f8c3a6ca677",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "bodySentence4",
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-17-simba-sentence-split-0p90-20260720\\segments\\part2-No17-sentence-split-0p90\\bodySentence4-geffen_32-dc56719dd861df1a5cea79b4.wav",
+          "sourceFileSha256": "2bf28e322ee591550c68c669fdc9f246c304ad036e6cb6cbe4e7fb9c45e96b98",
+          "sourcePcmSha256": "58aa06c5ac13ecdc197ceb49732c0e20f3b3d2148f2dffa48e42cbc61abfddc4",
+          "finalPcmStartByte": 2025544,
+          "finalPcmEndByte": 2517136,
+          "gapAfterMs": 1100,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 245796,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 5.121
+          },
+          "finalSlicePcmSha256": "58aa06c5ac13ecdc197ceb49732c0e20f3b3d2148f2dffa48e42cbc61abfddc4",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "question",
+          "sourceWav": "audio-generation\\grade2-sample-part2-16-17-simba-sentence-split-0p90-20260720\\segments\\part2-No17-sentence-split-0p90\\question-hugh_32-81fff2d6807b48fa9fa17c37.wav",
+          "sourceFileSha256": "13a6e093f8ba3ec04f38adeda369ebe9263f08bbc868a649f7c03e5b399c996c",
+          "sourcePcmSha256": "fffa4d553eee83f868e61fe36e5e6960c152e11e11a0a4ac0d51a1e3170938f2",
+          "finalPcmStartByte": 2622736,
+          "finalPcmEndByte": 3074936,
+          "gapAfterMs": 0,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 226100,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 4.71
+          },
+          "finalSlicePcmSha256": "fffa4d553eee83f868e61fe36e5e6960c152e11e11a0a4ac0d51a1e3170938f2",
+          "pcmSliceMatch": true
+        }
+      ],
+      "masterWav": "audio-generation\\grade2-sample-part2-16-17-simba-sentence-split-0p90-20260720\\audio\\part2-17-simba-3-2-0p90-sentence-split.wav",
+      "publishedWav": "audio/part2-17-simba-3-2-0p90-sentence-split.wav",
+      "masterSha256": "e28107e3692690f40fd20ed7a49cbc3c01d60a4c21d20021f39fa71c89e38a4d",
+      "publishedSha256": "e28107e3692690f40fd20ed7a49cbc3c01d60a4c21d20021f39fa71c89e38a4d",
+      "publishedCopyHashMatch": true,
+      "fileBytes": 3074980
+    }
+  ]
+}

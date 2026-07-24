@@ -1,0 +1,123 @@
+{
+  "language": "en-US",
+  "englishOnly": true,
+  "rates": {
+    "A": "+0%",
+    "B": "+0%",
+    "N": "+0%",
+    "Q": "+0%"
+  },
+  "gapMs": 180,
+  "items": [
+    {
+      "id": "Part1-Andrew",
+      "number": 1,
+      "voices": {
+        "A": "en-US-AvaMultilingualNeural",
+        "B": "en-US-AndrewMultilingualNeural"
+      },
+      "segments": [
+        {
+          "speaker": "B",
+          "text": "Number 3... I'm starting dinner now. We have an unexpected guest tonight.",
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "text": "Really? I thought we were going to eat at the new Thai restaurant.",
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "text": "Dad is bringing Grandma over, and she doesn't like spicy food. Could you set the table?",
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "text": "Sure. I'll make a salad too. The soup and chicken should be enough for the main dishes.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "B",
+          "text": "Question. Why is the man preparing dinner at home?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "Part1-Roger",
+      "number": 2,
+      "voices": {
+        "A": "en-US-AvaMultilingualNeural",
+        "B": "en-US-RogerNeural"
+      },
+      "segments": [
+        {
+          "speaker": "B",
+          "text": "Number 3... I'm starting dinner now. We have an unexpected guest tonight.",
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "text": "Really? I thought we were going to eat at the new Thai restaurant.",
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "text": "Dad is bringing Grandma over, and she doesn't like spicy food. Could you set the table?",
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "text": "Sure. I'll make a salad too. The soup and chicken should be enough for the main dishes.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "B",
+          "text": "Question. Why is the man preparing dinner at home?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "Part2-Andrew",
+      "number": 3,
+      "voices": {
+        "N": "en-US-AndrewMultilingualNeural",
+        "Q": "en-US-AvaMultilingualNeural"
+      },
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 16... During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge. She knew the basic facts, but she often forgot important dates during busy tours. Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift. She can now explain the bridge's history more clearly.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "Q",
+          "text": "Question. What helped Nina explain the bridge's history better?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "Part2-Roger",
+      "number": 4,
+      "voices": {
+        "N": "en-US-RogerNeural",
+        "Q": "en-US-AvaMultilingualNeural"
+      },
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 16... During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge. She knew the basic facts, but she often forgot important dates during busy tours. Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift. She can now explain the bridge's history more clearly.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "Q",
+          "text": "Question. What helped Nina explain the bridge's history better?",
+          "gapAfterMs": 0
+        }
+      ]
+    }
+  ]
+}

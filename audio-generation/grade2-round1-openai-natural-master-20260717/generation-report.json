@@ -1,0 +1,1204 @@
+{
+  "mode": "completed",
+  "model": "gpt-4o-mini-tts",
+  "audioRevision": "english-learner-unhurried-v1",
+  "preflight": {
+    "model": "gpt-4o-mini-tts",
+    "speedPolicy": {
+      "master": 1.0,
+      "reviewPageDefault": 0.87
+    },
+    "deliveryPolicy": "The listeners are English learners. Speak clearly and carefully at a steady, unhurried pace suitable for English learners. Keep the rhythm natural. Do not rush, stretch words, over-enunciate, split words into syllables, or insert unnatural pauses.",
+    "missing": {
+      "openai": {
+        "calls": 0,
+        "inputCharacters": 0
+      },
+      "edge": {
+        "calls": 0,
+        "inputCharacters": 0
+      }
+    },
+    "ceilings": {
+      "openaiCalls": 30,
+      "openaiInputCharacters": 6000,
+      "edgeCalls": 24
+    },
+    "timingMs": {
+      "part1NumberToBody": 1350,
+      "part1TurnGap": 550,
+      "part2NumberToBody": 1150,
+      "part2SentenceGap": 420,
+      "bodyToQuestion": 1300,
+      "questionLabelToText": 350
+    },
+    "items": [
+      {
+        "item": "No01",
+        "part": "part1",
+        "segments": [
+          {
+            "role": "number",
+            "provider": "edge",
+            "voice": "Ryan",
+            "ttsText": "Number one.",
+            "gapAfterMs": 1350,
+            "cached": true
+          },
+          {
+            "role": "turn1",
+            "provider": "openai",
+            "voice": "Cedar",
+            "ttsText": "The recording for our school radio show still isn't in the shared folder.",
+            "gapAfterMs": 550,
+            "cached": true
+          },
+          {
+            "role": "turn2",
+            "provider": "openai",
+            "voice": "Marin",
+            "ttsText": "I finished editing it, but the file is too large to send by email. Could you upload it from the media room?",
+            "gapAfterMs": 550,
+            "cached": true
+          },
+          {
+            "role": "turn3",
+            "provider": "openai",
+            "voice": "Cedar",
+            "ttsText": "Sure, but I need the final title before lunch because the teacher checks everything at one.",
+            "gapAfterMs": 550,
+            "cached": true
+          },
+          {
+            "role": "turn4",
+            "provider": "openai",
+            "voice": "Marin",
+            "ttsText": "I'll message you the title now. The interview section doesn't need any more changes.",
+            "gapAfterMs": 1300,
+            "cached": true
+          },
+          {
+            "role": "questionLabel",
+            "provider": "edge",
+            "voice": "Ryan",
+            "ttsText": "Question.",
+            "gapAfterMs": 350,
+            "cached": true
+          },
+          {
+            "role": "questionText",
+            "provider": "edge",
+            "voice": "Ryan",
+            "ttsText": "What does the girl ask the boy to do?",
+            "gapAfterMs": 0,
+            "cached": true
+          }
+        ]
+      },
+      {
+        "item": "No02",
+        "part": "part1",
+        "segments": [
+          {
+            "role": "number",
+            "provider": "edge",
+            "voice": "Emma",
+            "ttsText": "Number two.",
+            "gapAfterMs": 1350,
+            "cached": true
+          },
+          {
+            "role": "turn1",
+            "provider": "openai",
+            "voice": "Marin",
+            "ttsText": "I signed up for the beginner yoga class that meets on Wednesday evenings.",
+            "gapAfterMs": 550,
+            "cached": true
+          },
+          {
+            "role": "turn2",
+            "provider": "openai",
+            "voice": "Cedar",
+            "ttsText": "That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven.",
+            "gapAfterMs": 550,
+            "cached": true
+          },
+          {
+            "role": "turn3",
+            "provider": "openai",
+            "voice": "Marin",
+            "ttsText": "Thursday works for me. Do I need to register again at the front desk?",
+            "gapAfterMs": 550,
+            "cached": true
+          },
+          {
+            "role": "turn4",
+            "provider": "openai",
+            "voice": "Cedar",
+            "ttsText": "No, your name is already on the new list. Just bring the same membership card.",
+            "gapAfterMs": 1300,
+            "cached": true
+          },
+          {
+            "role": "questionLabel",
+            "provider": "edge",
+            "voice": "Emma",
+            "ttsText": "Question.",
+            "gapAfterMs": 350,
+            "cached": true
+          },
+          {
+            "role": "questionText",
+            "provider": "edge",
+            "voice": "Emma",
+            "ttsText": "What is true about the yoga class?",
+            "gapAfterMs": 0,
+            "cached": true
+          }
+        ]
+      },
+      {
+        "item": "No03",
+        "part": "part1",
+        "segments": [
+          {
+            "role": "number",
+            "provider": "edge",
+            "voice": "Emma",
+            "ttsText": "Number three.",
+            "gapAfterMs": 1350,
+            "cached": true
+          },
+          {
+            "role": "turn1",
+            "provider": "openai",
+            "voice": "Marin",
+            "ttsText": "I can't meet you at the cafe this afternoon. A repair worker is coming to look at our washing machine.",
+            "gapAfterMs": 550,
+            "cached": true
+          },
+          {
+            "role": "turn2",
+            "provider": "openai",
+            "voice": "Cedar",
+            "ttsText": "Didn't your brother say he would stay home for that?",
+            "gapAfterMs": 550,
+            "cached": true
+          },
+          {
+            "role": "turn3",
+            "provider": "openai",
+            "voice": "Marin",
+            "ttsText": "He was supposed to, but his manager asked him to work an extra shift. The worker may arrive anytime between two and five.",
+            "gapAfterMs": 550,
+            "cached": true
+          },
+          {
+            "role": "turn4",
+            "provider": "openai",
+            "voice": "Cedar",
+            "ttsText": "No problem. We can meet tomorrow after my class instead.",
+            "gapAfterMs": 1300,
+            "cached": true
+          },
+          {
+            "role": "questionLabel",
+            "provider": "edge",
+            "voice": "Emma",
+            "ttsText": "Question.",
+            "gapAfterMs": 350,
+            "cached": true
+          },
+          {
+            "role": "questionText",
+            "provider": "edge",
+            "voice": "Emma",
+            "ttsText": "Why will the woman stay home this afternoon?",
+            "gapAfterMs": 0,
+            "cached": true
+          }
+        ]
+      },
+      {
+        "item": "No16",
+        "part": "part2",
+        "segments": [
+          {
+            "role": "number",
+            "provider": "edge",
+            "voice": "Ryan",
+            "ttsText": "Number sixteen.",
+            "gapAfterMs": 1150,
+            "cached": true
+          },
+          {
+            "role": "bodySentence1",
+            "provider": "openai",
+            "voice": "Marin",
+            "ttsText": "During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge.",
+            "gapAfterMs": 420,
+            "cached": true
+          },
+          {
+            "role": "bodySentence2",
+            "provider": "openai",
+            "voice": "Marin",
+            "ttsText": "She knew the basic facts, but she often forgot important dates during busy tours.",
+            "gapAfterMs": 420,
+            "cached": true
+          },
+          {
+            "role": "bodySentence3",
+            "provider": "openai",
+            "voice": "Marin",
+            "ttsText": "Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift.",
+            "gapAfterMs": 420,
+            "cached": true
+          },
+          {
+            "role": "bodySentence4",
+            "provider": "openai",
+            "voice": "Marin",
+            "ttsText": "She can now explain the bridge's history more clearly.",
+            "gapAfterMs": 1300,
+            "cached": true
+          },
+          {
+            "role": "questionLabel",
+            "provider": "edge",
+            "voice": "Ryan",
+            "ttsText": "Question.",
+            "gapAfterMs": 350,
+            "cached": true
+          },
+          {
+            "role": "questionText",
+            "provider": "edge",
+            "voice": "Ryan",
+            "ttsText": "What helped Nina explain the bridge's history better?",
+            "gapAfterMs": 0,
+            "cached": true
+          }
+        ]
+      },
+      {
+        "item": "No17",
+        "part": "part2",
+        "segments": [
+          {
+            "role": "number",
+            "provider": "edge",
+            "voice": "Emma",
+            "ttsText": "Number seventeen.",
+            "gapAfterMs": 1150,
+            "cached": true
+          },
+          {
+            "role": "bodySentence1",
+            "provider": "openai",
+            "voice": "Cedar",
+            "ttsText": "The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday.",
+            "gapAfterMs": 420,
+            "cached": true
+          },
+          {
+            "role": "bodySentence2",
+            "provider": "openai",
+            "voice": "Cedar",
+            "ttsText": "Those rooms will be unavailable from nine A M until three P M, but the swimming pool will remain open as usual.",
+            "gapAfterMs": 420,
+            "cached": true
+          },
+          {
+            "role": "bodySentence3",
+            "provider": "openai",
+            "voice": "Cedar",
+            "ttsText": "Visitors should use the smaller changing area beside Court Two.",
+            "gapAfterMs": 420,
+            "cached": true
+          },
+          {
+            "role": "bodySentence4",
+            "provider": "openai",
+            "voice": "Cedar",
+            "ttsText": "Please bring your own lock, since the temporary lockers do not have built-in keys.",
+            "gapAfterMs": 1300,
+            "cached": true
+          },
+          {
+            "role": "questionLabel",
+            "provider": "edge",
+            "voice": "Emma",
+            "ttsText": "Question.",
+            "gapAfterMs": 350,
+            "cached": true
+          },
+          {
+            "role": "questionText",
+            "provider": "edge",
+            "voice": "Emma",
+            "ttsText": "What should visitors bring to the sports center?",
+            "gapAfterMs": 0,
+            "cached": true
+          }
+        ]
+      },
+      {
+        "item": "No18",
+        "part": "part2",
+        "segments": [
+          {
+            "role": "number",
+            "provider": "edge",
+            "voice": "Ryan",
+            "ttsText": "Number eighteen.",
+            "gapAfterMs": 1150,
+            "cached": true
+          },
+          {
+            "role": "bodySentence1",
+            "provider": "openai",
+            "voice": "Marin",
+            "ttsText": "A customer asked Leo to prepare a birthday cake without nuts.",
+            "gapAfterMs": 420,
+            "cached": true
+          },
+          {
+            "role": "bodySentence2",
+            "provider": "openai",
+            "voice": "Marin",
+            "ttsText": "He carefully checked the ingredients, but the chocolate decorations he usually buys were made in a factory that also handles almonds.",
+            "gapAfterMs": 420,
+            "cached": true
+          },
+          {
+            "role": "bodySentence3",
+            "provider": "openai",
+            "voice": "Marin",
+            "ttsText": "Leo called the customer and suggested using fresh fruit instead.",
+            "gapAfterMs": 420,
+            "cached": true
+          },
+          {
+            "role": "bodySentence4",
+            "provider": "openai",
+            "voice": "Marin",
+            "ttsText": "The customer agreed, so he changed the design while keeping the same price and delivery time for Saturday.",
+            "gapAfterMs": 1300,
+            "cached": true
+          },
+          {
+            "role": "questionLabel",
+            "provider": "edge",
+            "voice": "Ryan",
+            "ttsText": "Question.",
+            "gapAfterMs": 350,
+            "cached": true
+          },
+          {
+            "role": "questionText",
+            "provider": "edge",
+            "voice": "Ryan",
+            "ttsText": "Why did Leo replace the chocolate decorations?",
+            "gapAfterMs": 0,
+            "cached": true
+          }
+        ]
+      }
+    ]
+  },
+  "actual": {
+    "openai": {
+      "calls": 0,
+      "inputCharacters": 0
+    },
+    "edge": {
+      "calls": 0,
+      "inputCharacters": 0
+    }
+  },
+  "records": [],
+  "outputs": [
+    {
+      "item": "No01",
+      "number": 1,
+      "part": "part1",
+      "segments": [
+        {
+          "role": "number",
+          "provider": "edge",
+          "voice": {
+            "provider": "edge",
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "gender": "male",
+            "language": "en-GB"
+          },
+          "displayText": "Number 1.",
+          "ttsText": "Number one.",
+          "instructions": null,
+          "speed": 1.0,
+          "gapAfterMs": 1350
+        },
+        {
+          "role": "turn1",
+          "provider": "openai",
+          "voice": {
+            "provider": "openai",
+            "id": "cedar",
+            "name": "Cedar",
+            "gender": "male"
+          },
+          "displayText": "The recording for our school radio show still isn't in the shared folder.",
+          "ttsText": "The recording for our school radio show still isn't in the shared folder.",
+          "instructions": "Voice: A clear, natural adult speaker using American English. The listeners are English learners. Speak clearly and carefully at a steady, unhurried pace suitable for English learners. Keep the rhythm natural. Do not rush, stretch words, over-enunciate, split words into syllables, or insert unnatural pauses. Delivery: Speak as one person in a realistic everyday conversation. Use natural, responsive intonation and light contextual emotion. Do not sound flat, mechanical, dramatic, commercial, or like a formal announcement. Exam fairness: Do not emphasize any word or detail that reveals the answer. Accuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain anything. Audio quality: Produce a clean studio-quality voice with a full natural tone and no noise, reverb, clipping, metallic texture, muffling, or compression artifacts.",
+          "speed": 1.0,
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn2",
+          "provider": "openai",
+          "voice": {
+            "provider": "openai",
+            "id": "marin",
+            "name": "Marin",
+            "gender": "female"
+          },
+          "displayText": "I finished editing it, but the file is too large to send by email. Could you upload it from the media room?",
+          "ttsText": "I finished editing it, but the file is too large to send by email. Could you upload it from the media room?",
+          "instructions": "Voice: A clear, natural adult speaker using American English. The listeners are English learners. Speak clearly and carefully at a steady, unhurried pace suitable for English learners. Keep the rhythm natural. Do not rush, stretch words, over-enunciate, split words into syllables, or insert unnatural pauses. Delivery: Speak as one person in a realistic everyday conversation. Use natural, responsive intonation and light contextual emotion. Do not sound flat, mechanical, dramatic, commercial, or like a formal announcement. Exam fairness: Do not emphasize any word or detail that reveals the answer. Accuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain anything. Audio quality: Produce a clean studio-quality voice with a full natural tone and no noise, reverb, clipping, metallic texture, muffling, or compression artifacts.",
+          "speed": 1.0,
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn3",
+          "provider": "openai",
+          "voice": {
+            "provider": "openai",
+            "id": "cedar",
+            "name": "Cedar",
+            "gender": "male"
+          },
+          "displayText": "Sure, but I need the final title before lunch because the teacher checks everything at one.",
+          "ttsText": "Sure, but I need the final title before lunch because the teacher checks everything at one.",
+          "instructions": "Voice: A clear, natural adult speaker using American English. The listeners are English learners. Speak clearly and carefully at a steady, unhurried pace suitable for English learners. Keep the rhythm natural. Do not rush, stretch words, over-enunciate, split words into syllables, or insert unnatural pauses. Delivery: Speak as one person in a realistic everyday conversation. Use natural, responsive intonation and light contextual emotion. Do not sound flat, mechanical, dramatic, commercial, or like a formal announcement. Exam fairness: Do not emphasize any word or detail that reveals the answer. Accuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain anything. Audio quality: Produce a clean studio-quality voice with a full natural tone and no noise, reverb, clipping, metallic texture, muffling, or compression artifacts.",
+          "speed": 1.0,
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn4",
+          "provider": "openai",
+          "voice": {
+            "provider": "openai",
+            "id": "marin",
+            "name": "Marin",
+            "gender": "female"
+          },
+          "displayText": "I'll message you the title now. The interview section doesn't need any more changes.",
+          "ttsText": "I'll message you the title now. The interview section doesn't need any more changes.",
+          "instructions": "Voice: A clear, natural adult speaker using American English. The listeners are English learners. Speak clearly and carefully at a steady, unhurried pace suitable for English learners. Keep the rhythm natural. Do not rush, stretch words, over-enunciate, split words into syllables, or insert unnatural pauses. Delivery: Speak as one person in a realistic everyday conversation. Use natural, responsive intonation and light contextual emotion. Do not sound flat, mechanical, dramatic, commercial, or like a formal announcement. Exam fairness: Do not emphasize any word or detail that reveals the answer. Accuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain anything. Audio quality: Produce a clean studio-quality voice with a full natural tone and no noise, reverb, clipping, metallic texture, muffling, or compression artifacts.",
+          "speed": 1.0,
+          "gapAfterMs": 1300
+        },
+        {
+          "role": "questionLabel",
+          "provider": "edge",
+          "voice": {
+            "provider": "edge",
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "gender": "male",
+            "language": "en-GB"
+          },
+          "displayText": "Question.",
+          "ttsText": "Question.",
+          "instructions": null,
+          "speed": 1.0,
+          "gapAfterMs": 350
+        },
+        {
+          "role": "questionText",
+          "provider": "edge",
+          "voice": {
+            "provider": "edge",
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "gender": "male",
+            "language": "en-GB"
+          },
+          "displayText": "What does the girl ask the boy to do?",
+          "ttsText": "What does the girl ask the boy to do?",
+          "instructions": null,
+          "speed": 1.0,
+          "gapAfterMs": 0
+        }
+      ],
+      "wav": "audio-generation\\grade2-round1-openai-natural-master-20260717\\part1\\audio\\No01.wav",
+      "mp3": "audio-generation\\grade2-round1-openai-natural-master-20260717\\part1\\audio\\No01.mp3",
+      "mp3Relative": "part1/audio/No01.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "28.229667"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "28.229683"
+      }
+    },
+    {
+      "item": "No02",
+      "number": 2,
+      "part": "part1",
+      "segments": [
+        {
+          "role": "number",
+          "provider": "edge",
+          "voice": {
+            "provider": "edge",
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "gender": "female",
+            "language": "en-US"
+          },
+          "displayText": "Number 2.",
+          "ttsText": "Number two.",
+          "instructions": null,
+          "speed": 1.0,
+          "gapAfterMs": 1350
+        },
+        {
+          "role": "turn1",
+          "provider": "openai",
+          "voice": {
+            "provider": "openai",
+            "id": "marin",
+            "name": "Marin",
+            "gender": "female"
+          },
+          "displayText": "I signed up for the beginner yoga class that meets on Wednesday evenings.",
+          "ttsText": "I signed up for the beginner yoga class that meets on Wednesday evenings.",
+          "instructions": "Voice: A clear, natural adult speaker using American English. The listeners are English learners. Speak clearly and carefully at a steady, unhurried pace suitable for English learners. Keep the rhythm natural. Do not rush, stretch words, over-enunciate, split words into syllables, or insert unnatural pauses. Delivery: Speak as one person in a realistic everyday conversation. Use natural, responsive intonation and light contextual emotion. Do not sound flat, mechanical, dramatic, commercial, or like a formal announcement. Exam fairness: Do not emphasize any word or detail that reveals the answer. Accuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain anything. Audio quality: Produce a clean studio-quality voice with a full natural tone and no noise, reverb, clipping, metallic texture, muffling, or compression artifacts.",
+          "speed": 1.0,
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn2",
+          "provider": "openai",
+          "voice": {
+            "provider": "openai",
+            "id": "cedar",
+            "name": "Cedar",
+            "gender": "male"
+          },
+          "displayText": "That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven.",
+          "ttsText": "That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven.",
+          "instructions": "Voice: A clear, natural adult speaker using American English. The listeners are English learners. Speak clearly and carefully at a steady, unhurried pace suitable for English learners. Keep the rhythm natural. Do not rush, stretch words, over-enunciate, split words into syllables, or insert unnatural pauses. Delivery: Speak as one person in a realistic everyday conversation. Use natural, responsive intonation and light contextual emotion. Do not sound flat, mechanical, dramatic, commercial, or like a formal announcement. Exam fairness: Do not emphasize any word or detail that reveals the answer. Accuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain anything. Audio quality: Produce a clean studio-quality voice with a full natural tone and no noise, reverb, clipping, metallic texture, muffling, or compression artifacts.",
+          "speed": 1.0,
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn3",
+          "provider": "openai",
+          "voice": {
+            "provider": "openai",
+            "id": "marin",
+            "name": "Marin",
+            "gender": "female"
+          },
+          "displayText": "Thursday works for me. Do I need to register again at the front desk?",
+          "ttsText": "Thursday works for me. Do I need to register again at the front desk?",
+          "instructions": "Voice: A clear, natural adult speaker using American English. The listeners are English learners. Speak clearly and carefully at a steady, unhurried pace suitable for English learners. Keep the rhythm natural. Do not rush, stretch words, over-enunciate, split words into syllables, or insert unnatural pauses. Delivery: Speak as one person in a realistic everyday conversation. Use natural, responsive intonation and light contextual emotion. Do not sound flat, mechanical, dramatic, commercial, or like a formal announcement. Exam fairness: Do not emphasize any word or detail that reveals the answer. Accuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain anything. Audio quality: Produce a clean studio-quality voice with a full natural tone and no noise, reverb, clipping, metallic texture, muffling, or compression artifacts.",
+          "speed": 1.0,
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn4",
+          "provider": "openai",
+          "voice": {
+            "provider": "openai",
+            "id": "cedar",
+            "name": "Cedar",
+            "gender": "male"
+          },
+          "displayText": "No, your name is already on the new list. Just bring the same membership card.",
+          "ttsText": "No, your name is already on the new list. Just bring the same membership card.",
+          "instructions": "Voice: A clear, natural adult speaker using American English. The listeners are English learners. Speak clearly and carefully at a steady, unhurried pace suitable for English learners. Keep the rhythm natural. Do not rush, stretch words, over-enunciate, split words into syllables, or insert unnatural pauses. Delivery: Speak as one person in a realistic everyday conversation. Use natural, responsive intonation and light contextual emotion. Do not sound flat, mechanical, dramatic, commercial, or like a formal announcement. Exam fairness: Do not emphasize any word or detail that reveals the answer. Accuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain anything. Audio quality: Produce a clean studio-quality voice with a full natural tone and no noise, reverb, clipping, metallic texture, muffling, or compression artifacts.",
+          "speed": 1.0,
+          "gapAfterMs": 1300
+        },
+        {
+          "role": "questionLabel",
+          "provider": "edge",
+          "voice": {
+            "provider": "edge",
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "gender": "female",
+            "language": "en-US"
+          },
+          "displayText": "Question.",
+          "ttsText": "Question.",
+          "instructions": null,
+          "speed": 1.0,
+          "gapAfterMs": 350
+        },
+        {
+          "role": "questionText",
+          "provider": "edge",
+          "voice": {
+            "provider": "edge",
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "gender": "female",
+            "language": "en-US"
+          },
+          "displayText": "What is true about the yoga class?",
+          "ttsText": "What is true about the yoga class?",
+          "instructions": null,
+          "speed": 1.0,
+          "gapAfterMs": 0
+        }
+      ],
+      "wav": "audio-generation\\grade2-round1-openai-natural-master-20260717\\part1\\audio\\No02.wav",
+      "mp3": "audio-generation\\grade2-round1-openai-natural-master-20260717\\part1\\audio\\No02.mp3",
+      "mp3Relative": "part1/audio/No02.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "26.048750"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "26.048753"
+      }
+    },
+    {
+      "item": "No03",
+      "number": 3,
+      "part": "part1",
+      "segments": [
+        {
+          "role": "number",
+          "provider": "edge",
+          "voice": {
+            "provider": "edge",
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "gender": "female",
+            "language": "en-US"
+          },
+          "displayText": "Number 3.",
+          "ttsText": "Number three.",
+          "instructions": null,
+          "speed": 1.0,
+          "gapAfterMs": 1350
+        },
+        {
+          "role": "turn1",
+          "provider": "openai",
+          "voice": {
+            "provider": "openai",
+            "id": "marin",
+            "name": "Marin",
+            "gender": "female"
+          },
+          "displayText": "I can't meet you at the café this afternoon. A repair worker is coming to look at our washing machine.",
+          "ttsText": "I can't meet you at the cafe this afternoon. A repair worker is coming to look at our washing machine.",
+          "instructions": "Voice: A clear, natural adult speaker using American English. The listeners are English learners. Speak clearly and carefully at a steady, unhurried pace suitable for English learners. Keep the rhythm natural. Do not rush, stretch words, over-enunciate, split words into syllables, or insert unnatural pauses. Delivery: Speak as one person in a realistic everyday conversation. Use natural, responsive intonation and light contextual emotion. Do not sound flat, mechanical, dramatic, commercial, or like a formal announcement. Exam fairness: Do not emphasize any word or detail that reveals the answer. Accuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain anything. Audio quality: Produce a clean studio-quality voice with a full natural tone and no noise, reverb, clipping, metallic texture, muffling, or compression artifacts.",
+          "speed": 1.0,
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn2",
+          "provider": "openai",
+          "voice": {
+            "provider": "openai",
+            "id": "cedar",
+            "name": "Cedar",
+            "gender": "male"
+          },
+          "displayText": "Didn't your brother say he would stay home for that?",
+          "ttsText": "Didn't your brother say he would stay home for that?",
+          "instructions": "Voice: A clear, natural adult speaker using American English. The listeners are English learners. Speak clearly and carefully at a steady, unhurried pace suitable for English learners. Keep the rhythm natural. Do not rush, stretch words, over-enunciate, split words into syllables, or insert unnatural pauses. Delivery: Speak as one person in a realistic everyday conversation. Use natural, responsive intonation and light contextual emotion. Do not sound flat, mechanical, dramatic, commercial, or like a formal announcement. Exam fairness: Do not emphasize any word or detail that reveals the answer. Accuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain anything. Audio quality: Produce a clean studio-quality voice with a full natural tone and no noise, reverb, clipping, metallic texture, muffling, or compression artifacts.",
+          "speed": 1.0,
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn3",
+          "provider": "openai",
+          "voice": {
+            "provider": "openai",
+            "id": "marin",
+            "name": "Marin",
+            "gender": "female"
+          },
+          "displayText": "He was supposed to, but his manager asked him to work an extra shift. The worker may arrive anytime between two and five.",
+          "ttsText": "He was supposed to, but his manager asked him to work an extra shift. The worker may arrive anytime between two and five.",
+          "instructions": "Voice: A clear, natural adult speaker using American English. The listeners are English learners. Speak clearly and carefully at a steady, unhurried pace suitable for English learners. Keep the rhythm natural. Do not rush, stretch words, over-enunciate, split words into syllables, or insert unnatural pauses. Delivery: Speak as one person in a realistic everyday conversation. Use natural, responsive intonation and light contextual emotion. Do not sound flat, mechanical, dramatic, commercial, or like a formal announcement. Exam fairness: Do not emphasize any word or detail that reveals the answer. Accuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain anything. Audio quality: Produce a clean studio-quality voice with a full natural tone and no noise, reverb, clipping, metallic texture, muffling, or compression artifacts.",
+          "speed": 1.0,
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn4",
+          "provider": "openai",
+          "voice": {
+            "provider": "openai",
+            "id": "cedar",
+            "name": "Cedar",
+            "gender": "male"
+          },
+          "displayText": "No problem. We can meet tomorrow after my class instead.",
+          "ttsText": "No problem. We can meet tomorrow after my class instead.",
+          "instructions": "Voice: A clear, natural adult speaker using American English. The listeners are English learners. Speak clearly and carefully at a steady, unhurried pace suitable for English learners. Keep the rhythm natural. Do not rush, stretch words, over-enunciate, split words into syllables, or insert unnatural pauses. Delivery: Speak as one person in a realistic everyday conversation. Use natural, responsive intonation and light contextual emotion. Do not sound flat, mechanical, dramatic, commercial, or like a formal announcement. Exam fairness: Do not emphasize any word or detail that reveals the answer. Accuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain anything. Audio quality: Produce a clean studio-quality voice with a full natural tone and no noise, reverb, clipping, metallic texture, muffling, or compression artifacts.",
+          "speed": 1.0,
+          "gapAfterMs": 1300
+        },
+        {
+          "role": "questionLabel",
+          "provider": "edge",
+          "voice": {
+            "provider": "edge",
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "gender": "female",
+            "language": "en-US"
+          },
+          "displayText": "Question.",
+          "ttsText": "Question.",
+          "instructions": null,
+          "speed": 1.0,
+          "gapAfterMs": 350
+        },
+        {
+          "role": "questionText",
+          "provider": "edge",
+          "voice": {
+            "provider": "edge",
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "gender": "female",
+            "language": "en-US"
+          },
+          "displayText": "Why will the woman stay home this afternoon?",
+          "ttsText": "Why will the woman stay home this afternoon?",
+          "instructions": null,
+          "speed": 1.0,
+          "gapAfterMs": 0
+        }
+      ],
+      "wav": "audio-generation\\grade2-round1-openai-natural-master-20260717\\part1\\audio\\No03.wav",
+      "mp3": "audio-generation\\grade2-round1-openai-natural-master-20260717\\part1\\audio\\No03.mp3",
+      "mp3Relative": "part1/audio/No03.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "28.049417"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "28.049433"
+      }
+    },
+    {
+      "item": "No16",
+      "number": 16,
+      "part": "part2",
+      "segments": [
+        {
+          "role": "number",
+          "provider": "edge",
+          "voice": {
+            "provider": "edge",
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "gender": "male",
+            "language": "en-GB"
+          },
+          "displayText": "Number 16.",
+          "ttsText": "Number sixteen.",
+          "instructions": null,
+          "speed": 1.0,
+          "gapAfterMs": 1150
+        },
+        {
+          "role": "bodySentence1",
+          "provider": "openai",
+          "voice": {
+            "provider": "openai",
+            "id": "marin",
+            "name": "Marin",
+            "gender": "female"
+          },
+          "displayText": "During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge.",
+          "ttsText": "During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge.",
+          "instructions": "Voice: A clear, natural adult speaker using American English. The listeners are English learners. Speak clearly and carefully at a steady, unhurried pace suitable for English learners. Keep the rhythm natural. Do not rush, stretch words, over-enunciate, split words into syllables, or insert unnatural pauses. Delivery: Read as calm, informative narration for an Eiken Grade 2 listening exercise. Use gentle sentence-level intonation and give the sentence a clear, natural ending. Do not sound flat, mechanical, dramatic, commercial, or overly emotional. Exam fairness: Do not emphasize any word or detail that reveals the answer. Accuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain anything. Audio quality: Produce a clean studio-quality voice with a full natural tone and no noise, reverb, clipping, metallic texture, muffling, or compression artifacts.",
+          "speed": 1.0,
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence2",
+          "provider": "openai",
+          "voice": {
+            "provider": "openai",
+            "id": "marin",
+            "name": "Marin",
+            "gender": "female"
+          },
+          "displayText": "She knew the basic facts, but she often forgot important dates during busy tours.",
+          "ttsText": "She knew the basic facts, but she often forgot important dates during busy tours.",
+          "instructions": "Voice: A clear, natural adult speaker using American English. The listeners are English learners. Speak clearly and carefully at a steady, unhurried pace suitable for English learners. Keep the rhythm natural. Do not rush, stretch words, over-enunciate, split words into syllables, or insert unnatural pauses. Delivery: Read as calm, informative narration for an Eiken Grade 2 listening exercise. Use gentle sentence-level intonation and give the sentence a clear, natural ending. Do not sound flat, mechanical, dramatic, commercial, or overly emotional. Exam fairness: Do not emphasize any word or detail that reveals the answer. Accuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain anything. Audio quality: Produce a clean studio-quality voice with a full natural tone and no noise, reverb, clipping, metallic texture, muffling, or compression artifacts.",
+          "speed": 1.0,
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence3",
+          "provider": "openai",
+          "voice": {
+            "provider": "openai",
+            "id": "marin",
+            "name": "Marin",
+            "gender": "female"
+          },
+          "displayText": "Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift.",
+          "ttsText": "Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift.",
+          "instructions": "Voice: A clear, natural adult speaker using American English. The listeners are English learners. Speak clearly and carefully at a steady, unhurried pace suitable for English learners. Keep the rhythm natural. Do not rush, stretch words, over-enunciate, split words into syllables, or insert unnatural pauses. Delivery: Read as calm, informative narration for an Eiken Grade 2 listening exercise. Use gentle sentence-level intonation and give the sentence a clear, natural ending. Do not sound flat, mechanical, dramatic, commercial, or overly emotional. Exam fairness: Do not emphasize any word or detail that reveals the answer. Accuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain anything. Audio quality: Produce a clean studio-quality voice with a full natural tone and no noise, reverb, clipping, metallic texture, muffling, or compression artifacts.",
+          "speed": 1.0,
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence4",
+          "provider": "openai",
+          "voice": {
+            "provider": "openai",
+            "id": "marin",
+            "name": "Marin",
+            "gender": "female"
+          },
+          "displayText": "She can now explain the bridge's history more clearly.",
+          "ttsText": "She can now explain the bridge's history more clearly.",
+          "instructions": "Voice: A clear, natural adult speaker using American English. The listeners are English learners. Speak clearly and carefully at a steady, unhurried pace suitable for English learners. Keep the rhythm natural. Do not rush, stretch words, over-enunciate, split words into syllables, or insert unnatural pauses. Delivery: Read as calm, informative narration for an Eiken Grade 2 listening exercise. Use gentle sentence-level intonation and give the sentence a clear, natural ending. Do not sound flat, mechanical, dramatic, commercial, or overly emotional. Exam fairness: Do not emphasize any word or detail that reveals the answer. Accuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain anything. Audio quality: Produce a clean studio-quality voice with a full natural tone and no noise, reverb, clipping, metallic texture, muffling, or compression artifacts.",
+          "speed": 1.0,
+          "gapAfterMs": 1300
+        },
+        {
+          "role": "questionLabel",
+          "provider": "edge",
+          "voice": {
+            "provider": "edge",
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "gender": "male",
+            "language": "en-GB"
+          },
+          "displayText": "Question.",
+          "ttsText": "Question.",
+          "instructions": null,
+          "speed": 1.0,
+          "gapAfterMs": 350
+        },
+        {
+          "role": "questionText",
+          "provider": "edge",
+          "voice": {
+            "provider": "edge",
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "gender": "male",
+            "language": "en-GB"
+          },
+          "displayText": "What helped Nina explain the bridge's history better?",
+          "ttsText": "What helped Nina explain the bridge's history better?",
+          "instructions": null,
+          "speed": 1.0,
+          "gapAfterMs": 0
+        }
+      ],
+      "wav": "audio-generation\\grade2-round1-openai-natural-master-20260717\\part2\\audio\\No16.wav",
+      "mp3": "audio-generation\\grade2-round1-openai-natural-master-20260717\\part2\\audio\\No16.mp3",
+      "mp3Relative": "part2/audio/No16.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "30.346875"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "30.346893"
+      }
+    },
+    {
+      "item": "No17",
+      "number": 17,
+      "part": "part2",
+      "segments": [
+        {
+          "role": "number",
+          "provider": "edge",
+          "voice": {
+            "provider": "edge",
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "gender": "female",
+            "language": "en-US"
+          },
+          "displayText": "Number 17.",
+          "ttsText": "Number seventeen.",
+          "instructions": null,
+          "speed": 1.0,
+          "gapAfterMs": 1150
+        },
+        {
+          "role": "bodySentence1",
+          "provider": "openai",
+          "voice": {
+            "provider": "openai",
+            "id": "cedar",
+            "name": "Cedar",
+            "gender": "male"
+          },
+          "displayText": "The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday.",
+          "ttsText": "The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday.",
+          "instructions": "Voice: A clear, natural adult speaker using American English. The listeners are English learners. Speak clearly and carefully at a steady, unhurried pace suitable for English learners. Keep the rhythm natural. Do not rush, stretch words, over-enunciate, split words into syllables, or insert unnatural pauses. Delivery: Read as calm, informative narration for an Eiken Grade 2 listening exercise. Use gentle sentence-level intonation and give the sentence a clear, natural ending. Do not sound flat, mechanical, dramatic, commercial, or overly emotional. Exam fairness: Do not emphasize any word or detail that reveals the answer. Accuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain anything. Audio quality: Produce a clean studio-quality voice with a full natural tone and no noise, reverb, clipping, metallic texture, muffling, or compression artifacts.",
+          "speed": 1.0,
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence2",
+          "provider": "openai",
+          "voice": {
+            "provider": "openai",
+            "id": "cedar",
+            "name": "Cedar",
+            "gender": "male"
+          },
+          "displayText": "Those rooms will be unavailable from 9 a.m. until 3 p.m., but the swimming pool will remain open as usual.",
+          "ttsText": "Those rooms will be unavailable from nine A M until three P M, but the swimming pool will remain open as usual.",
+          "instructions": "Voice: A clear, natural adult speaker using American English. The listeners are English learners. Speak clearly and carefully at a steady, unhurried pace suitable for English learners. Keep the rhythm natural. Do not rush, stretch words, over-enunciate, split words into syllables, or insert unnatural pauses. Delivery: Read as calm, informative narration for an Eiken Grade 2 listening exercise. Use gentle sentence-level intonation and give the sentence a clear, natural ending. Do not sound flat, mechanical, dramatic, commercial, or overly emotional. Exam fairness: Do not emphasize any word or detail that reveals the answer. Accuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain anything. Audio quality: Produce a clean studio-quality voice with a full natural tone and no noise, reverb, clipping, metallic texture, muffling, or compression artifacts.",
+          "speed": 1.0,
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence3",
+          "provider": "openai",
+          "voice": {
+            "provider": "openai",
+            "id": "cedar",
+            "name": "Cedar",
+            "gender": "male"
+          },
+          "displayText": "Visitors should use the smaller changing area beside Court Two.",
+          "ttsText": "Visitors should use the smaller changing area beside Court Two.",
+          "instructions": "Voice: A clear, natural adult speaker using American English. The listeners are English learners. Speak clearly and carefully at a steady, unhurried pace suitable for English learners. Keep the rhythm natural. Do not rush, stretch words, over-enunciate, split words into syllables, or insert unnatural pauses. Delivery: Read as calm, informative narration for an Eiken Grade 2 listening exercise. Use gentle sentence-level intonation and give the sentence a clear, natural ending. Do not sound flat, mechanical, dramatic, commercial, or overly emotional. Exam fairness: Do not emphasize any word or detail that reveals the answer. Accuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain anything. Audio quality: Produce a clean studio-quality voice with a full natural tone and no noise, reverb, clipping, metallic texture, muffling, or compression artifacts.",
+          "speed": 1.0,
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence4",
+          "provider": "openai",
+          "voice": {
+            "provider": "openai",
+            "id": "cedar",
+            "name": "Cedar",
+            "gender": "male"
+          },
+          "displayText": "Please bring your own lock, since the temporary lockers do not have built-in keys.",
+          "ttsText": "Please bring your own lock, since the temporary lockers do not have built-in keys.",
+          "instructions": "Voice: A clear, natural adult speaker using American English. The listeners are English learners. Speak clearly and carefully at a steady, unhurried pace suitable for English learners. Keep the rhythm natural. Do not rush, stretch words, over-enunciate, split words into syllables, or insert unnatural pauses. Delivery: Read as calm, informative narration for an Eiken Grade 2 listening exercise. Use gentle sentence-level intonation and give the sentence a clear, natural ending. Do not sound flat, mechanical, dramatic, commercial, or overly emotional. Exam fairness: Do not emphasize any word or detail that reveals the answer. Accuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain anything. Audio quality: Produce a clean studio-quality voice with a full natural tone and no noise, reverb, clipping, metallic texture, muffling, or compression artifacts.",
+          "speed": 1.0,
+          "gapAfterMs": 1300
+        },
+        {
+          "role": "questionLabel",
+          "provider": "edge",
+          "voice": {
+            "provider": "edge",
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "gender": "female",
+            "language": "en-US"
+          },
+          "displayText": "Question.",
+          "ttsText": "Question.",
+          "instructions": null,
+          "speed": 1.0,
+          "gapAfterMs": 350
+        },
+        {
+          "role": "questionText",
+          "provider": "edge",
+          "voice": {
+            "provider": "edge",
+            "id": "en-US-EmmaMultilingualNeural",
+            "name": "Emma",
+            "gender": "female",
+            "language": "en-US"
+          },
+          "displayText": "What should visitors bring to the sports center?",
+          "ttsText": "What should visitors bring to the sports center?",
+          "instructions": null,
+          "speed": 1.0,
+          "gapAfterMs": 0
+        }
+      ],
+      "wav": "audio-generation\\grade2-round1-openai-natural-master-20260717\\part2\\audio\\No17.wav",
+      "mp3": "audio-generation\\grade2-round1-openai-natural-master-20260717\\part2\\audio\\No17.mp3",
+      "mp3Relative": "part2/audio/No17.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "28.274333"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "28.274354"
+      }
+    },
+    {
+      "item": "No18",
+      "number": 18,
+      "part": "part2",
+      "segments": [
+        {
+          "role": "number",
+          "provider": "edge",
+          "voice": {
+            "provider": "edge",
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "gender": "male",
+            "language": "en-GB"
+          },
+          "displayText": "Number 18.",
+          "ttsText": "Number eighteen.",
+          "instructions": null,
+          "speed": 1.0,
+          "gapAfterMs": 1150
+        },
+        {
+          "role": "bodySentence1",
+          "provider": "openai",
+          "voice": {
+            "provider": "openai",
+            "id": "marin",
+            "name": "Marin",
+            "gender": "female"
+          },
+          "displayText": "A customer asked Leo to prepare a birthday cake without nuts.",
+          "ttsText": "A customer asked Leo to prepare a birthday cake without nuts.",
+          "instructions": "Voice: A clear, natural adult speaker using American English. The listeners are English learners. Speak clearly and carefully at a steady, unhurried pace suitable for English learners. Keep the rhythm natural. Do not rush, stretch words, over-enunciate, split words into syllables, or insert unnatural pauses. Delivery: Read as calm, informative narration for an Eiken Grade 2 listening exercise. Use gentle sentence-level intonation and give the sentence a clear, natural ending. Do not sound flat, mechanical, dramatic, commercial, or overly emotional. Exam fairness: Do not emphasize any word or detail that reveals the answer. Accuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain anything. Audio quality: Produce a clean studio-quality voice with a full natural tone and no noise, reverb, clipping, metallic texture, muffling, or compression artifacts.",
+          "speed": 1.0,
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence2",
+          "provider": "openai",
+          "voice": {
+            "provider": "openai",
+            "id": "marin",
+            "name": "Marin",
+            "gender": "female"
+          },
+          "displayText": "He carefully checked the ingredients, but the chocolate decorations he usually buys were made in a factory that also handles almonds.",
+          "ttsText": "He carefully checked the ingredients, but the chocolate decorations he usually buys were made in a factory that also handles almonds.",
+          "instructions": "Voice: A clear, natural adult speaker using American English. The listeners are English learners. Speak clearly and carefully at a steady, unhurried pace suitable for English learners. Keep the rhythm natural. Do not rush, stretch words, over-enunciate, split words into syllables, or insert unnatural pauses. Delivery: Read as calm, informative narration for an Eiken Grade 2 listening exercise. Use gentle sentence-level intonation and give the sentence a clear, natural ending. Do not sound flat, mechanical, dramatic, commercial, or overly emotional. Exam fairness: Do not emphasize any word or detail that reveals the answer. Accuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain anything. Audio quality: Produce a clean studio-quality voice with a full natural tone and no noise, reverb, clipping, metallic texture, muffling, or compression artifacts.",
+          "speed": 1.0,
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence3",
+          "provider": "openai",
+          "voice": {
+            "provider": "openai",
+            "id": "marin",
+            "name": "Marin",
+            "gender": "female"
+          },
+          "displayText": "Leo called the customer and suggested using fresh fruit instead.",
+          "ttsText": "Leo called the customer and suggested using fresh fruit instead.",
+          "instructions": "Voice: A clear, natural adult speaker using American English. The listeners are English learners. Speak clearly and carefully at a steady, unhurried pace suitable for English learners. Keep the rhythm natural. Do not rush, stretch words, over-enunciate, split words into syllables, or insert unnatural pauses. Delivery: Read as calm, informative narration for an Eiken Grade 2 listening exercise. Use gentle sentence-level intonation and give the sentence a clear, natural ending. Do not sound flat, mechanical, dramatic, commercial, or overly emotional. Exam fairness: Do not emphasize any word or detail that reveals the answer. Accuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain anything. Audio quality: Produce a clean studio-quality voice with a full natural tone and no noise, reverb, clipping, metallic texture, muffling, or compression artifacts.",
+          "speed": 1.0,
+          "gapAfterMs": 420
+        },
+        {
+          "role": "bodySentence4",
+          "provider": "openai",
+          "voice": {
+            "provider": "openai",
+            "id": "marin",
+            "name": "Marin",
+            "gender": "female"
+          },
+          "displayText": "The customer agreed, so he changed the design while keeping the same price and delivery time for Saturday.",
+          "ttsText": "The customer agreed, so he changed the design while keeping the same price and delivery time for Saturday.",
+          "instructions": "Voice: A clear, natural adult speaker using American English. The listeners are English learners. Speak clearly and carefully at a steady, unhurried pace suitable for English learners. Keep the rhythm natural. Do not rush, stretch words, over-enunciate, split words into syllables, or insert unnatural pauses. Delivery: Read as calm, informative narration for an Eiken Grade 2 listening exercise. Use gentle sentence-level intonation and give the sentence a clear, natural ending. Do not sound flat, mechanical, dramatic, commercial, or overly emotional. Exam fairness: Do not emphasize any word or detail that reveals the answer. Accuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain anything. Audio quality: Produce a clean studio-quality voice with a full natural tone and no noise, reverb, clipping, metallic texture, muffling, or compression artifacts.",
+          "speed": 1.0,
+          "gapAfterMs": 1300
+        },
+        {
+          "role": "questionLabel",
+          "provider": "edge",
+          "voice": {
+            "provider": "edge",
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "gender": "male",
+            "language": "en-GB"
+          },
+          "displayText": "Question.",
+          "ttsText": "Question.",
+          "instructions": null,
+          "speed": 1.0,
+          "gapAfterMs": 350
+        },
+        {
+          "role": "questionText",
+          "provider": "edge",
+          "voice": {
+            "provider": "edge",
+            "id": "en-GB-RyanNeural",
+            "name": "Ryan",
+            "gender": "male",
+            "language": "en-GB"
+          },
+          "displayText": "Why did Leo replace the chocolate decorations?",
+          "ttsText": "Why did Leo replace the chocolate decorations?",
+          "instructions": null,
+          "speed": 1.0,
+          "gapAfterMs": 0
+        }
+      ],
+      "wav": "audio-generation\\grade2-round1-openai-natural-master-20260717\\part2\\audio\\No18.wav",
+      "mp3": "audio-generation\\grade2-round1-openai-natural-master-20260717\\part2\\audio\\No18.mp3",
+      "mp3Relative": "part2/audio/No18.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "29.321458"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "29.321474"
+      }
+    }
+  ],
+  "secretsIncluded": false
+}

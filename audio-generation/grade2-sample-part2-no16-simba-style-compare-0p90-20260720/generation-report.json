@@ -1,0 +1,719 @@
+{
+  "mode": "completed",
+  "generatedAt": "2026-07-20T06:11:22.171553+00:00",
+  "provider": "SpeechifyAI",
+  "model": "simba-3.2",
+  "language": "en-US",
+  "number": 16,
+  "rate": "-10%",
+  "nominalSpeed": 0.9,
+  "apiRequestCount": 9,
+  "billableCharacters": 1317,
+  "comparisonOnly": true,
+  "productionStyleFinalized": false,
+  "deliveryContract": {
+    "wholeBodyOneRequest": true,
+    "sentenceLevelSplit": false,
+    "speechifyDirectWav": true,
+    "losslessPcmConcatenation": true,
+    "postSynthesisReencoding": false,
+    "postSynthesisResampling": false,
+    "lossyEncoding": false
+  },
+  "preflight": {
+    "provider": "SpeechifyAI",
+    "model": "simba-3.2",
+    "number": 16,
+    "rate": "-10%",
+    "nominalSpeed": 0.9,
+    "missingCalls": 9,
+    "missingInputCharacters": 2100,
+    "maxCalls": 9,
+    "maxInputCharacters": 6000,
+    "items": [
+      {
+        "id": "part2-No16-plain-0p90",
+        "variant": {
+          "id": "plain",
+          "label": "スタイルなし",
+          "emotion": null
+        },
+        "wholeBodyOneRequest": true,
+        "sentenceLevelSplit": false,
+        "segments": [
+          {
+            "role": "number",
+            "voice": "Hugh",
+            "rate": "-10%",
+            "emotion": null,
+            "gapAfterMs": 1150,
+            "input": "<speak><prosody rate=\"-10%\">Number sixteen.</prosody></speak>",
+            "cached": false
+          },
+          {
+            "role": "body",
+            "voice": "Geffen",
+            "rate": "-10%",
+            "emotion": null,
+            "gapAfterMs": 1100,
+            "input": "<speak><prosody rate=\"-10%\">During her first month as a volunteer at a local museum, Nina had trouble answering visitors’ questions about an old bridge. She knew the basic facts, but she often forgot important dates during busy tours. Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift. She can now explain the bridge’s history more clearly.</prosody></speak>",
+            "cached": false
+          },
+          {
+            "role": "question",
+            "voice": "Hugh",
+            "rate": "-10%",
+            "emotion": null,
+            "gapAfterMs": 0,
+            "input": "<speak><prosody rate=\"-10%\">Question.<break time=\"350ms\"/>What helped Nina explain the bridge’s history better?</prosody></speak>",
+            "cached": false
+          }
+        ]
+      },
+      {
+        "id": "part2-No16-direct-0p90",
+        "variant": {
+          "id": "direct",
+          "label": "direct（明瞭・率直）",
+          "emotion": "direct"
+        },
+        "wholeBodyOneRequest": true,
+        "sentenceLevelSplit": false,
+        "segments": [
+          {
+            "role": "number",
+            "voice": "Hugh",
+            "rate": "-10%",
+            "emotion": "direct",
+            "gapAfterMs": 1150,
+            "input": "<speak><speechify:style emotion=\"direct\"><prosody rate=\"-10%\">Number sixteen.</prosody></speechify:style></speak>",
+            "cached": false
+          },
+          {
+            "role": "body",
+            "voice": "Geffen",
+            "rate": "-10%",
+            "emotion": "direct",
+            "gapAfterMs": 1100,
+            "input": "<speak><speechify:style emotion=\"direct\"><prosody rate=\"-10%\">During her first month as a volunteer at a local museum, Nina had trouble answering visitors’ questions about an old bridge. She knew the basic facts, but she often forgot important dates during busy tours. Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift. She can now explain the bridge’s history more clearly.</prosody></speechify:style></speak>",
+            "cached": false
+          },
+          {
+            "role": "question",
+            "voice": "Hugh",
+            "rate": "-10%",
+            "emotion": "direct",
+            "gapAfterMs": 0,
+            "input": "<speak><speechify:style emotion=\"direct\"><prosody rate=\"-10%\">Question.<break time=\"350ms\"/>What helped Nina explain the bridge’s history better?</prosody></speechify:style></speak>",
+            "cached": false
+          }
+        ]
+      },
+      {
+        "id": "part2-No16-calm-0p90",
+        "variant": {
+          "id": "calm",
+          "label": "calm（落ち着いた）",
+          "emotion": "calm"
+        },
+        "wholeBodyOneRequest": true,
+        "sentenceLevelSplit": false,
+        "segments": [
+          {
+            "role": "number",
+            "voice": "Hugh",
+            "rate": "-10%",
+            "emotion": "calm",
+            "gapAfterMs": 1150,
+            "input": "<speak><speechify:style emotion=\"calm\"><prosody rate=\"-10%\">Number sixteen.</prosody></speechify:style></speak>",
+            "cached": false
+          },
+          {
+            "role": "body",
+            "voice": "Geffen",
+            "rate": "-10%",
+            "emotion": "calm",
+            "gapAfterMs": 1100,
+            "input": "<speak><speechify:style emotion=\"calm\"><prosody rate=\"-10%\">During her first month as a volunteer at a local museum, Nina had trouble answering visitors’ questions about an old bridge. She knew the basic facts, but she often forgot important dates during busy tours. Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift. She can now explain the bridge’s history more clearly.</prosody></speechify:style></speak>",
+            "cached": false
+          },
+          {
+            "role": "question",
+            "voice": "Hugh",
+            "rate": "-10%",
+            "emotion": "calm",
+            "gapAfterMs": 0,
+            "input": "<speak><speechify:style emotion=\"calm\"><prosody rate=\"-10%\">Question.<break time=\"350ms\"/>What helped Nina explain the bridge’s history better?</prosody></speechify:style></speak>",
+            "cached": false
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "part2-No16-plain-0p90",
+      "variant": {
+        "id": "plain",
+        "label": "スタイルなし",
+        "emotion": null
+      },
+      "segments": [
+        {
+          "role": "number",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "input": "<speak><prosody rate=\"-10%\">Number sixteen.</prosody></speak>",
+          "rate": "-10%",
+          "emotion": null,
+          "gapAfterMs": 1150,
+          "sourceWav": "audio-generation\\grade2-sample-part2-no16-simba-style-compare-0p90-20260720\\segments\\part2-No16-plain-0p90\\number-hugh_32-c7e0cfafa2ceff42666471bf.wav",
+          "sourceFileSha256": "72cee8eb6694015dd90017149f249b627adff38103a5910f05e73573ead1bd74",
+          "sourcePcmSha256": "88578ce1ddb533f0de75daad0ac55f4dfe92c1f0d01b40ffb2ca940f3c5f847a",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 71904,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 1.498
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 3.891,
+            "billableCharacters": 15,
+            "requestId": "9895f442fdfdf4d61fc85669"
+          }
+        },
+        {
+          "role": "body",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "input": "<speak><prosody rate=\"-10%\">During her first month as a volunteer at a local museum, Nina had trouble answering visitors’ questions about an old bridge. She knew the basic facts, but she often forgot important dates during busy tours. Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift. She can now explain the bridge’s history more clearly.</prosody></speak>",
+          "rate": "-10%",
+          "emotion": null,
+          "gapAfterMs": 1100,
+          "sourceWav": "audio-generation\\grade2-sample-part2-no16-simba-style-compare-0p90-20260720\\segments\\part2-No16-plain-0p90\\body-geffen_32-21c1d5563bcae53ed2332909.wav",
+          "sourceFileSha256": "f7b77c78809ff75b5c1e362b1e32e949c266eefc7d47ac86383d528088d1f668",
+          "sourcePcmSha256": "87fc20e6801e2a2e813b62e5820a43aac4bbab648035cdebb57c4f5b51b85013",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 1080078,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 22.502
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 7.469,
+            "billableCharacters": 362,
+            "requestId": "c73f0ad02667630af1887857"
+          }
+        },
+        {
+          "role": "question",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "input": "<speak><prosody rate=\"-10%\">Question.<break time=\"350ms\"/>What helped Nina explain the bridge’s history better?</prosody></speak>",
+          "rate": "-10%",
+          "emotion": null,
+          "gapAfterMs": 0,
+          "sourceWav": "audio-generation\\grade2-sample-part2-no16-simba-style-compare-0p90-20260720\\segments\\part2-No16-plain-0p90\\question-hugh_32-52bf91dfbd1fb1c61a7b671f.wav",
+          "sourceFileSha256": "592d784fe6ec457c471dd660b4269a9dbb15246adcb3f166d5a30da04ca7749f",
+          "sourcePcmSha256": "87e2bb7e85d39779150d1add092ab7f0b48c01c08ae519a63539a476d0a2bf55",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 226738,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 4.724
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 3.766,
+            "billableCharacters": 62,
+            "requestId": "217a60d583f5b3da5b44b6bd"
+          }
+        }
+      ],
+      "pcmVerification": {
+        "wave": {
+          "channels": 1,
+          "sampleWidthBytes": 2,
+          "bitsPerSample": 16,
+          "sampleRateHz": 48000,
+          "frameCount": 1486720,
+          "declaredFrameCount": 1486720,
+          "sourceHeaderOpenEnded": false,
+          "compressionType": "NONE",
+          "durationSeconds": 30.973
+        },
+        "expectedPcmSha256": "8c762e12fc421e735c7f8d57f983311664a45da2a93c9b4ee47bc05f99d6b1d2",
+        "finalPcmSha256": "8c762e12fc421e735c7f8d57f983311664a45da2a93c9b4ee47bc05f99d6b1d2",
+        "pcmExactMatch": true,
+        "allSpeechSlicesExact": true
+      },
+      "sliceVerification": [
+        {
+          "role": "number",
+          "sourceWav": "audio-generation\\grade2-sample-part2-no16-simba-style-compare-0p90-20260720\\segments\\part2-No16-plain-0p90\\number-hugh_32-c7e0cfafa2ceff42666471bf.wav",
+          "sourceFileSha256": "72cee8eb6694015dd90017149f249b627adff38103a5910f05e73573ead1bd74",
+          "sourcePcmSha256": "88578ce1ddb533f0de75daad0ac55f4dfe92c1f0d01b40ffb2ca940f3c5f847a",
+          "finalPcmStartByte": 0,
+          "finalPcmEndByte": 143808,
+          "gapAfterMs": 1150,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 71904,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 1.498
+          },
+          "finalSlicePcmSha256": "88578ce1ddb533f0de75daad0ac55f4dfe92c1f0d01b40ffb2ca940f3c5f847a",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "body",
+          "sourceWav": "audio-generation\\grade2-sample-part2-no16-simba-style-compare-0p90-20260720\\segments\\part2-No16-plain-0p90\\body-geffen_32-21c1d5563bcae53ed2332909.wav",
+          "sourceFileSha256": "f7b77c78809ff75b5c1e362b1e32e949c266eefc7d47ac86383d528088d1f668",
+          "sourcePcmSha256": "87fc20e6801e2a2e813b62e5820a43aac4bbab648035cdebb57c4f5b51b85013",
+          "finalPcmStartByte": 254208,
+          "finalPcmEndByte": 2414364,
+          "gapAfterMs": 1100,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 1080078,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 22.502
+          },
+          "finalSlicePcmSha256": "87fc20e6801e2a2e813b62e5820a43aac4bbab648035cdebb57c4f5b51b85013",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "question",
+          "sourceWav": "audio-generation\\grade2-sample-part2-no16-simba-style-compare-0p90-20260720\\segments\\part2-No16-plain-0p90\\question-hugh_32-52bf91dfbd1fb1c61a7b671f.wav",
+          "sourceFileSha256": "592d784fe6ec457c471dd660b4269a9dbb15246adcb3f166d5a30da04ca7749f",
+          "sourcePcmSha256": "87e2bb7e85d39779150d1add092ab7f0b48c01c08ae519a63539a476d0a2bf55",
+          "finalPcmStartByte": 2519964,
+          "finalPcmEndByte": 2973440,
+          "gapAfterMs": 0,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 226738,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 4.724
+          },
+          "finalSlicePcmSha256": "87e2bb7e85d39779150d1add092ab7f0b48c01c08ae519a63539a476d0a2bf55",
+          "pcmSliceMatch": true
+        }
+      ],
+      "masterWav": "audio-generation\\grade2-sample-part2-no16-simba-style-compare-0p90-20260720\\audio\\part2-16-simba-3-2-0p90-plain.wav",
+      "publishedWav": "audio/part2-16-simba-3-2-0p90-plain.wav",
+      "masterSha256": "ae5d00394bf9562a0fd5a98a6e7bf3c01f629182eb6e0f064f27aa87a1bee5cc",
+      "publishedSha256": "ae5d00394bf9562a0fd5a98a6e7bf3c01f629182eb6e0f064f27aa87a1bee5cc",
+      "publishedCopyHashMatch": true,
+      "fileBytes": 2973484
+    },
+    {
+      "id": "part2-No16-direct-0p90",
+      "variant": {
+        "id": "direct",
+        "label": "direct（明瞭・率直）",
+        "emotion": "direct"
+      },
+      "segments": [
+        {
+          "role": "number",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "input": "<speak><speechify:style emotion=\"direct\"><prosody rate=\"-10%\">Number sixteen.</prosody></speechify:style></speak>",
+          "rate": "-10%",
+          "emotion": "direct",
+          "gapAfterMs": 1150,
+          "sourceWav": "audio-generation\\grade2-sample-part2-no16-simba-style-compare-0p90-20260720\\segments\\part2-No16-direct-0p90\\number-hugh_32-fd6f8353162a4ae50137671f.wav",
+          "sourceFileSha256": "15f5f89f8f0ca5d983552b1628a7539176057acad2efd4500ddd304ca951d40b",
+          "sourcePcmSha256": "3f74db69dcf81036b6abde3a713ef4387766c4115d7ca4cf10e1b2242d2d491f",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 56448,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 1.176
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 1.656,
+            "billableCharacters": 15,
+            "requestId": "27168cb92e2c3ab66c403a69"
+          }
+        },
+        {
+          "role": "body",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "input": "<speak><speechify:style emotion=\"direct\"><prosody rate=\"-10%\">During her first month as a volunteer at a local museum, Nina had trouble answering visitors’ questions about an old bridge. She knew the basic facts, but she often forgot important dates during busy tours. Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift. She can now explain the bridge’s history more clearly.</prosody></speechify:style></speak>",
+          "rate": "-10%",
+          "emotion": "direct",
+          "gapAfterMs": 1100,
+          "sourceWav": "audio-generation\\grade2-sample-part2-no16-simba-style-compare-0p90-20260720\\segments\\part2-No16-direct-0p90\\body-geffen_32-a424e0da367aac168bba8fc8.wav",
+          "sourceFileSha256": "70e6eeb6586982671b5d700f48d751eda92df8b7553473660f417f1f25427b53",
+          "sourcePcmSha256": "9d6c27d5b7fe9e7148c626c21dc9de53a3b8e4c67cc085db2f647710841eca20",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 1089728,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 22.703
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 4.687,
+            "billableCharacters": 362,
+            "requestId": "3176b92a642380a579246752"
+          }
+        },
+        {
+          "role": "question",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "input": "<speak><speechify:style emotion=\"direct\"><prosody rate=\"-10%\">Question.<break time=\"350ms\"/>What helped Nina explain the bridge’s history better?</prosody></speechify:style></speak>",
+          "rate": "-10%",
+          "emotion": "direct",
+          "gapAfterMs": 0,
+          "sourceWav": "audio-generation\\grade2-sample-part2-no16-simba-style-compare-0p90-20260720\\segments\\part2-No16-direct-0p90\\question-hugh_32-c9f2a2d2748c1c3447393b67.wav",
+          "sourceFileSha256": "aebfdf23fdd60ebacf3f583164ece0b5557cb7fb09a7a56718cb95b69e7bcfbc",
+          "sourcePcmSha256": "323367a268738258a2aad26dbb0741714c6979d6bd79bbb5278e69c589ac2656",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 228224,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 4.755
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 3.734,
+            "billableCharacters": 62,
+            "requestId": "1e6708d31e3d6dc81fb1a107"
+          }
+        }
+      ],
+      "pcmVerification": {
+        "wave": {
+          "channels": 1,
+          "sampleWidthBytes": 2,
+          "bitsPerSample": 16,
+          "sampleRateHz": 48000,
+          "frameCount": 1482400,
+          "declaredFrameCount": 1482400,
+          "sourceHeaderOpenEnded": false,
+          "compressionType": "NONE",
+          "durationSeconds": 30.883
+        },
+        "expectedPcmSha256": "1d45f6248a5f863f74a06bc8f677eb0be1d9c0ab57ab55a55e4cf1f23ca8d11c",
+        "finalPcmSha256": "1d45f6248a5f863f74a06bc8f677eb0be1d9c0ab57ab55a55e4cf1f23ca8d11c",
+        "pcmExactMatch": true,
+        "allSpeechSlicesExact": true
+      },
+      "sliceVerification": [
+        {
+          "role": "number",
+          "sourceWav": "audio-generation\\grade2-sample-part2-no16-simba-style-compare-0p90-20260720\\segments\\part2-No16-direct-0p90\\number-hugh_32-fd6f8353162a4ae50137671f.wav",
+          "sourceFileSha256": "15f5f89f8f0ca5d983552b1628a7539176057acad2efd4500ddd304ca951d40b",
+          "sourcePcmSha256": "3f74db69dcf81036b6abde3a713ef4387766c4115d7ca4cf10e1b2242d2d491f",
+          "finalPcmStartByte": 0,
+          "finalPcmEndByte": 112896,
+          "gapAfterMs": 1150,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 56448,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 1.176
+          },
+          "finalSlicePcmSha256": "3f74db69dcf81036b6abde3a713ef4387766c4115d7ca4cf10e1b2242d2d491f",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "body",
+          "sourceWav": "audio-generation\\grade2-sample-part2-no16-simba-style-compare-0p90-20260720\\segments\\part2-No16-direct-0p90\\body-geffen_32-a424e0da367aac168bba8fc8.wav",
+          "sourceFileSha256": "70e6eeb6586982671b5d700f48d751eda92df8b7553473660f417f1f25427b53",
+          "sourcePcmSha256": "9d6c27d5b7fe9e7148c626c21dc9de53a3b8e4c67cc085db2f647710841eca20",
+          "finalPcmStartByte": 223296,
+          "finalPcmEndByte": 2402752,
+          "gapAfterMs": 1100,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 1089728,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 22.703
+          },
+          "finalSlicePcmSha256": "9d6c27d5b7fe9e7148c626c21dc9de53a3b8e4c67cc085db2f647710841eca20",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "question",
+          "sourceWav": "audio-generation\\grade2-sample-part2-no16-simba-style-compare-0p90-20260720\\segments\\part2-No16-direct-0p90\\question-hugh_32-c9f2a2d2748c1c3447393b67.wav",
+          "sourceFileSha256": "aebfdf23fdd60ebacf3f583164ece0b5557cb7fb09a7a56718cb95b69e7bcfbc",
+          "sourcePcmSha256": "323367a268738258a2aad26dbb0741714c6979d6bd79bbb5278e69c589ac2656",
+          "finalPcmStartByte": 2508352,
+          "finalPcmEndByte": 2964800,
+          "gapAfterMs": 0,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 228224,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 4.755
+          },
+          "finalSlicePcmSha256": "323367a268738258a2aad26dbb0741714c6979d6bd79bbb5278e69c589ac2656",
+          "pcmSliceMatch": true
+        }
+      ],
+      "masterWav": "audio-generation\\grade2-sample-part2-no16-simba-style-compare-0p90-20260720\\audio\\part2-16-simba-3-2-0p90-direct.wav",
+      "publishedWav": "audio/part2-16-simba-3-2-0p90-direct.wav",
+      "masterSha256": "fcc6b2ee6eea1f2578222fcac541c813b6b44570d01a2941662b8d7b8bccb64a",
+      "publishedSha256": "fcc6b2ee6eea1f2578222fcac541c813b6b44570d01a2941662b8d7b8bccb64a",
+      "publishedCopyHashMatch": true,
+      "fileBytes": 2964844
+    },
+    {
+      "id": "part2-No16-calm-0p90",
+      "variant": {
+        "id": "calm",
+        "label": "calm（落ち着いた）",
+        "emotion": "calm"
+      },
+      "segments": [
+        {
+          "role": "number",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "input": "<speak><speechify:style emotion=\"calm\"><prosody rate=\"-10%\">Number sixteen.</prosody></speechify:style></speak>",
+          "rate": "-10%",
+          "emotion": "calm",
+          "gapAfterMs": 1150,
+          "sourceWav": "audio-generation\\grade2-sample-part2-no16-simba-style-compare-0p90-20260720\\segments\\part2-No16-calm-0p90\\number-hugh_32-ce862313b6ad20095a10c065.wav",
+          "sourceFileSha256": "ec561070b3ffdb6a8dab9de550b61d672511d0f89598f3af0bddb5d1f1e73c48",
+          "sourcePcmSha256": "7ca0e77c6651a9a88f7aa753e7e7b7da25b7cf1b3f73e3a8a38173c524124604",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 69198,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 1.442
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 1.422,
+            "billableCharacters": 15,
+            "requestId": "e2cfa1adf1b40d76def683c7"
+          }
+        },
+        {
+          "role": "body",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "input": "<speak><speechify:style emotion=\"calm\"><prosody rate=\"-10%\">During her first month as a volunteer at a local museum, Nina had trouble answering visitors’ questions about an old bridge. She knew the basic facts, but she often forgot important dates during busy tours. Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift. She can now explain the bridge’s history more clearly.</prosody></speechify:style></speak>",
+          "rate": "-10%",
+          "emotion": "calm",
+          "gapAfterMs": 1100,
+          "sourceWav": "audio-generation\\grade2-sample-part2-no16-simba-style-compare-0p90-20260720\\segments\\part2-No16-calm-0p90\\body-geffen_32-6f3269c2bda84e11375021de.wav",
+          "sourceFileSha256": "0e7e4ba2461b2d29a1234e6be9e9c768330e342012cb8cedc8b0cb55c4c66c7c",
+          "sourcePcmSha256": "783b5cb656036da580c91388030dff73fc22f624b9185ff1cabb1b64376750d8",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 1046314,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 21.798
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 5.75,
+            "billableCharacters": 362,
+            "requestId": "905fae1d63afd2cfaf35f086"
+          }
+        },
+        {
+          "role": "question",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "input": "<speak><speechify:style emotion=\"calm\"><prosody rate=\"-10%\">Question.<break time=\"350ms\"/>What helped Nina explain the bridge’s history better?</prosody></speechify:style></speak>",
+          "rate": "-10%",
+          "emotion": "calm",
+          "gapAfterMs": 0,
+          "sourceWav": "audio-generation\\grade2-sample-part2-no16-simba-style-compare-0p90-20260720\\segments\\part2-No16-calm-0p90\\question-hugh_32-b5893490eb2fdf360569b61c.wav",
+          "sourceFileSha256": "ad41b2d133ede1837c6d5a5110e23a51a342de4b7fca21386d8a54bb3708f2bc",
+          "sourcePcmSha256": "4acdda7ba6ae9cb72575be06d754976ab18bc7c5978e9b2d00690e1b18cdc7b0",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 258074,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 5.377
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 3.485,
+            "billableCharacters": 62,
+            "requestId": "9d1044e3bd480d4e4dcc8696"
+          }
+        }
+      ],
+      "pcmVerification": {
+        "wave": {
+          "channels": 1,
+          "sampleWidthBytes": 2,
+          "bitsPerSample": 16,
+          "sampleRateHz": 48000,
+          "frameCount": 1481586,
+          "declaredFrameCount": 1481586,
+          "sourceHeaderOpenEnded": false,
+          "compressionType": "NONE",
+          "durationSeconds": 30.866
+        },
+        "expectedPcmSha256": "d124e409933ec6bb8f278a99eab595d4d25a5099fd883ad1aee429527eb303c2",
+        "finalPcmSha256": "d124e409933ec6bb8f278a99eab595d4d25a5099fd883ad1aee429527eb303c2",
+        "pcmExactMatch": true,
+        "allSpeechSlicesExact": true
+      },
+      "sliceVerification": [
+        {
+          "role": "number",
+          "sourceWav": "audio-generation\\grade2-sample-part2-no16-simba-style-compare-0p90-20260720\\segments\\part2-No16-calm-0p90\\number-hugh_32-ce862313b6ad20095a10c065.wav",
+          "sourceFileSha256": "ec561070b3ffdb6a8dab9de550b61d672511d0f89598f3af0bddb5d1f1e73c48",
+          "sourcePcmSha256": "7ca0e77c6651a9a88f7aa753e7e7b7da25b7cf1b3f73e3a8a38173c524124604",
+          "finalPcmStartByte": 0,
+          "finalPcmEndByte": 138396,
+          "gapAfterMs": 1150,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 69198,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 1.442
+          },
+          "finalSlicePcmSha256": "7ca0e77c6651a9a88f7aa753e7e7b7da25b7cf1b3f73e3a8a38173c524124604",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "body",
+          "sourceWav": "audio-generation\\grade2-sample-part2-no16-simba-style-compare-0p90-20260720\\segments\\part2-No16-calm-0p90\\body-geffen_32-6f3269c2bda84e11375021de.wav",
+          "sourceFileSha256": "0e7e4ba2461b2d29a1234e6be9e9c768330e342012cb8cedc8b0cb55c4c66c7c",
+          "sourcePcmSha256": "783b5cb656036da580c91388030dff73fc22f624b9185ff1cabb1b64376750d8",
+          "finalPcmStartByte": 248796,
+          "finalPcmEndByte": 2341424,
+          "gapAfterMs": 1100,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 1046314,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 21.798
+          },
+          "finalSlicePcmSha256": "783b5cb656036da580c91388030dff73fc22f624b9185ff1cabb1b64376750d8",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "question",
+          "sourceWav": "audio-generation\\grade2-sample-part2-no16-simba-style-compare-0p90-20260720\\segments\\part2-No16-calm-0p90\\question-hugh_32-b5893490eb2fdf360569b61c.wav",
+          "sourceFileSha256": "ad41b2d133ede1837c6d5a5110e23a51a342de4b7fca21386d8a54bb3708f2bc",
+          "sourcePcmSha256": "4acdda7ba6ae9cb72575be06d754976ab18bc7c5978e9b2d00690e1b18cdc7b0",
+          "finalPcmStartByte": 2447024,
+          "finalPcmEndByte": 2963172,
+          "gapAfterMs": 0,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 258074,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 5.377
+          },
+          "finalSlicePcmSha256": "4acdda7ba6ae9cb72575be06d754976ab18bc7c5978e9b2d00690e1b18cdc7b0",
+          "pcmSliceMatch": true
+        }
+      ],
+      "masterWav": "audio-generation\\grade2-sample-part2-no16-simba-style-compare-0p90-20260720\\audio\\part2-16-simba-3-2-0p90-calm.wav",
+      "publishedWav": "audio/part2-16-simba-3-2-0p90-calm.wav",
+      "masterSha256": "bb491d96bee3c672ef14718c22fe00ffd36334b0851de66d61b4b6460cc04710",
+      "publishedSha256": "bb491d96bee3c672ef14718c22fe00ffd36334b0851de66d61b4b6460cc04710",
+      "publishedCopyHashMatch": true,
+      "fileBytes": 2963216
+    }
+  ]
+}

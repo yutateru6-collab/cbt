@@ -1,0 +1,140 @@
+[
+  {
+    "item": "No03",
+    "output": "audio-generation\\hybrid-tts-trials\\openai-edge-natural-master\\part1\\No03.wav",
+    "outputBytes": 1370094,
+    "outputMetadata": {
+      "codec_name": "pcm_s16le",
+      "sample_rate": "24000",
+      "channels": 1,
+      "bits_per_sample": 16,
+      "duration": "28.542000"
+    },
+    "openaiApiCalls": 0,
+    "openaiCachedSegments": 2,
+    "edgeCalls": 0,
+    "edgeRate": "+0%",
+    "edgeVolume": "+0%",
+    "segments": [
+      {
+        "index": 1,
+        "speaker": "B",
+        "provider": "edge",
+        "voice": "en-GB-RyanNeural",
+        "text": "Number 3... I'm starting dinner now. We have an unexpected guest tonight.",
+        "gapAfterMs": 180,
+        "gainDb": 0.0,
+        "path": "audio-generation\\hybrid-tts-trials\\openai-edge-natural-master\\part1\\segments\\No03-01-B-en-GB-RyanNeural.wav"
+      },
+      {
+        "index": 2,
+        "speaker": "A",
+        "provider": "openai",
+        "voice": "marin",
+        "text": "Really? I thought we were going to eat at the new Thai restaurant.",
+        "gapAfterMs": 180,
+        "gainDb": 0.0,
+        "path": "audio-generation\\openai-tts-trials\\grade2-natural-master-speed-control-test\\part1\\segments\\02-A-marin-15a9eeb6b86b29b83b73.wav"
+      },
+      {
+        "index": 3,
+        "speaker": "B",
+        "provider": "edge",
+        "voice": "en-GB-RyanNeural",
+        "text": "Dad is bringing Grandma over, and she doesn't like spicy food. Could you set the table?",
+        "gapAfterMs": 180,
+        "gainDb": 0.0,
+        "path": "audio-generation\\hybrid-tts-trials\\openai-edge-natural-master\\part1\\segments\\No03-03-B-en-GB-RyanNeural.wav"
+      },
+      {
+        "index": 4,
+        "speaker": "A",
+        "provider": "openai",
+        "voice": "marin",
+        "text": "Sure. I'll make a salad too. The soup and chicken should be enough for the main dishes.",
+        "gapAfterMs": 650,
+        "gainDb": 0.0,
+        "path": "audio-generation\\openai-tts-trials\\grade2-natural-master-speed-control-test\\part1\\segments\\04-A-marin-d8f9929fd5dd56f6d3ed.wav"
+      },
+      {
+        "index": 5,
+        "speaker": "B",
+        "provider": "edge",
+        "voice": "en-GB-RyanNeural",
+        "text": "Question. Why is the man preparing dinner at home?",
+        "gapAfterMs": 0,
+        "gainDb": 0.0,
+        "path": "audio-generation\\hybrid-tts-trials\\openai-edge-natural-master\\part1\\segments\\No03-05-B-en-GB-RyanNeural.wav"
+      }
+    ]
+  },
+  {
+    "item": "No04",
+    "output": "audio-generation\\hybrid-tts-trials\\openai-edge-natural-master\\part1\\No04.wav",
+    "outputBytes": 1374510,
+    "outputMetadata": {
+      "codec_name": "pcm_s16le",
+      "sample_rate": "24000",
+      "channels": 1,
+      "bits_per_sample": 16,
+      "duration": "28.634000"
+    },
+    "openaiApiCalls": 0,
+    "openaiCachedSegments": 3,
+    "edgeCalls": 0,
+    "edgeRate": "+0%",
+    "edgeVolume": "+0%",
+    "segments": [
+      {
+        "index": 1,
+        "speaker": "B",
+        "provider": "openai",
+        "voice": "cedar",
+        "text": "Number 4... The monthly sales report is due tomorrow, and I'm still checking the figures from our Osaka office.",
+        "gapAfterMs": 180,
+        "gainDb": 0.0,
+        "path": "audio-generation\\openai-tts-trials\\grade2-natural-master-speed-control-test\\part1\\segments\\01-B-cedar-253762677ea61b832ba9.wav"
+      },
+      {
+        "index": 2,
+        "speaker": "A",
+        "provider": "edge",
+        "voice": "en-US-MichelleNeural",
+        "text": "I finished my section early. I can review those figures after lunch if that would help.",
+        "gapAfterMs": 180,
+        "gainDb": -3.0,
+        "path": "audio-generation\\hybrid-tts-trials\\openai-edge-natural-master\\part1\\segments\\No04-02-A-en-US-MichelleNeural.wav"
+      },
+      {
+        "index": 3,
+        "speaker": "B",
+        "provider": "openai",
+        "voice": "cedar",
+        "text": "That would be great. I'll send you the spreadsheet and mark the numbers that look unusual.",
+        "gapAfterMs": 180,
+        "gainDb": 0.0,
+        "path": "audio-generation\\openai-tts-trials\\grade2-natural-master-speed-control-test\\part1\\segments\\03-B-cedar-e5b4d3a0566cfbc019f6.wav"
+      },
+      {
+        "index": 4,
+        "speaker": "A",
+        "provider": "edge",
+        "voice": "en-US-MichelleNeural",
+        "text": "Perfect. I have a meeting at two, so I'll look at it before then.",
+        "gapAfterMs": 650,
+        "gainDb": -3.0,
+        "path": "audio-generation\\hybrid-tts-trials\\openai-edge-natural-master\\part1\\segments\\No04-04-A-en-US-MichelleNeural.wav"
+      },
+      {
+        "index": 5,
+        "speaker": "B",
+        "provider": "openai",
+        "voice": "cedar",
+        "text": "Question. What does the woman offer to do?",
+        "gapAfterMs": 0,
+        "gainDb": 0.0,
+        "path": "audio-generation\\openai-tts-trials\\grade2-natural-master-speed-control-test\\part1\\segments\\05-B-cedar-2ea090f71f40606068f0.wav"
+      }
+    ]
+  }
+]

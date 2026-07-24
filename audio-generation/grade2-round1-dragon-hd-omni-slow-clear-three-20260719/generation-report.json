@@ -1,0 +1,1127 @@
+{
+  "mode": "completed",
+  "provider": "Azure Speech",
+  "region": "eastus",
+  "sourceSet": "set-01",
+  "model": "Dragon HD Omni",
+  "modelId": "DragonHDOmniLatestNeural",
+  "stylePromptApplied": true,
+  "prompts": {
+    "number": "Speak slowly, clearly, and carefully as a neutral English listening examination narrator. Use precise pronunciation and an unhurried but natural pace. After the number, leave a short pause before the next speaker. Do not separate individual words or sound robotic.",
+    "dialogue": "Speak slowly, clearly, and carefully for an English listening examination. Use precise pronunciation and an unhurried but natural pace. Keep the conversation responsive and human, with a brief natural pause after each turn. Do not separate individual words, sound robotic, or overemphasize information that could reveal the answer.",
+    "passage": "Read this passage slowly, clearly, and carefully for an English listening examination. Use precise pronunciation, an unhurried natural rhythm, and brief natural pauses at sentence boundaries. Keep the tone calm and neutral. Do not separate individual words, sound dramatic, or emphasize information that could reveal the answer.",
+    "question": "Speak slowly, clearly, and carefully as a neutral English listening examination narrator. Say Question, pause briefly, and then read the final question with precise pronunciation. Do not emphasize any possible answer clue."
+  },
+  "voiceParameters": "temperature=0.6;top_p=0.6;top_k=15;cfg_scale=1.1;enhancePronunciation=true",
+  "naturalMasterPlaybackRate": 1.0,
+  "defaultReviewRate": 1.0,
+  "reviewRates": [
+    0.87,
+    0.9,
+    1.0
+  ],
+  "preservesPitchRequested": true,
+  "questionCount": 6,
+  "part1Count": 3,
+  "part2Count": 3,
+  "trackCount": 6,
+  "apiRequestCount": 6,
+  "apiRequestCountThisRun": 0,
+  "sourceAudioReused": true,
+  "items": [
+    {
+      "id": "No01",
+      "number": 1,
+      "part": "part1",
+      "displayScript": "B: The recording for our school radio show still isn't in the shared folder. A: I finished editing it, but the file is too large to send by email. Could you upload it from the media room? B: Sure, but I need the final title before lunch because the teacher checks everything at one. A: I'll message you the title now. The interview section doesn't need any more changes.",
+      "questionText": "What does the girl ask the boy to do?",
+      "parts": [
+        {
+          "role": "number",
+          "speaker": "narrator",
+          "text": "Number one.",
+          "prompt": "Speak slowly, clearly, and carefully as a neutral English listening examination narrator. Use precise pronunciation and an unhurried but natural pace. After the number, leave a short pause before the next speaker. Do not separate individual words or sound robotic."
+        },
+        {
+          "role": "turn1",
+          "speaker": "B",
+          "text": "The recording for our school radio show still isn't in the shared folder.",
+          "prompt": "Speak slowly, clearly, and carefully for an English listening examination. Use precise pronunciation and an unhurried but natural pace. Keep the conversation responsive and human, with a brief natural pause after each turn. Do not separate individual words, sound robotic, or overemphasize information that could reveal the answer."
+        },
+        {
+          "role": "turn2",
+          "speaker": "A",
+          "text": "I finished editing it, but the file is too large to send by email. Could you upload it from the media room?",
+          "prompt": "Speak slowly, clearly, and carefully for an English listening examination. Use precise pronunciation and an unhurried but natural pace. Keep the conversation responsive and human, with a brief natural pause after each turn. Do not separate individual words, sound robotic, or overemphasize information that could reveal the answer."
+        },
+        {
+          "role": "turn3",
+          "speaker": "B",
+          "text": "Sure, but I need the final title before lunch because the teacher checks everything at one.",
+          "prompt": "Speak slowly, clearly, and carefully for an English listening examination. Use precise pronunciation and an unhurried but natural pace. Keep the conversation responsive and human, with a brief natural pause after each turn. Do not separate individual words, sound robotic, or overemphasize information that could reveal the answer."
+        },
+        {
+          "role": "turn4",
+          "speaker": "A",
+          "text": "I'll message you the title now. The interview section doesn't need any more changes.",
+          "prompt": "Speak slowly, clearly, and carefully for an English listening examination. Use precise pronunciation and an unhurried but natural pace. Keep the conversation responsive and human, with a brief natural pause after each turn. Do not separate individual words, sound robotic, or overemphasize information that could reveal the answer."
+        },
+        {
+          "role": "questionLabel",
+          "speaker": "narrator",
+          "text": "Question.",
+          "prompt": "Speak slowly, clearly, and carefully as a neutral English listening examination narrator. Say Question, pause briefly, and then read the final question with precise pronunciation. Do not emphasize any possible answer clue."
+        },
+        {
+          "role": "questionText",
+          "speaker": "narrator",
+          "text": "What does the girl ask the boy to do?",
+          "prompt": "Speak slowly, clearly, and carefully as a neutral English listening examination narrator. Say Question, pause briefly, and then read the final question with precise pronunciation. Do not emphasize any possible answer clue."
+        }
+      ],
+      "voices": {
+        "A": "en-us-ava:DragonHDOmniLatestNeural",
+        "B": "en-US-Andrew:DragonHDOmniLatestNeural",
+        "narrator": "en-us-emma:DragonHDOmniLatestNeural"
+      },
+      "voiceLabel": "Ava × Andrew／試験ナレーター Emma",
+      "model": "DragonHDOmniLatestNeural",
+      "stylePromptApplied": true,
+      "voiceParameters": "temperature=0.6;top_p=0.6;top_k=15;cfg_scale=1.1;enhancePronunciation=true",
+      "oneAzureRequest": true,
+      "sentenceLevelGeneration": false,
+      "postSynthesisConcatenation": false,
+      "unsupportedBreakTagUsed": false,
+      "unsupportedProsodyTagUsed": false,
+      "structuralPauseMethod": "prompted natural pauses plus SSML paragraph/sentence boundaries",
+      "ssml": "ssml/part1-No01-dragon-hd-omni-prompted.ssml",
+      "ok": true,
+      "sourceAudioReused": true,
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/mpeg",
+        "requestId": null,
+        "bytes": 544320,
+        "elapsedSeconds": 5.475
+      },
+      "azureAttempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "httpStatus": 200,
+          "reason": null,
+          "transient": false
+        }
+      ],
+      "azureRequestAttempts": 1,
+      "processing": {
+        "targetLufs": -20,
+        "truePeakLimitDb": -1.5,
+        "master": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "pcm_s16le",
+              "sample_rate": "24000",
+              "channels": 1
+            }
+          ],
+          "format": {
+            "duration": "27.216000",
+            "bit_rate": "384022"
+          }
+        },
+        "delivery": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "mp3",
+              "sample_rate": "24000",
+              "channels": 1
+            }
+          ],
+          "format": {
+            "duration": "27.216000",
+            "bit_rate": "128351"
+          }
+        }
+      },
+      "loudnessFineTune": {
+        "applied": true,
+        "targetLufs": -20.0,
+        "gainDb": 0.4,
+        "limiterLinearLimit": 0.8,
+        "before": {
+          "available": true,
+          "integratedLufs": -20.4,
+          "truePeakDbtp": -1.5
+        },
+        "after": {
+          "available": true,
+          "integratedLufs": -20.1,
+          "truePeakDbtp": -1.7
+        }
+      },
+      "loudness": {
+        "available": true,
+        "integratedLufs": -20.1,
+        "truePeakDbtp": -1.7
+      },
+      "silenceIntervals": [
+        {
+          "start": 0.0,
+          "end": 0.373,
+          "duration": 0.373
+        },
+        {
+          "start": 1.138,
+          "end": 1.73,
+          "duration": 0.592
+        },
+        {
+          "start": 5.767,
+          "end": 6.182,
+          "duration": 0.415
+        },
+        {
+          "start": 7.466,
+          "end": 7.932,
+          "duration": 0.466
+        },
+        {
+          "start": 10.561,
+          "end": 11.409,
+          "duration": 0.847
+        },
+        {
+          "start": 13.287,
+          "end": 13.72,
+          "duration": 0.434
+        },
+        {
+          "start": 14.124,
+          "end": 14.618,
+          "duration": 0.494
+        },
+        {
+          "start": 18.679,
+          "end": 19.023,
+          "duration": 0.343
+        },
+        {
+          "start": 20.381,
+          "end": 21.095,
+          "duration": 0.714
+        },
+        {
+          "start": 23.813,
+          "end": 24.358,
+          "duration": 0.545
+        },
+        {
+          "start": 25.024,
+          "end": 25.34,
+          "duration": 0.316
+        }
+      ],
+      "masterWav": "master/part1-No01-dragon-hd-omni-prompted.wav",
+      "deliveryMp3": "audio/part1-No01-dragon-hd-omni-prompted.mp3"
+    },
+    {
+      "id": "No02",
+      "number": 2,
+      "part": "part1",
+      "displayScript": "A: I signed up for the beginner yoga class that meets on Wednesday evenings. B: That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven. A: Thursday works for me. Do I need to register again at the front desk? B: No, your name is already on the new list. Just bring the same membership card.",
+      "questionText": "What is true about the yoga class?",
+      "parts": [
+        {
+          "role": "number",
+          "speaker": "narrator",
+          "text": "Number two.",
+          "prompt": "Speak slowly, clearly, and carefully as a neutral English listening examination narrator. Use precise pronunciation and an unhurried but natural pace. After the number, leave a short pause before the next speaker. Do not separate individual words or sound robotic."
+        },
+        {
+          "role": "turn1",
+          "speaker": "A",
+          "text": "I signed up for the beginner yoga class that meets on Wednesday evenings.",
+          "prompt": "Speak slowly, clearly, and carefully for an English listening examination. Use precise pronunciation and an unhurried but natural pace. Keep the conversation responsive and human, with a brief natural pause after each turn. Do not separate individual words, sound robotic, or overemphasize information that could reveal the answer."
+        },
+        {
+          "role": "turn2",
+          "speaker": "B",
+          "text": "That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven.",
+          "prompt": "Speak slowly, clearly, and carefully for an English listening examination. Use precise pronunciation and an unhurried but natural pace. Keep the conversation responsive and human, with a brief natural pause after each turn. Do not separate individual words, sound robotic, or overemphasize information that could reveal the answer."
+        },
+        {
+          "role": "turn3",
+          "speaker": "A",
+          "text": "Thursday works for me. Do I need to register again at the front desk?",
+          "prompt": "Speak slowly, clearly, and carefully for an English listening examination. Use precise pronunciation and an unhurried but natural pace. Keep the conversation responsive and human, with a brief natural pause after each turn. Do not separate individual words, sound robotic, or overemphasize information that could reveal the answer."
+        },
+        {
+          "role": "turn4",
+          "speaker": "B",
+          "text": "No, your name is already on the new list. Just bring the same membership card.",
+          "prompt": "Speak slowly, clearly, and carefully for an English listening examination. Use precise pronunciation and an unhurried but natural pace. Keep the conversation responsive and human, with a brief natural pause after each turn. Do not separate individual words, sound robotic, or overemphasize information that could reveal the answer."
+        },
+        {
+          "role": "questionLabel",
+          "speaker": "narrator",
+          "text": "Question.",
+          "prompt": "Speak slowly, clearly, and carefully as a neutral English listening examination narrator. Say Question, pause briefly, and then read the final question with precise pronunciation. Do not emphasize any possible answer clue."
+        },
+        {
+          "role": "questionText",
+          "speaker": "narrator",
+          "text": "What is true about the yoga class?",
+          "prompt": "Speak slowly, clearly, and carefully as a neutral English listening examination narrator. Say Question, pause briefly, and then read the final question with precise pronunciation. Do not emphasize any possible answer clue."
+        }
+      ],
+      "voices": {
+        "A": "en-us-ava:DragonHDOmniLatestNeural",
+        "B": "en-US-Andrew:DragonHDOmniLatestNeural",
+        "narrator": "en-us-emma:DragonHDOmniLatestNeural"
+      },
+      "voiceLabel": "Ava × Andrew／試験ナレーター Emma",
+      "model": "DragonHDOmniLatestNeural",
+      "stylePromptApplied": true,
+      "voiceParameters": "temperature=0.6;top_p=0.6;top_k=15;cfg_scale=1.1;enhancePronunciation=true",
+      "oneAzureRequest": true,
+      "sentenceLevelGeneration": false,
+      "postSynthesisConcatenation": false,
+      "unsupportedBreakTagUsed": false,
+      "unsupportedProsodyTagUsed": false,
+      "structuralPauseMethod": "prompted natural pauses plus SSML paragraph/sentence boundaries",
+      "ssml": "ssml/part1-No02-dragon-hd-omni-prompted.ssml",
+      "ok": true,
+      "sourceAudioReused": true,
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/mpeg",
+        "requestId": null,
+        "bytes": 538080,
+        "elapsedSeconds": 3.372
+      },
+      "azureAttempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "httpStatus": 200,
+          "reason": null,
+          "transient": false
+        }
+      ],
+      "azureRequestAttempts": 1,
+      "processing": {
+        "targetLufs": -20,
+        "truePeakLimitDb": -1.5,
+        "master": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "pcm_s16le",
+              "sample_rate": "24000",
+              "channels": 1
+            }
+          ],
+          "format": {
+            "duration": "26.904000",
+            "bit_rate": "384023"
+          }
+        },
+        "delivery": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "mp3",
+              "sample_rate": "24000",
+              "channels": 1
+            }
+          ],
+          "format": {
+            "duration": "26.904000",
+            "bit_rate": "128355"
+          }
+        }
+      },
+      "loudnessFineTune": {
+        "applied": true,
+        "targetLufs": -20.0,
+        "gainDb": 0.8,
+        "limiterLinearLimit": 0.8,
+        "before": {
+          "available": true,
+          "integratedLufs": -20.8,
+          "truePeakDbtp": -1.5
+        },
+        "after": {
+          "available": true,
+          "integratedLufs": -20.0,
+          "truePeakDbtp": -1.8
+        }
+      },
+      "loudness": {
+        "available": true,
+        "integratedLufs": -20.0,
+        "truePeakDbtp": -1.8
+      },
+      "silenceIntervals": [
+        {
+          "start": 0.0,
+          "end": 0.533,
+          "duration": 0.533
+        },
+        {
+          "start": 1.282,
+          "end": 1.736,
+          "duration": 0.453
+        },
+        {
+          "start": 5.435,
+          "end": 5.792,
+          "duration": 0.357
+        },
+        {
+          "start": 10.353,
+          "end": 11.15,
+          "duration": 0.796
+        },
+        {
+          "start": 13.104,
+          "end": 13.673,
+          "duration": 0.568
+        },
+        {
+          "start": 14.805,
+          "end": 15.259,
+          "duration": 0.454
+        },
+        {
+          "start": 17.769,
+          "end": 18.579,
+          "duration": 0.81
+        },
+        {
+          "start": 18.934,
+          "end": 19.248,
+          "duration": 0.314
+        },
+        {
+          "start": 20.913,
+          "end": 21.695,
+          "duration": 0.782
+        },
+        {
+          "start": 23.457,
+          "end": 24.61,
+          "duration": 1.152
+        }
+      ],
+      "masterWav": "master/part1-No02-dragon-hd-omni-prompted.wav",
+      "deliveryMp3": "audio/part1-No02-dragon-hd-omni-prompted.mp3"
+    },
+    {
+      "id": "No03",
+      "number": 3,
+      "part": "part1",
+      "displayScript": "A: I can't meet you at the café this afternoon. A repair worker is coming to look at our washing machine. B: Didn't your brother say he would stay home for that? A: He was supposed to, but his manager asked him to work an extra shift. The worker may arrive anytime between two and five. B: No problem. We can meet tomorrow after my class instead.",
+      "questionText": "Why will the woman stay home this afternoon?",
+      "parts": [
+        {
+          "role": "number",
+          "speaker": "narrator",
+          "text": "Number three.",
+          "prompt": "Speak slowly, clearly, and carefully as a neutral English listening examination narrator. Use precise pronunciation and an unhurried but natural pace. After the number, leave a short pause before the next speaker. Do not separate individual words or sound robotic."
+        },
+        {
+          "role": "turn1",
+          "speaker": "A",
+          "text": "I can't meet you at the cafe this afternoon. A repair worker is coming to look at our washing machine.",
+          "prompt": "Speak slowly, clearly, and carefully for an English listening examination. Use precise pronunciation and an unhurried but natural pace. Keep the conversation responsive and human, with a brief natural pause after each turn. Do not separate individual words, sound robotic, or overemphasize information that could reveal the answer."
+        },
+        {
+          "role": "turn2",
+          "speaker": "B",
+          "text": "Didn't your brother say he would stay home for that?",
+          "prompt": "Speak slowly, clearly, and carefully for an English listening examination. Use precise pronunciation and an unhurried but natural pace. Keep the conversation responsive and human, with a brief natural pause after each turn. Do not separate individual words, sound robotic, or overemphasize information that could reveal the answer."
+        },
+        {
+          "role": "turn3",
+          "speaker": "A",
+          "text": "He was supposed to, but his manager asked him to work an extra shift. The worker may arrive anytime between two and five.",
+          "prompt": "Speak slowly, clearly, and carefully for an English listening examination. Use precise pronunciation and an unhurried but natural pace. Keep the conversation responsive and human, with a brief natural pause after each turn. Do not separate individual words, sound robotic, or overemphasize information that could reveal the answer."
+        },
+        {
+          "role": "turn4",
+          "speaker": "B",
+          "text": "No problem. We can meet tomorrow after my class instead.",
+          "prompt": "Speak slowly, clearly, and carefully for an English listening examination. Use precise pronunciation and an unhurried but natural pace. Keep the conversation responsive and human, with a brief natural pause after each turn. Do not separate individual words, sound robotic, or overemphasize information that could reveal the answer."
+        },
+        {
+          "role": "questionLabel",
+          "speaker": "narrator",
+          "text": "Question.",
+          "prompt": "Speak slowly, clearly, and carefully as a neutral English listening examination narrator. Say Question, pause briefly, and then read the final question with precise pronunciation. Do not emphasize any possible answer clue."
+        },
+        {
+          "role": "questionText",
+          "speaker": "narrator",
+          "text": "Why will the woman stay home this afternoon?",
+          "prompt": "Speak slowly, clearly, and carefully as a neutral English listening examination narrator. Say Question, pause briefly, and then read the final question with precise pronunciation. Do not emphasize any possible answer clue."
+        }
+      ],
+      "voices": {
+        "A": "en-us-ava:DragonHDOmniLatestNeural",
+        "B": "en-US-Andrew:DragonHDOmniLatestNeural",
+        "narrator": "en-us-emma:DragonHDOmniLatestNeural"
+      },
+      "voiceLabel": "Ava × Andrew／試験ナレーター Emma",
+      "model": "DragonHDOmniLatestNeural",
+      "stylePromptApplied": true,
+      "voiceParameters": "temperature=0.6;top_p=0.6;top_k=15;cfg_scale=1.1;enhancePronunciation=true",
+      "oneAzureRequest": true,
+      "sentenceLevelGeneration": false,
+      "postSynthesisConcatenation": false,
+      "unsupportedBreakTagUsed": false,
+      "unsupportedProsodyTagUsed": false,
+      "structuralPauseMethod": "prompted natural pauses plus SSML paragraph/sentence boundaries",
+      "ssml": "ssml/part1-No03-dragon-hd-omni-prompted.ssml",
+      "ok": true,
+      "sourceAudioReused": true,
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/mpeg",
+        "requestId": null,
+        "bytes": 519840,
+        "elapsedSeconds": 2.873
+      },
+      "azureAttempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "httpStatus": 200,
+          "reason": null,
+          "transient": false
+        }
+      ],
+      "azureRequestAttempts": 1,
+      "processing": {
+        "targetLufs": -20,
+        "truePeakLimitDb": -1.5,
+        "master": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "pcm_s16le",
+              "sample_rate": "24000",
+              "channels": 1
+            }
+          ],
+          "format": {
+            "duration": "25.992000",
+            "bit_rate": "384024"
+          }
+        },
+        "delivery": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "mp3",
+              "sample_rate": "24000",
+              "channels": 1
+            }
+          ],
+          "format": {
+            "duration": "25.992000",
+            "bit_rate": "128368"
+          }
+        }
+      },
+      "loudnessFineTune": {
+        "applied": true,
+        "targetLufs": -20.0,
+        "gainDb": -0.4,
+        "limiterLinearLimit": 0.8,
+        "before": {
+          "available": true,
+          "integratedLufs": -19.6,
+          "truePeakDbtp": -1.5
+        },
+        "after": {
+          "available": true,
+          "integratedLufs": -20.0,
+          "truePeakDbtp": -1.9
+        }
+      },
+      "loudness": {
+        "available": true,
+        "integratedLufs": -20.0,
+        "truePeakDbtp": -1.9
+      },
+      "silenceIntervals": [
+        {
+          "start": 0.0,
+          "end": 0.261,
+          "duration": 0.261
+        },
+        {
+          "start": 0.933,
+          "end": 1.336,
+          "duration": 0.404
+        },
+        {
+          "start": 3.637,
+          "end": 4.364,
+          "duration": 0.726
+        },
+        {
+          "start": 7.388,
+          "end": 7.801,
+          "duration": 0.413
+        },
+        {
+          "start": 9.962,
+          "end": 10.398,
+          "duration": 0.435
+        },
+        {
+          "start": 14.028,
+          "end": 14.553,
+          "duration": 0.525
+        },
+        {
+          "start": 17.439,
+          "end": 17.909,
+          "duration": 0.47
+        },
+        {
+          "start": 18.65,
+          "end": 19.121,
+          "duration": 0.471
+        },
+        {
+          "start": 21.51,
+          "end": 22.507,
+          "duration": 0.997
+        },
+        {
+          "start": 23.079,
+          "end": 23.639,
+          "duration": 0.559
+        }
+      ],
+      "masterWav": "master/part1-No03-dragon-hd-omni-prompted.wav",
+      "deliveryMp3": "audio/part1-No03-dragon-hd-omni-prompted.mp3"
+    },
+    {
+      "id": "No16",
+      "number": 16,
+      "part": "part2",
+      "displayScript": "During her first weeks at a design company, Nina tried to write down every comment made during team meetings. She often missed later points because she was still writing. A colleague showed her how to divide a page into decisions and tasks. Nina used the new format at the next meeting and found it easier to follow the discussion.",
+      "questionText": "Why did Nina change how she took notes?",
+      "parts": [
+        {
+          "role": "number",
+          "speaker": "narrator",
+          "text": "Number sixteen.",
+          "prompt": "Speak slowly, clearly, and carefully as a neutral English listening examination narrator. Use precise pronunciation and an unhurried but natural pace. After the number, leave a short pause before the next speaker. Do not separate individual words or sound robotic."
+        },
+        {
+          "role": "body",
+          "speaker": "body",
+          "text": "During her first weeks at a design company, Nina tried to write down every comment made during team meetings. She often missed later points because she was still writing. A colleague showed her how to divide a page into decisions and tasks. Nina used the new format at the next meeting and found it easier to follow the discussion.",
+          "prompt": "Read this passage slowly, clearly, and carefully for an English listening examination. Use precise pronunciation, an unhurried natural rhythm, and brief natural pauses at sentence boundaries. Keep the tone calm and neutral. Do not separate individual words, sound dramatic, or emphasize information that could reveal the answer."
+        },
+        {
+          "role": "questionLabel",
+          "speaker": "narrator",
+          "text": "Question.",
+          "prompt": "Speak slowly, clearly, and carefully as a neutral English listening examination narrator. Say Question, pause briefly, and then read the final question with precise pronunciation. Do not emphasize any possible answer clue."
+        },
+        {
+          "role": "questionText",
+          "speaker": "narrator",
+          "text": "Why did Nina change how she took notes?",
+          "prompt": "Speak slowly, clearly, and carefully as a neutral English listening examination narrator. Say Question, pause briefly, and then read the final question with precise pronunciation. Do not emphasize any possible answer clue."
+        }
+      ],
+      "voices": {
+        "body": "en-us-ava:DragonHDOmniLatestNeural",
+        "narrator": "en-US-Andrew:DragonHDOmniLatestNeural"
+      },
+      "voiceLabel": "本文 Ava／試験ナレーター Andrew",
+      "model": "DragonHDOmniLatestNeural",
+      "stylePromptApplied": true,
+      "voiceParameters": "temperature=0.6;top_p=0.6;top_k=15;cfg_scale=1.1;enhancePronunciation=true",
+      "oneAzureRequest": true,
+      "sentenceLevelGeneration": false,
+      "postSynthesisConcatenation": false,
+      "unsupportedBreakTagUsed": false,
+      "unsupportedProsodyTagUsed": false,
+      "structuralPauseMethod": "prompted natural pauses plus SSML paragraph/sentence boundaries",
+      "ssml": "ssml/part2-No16-dragon-hd-omni-prompted.ssml",
+      "ok": true,
+      "sourceAudioReused": true,
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/mpeg",
+        "requestId": null,
+        "bytes": 513600,
+        "elapsedSeconds": 6.999
+      },
+      "azureAttempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "httpStatus": 200,
+          "reason": null,
+          "transient": false
+        }
+      ],
+      "azureRequestAttempts": 1,
+      "processing": {
+        "targetLufs": -20,
+        "truePeakLimitDb": -1.5,
+        "master": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "pcm_s16le",
+              "sample_rate": "24000",
+              "channels": 1
+            }
+          ],
+          "format": {
+            "duration": "25.680000",
+            "bit_rate": "384024"
+          }
+        },
+        "delivery": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "mp3",
+              "sample_rate": "24000",
+              "channels": 1
+            }
+          ],
+          "format": {
+            "duration": "25.680000",
+            "bit_rate": "128372"
+          }
+        }
+      },
+      "loudnessFineTune": {
+        "applied": true,
+        "targetLufs": -20.0,
+        "gainDb": 1.3,
+        "limiterLinearLimit": 0.8,
+        "before": {
+          "available": true,
+          "integratedLufs": -21.3,
+          "truePeakDbtp": -2.7
+        },
+        "after": {
+          "available": true,
+          "integratedLufs": -20.0,
+          "truePeakDbtp": -1.8
+        }
+      },
+      "loudness": {
+        "available": true,
+        "integratedLufs": -20.0,
+        "truePeakDbtp": -1.8
+      },
+      "silenceIntervals": [
+        {
+          "start": 1.211,
+          "end": 1.733,
+          "duration": 0.521
+        },
+        {
+          "start": 3.928,
+          "end": 4.308,
+          "duration": 0.38
+        },
+        {
+          "start": 7.873,
+          "end": 8.505,
+          "duration": 0.632
+        },
+        {
+          "start": 11.45,
+          "end": 12.314,
+          "duration": 0.864
+        },
+        {
+          "start": 22.051,
+          "end": 22.518,
+          "duration": 0.467
+        },
+        {
+          "start": 23.055,
+          "end": 23.508,
+          "duration": 0.453
+        }
+      ],
+      "masterWav": "master/part2-No16-dragon-hd-omni-prompted.wav",
+      "deliveryMp3": "audio/part2-No16-dragon-hd-omni-prompted.mp3"
+    },
+    {
+      "id": "No17",
+      "number": 17,
+      "part": "part2",
+      "displayScript": "The Riverside Science Center will open its space exhibition this Saturday. The main hall will be available from nine, but the planetarium will remain closed until one because new equipment is being tested. Visitors with morning planetarium tickets may use them for any afternoon show. The café and gift shop will operate on their normal schedule.",
+      "questionText": "What can morning planetarium ticket holders do?",
+      "parts": [
+        {
+          "role": "number",
+          "speaker": "narrator",
+          "text": "Number seventeen.",
+          "prompt": "Speak slowly, clearly, and carefully as a neutral English listening examination narrator. Use precise pronunciation and an unhurried but natural pace. After the number, leave a short pause before the next speaker. Do not separate individual words or sound robotic."
+        },
+        {
+          "role": "body",
+          "speaker": "body",
+          "text": "The Riverside Science Center will open its space exhibition this Saturday. The main hall will be available from nine, but the planetarium will remain closed until one because new equipment is being tested. Visitors with morning planetarium tickets may use them for any afternoon show. The cafe and gift shop will operate on their normal schedule.",
+          "prompt": "Read this passage slowly, clearly, and carefully for an English listening examination. Use precise pronunciation, an unhurried natural rhythm, and brief natural pauses at sentence boundaries. Keep the tone calm and neutral. Do not separate individual words, sound dramatic, or emphasize information that could reveal the answer."
+        },
+        {
+          "role": "questionLabel",
+          "speaker": "narrator",
+          "text": "Question.",
+          "prompt": "Speak slowly, clearly, and carefully as a neutral English listening examination narrator. Say Question, pause briefly, and then read the final question with precise pronunciation. Do not emphasize any possible answer clue."
+        },
+        {
+          "role": "questionText",
+          "speaker": "narrator",
+          "text": "What can morning planetarium ticket holders do?",
+          "prompt": "Speak slowly, clearly, and carefully as a neutral English listening examination narrator. Say Question, pause briefly, and then read the final question with precise pronunciation. Do not emphasize any possible answer clue."
+        }
+      ],
+      "voices": {
+        "body": "en-US-Andrew:DragonHDOmniLatestNeural",
+        "narrator": "en-us-emma:DragonHDOmniLatestNeural"
+      },
+      "voiceLabel": "本文 Andrew／試験ナレーター Emma",
+      "model": "DragonHDOmniLatestNeural",
+      "stylePromptApplied": true,
+      "voiceParameters": "temperature=0.6;top_p=0.6;top_k=15;cfg_scale=1.1;enhancePronunciation=true",
+      "oneAzureRequest": true,
+      "sentenceLevelGeneration": false,
+      "postSynthesisConcatenation": false,
+      "unsupportedBreakTagUsed": false,
+      "unsupportedProsodyTagUsed": false,
+      "structuralPauseMethod": "prompted natural pauses plus SSML paragraph/sentence boundaries",
+      "ssml": "ssml/part2-No17-dragon-hd-omni-prompted.ssml",
+      "ok": true,
+      "sourceAudioReused": true,
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/mpeg",
+        "requestId": null,
+        "bytes": 577920,
+        "elapsedSeconds": 6.392
+      },
+      "azureAttempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "httpStatus": 200,
+          "reason": null,
+          "transient": false
+        }
+      ],
+      "azureRequestAttempts": 1,
+      "processing": {
+        "targetLufs": -20,
+        "truePeakLimitDb": -1.5,
+        "master": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "pcm_s16le",
+              "sample_rate": "24000",
+              "channels": 1
+            }
+          ],
+          "format": {
+            "duration": "28.896000",
+            "bit_rate": "384021"
+          }
+        },
+        "delivery": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "mp3",
+              "sample_rate": "24000",
+              "channels": 1
+            }
+          ],
+          "format": {
+            "duration": "28.896000",
+            "bit_rate": "128331"
+          }
+        }
+      },
+      "loudnessFineTune": {
+        "applied": true,
+        "targetLufs": -20.0,
+        "gainDb": 1.1,
+        "limiterLinearLimit": 0.8,
+        "before": {
+          "available": true,
+          "integratedLufs": -21.1,
+          "truePeakDbtp": -1.5
+        },
+        "after": {
+          "available": true,
+          "integratedLufs": -20.1,
+          "truePeakDbtp": -1.7
+        }
+      },
+      "loudness": {
+        "available": true,
+        "integratedLufs": -20.1,
+        "truePeakDbtp": -1.7
+      },
+      "silenceIntervals": [
+        {
+          "start": 1.184,
+          "end": 1.658,
+          "duration": 0.474
+        },
+        {
+          "start": 5.298,
+          "end": 5.694,
+          "duration": 0.396
+        },
+        {
+          "start": 6.675,
+          "end": 7.177,
+          "duration": 0.502
+        },
+        {
+          "start": 9.576,
+          "end": 10.283,
+          "duration": 0.707
+        },
+        {
+          "start": 15.504,
+          "end": 16.316,
+          "duration": 0.811
+        },
+        {
+          "start": 18.852,
+          "end": 19.284,
+          "duration": 0.431
+        },
+        {
+          "start": 21.646,
+          "end": 21.956,
+          "duration": 0.31
+        },
+        {
+          "start": 25.316,
+          "end": 25.799,
+          "duration": 0.482
+        }
+      ],
+      "masterWav": "master/part2-No17-dragon-hd-omni-prompted.wav",
+      "deliveryMp3": "audio/part2-No17-dragon-hd-omni-prompted.mp3"
+    },
+    {
+      "id": "No18",
+      "number": 18,
+      "part": "part2",
+      "displayScript": "For several years, Omar grew vegetables on his apartment balcony. Last spring, nearby construction blocked most of the sunlight. He considered moving the plants indoors, but there was not enough space. Instead, he rented a small garden plot near his office. He now checks the plants during his lunch break, though carrying tools there is sometimes inconvenient.",
+      "questionText": "How did Omar deal with the lack of sunlight?",
+      "parts": [
+        {
+          "role": "number",
+          "speaker": "narrator",
+          "text": "Number eighteen.",
+          "prompt": "Speak slowly, clearly, and carefully as a neutral English listening examination narrator. Use precise pronunciation and an unhurried but natural pace. After the number, leave a short pause before the next speaker. Do not separate individual words or sound robotic."
+        },
+        {
+          "role": "body",
+          "speaker": "body",
+          "text": "For several years, Omar grew vegetables on his apartment balcony. Last spring, nearby construction blocked most of the sunlight. He considered moving the plants indoors, but there was not enough space. Instead, he rented a small garden plot near his office. He now checks the plants during his lunch break, though carrying tools there is sometimes inconvenient.",
+          "prompt": "Read this passage slowly, clearly, and carefully for an English listening examination. Use precise pronunciation, an unhurried natural rhythm, and brief natural pauses at sentence boundaries. Keep the tone calm and neutral. Do not separate individual words, sound dramatic, or emphasize information that could reveal the answer."
+        },
+        {
+          "role": "questionLabel",
+          "speaker": "narrator",
+          "text": "Question.",
+          "prompt": "Speak slowly, clearly, and carefully as a neutral English listening examination narrator. Say Question, pause briefly, and then read the final question with precise pronunciation. Do not emphasize any possible answer clue."
+        },
+        {
+          "role": "questionText",
+          "speaker": "narrator",
+          "text": "How did Omar deal with the lack of sunlight?",
+          "prompt": "Speak slowly, clearly, and carefully as a neutral English listening examination narrator. Say Question, pause briefly, and then read the final question with precise pronunciation. Do not emphasize any possible answer clue."
+        }
+      ],
+      "voices": {
+        "body": "en-us-emma:DragonHDOmniLatestNeural",
+        "narrator": "en-US-Andrew:DragonHDOmniLatestNeural"
+      },
+      "voiceLabel": "本文 Emma／試験ナレーター Andrew",
+      "model": "DragonHDOmniLatestNeural",
+      "stylePromptApplied": true,
+      "voiceParameters": "temperature=0.6;top_p=0.6;top_k=15;cfg_scale=1.1;enhancePronunciation=true",
+      "oneAzureRequest": true,
+      "sentenceLevelGeneration": false,
+      "postSynthesisConcatenation": false,
+      "unsupportedBreakTagUsed": false,
+      "unsupportedProsodyTagUsed": false,
+      "structuralPauseMethod": "prompted natural pauses plus SSML paragraph/sentence boundaries",
+      "ssml": "ssml/part2-No18-dragon-hd-omni-prompted.ssml",
+      "ok": true,
+      "sourceAudioReused": true,
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/mpeg",
+        "requestId": null,
+        "bytes": 512640,
+        "elapsedSeconds": 6.893
+      },
+      "azureAttempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "httpStatus": 200,
+          "reason": null,
+          "transient": false
+        }
+      ],
+      "azureRequestAttempts": 1,
+      "processing": {
+        "targetLufs": -20,
+        "truePeakLimitDb": -1.5,
+        "master": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "pcm_s16le",
+              "sample_rate": "24000",
+              "channels": 1
+            }
+          ],
+          "format": {
+            "duration": "25.632000",
+            "bit_rate": "384024"
+          }
+        },
+        "delivery": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "mp3",
+              "sample_rate": "24000",
+              "channels": 1
+            }
+          ],
+          "format": {
+            "duration": "25.632000",
+            "bit_rate": "128373"
+          }
+        }
+      },
+      "loudnessFineTune": {
+        "applied": true,
+        "targetLufs": -20.0,
+        "gainDb": -0.1,
+        "limiterLinearLimit": 0.8,
+        "before": {
+          "available": true,
+          "integratedLufs": -19.9,
+          "truePeakDbtp": -1.5
+        },
+        "after": {
+          "available": true,
+          "integratedLufs": -20.0,
+          "truePeakDbtp": -1.8
+        }
+      },
+      "loudness": {
+        "available": true,
+        "integratedLufs": -20.0,
+        "truePeakDbtp": -1.8
+      },
+      "silenceIntervals": [
+        {
+          "start": 0.0,
+          "end": 0.267,
+          "duration": 0.267
+        },
+        {
+          "start": 1.225,
+          "end": 1.937,
+          "duration": 0.713
+        },
+        {
+          "start": 5.506,
+          "end": 6.051,
+          "duration": 0.545
+        },
+        {
+          "start": 9.481,
+          "end": 9.941,
+          "duration": 0.46
+        },
+        {
+          "start": 13.147,
+          "end": 13.519,
+          "duration": 0.372
+        },
+        {
+          "start": 16.139,
+          "end": 16.896,
+          "duration": 0.758
+        },
+        {
+          "start": 19.136,
+          "end": 19.432,
+          "duration": 0.295
+        },
+        {
+          "start": 21.748,
+          "end": 22.062,
+          "duration": 0.313
+        },
+        {
+          "start": 22.655,
+          "end": 23.107,
+          "duration": 0.452
+        },
+        {
+          "start": 25.373,
+          "end": 25.632,
+          "duration": 0.259
+        }
+      ],
+      "masterWav": "master/part2-No18-dragon-hd-omni-prompted.wav",
+      "deliveryMp3": "audio/part2-No18-dragon-hd-omni-prompted.mp3"
+    }
+  ]
+}

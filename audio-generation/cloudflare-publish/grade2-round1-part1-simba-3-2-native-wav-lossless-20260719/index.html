@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Part 1｜SpeechifyAI Simba 3.2 無劣化WAV</title>
+  <style>
+    :root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#18211c;background:#f3f1eb}
+    *{box-sizing:border-box}body{margin:0}main{width:min(760px,calc(100% - 24px));margin:auto;padding:28px 0 52px}
+    h1{font-size:clamp(27px,7vw,42px);line-height:1.08;margin:0 0 14px}h1 span{display:block;color:#35644a}
+    .lead,.contract,.note{line-height:1.7;color:#4d5a51}.contract{background:#e4f0e8;border:1px solid #b9d2c1;border-radius:14px;padding:12px 14px}
+    .question-card{background:#fff;border:1px solid #d7ddd8;border-radius:18px;padding:17px;margin:17px 0;box-shadow:0 5px 22px rgba(35,50,41,.06)}
+    .card-head{display:flex;align-items:start;justify-content:space-between;gap:12px}h2{font-size:22px;margin:0 0 4px}.card-head p{margin:0 0 13px;color:#637067}
+    .download{color:#285e40;font-weight:700;white-space:nowrap}audio{display:block;width:100%;margin:8px 0 13px}details{border-top:1px solid #e4e8e5;padding-top:11px}summary{cursor:pointer;font-weight:700}
+    details p{line-height:1.65;margin:.7em 0}.question{color:#244f36}.note{font-size:14px}
+    @media(max-width:460px){.card-head{display:block}.download{display:inline-block;margin-bottom:10px}}
+  </style>
+</head>
+<body><main>
+  <h1>Part 1<span>SpeechifyAI Simba 3.2</span></h1>
+  <p class="lead">同じPart 1の3問を、話者の発言ターン単位で生成しました。1発言に複数文あっても文単位に分割していません。</p>
+  <p class="contract"><strong>Speechify原音のPCMをそのまま使用</strong><br>
+  WAV直接取得／MP3化なし／FFmpegなし／無音トリミングなし／音量正規化なし／速度変更なし／リサンプリングなし。</p>
+  
+            <section class="question-card">
+              <div class="card-head">
+                <div>
+                  <h2>Number 1</h2>
+                  <p>Geffen × Dominic／ナレーター Harper</p>
+                </div>
+                <a class="download" href="audio/part1-No01-simba-3-2-native-pcm-lossless.wav" download>WAVを保存</a>
+              </div>
+              <audio controls preload="metadata" src="audio/part1-No01-simba-3-2-native-pcm-lossless.wav"></audio>
+              <details><summary>英文を見る</summary><p><strong>B</strong> The recording for our school radio show still isn&#x27;t in the shared folder.</p><p><strong>A</strong> I finished editing it, but the file is too large to send by email. Could you upload it from the media room?</p><p><strong>B</strong> Sure, but I need the final title before lunch because the teacher checks everything at one.</p><p><strong>A</strong> I&#x27;ll message you the title now. The interview section doesn&#x27;t need any more changes.</p><p class="question"><strong>Question</strong> What does the girl ask the boy to do?</p></details>
+            </section>
+            
+            <section class="question-card">
+              <div class="card-head">
+                <div>
+                  <h2>Number 2</h2>
+                  <p>Geffen × Dominic／ナレーター Harper</p>
+                </div>
+                <a class="download" href="audio/part1-No02-simba-3-2-native-pcm-lossless.wav" download>WAVを保存</a>
+              </div>
+              <audio controls preload="metadata" src="audio/part1-No02-simba-3-2-native-pcm-lossless.wav"></audio>
+              <details><summary>英文を見る</summary><p><strong>A</strong> I signed up for the beginner yoga class that meets on Wednesday evenings.</p><p><strong>B</strong> That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven.</p><p><strong>A</strong> Thursday works for me. Do I need to register again at the front desk?</p><p><strong>B</strong> No, your name is already on the new list. Just bring the same membership card.</p><p class="question"><strong>Question</strong> What is true about the yoga class?</p></details>
+            </section>
+            
+            <section class="question-card">
+              <div class="card-head">
+                <div>
+                  <h2>Number 3</h2>
+                  <p>Geffen × Dominic／ナレーター Harper</p>
+                </div>
+                <a class="download" href="audio/part1-No03-simba-3-2-native-pcm-lossless.wav" download>WAVを保存</a>
+              </div>
+              <audio controls preload="metadata" src="audio/part1-No03-simba-3-2-native-pcm-lossless.wav"></audio>
+              <details><summary>英文を見る</summary><p><strong>A</strong> I can&#x27;t meet you at the café this afternoon. A repair worker is coming to look at our washing machine.</p><p><strong>B</strong> Didn&#x27;t your brother say he would stay home for that?</p><p><strong>A</strong> He was supposed to, but his manager asked him to work an extra shift. The worker may arrive anytime between two and five.</p><p><strong>B</strong> No problem. We can meet tomorrow after my class instead.</p><p class="question"><strong>Question</strong> Why will the woman stay home this afternoon?</p></details>
+            </section>
+            
+  <p class="note">間隔：問題番号後1.15秒／会話ターン間0.55秒／会話後1.10秒／“Question.”後0.35秒。完成WAVの各発話PCMがSpeechify直後のPCMとバイト単位で一致することを検査済みです。</p>
+</main>
+<script>
+  const players=[...document.querySelectorAll('audio')];
+  players.forEach(player=>player.addEventListener('play',()=>players.forEach(other=>{if(other!==player)other.pause()})));
+</script>
+</body></html>

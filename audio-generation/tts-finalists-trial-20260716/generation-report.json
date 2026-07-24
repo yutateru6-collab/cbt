@@ -1,0 +1,482 @@
+{
+  "sourceManifest": "audio-generation\\grade2-round1\\part1\\resolved-manifest.json",
+  "outputDirectory": "audio-generation\\tts-finalists-trial-20260716",
+  "preflight": {
+    "items": [
+      "No01",
+      "No02"
+    ],
+    "variants": [
+      {
+        "label": "A",
+        "variant": "ElevenLabs Multilingual v2",
+        "provider": "elevenlabs",
+        "model": "eleven_multilingual_v2",
+        "voices": {
+          "A": {
+            "id": "cgSgspJ2msm6clMCkdW9",
+            "name": "Jessica",
+            "gender": "female"
+          },
+          "B": {
+            "id": "cjVigY5qzO86Huf0OWal",
+            "name": "Eric",
+            "gender": "male"
+          }
+        }
+      },
+      {
+        "label": "B",
+        "variant": "ElevenLabs v3 Natural",
+        "provider": "elevenlabs",
+        "model": "eleven_v3",
+        "voices": {
+          "A": {
+            "id": "cgSgspJ2msm6clMCkdW9",
+            "name": "Jessica",
+            "gender": "female"
+          },
+          "B": {
+            "id": "cjVigY5qzO86Huf0OWal",
+            "name": "Eric",
+            "gender": "male"
+          }
+        }
+      },
+      {
+        "label": "C",
+        "variant": "SpeechifyAI Simba 3.2",
+        "provider": "speechify",
+        "model": "simba-3.2",
+        "voices": {
+          "A": {
+            "id": "geffen_32",
+            "name": "Geffen",
+            "gender": "female"
+          },
+          "B": {
+            "id": "dominic_32",
+            "name": "Dominic",
+            "gender": "male"
+          }
+        }
+      }
+    ],
+    "elevenLabs": {
+      "missingCalls": 16,
+      "missingCharacters": 1392,
+      "maxCalls": 16,
+      "maxCharacters": 1500
+    },
+    "speechify": {
+      "missingCalls": 8,
+      "missingCharacters": 696,
+      "maxCalls": 8,
+      "maxCharacters": 750
+    },
+    "timingMs": {
+      "numberToBody": 1150,
+      "turnGap": 550,
+      "bodyToQuestion": 1100
+    }
+  },
+  "actualApiCalls": {
+    "elevenlabs": 16,
+    "speechify": 8
+  },
+  "actualGeneratedCharacters": {
+    "elevenlabs": 1392,
+    "speechify": 696
+  },
+  "generationRecords": [
+    {
+      "provider": "elevenlabs",
+      "model": "eleven_multilingual_v2",
+      "voice": {
+        "id": "cjVigY5qzO86Huf0OWal",
+        "name": "Eric",
+        "gender": "male"
+      },
+      "characters": 73,
+      "requestId": "haA1mHYIrL3kjBS3iW89"
+    },
+    {
+      "provider": "elevenlabs",
+      "model": "eleven_multilingual_v2",
+      "voice": {
+        "id": "cgSgspJ2msm6clMCkdW9",
+        "name": "Jessica",
+        "gender": "female"
+      },
+      "characters": 107,
+      "requestId": "A1hHR948Tf5gW7cbs4sg"
+    },
+    {
+      "provider": "elevenlabs",
+      "model": "eleven_multilingual_v2",
+      "voice": {
+        "id": "cjVigY5qzO86Huf0OWal",
+        "name": "Eric",
+        "gender": "male"
+      },
+      "characters": 91,
+      "requestId": "R2w8jHw7nwXv7rTzshgy"
+    },
+    {
+      "provider": "elevenlabs",
+      "model": "eleven_multilingual_v2",
+      "voice": {
+        "id": "cgSgspJ2msm6clMCkdW9",
+        "name": "Jessica",
+        "gender": "female"
+      },
+      "characters": 84,
+      "requestId": "xdqAAR7w5d6rx0UoZPpN"
+    },
+    {
+      "provider": "elevenlabs",
+      "model": "eleven_multilingual_v2",
+      "voice": {
+        "id": "cgSgspJ2msm6clMCkdW9",
+        "name": "Jessica",
+        "gender": "female"
+      },
+      "characters": 73,
+      "requestId": "EG8CA228nQwG2HKCvcjP"
+    },
+    {
+      "provider": "elevenlabs",
+      "model": "eleven_multilingual_v2",
+      "voice": {
+        "id": "cjVigY5qzO86Huf0OWal",
+        "name": "Eric",
+        "gender": "male"
+      },
+      "characters": 121,
+      "requestId": "IY898WY4Sx51a7gVk964"
+    },
+    {
+      "provider": "elevenlabs",
+      "model": "eleven_multilingual_v2",
+      "voice": {
+        "id": "cgSgspJ2msm6clMCkdW9",
+        "name": "Jessica",
+        "gender": "female"
+      },
+      "characters": 69,
+      "requestId": "ej43Yp7OCvbe2m7mRZXc"
+    },
+    {
+      "provider": "elevenlabs",
+      "model": "eleven_multilingual_v2",
+      "voice": {
+        "id": "cjVigY5qzO86Huf0OWal",
+        "name": "Eric",
+        "gender": "male"
+      },
+      "characters": 78,
+      "requestId": "wmerO6AwSA7Asrv5mHO3"
+    },
+    {
+      "provider": "elevenlabs",
+      "model": "eleven_v3",
+      "voice": {
+        "id": "cjVigY5qzO86Huf0OWal",
+        "name": "Eric",
+        "gender": "male"
+      },
+      "characters": 73,
+      "requestId": "1vpnOtVdLL36a2E5SHoU"
+    },
+    {
+      "provider": "elevenlabs",
+      "model": "eleven_v3",
+      "voice": {
+        "id": "cgSgspJ2msm6clMCkdW9",
+        "name": "Jessica",
+        "gender": "female"
+      },
+      "characters": 107,
+      "requestId": "1MgNRv08F8XdaRNv0Eg0"
+    },
+    {
+      "provider": "elevenlabs",
+      "model": "eleven_v3",
+      "voice": {
+        "id": "cjVigY5qzO86Huf0OWal",
+        "name": "Eric",
+        "gender": "male"
+      },
+      "characters": 91,
+      "requestId": "WeL9IOrm5hWPJQD4ZbLC"
+    },
+    {
+      "provider": "elevenlabs",
+      "model": "eleven_v3",
+      "voice": {
+        "id": "cgSgspJ2msm6clMCkdW9",
+        "name": "Jessica",
+        "gender": "female"
+      },
+      "characters": 84,
+      "requestId": "0NpZSAxQZpiMLl7pwkfc"
+    },
+    {
+      "provider": "elevenlabs",
+      "model": "eleven_v3",
+      "voice": {
+        "id": "cgSgspJ2msm6clMCkdW9",
+        "name": "Jessica",
+        "gender": "female"
+      },
+      "characters": 73,
+      "requestId": "31Vq6ABZhC4tBYV0Z2w7"
+    },
+    {
+      "provider": "elevenlabs",
+      "model": "eleven_v3",
+      "voice": {
+        "id": "cjVigY5qzO86Huf0OWal",
+        "name": "Eric",
+        "gender": "male"
+      },
+      "characters": 121,
+      "requestId": "CPvVY24y1XlqN50DTgMC"
+    },
+    {
+      "provider": "elevenlabs",
+      "model": "eleven_v3",
+      "voice": {
+        "id": "cgSgspJ2msm6clMCkdW9",
+        "name": "Jessica",
+        "gender": "female"
+      },
+      "characters": 69,
+      "requestId": "4ajY8m70ysPd3A2owXFC"
+    },
+    {
+      "provider": "elevenlabs",
+      "model": "eleven_v3",
+      "voice": {
+        "id": "cjVigY5qzO86Huf0OWal",
+        "name": "Eric",
+        "gender": "male"
+      },
+      "characters": 78,
+      "requestId": "dKEX9w3Oy3rMdOsryTnA"
+    },
+    {
+      "provider": "speechify",
+      "model": "simba-3.2",
+      "voice": {
+        "id": "dominic_32",
+        "name": "Dominic",
+        "gender": "male"
+      },
+      "characters": 73,
+      "billableCharacters": 73,
+      "requestId": "95788187b1821cb0960494e8"
+    },
+    {
+      "provider": "speechify",
+      "model": "simba-3.2",
+      "voice": {
+        "id": "geffen_32",
+        "name": "Geffen",
+        "gender": "female"
+      },
+      "characters": 107,
+      "billableCharacters": 107,
+      "requestId": "34e8efccbbdaf80d225baa4e"
+    },
+    {
+      "provider": "speechify",
+      "model": "simba-3.2",
+      "voice": {
+        "id": "dominic_32",
+        "name": "Dominic",
+        "gender": "male"
+      },
+      "characters": 91,
+      "billableCharacters": 91,
+      "requestId": "e09eeb8498e7120b7d43c3d4"
+    },
+    {
+      "provider": "speechify",
+      "model": "simba-3.2",
+      "voice": {
+        "id": "geffen_32",
+        "name": "Geffen",
+        "gender": "female"
+      },
+      "characters": 84,
+      "billableCharacters": 84,
+      "requestId": "485c361bb659ce5e2ff76066"
+    },
+    {
+      "provider": "speechify",
+      "model": "simba-3.2",
+      "voice": {
+        "id": "geffen_32",
+        "name": "Geffen",
+        "gender": "female"
+      },
+      "characters": 73,
+      "billableCharacters": 73,
+      "requestId": "5a535c3c46cd7ce7eef1b02d"
+    },
+    {
+      "provider": "speechify",
+      "model": "simba-3.2",
+      "voice": {
+        "id": "dominic_32",
+        "name": "Dominic",
+        "gender": "male"
+      },
+      "characters": 121,
+      "billableCharacters": 121,
+      "requestId": "b68f8b39c1b121e49d63a6a9"
+    },
+    {
+      "provider": "speechify",
+      "model": "simba-3.2",
+      "voice": {
+        "id": "geffen_32",
+        "name": "Geffen",
+        "gender": "female"
+      },
+      "characters": 69,
+      "billableCharacters": 69,
+      "requestId": "080f8bcacf1398af95b60146"
+    },
+    {
+      "provider": "speechify",
+      "model": "simba-3.2",
+      "voice": {
+        "id": "dominic_32",
+        "name": "Dominic",
+        "gender": "male"
+      },
+      "characters": 78,
+      "billableCharacters": 78,
+      "requestId": "d7955c7bc37a689dd512d0ad"
+    }
+  ],
+  "outputs": [
+    {
+      "item": "No01",
+      "blindLabel": "A",
+      "variant": "ElevenLabs Multilingual v2",
+      "wav": "audio-generation\\tts-finalists-trial-20260716\\eleven-v2\\No01.wav",
+      "mp3": "audio-generation\\tts-finalists-trial-20260716\\eleven-v2\\No01.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "22.617250"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "22.617256"
+      }
+    },
+    {
+      "item": "No01",
+      "blindLabel": "B",
+      "variant": "ElevenLabs v3 Natural",
+      "wav": "audio-generation\\tts-finalists-trial-20260716\\eleven-v3\\No01.wav",
+      "mp3": "audio-generation\\tts-finalists-trial-20260716\\eleven-v3\\No01.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "25.260417"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "25.261474"
+      }
+    },
+    {
+      "item": "No01",
+      "blindLabel": "C",
+      "variant": "SpeechifyAI Simba 3.2",
+      "wav": "audio-generation\\tts-finalists-trial-20260716\\speechify-simba-3-2\\No01.wav",
+      "mp3": "audio-generation\\tts-finalists-trial-20260716\\speechify-simba-3-2\\No01.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "26.797875"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "26.797891"
+      }
+    },
+    {
+      "item": "No02",
+      "blindLabel": "A",
+      "variant": "ElevenLabs Multilingual v2",
+      "wav": "audio-generation\\tts-finalists-trial-20260716\\eleven-v2\\No02.wav",
+      "mp3": "audio-generation\\tts-finalists-trial-20260716\\eleven-v2\\No02.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "21.788750"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "21.788753"
+      }
+    },
+    {
+      "item": "No02",
+      "blindLabel": "B",
+      "variant": "ElevenLabs v3 Natural",
+      "wav": "audio-generation\\tts-finalists-trial-20260716\\eleven-v3\\No02.wav",
+      "mp3": "audio-generation\\tts-finalists-trial-20260716\\eleven-v3\\No02.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "23.437875"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "23.437891"
+      }
+    },
+    {
+      "item": "No02",
+      "blindLabel": "C",
+      "variant": "SpeechifyAI Simba 3.2",
+      "wav": "audio-generation\\tts-finalists-trial-20260716\\speechify-simba-3-2\\No02.wav",
+      "mp3": "audio-generation\\tts-finalists-trial-20260716\\speechify-simba-3-2\\No02.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "26.169375"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "26.169388"
+      }
+    }
+  ],
+  "secretsIncluded": false
+}

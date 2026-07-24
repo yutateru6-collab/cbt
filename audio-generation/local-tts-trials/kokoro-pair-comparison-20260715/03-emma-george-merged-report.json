@@ -1,0 +1,71 @@
+[
+  {
+    "id": "No01",
+    "number": 1,
+    "engine": "kokoro-onnx",
+    "speakerA": "bf_emma",
+    "speakerB": "bm_george",
+    "speed": 0.87,
+    "lang": "en-gb",
+    "sampleRate": 24000,
+    "sourceSegments": 6,
+    "synthesisSegments": 5,
+    "mergeLeadingNumber": true,
+    "titleReplacements": [],
+    "duration": 24.038,
+    "sourcePeak": 0.6893133521080017,
+    "peakScale": 1.027030417784623,
+    "path": "audio-generation\\local-tts-trials\\kokoro-pair-comparison-20260715\\03-emma-george\\merged\\No01.wav",
+    "bytes": 1153868
+  },
+  {
+    "id": "No02",
+    "number": 2,
+    "engine": "kokoro-onnx",
+    "speakerA": "bf_emma",
+    "speakerB": "bm_george",
+    "speed": 0.87,
+    "lang": "en-gb",
+    "sampleRate": 24000,
+    "sourceSegments": 6,
+    "synthesisSegments": 5,
+    "mergeLeadingNumber": true,
+    "titleReplacements": [
+      {
+        "sourceText": "I found your reservation, Ms. Green. The quiet room won't be ready until six, but a room near the elevator is available now.",
+        "spokenText": "I found your reservation, Miz Green. The quiet room won't be ready until six, but a room near the elevator is available now.",
+        "replacements": [
+          {
+            "from": "\\bMs\\.(?=\\s+[A-Z])",
+            "to": "Miz",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "duration": 29.243333,
+    "sourcePeak": 0.8534409403800964,
+    "peakScale": 0.8295193568809842,
+    "path": "audio-generation\\local-tts-trials\\kokoro-pair-comparison-20260715\\03-emma-george\\merged\\No02.wav",
+    "bytes": 1403724
+  },
+  {
+    "id": "No03",
+    "number": 3,
+    "engine": "kokoro-onnx",
+    "speakerA": "bf_emma",
+    "speakerB": "bm_george",
+    "speed": 0.87,
+    "lang": "en-gb",
+    "sampleRate": 24000,
+    "sourceSegments": 6,
+    "synthesisSegments": 5,
+    "mergeLeadingNumber": true,
+    "titleReplacements": [],
+    "duration": 23.675333,
+    "sourcePeak": 0.6002451181411743,
+    "peakScale": 1.1794278014161126,
+    "path": "audio-generation\\local-tts-trials\\kokoro-pair-comparison-20260715\\03-emma-george\\merged\\No03.wav",
+    "bytes": 1136460
+  }
+]

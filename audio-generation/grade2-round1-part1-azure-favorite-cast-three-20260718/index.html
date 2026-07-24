@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第1回 Part 1 採用キャラ3問</title>
+  <style>
+    :root { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17211c; background: #f3f0e8; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { width: min(760px, calc(100% - 24px)); margin: 0 auto; padding: 28px 0 52px; }
+    h1 { font-size: clamp(24px, 7vw, 36px); line-height: 1.25; margin: 0 0 10px; }
+    .lead { color: #556159; line-height: 1.7; margin-bottom: 22px; }
+    .speed-panel { position: sticky; top: 8px; z-index: 2; display: flex; gap: 8px; align-items: center; padding: 12px; border: 1px solid #d5dad4; border-radius: 14px; background: rgba(255,255,255,.95); box-shadow: 0 6px 22px rgba(29,48,38,.08); }
+    .speed-panel strong { margin-right: auto; }
+    button { border: 1px solid #9aa79f; border-radius: 999px; background: #fff; color: #25352c; font-weight: 700; padding: 8px 12px; }
+    button.active { color: #fff; background: #176b47; border-color: #176b47; }
+    .card { margin-top: 18px; padding: 18px; background: #fff; border: 1px solid #d9ddd8; border-radius: 18px; }
+    .card-head { display: flex; gap: 10px; align-items: baseline; justify-content: space-between; flex-wrap: wrap; }
+    h2 { margin: 0 0 12px; font-size: 22px; }
+    .card-head span { color: #59675f; font-size: 14px; }
+    audio { width: 100%; display: block; margin: 8px 0 14px; }
+    details { border-top: 1px solid #e4e6e3; padding-top: 12px; }
+    summary { cursor: pointer; font-weight: 700; }
+    details p { line-height: 1.65; margin: 10px 0; }
+    details strong { display: inline-block; min-width: 42px; }
+    .note { margin-top: 24px; color: #5b675f; font-size: 14px; line-height: 1.7; }
+    .error { color: #a83d2c; }
+  </style>
+</head>
+<body><main>
+  <h1>第1回 Part 1<br>採用キャラ3問</h1>
+  <p class="lead">Ryan・Clara・Emma・Avaを使用。各問題はAzureへ1回だけ送信し、会話を1文ずつ生成して後から接続していません。音声マスターは自然な等倍です。</p>
+  <div class="speed-panel" aria-label="再生速度">
+    <strong>再生速度</strong>
+    <button type="button" data-rate="0.87" class="active">0.87</button>
+    <button type="button" data-rate="0.90">0.90</button>
+    <button type="button" data-rate="1.00">1.00</button>
+  </div>
+  
+            <section class="card">
+              <div class="card-head"><h2>Number 1</h2><span>Ava + Ryan / 案内 Emma</span></div>
+              <audio controls preload="metadata" src="audio/No01.mp3"></audio>
+              <details><summary>読み上げ原稿を見る</summary><p><strong>案内</strong> Number one.</p><p><strong>B</strong> The recording for our school radio show still isn&#x27;t in the shared folder.</p><p><strong>A</strong> I finished editing it, but the file is too large to send by email. Could you upload it from the media room?</p><p><strong>B</strong> Sure, but I need the final title before lunch because the teacher checks everything at one.</p><p><strong>A</strong> I&#x27;ll message you the title now. The interview section doesn&#x27;t need any more changes.</p><p><strong>案内</strong> Question.</p><p><strong>案内</strong> What does the girl ask the boy to do?</p></details>
+            </section>
+            
+            <section class="card">
+              <div class="card-head"><h2>Number 2</h2><span>Emma + Ryan / 案内 Clara</span></div>
+              <audio controls preload="metadata" src="audio/No02.mp3"></audio>
+              <details><summary>読み上げ原稿を見る</summary><p><strong>案内</strong> Number two.</p><p><strong>A</strong> I signed up for the beginner yoga class that meets on Wednesday evenings.</p><p><strong>B</strong> That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven.</p><p><strong>A</strong> Thursday works for me. Do I need to register again at the front desk?</p><p><strong>B</strong> No, your name is already on the new list. Just bring the same membership card.</p><p><strong>案内</strong> Question.</p><p><strong>案内</strong> What is true about the yoga class?</p></details>
+            </section>
+            
+            <section class="card">
+              <div class="card-head"><h2>Number 3</h2><span>Clara + Ryan / 案内 Ava</span></div>
+              <audio controls preload="metadata" src="audio/No03.mp3"></audio>
+              <details><summary>読み上げ原稿を見る</summary><p><strong>案内</strong> Number three.</p><p><strong>A</strong> I can&#x27;t meet you at the cafe this afternoon. A repair worker is coming to look at our washing machine.</p><p><strong>B</strong> Didn&#x27;t your brother say he would stay home for that?</p><p><strong>A</strong> He was supposed to, but his manager asked him to work an extra shift. The worker may arrive anytime between two and five.</p><p><strong>B</strong> No problem. We can meet tomorrow after my class instead.</p><p><strong>案内</strong> Question.</p><p><strong>案内</strong> Why will the woman stay home this afternoon?</p></details>
+            </section>
+            
+  <p class="note">間隔：Number後 1.35秒／話者交代 0.55秒／会話後 1.30秒／Question後 0.35秒。速度変更時は音程を保ちます。</p>
+</main>
+<script>
+  let selectedRate = 0.87;
+  const applyRate = (audio) => {
+    audio.playbackRate = selectedRate;
+    audio.defaultPlaybackRate = selectedRate;
+    audio.preservesPitch = true;
+    audio.webkitPreservesPitch = true;
+  };
+  const audios = [...document.querySelectorAll('audio')];
+  audios.forEach((audio) => {
+    applyRate(audio);
+    ['loadedmetadata', 'canplay', 'play', 'playing'].forEach((eventName) =>
+      audio.addEventListener(eventName, () => applyRate(audio))
+    );
+  });
+  document.querySelectorAll('[data-rate]').forEach((button) => {
+    button.addEventListener('click', () => {
+      selectedRate = Number(button.dataset.rate);
+      document.querySelectorAll('[data-rate]').forEach((other) => other.classList.toggle('active', other === button));
+      audios.forEach(applyRate);
+    });
+  });
+</script>
+</body></html>

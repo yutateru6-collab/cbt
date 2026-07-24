@@ -1,0 +1,209 @@
+{
+  "item": "No07",
+  "number": 7,
+  "sourceScript": "B: I'm here to pick up the medicine my doctor ordered yesterday. A: Let me check. The tablets are ready, but the liquid medicine won't arrive until tomorrow morning. B: I need both before I leave town tonight. Can another pharmacy fill the rest of the order? A: Yes. The pharmacy inside West Mall has it in stock, and I'll send your prescription there.",
+  "questionText": "Where can the man get the liquid medicine today?",
+  "voices": {
+    "A": {
+      "provider": "openai",
+      "voice": "marin",
+      "gender": "female",
+      "accent": "American English",
+      "gainDb": 0.0
+    },
+    "B": {
+      "provider": "edge",
+      "voice": "en-GB-RyanNeural",
+      "gender": "male",
+      "language": "en-GB",
+      "englishOnly": true,
+      "gainDb": 0.0
+    }
+  },
+  "output": "audio-generation\\grade2-round1\\part1\\No07.wav",
+  "outputBytes": 1430286,
+  "outputMetadata": {
+    "codec_name": "pcm_s16le",
+    "sample_fmt": "s16",
+    "sample_rate": "24000",
+    "channels": 1,
+    "bits_per_sample": 16,
+    "duration": "29.796000"
+  },
+  "openaiSegments": 2,
+  "edgeSegments": 3,
+  "openaiApiCallsThisRun": 0,
+  "edgeCallsThisRun": 0,
+  "initialVolume": {
+    "meanVolumeDb": -22.0,
+    "maxVolumeDb": -3.9
+  },
+  "globalAttenuationDb": 0.0,
+  "finalVolume": {
+    "meanVolumeDb": -22.0,
+    "maxVolumeDb": -3.9
+  },
+  "segments": [
+    {
+      "speaker": "B",
+      "provider": "edge",
+      "voice": "en-GB-RyanNeural",
+      "gender": "male",
+      "language": "en-GB",
+      "englishOnly": true,
+      "gainDb": 0.0,
+      "displayText": "Number 7... I'm here to pick up the medicine my doctor ordered yesterday.",
+      "text": "Number 7... I'm here to pick up the medicine my doctor ordered yesterday.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 1,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "5.640000"
+      },
+      "volume": {
+        "meanVolumeDb": -22.2,
+        "maxVolumeDb": -4.5
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.2,
+        "maxVolumeDb": -4.5
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-GB-RyanNeural-1b199110ece10eadf6947222.wav"
+    },
+    {
+      "speaker": "A",
+      "provider": "openai",
+      "voice": "marin",
+      "gender": "female",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "Let me check. The tablets are ready, but the liquid medicine won't arrive until tomorrow morning.",
+      "text": "Let me check. The tablets are ready, but the liquid medicine won't arrive until tomorrow morning.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 2,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "5.700000"
+      },
+      "volume": {
+        "meanVolumeDb": -21.1,
+        "maxVolumeDb": -5.2
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -21.1,
+        "maxVolumeDb": -5.2
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\marin-cdab541eae7c2c48593750dc.wav"
+    },
+    {
+      "speaker": "B",
+      "provider": "edge",
+      "voice": "en-GB-RyanNeural",
+      "gender": "male",
+      "language": "en-GB",
+      "englishOnly": true,
+      "gainDb": 0.0,
+      "displayText": "I need both before I leave town tonight. Can another pharmacy fill the rest of the order?",
+      "text": "I need both before I leave town tonight. Can another pharmacy fill the rest of the order?",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 3,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "6.240000"
+      },
+      "volume": {
+        "meanVolumeDb": -21.9,
+        "maxVolumeDb": -5.5
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -21.9,
+        "maxVolumeDb": -5.5
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-GB-RyanNeural-6d88ef8086e27c23a5919e93.wav"
+    },
+    {
+      "speaker": "A",
+      "provider": "openai",
+      "voice": "marin",
+      "gender": "female",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "Yes. The pharmacy inside West Mall has it in stock, and I'll send your prescription there.",
+      "text": "Yes. The pharmacy inside West Mall has it in stock, and I'll send your prescription there.",
+      "ttsOverrides": [],
+      "gapAfterMs": 650,
+      "index": 4,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "6.250000"
+      },
+      "volume": {
+        "meanVolumeDb": -21.4,
+        "maxVolumeDb": -5.7
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -21.4,
+        "maxVolumeDb": -5.7
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\marin-7129c6e0d2023e4bde9561a6.wav"
+    },
+    {
+      "speaker": "B",
+      "provider": "edge",
+      "voice": "en-GB-RyanNeural",
+      "gender": "male",
+      "language": "en-GB",
+      "englishOnly": true,
+      "gainDb": 0.0,
+      "displayText": "Question. Where can the man get the liquid medicine today?",
+      "text": "Question. Where can the man get the liquid medicine today?",
+      "ttsOverrides": [],
+      "gapAfterMs": 0,
+      "role": "question",
+      "index": 5,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "4.776000"
+      },
+      "volume": {
+        "meanVolumeDb": -22.5,
+        "maxVolumeDb": -3.9
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.5,
+        "maxVolumeDb": -3.9
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-GB-RyanNeural-d52f5ac641cf14737a337439.wav"
+    }
+  ]
+}

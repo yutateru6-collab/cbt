@@ -1,0 +1,40 @@
+{
+  "deployedAt": "2026-07-18T01:24:47.0499166+09:00",
+  "service": "Cloudflare Pages",
+  "projectName": "scbt-tts-compare",
+  "environment": "Production",
+  "branch": "main",
+  "productionUrl": "https://scbt-tts-compare.pages.dev/",
+  "deploymentUrl": "https://0d9c1620.scbt-tts-compare.pages.dev/",
+  "sourceDirectory": "audio-generation/cloudflare-publish/grade2-round1-part2-edge-uncut-five-20260718",
+  "publishedFiles": {
+    "html": 1,
+    "headers": 1,
+    "json": 1,
+    "mp3": 5,
+    "total": 8
+  },
+  "verification": {
+    "indexStatus": 200,
+    "indexContentType": "text/html; charset=utf-8",
+    "indexTitleFound": true,
+    "audioPlayerCount": 5,
+    "singleEdgeCallPerQuestion": true,
+    "sentenceLevelSplit": false,
+    "concatAfterSynthesis": false,
+    "speedOptions": [0.87, 0.9, 1.0],
+    "voiceLabelsFound": ["Ryan", "Clara", "Emma", "Ava", "Michelle"],
+    "sampleAudioChecks": [
+      {
+        "path": "/audio/No16.mp3",
+        "status": 200,
+        "contentType": "audio/mpeg"
+      },
+      {
+        "path": "/audio/No20.mp3",
+        "status": 200,
+        "contentType": "audio/mpeg"
+      }
+    ]
+  }
+}

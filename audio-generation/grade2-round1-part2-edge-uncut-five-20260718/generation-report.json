@@ -1,0 +1,251 @@
+{
+  "sourceFiles": [
+    "audio-generation\\grade2-sample-part2-pilot.json",
+    "audio-generation\\grade2-sample-part2-rest.json"
+  ],
+  "outputDirectory": "audio-generation\\grade2-round1-part2-edge-uncut-five-20260718",
+  "publishDirectory": "audio-generation\\cloudflare-publish\\grade2-round1-part2-edge-uncut-five-20260718",
+  "provider": "Microsoft Edge TTS",
+  "audioRevision": "edge-uncut-five-v1-20260718",
+  "preflight": {
+    "items": [
+      "No16",
+      "No17",
+      "No18",
+      "No19",
+      "No20"
+    ],
+    "missing": {
+      "calls": 5,
+      "characters": 2132
+    },
+    "speedPolicy": {
+      "master": 1.0,
+      "reviewPageDefault": 0.87
+    },
+    "segmentPolicy": {
+      "singleEdgeCallPerQuestion": true,
+      "sentenceLevelSplit": false,
+      "concatAfterSynthesis": false
+    },
+    "itemsDetail": [
+      {
+        "item": "No16",
+        "number": 16,
+        "voice": "Ryan（英国男性）",
+        "edgeVoiceId": "en-GB-RyanNeural",
+        "mode": "one Edge TTS call for the whole question",
+        "inputCharacters": 442,
+        "cached": false,
+        "ttsText": "Number sixteen. During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge. She knew the basic facts, but she often forgot important dates during busy tours. Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift. She can now explain the bridge's history more clearly. Question. What helped Nina explain the bridge's history better?"
+      },
+      {
+        "item": "No17",
+        "number": 17,
+        "voice": "Clara（カナダ女性）",
+        "edgeVoiceId": "en-CA-ClaraNeural",
+        "mode": "one Edge TTS call for the whole question",
+        "inputCharacters": 428,
+        "cached": false,
+        "ttsText": "Number seventeen. The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday. Those rooms will be unavailable from nine A M until three P M, but the swimming pool will remain open as usual. Visitors should use the smaller changing area beside Court Two. Please bring your own lock, since the temporary lockers do not have built-in keys. Question. What should visitors bring to the sports center?"
+      },
+      {
+        "item": "No18",
+        "number": 18,
+        "voice": "Emma（米国女性）",
+        "edgeVoiceId": "en-US-EmmaMultilingualNeural",
+        "mode": "one Edge TTS call for the whole question",
+        "inputCharacters": 441,
+        "cached": false,
+        "ttsText": "Number eighteen. A customer asked Leo to prepare a birthday cake without nuts. He carefully checked the ingredients, but the chocolate decorations he usually buys were made in a factory that also handles almonds. Leo called the customer and suggested using fresh fruit instead. The customer agreed, so he changed the design while keeping the same price and delivery time for Saturday. Question. Why did Leo replace the chocolate decorations?"
+      },
+      {
+        "item": "No19",
+        "number": 19,
+        "voice": "Ava（米国女性）",
+        "edgeVoiceId": "en-US-AvaMultilingualNeural",
+        "mode": "one Edge TTS call for the whole question",
+        "inputCharacters": 426,
+        "cached": false,
+        "ttsText": "Number nineteen. Some desert plants open their flowers only at night. This helps them avoid losing too much water in the daytime heat. Night-flying insects, including certain moths, carry pollen between the flowers as they feed after sunset. Many of these flowers are pale and have a strong smell, making them easier for insects to find when there is little light. Question. What makes many night-opening flowers easy to find?"
+      },
+      {
+        "item": "No20",
+        "number": 20,
+        "voice": "Michelle（米国女性）",
+        "edgeVoiceId": "en-US-MichelleNeural",
+        "mode": "one Edge TTS call for the whole question",
+        "inputCharacters": 395,
+        "cached": false,
+        "ttsText": "Number twenty. Maya planned to take a large suitcase on her weekend train trip. Then she learned that the station near her hotel had no elevator and many stairs to climb. She considered sending the suitcase ahead, but the delivery would arrive too late. In the end, she packed fewer clothes in a backpack and decided to wash one outfit at the hotel. Question. What did Maya finally decide to do?"
+      }
+    ]
+  },
+  "actualEdgeCalls": {
+    "calls": 5,
+    "inputCharacters": 2132
+  },
+  "generationRecords": [
+    {
+      "item": "No16",
+      "voice": "en-GB-RyanNeural",
+      "inputCharacters": 442
+    },
+    {
+      "item": "No17",
+      "voice": "en-CA-ClaraNeural",
+      "inputCharacters": 428
+    },
+    {
+      "item": "No18",
+      "voice": "en-US-EmmaMultilingualNeural",
+      "inputCharacters": 441
+    },
+    {
+      "item": "No19",
+      "voice": "en-US-AvaMultilingualNeural",
+      "inputCharacters": 426
+    },
+    {
+      "item": "No20",
+      "voice": "en-US-MichelleNeural",
+      "inputCharacters": 395
+    }
+  ],
+  "outputs": [
+    {
+      "item": "No16",
+      "number": 16,
+      "voice": {
+        "id": "en-GB-RyanNeural",
+        "name": "Ryan",
+        "display": "Ryan（英国男性）"
+      },
+      "ttsText": "Number sixteen. During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge. She knew the basic facts, but she often forgot important dates during busy tours. Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift. She can now explain the bridge's history more clearly. Question. What helped Nina explain the bridge's history better?",
+      "displayText": "Number 16. During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge. She knew the basic facts, but she often forgot important dates during busy tours. Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift. She can now explain the bridge's history more clearly. Question. What helped Nina explain the bridge's history better?",
+      "wav": "audio-generation\\grade2-round1-part2-edge-uncut-five-20260718\\wav-master\\No16.wav",
+      "mp3": "audio-generation\\grade2-round1-part2-edge-uncut-five-20260718\\audio\\No16.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "29.568000"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "29.568005"
+      }
+    },
+    {
+      "item": "No17",
+      "number": 17,
+      "voice": {
+        "id": "en-CA-ClaraNeural",
+        "name": "Clara",
+        "display": "Clara（カナダ女性）"
+      },
+      "ttsText": "Number seventeen. The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday. Those rooms will be unavailable from nine A M until three P M, but the swimming pool will remain open as usual. Visitors should use the smaller changing area beside Court Two. Please bring your own lock, since the temporary lockers do not have built-in keys. Question. What should visitors bring to the sports center?",
+      "displayText": "Number 17. The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday. Those rooms will be unavailable from 9 a.m. until 3 p.m., but the swimming pool will remain open as usual. Visitors should use the smaller changing area beside Court Two. Please bring your own lock, since the temporary lockers do not have built-in keys. Question. What should visitors bring to the sports center?",
+      "wav": "audio-generation\\grade2-round1-part2-edge-uncut-five-20260718\\wav-master\\No17.wav",
+      "mp3": "audio-generation\\grade2-round1-part2-edge-uncut-five-20260718\\audio\\No17.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "29.496000"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "29.496009"
+      }
+    },
+    {
+      "item": "No18",
+      "number": 18,
+      "voice": {
+        "id": "en-US-EmmaMultilingualNeural",
+        "name": "Emma",
+        "display": "Emma（米国女性）",
+        "englishOnly": true
+      },
+      "ttsText": "Number eighteen. A customer asked Leo to prepare a birthday cake without nuts. He carefully checked the ingredients, but the chocolate decorations he usually buys were made in a factory that also handles almonds. Leo called the customer and suggested using fresh fruit instead. The customer agreed, so he changed the design while keeping the same price and delivery time for Saturday. Question. Why did Leo replace the chocolate decorations?",
+      "displayText": "Number 18. A customer asked Leo to prepare a birthday cake without nuts. He carefully checked the ingredients, but the chocolate decorations he usually buys were made in a factory that also handles almonds. Leo called the customer and suggested using fresh fruit instead. The customer agreed, so he changed the design while keeping the same price and delivery time for Saturday. Question. Why did Leo replace the chocolate decorations?",
+      "wav": "audio-generation\\grade2-round1-part2-edge-uncut-five-20260718\\wav-master\\No18.wav",
+      "mp3": "audio-generation\\grade2-round1-part2-edge-uncut-five-20260718\\audio\\No18.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "26.568000"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "26.568005"
+      }
+    },
+    {
+      "item": "No19",
+      "number": 19,
+      "voice": {
+        "id": "en-US-AvaMultilingualNeural",
+        "name": "Ava",
+        "display": "Ava（米国女性）",
+        "englishOnly": true
+      },
+      "ttsText": "Number nineteen. Some desert plants open their flowers only at night. This helps them avoid losing too much water in the daytime heat. Night-flying insects, including certain moths, carry pollen between the flowers as they feed after sunset. Many of these flowers are pale and have a strong smell, making them easier for insects to find when there is little light. Question. What makes many night-opening flowers easy to find?",
+      "displayText": "Number 19. Some desert plants open their flowers only at night. This helps them avoid losing too much water in the daytime heat. Night-flying insects, including certain moths, carry pollen between the flowers as they feed after sunset. Many of these flowers are pale and have a strong smell, making them easier for insects to find when there is little light. Question. What makes many night-opening flowers easy to find?",
+      "wav": "audio-generation\\grade2-round1-part2-edge-uncut-five-20260718\\wav-master\\No19.wav",
+      "mp3": "audio-generation\\grade2-round1-part2-edge-uncut-five-20260718\\audio\\No19.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "26.280000"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "26.280249"
+      }
+    },
+    {
+      "item": "No20",
+      "number": 20,
+      "voice": {
+        "id": "en-US-MichelleNeural",
+        "name": "Michelle",
+        "display": "Michelle（米国女性）"
+      },
+      "ttsText": "Number twenty. Maya planned to take a large suitcase on her weekend train trip. Then she learned that the station near her hotel had no elevator and many stairs to climb. She considered sending the suitcase ahead, but the delivery would arrive too late. In the end, she packed fewer clothes in a backpack and decided to wash one outfit at the hotel. Question. What did Maya finally decide to do?",
+      "displayText": "Number 20. Maya planned to take a large suitcase on her weekend train trip. Then she learned that the station near her hotel had no elevator and many stairs to climb. She considered sending the suitcase ahead, but the delivery would arrive too late. In the end, she packed fewer clothes in a backpack and decided to wash one outfit at the hotel. Question. What did Maya finally decide to do?",
+      "wav": "audio-generation\\grade2-round1-part2-edge-uncut-five-20260718\\wav-master\\No20.wav",
+      "mp3": "audio-generation\\grade2-round1-part2-edge-uncut-five-20260718\\audio\\No20.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "26.424000"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "26.424014"
+      }
+    }
+  ],
+  "secretsIncluded": false,
+  "segmentPolicy": {
+    "singleEdgeCallPerQuestion": true,
+    "sentenceLevelSplit": false,
+    "concatAfterSynthesis": false,
+    "postProcessing": "whole-file loudness normalization and MP3 conversion only"
+  }
+}

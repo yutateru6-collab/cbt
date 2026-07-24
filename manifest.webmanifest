@@ -1,13 +1,15 @@
 {
-  "name": "CBT形式4技能トレーニング",
-  "short_name": "CBT練習",
-  "description": "PC形式の4技能トレーニングをスマホやタブレットでも確認できる自主練習アプリです。",
-  "start_url": "/exam.html?grade=grade2&set=sample",
+  "id": "/grade2-cbt-training",
+  "name": "2級 CBT形式4技能トレーニング",
+  "short_name": "2級CBT練習",
+  "description": "2級のPC・タブレット受験を中心に設計したCBT形式4技能トレーニングです。",
+  "start_url": "/exam.html?set=sample",
   "scope": "/",
   "display": "standalone",
   "orientation": "any",
   "background_color": "#ececec",
   "theme_color": "#404a50",
+  "categories": ["education"],
   "icons": [
     {
       "src": "/assets/app-icon.svg",

@@ -1,6 +1,8 @@
 (() => {
   const grade2Set01 = window.scbtGrade2Set01 || {};
   const grade2VocabSets = window.scbtGrade2VocabSets || [];
+  const pre1VocabSets = window.scbtPre1VocabSets || [];
+  const pre1ReadingGapSets = window.scbtPre1ReadingGapSets || [];
   const pre1ListeningSets = window.scbtPre1ListeningSets || [];
 
   const modules = {
@@ -587,18 +589,34 @@
       return [sampleSet, ...grade2VocabSets];
     }
     if (gradeKey === "pre1" && Array.isArray(pre1ListeningSets) && pre1ListeningSets.length > 0) {
-      return pre1ListeningSets.map((set, index) => ({
-        key: set.key || `set-${String(index + 1).padStart(2, "0")}`,
-        setId: `pre1-${set.key || `set-${String(index + 1).padStart(2, "0")}`}`,
-        label: set.label || `第${index + 1}回`,
-        description: "リスニングPart 1・2・3収録",
-        status: "ready",
-        enabled: true,
-        readingPages: grade.readingPages,
-        writingTasks: grade.writingTasks,
-        listeningQuestions: set.questions,
-        speakingSteps: grade.speakingSteps,
-      }));
+      return pre1ListeningSets.map((set, index) => {
+        const vocabSet = pre1VocabSets.find((candidate) => candidate.key === set.key);
+        const readingGapSet = pre1ReadingGapSets.find((candidate) => candidate.key === set.key);
+        const readingPages = [
+          ...(vocabSet?.readingPage ? [vocabSet.readingPage] : grade.readingPages.slice(0, 1)),
+          ...(Array.isArray(readingGapSet?.readingPages) && readingGapSet.readingPages.length === 2
+            ? readingGapSet.readingPages
+            : grade.readingPages.slice(1, 3)),
+          ...grade.readingPages.slice(3),
+        ];
+        return {
+          key: set.key || `set-${String(index + 1).padStart(2, "0")}`,
+          setId: `pre1-${set.key || `set-${String(index + 1).padStart(2, "0")}`}`,
+          label: set.label || `第${index + 1}回`,
+          description:
+            vocabSet && readingGapSet
+              ? "語彙・熟語18問／空所補充2大問／リスニングPart 1・2・3収録"
+              : vocabSet
+                ? "語彙・熟語18問／リスニングPart 1・2・3収録"
+                : "リスニングPart 1・2・3収録",
+          status: "ready",
+          enabled: true,
+          readingPages,
+          writingTasks: grade.writingTasks,
+          listeningQuestions: set.questions,
+          speakingSteps: grade.speakingSteps,
+        };
+      });
     }
     return [
       sampleSet,

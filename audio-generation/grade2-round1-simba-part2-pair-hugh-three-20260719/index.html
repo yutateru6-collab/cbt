@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SCBT Part 2｜Geffen・Dominic＋Hugh 3問</title>
+  <style>
+    :root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#18211c;background:#f3f1eb}
+    *{box-sizing:border-box}body{margin:0}main{width:min(780px,calc(100% - 24px));margin:auto;padding:28px 0 52px}
+    h1{font-size:clamp(27px,7vw,43px);line-height:1.08;margin:0 0 14px}h1 span{display:block;color:#35644a}
+    h2{margin:34px 0 4px;font-size:27px}h3{font-size:22px;margin:0 0 4px}
+    .lead,.contract,.note,.part-note{line-height:1.7;color:#4d5a51}.part-note{margin:0 0 14px}
+    .contract{background:#e4f0e8;border:1px solid #b9d2c1;border-radius:14px;padding:12px 14px}
+    .question-card{background:#fff;border:1px solid #d7ddd8;border-radius:18px;padding:17px;margin:15px 0;box-shadow:0 5px 22px rgba(35,50,41,.06)}
+    .card-head{display:flex;align-items:start;justify-content:space-between;gap:12px}.card-head p{margin:0 0 13px;color:#637067}
+    .download{color:#285e40;font-weight:700;white-space:nowrap}audio{display:block;width:100%;margin:8px 0 13px}
+    details{border-top:1px solid #e4e8e5;padding-top:11px}summary{cursor:pointer;font-weight:700}details p{line-height:1.65;margin:.7em 0}.question{color:#244f36}.note{font-size:14px}
+    @media(max-width:460px){.card-head{display:block}.download{display:inline-block;margin-bottom:10px}}
+  </style>
+</head>
+<body><main>
+  <h1>SCBT Part 2<span>Geffen・Dominic＋Hugh 3問</span></h1>
+  <p class="lead">本文はGeffen・Dominic・Geffen。NumberとQuestionは、ゆっくり聞きやすいHughで固定しました。</p>
+  <p class="contract"><strong>48kHz・16bit・モノラルPCM WAV</strong><br>
+  Part 2本文0.90x／Number・Question・設問0.88x。MP3化・再圧縮・リサンプリング・速度後処理・音量加工は行っていません。通常再生は1.00xです。</p>
+  <section class="part"><h2>Part 2・3問</h2><p class="part-note">本文全体を1回で生成。文単位へ分割していません。</p>
+                <article class="question-card" data-part="Part 2">
+                  <div class="card-head">
+                    <div>
+                      <h3>Number 16</h3>
+                      <p>本文 Geffen／ナレーター Hugh</p>
+                    </div>
+                    <a class="download" href="audio/part2-16-simba-3-2-final.wav?v=20260719-part2-pair-hugh-three1" download>WAVを保存</a>
+                  </div>
+                  <audio controls preload="metadata" src="audio/part2-16-simba-3-2-final.wav?v=20260719-part2-pair-hugh-three1"></audio>
+                  <details><summary>英文を見る</summary><p>During her first weeks at a design company, Nina tried to write down every comment made during team meetings. She often missed later points because she was still writing. A colleague showed her how to divide a page into decisions and tasks. Nina used the new format at the next meeting and found it easier to follow the discussion.</p><p class="question"><strong>Question</strong> Why did Nina change how she took notes?</p></details>
+                </article>
+                
+                <article class="question-card" data-part="Part 2">
+                  <div class="card-head">
+                    <div>
+                      <h3>Number 17</h3>
+                      <p>本文 Dominic／ナレーター Hugh</p>
+                    </div>
+                    <a class="download" href="audio/part2-17-simba-3-2-final.wav?v=20260719-part2-pair-hugh-three1" download>WAVを保存</a>
+                  </div>
+                  <audio controls preload="metadata" src="audio/part2-17-simba-3-2-final.wav?v=20260719-part2-pair-hugh-three1"></audio>
+                  <details><summary>英文を見る</summary><p>The Riverside Science Center will open its space exhibition this Saturday. The main hall will be available from nine, but the planetarium will remain closed until one because new equipment is being tested. Visitors with morning planetarium tickets may use them for any afternoon show. The café and gift shop will operate on their normal schedule.</p><p class="question"><strong>Question</strong> What can morning planetarium ticket holders do?</p></details>
+                </article>
+                
+                <article class="question-card" data-part="Part 2">
+                  <div class="card-head">
+                    <div>
+                      <h3>Number 18</h3>
+                      <p>本文 Geffen／ナレーター Hugh</p>
+                    </div>
+                    <a class="download" href="audio/part2-18-simba-3-2-final.wav?v=20260719-part2-pair-hugh-three1" download>WAVを保存</a>
+                  </div>
+                  <audio controls preload="metadata" src="audio/part2-18-simba-3-2-final.wav?v=20260719-part2-pair-hugh-three1"></audio>
+                  <details><summary>英文を見る</summary><p>For several years, Omar grew vegetables on his apartment balcony. Last spring, nearby construction blocked most of the sunlight. He considered moving the plants indoors, but there was not enough space. Instead, he rented a small garden plot near his office. He now checks the plants during his lunch break, though carrying tools there is sometimes inconvenient.</p><p class="question"><strong>Question</strong> How did Omar deal with the lack of sunlight?</p></details>
+                </article>
+                </section>
+  <p class="note">間隔：番号後1.15秒／Part 1話者交代0.55秒／本文後1.10秒／“Question.”後0.35秒。発話PCMのバイト一致を全セグメントで検査しています。</p>
+</main>
+<script>
+  const players=[...document.querySelectorAll('audio')];
+  players.forEach(player=>{
+    player.defaultPlaybackRate=1;
+    player.playbackRate=1;
+    player.addEventListener('play',()=>players.forEach(other=>{if(other!==player)other.pause()}));
+  });
+</script>
+</body></html>

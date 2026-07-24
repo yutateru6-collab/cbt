@@ -1,0 +1,69 @@
+{
+  "item": "No04",
+  "output": "audio-generation\\hybrid-tts-trials\\openai-edge-natural-master\\part1\\No04.wav",
+  "outputBytes": 1374510,
+  "outputMetadata": {
+    "codec_name": "pcm_s16le",
+    "sample_rate": "24000",
+    "channels": 1,
+    "bits_per_sample": 16,
+    "duration": "28.634000"
+  },
+  "openaiApiCalls": 0,
+  "openaiCachedSegments": 3,
+  "edgeCalls": 0,
+  "edgeRate": "+0%",
+  "edgeVolume": "+0%",
+  "segments": [
+    {
+      "index": 1,
+      "speaker": "B",
+      "provider": "openai",
+      "voice": "cedar",
+      "text": "Number 4... The monthly sales report is due tomorrow, and I'm still checking the figures from our Osaka office.",
+      "gapAfterMs": 180,
+      "gainDb": 0.0,
+      "path": "audio-generation\\openai-tts-trials\\grade2-natural-master-speed-control-test\\part1\\segments\\01-B-cedar-253762677ea61b832ba9.wav"
+    },
+    {
+      "index": 2,
+      "speaker": "A",
+      "provider": "edge",
+      "voice": "en-US-MichelleNeural",
+      "text": "I finished my section early. I can review those figures after lunch if that would help.",
+      "gapAfterMs": 180,
+      "gainDb": -3.0,
+      "path": "audio-generation\\hybrid-tts-trials\\openai-edge-natural-master\\part1\\segments\\No04-02-A-en-US-MichelleNeural.wav"
+    },
+    {
+      "index": 3,
+      "speaker": "B",
+      "provider": "openai",
+      "voice": "cedar",
+      "text": "That would be great. I'll send you the spreadsheet and mark the numbers that look unusual.",
+      "gapAfterMs": 180,
+      "gainDb": 0.0,
+      "path": "audio-generation\\openai-tts-trials\\grade2-natural-master-speed-control-test\\part1\\segments\\03-B-cedar-e5b4d3a0566cfbc019f6.wav"
+    },
+    {
+      "index": 4,
+      "speaker": "A",
+      "provider": "edge",
+      "voice": "en-US-MichelleNeural",
+      "text": "Perfect. I have a meeting at two, so I'll look at it before then.",
+      "gapAfterMs": 650,
+      "gainDb": -3.0,
+      "path": "audio-generation\\hybrid-tts-trials\\openai-edge-natural-master\\part1\\segments\\No04-04-A-en-US-MichelleNeural.wav"
+    },
+    {
+      "index": 5,
+      "speaker": "B",
+      "provider": "openai",
+      "voice": "cedar",
+      "text": "Question. What does the woman offer to do?",
+      "gapAfterMs": 0,
+      "gainDb": 0.0,
+      "path": "audio-generation\\openai-tts-trials\\grade2-natural-master-speed-control-test\\part1\\segments\\05-B-cedar-2ea090f71f40606068f0.wav"
+    }
+  ]
+}

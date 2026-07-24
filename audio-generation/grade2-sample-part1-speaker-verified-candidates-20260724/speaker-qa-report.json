@@ -1,0 +1,1095 @@
+{
+  "sourceBatchJob": {
+    "submittedAt": "2026-07-23T16:31:58.981660+00:00",
+    "name": "batches/tugu6laqb775compw0f4sf47cgexzujwnmcf",
+    "displayName": "grade2-sample-part1-speaker-verified-candidates-20260724",
+    "model": "models/gemini-3.1-flash-tts-preview",
+    "state": "JOB_STATE_SUCCEEDED",
+    "requestCount": 10,
+    "checkedAt": "2026-07-23T16:37:05.811596+00:00",
+    "error": null
+  },
+  "model": "gemini-3.1-flash-tts-preview",
+  "speakerReferences": {
+    "KoreMedianF0Hz": 190.5,
+    "PuckMedianF0Hz": 142.9,
+    "WomanMinimumF0Hz": 170.0,
+    "ManMaximumF0Hz": 165.0,
+    "MinimumWomanManRatio": 1.18
+  },
+  "paceTarget": {
+    "wordsPerSecond": 2.44,
+    "tolerance": 0.12
+  },
+  "selectionPolicy": "actual speaker correctness first; pace second; manual listening remains required before release",
+  "excludedFailedCandidates": [
+    {
+      "id": "No04-c2",
+      "number": 4,
+      "error": {
+        "code": 3,
+        "message": "Request contains an invalid argument."
+      }
+    },
+    {
+      "id": "No05-c1",
+      "number": 5,
+      "error": {
+        "code": 3,
+        "message": "Request contains an invalid argument."
+      }
+    }
+  ],
+  "results": [
+    {
+      "id": "No01-c1",
+      "baseId": "No01",
+      "number": 1,
+      "candidate": 1,
+      "file": "No01-c1.wav",
+      "durationSeconds": 30.551,
+      "wordCount": 66,
+      "wordsPerSecond": 2.16,
+      "paceDeltaFromTarget": -0.28,
+      "pacePassed": false,
+      "speakerPassed": true,
+      "allTurnsPassed": true,
+      "separationPassed": true,
+      "womanMedianF0Hz": 197.87,
+      "manMedianF0Hz": 148.15,
+      "womanManRatio": 1.336,
+      "bodyTurns": [
+        {
+          "bodyTurn": 1,
+          "speaker": "Man",
+          "text": "Did you finish the poster for tomorrow's science fair?",
+          "startSeconds": 4.742,
+          "endSeconds": 7.749,
+          "medianF0Hz": 148.15,
+          "p10F0Hz": 111.11,
+          "p90F0Hz": 210.53,
+          "medianCorrelation": 0.853,
+          "reliableFrameCount": 92,
+          "expectedRole": "Man",
+          "observedClass": "Puck-like",
+          "distanceToKoreHz": 42.35,
+          "distanceToPuckHz": 5.25,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 2,
+          "speaker": "Woman",
+          "text": "Almost, but the printer in the library stopped working. Could you print the final page at home tonight?",
+          "startSeconds": 8.41,
+          "endSeconds": 15.149,
+          "medianF0Hz": 205.26,
+          "p10F0Hz": 129.03,
+          "p90F0Hz": 285.71,
+          "medianCorrelation": 0.895,
+          "reliableFrameCount": 218,
+          "expectedRole": "Woman",
+          "observedClass": "Kore-like",
+          "distanceToKoreHz": 14.76,
+          "distanceToPuckHz": 62.36,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 3,
+          "speaker": "Man",
+          "text": "I can, but send me the file before seven. I have basketball practice after that.",
+          "startSeconds": 15.947,
+          "endSeconds": 21.067,
+          "medianF0Hz": 148.15,
+          "p10F0Hz": 86.96,
+          "p90F0Hz": 250.0,
+          "medianCorrelation": 0.741,
+          "reliableFrameCount": 115,
+          "expectedRole": "Man",
+          "observedClass": "Puck-like",
+          "distanceToKoreHz": 42.35,
+          "distanceToPuckHz": 5.25,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 4,
+          "speaker": "Woman",
+          "text": "Thanks. I'll email it during lunch and bring the other pages tomorrow.",
+          "startSeconds": 21.673,
+          "endSeconds": 26.145,
+          "medianF0Hz": 190.48,
+          "p10F0Hz": 114.29,
+          "p90F0Hz": 285.71,
+          "medianCorrelation": 0.902,
+          "reliableFrameCount": 154,
+          "expectedRole": "Woman",
+          "observedClass": "Kore-like",
+          "distanceToKoreHz": 0.02,
+          "distanceToPuckHz": 47.58,
+          "turnPassed": true
+        }
+      ],
+      "selectedBoundaries": [
+        {
+          "startSeconds": 0.819,
+          "endSeconds": 4.742,
+          "durationMs": 3922.8,
+          "activeFraction": 0.0416,
+          "expectedActiveFraction": 0.0303
+        },
+        {
+          "startSeconds": 7.749,
+          "endSeconds": 8.41,
+          "durationMs": 661.1,
+          "activeFraction": 0.1862,
+          "expectedActiveFraction": 0.1667
+        },
+        {
+          "startSeconds": 15.149,
+          "endSeconds": 15.947,
+          "durationMs": 798.1,
+          "activeFraction": 0.4751,
+          "expectedActiveFraction": 0.4394
+        },
+        {
+          "startSeconds": 21.067,
+          "endSeconds": 21.673,
+          "durationMs": 605.6,
+          "activeFraction": 0.6716,
+          "expectedActiveFraction": 0.6667
+        },
+        {
+          "startSeconds": 26.145,
+          "endSeconds": 27.011,
+          "durationMs": 866.2,
+          "activeFraction": 0.8818,
+          "expectedActiveFraction": 0.8485
+        }
+      ],
+      "detectedBoundaryCandidateCount": 7,
+      "candidatePassed": false
+    },
+    {
+      "id": "No01-c2",
+      "baseId": "No01",
+      "number": 1,
+      "candidate": 2,
+      "file": "No01-c2.wav",
+      "durationSeconds": 27.3,
+      "wordCount": 66,
+      "wordsPerSecond": 2.418,
+      "paceDeltaFromTarget": -0.022,
+      "pacePassed": true,
+      "speakerPassed": true,
+      "allTurnsPassed": true,
+      "separationPassed": true,
+      "womanMedianF0Hz": 192.22,
+      "manMedianF0Hz": 137.26,
+      "womanManRatio": 1.4,
+      "bodyTurns": [
+        {
+          "bodyTurn": 1,
+          "speaker": "Man",
+          "text": "Did you finish the poster for tomorrow's science fair?",
+          "startSeconds": 1.783,
+          "endSeconds": 4.617,
+          "medianF0Hz": 145.5,
+          "p10F0Hz": 97.56,
+          "p90F0Hz": 210.53,
+          "medianCorrelation": 0.865,
+          "reliableFrameCount": 100,
+          "expectedRole": "Man",
+          "observedClass": "Puck-like",
+          "distanceToKoreHz": 45.0,
+          "distanceToPuckHz": 2.6,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 2,
+          "speaker": "Woman",
+          "text": "Almost, but the printer in the library stopped working. Could you print the final page at home tonight?",
+          "startSeconds": 5.38,
+          "endSeconds": 12.066,
+          "medianF0Hz": 210.53,
+          "p10F0Hz": 153.85,
+          "p90F0Hz": 333.33,
+          "medianCorrelation": 0.926,
+          "reliableFrameCount": 200,
+          "expectedRole": "Woman",
+          "observedClass": "Kore-like",
+          "distanceToKoreHz": 20.03,
+          "distanceToPuckHz": 67.63,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 3,
+          "speaker": "Man",
+          "text": "I can, but send me the file before seven. I have basketball practice after that.",
+          "startSeconds": 12.898,
+          "endSeconds": 17.944,
+          "medianF0Hz": 129.03,
+          "p10F0Hz": 78.43,
+          "p90F0Hz": 222.22,
+          "medianCorrelation": 0.79,
+          "reliableFrameCount": 107,
+          "expectedRole": "Man",
+          "observedClass": "Puck-like",
+          "distanceToKoreHz": 61.47,
+          "distanceToPuckHz": 13.87,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 4,
+          "speaker": "Woman",
+          "text": "Thanks. I'll email it during lunch and bring the other pages tomorrow.",
+          "startSeconds": 18.75,
+          "endSeconds": 22.844,
+          "medianF0Hz": 173.91,
+          "p10F0Hz": 133.33,
+          "p90F0Hz": 285.71,
+          "medianCorrelation": 0.887,
+          "reliableFrameCount": 122,
+          "expectedRole": "Woman",
+          "observedClass": "Kore-like",
+          "distanceToKoreHz": 16.59,
+          "distanceToPuckHz": 31.01,
+          "turnPassed": true
+        }
+      ],
+      "selectedBoundaries": [
+        {
+          "startSeconds": 0.82,
+          "endSeconds": 1.783,
+          "durationMs": 963.2,
+          "activeFraction": 0.0465,
+          "expectedActiveFraction": 0.0303
+        },
+        {
+          "startSeconds": 4.617,
+          "endSeconds": 5.38,
+          "durationMs": 762.6,
+          "activeFraction": 0.2026,
+          "expectedActiveFraction": 0.1667
+        },
+        {
+          "startSeconds": 12.066,
+          "endSeconds": 12.898,
+          "durationMs": 832.2,
+          "activeFraction": 0.4782,
+          "expectedActiveFraction": 0.4394
+        },
+        {
+          "startSeconds": 17.944,
+          "endSeconds": 18.75,
+          "durationMs": 806.1,
+          "activeFraction": 0.6676,
+          "expectedActiveFraction": 0.6667
+        },
+        {
+          "startSeconds": 22.844,
+          "endSeconds": 23.577,
+          "durationMs": 732.8,
+          "activeFraction": 0.8673,
+          "expectedActiveFraction": 0.8485
+        }
+      ],
+      "detectedBoundaryCandidateCount": 11,
+      "candidatePassed": true
+    },
+    {
+      "id": "No02-c1",
+      "baseId": "No02",
+      "number": 2,
+      "candidate": 1,
+      "file": "No02-c1.wav",
+      "durationSeconds": 29.555,
+      "wordCount": 81,
+      "wordsPerSecond": 2.741,
+      "paceDeltaFromTarget": 0.301,
+      "pacePassed": false,
+      "speakerPassed": true,
+      "allTurnsPassed": true,
+      "separationPassed": true,
+      "womanMedianF0Hz": 200.0,
+      "manMedianF0Hz": 128.58,
+      "womanManRatio": 1.556,
+      "bodyTurns": [
+        {
+          "bodyTurn": 1,
+          "speaker": "Woman",
+          "text": "Good afternoon. I reserved a quiet room for two nights under the name Laura Green.",
+          "startSeconds": 1.687,
+          "endSeconds": 7.072,
+          "medianF0Hz": 200.0,
+          "p10F0Hz": 108.11,
+          "p90F0Hz": 266.67,
+          "medianCorrelation": 0.918,
+          "reliableFrameCount": 194,
+          "expectedRole": "Woman",
+          "observedClass": "Kore-like",
+          "distanceToKoreHz": 9.5,
+          "distanceToPuckHz": 57.1,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 2,
+          "speaker": "Man",
+          "text": "I found your reservation, Ms. Green. The quiet room won't be ready until six, but a room near the elevator is available now.",
+          "startSeconds": 7.873,
+          "endSeconds": 12.764,
+          "medianF0Hz": 142.86,
+          "p10F0Hz": 93.02,
+          "p90F0Hz": 235.29,
+          "medianCorrelation": 0.863,
+          "reliableFrameCount": 142,
+          "expectedRole": "Man",
+          "observedClass": "Puck-like",
+          "distanceToKoreHz": 47.64,
+          "distanceToPuckHz": 0.04,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 3,
+          "speaker": "Woman",
+          "text": "I'd rather wait. Can I leave my suitcase here while I get something to eat?",
+          "startSeconds": 13.085,
+          "endSeconds": 20.548,
+          "medianF0Hz": 200.0,
+          "p10F0Hz": 137.93,
+          "p90F0Hz": 307.69,
+          "medianCorrelation": 0.913,
+          "reliableFrameCount": 247,
+          "expectedRole": "Woman",
+          "observedClass": "Kore-like",
+          "distanceToKoreHz": 9.5,
+          "distanceToPuckHz": 57.1,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 4,
+          "speaker": "Man",
+          "text": "Certainly. We'll keep it behind the front desk and call you when your room is ready.",
+          "startSeconds": 21.217,
+          "endSeconds": 25.146,
+          "medianF0Hz": 114.29,
+          "p10F0Hz": 85.11,
+          "p90F0Hz": 210.53,
+          "medianCorrelation": 0.859,
+          "reliableFrameCount": 107,
+          "expectedRole": "Man",
+          "observedClass": "Puck-like",
+          "distanceToKoreHz": 76.21,
+          "distanceToPuckHz": 28.61,
+          "turnPassed": true
+        }
+      ],
+      "selectedBoundaries": [
+        {
+          "startSeconds": 0.819,
+          "endSeconds": 1.687,
+          "durationMs": 868.5,
+          "activeFraction": 0.0356,
+          "expectedActiveFraction": 0.0247
+        },
+        {
+          "startSeconds": 7.072,
+          "endSeconds": 7.873,
+          "durationMs": 800.3,
+          "activeFraction": 0.2667,
+          "expectedActiveFraction": 0.2099
+        },
+        {
+          "startSeconds": 12.764,
+          "endSeconds": 13.085,
+          "durationMs": 320.8,
+          "activeFraction": 0.4524,
+          "expectedActiveFraction": 0.4938
+        },
+        {
+          "startSeconds": 20.548,
+          "endSeconds": 21.217,
+          "durationMs": 668.6,
+          "activeFraction": 0.7377,
+          "expectedActiveFraction": 0.679
+        },
+        {
+          "startSeconds": 25.146,
+          "endSeconds": 25.878,
+          "durationMs": 732.3,
+          "activeFraction": 0.8803,
+          "expectedActiveFraction": 0.8765
+        }
+      ],
+      "detectedBoundaryCandidateCount": 11,
+      "candidatePassed": false
+    },
+    {
+      "id": "No02-c2",
+      "baseId": "No02",
+      "number": 2,
+      "candidate": 2,
+      "file": "No02-c2.wav",
+      "durationSeconds": 30.563,
+      "wordCount": 81,
+      "wordsPerSecond": 2.65,
+      "paceDeltaFromTarget": 0.21,
+      "pacePassed": false,
+      "speakerPassed": true,
+      "allTurnsPassed": true,
+      "separationPassed": true,
+      "womanMedianF0Hz": 182.19,
+      "manMedianF0Hz": 128.13,
+      "womanManRatio": 1.422,
+      "bodyTurns": [
+        {
+          "bodyTurn": 1,
+          "speaker": "Woman",
+          "text": "Good afternoon. I reserved a quiet room for two nights under the name Laura Green.",
+          "startSeconds": 1.876,
+          "endSeconds": 7.223,
+          "medianF0Hz": 173.91,
+          "p10F0Hz": 121.21,
+          "p90F0Hz": 285.71,
+          "medianCorrelation": 0.907,
+          "reliableFrameCount": 188,
+          "expectedRole": "Woman",
+          "observedClass": "Kore-like",
+          "distanceToKoreHz": 16.59,
+          "distanceToPuckHz": 31.01,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 2,
+          "speaker": "Man",
+          "text": "I found your reservation, Ms. Green. The quiet room won't be ready until six, but a room near the elevator is available now.",
+          "startSeconds": 8.149,
+          "endSeconds": 15.778,
+          "medianF0Hz": 148.15,
+          "p10F0Hz": 95.24,
+          "p90F0Hz": 210.53,
+          "medianCorrelation": 0.845,
+          "reliableFrameCount": 258,
+          "expectedRole": "Man",
+          "observedClass": "Puck-like",
+          "distanceToKoreHz": 42.35,
+          "distanceToPuckHz": 5.25,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 3,
+          "speaker": "Woman",
+          "text": "I'd rather wait. Can I leave my suitcase here while I get something to eat?",
+          "startSeconds": 16.434,
+          "endSeconds": 20.802,
+          "medianF0Hz": 190.48,
+          "p10F0Hz": 148.15,
+          "p90F0Hz": 307.69,
+          "medianCorrelation": 0.896,
+          "reliableFrameCount": 144,
+          "expectedRole": "Woman",
+          "observedClass": "Kore-like",
+          "distanceToKoreHz": 0.02,
+          "distanceToPuckHz": 47.58,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 4,
+          "speaker": "Man",
+          "text": "Certainly. We'll keep it behind the front desk and call you when your room is ready.",
+          "startSeconds": 21.662,
+          "endSeconds": 25.466,
+          "medianF0Hz": 108.11,
+          "p10F0Hz": 83.33,
+          "p90F0Hz": 210.53,
+          "medianCorrelation": 0.836,
+          "reliableFrameCount": 113,
+          "expectedRole": "Man",
+          "observedClass": "Puck-like",
+          "distanceToKoreHz": 82.39,
+          "distanceToPuckHz": 34.79,
+          "turnPassed": true
+        }
+      ],
+      "selectedBoundaries": [
+        {
+          "startSeconds": 0.944,
+          "endSeconds": 1.876,
+          "durationMs": 932.0,
+          "activeFraction": 0.0398,
+          "expectedActiveFraction": 0.0247
+        },
+        {
+          "startSeconds": 7.223,
+          "endSeconds": 8.149,
+          "durationMs": 926.5,
+          "activeFraction": 0.2536,
+          "expectedActiveFraction": 0.2099
+        },
+        {
+          "startSeconds": 15.778,
+          "endSeconds": 16.434,
+          "durationMs": 656.4,
+          "activeFraction": 0.5522,
+          "expectedActiveFraction": 0.4938
+        },
+        {
+          "startSeconds": 20.802,
+          "endSeconds": 21.662,
+          "durationMs": 860.1,
+          "activeFraction": 0.7202,
+          "expectedActiveFraction": 0.679
+        },
+        {
+          "startSeconds": 25.466,
+          "endSeconds": 26.301,
+          "durationMs": 834.5,
+          "activeFraction": 0.8611,
+          "expectedActiveFraction": 0.8765
+        }
+      ],
+      "detectedBoundaryCandidateCount": 9,
+      "candidatePassed": false
+    },
+    {
+      "id": "No03-c1",
+      "baseId": "No03",
+      "number": 3,
+      "candidate": 1,
+      "file": "No03-c1.wav",
+      "durationSeconds": 27.967,
+      "wordCount": 67,
+      "wordsPerSecond": 2.396,
+      "paceDeltaFromTarget": -0.044,
+      "pacePassed": true,
+      "speakerPassed": false,
+      "allTurnsPassed": false,
+      "separationPassed": true,
+      "womanMedianF0Hz": 185.26,
+      "manMedianF0Hz": 144.47,
+      "womanManRatio": 1.282,
+      "bodyTurns": [
+        {
+          "bodyTurn": 1,
+          "speaker": "Man",
+          "text": "I'm starting dinner now. We have an unexpected guest tonight.",
+          "startSeconds": 1.53,
+          "endSeconds": 5.648,
+          "medianF0Hz": 151.0,
+          "p10F0Hz": 85.11,
+          "p90F0Hz": 266.67,
+          "medianCorrelation": 0.827,
+          "reliableFrameCount": 112,
+          "expectedRole": "Man",
+          "observedClass": "Puck-like",
+          "distanceToKoreHz": 39.5,
+          "distanceToPuckHz": 8.1,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 2,
+          "speaker": "Woman",
+          "text": "Really? I thought we were going to eat at the new Thai restaurant.",
+          "startSeconds": 6.34,
+          "endSeconds": 10.649,
+          "medianF0Hz": 210.53,
+          "p10F0Hz": 142.86,
+          "p90F0Hz": 285.71,
+          "medianCorrelation": 0.9,
+          "reliableFrameCount": 147,
+          "expectedRole": "Woman",
+          "observedClass": "Kore-like",
+          "distanceToKoreHz": 20.03,
+          "distanceToPuckHz": 67.63,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 3,
+          "speaker": "Man",
+          "text": "Dad is bringing Grandma over, and she doesn't like spicy food. Could you set the table?",
+          "startSeconds": 11.383,
+          "endSeconds": 16.823,
+          "medianF0Hz": 137.93,
+          "p10F0Hz": 88.89,
+          "p90F0Hz": 250.0,
+          "medianCorrelation": 0.864,
+          "reliableFrameCount": 151,
+          "expectedRole": "Man",
+          "observedClass": "Puck-like",
+          "distanceToKoreHz": 52.57,
+          "distanceToPuckHz": 4.97,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 4,
+          "speaker": "Woman",
+          "text": "Sure. I'll make a salad too. The soup and chicken should be enough for the main dishes.",
+          "startSeconds": 17.565,
+          "endSeconds": 24.701,
+          "medianF0Hz": 160.0,
+          "p10F0Hz": 133.33,
+          "p90F0Hz": 266.67,
+          "medianCorrelation": 0.832,
+          "reliableFrameCount": 143,
+          "expectedRole": "Woman",
+          "observedClass": "Puck-like",
+          "distanceToKoreHz": 30.5,
+          "distanceToPuckHz": 17.1,
+          "turnPassed": false
+        }
+      ],
+      "selectedBoundaries": [
+        {
+          "startSeconds": 0.835,
+          "endSeconds": 1.53,
+          "durationMs": 695.3,
+          "activeFraction": 0.0401,
+          "expectedActiveFraction": 0.0299
+        },
+        {
+          "startSeconds": 5.648,
+          "endSeconds": 6.34,
+          "durationMs": 692.0,
+          "activeFraction": 0.2146,
+          "expectedActiveFraction": 0.1791
+        },
+        {
+          "startSeconds": 10.649,
+          "endSeconds": 11.383,
+          "durationMs": 733.9,
+          "activeFraction": 0.3977,
+          "expectedActiveFraction": 0.3731
+        },
+        {
+          "startSeconds": 16.823,
+          "endSeconds": 17.565,
+          "durationMs": 741.5,
+          "activeFraction": 0.6253,
+          "expectedActiveFraction": 0.6119
+        },
+        {
+          "startSeconds": 24.701,
+          "endSeconds": 25.447,
+          "durationMs": 745.9,
+          "activeFraction": 0.8739,
+          "expectedActiveFraction": 0.8657
+        }
+      ],
+      "detectedBoundaryCandidateCount": 11,
+      "candidatePassed": false
+    },
+    {
+      "id": "No03-c2",
+      "baseId": "No03",
+      "number": 3,
+      "candidate": 2,
+      "file": "No03-c2.wav",
+      "durationSeconds": 28.76,
+      "wordCount": 67,
+      "wordsPerSecond": 2.33,
+      "paceDeltaFromTarget": -0.11,
+      "pacePassed": true,
+      "speakerPassed": true,
+      "allTurnsPassed": true,
+      "separationPassed": true,
+      "womanMedianF0Hz": 204.6,
+      "manMedianF0Hz": 148.36,
+      "womanManRatio": 1.379,
+      "bodyTurns": [
+        {
+          "bodyTurn": 1,
+          "speaker": "Man",
+          "text": "I'm starting dinner now. We have an unexpected guest tonight.",
+          "startSeconds": 4.361,
+          "endSeconds": 8.063,
+          "medianF0Hz": 153.85,
+          "p10F0Hz": 102.56,
+          "p90F0Hz": 210.53,
+          "medianCorrelation": 0.834,
+          "reliableFrameCount": 103,
+          "expectedRole": "Man",
+          "observedClass": "Puck-like",
+          "distanceToKoreHz": 36.65,
+          "distanceToPuckHz": 10.95,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 2,
+          "speaker": "Woman",
+          "text": "Really? I thought we were going to eat at the new Thai restaurant.",
+          "startSeconds": 8.736,
+          "endSeconds": 12.646,
+          "medianF0Hz": 235.29,
+          "p10F0Hz": 153.85,
+          "p90F0Hz": 307.69,
+          "medianCorrelation": 0.923,
+          "reliableFrameCount": 123,
+          "expectedRole": "Woman",
+          "observedClass": "Kore-like",
+          "distanceToKoreHz": 44.79,
+          "distanceToPuckHz": 92.39,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 3,
+          "speaker": "Man",
+          "text": "Dad is bringing Grandma over, and she doesn't like spicy food. Could you set the table?",
+          "startSeconds": 13.024,
+          "endSeconds": 18.52,
+          "medianF0Hz": 142.86,
+          "p10F0Hz": 81.63,
+          "p90F0Hz": 222.22,
+          "medianCorrelation": 0.849,
+          "reliableFrameCount": 155,
+          "expectedRole": "Man",
+          "observedClass": "Puck-like",
+          "distanceToKoreHz": 47.64,
+          "distanceToPuckHz": 0.04,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 4,
+          "speaker": "Woman",
+          "text": "Sure. I'll make a salad too. The soup and chicken should be enough for the main dishes.",
+          "startSeconds": 19.159,
+          "endSeconds": 25.583,
+          "medianF0Hz": 173.91,
+          "p10F0Hz": 114.29,
+          "p90F0Hz": 285.71,
+          "medianCorrelation": 0.763,
+          "reliableFrameCount": 142,
+          "expectedRole": "Woman",
+          "observedClass": "Kore-like",
+          "distanceToKoreHz": 16.59,
+          "distanceToPuckHz": 31.01,
+          "turnPassed": true
+        }
+      ],
+      "selectedBoundaries": [
+        {
+          "startSeconds": 1.041,
+          "endSeconds": 4.361,
+          "durationMs": 3320.4,
+          "activeFraction": 0.039,
+          "expectedActiveFraction": 0.0299
+        },
+        {
+          "startSeconds": 8.063,
+          "endSeconds": 8.736,
+          "durationMs": 673.4,
+          "activeFraction": 0.2069,
+          "expectedActiveFraction": 0.1791
+        },
+        {
+          "startSeconds": 12.646,
+          "endSeconds": 13.024,
+          "durationMs": 378.6,
+          "activeFraction": 0.3754,
+          "expectedActiveFraction": 0.3731
+        },
+        {
+          "startSeconds": 18.52,
+          "endSeconds": 19.159,
+          "durationMs": 639.8,
+          "activeFraction": 0.6145,
+          "expectedActiveFraction": 0.6119
+        },
+        {
+          "startSeconds": 25.583,
+          "endSeconds": 26.075,
+          "durationMs": 491.7,
+          "activeFraction": 0.8559,
+          "expectedActiveFraction": 0.8657
+        }
+      ],
+      "detectedBoundaryCandidateCount": 11,
+      "candidatePassed": true
+    },
+    {
+      "id": "No04-c1",
+      "baseId": "No04",
+      "number": 4,
+      "candidate": 1,
+      "file": "No04-c1.wav",
+      "durationSeconds": 27.177,
+      "wordCount": 73,
+      "wordsPerSecond": 2.686,
+      "paceDeltaFromTarget": 0.246,
+      "pacePassed": false,
+      "speakerPassed": true,
+      "allTurnsPassed": true,
+      "separationPassed": true,
+      "womanMedianF0Hz": 206.35,
+      "manMedianF0Hz": 113.23,
+      "womanManRatio": 1.822,
+      "bodyTurns": [
+        {
+          "bodyTurn": 1,
+          "speaker": "Man",
+          "text": "The monthly sales report is due tomorrow, and I'm still checking the figures from our Osaka office.",
+          "startSeconds": 1.473,
+          "endSeconds": 7.767,
+          "medianF0Hz": 121.21,
+          "p10F0Hz": 93.02,
+          "p90F0Hz": 200.0,
+          "medianCorrelation": 0.829,
+          "reliableFrameCount": 167,
+          "expectedRole": "Man",
+          "observedClass": "Puck-like",
+          "distanceToKoreHz": 69.29,
+          "distanceToPuckHz": 21.69,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 2,
+          "speaker": "Woman",
+          "text": "I finished my section early. I can review those figures after lunch if that would help.",
+          "startSeconds": 8.414,
+          "endSeconds": 13.505,
+          "medianF0Hz": 190.48,
+          "p10F0Hz": 133.33,
+          "p90F0Hz": 250.0,
+          "medianCorrelation": 0.819,
+          "reliableFrameCount": 157,
+          "expectedRole": "Woman",
+          "observedClass": "Kore-like",
+          "distanceToKoreHz": 0.02,
+          "distanceToPuckHz": 47.58,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 3,
+          "speaker": "Man",
+          "text": "That would be great. I'll send you the spreadsheet and mark the numbers that look unusual.",
+          "startSeconds": 13.812,
+          "endSeconds": 18.871,
+          "medianF0Hz": 105.26,
+          "p10F0Hz": 80.0,
+          "p90F0Hz": 210.53,
+          "medianCorrelation": 0.833,
+          "reliableFrameCount": 149,
+          "expectedRole": "Man",
+          "observedClass": "Puck-like",
+          "distanceToKoreHz": 85.24,
+          "distanceToPuckHz": 37.64,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 4,
+          "speaker": "Woman",
+          "text": "Perfect. I have a meeting at two, so I'll look at it before then.",
+          "startSeconds": 19.514,
+          "endSeconds": 23.536,
+          "medianF0Hz": 222.22,
+          "p10F0Hz": 166.67,
+          "p90F0Hz": 307.69,
+          "medianCorrelation": 0.851,
+          "reliableFrameCount": 123,
+          "expectedRole": "Woman",
+          "observedClass": "Kore-like",
+          "distanceToKoreHz": 31.72,
+          "distanceToPuckHz": 79.32,
+          "turnPassed": true
+        }
+      ],
+      "selectedBoundaries": [
+        {
+          "startSeconds": 0.967,
+          "endSeconds": 1.473,
+          "durationMs": 505.9,
+          "activeFraction": 0.043,
+          "expectedActiveFraction": 0.0274
+        },
+        {
+          "startSeconds": 7.767,
+          "endSeconds": 8.414,
+          "durationMs": 647.1,
+          "activeFraction": 0.3133,
+          "expectedActiveFraction": 0.2603
+        },
+        {
+          "startSeconds": 13.505,
+          "endSeconds": 13.812,
+          "durationMs": 307.5,
+          "activeFraction": 0.5401,
+          "expectedActiveFraction": 0.4795
+        },
+        {
+          "startSeconds": 18.871,
+          "endSeconds": 19.514,
+          "durationMs": 642.6,
+          "activeFraction": 0.7346,
+          "expectedActiveFraction": 0.6986
+        },
+        {
+          "startSeconds": 23.536,
+          "endSeconds": 24.021,
+          "durationMs": 485.8,
+          "activeFraction": 0.9035,
+          "expectedActiveFraction": 0.8904
+        }
+      ],
+      "detectedBoundaryCandidateCount": 7,
+      "candidatePassed": false
+    },
+    {
+      "id": "No05-c2",
+      "baseId": "No05",
+      "number": 5,
+      "candidate": 2,
+      "file": "No05-c2.wav",
+      "durationSeconds": 31.159,
+      "wordCount": 75,
+      "wordsPerSecond": 2.407,
+      "paceDeltaFromTarget": -0.033,
+      "pacePassed": true,
+      "speakerPassed": true,
+      "allTurnsPassed": true,
+      "separationPassed": true,
+      "womanMedianF0Hz": 242.64,
+      "manMedianF0Hz": 147.12,
+      "womanManRatio": 1.649,
+      "bodyTurns": [
+        {
+          "bodyTurn": 1,
+          "speaker": "Woman",
+          "text": "Excuse me, does this bus stop at the city art museum?",
+          "startSeconds": 2.045,
+          "endSeconds": 6.168,
+          "medianF0Hz": 235.29,
+          "p10F0Hz": 153.85,
+          "p90F0Hz": 333.33,
+          "medianCorrelation": 0.909,
+          "reliableFrameCount": 132,
+          "expectedRole": "Woman",
+          "observedClass": "Kore-like",
+          "distanceToKoreHz": 44.79,
+          "distanceToPuckHz": 92.39,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 2,
+          "speaker": "Man",
+          "text": "Not today. The road in front of the museum is closed, so this bus only goes as far as Central Station.",
+          "startSeconds": 6.883,
+          "endSeconds": 13.937,
+          "medianF0Hz": 140.39,
+          "p10F0Hz": 108.11,
+          "p90F0Hz": 210.53,
+          "medianCorrelation": 0.841,
+          "reliableFrameCount": 194,
+          "expectedRole": "Man",
+          "observedClass": "Puck-like",
+          "distanceToKoreHz": 50.11,
+          "distanceToPuckHz": 2.51,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 3,
+          "speaker": "Woman",
+          "text": "I see. Is there another way to get there from the station?",
+          "startSeconds": 14.58,
+          "endSeconds": 18.169,
+          "medianF0Hz": 250.0,
+          "p10F0Hz": 148.15,
+          "p90F0Hz": 307.69,
+          "medianCorrelation": 0.912,
+          "reliableFrameCount": 115,
+          "expectedRole": "Woman",
+          "observedClass": "Kore-like",
+          "distanceToKoreHz": 59.5,
+          "distanceToPuckHz": 107.1,
+          "turnPassed": true
+        },
+        {
+          "bodyTurn": 4,
+          "speaker": "Man",
+          "text": "Take the Green Line train one stop, then walk two blocks north. The museum entrance is across from the post office.",
+          "startSeconds": 18.76,
+          "endSeconds": 27.545,
+          "medianF0Hz": 153.85,
+          "p10F0Hz": 111.11,
+          "p90F0Hz": 235.29,
+          "medianCorrelation": 0.883,
+          "reliableFrameCount": 233,
+          "expectedRole": "Man",
+          "observedClass": "Puck-like",
+          "distanceToKoreHz": 36.65,
+          "distanceToPuckHz": 10.95,
+          "turnPassed": true
+        }
+      ],
+      "selectedBoundaries": [
+        {
+          "startSeconds": 1.071,
+          "endSeconds": 2.045,
+          "durationMs": 974.0,
+          "activeFraction": 0.0427,
+          "expectedActiveFraction": 0.0267
+        },
+        {
+          "startSeconds": 6.168,
+          "endSeconds": 6.883,
+          "durationMs": 715.6,
+          "activeFraction": 0.1938,
+          "expectedActiveFraction": 0.1733
+        },
+        {
+          "startSeconds": 13.937,
+          "endSeconds": 14.58,
+          "durationMs": 643.7,
+          "activeFraction": 0.4665,
+          "expectedActiveFraction": 0.4533
+        },
+        {
+          "startSeconds": 18.169,
+          "endSeconds": 18.76,
+          "durationMs": 590.9,
+          "activeFraction": 0.5902,
+          "expectedActiveFraction": 0.6133
+        },
+        {
+          "startSeconds": 27.545,
+          "endSeconds": 28.31,
+          "durationMs": 764.9,
+          "activeFraction": 0.8855,
+          "expectedActiveFraction": 0.8933
+        }
+      ],
+      "detectedBoundaryCandidateCount": 9,
+      "candidatePassed": true
+    }
+  ],
+  "selections": {
+    "No01": {
+      "selectedCandidateId": "No01-c2",
+      "fullyPassed": true,
+      "speakerPassed": true,
+      "pacePassed": true
+    },
+    "No02": {
+      "selectedCandidateId": "No02-c2",
+      "fullyPassed": false,
+      "speakerPassed": true,
+      "pacePassed": false
+    },
+    "No03": {
+      "selectedCandidateId": "No03-c2",
+      "fullyPassed": true,
+      "speakerPassed": true,
+      "pacePassed": true
+    },
+    "No04": {
+      "selectedCandidateId": "No04-c1",
+      "fullyPassed": false,
+      "speakerPassed": true,
+      "pacePassed": false
+    },
+    "No05": {
+      "selectedCandidateId": "No05-c2",
+      "fullyPassed": true,
+      "speakerPassed": true,
+      "pacePassed": true
+    }
+  },
+  "allNumbersHaveSpeakerPassingCandidate": true,
+  "allNumbersHaveFullyPassingCandidate": false
+}

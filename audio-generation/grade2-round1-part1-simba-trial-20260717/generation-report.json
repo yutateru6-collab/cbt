@@ -1,0 +1,745 @@
+{
+  "mode": "completed",
+  "preflight": {
+    "setKey": "set-01",
+    "model": "simba-3.2",
+    "stylePolicy": "Reuse the approved plain Simba conversational delivery; apply only prosody rate.",
+    "timingMs": {
+      "numberToBody": 1350,
+      "turnGap": 550,
+      "bodyToQuestion": 1300
+    },
+    "speedPolicy": {
+      "Imogen": 0.9,
+      "allOtherVoices": 0.87
+    },
+    "missing": {
+      "calls": 18,
+      "inputCharacters": 2035
+    },
+    "ceilings": {
+      "calls": 18,
+      "inputCharacters": 4000
+    },
+    "items": [
+      {
+        "item": "No01",
+        "segments": [
+          {
+            "role": "number",
+            "speaker": "narrator",
+            "voice": "Hugh",
+            "voiceId": "hugh_32",
+            "language": "en-GB",
+            "ratePercent": -13,
+            "displayText": "Number 1.",
+            "ttsText": "Number one.",
+            "ttsOverrides": [
+              {
+                "from": "1",
+                "to": "one"
+              }
+            ],
+            "gapAfterMs": 1350,
+            "cached": false
+          },
+          {
+            "role": "turn1",
+            "speaker": "B",
+            "voice": "Dominic",
+            "voiceId": "dominic_32",
+            "language": "en-US",
+            "ratePercent": -13,
+            "displayText": "The recording for our school radio show still isn't in the shared folder.",
+            "ttsText": "The recording for our school radio show still isn't in the shared folder.",
+            "ttsOverrides": [],
+            "gapAfterMs": 550,
+            "cached": false
+          },
+          {
+            "role": "turn2",
+            "speaker": "A",
+            "voice": "Geffen",
+            "voiceId": "geffen_32",
+            "language": "en-US",
+            "ratePercent": -13,
+            "displayText": "I finished editing it, but the file is too large to send by email. Could you upload it from the media room?",
+            "ttsText": "I finished editing it, but the file is too large to send by email. Could you upload it from the media room?",
+            "ttsOverrides": [],
+            "gapAfterMs": 550,
+            "cached": false
+          },
+          {
+            "role": "turn3",
+            "speaker": "B",
+            "voice": "Dominic",
+            "voiceId": "dominic_32",
+            "language": "en-US",
+            "ratePercent": -13,
+            "displayText": "Sure, but I need the final title before lunch because the teacher checks everything at one.",
+            "ttsText": "Sure, but I need the final title before lunch because the teacher checks everything at one.",
+            "ttsOverrides": [],
+            "gapAfterMs": 550,
+            "cached": false
+          },
+          {
+            "role": "turn4",
+            "speaker": "A",
+            "voice": "Geffen",
+            "voiceId": "geffen_32",
+            "language": "en-US",
+            "ratePercent": -13,
+            "displayText": "I'll message you the title now. The interview section doesn't need any more changes.",
+            "ttsText": "I'll message you the title now. The interview section doesn't need any more changes.",
+            "ttsOverrides": [],
+            "gapAfterMs": 1300,
+            "cached": false
+          },
+          {
+            "role": "question",
+            "speaker": "narrator",
+            "voice": "Hugh",
+            "voiceId": "hugh_32",
+            "language": "en-GB",
+            "ratePercent": -13,
+            "displayText": "Question. What does the girl ask the boy to do?",
+            "ttsText": "Question. What does the girl ask the boy to do?",
+            "ttsOverrides": [],
+            "gapAfterMs": 0,
+            "cached": false
+          }
+        ]
+      },
+      {
+        "item": "No02",
+        "segments": [
+          {
+            "role": "number",
+            "speaker": "narrator",
+            "voice": "Imogen",
+            "voiceId": "imogen_32",
+            "language": "en-GB",
+            "ratePercent": -10,
+            "displayText": "Number 2.",
+            "ttsText": "Number two.",
+            "ttsOverrides": [
+              {
+                "from": "2",
+                "to": "two"
+              }
+            ],
+            "gapAfterMs": 1350,
+            "cached": false
+          },
+          {
+            "role": "turn1",
+            "speaker": "A",
+            "voice": "Harper",
+            "voiceId": "harper_32",
+            "language": "en-US",
+            "ratePercent": -13,
+            "displayText": "I signed up for the beginner yoga class that meets on Wednesday evenings.",
+            "ttsText": "I signed up for the beginner yoga class that meets on Wednesday evenings.",
+            "ttsOverrides": [],
+            "gapAfterMs": 550,
+            "cached": false
+          },
+          {
+            "role": "turn2",
+            "speaker": "B",
+            "voice": "Wyatt",
+            "voiceId": "wyatt_32",
+            "language": "en-US",
+            "ratePercent": -13,
+            "displayText": "That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven.",
+            "ttsText": "That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven.",
+            "ttsOverrides": [],
+            "gapAfterMs": 550,
+            "cached": false
+          },
+          {
+            "role": "turn3",
+            "speaker": "A",
+            "voice": "Harper",
+            "voiceId": "harper_32",
+            "language": "en-US",
+            "ratePercent": -13,
+            "displayText": "Thursday works for me. Do I need to register again at the front desk?",
+            "ttsText": "Thursday works for me. Do I need to register again at the front desk?",
+            "ttsOverrides": [],
+            "gapAfterMs": 550,
+            "cached": false
+          },
+          {
+            "role": "turn4",
+            "speaker": "B",
+            "voice": "Wyatt",
+            "voiceId": "wyatt_32",
+            "language": "en-US",
+            "ratePercent": -13,
+            "displayText": "No, your name is already on the new list. Just bring the same membership card.",
+            "ttsText": "No, your name is already on the new list. Just bring the same membership card.",
+            "ttsOverrides": [],
+            "gapAfterMs": 1300,
+            "cached": false
+          },
+          {
+            "role": "question",
+            "speaker": "narrator",
+            "voice": "Imogen",
+            "voiceId": "imogen_32",
+            "language": "en-GB",
+            "ratePercent": -10,
+            "displayText": "Question. What is true about the yoga class?",
+            "ttsText": "Question. What is true about the yoga class?",
+            "ttsOverrides": [],
+            "gapAfterMs": 0,
+            "cached": false
+          }
+        ]
+      },
+      {
+        "item": "No03",
+        "segments": [
+          {
+            "role": "number",
+            "speaker": "narrator",
+            "voice": "Geffen",
+            "voiceId": "geffen_32",
+            "language": "en-US",
+            "ratePercent": -13,
+            "displayText": "Number 3.",
+            "ttsText": "Number three.",
+            "ttsOverrides": [
+              {
+                "from": "3",
+                "to": "three"
+              }
+            ],
+            "gapAfterMs": 1350,
+            "cached": false
+          },
+          {
+            "role": "turn1",
+            "speaker": "A",
+            "voice": "Imogen",
+            "voiceId": "imogen_32",
+            "language": "en-GB",
+            "ratePercent": -10,
+            "displayText": "I can't meet you at the café this afternoon. A repair worker is coming to look at our washing machine.",
+            "ttsText": "I can't meet you at the cafe this afternoon. A repair worker is coming to look at our washing machine.",
+            "ttsOverrides": [
+              {
+                "from": "café",
+                "to": "cafe"
+              }
+            ],
+            "gapAfterMs": 550,
+            "cached": false
+          },
+          {
+            "role": "turn2",
+            "speaker": "B",
+            "voice": "Hugh",
+            "voiceId": "hugh_32",
+            "language": "en-GB",
+            "ratePercent": -13,
+            "displayText": "Didn't your brother say he would stay home for that?",
+            "ttsText": "Didn't your brother say he would stay home for that?",
+            "ttsOverrides": [],
+            "gapAfterMs": 550,
+            "cached": false
+          },
+          {
+            "role": "turn3",
+            "speaker": "A",
+            "voice": "Imogen",
+            "voiceId": "imogen_32",
+            "language": "en-GB",
+            "ratePercent": -10,
+            "displayText": "He was supposed to, but his manager asked him to work an extra shift. The worker may arrive anytime between two and five.",
+            "ttsText": "He was supposed to, but his manager asked him to work an extra shift. The worker may arrive anytime between two and five.",
+            "ttsOverrides": [],
+            "gapAfterMs": 550,
+            "cached": false
+          },
+          {
+            "role": "turn4",
+            "speaker": "B",
+            "voice": "Hugh",
+            "voiceId": "hugh_32",
+            "language": "en-GB",
+            "ratePercent": -13,
+            "displayText": "No problem. We can meet tomorrow after my class instead.",
+            "ttsText": "No problem. We can meet tomorrow after my class instead.",
+            "ttsOverrides": [],
+            "gapAfterMs": 1300,
+            "cached": false
+          },
+          {
+            "role": "question",
+            "speaker": "narrator",
+            "voice": "Geffen",
+            "voiceId": "geffen_32",
+            "language": "en-US",
+            "ratePercent": -13,
+            "displayText": "Question. Why will the woman stay home this afternoon?",
+            "ttsText": "Question. Why will the woman stay home this afternoon?",
+            "ttsOverrides": [],
+            "gapAfterMs": 0,
+            "cached": false
+          }
+        ]
+      }
+    ]
+  },
+  "actual": {
+    "calls": 18,
+    "inputCharacters": 2035,
+    "billableCharacters": 1207
+  },
+  "records": [
+    {
+      "item": "No01",
+      "role": "number",
+      "voice": "hugh_32",
+      "inputCharacters": 57,
+      "billableCharacters": 11,
+      "requestId": "9f4144ab1f439db8acce35ca"
+    },
+    {
+      "item": "No01",
+      "role": "turn1",
+      "voice": "dominic_32",
+      "inputCharacters": 119,
+      "billableCharacters": 73,
+      "requestId": "b6d82f6adabde769ab9ee759"
+    },
+    {
+      "item": "No01",
+      "role": "turn2",
+      "voice": "geffen_32",
+      "inputCharacters": 153,
+      "billableCharacters": 107,
+      "requestId": "758d7c72d043dbb1c65cb36b"
+    },
+    {
+      "item": "No01",
+      "role": "turn3",
+      "voice": "dominic_32",
+      "inputCharacters": 137,
+      "billableCharacters": 91,
+      "requestId": "e40337d15ab37f10c11148e9"
+    },
+    {
+      "item": "No01",
+      "role": "turn4",
+      "voice": "geffen_32",
+      "inputCharacters": 130,
+      "billableCharacters": 84,
+      "requestId": "9c5c3b34bfafbd4fa4676970"
+    },
+    {
+      "item": "No01",
+      "role": "question",
+      "voice": "hugh_32",
+      "inputCharacters": 93,
+      "billableCharacters": 47,
+      "requestId": "799c7bf6d72c53d19a8d7913"
+    },
+    {
+      "item": "No02",
+      "role": "number",
+      "voice": "imogen_32",
+      "inputCharacters": 57,
+      "billableCharacters": 11,
+      "requestId": "af773720fcd8779f00fc6dee"
+    },
+    {
+      "item": "No02",
+      "role": "turn1",
+      "voice": "harper_32",
+      "inputCharacters": 119,
+      "billableCharacters": 73,
+      "requestId": "569a6669d1d7eec007df14e1"
+    },
+    {
+      "item": "No02",
+      "role": "turn2",
+      "voice": "wyatt_32",
+      "inputCharacters": 167,
+      "billableCharacters": 121,
+      "requestId": "49c6c6f971bc1a34d9f11ef9"
+    },
+    {
+      "item": "No02",
+      "role": "turn3",
+      "voice": "harper_32",
+      "inputCharacters": 115,
+      "billableCharacters": 69,
+      "requestId": "5a4e90f91338fdadd1718087"
+    },
+    {
+      "item": "No02",
+      "role": "turn4",
+      "voice": "wyatt_32",
+      "inputCharacters": 124,
+      "billableCharacters": 78,
+      "requestId": "a10a755a20ff1ef5fe75dedd"
+    },
+    {
+      "item": "No02",
+      "role": "question",
+      "voice": "imogen_32",
+      "inputCharacters": 90,
+      "billableCharacters": 44,
+      "requestId": "d06350c0f6728a6a7fde9f3f"
+    },
+    {
+      "item": "No03",
+      "role": "number",
+      "voice": "geffen_32",
+      "inputCharacters": 59,
+      "billableCharacters": 13,
+      "requestId": "a1c62ba419749f15d66bef3e"
+    },
+    {
+      "item": "No03",
+      "role": "turn1",
+      "voice": "imogen_32",
+      "inputCharacters": 148,
+      "billableCharacters": 102,
+      "requestId": "5882e6bab65d110ca7cafae2"
+    },
+    {
+      "item": "No03",
+      "role": "turn2",
+      "voice": "hugh_32",
+      "inputCharacters": 98,
+      "billableCharacters": 52,
+      "requestId": "2e3c1fbe2eaf1122cef0b257"
+    },
+    {
+      "item": "No03",
+      "role": "turn3",
+      "voice": "imogen_32",
+      "inputCharacters": 167,
+      "billableCharacters": 121,
+      "requestId": "418d07d183facefda01892ca"
+    },
+    {
+      "item": "No03",
+      "role": "turn4",
+      "voice": "hugh_32",
+      "inputCharacters": 102,
+      "billableCharacters": 56,
+      "requestId": "cb8209ad5c2904c87144a895"
+    },
+    {
+      "item": "No03",
+      "role": "question",
+      "voice": "geffen_32",
+      "inputCharacters": 100,
+      "billableCharacters": 54,
+      "requestId": "478c62228cfc6ffcb08f0352"
+    }
+  ],
+  "outputs": [
+    {
+      "item": "No01",
+      "number": 1,
+      "segments": [
+        {
+          "role": "number",
+          "speaker": "narrator",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "language": "en-GB",
+          "ratePercent": -13,
+          "displayText": "Number 1.",
+          "ttsText": "Number one.",
+          "ttsOverrides": [
+            {
+              "from": "1",
+              "to": "one"
+            }
+          ],
+          "gapAfterMs": 1350
+        },
+        {
+          "role": "turn1",
+          "speaker": "B",
+          "voice": "Dominic",
+          "voiceId": "dominic_32",
+          "language": "en-US",
+          "ratePercent": -13,
+          "displayText": "The recording for our school radio show still isn't in the shared folder.",
+          "ttsText": "The recording for our school radio show still isn't in the shared folder.",
+          "ttsOverrides": [],
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn2",
+          "speaker": "A",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "language": "en-US",
+          "ratePercent": -13,
+          "displayText": "I finished editing it, but the file is too large to send by email. Could you upload it from the media room?",
+          "ttsText": "I finished editing it, but the file is too large to send by email. Could you upload it from the media room?",
+          "ttsOverrides": [],
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn3",
+          "speaker": "B",
+          "voice": "Dominic",
+          "voiceId": "dominic_32",
+          "language": "en-US",
+          "ratePercent": -13,
+          "displayText": "Sure, but I need the final title before lunch because the teacher checks everything at one.",
+          "ttsText": "Sure, but I need the final title before lunch because the teacher checks everything at one.",
+          "ttsOverrides": [],
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn4",
+          "speaker": "A",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "language": "en-US",
+          "ratePercent": -13,
+          "displayText": "I'll message you the title now. The interview section doesn't need any more changes.",
+          "ttsText": "I'll message you the title now. The interview section doesn't need any more changes.",
+          "ttsOverrides": [],
+          "gapAfterMs": 1300
+        },
+        {
+          "role": "question",
+          "speaker": "narrator",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "language": "en-GB",
+          "ratePercent": -13,
+          "displayText": "Question. What does the girl ask the boy to do?",
+          "ttsText": "Question. What does the girl ask the boy to do?",
+          "ttsOverrides": [],
+          "gapAfterMs": 0
+        }
+      ],
+      "wav": "audio-generation\\grade2-round1-part1-simba-trial-20260717\\audio\\No01-r1.wav",
+      "mp3": "audio-generation\\grade2-round1-part1-simba-trial-20260717\\audio\\No01-r1.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "29.783042"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "29.783061"
+      }
+    },
+    {
+      "item": "No02",
+      "number": 2,
+      "segments": [
+        {
+          "role": "number",
+          "speaker": "narrator",
+          "voice": "Imogen",
+          "voiceId": "imogen_32",
+          "language": "en-GB",
+          "ratePercent": -10,
+          "displayText": "Number 2.",
+          "ttsText": "Number two.",
+          "ttsOverrides": [
+            {
+              "from": "2",
+              "to": "two"
+            }
+          ],
+          "gapAfterMs": 1350
+        },
+        {
+          "role": "turn1",
+          "speaker": "A",
+          "voice": "Harper",
+          "voiceId": "harper_32",
+          "language": "en-US",
+          "ratePercent": -13,
+          "displayText": "I signed up for the beginner yoga class that meets on Wednesday evenings.",
+          "ttsText": "I signed up for the beginner yoga class that meets on Wednesday evenings.",
+          "ttsOverrides": [],
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn2",
+          "speaker": "B",
+          "voice": "Wyatt",
+          "voiceId": "wyatt_32",
+          "language": "en-US",
+          "ratePercent": -13,
+          "displayText": "That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven.",
+          "ttsText": "That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven.",
+          "ttsOverrides": [],
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn3",
+          "speaker": "A",
+          "voice": "Harper",
+          "voiceId": "harper_32",
+          "language": "en-US",
+          "ratePercent": -13,
+          "displayText": "Thursday works for me. Do I need to register again at the front desk?",
+          "ttsText": "Thursday works for me. Do I need to register again at the front desk?",
+          "ttsOverrides": [],
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn4",
+          "speaker": "B",
+          "voice": "Wyatt",
+          "voiceId": "wyatt_32",
+          "language": "en-US",
+          "ratePercent": -13,
+          "displayText": "No, your name is already on the new list. Just bring the same membership card.",
+          "ttsText": "No, your name is already on the new list. Just bring the same membership card.",
+          "ttsOverrides": [],
+          "gapAfterMs": 1300
+        },
+        {
+          "role": "question",
+          "speaker": "narrator",
+          "voice": "Imogen",
+          "voiceId": "imogen_32",
+          "language": "en-GB",
+          "ratePercent": -10,
+          "displayText": "Question. What is true about the yoga class?",
+          "ttsText": "Question. What is true about the yoga class?",
+          "ttsOverrides": [],
+          "gapAfterMs": 0
+        }
+      ],
+      "wav": "audio-generation\\grade2-round1-part1-simba-trial-20260717\\audio\\No02-r1.wav",
+      "mp3": "audio-generation\\grade2-round1-part1-simba-trial-20260717\\audio\\No02-r1.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "26.671667"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "26.672086"
+      }
+    },
+    {
+      "item": "No03",
+      "number": 3,
+      "segments": [
+        {
+          "role": "number",
+          "speaker": "narrator",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "language": "en-US",
+          "ratePercent": -13,
+          "displayText": "Number 3.",
+          "ttsText": "Number three.",
+          "ttsOverrides": [
+            {
+              "from": "3",
+              "to": "three"
+            }
+          ],
+          "gapAfterMs": 1350
+        },
+        {
+          "role": "turn1",
+          "speaker": "A",
+          "voice": "Imogen",
+          "voiceId": "imogen_32",
+          "language": "en-GB",
+          "ratePercent": -10,
+          "displayText": "I can't meet you at the café this afternoon. A repair worker is coming to look at our washing machine.",
+          "ttsText": "I can't meet you at the cafe this afternoon. A repair worker is coming to look at our washing machine.",
+          "ttsOverrides": [
+            {
+              "from": "café",
+              "to": "cafe"
+            }
+          ],
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn2",
+          "speaker": "B",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "language": "en-GB",
+          "ratePercent": -13,
+          "displayText": "Didn't your brother say he would stay home for that?",
+          "ttsText": "Didn't your brother say he would stay home for that?",
+          "ttsOverrides": [],
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn3",
+          "speaker": "A",
+          "voice": "Imogen",
+          "voiceId": "imogen_32",
+          "language": "en-GB",
+          "ratePercent": -10,
+          "displayText": "He was supposed to, but his manager asked him to work an extra shift. The worker may arrive anytime between two and five.",
+          "ttsText": "He was supposed to, but his manager asked him to work an extra shift. The worker may arrive anytime between two and five.",
+          "ttsOverrides": [],
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn4",
+          "speaker": "B",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "language": "en-GB",
+          "ratePercent": -13,
+          "displayText": "No problem. We can meet tomorrow after my class instead.",
+          "ttsText": "No problem. We can meet tomorrow after my class instead.",
+          "ttsOverrides": [],
+          "gapAfterMs": 1300
+        },
+        {
+          "role": "question",
+          "speaker": "narrator",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "language": "en-US",
+          "ratePercent": -13,
+          "displayText": "Question. Why will the woman stay home this afternoon?",
+          "ttsText": "Question. Why will the woman stay home this afternoon?",
+          "ttsOverrides": [],
+          "gapAfterMs": 0
+        }
+      ],
+      "wav": "audio-generation\\grade2-round1-part1-simba-trial-20260717\\audio\\No03-r1.wav",
+      "mp3": "audio-generation\\grade2-round1-part1-simba-trial-20260717\\audio\\No03-r1.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "27.876333"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "27.876349"
+      }
+    }
+  ]
+}

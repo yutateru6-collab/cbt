@@ -1,0 +1,60 @@
+{
+  "validatedAt": "2026-07-19T22:14:41.0736704+09:00",
+  "service": "Cloudflare Pages",
+  "project": "scbt-tts-compare",
+  "environment": "Production",
+  "branch": "main",
+  "deploymentUrl": "https://3417c301.scbt-tts-compare.pages.dev/",
+  "fixedUrl": "https://scbt-tts-compare.pages.dev/?v=20260719-sample-part1-final15",
+  "sourceDirectory": "audio-generation/cloudflare-publish/grade2-sample-part1-simba-final-fifteen-20260719",
+  "index": {
+    "fixedUrlStatus": 200,
+    "deploymentUrlStatus": 200,
+    "contentType": "text/html; charset=utf-8",
+    "remoteSha256MatchesLocal": true,
+    "title": "英検2級 サンプル問題 Part 1｜Simba 3.2",
+    "audioPlayerCount": 15,
+    "questionCardCount": 15,
+    "defaultPlaybackRate": 1.0,
+    "mobileViewportPresent": true,
+    "mobileMediaQueryPresent": true
+  },
+  "remoteAudioContract": {
+    "fileCount": 15,
+    "allStatus200": true,
+    "allContentTypeAudioWav": true,
+    "allRemoteSha256MatchLocal": true,
+    "allRangeStatus206": true,
+    "allAcceptRangesBytes": true,
+    "allContentRangesCorrect": true,
+    "allRangeHeadersMatchLocalWav": true,
+    "allRangeFirst1024BytesMatchLocal": true,
+    "allRangeResponsesStartWithRiff": true,
+    "invalidRangeStatus": 416,
+    "iphoneUserAgentUsed": true
+  },
+  "audioProcessing": {
+    "speechAudioReencoded": false,
+    "speechPcmChanged": false,
+    "lossyCompression": false,
+    "resampling": false,
+    "postSynthesisSpeedChange": false
+  },
+  "files": [
+    {"name": "part1-01-simba-3-2-final.wav", "bytes": 2767948, "localAndRemoteSha256": "ed0071e17cb59e210a0eb50e1931e234a6744349c70b0d417e03cbbe0b6ef389"},
+    {"name": "part1-02-simba-3-2-final.wav", "bytes": 3173876, "localAndRemoteSha256": "7e01e6c64704323764131e8d5d631efd6cf32a261f9e9b3a52a92c60371eab4e"},
+    {"name": "part1-03-simba-3-2-final.wav", "bytes": 2809240, "localAndRemoteSha256": "54f5fec68558bb23953d1d23cdab8730753fdb21a794322e4c769a0649e594ca"},
+    {"name": "part1-04-simba-3-2-final.wav", "bytes": 2777824, "localAndRemoteSha256": "2baf9e9be7899cb9383e2b991d93cdde80846454f5957851e43a72c994ab5715"},
+    {"name": "part1-05-simba-3-2-final.wav", "bytes": 3184416, "localAndRemoteSha256": "3803476c4e92fe57ba5efb70f9ee7969cc46fd873cbfe28324ab1b275ca45976"},
+    {"name": "part1-06-simba-3-2-final.wav", "bytes": 3014360, "localAndRemoteSha256": "59af130cb9f942558004c9feacd7f65ae8f6b2b74de01adbdd4485465bd1d127"},
+    {"name": "part1-07-simba-3-2-final.wav", "bytes": 2884128, "localAndRemoteSha256": "b6ab3863af95c72a5b96bd07ccfadacfaea6afee9cc4995f6ca6d235eadab07a"},
+    {"name": "part1-08-simba-3-2-final.wav", "bytes": 2729052, "localAndRemoteSha256": "d0a7ffad2eb039f98c544dc1b16b47da1af1cb7424e38cc54ed9853235e2f5e6"},
+    {"name": "part1-09-simba-3-2-final.wav", "bytes": 2724904, "localAndRemoteSha256": "2c0d697ddc260c089ebe9d47f57486a88f02d8d5c1a779521d7f445aeaab9748"},
+    {"name": "part1-10-simba-3-2-final.wav", "bytes": 2905024, "localAndRemoteSha256": "598d09ebffecca6db183aca616412b2a3dfa7b16a648afcefe0a2644f22a9c41"},
+    {"name": "part1-11-simba-3-2-final.wav", "bytes": 2989720, "localAndRemoteSha256": "de4d20e34e00dc7822d32eac08314ddbc4401b7f4298157f7d292510bac42410"},
+    {"name": "part1-12-simba-3-2-final.wav", "bytes": 2978276, "localAndRemoteSha256": "b2cea30d18634b64fa19e6db60697c05b119fb5eaa3ef2a9355a892ab9b71e07"},
+    {"name": "part1-13-simba-3-2-final.wav", "bytes": 2969020, "localAndRemoteSha256": "4557bc76592ef3c5f9a999920ad130198880f85edf6cb4afd4cc93510e0b5aa0"},
+    {"name": "part1-14-simba-3-2-final.wav", "bytes": 2764232, "localAndRemoteSha256": "d66335685a25a802ae808fd3aaa8382146ec486bbd04c542cf30047e11db9da5"},
+    {"name": "part1-15-simba-3-2-final.wav", "bytes": 2836172, "localAndRemoteSha256": "f876bd005588c000dedd63a06bd96da37b98201a6b38ed2e1f613a3d297d7081"}
+  ]
+}

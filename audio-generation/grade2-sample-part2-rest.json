@@ -8,26 +8,38 @@
   "voices": {
     "N": "en-CA-ClaraNeural"
   },
+  "rates": {
+    "N": "-8%"
+  },
   "voicePairPlan": [
     {
       "start": 16,
       "end": 20,
       "voices": {
         "N": "en-CA-ClaraNeural"
+      },
+      "rates": {
+        "N": "-8%"
       }
     },
     {
       "start": 21,
       "end": 25,
       "voices": {
-        "N": "en-US-ChristopherNeural"
+        "N": "en-GB-RyanNeural"
+      },
+      "rates": {
+        "N": "-10%"
       }
     },
     {
       "start": 26,
       "end": 30,
       "voices": {
-        "N": "en-GB-SoniaNeural"
+        "N": "en-US-MichelleNeural"
+      },
+      "rates": {
+        "N": "-10%"
       }
     }
   ],
@@ -39,7 +51,7 @@
       "segments": [
         {
           "speaker": "N",
-          "text": "No. 17.",
+          "text": "Number 17.",
           "gapAfterMs": 450
         },
         {
@@ -60,7 +72,7 @@
       "segments": [
         {
           "speaker": "N",
-          "text": "No. 18.",
+          "text": "Number 18.",
           "gapAfterMs": 450
         },
         {
@@ -81,7 +93,7 @@
       "segments": [
         {
           "speaker": "N",
-          "text": "No. 19.",
+          "text": "Number 19.",
           "gapAfterMs": 450
         },
         {
@@ -102,7 +114,7 @@
       "segments": [
         {
           "speaker": "N",
-          "text": "No. 20.",
+          "text": "Number 20.",
           "gapAfterMs": 450
         },
         {
@@ -123,7 +135,7 @@
       "segments": [
         {
           "speaker": "N",
-          "text": "No. 21.",
+          "text": "Number 21.",
           "gapAfterMs": 450
         },
         {
@@ -144,7 +156,7 @@
       "segments": [
         {
           "speaker": "N",
-          "text": "No. 22.",
+          "text": "Number 22.",
           "gapAfterMs": 450
         },
         {
@@ -165,7 +177,7 @@
       "segments": [
         {
           "speaker": "N",
-          "text": "No. 23.",
+          "text": "Number 23.",
           "gapAfterMs": 450
         },
         {
@@ -186,7 +198,7 @@
       "segments": [
         {
           "speaker": "N",
-          "text": "No. 24.",
+          "text": "Number 24.",
           "gapAfterMs": 450
         },
         {
@@ -207,7 +219,7 @@
       "segments": [
         {
           "speaker": "N",
-          "text": "No. 25.",
+          "text": "Number 25.",
           "gapAfterMs": 450
         },
         {
@@ -228,7 +240,7 @@
       "segments": [
         {
           "speaker": "N",
-          "text": "No. 26.",
+          "text": "Number 26.",
           "gapAfterMs": 450
         },
         {
@@ -249,7 +261,7 @@
       "segments": [
         {
           "speaker": "N",
-          "text": "No. 27.",
+          "text": "Number 27.",
           "gapAfterMs": 450
         },
         {
@@ -270,7 +282,7 @@
       "segments": [
         {
           "speaker": "N",
-          "text": "No. 28.",
+          "text": "Number 28.",
           "gapAfterMs": 450
         },
         {
@@ -291,7 +303,7 @@
       "segments": [
         {
           "speaker": "N",
-          "text": "No. 29.",
+          "text": "Number 29.",
           "gapAfterMs": 450
         },
         {
@@ -312,7 +324,7 @@
       "segments": [
         {
           "speaker": "N",
-          "text": "No. 30.",
+          "text": "Number 30.",
           "gapAfterMs": 450
         },
         {

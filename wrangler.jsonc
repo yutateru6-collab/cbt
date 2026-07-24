@@ -1,6 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "cbt",
+  "main": "./cloudflare-worker.js",
   "compatibility_date": "2026-07-12",
   "workers_dev": true,
   "preview_urls": true,
@@ -12,6 +13,7 @@
   },
   "assets": {
     "directory": "./worker-dist",
+    "binding": "ASSETS",
     "not_found_handling": "single-page-application"
   },
   "compatibility_flags": ["nodejs_compat"]

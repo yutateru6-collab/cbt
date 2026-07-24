@@ -1,0 +1,92 @@
+{
+  "model": "gemini-3.1-flash-tts-preview",
+  "sourceManifest": "audio-generation\\grade2-sample-part1-full.json",
+  "numbers": [
+    6,
+    7
+  ],
+  "voices": {
+    "A": {
+      "voice": "Aoede",
+      "role": "adult woman"
+    },
+    "B": {
+      "voice": "Charon",
+      "role": "adult man"
+    },
+    "N": {
+      "voice": "Charon",
+      "role": "adult male narrator"
+    }
+  },
+  "format": {
+    "sampleRate": 24000,
+    "channels": 1,
+    "sampleWidth": 2,
+    "encoding": "PCM signed 16-bit little-endian WAV"
+  },
+  "assembly": {
+    "mode": "whole-item",
+    "requestsPerItem": 1,
+    "trimThreshold": 120,
+    "trimPaddingMs": 40,
+    "speedProcessing": "none",
+    "loudnessProcessing": "none"
+  },
+  "items": [
+    {
+      "id": "No06",
+      "number": 6,
+      "file": "No06.wav",
+      "bytes": 1347376,
+      "sha256": "232f50d64d1aa4cf7374b0ae1da66e4ad180f51ba7963aa95d181241395cada1",
+      "sourceMimeTypes": {
+        "item": "audio/l16; rate=24000; channels=1"
+      },
+      "generationSeconds": 29.752,
+      "assembly": {
+        "mode": "one multi-speaker request",
+        "silenceProcessing": {
+          "compressedRuns": 3,
+          "beforeDurationSeconds": 29.16,
+          "afterDurationSeconds": 28.069,
+          "minimumSilenceMs": 800,
+          "internalKeepMs": 550,
+          "boundaryKeepMs": 50
+        }
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 673666,
+      "durationSeconds": 28.069
+    },
+    {
+      "id": "No07",
+      "number": 7,
+      "file": "No07.wav",
+      "bytes": 1285892,
+      "sha256": "871c5da4f984c5cc2cf1ead2ff3cedf0f10d81301cb0ad2fafa166d3312f155c",
+      "sourceMimeTypes": {
+        "item": "audio/l16; rate=24000; channels=1"
+      },
+      "generationSeconds": 13.552,
+      "assembly": {
+        "mode": "one multi-speaker request",
+        "silenceProcessing": {
+          "compressedRuns": 2,
+          "beforeDurationSeconds": 27.48,
+          "afterDurationSeconds": 26.788,
+          "minimumSilenceMs": 800,
+          "internalKeepMs": 550,
+          "boundaryKeepMs": 50
+        }
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 642924,
+      "durationSeconds": 26.788
+    }
+  ]
+}

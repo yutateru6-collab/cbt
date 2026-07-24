@@ -1,0 +1,51 @@
+{
+  "mode": "completed",
+  "item": "No17",
+  "model": "gpt-4o-mini-tts",
+  "voices": {
+    "A": "coral",
+    "B": "fable",
+    "N": "fable"
+  },
+  "speed": 1.0,
+  "responseFormat": "wav",
+  "sourceSegments": 3,
+  "synthesisSegments": 2,
+  "maxApiCalls": 2,
+  "maxRetriesPerSegment": 0,
+  "estimatedCostCapUsd": 0.05,
+  "instructionsProfile": "part2-normal",
+  "accent": "British English",
+  "instructions": "Voice: A clear, calm adult narrator using British English, suitable for a Japanese Eiken Grade 2 listening examination. Sound like a real official test narrator, not a storyteller, actor, documentary presenter, or artificial announcement.\n\nDelivery: Speak only slightly slower than ordinary conversational English, approximately five percent slower, while preserving natural rhythm and fluent intonation. Maintain an even pace through the final sentence without sounding stretched, sleepy, robotic, or excessively slow.\n\nPronunciation: Use clear and accurate pronunciation appropriate to British English. Keep connected speech natural and do not over-pronounce every word.\n\nPunctuation and pauses: Follow punctuation carefully. Use natural sentence pauses and leave a clear pause before the final question. Do not insert unnecessary pauses inside a sentence.\n\nExam style: Maintain the neutral, objective, and informative delivery of an official Eiken Grade 2 listening recording. Do not dramatize the passage or emphasize details that reveal the answer.\n\nAccuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain any words.\n\nAudio quality: Produce an ultra-clean, high-resolution studio-quality voice recording with crisp intelligibility and a full, natural vocal tone. Avoid background noise, hiss, reverb, distortion, clipping, metallic texture, muffled sound, breathiness, and compression artifacts.",
+  "estimate": {
+    "characters": 418,
+    "words": 73,
+    "estimatedDurationSeconds": 34.34,
+    "estimatedCostUsd": 0.0172,
+    "costBasis": "conservative duration estimate"
+  },
+  "output": "audio-generation\\openai-tts-trials\\grade2-four-question-sample-slight-slow\\part2\\No17.wav",
+  "segments": [
+    {
+      "speaker": "N",
+      "voice": "fable",
+      "text": "Number 17... The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday. Those rooms will be unavailable from 9 a.m. until 3 p.m., but the swimming pool will remain open as usual. Visitors should use the smaller changing area beside Court Two. Please bring your own lock, since the temporary lockers do not have built-in keys.",
+      "gapAfterMs": 650
+    },
+    {
+      "speaker": "N",
+      "voice": "fable",
+      "text": "Question. What should visitors bring to the sports center?",
+      "gapAfterMs": 0
+    }
+  ],
+  "apiCalls": 2,
+  "cachedSegments": 0,
+  "outputBytes": 1449678,
+  "outputMetadata": {
+    "codec_name": "pcm_s16le",
+    "sample_rate": "24000",
+    "channels": 1,
+    "duration": "30.200000"
+  }
+}

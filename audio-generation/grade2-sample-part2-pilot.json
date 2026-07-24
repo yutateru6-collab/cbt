@@ -8,26 +8,38 @@
   "voices": {
     "N": "en-CA-ClaraNeural"
   },
+  "rates": {
+    "N": "-8%"
+  },
   "voicePairPlan": [
     {
       "start": 16,
       "end": 20,
       "voices": {
         "N": "en-CA-ClaraNeural"
+      },
+      "rates": {
+        "N": "-8%"
       }
     },
     {
       "start": 21,
       "end": 25,
       "voices": {
-        "N": "en-US-ChristopherNeural"
+        "N": "en-GB-RyanNeural"
+      },
+      "rates": {
+        "N": "-10%"
       }
     },
     {
       "start": 26,
       "end": 30,
       "voices": {
-        "N": "en-GB-SoniaNeural"
+        "N": "en-US-MichelleNeural"
+      },
+      "rates": {
+        "N": "-10%"
       }
     }
   ],
@@ -39,7 +51,7 @@
       "segments": [
         {
           "speaker": "N",
-          "text": "No. 16.",
+          "text": "Number 16.",
           "gapAfterMs": 450
         },
         {

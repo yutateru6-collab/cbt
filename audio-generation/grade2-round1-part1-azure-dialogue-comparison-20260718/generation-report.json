@@ -1,0 +1,154 @@
+{
+  "mode": "completed",
+  "provider": "azure-speech",
+  "region": "eastus",
+  "endpointHost": "eastus.tts.speech.microsoft.com",
+  "outputFormat": "audio-24khz-160kbitrate-mono-mp3",
+  "timingMs": {
+    "numberToBody": 1350,
+    "turnGap": 550,
+    "bodyToQuestion": 1300,
+    "questionLabelToText": 350
+  },
+  "items": [
+    {
+      "id": "No01",
+      "number": 1,
+      "parts": [
+        {
+          "role": "number",
+          "speaker": "narrator",
+          "text": "Number one.",
+          "gapAfterMs": 1350
+        },
+        {
+          "role": "turn1",
+          "speaker": "B",
+          "text": "The recording for our school radio show still isn't in the shared folder.",
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn2",
+          "speaker": "A",
+          "text": "I finished editing it, but the file is too large to send by email. Could you upload it from the media room?",
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn3",
+          "speaker": "B",
+          "text": "Sure, but I need the final title before lunch because the teacher checks everything at one.",
+          "gapAfterMs": 550
+        },
+        {
+          "role": "turn4",
+          "speaker": "A",
+          "text": "I'll message you the title now. The interview section doesn't need any more changes.",
+          "gapAfterMs": 1300
+        },
+        {
+          "role": "questionLabel",
+          "speaker": "narrator",
+          "text": "Question.",
+          "gapAfterMs": 350
+        },
+        {
+          "role": "questionText",
+          "speaker": "narrator",
+          "text": "What does the girl ask the boy to do?",
+          "gapAfterMs": 0
+        }
+      ],
+      "outputs": [
+        {
+          "key": "baseline-current-method",
+          "label": "既存方式（役割別生成→結合）",
+          "description": "現在のPart 1確認用音源。番号・各発話・Questionを役割別に生成して結合した比較基準。",
+          "ok": true,
+          "source": "audio-generation\\grade2-round1-simba-production-20260717\\part1\\audio\\No01.mp3",
+          "mp3": "audio/No01-baseline-current-method.mp3",
+          "probe": {
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "codec_name": "mp3",
+                "sample_rate": "44100",
+                "channels": 1
+              }
+            ],
+            "format": {
+              "duration": "30.934512",
+              "bit_rate": "128312"
+            }
+          }
+        },
+        {
+          "key": "azure-multi-voice-hd",
+          "label": "Azure 複数voice SSML",
+          "description": "1つのSSML内でA/B/ナレーターのvoice要素を切り替える方式。",
+          "ssml": "ssml\\No01-azure-multi-voice-hd.ssml",
+          "ok": true,
+          "httpStatus": 200,
+          "contentType": "audio/mpeg",
+          "requestId": null,
+          "bytes": 490560,
+          "elapsedSeconds": 3.572,
+          "normalization": {
+            "normalized": true,
+            "targetLufs": -20
+          },
+          "mp3": "audio/No01-azure-multi-voice-hd.mp3",
+          "rawMp3": "_raw/No01-azure-multi-voice-hd.mp3",
+          "probe": {
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "codec_name": "mp3",
+                "sample_rate": "44100",
+                "channels": 1
+              }
+            ],
+            "format": {
+              "duration": "24.528005",
+              "bit_rate": "128291"
+            }
+          }
+        },
+        {
+          "key": "azure-multitalker-ava-andrew",
+          "label": "Azure MultiTalker Ava/Andrew",
+          "description": "Microsoft公式の会話用MultiTalker voiceを1つのSSMLで使う方式。",
+          "ssml": "ssml\\No01-azure-multitalker-ava-andrew.ssml",
+          "ok": true,
+          "httpStatus": 200,
+          "contentType": "audio/mpeg",
+          "requestId": null,
+          "bytes": 514080,
+          "elapsedSeconds": 8.063,
+          "normalization": {
+            "normalized": true,
+            "targetLufs": -20
+          },
+          "mp3": "audio/No01-azure-multitalker-ava-andrew.mp3",
+          "rawMp3": "_raw/No01-azure-multitalker-ava-andrew.mp3",
+          "probe": {
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "codec_name": "mp3",
+                "sample_rate": "44100",
+                "channels": 1
+              }
+            ],
+            "format": {
+              "duration": "25.704014",
+              "bit_rate": "128275"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

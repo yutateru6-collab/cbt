@@ -1,0 +1,84 @@
+{
+  "language": "en-US",
+  "englishOnly": true,
+  "voices": {
+    "B": "en-GB-RyanNeural"
+  },
+  "rates": {
+    "A": "+0%",
+    "B": "+0%"
+  },
+  "gapMs": 180,
+  "items": [
+    {
+      "id": "EmmaRyanNo03",
+      "number": 3,
+      "voices": {
+        "A": "en-US-EmmaMultilingualNeural",
+        "B": "en-GB-RyanNeural"
+      },
+      "segments": [
+        {
+          "speaker": "B",
+          "text": "Number 3... I'm starting dinner now. We have an unexpected guest tonight.",
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "text": "Really? I thought we were going to eat at the new Thai restaurant.",
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "text": "Dad is bringing Grandma over, and she doesn't like spicy food. Could you set the table?",
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "text": "Sure. I'll make a salad too. The soup and chicken should be enough for the main dishes.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "B",
+          "text": "Question. Why is the man preparing dinner at home?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "AvaRyanNo03",
+      "number": 3,
+      "voices": {
+        "A": "en-US-AvaMultilingualNeural",
+        "B": "en-GB-RyanNeural"
+      },
+      "segments": [
+        {
+          "speaker": "B",
+          "text": "Number 3... I'm starting dinner now. We have an unexpected guest tonight.",
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "text": "Really? I thought we were going to eat at the new Thai restaurant.",
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "text": "Dad is bringing Grandma over, and she doesn't like spicy food. Could you set the table?",
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "text": "Sure. I'll make a salad too. The soup and chicken should be enough for the main dishes.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "B",
+          "text": "Question. Why is the man preparing dinner at home?",
+          "gapAfterMs": 0
+        }
+      ]
+    }
+  ]
+}

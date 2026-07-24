@@ -1,0 +1,67 @@
+{
+  "model": "gemini-3.1-flash-tts-preview",
+  "billingMode": "Batch API",
+  "batchJob": {
+    "submittedAt": "2026-07-23T07:59:55.699853+00:00",
+    "name": "batches/d8mngs8ahv65e2i8v8dqc2t42tqhz2qgrbih",
+    "displayName": "grade2-round1-to-3-part2-gemini31-20260723-retry-02",
+    "model": "models/gemini-3.1-flash-tts-preview",
+    "state": "JOB_STATE_SUCCEEDED",
+    "requestCount": 1,
+    "checkedAt": "2026-07-23T08:02:48.332002+00:00",
+    "error": null
+  },
+  "requestCount": 1,
+  "paceInstructions": [
+    "Maintain a steady pace.",
+    "Do not rush, accelerate, over-enunciate, or stretch individual words."
+  ],
+  "format": {
+    "sampleRate": 24000,
+    "channels": 1,
+    "sampleWidth": 2,
+    "encoding": "PCM signed 16-bit little-endian WAV"
+  },
+  "postProcessing": {
+    "speed": "none",
+    "loudness": "none",
+    "silence": "leading and trailing boundary trim only"
+  },
+  "usageTotals": {
+    "promptTokens": 266,
+    "outputAudioTokens": 941,
+    "totalTokens": 1207
+  },
+  "estimatedBatchCostUsd": {
+    "input": 0.000133,
+    "outputAudio": 0.00941,
+    "total": 0.009543
+  },
+  "items": [
+    {
+      "id": "set-02-No29",
+      "number": 29,
+      "voices": {
+        "N": "Achird"
+      },
+      "file": "set-02-No29.wav",
+      "bytes": 1383190,
+      "sha256": "1fbf56585c42412d04b4f120ee35915e3dddabb7b2b71d5160db4260e37e0c63",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 239.5,
+        "trailingTrimMs": 344.958
+      },
+      "usage": {
+        "promptTokens": 266,
+        "outputAudioTokens": 941,
+        "totalTokens": 1207
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 691573,
+      "durationSeconds": 28.816
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+[
+  {
+    "id": "No03",
+    "number": 3,
+    "path": "audio-generation\\edge-tts-trials\\michelle-ryan-natural-master-speed-test\\part1\\No03.wav",
+    "bytes": 1493742,
+    "duration": "31.118000",
+    "bitRate": "384000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "+0%",
+      "B": "+0%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "48k",
+    "concatMode": "copy",
+    "outputFormat": "wav",
+    "forceRate": "+0%",
+    "pcmPipeline": true,
+    "postTempo": null
+  },
+  {
+    "id": "No04",
+    "number": 4,
+    "path": "audio-generation\\edge-tts-trials\\michelle-ryan-natural-master-speed-test\\part1\\No04.wav",
+    "bytes": 1462638,
+    "duration": "30.470000",
+    "bitRate": "384000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "+0%",
+      "B": "+0%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "48k",
+    "concatMode": "copy",
+    "outputFormat": "wav",
+    "forceRate": "+0%",
+    "pcmPipeline": true,
+    "postTempo": null
+  }
+]

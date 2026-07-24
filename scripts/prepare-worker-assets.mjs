@@ -10,12 +10,12 @@ const rootFiles = [
   "exam.html",
   "styles.css",
   "lp.css",
+  "app-config-grade2.js",
   "app.js",
   "exam-data.js",
   "grade2-set-01.js",
   "grade2-vocab-sets.js",
   "grade2-listening-part2-sets.js",
-  "pre1-listening-sets.js",
   "manifest.webmanifest",
   "sw.js",
   "README.md"
@@ -23,6 +23,7 @@ const rootFiles = [
 
 const assetFiles = [
   "app-icon.svg",
+  "grade2-speaking-picture-story-02.png",
   "lp-exam-room.png",
   "lp-home-practice.png",
   "lp-juku-classroom.png",

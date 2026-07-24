@@ -1,0 +1,401 @@
+{
+  "mode": "completed",
+  "provider": "Azure Speech",
+  "region": "eastus",
+  "part": "Part 1",
+  "numbers": [
+    1,
+    2,
+    3
+  ],
+  "trackCount": 3,
+  "apiRequestCount": 3,
+  "outputFormat": "riff-48khz-16bit-mono-pcm",
+  "sourceDeliveryContract": {
+    "azureDirectWav": true,
+    "sampleRateHz": 48000,
+    "bitsPerSample": 16,
+    "channels": 1,
+    "codec": "PCM",
+    "postSynthesisConversion": false,
+    "lossyEncodingApplied": false,
+    "remasterApplied": false
+  },
+  "timingMs": {
+    "numberToBody": 1350,
+    "turnGap": 550,
+    "bodyToQuestion": 1300,
+    "questionToText": 350
+  },
+  "naturalLanguagePrompt": "Speak slowly, clearly, and carefully for an English listening examination. Use precise pronunciation and an unhurried but natural pace. Keep the conversation responsive and human, with a brief natural pause after each turn. Do not separate individual words, sound robotic, or overemphasize information that could reveal the answer.",
+  "items": [
+    {
+      "id": "No01",
+      "number": 1,
+      "voices": {
+        "A": "en-us-ava:DragonHDOmniLatestNeural",
+        "B": "en-US-Andrew:DragonHDOmniLatestNeural",
+        "narrator": "en-us-emma:DragonHDOmniLatestNeural"
+      },
+      "questionText": "What does the girl ask the boy to do?",
+      "displayScriptHtml": "<p><strong>B</strong> The recording for our school radio show still isn&#x27;t in the shared folder.</p><p><strong>A</strong> I finished editing it, but the file is too large to send by email. Could you upload it from the media room?</p><p><strong>B</strong> Sure, but I need the final title before lunch because the teacher checks everything at one.</p><p><strong>A</strong> I&#x27;ll message you the title now. The interview section doesn&#x27;t need any more changes.</p><p class=\"question\"><strong>Question</strong> What does the girl ask the boy to do?</p>",
+      "ssml": "ssml/part1-No01-dragon-hd-omni-48k-pcm-direct.ssml",
+      "outputFormatRequested": "riff-48khz-16bit-mono-pcm",
+      "oneAzureRequest": true,
+      "sentenceLevelGeneration": false,
+      "postSynthesisConcatenation": false,
+      "postSynthesisConversion": false,
+      "lossyEncodingApplied": false,
+      "remasterApplied": false,
+      "ok": true,
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/x-wav",
+        "requestId": null,
+        "bytes": 3062444,
+        "elapsedSeconds": 5.166
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "httpStatus": 200,
+          "reason": null
+        }
+      ],
+      "wave": {
+        "channels": 1,
+        "sampleWidthBytes": 2,
+        "bitsPerSample": 16,
+        "sampleRateHz": 48000,
+        "frameCount": 1531200,
+        "durationSeconds": 31.9,
+        "compressionType": "NONE"
+      },
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "31.900000",
+          "bit_rate": "768011"
+        }
+      },
+      "loudness": {
+        "available": true,
+        "integratedLufs": -19.5,
+        "truePeakDbtp": 0.1
+      },
+      "silenceIntervals": [
+        {
+          "start": 0.0,
+          "end": 0.253,
+          "duration": 0.253
+        },
+        {
+          "start": 0.865,
+          "end": 2.878,
+          "duration": 2.013
+        },
+        {
+          "start": 6.695,
+          "end": 7.477,
+          "duration": 0.782
+        },
+        {
+          "start": 8.598,
+          "end": 9.077,
+          "duration": 0.479
+        },
+        {
+          "start": 12.057,
+          "end": 12.822,
+          "duration": 0.765
+        },
+        {
+          "start": 14.899,
+          "end": 15.808,
+          "duration": 0.909
+        },
+        {
+          "start": 16.246,
+          "end": 16.548,
+          "duration": 0.302
+        },
+        {
+          "start": 20.734,
+          "end": 21.685,
+          "duration": 0.951
+        },
+        {
+          "start": 23.19,
+          "end": 23.74,
+          "duration": 0.55
+        },
+        {
+          "start": 26.657,
+          "end": 28.333,
+          "duration": 1.676
+        },
+        {
+          "start": 28.992,
+          "end": 29.877,
+          "duration": 0.885
+        }
+      ],
+      "sha256": "9a21cb7b5c826e8ec0cda062d78ca00a0772ef9369331b7f76f05452ead21b46",
+      "publishedSha256": "9a21cb7b5c826e8ec0cda062d78ca00a0772ef9369331b7f76f05452ead21b46",
+      "directWav": "audio/part1-No01-dragon-hd-omni-48k-pcm-direct.wav",
+      "publishedWav": "audio/part1-No01-dragon-hd-omni-48k-pcm-direct.wav"
+    },
+    {
+      "id": "No02",
+      "number": 2,
+      "voices": {
+        "A": "en-us-ava:DragonHDOmniLatestNeural",
+        "B": "en-US-Andrew:DragonHDOmniLatestNeural",
+        "narrator": "en-us-emma:DragonHDOmniLatestNeural"
+      },
+      "questionText": "What is true about the yoga class?",
+      "displayScriptHtml": "<p><strong>A</strong> I signed up for the beginner yoga class that meets on Wednesday evenings.</p><p><strong>B</strong> That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven.</p><p><strong>A</strong> Thursday works for me. Do I need to register again at the front desk?</p><p><strong>B</strong> No, your name is already on the new list. Just bring the same membership card.</p><p class=\"question\"><strong>Question</strong> What is true about the yoga class?</p>",
+      "ssml": "ssml/part1-No02-dragon-hd-omni-48k-pcm-direct.ssml",
+      "outputFormatRequested": "riff-48khz-16bit-mono-pcm",
+      "oneAzureRequest": true,
+      "sentenceLevelGeneration": false,
+      "postSynthesisConcatenation": false,
+      "postSynthesisConversion": false,
+      "lossyEncodingApplied": false,
+      "remasterApplied": false,
+      "ok": true,
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/x-wav",
+        "requestId": null,
+        "bytes": 3043244,
+        "elapsedSeconds": 4.73
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "httpStatus": 200,
+          "reason": null
+        }
+      ],
+      "wave": {
+        "channels": 1,
+        "sampleWidthBytes": 2,
+        "bitsPerSample": 16,
+        "sampleRateHz": 48000,
+        "frameCount": 1521600,
+        "durationSeconds": 31.7,
+        "compressionType": "NONE"
+      },
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "31.700000",
+          "bit_rate": "768011"
+        }
+      },
+      "loudness": {
+        "available": true,
+        "integratedLufs": -19.8,
+        "truePeakDbtp": 0.1
+      },
+      "silenceIntervals": [
+        {
+          "start": 0.0,
+          "end": 0.275,
+          "duration": 0.275
+        },
+        {
+          "start": 0.95,
+          "end": 2.803,
+          "duration": 1.853
+        },
+        {
+          "start": 6.888,
+          "end": 7.814,
+          "duration": 0.925
+        },
+        {
+          "start": 9.574,
+          "end": 9.983,
+          "duration": 0.409
+        },
+        {
+          "start": 12.76,
+          "end": 13.383,
+          "duration": 0.623
+        },
+        {
+          "start": 15.107,
+          "end": 16.077,
+          "duration": 0.971
+        },
+        {
+          "start": 17.245,
+          "end": 17.598,
+          "duration": 0.353
+        },
+        {
+          "start": 20.081,
+          "end": 21.03,
+          "duration": 0.949
+        },
+        {
+          "start": 23.463,
+          "end": 23.811,
+          "duration": 0.348
+        },
+        {
+          "start": 25.833,
+          "end": 27.713,
+          "duration": 1.88
+        },
+        {
+          "start": 28.336,
+          "end": 29.808,
+          "duration": 1.472
+        }
+      ],
+      "sha256": "fbab0fafb044fe9dbc0c7c23becebf0fe6ac76b9ea4eb81c2616aaea59d1f67e",
+      "publishedSha256": "fbab0fafb044fe9dbc0c7c23becebf0fe6ac76b9ea4eb81c2616aaea59d1f67e",
+      "directWav": "audio/part1-No02-dragon-hd-omni-48k-pcm-direct.wav",
+      "publishedWav": "audio/part1-No02-dragon-hd-omni-48k-pcm-direct.wav"
+    },
+    {
+      "id": "No03",
+      "number": 3,
+      "voices": {
+        "A": "en-us-ava:DragonHDOmniLatestNeural",
+        "B": "en-US-Andrew:DragonHDOmniLatestNeural",
+        "narrator": "en-us-emma:DragonHDOmniLatestNeural"
+      },
+      "questionText": "Why will the woman stay home this afternoon?",
+      "displayScriptHtml": "<p><strong>A</strong> I can&#x27;t meet you at the café this afternoon. A repair worker is coming to look at our washing machine.</p><p><strong>B</strong> Didn&#x27;t your brother say he would stay home for that?</p><p><strong>A</strong> He was supposed to, but his manager asked him to work an extra shift. The worker may arrive anytime between two and five.</p><p><strong>B</strong> No problem. We can meet tomorrow after my class instead.</p><p class=\"question\"><strong>Question</strong> Why will the woman stay home this afternoon?</p>",
+      "ssml": "ssml/part1-No03-dragon-hd-omni-48k-pcm-direct.ssml",
+      "outputFormatRequested": "riff-48khz-16bit-mono-pcm",
+      "oneAzureRequest": true,
+      "sentenceLevelGeneration": false,
+      "postSynthesisConcatenation": false,
+      "postSynthesisConversion": false,
+      "lossyEncodingApplied": false,
+      "remasterApplied": false,
+      "ok": true,
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/x-wav",
+        "requestId": null,
+        "bytes": 2899244,
+        "elapsedSeconds": 4.634
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "httpStatus": 200,
+          "reason": null
+        }
+      ],
+      "wave": {
+        "channels": 1,
+        "sampleWidthBytes": 2,
+        "bitsPerSample": 16,
+        "sampleRateHz": 48000,
+        "frameCount": 1449600,
+        "durationSeconds": 30.2,
+        "compressionType": "NONE"
+      },
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "30.200000",
+          "bit_rate": "768011"
+        }
+      },
+      "loudness": {
+        "available": true,
+        "integratedLufs": -19.4,
+        "truePeakDbtp": 0.0
+      },
+      "silenceIntervals": [
+        {
+          "start": 0.901,
+          "end": 2.662,
+          "duration": 1.761
+        },
+        {
+          "start": 5.209,
+          "end": 5.69,
+          "duration": 0.48
+        },
+        {
+          "start": 8.69,
+          "end": 9.619,
+          "duration": 0.929
+        },
+        {
+          "start": 11.875,
+          "end": 12.869,
+          "duration": 0.993
+        },
+        {
+          "start": 16.788,
+          "end": 17.167,
+          "duration": 0.38
+        },
+        {
+          "start": 20.234,
+          "end": 21.019,
+          "duration": 0.785
+        },
+        {
+          "start": 21.728,
+          "end": 22.175,
+          "duration": 0.447
+        },
+        {
+          "start": 24.6,
+          "end": 26.263,
+          "duration": 1.663
+        },
+        {
+          "start": 26.814,
+          "end": 28.054,
+          "duration": 1.24
+        }
+      ],
+      "sha256": "b2e80d1384d02ad461290c2b5e636332083637e711ec513c59ce85d6a28b4b48",
+      "publishedSha256": "b2e80d1384d02ad461290c2b5e636332083637e711ec513c59ce85d6a28b4b48",
+      "directWav": "audio/part1-No03-dragon-hd-omni-48k-pcm-direct.wav",
+      "publishedWav": "audio/part1-No03-dragon-hd-omni-48k-pcm-direct.wav"
+    }
+  ]
+}

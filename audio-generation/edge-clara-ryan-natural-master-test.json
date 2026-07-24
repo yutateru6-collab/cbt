@@ -1,0 +1,75 @@
+{
+  "voices": {
+    "A": "en-CA-ClaraNeural",
+    "B": "en-GB-RyanNeural"
+  },
+  "rates": {
+    "A": "+0%",
+    "B": "+0%"
+  },
+  "gapMs": 180,
+  "items": [
+    {
+      "id": "No03",
+      "number": 3,
+      "segments": [
+        {
+          "speaker": "B",
+          "text": "Number 3... I'm starting dinner now. We have an unexpected guest tonight.",
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "text": "Really? I thought we were going to eat at the new Thai restaurant.",
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "text": "Dad is bringing Grandma over, and she doesn't like spicy food. Could you set the table?",
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "text": "Sure. I'll make a salad too. The soup and chicken should be enough for the main dishes.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "B",
+          "text": "Question. Why is the man preparing dinner at home?",
+          "gapAfterMs": 0
+        }
+      ]
+    },
+    {
+      "id": "No04",
+      "number": 4,
+      "segments": [
+        {
+          "speaker": "B",
+          "text": "Number 4... The monthly sales report is due tomorrow, and I'm still checking the figures from our Osaka office.",
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "text": "I finished my section early. I can review those figures after lunch if that would help.",
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "B",
+          "text": "That would be great. I'll send you the spreadsheet and mark the numbers that look unusual.",
+          "gapAfterMs": 180
+        },
+        {
+          "speaker": "A",
+          "text": "Perfect. I have a meeting at two, so I'll look at it before then.",
+          "gapAfterMs": 650
+        },
+        {
+          "speaker": "B",
+          "text": "Question. What does the woman offer to do?",
+          "gapAfterMs": 0
+        }
+      ]
+    }
+  ]
+}

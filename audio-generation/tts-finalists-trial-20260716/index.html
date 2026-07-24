@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SCBT Part 1 TTSブラインド比較</title>
+  <style>
+    :root { color-scheme: light; font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    *, *::before, *::after { box-sizing:border-box; }
+    html, body { max-width:100%; overflow-x:hidden; }
+    body { margin:0; background:#f4f1ea; color:#17211c; }
+    main { width:calc(100% - 24px); max-width:780px; margin:0 auto; padding:34px 0 56px; }
+    h1 { font-size:clamp(24px,6vw,38px); line-height:1.15; margin:0 0 12px; }
+    .lead { color:#546058; line-height:1.7; margin:0 0 28px; overflow-wrap:anywhere; }
+    .question-block { background:white; border:1px solid #d9ddd8; border-radius:18px; padding:20px; margin:18px 0; box-shadow:0 8px 26px rgba(31,52,41,.07); }
+    h2 { margin:0 0 14px; font-size:20px; }
+    .samples { display:grid; gap:12px; }
+    .sample-card { display:grid; grid-template-columns:88px 1fr; align-items:center; gap:12px; padding:12px; border-radius:13px; background:#f7f8f6; }
+    .badge { font-weight:750; color:#19583a; }
+    audio { display:block; width:100%; max-width:100%; min-width:0; }
+    details { margin-top:26px; background:#17211c; color:white; padding:18px 20px; border-radius:16px; }
+    summary { cursor:pointer; font-weight:750; }
+    li { margin:.65em 0; line-height:1.5; }
+    .meta { margin-top:24px; color:#6b746e; font-size:13px; line-height:1.6; }
+    @media(max-width:560px) {
+      main { width:100%; padding:20px 4px 56px; }
+      .question-block { padding:8px; border-radius:12px; }
+      .sample-card { grid-template-columns:minmax(0,1fr); padding:6px 0; }
+      .badge { padding:0 8px; }
+      audio::-webkit-media-controls-mute-button,
+      audio::-webkit-media-controls-volume-slider { display:none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Part 1 TTSブラインド比較</h1>
+    <p class="lead">先にA・B・Cを聞き、一番自然で聞きやすいものを選んでください。名前は最後に確認できます。</p>
+    
+            <section class="question-block">
+              <h2>No01</h2>
+              <div class="samples">
+                <article class="sample-card">
+                  <span class="badge">比較 A</span>
+                  <audio controls preload="metadata" src="eleven-v2/No01.mp3"></audio>
+                </article>
+                
+                <article class="sample-card">
+                  <span class="badge">比較 B</span>
+                  <audio controls preload="metadata" src="eleven-v3/No01.mp3"></audio>
+                </article>
+                
+                <article class="sample-card">
+                  <span class="badge">比較 C</span>
+                  <audio controls preload="metadata" src="speechify-simba-3-2/No01.mp3"></audio>
+                </article>
+                </div>
+            </section>
+            
+            <section class="question-block">
+              <h2>No02</h2>
+              <div class="samples">
+                <article class="sample-card">
+                  <span class="badge">比較 A</span>
+                  <audio controls preload="metadata" src="eleven-v2/No02.mp3"></audio>
+                </article>
+                
+                <article class="sample-card">
+                  <span class="badge">比較 B</span>
+                  <audio controls preload="metadata" src="eleven-v3/No02.mp3"></audio>
+                </article>
+                
+                <article class="sample-card">
+                  <span class="badge">比較 C</span>
+                  <audio controls preload="metadata" src="speechify-simba-3-2/No02.mp3"></audio>
+                </article>
+                </div>
+            </section>
+            
+    <details>
+      <summary>比較A・B・Cの正体を見る</summary>
+      <ul><li><strong>A</strong>: ElevenLabs Multilingual v2 — Jessica × Eric</li><li><strong>B</strong>: ElevenLabs v3 Natural — Jessica × Eric</li><li><strong>C</strong>: SpeechifyAI Simba 3.2 — Geffen × Dominic</li></ul>
+    </details>
+    <p class="meta">全バージョン共通: 速度1.0、問題番号→本文1150ms、発言間550ms、本文→Question 1100ms、-20 LUFS、MP3 44.1kHz/128kbps。</p>
+  </main>
+</body>
+</html>

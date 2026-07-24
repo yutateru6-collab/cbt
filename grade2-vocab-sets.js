@@ -445,13 +445,13 @@ window.scbtGrade2VocabSets = [
             "type": "long-content",
             "text": "(27) According to the first paragraph, what idea is behind modern cool roofs?",
             "choices": [
-              "They are mainly covers to prevent rain, but some are made from lime.",
+              "They combine pale roof surfaces with older air-conditioning systems.",
               "They continue an older practice of using surfaces that reflect more sunlight to keep indoor spaces cooler.",
-              "They became popular because air conditioners made dark roofs more comfortable in hot regions.",
-              "They use pale materials so that no heat enters buildings during summer afternoons."
+              "They use dark roofs to move heat away from rooms during summer.",
+              "They prevent roof surfaces from becoming warm enough to need repairs."
             ],
             "correct": 2,
-            "explanation": "答え：2\n第1段落では、昔から暑い地域の人々が pale stone, clay, lime などを使って室内を涼しくしていたこと、そして modern cool roofs も同じ考え方に基づいていることが述べられています。つまり、現代の cool roofs は、太陽光を反射しやすい表面によって室内に入る熱を減らすという古い工夫を現代的に利用したものです。\n1は、rain については本文に出ますが、cool roofs の中心目的ではありません。\n3は、air conditioners が普及する前から似た工夫があったため不正解です。\n4は、less heat とあるだけで、no heat enters は言いすぎです。"
+            "explanation": "答え：2\n第1段落では、昔から暑い地域の人々が pale stone, clay, lime などを使って室内を涼しくしていたこと、そして modern cool roofs も同じ考え方に基づいていることが述べられています。つまり、現代の cool roofs は、太陽光を反射しやすい表面によって室内に入る熱を減らすという古い工夫を現代的に利用したものです。\n1は、昔の方法がair-conditioning systemsと組み合わされていたという内容ではありません。\n3は、本文と逆にdark roofsを使うとしています。\n4は、屋根の修理を避けることが中心目的ではありません。"
           },
           {
             "id": 28,
@@ -459,13 +459,13 @@ window.scbtGrade2VocabSets = [
             "type": "long-content",
             "text": "(28) According to the second paragraph, what does the passage suggest about choosing materials for cool roofs?",
             "choices": [
-              "The whitest material is always chosen before workers check how the roof is used.",
-              "Materials are selected only after residents stop using the space above the building.",
+              "Workers choose the brightest material before considering how the roof is used.",
+              "Only residents in nearby buildings decide which color and material will be installed.",
               "Workers consider practical details such as roof shape, sunlight, appearance, and nearby residents.",
-              "Gray, red, or brown sheets are used because they reflect sunlight only in older neighborhoods."
+              "Colored sheets are chosen mainly because they absorb more winter sunlight than white paint."
             ],
             "correct": 3,
-            "explanation": "答え：3\n第2段落では、材料を選ぶ前に roof shape、direction of sunlight、屋上スペースの利用状況などを確認するとあります。また、近くの窓から見下ろす住民にとって白い表面がまぶしく感じられる場合があるため、bright white surface を避けることもあると説明されています。したがって、屋根の形・日光・外観・周囲の人への影響を考えて選ぶ、という3が正解です。\n1は、白い材料を常に選ぶとは書かれていません。\n2は、屋上スペースの利用状況を確認するとはありますが、住民が使うのをやめてから選ぶとは書かれていません。\n4は、gray, red, or brown の素材は古い街並みに合いやすいという説明で、直射日光を受けない場合だけ使うとはありません。"
+            "explanation": "答え：3\n第2段落では、材料を選ぶ前に roof shape、direction of sunlight、屋上スペースの利用状況などを確認するとあります。また、近くの窓から見下ろす住民にとって白い表面がまぶしく感じられる場合があるため、bright white surface を避けることもあると説明されています。したがって、屋根の形・日光・外観・周囲の人への影響を考えて選ぶ、という3が正解です。\n1は、最も明るい材料を先に決めるのではなく、屋根の使われ方などを確認して選びます。\n2は、近隣住民への影響も一条件ですが、住民だけが決めるとは書かれていません。\n4は、色付き素材も日光を反射し、古い街並みに合わせやすいことが理由です。"
           },
           {
             "id": 29,
@@ -474,12 +474,12 @@ window.scbtGrade2VocabSets = [
             "text": "(29) What changed after early problems with cool roofs became clear?",
             "choices": [
               "Planners began comparing different materials for local needs instead of simply selecting the brightest surface.",
-              "Cleaning cool roofs was found to make them lose their ability to reflect sunlight in dusty areas.",
-              "Cool roofs became most useful in colder regions because they reduced winter heating needs.",
-              "Shop owners began choosing very bright roofs because they wanted their buildings to look unusual."
+              "Planners decided that cleaning would make every roof work equally well in any climate.",
+              "Cities limited cool roofs to cold regions where winter heating needs were already high.",
+              "They stopped testing colored surfaces because shop owners preferred unusual-looking buildings."
             ],
             "correct": 1,
-            "explanation": "答え：1\n第3段落では、dusty areas、colder regions、shop owners の不安など、初期の cool roofs には場所によって問題があったことが説明されています。その後、city planners は brightest ones だけを選ぶのではなく、different colors and materials を試すようになりました。つまり、地域の気候・建物の用途・管理方法に合わせて材料を比較するようになったという1が正解です。\n2は、dust によって効果が落ちるのであって、cleaning が効果を落とすわけではありません。\n3は、寒い地域では冬の暖房需要が少し増える可能性があるため、内容が逆です。\n4は、shop owners は明るすぎる屋根で建物が unusual に見えることを心配していたので、不正解です。"
+            "explanation": "答え：1\n第3段落では、dusty areas、colder regions、shop owners の不安など、初期の cool roofs には場所によって問題があったことが説明されています。その後、city planners は brightest ones だけを選ぶのではなく、different colors and materials を試すようになりました。つまり、地域の気候・建物の用途・管理方法に合わせて材料を比較するようになったという1が正解です。\n2は、清掃だけですべての気候に同じように対応できるとは述べていません。\n3は、寒い地域では冬の暖房需要が少し増える可能性があるため逆です。\n4は、色付き素材の試験をやめたのではなく、地域や建物に合う色と素材を試すようになりました。"
           },
           {
             "id": 30,
@@ -487,13 +487,13 @@ window.scbtGrade2VocabSets = [
             "type": "long-content",
             "text": "(30) What is one thing happening with cool roofs today?",
             "choices": [
-              "They are replacing shade, ventilation, and green spaces in many crowded cities.",
-              "Researchers have stopped studying colored paints because ordinary colors cannot reflect infrared rays.",
-              "Cities use roof data only to choose private houses where large trees will be removed.",
+              "They are being installed mainly on roofs that are already covered by large trees.",
+              "Researchers are developing colored paints that absorb infrared rays to warm buildings.",
+              "Cities use nighttime temperature maps to identify places where roof repairs should be avoided.",
               "They are being added to different kinds of buildings, and some cities use temperature maps to decide where they may help."
             ],
             "correct": 4,
-            "explanation": "答え：4\n第4段落では、cool roofs が schools, warehouses, bus stops などで使われていること、また some cities が roof data と air temperature maps を組み合わせて、夜も暑い通りを見つけていることが述べられています。したがって、さまざまな建物に導入され、都市によっては温度地図を使って効果がありそうな場所を考えている、という4が正解です。\n1は、cool roofs should not replace shade, ventilation, or green spaces とあるため不正解です。\n2は、研究者は ordinary colors を保ちながら infrared rays を反射する塗料を研究しているので、内容が違います。\n3は、private houses や trees will be removed とは書かれていません。"
+            "explanation": "答え：4\n第4段落では、cool roofs が schools, warehouses, bus stops などで使われていること、また some cities が roof data と air temperature maps を組み合わせて、夜も暑い通りを見つけていることが述べられています。したがって、さまざまな建物に導入され、都市によっては温度地図を使って効果がありそうな場所を考えている、という4が正解です。\n1は、大きな木を加えにくい場所で利用される例があり、木に覆われた屋根が中心とは書かれていません。\n2は、研究中の塗料はinfrared raysを反射しながら普通の色を保つものです。\n3は、温度地図を使う目的が屋根修理を避けることではありません。"
           },
           {
             "id": 31,
@@ -501,13 +501,13 @@ window.scbtGrade2VocabSets = [
             "type": "long-content",
             "text": "(31) Which of the following statements is true?",
             "choices": [
-              "Cool roofs are useful only when buildings are covered with white paint made from mineral particles.",
+              "Colored cool-roof materials are used mainly because they absorb more sunlight than white paint.",
               "Cool roofs connect an old approach to heat control with modern materials, but they need to be chosen for local conditions.",
-              "Because dusty areas reduce a cool roof’s effect, planners decided to focus mainly on colder regions and shop owners.",
-              "Researchers believe cool roofs can replace green spaces if cities combine roof data with air-temperature maps."
+              "Maintenance matters less than roof color because dust does not change how well a roof works.",
+              "Temperature maps allow cool roofs to take the place of shade and ventilation in selected neighborhoods."
             ],
             "correct": 2,
-            "explanation": "答え：2\n本文全体では、cool roofs は昔からある暑さ対策の考え方を現代の材料や都市計画に応用したものだと説明されています。一方で、どの材料がよいかは、地域の天候、建物の使い方、管理方法などによって変わるとも述べられています。したがって、2が本文全体の内容に合います。\n1は、white paint は方法の一つにすぎず、special sheets or tiles もあるため不正解です。\n3は、dusty areas や colder regions、shop owners の情報は本文に出ますが、それらを理由に planners が colder regions と shop owners を中心にしたとは書かれていません。\n4は、cool roofs should not replace shade, ventilation, or green spaces とあるため不正解です。"
+            "explanation": "答え：2\n本文全体では、cool roofs は昔からある暑さ対策の考え方を現代の材料や都市計画に応用したものだと説明されています。一方で、どの材料がよいかは、地域の天候、建物の使い方、管理方法などによって変わるとも述べられています。したがって、2が本文全体の内容に合います。\n1は、色付き素材も日光を反射でき、白い屋根が街並みに合わない場合などに使われます。\n3は、dustによって効果が下がるためmaintenanceも重要です。\n4は、cool roofs should not replace shade, ventilation, or green spaces とあるため不正解です。"
           }
         ]
       }
@@ -570,15 +570,15 @@ window.scbtGrade2VocabSets = [
             "id": 1,
             "section": "短文語句",
             "type": "vocabulary",
-            "text": "Before the restaurant agreed to change its sign, the owner asked the builder for a written ( ) so she could compare prices with another company.",
+            "text": "The printer damaged the cover of Mina's photo book, so the company offered to send a free ( ). The new copy arrived three days later.",
             "choices": [
-              "receipt",
-              "license",
-              "estimate",
-              "notice"
+              "description",
+              "replacement",
+              "permission",
+              "direction"
             ],
-            "correct": 3,
-            "explanation": "estimate は「見積もり」。看板を変える前に、他社と価格を比べるために書面で求めるものなので、3が正解です。\nreceipt は「領収書」、license は「免許・許可証」、notice は「通知」。"
+            "correct": 2,
+            "explanation": "replacement は「代わりの品」。印刷会社が表紙を傷つけたため、無料で新しい一冊を送ったという流れなので、2が正解です。\ndescription は「説明」、permission は「許可」、direction は「方向・指示」。"
           },
           {
             "id": 2,
@@ -586,12 +586,12 @@ window.scbtGrade2VocabSets = [
             "type": "vocabulary",
             "text": "A: Can we use this speaker outside for the club event?\nB: Yes. It is light and has a battery, so it is quite ( ).",
             "choices": [
-              "portable",
               "durable",
               "powerful",
-              "ordinary"
+              "ordinary",
+              "portable"
             ],
-            "correct": 1,
+            "correct": 4,
             "explanation": "portable は「持ち運びできる」。スピーカーが軽く、バッテリー付きなので、屋外イベントに持って行きやすいという文脈です。\ndurable は「丈夫な」、powerful は「強力な」、ordinary は「普通の」。"
           },
           {
@@ -600,12 +600,12 @@ window.scbtGrade2VocabSets = [
             "type": "vocabulary",
             "text": "A: Did your sister take the dance team leader position this semester?\nB: No. She politely ( ) it because exam practice was taking most of her evenings.",
             "choices": [
+              "declined",
               "accepted",
               "suggested",
-              "considered",
-              "declined"
+              "considered"
             ],
-            "correct": 4,
+            "correct": 1,
             "explanation": "declined は「断った」。リーダーの役職を受けたかどうかに対して、Bが “No” と答えています。さらに、試験勉強で忙しかったという理由があるため、「丁寧に断った」が自然です。\naccepted は「受け入れた」、suggested は「提案した」、considered は「検討した」。"
           },
           {
@@ -615,11 +615,11 @@ window.scbtGrade2VocabSets = [
             "text": "During the science activity, students measured the water in each bottle three times. Every number had to be recorded ( ) for the results to be useful.",
             "choices": [
               "recently",
-              "accurately",
               "silently",
+              "accurately",
               "calmly"
             ],
-            "correct": 2,
+            "correct": 3,
             "explanation": "accurately は「正確に」。実験の測定値を役立つ結果にするには、数値を正確に記録する必要があります。\nrecently は「最近」、silently は「静かに」、calmly は「落ち着いて」。"
           },
           {
@@ -644,25 +644,25 @@ window.scbtGrade2VocabSets = [
             "choices": [
               "inspect",
               "label",
-              "identify",
-              "store"
+              "store",
+              "identify"
             ],
-            "correct": 3,
+            "correct": 4,
             "explanation": "identify は「見分ける・特定する」。忘れ物コーナーで、傘の特徴を伝え、その情報によって傘を特定できたという文脈です。\ninspect は「詳しく調べる」、label は「ラベルを貼る」、store は「保管する」。どれも忘れ物の場面に関係しそうですが、「特徴によって傘を見分ける」には identify が最も自然です。"
           },
           {
             "id": 7,
             "section": "短文語句",
             "type": "vocabulary",
-            "text": "A local guide recommended a small bus company for the mountain trip. Parents wanted a ( ) service that would arrive on time and drive safely.",
+            "text": "After the library introduced an automatic checkout machine, the service became more ( ). Staff could process twice as many books in the same amount of time.",
             "choices": [
-              "flexible",
               "ordinary",
+              "efficient",
               "private",
-              "reliable"
+              "familiar"
             ],
-            "correct": 4,
-            "explanation": "reliable は「信頼できる」。時間通りに到着し、安全に運転してくれるバス会社を求めているので、reliable service が自然です。\nflexible は「柔軟な」、ordinary は「普通の」、private は「私的な・専用の」。"
+            "correct": 2,
+            "explanation": "efficient は「効率のよい」。自動貸出機によって同じ時間で2倍の本を処理できるようになったので、2が正解です。\nordinary は「普通の」、private は「私的な・専用の」、familiar は「よく知られた・なじみのある」。"
           },
           {
             "id": 8,
@@ -696,7 +696,7 @@ window.scbtGrade2VocabSets = [
             "id": 10,
             "section": "短文語句",
             "type": "vocabulary",
-            "text": "Because several lockers had been opened after school, the principal asked two teachers to ( ) what had happened. Still, no student was blamed at first.",
+            "text": "Because several lockers had been opened without permission after school, the principal asked two teachers to ( ) what had happened. Still, no student was blamed at first.",
             "choices": [
               "investigate",
               "summarize",
@@ -704,13 +704,13 @@ window.scbtGrade2VocabSets = [
               "imagine"
             ],
             "correct": 1,
-            "explanation": "investigate は「調査する」。ロッカーが開けられていたため、校長が先生たちに何が起きたのか調べるよう頼んだ、という流れです。\nsummarize は「要約する」、announce は「発表する」、imagine は「想像する」。"
+            "explanation": "investigate は「調査する」。ロッカーが許可なく開けられていたため、校長が先生たちに何が起きたのか調べるよう頼んだ、という流れです。\nsummarize は「要約する」、announce は「発表する」、imagine は「想像する」。"
           },
           {
             "id": 11,
             "section": "短文語句",
             "type": "phrase",
-            "text": "After falling behind on his rent while changing jobs, Luis worked extra hours to ( ) his payments before the month ended. He wanted to avoid a late fee.",
+            "text": "After falling behind on his rent while changing jobs, Luis worked extra hours to ( ) his payments before the month ended. He wanted to avoid another late fee.",
             "choices": [
               "keep track of",
               "cut back on",
@@ -727,26 +727,26 @@ window.scbtGrade2VocabSets = [
             "text": "A: I may arrive ten minutes late for our club’s information desk.\nB: I can ( ) you until then; just send me the forms.",
             "choices": [
               "stand up for",
-              "fill in for",
               "look out for",
+              "fill in for",
               "go along with"
             ],
-            "correct": 2,
+            "correct": 3,
             "explanation": "fill in for は「〜の代わりをする」。相手が10分遅れるので、その間だけ情報デスクの担当を代わるという文脈です。\nstand up for は「擁護する」、look out for は「気をつける・見張る」、go along with は「同意する・従う」。"
           },
           {
             "id": 13,
             "section": "短文語句",
             "type": "phrase",
-            "text": "Because Rina no longer used a music app, she decided to ( ) its paid plan before the next monthly fee was charged.",
+            "text": "Because Rina no longer used a music app, she decided to ( ) the service before the next monthly fee was charged.",
             "choices": [
-              "unsubscribe from",
               "register for",
+              "unsubscribe from",
               "upgrade to",
               "pay for"
             ],
-            "correct": 1,
-            "explanation": "unsubscribe from は「〜の登録を解除する・購読をやめる」。音楽アプリをもう使っていないため、次の月額料金が発生する前に有料プランを解約する、という意味になります。\nregister for は「登録する」、upgrade to は「〜へアップグレードする」、pay for は「〜の料金を払う」。"
+            "correct": 2,
+            "explanation": "unsubscribe from は「〜の登録を解除する・購読をやめる」。音楽アプリをもう使っていないため、次の月額料金が発生する前にサービスを解約する、という意味になります。\nregister for は「登録する」、upgrade to は「〜へアップグレードする」、pay for は「〜の料金を払う」。"
           },
           {
             "id": 14,
@@ -754,27 +754,27 @@ window.scbtGrade2VocabSets = [
             "type": "phrase",
             "text": "A: The soup is simmering, but the delivery person is at the door.\nB: I’ll ( ) it while you sign for the package.",
             "choices": [
+              "keep an eye on",
               "make use of",
               "get rid of",
-              "keep an eye on",
               "catch sight of"
             ],
-            "correct": 3,
+            "correct": 1,
             "explanation": "keep an eye on は「〜を見ておく・注意して見守る」。スープが火にかかっている間、相手が荷物を受け取るので、その間見ておくという場面です。\nmake use of は「利用する」、get rid of は「取り除く」、catch sight of は「ちらっと見る」。"
           },
           {
             "id": 15,
             "section": "短文語句",
             "type": "phrase",
-            "text": "A: Can I join the weekend hike even if I don’t have expensive boots?\nB: Yes, ( ) your shoes are safe on wet rocks.",
+            "text": "Ms. Lee teaches science classes at the high school. ( ) teaching, she also leads the robotics club.",
             "choices": [
-              "as far as",
-              "as well as",
-              "as soon as",
-              "as long as"
+              "in exchange for",
+              "in contrast to",
+              "in preparation for",
+              "in addition to"
             ],
             "correct": 4,
-            "explanation": "as long as は「〜である限り」。高価な登山靴がなくても、靴が濡れた岩の上で安全なら参加してよい、という条件を表しています。\nas far as は「〜する限りでは」、as well as は「〜だけでなく」、as soon as は「〜するとすぐに」。"
+            "explanation": "in addition to は「〜に加えて」。理科を教える仕事に加え、ロボット部の指導もしているので、4が正解です。\nin exchange for は「〜と引き換えに」、in contrast to は「〜とは対照的に」、in preparation for は「〜に備えて」。"
           },
           {
             "id": 16,
@@ -783,26 +783,26 @@ window.scbtGrade2VocabSets = [
             "text": "A: Why is everyone using the copier in the library?\nB: The one in our office is ( ), so nobody can print there today.",
             "choices": [
               "out of place",
-              "out of order",
               "out of date",
+              "out of order",
               "out of work"
             ],
-            "correct": 2,
+            "correct": 3,
             "explanation": "out of order は「故障中で」。オフィスのコピー機が使えないため、みんな図書館のコピー機を使っている、という文脈です。\nout of place は「場違いな」、out of date は「時代遅れの」、out of work は「失業中の」。"
           },
           {
             "id": 17,
             "section": "短文語句",
             "type": "phrase",
-            "text": "While sorting old books, I found a postcard from my grandfather ( ); nobody in the family had known it was inside the cover.",
+            "text": "The museum tour has only twelve places, so visitors should reserve a seat ( ). Same-day registration is often impossible.",
             "choices": [
-              "by chance",
-              "in turn",
-              "on time",
-              "at once"
+              "on average",
+              "in public",
+              "by mistake",
+              "in advance"
             ],
-            "correct": 1,
-            "explanation": "by chance は「偶然に」。古い本を整理していたら、家族も知らなかった祖父のはがきを偶然見つけた、という意味です。\nin turn は「順番に」、on time は「時間通りに」、at once は「すぐに」。"
+            "correct": 4,
+            "explanation": "in advance は「前もって」。定員が12人で当日登録が難しいため、事前に席を予約する必要があるという流れなので、4が正解です。\non average は「平均して」、in public は「人前で」、by mistake は「誤って」。"
           }
         ]
       },
@@ -810,9 +810,9 @@ window.scbtGrade2VocabSets = [
         "label": "長文語句 2A",
         "kind": "long",
         "instruction": "本文を読み、空所に入る最も適切な語句を選んでください。",
-        "passageTitle": "A. Hidden City Trees",
+        "passageTitle": "A. Making Room for City Trees",
         "passage": [
-          "In many large cities, street trees are planted to make streets more pleasant and solve practical problems. Their leaves provide shade, lowering sidewalk and building temperatures in summer. Their roots help rainwater enter the ground more slowly, which reduces pressure on drains during storms. However, city trees face conditions that forest trees do not. Soil below sidewalks may be packed tightly, and space for roots can be limited. These difficulties mean that city planners must look beyond appearance and (18).",
+          "In many large cities, street trees are planted to make streets more pleasant and solve practical problems. Their leaves provide shade, lowering sidewalk and building temperatures in summer. Their roots and the soil around them can hold rainwater, so less water reaches drains at once during storms. However, city trees face conditions that forest trees do not. Soil below sidewalks may be packed tightly, and space for roots can be limited. These difficulties mean that city planners must look beyond appearance and (18).",
           "In recent years, some cities have begun using underground soil cells. These box-like structures are placed below sidewalks. They keep pavement strong enough for walkers and vehicles, but they also leave open space for roots to spread. With more underground room, trees can grow larger and live longer. They may also cool streets more effectively as their branches and leaves spread. (19), the system is expensive to install, so planners often reserve it for busy streets where long-lasting shade has clear value.",
           "Researchers are also studying which tree species can survive best in cities. A tree that grows well in a park may struggle beside a road with heat, salt, and air pollution. Some cities now collect data on tree health and compare it with nearby street conditions. If a certain species often fails on narrow roads, planners can use that pattern when making future choices. In the future, successful urban forests may depend less on planting many trees quickly and more on (20)."
         ],
@@ -881,10 +881,10 @@ window.scbtGrade2VocabSets = [
               "suggest where the cloth was made",
               "show how cloth was exchanged",
               "point to a workshop method",
-              "reflect the wearer's social role"
+              "show the age of the person who wore it"
             ],
             "correct": 1,
-            "explanation": "正解は 1. suggest where the cloth was made。\n直前で、天然染料の材料は場所によって異なると説明されています。そのため、布の色は、その布がどこで作られたかを示す手がかりになり得ます。\n2は次の文の trade に少し関係しそうですが、「材料が場所によって違う」という理由から直接分かるのは取引方法ではなく、生産地の可能性です。3は工房の方法に関係しますが、色の地域差から必ず読み取れる内容ではありません。4は前文の「仕事や社会的立場」に関係しますが、空所直前の because materials differed from place to place とは根拠がずれています。"
+            "explanation": "正解は 1. suggest where the cloth was made。\n直前で、天然染料の材料は場所によって異なると説明されています。そのため、布の色は、その布がどこで作られたかを示す手がかりになり得ます。\n2は次の文の trade に少し関係しそうですが、「材料が場所によって違う」という理由から直接分かるのは取引方法ではなく、生産地の可能性です。3は工房の方法に関係しますが、色の地域差から必ず読み取れる内容ではありません。4の着用者の年齢については、本文に根拠がありません。"
           },
           {
             "id": 22,
@@ -906,13 +906,13 @@ window.scbtGrade2VocabSets = [
             "type": "long-blank",
             "text": "空所(23)に入る最も適切なものを選んでください。",
             "choices": [
-              "check how storage affected colors",
+              "check only how storage affected colors",
               "study the weave of the fabric",
               "compare several kinds of evidence",
               "classify cloth by present color"
             ],
             "correct": 3,
-            "explanation": "正解は 3. compare several kinds of evidence。\n第3段落では、科学者が特殊な光や化学的検査を使って、染料の小さな痕跡を調べることが説明されています。しかし、古い布は光、洗濯、保管によって色が変化するため、現在見える色だけでは元の状態を判断できません。そのため、研究者は結論を出す前に複数の証拠を比較する必要があります。\n1は保管による色の変化だけに限定されすぎています。2は布の織り方を見るという点で研究方法としてはあり得ますが、染料や色の変化を判断するには不十分です。4は現在の色だけで分類する方法で、本文が述べる注意点と逆方向です。"
+            "explanation": "正解は 3. compare several kinds of evidence。\n第3段落では、科学者が特殊な光や化学的検査を使って、染料の小さな痕跡を調べることが説明されています。しかし、古い布は光、洗濯、保管によって色が変化するため、現在見える色だけでは元の状態を判断できません。そのため、研究者は結論を出す前に複数の証拠を比較する必要があります。\n1は保管だけに限定しており、本文にある光や洗濯などの影響を考慮できません。2は布の織り方を見るという点で研究方法としてはあり得ますが、染料や色の変化を判断するには不十分です。4は現在の色だけで分類する方法で、本文が述べる注意点と逆方向です。"
           }
         ]
       },
@@ -924,9 +924,9 @@ window.scbtGrade2VocabSets = [
         "passage": [
           "From: Elena Park <e.park@example.org>\nTo: Ryan Ellis <r.ellis@example.org>\nDate: May 5, 2026\nSubject: Updated Information for the Weekend Bread Class",
           "Dear Ryan,",
-          "I am pleased to let you know that your name has been moved from the waiting list to the participant list for our Weekend Bread Class. One family group changed to the afternoon class, which left two seats open in the morning class. Because you requested a morning seat when you registered last month, we have saved one of them for you on May 16.",
+          "I am pleased to let you know that your name has been moved from the waiting list to the participant list for our Weekend Bread Class. One family group changed to the afternoon class, which left two seats open in the morning class. Because you requested a morning seat when you registered last month, we have reserved one for you in the May 16 class.",
           "There are two details you should know before coming. The class will start at 10:00 a.m. in Studio 2, on the second floor of the Greenfield Community Center. The front door will not open until 9:50 because another group is using the lobby earlier that morning, so please use the side entrance near the garden if you arrive before then. We will provide flour, yeast, and baking tools, but participants should bring an apron and a container to take bread home.",
-          "Please reply by May 9 to confirm that you still want the morning seat. In your reply, also tell us whether you have any food allergies, since we will prepare a simple soup to serve during the break. If you cannot attend, please let us know as soon as possible. Another person on the waiting list would like to join, and we need time to contact that person.",
+          "Please reply by May 9 to confirm that you still want the morning seat. In your reply, also tell us whether you have any food allergies, since participants will taste the bread they make and we will also serve a simple soup during the break. If you cannot attend, please let us know as soon as possible. Another person on the waiting list would like to join, and we need time to contact that person.",
           "Best regards,\nElena Park\nClass Coordinator"
         ],
         "questions": [
@@ -981,7 +981,7 @@ window.scbtGrade2VocabSets = [
         "passageTitle": "Community Seed Libraries",
         "passage": [
           "For centuries, farm families saved part of each harvest for the next planting season. They chose seeds from plants that survived local weather or produced good food. In many towns today, a modern version of this practice is called a community seed library. It is usually kept in a public library, school, or garden office. People take small packets of seeds, grow the plants, and later return seeds from the strongest ones. The goal is not to make money, but to keep useful local varieties moving from one grower to another.",
-          "A seed library needs more organization than a box of free packets. Volunteers label each envelope with the plant name, the year it was collected, and simple growing notes. Some libraries ask beginners to start with beans, peas, or lettuce because these plants are easier to save correctly. Seeds from plants such as pumpkins can mix with nearby plants of the same family, so they require more care. Workshops often teach people how to dry seeds, store them away from heat, and avoid returning seeds from weak or diseased plants.",
+          "A seed library needs more organization than a box of free packets. Volunteers label each envelope with the plant name, the year it was collected, and simple growing notes. Some libraries ask beginners to start with beans, peas, or lettuce because these plants are easier to save correctly. Pumpkins and other vine crops may be cross-pollinated by some related plants growing nearby, so seeds saved from them may not produce the expected fruit. Workshops often teach people how to dry seeds, store them away from heat, and avoid returning seeds from weak or diseased plants.",
           "During the twentieth century, many gardeners began buying commercial seeds instead of saving their own. These packets were convenient and often produced plants of a similar size, but the same few varieties were sold over large areas and in different climates. As a result, some local plants became rare. Another problem was quality control. If returned seeds were not checked, a seed library could spread seeds that did not grow well. To solve this, some libraries created rules, accepted only certain easy crops at first, and kept records of which seeds grew successfully.",
           "Today, seed libraries are used for more than sharing garden supplies. In neighborhoods with hot summers, they may collect seeds from vegetables that continue producing during dry weeks. Teachers use them to show students how plants change from one generation to the next. Some libraries also save stories from older residents about how particular crops were cooked or traded. Still, the system depends on patient volunteers and honest growers. Seed libraries cannot replace seed companies, but they can help communities protect useful knowledge and local food traditions for future seasons."
         ],
@@ -1006,13 +1006,13 @@ window.scbtGrade2VocabSets = [
             "type": "long-content",
             "text": "(28) Why do some seed libraries ask beginners to start with beans, peas, or lettuce?",
             "choices": [
-              "Because they are the same plants that can easily mix with pumpkins growing nearby.",
-              "Because they are easier for beginners to save correctly than plants that need more careful separation.",
-              "Because they must be stored near heat before volunteers can label envelopes.",
-              "Because workshops use them to teach people to return seeds from weak plants first."
+              "Because these crops need two growing seasons before their seeds can be collected.",
+              "Because their seeds are generally easier to save correctly than seeds from crops that may be cross-pollinated nearby.",
+              "Because they grow successfully only when their seeds are stored near heat.",
+              "Because beginners are expected to select seeds from weak plants before joining a workshop."
             ],
             "correct": 2,
-            "explanation": "答え：2\n第2段落では、beans, peas, lettuce は初心者でも正しく種を保存しやすい植物だと説明されています。一方で、pumpkins のような植物は近くの同じ仲間の植物と混ざることがあり、より注意が必要です。\n1はbeans, peas, lettuce と pumpkins の関係を混同しています。3は「熱の近くで保管する」が本文と逆です。4は「弱い植物や病気の植物からの種を返す」となっており、本文ではそれを避けるべきだとされています。"
+            "explanation": "答え：2\n第2段落では、beans, peas, lettuceは初心者でも正しく種を保存しやすい植物だと説明されています。一方、pumpkinsなどのvine cropsは近くの植物によってcross-pollinatedされることがあり、保存した種から予想どおりの実ができない可能性があります。\n1の「二つの生育期が必要」という説明は本文にありません。3はheatの近くで保管するのではなく、away from heatです。4はweak plantsから種を取るのではなく、避けるべきだとされています。"
           },
           {
             "id": 29,
@@ -1020,13 +1020,13 @@ window.scbtGrade2VocabSets = [
             "type": "long-content",
             "text": "(29) Why did some seed libraries create rules about returned seeds?",
             "choices": [
-              "Because commercial packets were no longer convenient for gardeners.",
-              "Because seed companies asked libraries to sell only the same few varieties.",
-              "Because returned seeds from rare plants always grew better than commercial seeds.",
+              "Because beginners sometimes returned packets without plant names or growing notes.",
+              "Because the same commercial varieties were being sold in many different climates.",
+              "Because libraries wanted every returned plant to grow to a similar size.",
               "Because unchecked returned seeds might not grow well, so libraries needed a way to control quality."
             ],
             "correct": 4,
-            "explanation": "答え：4\n第3段落では、返された種がチェックされないと、うまく育たない種を広めてしまう可能性があると説明されています。そのため、一部の図書館はルールを作り、最初は保存しやすい作物だけを受け入れ、記録を残しました。\n1はcommercial seeds が便利だったという本文内容と逆です。2は種会社が図書館に販売を依頼したとは書かれていません。3は「rare plants の種が必ずよく育つ」と言いすぎです。"
+            "explanation": "答え：4\n第3段落では、返された種がチェックされないと、うまく育たない種を広めてしまう可能性があると説明されています。そのため、一部の図書館はルールを作り、最初は保存しやすい作物だけを受け入れ、記録を残しました。\n1のラベルやgrowing notesは第2段落の管理方法には関係しますが、第3段落で規則を作った理由ではありません。2はlocal varietiesが珍しくなった背景であり、returned seedsのquality controlとは別です。3の「同じ大きさ」はcommercial seedsの特徴として触れられていますが、図書館が返却種に求めた目的ではありません。"
           },
           {
             "id": 30,
@@ -1117,29 +1117,29 @@ window.scbtGrade2VocabSets = [
             "id": 1,
             "section": "短文語句",
             "type": "vocabulary",
-            "text": "A: We need to rent chairs for the school concert, but I don't know how much it will cost.\nB: Ask the company for a written ( ). Then we can decide whether the price fits our budget.",
+            "text": "Everyone must wear a helmet in the factory. The only ( ) is for visitors who remain behind the glass safety wall.",
             "choices": [
-              "invoice",
-              "estimate",
-              "receipt",
-              "schedule"
+              "requirement",
+              "decision",
+              "exception",
+              "direction"
             ],
-            "correct": 2,
-            "explanation": "2 estimate\n「学校のコンサート用に椅子を借りたいが、費用が分からない」という場面です。会社に頼むべきものは、事前の「見積もり」である estimate です。\ninvoice：請求書。普通はサービス後・購入後に出るもの。\nreceipt：領収書。支払い後にもらうもの。\nschedule：予定表。費用とは直接関係しません。"
+            "correct": 3,
+            "explanation": "3 exception\n工場では全員がヘルメットを着用しますが、安全壁の後ろにいる見学者だけは例外です。the only exception で「唯一の例外」という自然な表現になります。\nrequirement：必要条件。\ndecision：決定。\ndirection：方向・指示。"
           },
           {
             "id": 2,
             "section": "短文語句",
             "type": "vocabulary",
-            "text": "After a small fire alarm at the hotel, workers had to ( ) each room before guests could return. They checked doors, wires, and smoke sensors.",
+            "text": "Rescue workers used the signal from Lena's phone to ( ) her after she became lost in the mountains. They found her before dark.",
             "choices": [
-              "enter",
-              "clean",
-              "search",
-              "inspect"
+              "locate",
+              "transport",
+              "examine",
+              "replace"
             ],
-            "correct": 4,
-            "explanation": "4 inspect\n火災警報のあと、ドア・配線・煙センサーを確認しているので、「点検する」という意味の inspect が最も自然です。\nenter：入る。部屋に入るだけでは点検の意味がありません。\nclean：掃除する。火災後の清掃ならあり得ますが、本文は安全確認です。\nsearch：探す。何かを探している場面ではありません。\ninspect：点検する。本文の checked doors, wires, and smoke sensors と合います。"
+            "correct": 1,
+            "explanation": "1 locate\n携帯電話の信号を使って、山で迷ったLenaの居場所を突き止めたので、locate「位置を特定する」が正解です。\ntransport：運ぶ。\nexamine：詳しく調べる。\nreplace：取り替える。"
           },
           {
             "id": 3,
@@ -1147,33 +1147,33 @@ window.scbtGrade2VocabSets = [
             "type": "vocabulary",
             "text": "A: Can we use this bus app to plan our trip?\nB: I think so. My brother says it is very ( ), and the arrival times it gives are usually close to the real ones.",
             "choices": [
-              "reliable",
               "detailed",
               "popular",
-              "convenient"
+              "convenient",
+              "reliable"
             ],
-            "correct": 1,
-            "explanation": "1 reliable\n到着時刻が実際の時刻に近いので、そのアプリは「信頼できる」と言えます。正解は reliable です。\ndetailed：詳しい。情報量の多さなら合いますが、時刻の正確さとは少し違います。\npopular：人気がある。人気と正確さは別です。\nconvenient：便利な。アプリ全体には使えますが、本文の根拠は「時刻が正確」という点なので、reliable が最適です。"
+            "correct": 4,
+            "explanation": "4 reliable\n到着時刻が実際の時刻に近いので、そのアプリは「信頼できる」と言えます。正解は reliable です。\ndetailed：詳しい。情報量の多さなら合いますが、時刻の正確さとは少し違います。\npopular：人気がある。人気と正確さは別です。\nconvenient：便利な。アプリ全体には使えますが、本文の根拠は「時刻が正確」という点なので、reliable が最適です。"
           },
           {
             "id": 4,
             "section": "短文語句",
             "type": "vocabulary",
-            "text": "Before moving into the small apartment, Haru paid a ( ) to the owner. Part of that money may be returned when he leaves.",
+            "text": "After returning the unopened camera, Yuto received a full ( ) from the store. The money appeared in his bank account two days later.",
             "choices": [
-              "bill",
-              "fine",
+              "discount",
+              "refund",
               "deposit",
-              "fee"
+              "bill"
             ],
-            "correct": 3,
-            "explanation": "3 deposit\n入居前に支払い、退去時に一部返ってくる可能性があるお金なので、deposit「保証金・敷金・預け金」が正解です。\nbill：請求書・請求額。\nfine：罰金。\nfee：料金。返金されるお金という意味は弱いです。\ndeposit：預け金。本文の Part of that money may be returned と合います。"
+            "correct": 2,
+            "explanation": "2 refund\n未開封のカメラを返品し、代金が銀行口座に戻ったので、refund「返金」が正解です。\ndiscount：値引き。\ndeposit：預け金・保証金。\nbill：請求書・請求額。"
           },
           {
             "id": 5,
             "section": "短文語句",
             "type": "vocabulary",
-            "text": "A: I heard the new student was nervous during basketball practice.\nB: Yes, so the coach explained each move ( ), letting him try again before going faster.",
+            "text": "A: I heard the new student was nervous during basketball practice.\nB: Yes, so the coach explained each move ( ), letting him try again before moving on to a more difficult one.",
             "choices": [
               "suddenly",
               "patiently",
@@ -1181,7 +1181,7 @@ window.scbtGrade2VocabSets = [
               "jokingly"
             ],
             "correct": 2,
-            "explanation": "2 patiently\n新入生が緊張していて、コーチが一つずつ説明し、もう一度試させている場面です。したがって「辛抱強く」の patiently が自然です。\nsuddenly：突然。\nsecretly：こっそり。\njokingly：冗談っぽく。\npatiently：辛抱強く。本文の letting him try again before going faster と合います。"
+            "explanation": "2 patiently\n新入生が緊張していて、コーチが一つずつ説明し、もう一度試させてから難しい動きへ進んでいる場面です。したがって「辛抱強く」の patiently が自然です。\nsuddenly：突然。\nsecretly：こっそり。\njokingly：冗談っぽく。\npatiently：辛抱強く。本文の letting him try again と合います。"
           },
           {
             "id": 6,
@@ -1189,41 +1189,41 @@ window.scbtGrade2VocabSets = [
             "type": "vocabulary",
             "text": "During a staff meeting, workers agreed to ( ) a new sign-in system. They started using it the following Monday after a brief explanation.",
             "choices": [
-              "adopt",
               "compare",
               "describe",
-              "examine"
+              "examine",
+              "adopt"
             ],
-            "correct": 1,
-            "explanation": "1 adopt\n新しいサインインシステムを会議で決め、その翌週から使い始めたので、「導入する・採用する」の adopt が正解です。\ncompare：比較する。\ndescribe：説明する。\nexamine：調べる。\nadopt：制度・方法・システムなどを採用する。a new sign-in system と自然に結びつきます。"
+            "correct": 4,
+            "explanation": "4 adopt\n新しいサインインシステムを会議で決め、その翌週から使い始めたので、「導入する・採用する」の adopt が正解です。\ncompare：比較する。\ndescribe：説明する。\nexamine：調べる。\nadopt：制度・方法・システムなどを採用する。a new sign-in system と自然に結びつきます。"
           },
           {
             "id": 7,
             "section": "短文語句",
             "type": "vocabulary",
-            "text": "At the community pool, a ( ) fence was placed around the damaged stairs. Staff said it would be taken away after the weekend work.",
+            "text": "After a six-month trial, the city made the weekend bus service ( ). Officials said it would continue for many years.",
             "choices": [
-              "wooden",
-              "private",
-              "regular",
-              "temporary"
+              "permanent",
+              "expensive",
+              "crowded",
+              "private"
             ],
-            "correct": 4,
-            "explanation": "4 temporary\n週末の作業が終わったら取り外されるフェンスなので、「一時的な」の temporary が正解です。\nwooden：木製の。可能性はありますが、本文に根拠がありません。\nprivate：私的な・専用の。公共プールの場面には合いにくいです。\nregular：通常の。取り外されるという情報と合いません。\ntemporary：一時的な。taken away after the weekend work と合います。"
+            "correct": 1,
+            "explanation": "1 permanent\n6か月の試行後、バスサービスを今後何年も続けると決めたので、permanent「恒久的な」が正解です。\nexpensive：高価な。\ncrowded：混雑した。\nprivate：私的な・専用の。"
           },
           {
             "id": 8,
             "section": "短文語句",
             "type": "vocabulary",
-            "text": "A: Why did the library refuse to charge Emma for the missing book?\nB: She showed a photo of the receipt, which was strong ( ) that she had returned it.",
+            "text": "Completing the safety course is a ( ) for volunteers who want to operate the workshop's machines. No one may use them before finishing the course.",
             "choices": [
-              "advice",
-              "message",
-              "evidence",
-              "memory"
+              "recommendation",
+              "advantage",
+              "requirement",
+              "decision"
             ],
             "correct": 3,
-            "explanation": "3 evidence\nレシートの写真が「本を返したことの証拠」になっているので、evidence が正解です。\nadvice：助言。\nmessage：伝言・メッセージ。\nmemory：記憶。\nevidence：証拠。strong evidence that ... の形も自然です。"
+            "explanation": "3 requirement\n安全講習を終えなければ機械を使えないため、受講はrequirement「必要条件」です。\nrecommendation：勧め・推薦。\nadvantage：利点。\ndecision：決定。"
           },
           {
             "id": 9,
@@ -1231,41 +1231,41 @@ window.scbtGrade2VocabSets = [
             "type": "vocabulary",
             "text": "When Miki received comments on her essay, she decided to ( ) the conclusion so her main point would be clearer.",
             "choices": [
-              "revise",
               "deliver",
               "predict",
-              "gather"
+              "gather",
+              "revise"
             ],
-            "correct": 1,
-            "explanation": "1 revise\nエッセイにコメントをもらい、結論を分かりやすくするために手直しする場面です。正解は revise「修正する」です。\ndeliver：届ける・発表する。\npredict：予測する。\ngather：集める。\nrevise：文章などを修正する。revise the conclusion が自然です。"
+            "correct": 4,
+            "explanation": "4 revise\nエッセイにコメントをもらい、結論を分かりやすくするために手直しする場面です。正解は revise「修正する」です。\ndeliver：届ける・発表する。\npredict：予測する。\ngather：集める。\nrevise：文章などを修正する。revise the conclusion が自然です。"
           },
           {
             "id": 10,
             "section": "短文語句",
             "type": "vocabulary",
-            "text": "To make the medicine safe, nurses must record each patient's name and dose ( ). Even one small number error can cause trouble.",
+            "text": "After several weeks of physical therapy, Naomi ( ) regained strength in her injured shoulder. At first she could lift only a light cup, but later she could carry a bag.",
             "choices": [
-              "gently",
-              "locally",
+              "gradually",
               "briefly",
-              "accurately"
+              "locally",
+              "secretly"
             ],
-            "correct": 4,
-            "explanation": "4 accurately\n薬の名前や量を記録する場面で、数字のミスが危険につながるため、「正確に」の accurately が正解です。\ngently：優しく。\nlocally：地元で・局所的に。\nbriefly：簡潔に。\naccurately：正確に。record each patient's name and dose accurately が自然です。"
+            "correct": 1,
+            "explanation": "1 gradually\n最初は軽いカップしか持てず、その後バッグを持てるまでになったので、gradually「徐々に」が正解です。\nbriefly：短時間・簡潔に。\nlocally：地元で・局所的に。\nsecretly：ひそかに。"
           },
           {
             "id": 11,
             "section": "短文語句",
             "type": "phrase",
-            "text": "A: What did you find while cleaning the storage cabinet?\nB: I ( ) a box of old maps that was hidden behind the sports equipment. Nobody knew it was there.",
+            "text": "During the school festival, the café ( ) paper cups, so a teacher went to buy more.",
             "choices": [
-              "looked through",
-              "came across",
-              "put away",
-              "set aside"
+              "looked after",
+              "ran out of",
+              "kept track of",
+              "put up with"
             ],
             "correct": 2,
-            "explanation": "2 came across\n掃除中に、隠れていた古い地図の箱を偶然見つけた場面です。come across は「偶然見つける」という意味です。\nlooked through：ざっと見る・目を通す。箱の中を見る意味にはなりますが、「見つけた」という答えにはなりません。\ncame across：偶然見つけた。本文の Nobody knew it was there と合います。\nput away：片付けた。\nset aside：取っておいた・脇に置いた。"
+            "explanation": "2 ran out of\n紙コップがなくなったため、先生が買い足しに行ったので、ran out of「〜を使い切った」が正解です。\nlooked after：世話をした。\nkept track of：記録して把握した。\nput up with：我慢した。"
           },
           {
             "id": 12,
@@ -1285,15 +1285,15 @@ window.scbtGrade2VocabSets = [
             "id": 13,
             "section": "短文語句",
             "type": "phrase",
-            "text": "After sending the wrong package, the shop owner gave the customer free shipping next time to ( ) the mistake and keep her trust.",
+            "text": "The community center offers free computer lessons on Saturdays. Many older residents ( ) the classes to learn how to use e-mail and online banking.",
             "choices": [
-              "make up for",
-              "look back on",
-              "speak out against",
-              "put up with"
+              "take advantage of",
+              "look down on",
+              "get away with",
+              "make room for"
             ],
             "correct": 1,
-            "explanation": "1 make up for\n間違った荷物を送ったことに対して、次回の送料を無料にして埋め合わせをしている場面です。正解は make up for「〜の埋め合わせをする」です。\nlook back on：振り返る。\nspeak out against：反対意見を公に言う。\nput up with：我慢する。\nmake up for：埋め合わせをする。make up for the mistake が自然です。"
+            "explanation": "1 take advantage of\n無料の講座を利用して、メールやオンラインバンキングを学んでいるので、take advantage of「〜を活用する」が正解です。\nlook down on：見下す。\nget away with：罰を受けずに済む。\nmake room for：〜のために場所を空ける。"
           },
           {
             "id": 14,
@@ -1301,27 +1301,27 @@ window.scbtGrade2VocabSets = [
             "type": "vocabulary",
             "text": "When the tour guide lost her voice, another guide had to ( ) the afternoon tour. He already knew the route and the main stops.",
             "choices": [
-              "review",
-              "cancel",
-              "arrange",
-              "conduct"
+              "turn down",
+              "put off",
+              "look into",
+              "take over"
             ],
             "correct": 4,
-            "explanation": "4 conduct\nガイドが声を失ったため、別のガイドが午後のツアーを担当する場面です。conduct a tour は「ツアーを行う・案内する」という自然なコロケーションです。\nreview：見直す。ツアー計画を確認する意味にはなりますが、実際に案内する意味ではありません。\ncancel：中止する。別のガイドがルートを知っていたという後文と合いません。\narrange：手配する。ツアーを実施する意味とは違います。\nconduct：実施する・案内する。conduct the afternoon tour が自然です。"
+            "explanation": "4 take over\n元のガイドが声を出せなくなり、別のガイドが午後のツアーを引き継いだので、take over「引き継ぐ」が正解です。\nturn down：断る。\nput off：延期する。\nlook into：調べる。"
           },
           {
             "id": 15,
             "section": "短文語句",
             "type": "phrase",
-            "text": "For safety reasons, students may use the art room after school ( ) a teacher stays with them. Club members cannot work there alone.",
+            "text": "The school sports day will take place ( ) the weather is cloudy. It will be canceled only if there is heavy rain.",
             "choices": [
-              "unless",
-              "as long as",
-              "even though",
-              "now that"
+              "as soon as",
+              "now that",
+              "even if",
+              "so that"
             ],
-            "correct": 2,
-            "explanation": "2 as long as\n「先生が一緒にいる限り、美術室を使ってよい」という条件を表すので、as long as が正解です。\nunless：〜でない限り。意味が逆になります。\nas long as：〜する限り・〜という条件で。\neven though：〜だけれども。条件ではなく譲歩です。\nnow that：今や〜なので。理由を表すため、この文脈には合いません。"
+            "correct": 3,
+            "explanation": "3 even if\n曇っていても運動会は行い、大雨の場合だけ中止するので、even if「たとえ〜でも」が正解です。\nas soon as：〜するとすぐに。\nnow that：今や〜なので。\nso that：〜するために。"
           },
           {
             "id": 16,
@@ -1330,12 +1330,12 @@ window.scbtGrade2VocabSets = [
             "text": "A: Can I arrive right when the interview begins?\nB: Please come ( ) ten minutes early, so you can check in and calm down before meeting the manager.",
             "choices": [
               "at once",
-              "at first",
               "at least",
+              "at first",
               "at last"
             ],
-            "correct": 3,
-            "explanation": "3 at least\n面接の前に受付を済ませ、落ち着く時間が必要なので、「少なくとも10分早く」の at least ten minutes early が正解です。\nat once：すぐに。\nat first：最初は。\nat least：少なくとも。\nat last：ついに。"
+            "correct": 2,
+            "explanation": "2 at least\n面接の前に受付を済ませ、落ち着く時間が必要なので、「少なくとも10分早く」の at least ten minutes early が正解です。\nat once：すぐに。\nat first：最初は。\nat last：ついに。"
           },
           {
             "id": 17,
@@ -1344,12 +1344,12 @@ window.scbtGrade2VocabSets = [
             "text": "Before starting the video call, Ken wrote down the meeting ID ( ) the link stopped working. That way, he could still join.",
             "choices": [
               "even though",
+              "in case",
               "as if",
-              "so that",
-              "in case"
+              "so that"
             ],
-            "correct": 4,
-            "explanation": "4 in case\nリンクが使えなくなった場合に備えて、会議IDを書き留めた場面です。正解は in case「〜するといけないので・〜の場合に備えて」です。\neven though：〜だけれども。\nas if：まるで〜のように。\nso that：〜するために。\nin case：〜の場合に備えて。本文の That way, he could still join と合います。"
+            "correct": 2,
+            "explanation": "2 in case\nリンクが使えなくなった場合に備えて、会議IDを書き留めた場面です。正解は in case「〜するといけないので・〜の場合に備えて」です。\neven though：〜だけれども。\nas if：まるで〜のように。\nso that：〜するために。"
           }
         ]
       },
@@ -1359,8 +1359,8 @@ window.scbtGrade2VocabSets = [
         "instruction": "本文を読み、空所に入る最も適切な語句を選んでください。",
         "passageTitle": "A. Marks on Old Bricks",
         "passage": [
-          "In many old towns, visitors notice bricks with small letters or simple shapes pressed into them. These marks were not decorations or random scratches. In the nineteenth century, many brickmakers worked near rivers, where clay could be dug up and carried by boat or cart. Before the bricks were fired, workers often pressed a wooden or metal stamp into the soft clay, (18). Even a rough stamp could leave a clear mark after the brick became hard in the kiln.",
-          "The marks helped several people after the bricks left the yard. Builders could check whether a delivery had come from the maker they had ordered from. If some bricks broke too easily, the mark helped them report the problem to the right place. Merchants also used the marks when they counted goods at a station, market, or port. In this way, the stamp (19). It connected each brick to a maker, a place, and sometimes a level of quality.",
+          "In many old towns, visitors notice bricks with small letters or simple shapes pressed into them. Many of these were maker's marks rather than decorations or random scratches. In the nineteenth century, many brickmakers worked near rivers, where clay could be dug up and carried by boat or cart. Before the bricks were fired, workers often pressed a wooden or metal stamp into the soft clay, (18). Even a rough stamp could leave a clear mark after the brick became hard in the kiln.",
+          "The marks helped several people after the bricks left the yard. Builders could check whether a delivery had come from the maker they had ordered from. If some bricks broke too easily, the mark helped them report the problem to the right place. Merchants also used the marks when they counted goods at a station, market, or port. In this way, the stamp (19). It connected each brick to a maker and often to a place of production.",
           "Today, these marks are useful to local historians, although a single brick cannot tell the whole story of a building. When many marked bricks are found in different streets, researchers can compare them with maps, railway records, and old advertisements. (20), they can learn how materials moved from small yards to growing towns and which routes were important. Such evidence is simple, but it helps show how everyday buildings were linked to wider trade across a region over time."
         ],
         "questions": [
@@ -1390,7 +1390,7 @@ window.scbtGrade2VocabSets = [
               "named the delivery station"
             ],
             "correct": 2,
-            "explanation": "正解は 2. worked as a simple record。\n第2段落では、印によって「注文した maker から来たか確認できる」「壊れやすい場合に正しい場所へ報告できる」「駅・市場・港で商品を数えるときにも使える」と説明されています。したがって、stamp は maker・place・quality などを示す「簡単な記録」として機能していたと考えられます。\n1「価格ラベルとして機能した」は、商取引に関係しそうですが、価格を示したとは書かれていません。\n3「後の所有者を示した」は、maker ではなく owner の話になっており、対象がずれています。\n4「配達駅の名前を示した」は、station は本文に出ますが、stamp が駅名を示したとは説明されていません。"
+            "explanation": "正解は 2. worked as a simple record。\n第2段落では、印によって「注文した maker から来たか確認できる」「壊れやすい場合に正しい場所へ報告できる」「駅・市場・港で商品を数えるときにも使える」と説明されています。したがって、stamp は maker や生産地を示す「簡単な記録」として機能していたと考えられます。\n1「価格ラベルとして機能した」は、商取引に関係しそうですが、価格を示したとは書かれていません。\n3「後の所有者を示した」は、maker ではなく owner の話になっており、対象がずれています。\n4「配達駅の名前を示した」は、station は本文に出ますが、stamp が駅名を示したとは説明されていません。"
           },
           {
             "id": 20,
@@ -1416,7 +1416,7 @@ window.scbtGrade2VocabSets = [
         "passage": [
           "On summer nights, fireflies use short flashes to find partners. Each species has its own pattern, so the timing of a flash can matter as much as its brightness. In darker fields and forests, these signals are easy to notice. Near roads and houses, however, lamps can make the background brighter. When that happens, some fireflies (21), and fewer pairs may find each other. The change is small to human eyes, but for the insects it can affect an important part of life.",
           "Researchers have tried to understand which kinds of light cause the biggest problem. In one study, they placed small lamps near grassy areas and counted flashes from a safe distance during several warm evenings. Blue-white light often reduced flashing more than warmer yellow light. The insects did not simply disappear from the area. Instead, many of them changed when or where they flashed, which suggests that artificial light (22) rather than just scaring them away.",
-          "This information has led some towns and parks to test simple changes. They use lower lamps, turn off unnecessary lights late at night, or choose bulbs that spread less blue-white light. Some residents worry that such steps will leave paths dark or make parks feel less welcoming. (23), these changes can protect fireflies while still keeping useful areas visible. Protecting fireflies requires lighting that respects both human needs and the signals of small animals, especially during the few weeks when adults are active."
+          "This information has led some towns and parks to test simple changes. They install shielded lamps closer to the ground, turn off unnecessary lights late at night, or choose bulbs that spread less blue-white light. Some residents worry that such steps will leave paths dark or make parks feel less welcoming. (23), these changes can protect fireflies while still keeping useful areas visible. Protecting fireflies requires lighting that respects both human needs and the signals of small animals, especially during the few weeks when adults are active."
         ],
         "questions": [
           {
@@ -1453,13 +1453,13 @@ window.scbtGrade2VocabSets = [
             "type": "long-blank",
             "text": "空所(23)に入る最も適切なものを選んでください。",
             "choices": [
-              "With careful planning",
-              "With brighter blue-white bulbs",
-              "With lamps aimed upward",
-              "With lights left on longer"
+              "Even so",
+              "For example",
+              "As a result",
+              "In the same way"
             ],
             "correct": 1,
-            "explanation": "正解は 1. With careful planning。\n第3段落では、fireflies を守るために、lower lamps、不要な lights を夜遅くに消す、blue-white light を減らす bulbs を選ぶ、といった対策が説明されています。一方で、住民は「道が暗くなる」「公園が使いにくくなる」と心配しています。空所後では、fireflies を守りながら必要な場所は見えるようにできる、と続いています。したがって、「慎重に計画すれば」という 1 が最も自然です。\n2「より明るい blue-white bulbs を使えば」は、人間には見えやすくなるかもしれませんが、本文では blue-white light が flashing を減らしやすいと説明されているため、fireflies の保護とは合いません。\n3「lamp を上向きにすれば」は、照明の向きに関係するので一見近いですが、光を必要な場所に抑えるという流れとは逆方向です。\n4「lights をより長くつけておけば」は、安全には関係しそうですが、turn off unnecessary lights late at night という対策と合いません。"
+            "explanation": "正解は 1. Even so。\n空所の前では、照明を変えると道が暗くなったり、公園が利用しにくくなったりするのではないかという住民の心配が述べられています。空所の後では、それでもホタルを守りながら必要な場所の明るさを保つことはできると続きます。心配と可能性を対比する Even so が最も自然です。\n2 For example は具体例を導く表現ですが、後ろの文は直前の心配の例ではありません。3 As a result は原因と結果を示しますが、住民の心配から保護効果が生まれるわけではありません。4 In the same way は同じ方法・類似を表しますが、ここでは対比が必要です。"
           }
         ]
       },
@@ -1467,57 +1467,57 @@ window.scbtGrade2VocabSets = [
         "label": "メール 3A",
         "kind": "long",
         "instruction": "Eメールを読み、質問に対する最も適切な答えを選んでください。",
-        "passageTitle": "Place Available in Thursday Bike Care Class",
+        "passageTitle": "Changes to the Spring Music Day Poster Order",
         "passage": [
-          "From: Clara Morgan <c.morgan@brooksidecycling.org>\nTo: Ryan Lee <r.lee@example.org>\nDate: August 3, 2026\nSubject: Place Available in Thursday Bike Care Class",
-          "Dear Ryan,",
-          "I am pleased to let you know that a place has opened in Brookside Cycling Club's bike care class on Thursday. You were first on the waiting list after the class filled last week, so we can now include you. The class is meant for people who ride to school or work and want to handle small problems themselves. It will cover flat tires, loose brakes, and safe cleaning, but it will not include repairs that require replacement parts.",
-          "The class will be held on August 13 from 5:45 p.m. to 7:30 p.m. in Garage 4 behind Brookside Station. Our original notice said Meeting Room A, but the club decided to use the garage because participants will practice with real bikes. Please bring your own bike if possible. If you cannot, tell us in advance, and we will prepare one practice bike for you. Tools and gloves will be provided, but participants should wear clothes that can get dirty.",
-          "Please reply by Friday at noon to confirm that you still want the place. In your reply, tell me whether you will bring your own bike, and mention one problem you would like to learn about. If I do not hear from you by then, I will offer the place to the next person on the waiting list.",
-          "Best regards,\nClara Morgan\nProgram Coordinator"
+          "From: Nina Torres <n.torres@westfieldarts.org>\nTo: Daniel Kim <daniel@brightlineprinting.com>\nDate: April 7\nSubject: Changes to Poster Order W-184",
+          "Dear Daniel,",
+          "I am writing about the order for 200 posters that I placed last Friday for Westfield Spring Music Day. The original poster says that the event will be held at the south entrance of Riverside Park. Yesterday, however, the city told us that repairs to a nearby walkway would continue through the end of the month. We have therefore moved the event to Grand Hall at Central Station. The date and starting time have not changed, but the place and the directions on the poster need to be updated.",
+          "Because the event will now be indoors, we no longer need the water-resistant paper that you recommended. We would like to use the recycled matte paper that you showed me instead, as long as the colored text will remain clear. We also need only 160 posters because Grand Hall holds fewer people than the park. Please keep the poster size the same. Your last e-mail said that printing would begin on Wednesday afternoon, so I am sending the final wording this morning.",
+          "Could you confirm by 3:00 p.m. today whether these changes are possible and tell me the new total price? We still hope to pick up the posters at 4:00 p.m. on Friday. If they cannot be ready by then, please tell me the earliest time we can collect them. Our volunteers plan to start putting up the posters on Saturday morning, so a delay would affect their schedule.",
+          "Best regards,\nNina Torres\nWestfield Arts Center"
         ],
         "questions": [
           {
             "id": 24,
             "section": "メール 3A",
             "type": "email",
-            "text": "(24) Clara says that Ryan",
+            "text": "(24) Why is Nina Torres writing this e-mail?",
             "choices": [
-              "has already taken the same class at Brookside Cycling Club.",
-              "needs to bring replacement parts for his bicycle.",
-              "can join the class because a place became available.",
-              "should apply again because the class filled last week."
+              "To cancel Spring Music Day because repairs near the park will continue.",
+              "To ask the printer to make more posters and change the event date.",
+              "To arrange for water-resistant posters to be delivered to Riverside Park.",
+              "To request changes to an existing poster order after the event location changed."
             ],
-            "correct": 3,
-            "explanation": "正解は 3 です。第1段落で、Ryan は waiting list の最初にいて、空きが出たため参加できるようになったと説明されています。\n1は、Ryan がすでに同じ授業を受けたとは書かれていません。\n2は、replacement parts が必要な修理は扱わないと書かれているので不適切です。\n4は、クラスが満員だったことは本文にありますが、再応募するようには求められていません。"
+            "correct": 4,
+            "explanation": "正解は4です。第1段落で、会場がRiverside ParkからGrand Hallへ変わったため、すでに注文したポスターの場所と道順を直す必要があると説明されています。さらに第2段落では紙の種類と枚数の変更も依頼しています。\n1はイベント自体を中止するのではありません。2は日付を変えず、枚数も200枚から160枚へ減らします。3は会場が屋内になったため、water-resistant paperは不要になったと書かれています。"
           },
           {
             "id": 25,
             "section": "メール 3A",
             "type": "email",
-            "text": "(25) What is true about the bike care class?",
+            "text": "(25) What is one result of moving Spring Music Day to Grand Hall?",
             "choices": [
-              "It will be held in Meeting Room A because Garage 4 is not available.",
-              "It will be held in Garage 4, and Ryan should tell the club in advance if he cannot bring a bike.",
-              "It will provide replacement parts, but participants must bring their own tools and gloves.",
-              "It will begin after 7:30 p.m., and everyone must bring their own bicycle."
+              "The event will begin later because the hall is farther from the arts center.",
+              "The arts center needs fewer posters and no longer needs water-resistant paper.",
+              "The printer must make the posters larger so that people can read them indoors.",
+              "The volunteers will put up the posters before the printer begins working on them."
             ],
             "correct": 2,
-            "explanation": "正解は 2 です。第2段落で、会場は Brookside Station の裏にある Garage 4 とされています。また、自分の自転車を持ってこられない場合は、事前に知らせれば練習用の自転車を用意するとあります。\n1は、Meeting Room A ではなく Garage 4 で行われます。\n3は、tools and gloves は用意されます。また、replacement parts が必要な修理は扱わないため、本文と合いません。\n4は、時間は 5:45 p.m. から 7:30 p.m. までです。また、自転車はできれば持参ですが、全員が必ず持ってくる必要はありません。"
+            "explanation": "正解は2です。第2段落で、屋内開催になるためwater-resistant paperは不要になり、Grand Hallは公園より収容人数が少ないため、必要なポスターも200枚から160枚に減ると説明されています。\n1は開始時刻が変わっていません。3はposter sizeを同じにするよう依頼しています。4は印刷開始が水曜日午後、掲示開始が土曜日朝なので順序が逆です。"
           },
           {
             "id": 26,
             "section": "メール 3A",
             "type": "email",
-            "text": "(26) What should Ryan do by Friday at noon?",
+            "text": "(26) What does Nina ask Daniel to confirm by 3:00 p.m. today?",
             "choices": [
-              "Confirm that he still wants the place and say whether he will bring a bike.",
-              "Ask the next person on the waiting list to attend if he is busy.",
-              "Send Clara a list of bicycle parts that need to be replaced.",
-              "Go to Brookside Station to pick up a practice bike and gloves."
+              "Whether the city will finish the walkway repairs before the event.",
+              "How many volunteers will be available to put up the posters.",
+              "Whether the requested changes are possible and what the new total price will be.",
+              "Whether Grand Hall can hold the same number of people as Riverside Park."
             ],
-            "correct": 1,
-            "explanation": "正解は 1 です。第3段落で、Ryan は Friday at noon までに、参加する意思があるかを返信し、その返信で自分の自転車を持ってくるかどうか、学びたい問題を1つ伝えるよう求められています。\n2は、waiting list の次の人に連絡するのは Clara 側の行動です。\n3は、部品のリストを送るようには求められていません。\n4は、practice bike は必要な場合にクラブ側が準備するもので、Ryan が取りに行くとは書かれていません。"
+            "correct": 3,
+            "explanation": "正解は3です。第3段落の最初で、NinaはDanielに、変更が可能かどうかと新しい合計金額を火曜日の午後3時までに確認してほしいと依頼しています。\n1の工事日程をDanielに確認しているのではありません。2のボランティア人数は尋ねていません。4は本文でGrand Hallの収容人数が公園より少ないと説明されていますが、Danielに確認を依頼している内容ではありません。"
           }
         ]
       },
@@ -1528,9 +1528,9 @@ window.scbtGrade2VocabSets = [
         "passageTitle": "Sound Maps",
         "passage": [
           "Most city maps show streets, train stations, and buildings, but they usually do not show what a place sounds like. A small park beside a road may look peaceful on a map, while a narrow street behind shops may be quiet. To understand these differences, some cities and neighborhood groups have begun making sound maps. Early sound maps were often used to study noise near airports. Newer projects, however, also record pleasant sounds, such as birds, bells, or running water, because these sounds can affect how people feel about a place.",
-          "A sound-mapping project usually begins with a planned walking route. Volunteers carry a sound meter or a phone with a measuring app, and they stop at fixed points at the same time of day. They record the loudness of traffic, voices, or machines, but they also write short notes about what they hear. Rainy or windy days are often avoided because the results may not match conditions. Later, the information is placed on a digital map with colors or symbols. This lets planners compare, for example, a busy bus stop with a playground nearby.",
+          "A sound-mapping project usually begins with a planned walking route. Volunteers carry a sound meter or a phone with a measuring app, and they stop at fixed points at similar times of day on each visit. They record the loudness of traffic, voices, or machines, but they also write short notes about what they hear. Rainy or windy days are often avoided because the results may not represent typical conditions. Later, the information is placed on a digital map with colors or symbols. This lets planners compare, for example, a busy bus stop with a playground nearby.",
           "At first, many groups believed that lower numbers always meant a better environment. They soon learned that this was not true. A quiet alley might feel uncomfortable if it is dark, while a lively market can be loud but enjoyable. Also, one measurement may be misleading if a truck passes at that exact moment. Because of these problems, researchers began asking residents how they felt about each place and repeating measurements on different days. This changed sound maps from simple noise charts into tools for understanding the quality of public spaces.",
-          "Today, sound maps are used in several practical ways. Schools use them for science projects, and city offices may study them before planting trees, changing traffic rules, or choosing places for outdoor events. Some shop owners also look at them when deciding where to put tables outside. Still, the maps require care. People’s conversations should not be recorded, measuring tools must be checked, and the map can become old when a new road or building changes the area. Supporters say sound maps are most useful when numbers and local opinions are combined."
+          "Today, sound maps are used in several practical ways. Schools use them for science projects, and city offices may study them before planting trees, changing traffic rules, or choosing places for outdoor events. Some shop owners also look at them when deciding where to put tables outside. Still, the maps require care. People’s conversations should not be recorded, measuring tools must be checked, and a map can become out of date when a new road or building changes the area. Supporters say sound maps are most useful when numbers and local opinions are combined."
         ],
         "questions": [
           {
@@ -1553,13 +1553,13 @@ window.scbtGrade2VocabSets = [
             "type": "long-content",
             "text": "(28) How do volunteers usually collect information for a sound map?",
             "choices": [
+              "They begin by choosing colors for the map and then visit only the loudest places.",
+              "They collect most of their information during rainy or windy weather.",
               "They walk along a planned route, measure sounds at fixed points, and add notes about what they hear.",
-              "They visit places mainly on rainy and windy days so the map shows unusual conditions.",
-              "They measure only pleasant sounds and leave out traffic, voices, and machines.",
-              "They first make a colored digital map and then decide which places to visit."
+              "They record traffic and machines but do not add notes or measure voices."
             ],
-            "correct": 1,
-            "explanation": "答え：1\n第2段落では、ボランティアが決められた walking route を歩き、fixed points で音を測り、さらに聞こえた音について短いメモを書くと説明されています。したがって、1が正解です。\n2は rainy or windy days を避けるとあるので逆です。\n3は traffic, voices, machines も記録するとあるので違います。\n4は、先に地図を作るのではなく、測定した情報をあとで digital map に入れるので違います。"
+            "correct": 3,
+            "explanation": "答え：3\n第2段落では、ボランティアが決められたwalking routeを歩き、fixed pointsで音を測り、さらに聞こえた音について短いメモを書くと説明されています。\n1は、先に色を決めて大きな音の場所だけを回るのではありません。2は、rainy or windy daysを避けるとあるので逆です。4はtrafficやmachinesだけでなくvoicesも測り、短いnotesも残します。"
           },
           {
             "id": 29,
@@ -1567,27 +1567,27 @@ window.scbtGrade2VocabSets = [
             "type": "long-content",
             "text": "(29) Why did researchers start asking residents for their opinions and repeating measurements?",
             "choices": [
-              "They found that a single low number did not always show how people actually felt about a place.",
-              "They wanted to prove that lively markets should be removed because they are always unpleasant.",
-              "They learned that phones could not measure sounds near alleys, trucks, or public spaces.",
-              "They discovered that lower numbers always meant a public space was better for everyone."
+              "They learned that residents generally preferred lively markets to quiet streets.",
+              "They found that one measurement was enough only when no trucks passed.",
+              "They wanted to replace sound measurements with opinions from shop owners.",
+              "They found that one sound-level result did not always represent a place or people’s experience of it."
             ],
-            "correct": 1,
-            "explanation": "答え：1\n第3段落では、最初は「数値が低いほど良い環境」と考えられていたが、実際にはそう単純ではないと説明されています。暗い路地は静かでも不安に感じることがあり、にぎやかな市場はうるさくても楽しい場合があります。また、たまたまトラックが通った瞬間の測定では誤解を生む可能性があります。そのため、住民の感じ方を聞き、別の日にも測定するようになりました。\n2は market を必ず悪いものとして扱っており、本文と違います。\n3は phones が測定できないとは書かれていません。\n4は本文で否定されている考えです。"
+            "correct": 4,
+            "explanation": "答え：4\n第3段落では、静かな場所でも不快に感じる場合があり、逆に活気のある市場は音が大きくても楽しい場合があると説明されています。また、一度の測定は、ちょうどtruckが通っただけでも結果が変わります。つまり、一つの数値だけでは場所の普段の状態や人々の感じ方を十分に表せないため、意見を聞き、別の日にも測るようになりました。\n1は、すべての住民が市場を好むとは述べていません。2は、一度だけの測定ではmisleadingになる可能性があります。3は、測定を意見だけに置き換えるのではなく、numbers and local opinionsを組み合わせます。"
           },
           {
             "id": 30,
             "section": "長文内容 3B",
             "type": "long-content",
-            "text": "(30) What does the fourth paragraph suggest about sound maps today and in the future?",
+            "text": "(30) What does the fourth paragraph suggest about using sound maps?",
             "choices": [
-              "They can help schools and city offices, but they need careful handling to stay useful and responsible.",
-              "They are now used mainly by shop owners because city offices have stopped studying them.",
-              "They become more reliable when people’s conversations are recorded and measuring tools are not checked.",
-              "They should be used only after new roads or buildings are finished, because older maps are always better."
+              "They can guide practical decisions, but careful measurement, privacy, and regular updates are needed.",
+              "They should be updated only after a new road or building is finished.",
+              "They are most useful when created by shop owners without local opinions.",
+              "They become more accurate when private conversations are recorded with unchecked tools."
             ],
             "correct": 1,
-            "explanation": "答え：1\n第4段落では、sound maps は学校の science projects や、市役所による trees、traffic rules、outdoor events の検討に使われるとあります。一方で、会話を録音しないこと、測定道具を確認すること、新しい道路や建物で地図が古くなることなど、注意点も述べられています。したがって、1が正解です。\n2は shop owners だけが主に使うという内容ではありません。\n3は conversations should not be recorded、tools must be checked とあるので逆です。\n4は古い地図が常に良いという話ではありません。"
+            "explanation": "答え：1\n第4段落では、sound mapsは学校のscience projectsや、市役所によるtrees、traffic rules、outdoor eventsの検討に使われるとあります。一方で、会話を録音しないこと、測定道具を確認すること、道路や建物が変われば地図を更新することも必要です。\n2は、地図がout of dateになる前にも更新が必要になり得ます。3はshop ownersだけで作るものではなく、local opinionsも重要です。4はconversations should not be recorded、tools must be checkedとあるので逆です。"
           },
           {
             "id": 31,
@@ -1595,13 +1595,13 @@ window.scbtGrade2VocabSets = [
             "type": "long-content",
             "text": "(31) Which of the following statements is true?",
             "choices": [
-              "Sound maps were once often used to study noise, but newer projects can include pleasant sounds and people’s reactions.",
-              "Sound maps are useful for schools and city offices because they record private conversations in public places.",
-              "Sound maps became broader tools after planners proved that low sound numbers always mean comfortable spaces.",
-              "Sound maps are mainly created for shop owners, although volunteers usually avoid using routes or fixed points."
+              "A quiet place is usually judged positively even when residents feel unsafe there.",
+              "Schools and city offices use sound maps mainly to choose routes that avoid all human voices.",
+              "Sound levels alone do not fully show the quality of a public place, so measurements can be combined with people’s reactions.",
+              "Once fixed points have been measured, changes to roads or buildings do not affect a map’s usefulness."
             ],
-            "correct": 1,
-            "explanation": "答え：1\n本文全体では、sound maps がもともと空港周辺などの noise を調べる目的で使われることが多かった一方、最近のプロジェクトでは pleasant sounds や人々の感じ方も重視するようになったと説明されています。したがって、1が本文全体の内容に合います。\n2は private conversations を記録するとしている点が本文と逆です。\n3は「低い数値が常に快適さを示す」としており、第3段落で否定されています。\n4は shop owners が主目的ではなく、volunteers usually use routes and fixed points とあるので違います。"
+            "correct": 3,
+            "explanation": "答え：3\n本文では、音量が低いだけでは、その場所が快適かどうかを判断できないと説明されています。そのため、研究者は測定を繰り返し、住民の反応も集め、numbers and local opinionsを組み合わせます。\n1は、quiet alleyでもdarkであれば不快に感じる場合があるため違います。2は、voicesも測定対象になり得ますが、人の声をすべて避けるための地図ではありません。4は、新しい道路や建物によって地図がout of dateになる可能性があります。"
           }
         ]
       }

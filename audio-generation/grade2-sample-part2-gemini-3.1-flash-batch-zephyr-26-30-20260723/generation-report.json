@@ -1,0 +1,167 @@
+{
+  "model": "gemini-3.1-flash-tts-preview",
+  "billingMode": "Batch API",
+  "batchJob": {
+    "submittedAt": "2026-07-23T01:20:20.159675+00:00",
+    "name": "batches/m3m40e0l7vcbdipze98o3vpyr3ex4phv0g61",
+    "displayName": "grade2-sample-part2-zephyr-26-30-20260723",
+    "model": "models/gemini-3.1-flash-tts-preview",
+    "state": "JOB_STATE_SUCCEEDED",
+    "requestCount": 5,
+    "checkedAt": "2026-07-23T01:23:14.444466+00:00",
+    "error": null
+  },
+  "requestCount": 5,
+  "paceInstructions": [
+    "Maintain a steady pace.",
+    "Do not rush, accelerate, over-enunciate, or stretch individual words."
+  ],
+  "format": {
+    "sampleRate": 24000,
+    "channels": 1,
+    "sampleWidth": 2,
+    "encoding": "PCM signed 16-bit little-endian WAV"
+  },
+  "postProcessing": {
+    "speed": "none",
+    "loudness": "none",
+    "silence": "leading and trailing boundary trim only"
+  },
+  "usageTotals": {
+    "promptTokens": 1370,
+    "outputAudioTokens": 4979,
+    "totalTokens": 6349
+  },
+  "estimatedBatchCostUsd": {
+    "input": 0.000685,
+    "outputAudio": 0.04979,
+    "total": 0.050475
+  },
+  "items": [
+    {
+      "id": "No26",
+      "number": 26,
+      "voices": {
+        "N": "Zephyr"
+      },
+      "file": "No26.wav",
+      "bytes": 1549830,
+      "sha256": "4a226ab28f4af5cc3c63e5db2f932a5672fea31cb199c1a667b25188ec981200",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 215.292,
+        "trailingTrimMs": 297.5
+      },
+      "usage": {
+        "promptTokens": 273,
+        "outputAudioTokens": 1050,
+        "totalTokens": 1323
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 774893,
+      "durationSeconds": 32.287
+    },
+    {
+      "id": "No27",
+      "number": 27,
+      "voices": {
+        "N": "Zephyr"
+      },
+      "file": "No27.wav",
+      "bytes": 1476190,
+      "sha256": "cd5b522ea4f6ae9e8fadedffdd10794838a2bd67c0124f3c1fec7c25844b160f",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 197.0,
+        "trailingTrimMs": 289.958
+      },
+      "usage": {
+        "promptTokens": 273,
+        "outputAudioTokens": 1000,
+        "totalTokens": 1273
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 738073,
+      "durationSeconds": 30.753
+    },
+    {
+      "id": "No28",
+      "number": 28,
+      "voices": {
+        "N": "Zephyr"
+      },
+      "file": "No28.wav",
+      "bytes": 1409504,
+      "sha256": "979bb946ad3d416545521a58f2406b0a59293e94ce55ed8d162028f0564f33b6",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 492.792,
+        "trailingTrimMs": 303.458
+      },
+      "usage": {
+        "promptTokens": 275,
+        "outputAudioTokens": 966,
+        "totalTokens": 1241
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 704730,
+      "durationSeconds": 29.364
+    },
+    {
+      "id": "No29",
+      "number": 29,
+      "voices": {
+        "N": "Zephyr"
+      },
+      "file": "No29.wav",
+      "bytes": 1488438,
+      "sha256": "31d2ffb6597e8995afcda7105f678fc807fbcf4240bd1323e0d2d73e8937bb2b",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 88.833,
+        "trailingTrimMs": 302.958
+      },
+      "usage": {
+        "promptTokens": 276,
+        "outputAudioTokens": 1005,
+        "totalTokens": 1281
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 744197,
+      "durationSeconds": 31.008
+    },
+    {
+      "id": "No30",
+      "number": 30,
+      "voices": {
+        "N": "Zephyr"
+      },
+      "file": "No30.wav",
+      "bytes": 1414290,
+      "sha256": "a33e3b6d9f576d6bb6d37203aaacd5a13ef3a19896b2bbf3701bf9e7c7a12261",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 232.792,
+        "trailingTrimMs": 223.75
+      },
+      "usage": {
+        "promptTokens": 273,
+        "outputAudioTokens": 958,
+        "totalTokens": 1231
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 707123,
+      "durationSeconds": 29.463
+    }
+  ]
+}

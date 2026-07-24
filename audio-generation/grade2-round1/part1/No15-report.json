@@ -1,0 +1,209 @@
+{
+  "item": "No15",
+  "number": 15,
+  "sourceScript": "A: This envelope was delivered to my office, but your company name is printed on it. B: That's the contract I sent to our lawyer. I used your floor number by mistake. A: I noticed it was marked urgent, so I brought it upstairs right away. B: Thanks. I expected it back next week, so I'm surprised the lawyer returned it so quickly.",
+  "questionText": "What surprised the man about the envelope?",
+  "voices": {
+    "A": {
+      "provider": "edge",
+      "voice": "en-US-AvaMultilingualNeural",
+      "gender": "female",
+      "language": "en-US",
+      "englishOnly": true,
+      "gainDb": -3.5
+    },
+    "B": {
+      "provider": "openai",
+      "voice": "cedar",
+      "gender": "male",
+      "accent": "American English",
+      "gainDb": 0.0
+    }
+  },
+  "output": "audio-generation\\grade2-round1\\part1\\No15.wav",
+  "outputBytes": 1264398,
+  "outputMetadata": {
+    "codec_name": "pcm_s16le",
+    "sample_fmt": "s16",
+    "sample_rate": "24000",
+    "channels": 1,
+    "bits_per_sample": 16,
+    "duration": "26.340000"
+  },
+  "openaiSegments": 2,
+  "edgeSegments": 3,
+  "openaiApiCallsThisRun": 0,
+  "edgeCallsThisRun": 0,
+  "initialVolume": {
+    "meanVolumeDb": -23.4,
+    "maxVolumeDb": -5.0
+  },
+  "globalAttenuationDb": 0.0,
+  "finalVolume": {
+    "meanVolumeDb": -23.4,
+    "maxVolumeDb": -5.0
+  },
+  "segments": [
+    {
+      "speaker": "A",
+      "provider": "edge",
+      "voice": "en-US-AvaMultilingualNeural",
+      "gender": "female",
+      "language": "en-US",
+      "englishOnly": true,
+      "gainDb": -3.5,
+      "displayText": "Number 15... This envelope was delivered to my office, but your company name is printed on it.",
+      "text": "Number 15... This envelope was delivered to my office, but your company name is printed on it.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 1,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "6.168000"
+      },
+      "volume": {
+        "meanVolumeDb": -19.4,
+        "maxVolumeDb": -3.7
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -22.9,
+        "maxVolumeDb": -7.2
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-US-AvaMultilingualNeural-e9cfbcd27e2d8d41a4f9171b.wav"
+    },
+    {
+      "speaker": "B",
+      "provider": "openai",
+      "voice": "cedar",
+      "gender": "male",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "That's the contract I sent to our lawyer. I used your floor number by mistake.",
+      "text": "That's the contract I sent to our lawyer. I used your floor number by mistake.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 2,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "4.850000"
+      },
+      "volume": {
+        "meanVolumeDb": -23.8,
+        "maxVolumeDb": -5.0
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -23.8,
+        "maxVolumeDb": -5.0
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\cedar-239ddba84dfa5a45536737ef.wav"
+    },
+    {
+      "speaker": "A",
+      "provider": "edge",
+      "voice": "en-US-AvaMultilingualNeural",
+      "gender": "female",
+      "language": "en-US",
+      "englishOnly": true,
+      "gainDb": -3.5,
+      "displayText": "I noticed it was marked urgent, so I brought it upstairs right away.",
+      "text": "I noticed it was marked urgent, so I brought it upstairs right away.",
+      "ttsOverrides": [],
+      "gapAfterMs": 180,
+      "index": 3,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "4.152000"
+      },
+      "volume": {
+        "meanVolumeDb": -18.0,
+        "maxVolumeDb": -2.8
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -21.5,
+        "maxVolumeDb": -6.3
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-US-AvaMultilingualNeural-dd8cd31b82cf02f9254f35c0.wav"
+    },
+    {
+      "speaker": "B",
+      "provider": "openai",
+      "voice": "cedar",
+      "gender": "male",
+      "language": null,
+      "englishOnly": false,
+      "gainDb": 0.0,
+      "displayText": "Thanks. I expected it back next week, so I'm surprised the lawyer returned it so quickly.",
+      "text": "Thanks. I expected it back next week, so I'm surprised the lawyer returned it so quickly.",
+      "ttsOverrides": [],
+      "gapAfterMs": 650,
+      "index": 4,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "6.500000"
+      },
+      "volume": {
+        "meanVolumeDb": -24.4,
+        "maxVolumeDb": -5.4
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -24.4,
+        "maxVolumeDb": -5.4
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\openai\\cedar-e60f31c6d0f2077d349fc2c5.wav"
+    },
+    {
+      "speaker": "A",
+      "provider": "edge",
+      "voice": "en-US-AvaMultilingualNeural",
+      "gender": "female",
+      "language": "en-US",
+      "englishOnly": true,
+      "gainDb": -3.5,
+      "displayText": "Question. What surprised the man about the envelope?",
+      "text": "Question. What surprised the man about the envelope?",
+      "ttsOverrides": [],
+      "gapAfterMs": 0,
+      "role": "question",
+      "index": 5,
+      "cached": true,
+      "metadata": {
+        "codec_name": "pcm_s16le",
+        "sample_fmt": "s16",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16,
+        "duration": "3.480000"
+      },
+      "volume": {
+        "meanVolumeDb": -20.4,
+        "maxVolumeDb": -2.2
+      },
+      "effectiveVolume": {
+        "meanVolumeDb": -23.9,
+        "maxVolumeDb": -5.7
+      },
+      "path": "audio-generation\\grade2-round1\\part1\\_cache\\edge\\en-US-AvaMultilingualNeural-48f061292cf09ddd91d7fa03.wav"
+    }
+  ]
+}

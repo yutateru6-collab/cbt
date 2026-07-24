@@ -1,0 +1,71 @@
+[
+  {
+    "id": "No01",
+    "number": 1,
+    "engine": "kokoro-onnx",
+    "speakerA": "af_bella",
+    "speakerB": "am_fenrir",
+    "speed": 0.87,
+    "lang": "en-us",
+    "sampleRate": 24000,
+    "sourceSegments": 6,
+    "synthesisSegments": 5,
+    "mergeLeadingNumber": true,
+    "titleReplacements": [],
+    "duration": 24.144667,
+    "sourcePeak": 0.9105556607246399,
+    "peakScale": 0.7774876490654085,
+    "path": "audio-generation\\local-tts-trials\\kokoro-pair-comparison-20260715\\02-bella-fenrir\\merged\\No01.wav",
+    "bytes": 1158988
+  },
+  {
+    "id": "No02",
+    "number": 2,
+    "engine": "kokoro-onnx",
+    "speakerA": "af_bella",
+    "speakerB": "am_fenrir",
+    "speed": 0.87,
+    "lang": "en-us",
+    "sampleRate": 24000,
+    "sourceSegments": 6,
+    "synthesisSegments": 5,
+    "mergeLeadingNumber": true,
+    "titleReplacements": [
+      {
+        "sourceText": "I found your reservation, Ms. Green. The quiet room won't be ready until six, but a room near the elevator is available now.",
+        "spokenText": "I found your reservation, Miz Green. The quiet room won't be ready until six, but a room near the elevator is available now.",
+        "replacements": [
+          {
+            "from": "\\bMs\\.(?=\\s+[A-Z])",
+            "to": "Miz",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "duration": 28.603333,
+    "sourcePeak": 1.2101994752883911,
+    "peakScale": 0.584982719341616,
+    "path": "audio-generation\\local-tts-trials\\kokoro-pair-comparison-20260715\\02-bella-fenrir\\merged\\No02.wav",
+    "bytes": 1373004
+  },
+  {
+    "id": "No03",
+    "number": 3,
+    "engine": "kokoro-onnx",
+    "speakerA": "af_bella",
+    "speakerB": "am_fenrir",
+    "speed": 0.87,
+    "lang": "en-us",
+    "sampleRate": 24000,
+    "sourceSegments": 6,
+    "synthesisSegments": 5,
+    "mergeLeadingNumber": true,
+    "titleReplacements": [],
+    "duration": 23.206,
+    "sourcePeak": 1.0217936038970947,
+    "peakScale": 0.6928461651158442,
+    "path": "audio-generation\\local-tts-trials\\kokoro-pair-comparison-20260715\\02-bella-fenrir\\merged\\No03.wav",
+    "bytes": 1113932
+  }
+]

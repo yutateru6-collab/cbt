@@ -1,0 +1,1257 @@
+{
+  "model": "gemini-3.1-flash-tts-preview",
+  "billingMode": "Batch API",
+  "batchJob": {
+    "submittedAt": "2026-07-23T07:38:58.811869+00:00",
+    "name": "batches/sx03rsofx20h74ickkgh9p0jwz7vni59923q",
+    "displayName": "grade2-round1-to-3-part2-gemini31-20260723",
+    "model": "models/gemini-3.1-flash-tts-preview",
+    "state": "JOB_STATE_SUCCEEDED",
+    "requestCount": 45,
+    "checkedAt": "2026-07-23T07:53:31.002498+00:00",
+    "error": null
+  },
+  "retryJobs": [
+    {
+      "submittedAt": "2026-07-23T07:54:16.420408+00:00",
+      "name": "batches/xqs1ibxwcf4hwoywm2ee2htipzomw03dstd8",
+      "displayName": "grade2-round1-to-3-part2-gemini31-20260723-retry-01",
+      "model": "models/gemini-3.1-flash-tts-preview",
+      "state": "JOB_STATE_SUCCEEDED",
+      "requestCount": 2,
+      "checkedAt": "2026-07-23T07:57:54.179528+00:00",
+      "error": null
+    },
+    {
+      "submittedAt": "2026-07-23T07:59:55.699853+00:00",
+      "name": "batches/d8mngs8ahv65e2i8v8dqc2t42tqhz2qgrbih",
+      "displayName": "grade2-round1-to-3-part2-gemini31-20260723-retry-02",
+      "model": "models/gemini-3.1-flash-tts-preview",
+      "state": "JOB_STATE_SUCCEEDED",
+      "requestCount": 1,
+      "checkedAt": "2026-07-23T08:02:48.332002+00:00",
+      "error": null
+    }
+  ],
+  "requestCount": 45,
+  "paceInstructions": [
+    "Maintain a steady pace.",
+    "Do not rush, accelerate, over-enunciate, or stretch individual words."
+  ],
+  "format": {
+    "sampleRate": 24000,
+    "channels": 1,
+    "sampleWidth": 2,
+    "encoding": "PCM signed 16-bit little-endian WAV"
+  },
+  "postProcessing": {
+    "speed": "none",
+    "loudness": "none during collection",
+    "silence": "leading and trailing boundary trim only",
+    "characterNormalization": {
+      "item": "set-02-No29",
+      "from": "U+2019 RIGHT SINGLE QUOTATION MARK",
+      "to": "U+0027 APOSTROPHE",
+      "spokenContentChanged": false
+    }
+  },
+  "usageTotals": {
+    "promptTokens": 12240,
+    "outputAudioTokens": 45744,
+    "totalTokens": 57984
+  },
+  "estimatedBatchCostUsd": {
+    "input": 0.00612,
+    "outputAudio": 0.45744,
+    "total": 0.46356
+  },
+  "items": [
+    {
+      "id": "set-01-No16",
+      "number": 16,
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "voices": {
+        "N": "Achird"
+      },
+      "file": "set-01-No16.wav",
+      "bytes": 1444124,
+      "sha256": "6b7152088f5ca096029a6a54cb7c88bc09f3f6185ca7e0ad68f462be5a7c858a",
+      "sourceMimeType": "audio/L16;rate=24000",
+      "boundaryTrim": {
+        "reusedExistingCollectedWav": true
+      },
+      "usage": {
+        "promptTokens": 270,
+        "outputAudioTokens": 986,
+        "totalTokens": 1256
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 722040,
+      "durationSeconds": 30.085
+    },
+    {
+      "id": "set-01-No17",
+      "number": 17,
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "voices": {
+        "N": "Achird"
+      },
+      "file": "set-01-No17.wav",
+      "bytes": 1422020,
+      "sha256": "6909ec3d09163dc1cdaaa7a50bb65b292b982d12106aee270cdf37745e3a019e",
+      "sourceMimeType": "audio/L16;rate=24000",
+      "boundaryTrim": {
+        "reusedExistingCollectedWav": true
+      },
+      "usage": {
+        "promptTokens": 269,
+        "outputAudioTokens": 969,
+        "totalTokens": 1238
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 710988,
+      "durationSeconds": 29.625
+    },
+    {
+      "id": "set-01-No18",
+      "number": 18,
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "voices": {
+        "N": "Achird"
+      },
+      "file": "set-01-No18.wav",
+      "bytes": 1505832,
+      "sha256": "f6a778590f1564a3478316f6694585e50aa9f05fe0ab9640c958e4a0eccc12e8",
+      "sourceMimeType": "audio/L16;rate=24000",
+      "boundaryTrim": {
+        "reusedExistingCollectedWav": true
+      },
+      "usage": {
+        "promptTokens": 274,
+        "outputAudioTokens": 1021,
+        "totalTokens": 1295
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 752894,
+      "durationSeconds": 31.371
+    },
+    {
+      "id": "set-01-No19",
+      "number": 19,
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "voices": {
+        "N": "Achird"
+      },
+      "file": "set-01-No19.wav",
+      "bytes": 1475956,
+      "sha256": "4090d57662c0104e7fd793f8006c4de1ef154d4765e4933050f95bf4318175fa",
+      "sourceMimeType": "audio/L16;rate=24000",
+      "boundaryTrim": {
+        "reusedExistingCollectedWav": true
+      },
+      "usage": {
+        "promptTokens": 268,
+        "outputAudioTokens": 1069,
+        "totalTokens": 1337
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 737956,
+      "durationSeconds": 30.748
+    },
+    {
+      "id": "set-01-No20",
+      "number": 20,
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "voices": {
+        "N": "Achird"
+      },
+      "file": "set-01-No20.wav",
+      "bytes": 1454854,
+      "sha256": "f4cf77c5980d394c0868f7aaf66b5a25f8a23968d0ac5177a08c1de3b90872e1",
+      "sourceMimeType": "audio/L16;rate=24000",
+      "boundaryTrim": {
+        "reusedExistingCollectedWav": true
+      },
+      "usage": {
+        "promptTokens": 271,
+        "outputAudioTokens": 987,
+        "totalTokens": 1258
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 727405,
+      "durationSeconds": 30.309
+    },
+    {
+      "id": "set-01-No21",
+      "number": 21,
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "voices": {
+        "N": "Zephyr"
+      },
+      "file": "set-01-No21.wav",
+      "bytes": 1595630,
+      "sha256": "2eee12967c7c04930fdc92749a1028b0d67ad34d5920fb10249e0b12ac6a058e",
+      "sourceMimeType": "audio/L16;rate=24000",
+      "boundaryTrim": {
+        "reusedExistingCollectedWav": true
+      },
+      "usage": {
+        "promptTokens": 267,
+        "outputAudioTokens": 1081,
+        "totalTokens": 1348
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 797793,
+      "durationSeconds": 33.241
+    },
+    {
+      "id": "set-01-No22",
+      "number": 22,
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "voices": {
+        "N": "Zephyr"
+      },
+      "file": "set-01-No22.wav",
+      "bytes": 1535348,
+      "sha256": "0de4679b490c6c3476e57d23ef0cda07a6ad474be1537fbe6933f7abb1ce6ebd",
+      "sourceMimeType": "audio/L16;rate=24000",
+      "boundaryTrim": {
+        "reusedExistingCollectedWav": true
+      },
+      "usage": {
+        "promptTokens": 271,
+        "outputAudioTokens": 1050,
+        "totalTokens": 1321
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 767652,
+      "durationSeconds": 31.985
+    },
+    {
+      "id": "set-01-No23",
+      "number": 23,
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "voices": {
+        "N": "Zephyr"
+      },
+      "file": "set-01-No23.wav",
+      "bytes": 1383102,
+      "sha256": "5a86c7c2d92683aee9283a0d91058e261a7246f29698cf3fbc2c52962fad516c",
+      "sourceMimeType": "audio/L16;rate=24000",
+      "boundaryTrim": {
+        "reusedExistingCollectedWav": true
+      },
+      "usage": {
+        "promptTokens": 269,
+        "outputAudioTokens": 939,
+        "totalTokens": 1208
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 691529,
+      "durationSeconds": 28.814
+    },
+    {
+      "id": "set-01-No24",
+      "number": 24,
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "voices": {
+        "N": "Zephyr"
+      },
+      "file": "set-01-No24.wav",
+      "bytes": 1456294,
+      "sha256": "eaaad1ca5a98b2dafaa0c2c25a8b0172041d54b397bf1e939b689119db5dd898",
+      "sourceMimeType": "audio/L16;rate=24000",
+      "boundaryTrim": {
+        "reusedExistingCollectedWav": true
+      },
+      "usage": {
+        "promptTokens": 269,
+        "outputAudioTokens": 989,
+        "totalTokens": 1258
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 728125,
+      "durationSeconds": 30.339
+    },
+    {
+      "id": "set-01-No25",
+      "number": 25,
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "voices": {
+        "N": "Zephyr"
+      },
+      "file": "set-01-No25.wav",
+      "bytes": 1554680,
+      "sha256": "31488fe72d74517cd1cafcfb07705231f6cdae981e3d7fd93cb40e0c21f6d214",
+      "sourceMimeType": "audio/L16;rate=24000",
+      "boundaryTrim": {
+        "reusedExistingCollectedWav": true
+      },
+      "usage": {
+        "promptTokens": 268,
+        "outputAudioTokens": 1165,
+        "totalTokens": 1433
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 777318,
+      "durationSeconds": 32.388
+    },
+    {
+      "id": "set-01-No26",
+      "number": 26,
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "voices": {
+        "N": "Kore"
+      },
+      "file": "set-01-No26.wav",
+      "bytes": 1562646,
+      "sha256": "10b375bc385a05a3d40b392564e817d7201ac9f0a6374d516db222d48474ea4c",
+      "sourceMimeType": "audio/L16;rate=24000",
+      "boundaryTrim": {
+        "reusedExistingCollectedWav": true
+      },
+      "usage": {
+        "promptTokens": 274,
+        "outputAudioTokens": 1060,
+        "totalTokens": 1334
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 781301,
+      "durationSeconds": 32.554
+    },
+    {
+      "id": "set-01-No27",
+      "number": 27,
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "voices": {
+        "N": "Kore"
+      },
+      "file": "set-01-No27.wav",
+      "bytes": 1536170,
+      "sha256": "7ba793e3cc354e9dea20bd6c5842b42b73f5d399e0b0f73e7ba02bab7e46ba9d",
+      "sourceMimeType": "audio/L16;rate=24000",
+      "boundaryTrim": {
+        "reusedExistingCollectedWav": true
+      },
+      "usage": {
+        "promptTokens": 278,
+        "outputAudioTokens": 1044,
+        "totalTokens": 1322
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 768063,
+      "durationSeconds": 32.003
+    },
+    {
+      "id": "set-01-No28",
+      "number": 28,
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "voices": {
+        "N": "Kore"
+      },
+      "file": "set-01-No28.wav",
+      "bytes": 1428004,
+      "sha256": "8dcb184b1a6f167e9159772b91777bceaf34b3330293093e93337205f6668bba",
+      "sourceMimeType": "audio/L16;rate=24000",
+      "boundaryTrim": {
+        "reusedExistingCollectedWav": true
+      },
+      "usage": {
+        "promptTokens": 269,
+        "outputAudioTokens": 972,
+        "totalTokens": 1241
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 713980,
+      "durationSeconds": 29.749
+    },
+    {
+      "id": "set-01-No29",
+      "number": 29,
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "voices": {
+        "N": "Kore"
+      },
+      "file": "set-01-No29.wav",
+      "bytes": 1440726,
+      "sha256": "f7cc23a3f89968c3bd665cb013b8964d42b4903a8c511438a68abe1e99a6c64e",
+      "sourceMimeType": "audio/L16;rate=24000",
+      "boundaryTrim": {
+        "reusedExistingCollectedWav": true
+      },
+      "usage": {
+        "promptTokens": 265,
+        "outputAudioTokens": 978,
+        "totalTokens": 1243
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 720341,
+      "durationSeconds": 30.014
+    },
+    {
+      "id": "set-01-No30",
+      "number": 30,
+      "setKey": "set-01",
+      "setLabel": "第1回",
+      "voices": {
+        "N": "Kore"
+      },
+      "file": "set-01-No30.wav",
+      "bytes": 1585922,
+      "sha256": "dc1b18b905b46eb0db405400fe33851aa7a6977480cd86475489e10c7f7de7bd",
+      "sourceMimeType": "audio/L16;rate=24000",
+      "boundaryTrim": {
+        "reusedExistingCollectedWav": true
+      },
+      "usage": {
+        "promptTokens": 269,
+        "outputAudioTokens": 1074,
+        "totalTokens": 1343
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 792939,
+      "durationSeconds": 33.039
+    },
+    {
+      "id": "set-02-No16",
+      "number": 16,
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "voices": {
+        "N": "Zephyr"
+      },
+      "file": "set-02-No16.wav",
+      "bytes": 1376284,
+      "sha256": "1106512c30207202252ca2c3b31858a20e408a580e13696d2a17a2218f940ce2",
+      "sourceMimeType": "audio/L16;rate=24000",
+      "boundaryTrim": {
+        "reusedExistingCollectedWav": true
+      },
+      "usage": {
+        "promptTokens": 267,
+        "outputAudioTokens": 936,
+        "totalTokens": 1203
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 688120,
+      "durationSeconds": 28.672
+    },
+    {
+      "id": "set-02-No17",
+      "number": 17,
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "voices": {
+        "N": "Zephyr"
+      },
+      "file": "set-02-No17.wav",
+      "bytes": 1542416,
+      "sha256": "8f818e171d25c8292d0d2468f180ec52dd0acd76f81786cec9f5d031bbceee13",
+      "sourceMimeType": "audio/L16;rate=24000",
+      "boundaryTrim": {
+        "reusedExistingCollectedWav": true
+      },
+      "usage": {
+        "promptTokens": 268,
+        "outputAudioTokens": 1044,
+        "totalTokens": 1312
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 771186,
+      "durationSeconds": 32.133
+    },
+    {
+      "id": "set-02-No18",
+      "number": 18,
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "voices": {
+        "N": "Zephyr"
+      },
+      "file": "set-02-No18.wav",
+      "bytes": 1534540,
+      "sha256": "21e10172227d17d501098d49cc81685fac32020fe7d9644bbdc7a1b135b7ce63",
+      "sourceMimeType": "audio/L16;rate=24000",
+      "boundaryTrim": {
+        "reusedExistingCollectedWav": true
+      },
+      "usage": {
+        "promptTokens": 271,
+        "outputAudioTokens": 1033,
+        "totalTokens": 1304
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 767248,
+      "durationSeconds": 31.969
+    },
+    {
+      "id": "set-02-No19",
+      "number": 19,
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "voices": {
+        "N": "Zephyr"
+      },
+      "file": "set-02-No19.wav",
+      "bytes": 1383926,
+      "sha256": "6811e3c1ca8d64f68e66ffeca6bd4afa177b70744bc22bcdc1221f3c75513327",
+      "sourceMimeType": "audio/L16;rate=24000",
+      "boundaryTrim": {
+        "reusedExistingCollectedWav": true
+      },
+      "usage": {
+        "promptTokens": 273,
+        "outputAudioTokens": 940,
+        "totalTokens": 1213
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 691941,
+      "durationSeconds": 28.831
+    },
+    {
+      "id": "set-02-No20",
+      "number": 20,
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "voices": {
+        "N": "Zephyr"
+      },
+      "file": "set-02-No20.wav",
+      "bytes": 1408908,
+      "sha256": "ae84f8832079e04c60ba0829394b4deba67a127ea67409eb63c846fa308502d4",
+      "sourceMimeType": "audio/L16;rate=24000",
+      "boundaryTrim": {
+        "reusedExistingCollectedWav": true
+      },
+      "usage": {
+        "promptTokens": 270,
+        "outputAudioTokens": 946,
+        "totalTokens": 1216
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 704432,
+      "durationSeconds": 29.351
+    },
+    {
+      "id": "set-02-No21",
+      "number": 21,
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "voices": {
+        "N": "Kore"
+      },
+      "file": "set-02-No21.wav",
+      "bytes": 1416160,
+      "sha256": "0f8a602ec4f0534ba315314a17f64aeb4e7899922ebdd4c7b6075453b685fff9",
+      "sourceMimeType": "audio/L16;rate=24000",
+      "boundaryTrim": {
+        "reusedExistingCollectedWav": true
+      },
+      "usage": {
+        "promptTokens": 276,
+        "outputAudioTokens": 966,
+        "totalTokens": 1242
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 708058,
+      "durationSeconds": 29.502
+    },
+    {
+      "id": "set-02-No22",
+      "number": 22,
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "voices": {
+        "N": "Kore"
+      },
+      "file": "set-02-No22.wav",
+      "bytes": 1543594,
+      "sha256": "f340c0a5eee4ee14a3a4e0ba73e629952b40b44dc3538b67668d7ebebb17b4dd",
+      "sourceMimeType": "audio/L16;rate=24000",
+      "boundaryTrim": {
+        "reusedExistingCollectedWav": true
+      },
+      "usage": {
+        "promptTokens": 273,
+        "outputAudioTokens": 1042,
+        "totalTokens": 1315
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 771775,
+      "durationSeconds": 32.157
+    },
+    {
+      "id": "set-02-No23",
+      "number": 23,
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "voices": {
+        "N": "Kore"
+      },
+      "file": "set-02-No23.wav",
+      "bytes": 1354604,
+      "sha256": "8c2b56e101c67670c3d5fc9d233fa1369bffd24decab37c90968426610cb2130",
+      "sourceMimeType": "audio/L16;rate=24000",
+      "boundaryTrim": {
+        "reusedExistingCollectedWav": true
+      },
+      "usage": {
+        "promptTokens": 269,
+        "outputAudioTokens": 922,
+        "totalTokens": 1191
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 677280,
+      "durationSeconds": 28.22
+    },
+    {
+      "id": "set-02-No24",
+      "number": 24,
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "voices": {
+        "N": "Kore"
+      },
+      "file": "set-02-No24.wav",
+      "bytes": 1461788,
+      "sha256": "f1d4828d468b8727246799a95d2559e4808ac9d27d7e4ab2211350cb43500851",
+      "sourceMimeType": "audio/L16;rate=24000",
+      "boundaryTrim": {
+        "reusedExistingCollectedWav": true
+      },
+      "usage": {
+        "promptTokens": 274,
+        "outputAudioTokens": 991,
+        "totalTokens": 1265
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 730872,
+      "durationSeconds": 30.453
+    },
+    {
+      "id": "set-02-No25",
+      "number": 25,
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "voices": {
+        "N": "Kore"
+      },
+      "file": "set-02-No25.wav",
+      "bytes": 1375508,
+      "sha256": "a7c0a6dc5a5f48188b8656a0b8c314e6a4b989267f2a4dd2c64cd6111a042a67",
+      "sourceMimeType": "audio/L16;rate=24000",
+      "boundaryTrim": {
+        "reusedExistingCollectedWav": true
+      },
+      "usage": {
+        "promptTokens": 275,
+        "outputAudioTokens": 932,
+        "totalTokens": 1207
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 687732,
+      "durationSeconds": 28.655
+    },
+    {
+      "id": "set-02-No26",
+      "number": 26,
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "voices": {
+        "N": "Achird"
+      },
+      "file": "set-02-No26.wav",
+      "bytes": 1511132,
+      "sha256": "e5569e7658e8562a6651377a5870fae3ac08d11e369a97524ca769176e8d5c2f",
+      "sourceMimeType": "audio/L16;rate=24000",
+      "boundaryTrim": {
+        "reusedExistingCollectedWav": true
+      },
+      "usage": {
+        "promptTokens": 273,
+        "outputAudioTokens": 1040,
+        "totalTokens": 1313
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 755544,
+      "durationSeconds": 31.481
+    },
+    {
+      "id": "set-02-No27",
+      "number": 27,
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "voices": {
+        "N": "Achird"
+      },
+      "file": "set-02-No27.wav",
+      "bytes": 1506038,
+      "sha256": "b5abad4dc8c694dcc152fc4c1e35aa0e816fc9d3c474229a7b14a6a3176b2aaa",
+      "sourceMimeType": "audio/L16;rate=24000",
+      "boundaryTrim": {
+        "reusedExistingCollectedWav": true
+      },
+      "usage": {
+        "promptTokens": 272,
+        "outputAudioTokens": 1021,
+        "totalTokens": 1293
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 752997,
+      "durationSeconds": 31.375
+    },
+    {
+      "id": "set-02-No28",
+      "number": 28,
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "voices": {
+        "N": "Achird"
+      },
+      "file": "set-02-No28.wav",
+      "bytes": 1615390,
+      "sha256": "98a0103bf7a73fa7eb86dadbcfd1572b0e3d09b4045d5dfa84aa9101aede233b",
+      "sourceMimeType": "audio/L16;rate=24000",
+      "boundaryTrim": {
+        "reusedExistingCollectedWav": true
+      },
+      "usage": {
+        "promptTokens": 273,
+        "outputAudioTokens": 1094,
+        "totalTokens": 1367
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 807673,
+      "durationSeconds": 33.653
+    },
+    {
+      "id": "set-02-No29",
+      "number": 29,
+      "voices": {
+        "N": "Achird"
+      },
+      "file": "set-02-No29.wav",
+      "bytes": 1383190,
+      "sha256": "1fbf56585c42412d04b4f120ee35915e3dddabb7b2b71d5160db4260e37e0c63",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 239.5,
+        "trailingTrimMs": 344.958
+      },
+      "usage": {
+        "promptTokens": 266,
+        "outputAudioTokens": 941,
+        "totalTokens": 1207
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 691573,
+      "durationSeconds": 28.816,
+      "setKey": "set-02",
+      "setLabel": "第2回"
+    },
+    {
+      "id": "set-02-No30",
+      "number": 30,
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "voices": {
+        "N": "Achird"
+      },
+      "file": "set-02-No30.wav",
+      "bytes": 1370888,
+      "sha256": "6e2fc512fed104dc8a57ca637d3bb398f4fabb0213efa1be4bdff7231cc1351d",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 308.75,
+        "trailingTrimMs": 332.0
+      },
+      "usage": {
+        "promptTokens": 269,
+        "outputAudioTokens": 935,
+        "totalTokens": 1204
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 685422,
+      "durationSeconds": 28.559
+    },
+    {
+      "id": "set-03-No16",
+      "number": 16,
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "voices": {
+        "N": "Kore"
+      },
+      "file": "set-03-No16.wav",
+      "bytes": 1601100,
+      "sha256": "3e3bbea1b75ba6901beeb0b1052b2008c1a6c17ab04a3c5809e97c45e3412a1a",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 232.5,
+        "trailingTrimMs": 292.167
+      },
+      "usage": {
+        "promptTokens": 280,
+        "outputAudioTokens": 1085,
+        "totalTokens": 1365
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 800528,
+      "durationSeconds": 33.355
+    },
+    {
+      "id": "set-03-No17",
+      "number": 17,
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "voices": {
+        "N": "Kore"
+      },
+      "file": "set-03-No17.wav",
+      "bytes": 1611928,
+      "sha256": "9af432f8eef2f1a0a3564a24718a4b4348874bcd482e0372948897fcc7fdc1b9",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 68.875,
+        "trailingTrimMs": 510.208
+      },
+      "usage": {
+        "promptTokens": 276,
+        "outputAudioTokens": 1094,
+        "totalTokens": 1370
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 805942,
+      "durationSeconds": 33.581
+    },
+    {
+      "id": "set-03-No18",
+      "number": 18,
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "voices": {
+        "N": "Kore"
+      },
+      "file": "set-03-No18.wav",
+      "bytes": 1625238,
+      "sha256": "e124a0e46fa09d67e96f2c56e853f071cc5a0be7f5df287b48ca92a9592d7593",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 271.292,
+        "trailingTrimMs": 310.5
+      },
+      "usage": {
+        "promptTokens": 274,
+        "outputAudioTokens": 1103,
+        "totalTokens": 1377
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 812597,
+      "durationSeconds": 33.858
+    },
+    {
+      "id": "set-03-No19",
+      "number": 19,
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "voices": {
+        "N": "Kore"
+      },
+      "file": "set-03-No19.wav",
+      "bytes": 1686700,
+      "sha256": "7b943ebaddb26a236589f9146e126e45fa42d0c0e4ab7900c7ba5f92657b2678",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 232.667,
+        "trailingTrimMs": 308.667
+      },
+      "usage": {
+        "promptTokens": 270,
+        "outputAudioTokens": 1142,
+        "totalTokens": 1412
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 843328,
+      "durationSeconds": 35.139
+    },
+    {
+      "id": "set-03-No20",
+      "number": 20,
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "voices": {
+        "N": "Kore"
+      },
+      "file": "set-03-No20.wav",
+      "bytes": 1531340,
+      "sha256": "0a036811551039d695218e51eeb0167d2bd703accf2f8f0eadf89504f199ac3a",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 253.583,
+        "trailingTrimMs": 364.417
+      },
+      "usage": {
+        "promptTokens": 275,
+        "outputAudioTokens": 1041,
+        "totalTokens": 1316
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 765648,
+      "durationSeconds": 31.902
+    },
+    {
+      "id": "set-03-No21",
+      "number": 21,
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "voices": {
+        "N": "Achird"
+      },
+      "file": "set-03-No21.wav",
+      "bytes": 1544372,
+      "sha256": "cfa05cdc89fd88ad0f3d1a4957ffbe2966c8e5a9f6afa71394b01cc8ea38c84e",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 271.75,
+        "trailingTrimMs": 274.75
+      },
+      "usage": {
+        "promptTokens": 277,
+        "outputAudioTokens": 1048,
+        "totalTokens": 1325
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 772164,
+      "durationSeconds": 32.173
+    },
+    {
+      "id": "set-03-No22",
+      "number": 22,
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "voices": {
+        "N": "Achird"
+      },
+      "file": "set-03-No22.wav",
+      "bytes": 1474808,
+      "sha256": "61abc7d478acdcf44f80096dc523360781ea222ad0d63dc7ee27d6da58e527f8",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 223.125,
+        "trailingTrimMs": 252.625
+      },
+      "usage": {
+        "promptTokens": 275,
+        "outputAudioTokens": 999,
+        "totalTokens": 1274
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 737382,
+      "durationSeconds": 30.724
+    },
+    {
+      "id": "set-03-No23",
+      "number": 23,
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "voices": {
+        "N": "Achird"
+      },
+      "file": "set-03-No23.wav",
+      "bytes": 1530726,
+      "sha256": "5003dee2837763e926e505fb6e2d1f15e47de7e4ea934ec703e381cd808198da",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 218.042,
+        "trailingTrimMs": 252.75
+      },
+      "usage": {
+        "promptTokens": 274,
+        "outputAudioTokens": 1036,
+        "totalTokens": 1310
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 765341,
+      "durationSeconds": 31.889
+    },
+    {
+      "id": "set-03-No24",
+      "number": 24,
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "voices": {
+        "N": "Achird"
+      },
+      "file": "set-03-No24.wav",
+      "bytes": 1487754,
+      "sha256": "bd1d72fddbe7599aef92e5cf7a9166f0da25fbb98844d1f103ba56c56c7522a2",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 319.25,
+        "trailingTrimMs": 286.792
+      },
+      "usage": {
+        "promptTokens": 275,
+        "outputAudioTokens": 1012,
+        "totalTokens": 1287
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 743855,
+      "durationSeconds": 30.994
+    },
+    {
+      "id": "set-03-No25",
+      "number": 25,
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "voices": {
+        "N": "Achird"
+      },
+      "file": "set-03-No25.wav",
+      "bytes": 1523520,
+      "sha256": "7f9d298f695d9d4c1441fe0c4b7107920cc593b705639fb6ed1d7248179bf22e",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 249.042,
+        "trailingTrimMs": 251.875
+      },
+      "usage": {
+        "promptTokens": 275,
+        "outputAudioTokens": 1032,
+        "totalTokens": 1307
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 761738,
+      "durationSeconds": 31.739
+    },
+    {
+      "id": "set-03-No26",
+      "number": 26,
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "voices": {
+        "N": "Zephyr"
+      },
+      "file": "set-03-No26.wav",
+      "bytes": 1619510,
+      "sha256": "24a6e81876b81446b67b3efb10d3c849215d9637651607980c5df6231c96f70f",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 232.417,
+        "trailingTrimMs": 268.708
+      },
+      "usage": {
+        "promptTokens": 271,
+        "outputAudioTokens": 1096,
+        "totalTokens": 1367
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 809733,
+      "durationSeconds": 33.739
+    },
+    {
+      "id": "set-03-No27",
+      "number": 27,
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "voices": {
+        "N": "Zephyr"
+      },
+      "file": "set-03-No27.wav",
+      "bytes": 1406678,
+      "sha256": "d23650a3afbb8a6995f44fd4e34ffa597c16b2e805ef7b53cfb58421605d7b72",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 208.125,
+        "trailingTrimMs": 487.0
+      },
+      "usage": {
+        "promptTokens": 272,
+        "outputAudioTokens": 960,
+        "totalTokens": 1232
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 703317,
+      "durationSeconds": 29.305
+    },
+    {
+      "id": "set-03-No28",
+      "number": 28,
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "voices": {
+        "N": "Zephyr"
+      },
+      "file": "set-03-No28.wav",
+      "bytes": 1356204,
+      "sha256": "59fb829f896c72ed8451fa31296a679d5cc65adc3855d8ed8bea2da4016332f6",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 222.083,
+        "trailingTrimMs": 324.583
+      },
+      "usage": {
+        "promptTokens": 277,
+        "outputAudioTokens": 922,
+        "totalTokens": 1199
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 678080,
+      "durationSeconds": 28.253
+    },
+    {
+      "id": "set-03-No29",
+      "number": 29,
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "voices": {
+        "N": "Zephyr"
+      },
+      "file": "set-03-No29.wav",
+      "bytes": 1582626,
+      "sha256": "0c2aa57925424c1bedaf03635be47923366b47ebbfc45ba4da40d875ef4de753",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 260.375,
+        "trailingTrimMs": 249.167
+      },
+      "usage": {
+        "promptTokens": 274,
+        "outputAudioTokens": 1072,
+        "totalTokens": 1346
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 791291,
+      "durationSeconds": 32.97
+    },
+    {
+      "id": "set-03-No30",
+      "number": 30,
+      "setKey": "set-03",
+      "setLabel": "第3回",
+      "voices": {
+        "N": "Zephyr"
+      },
+      "file": "set-03-No30.wav",
+      "bytes": 1378600,
+      "sha256": "3236f1d914da9fe5054ea50c54e6576a4c77e4f94cd5519e99c559a261724a30",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 235.625,
+        "trailingTrimMs": 244.458
+      },
+      "usage": {
+        "promptTokens": 275,
+        "outputAudioTokens": 935,
+        "totalTokens": 1210
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 689278,
+      "durationSeconds": 28.72
+    }
+  ]
+}

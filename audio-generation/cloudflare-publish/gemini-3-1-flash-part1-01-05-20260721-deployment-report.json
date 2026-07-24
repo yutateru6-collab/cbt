@@ -1,0 +1,26 @@
+{
+  "deployedAt": "2026-07-21T12:26:00+09:00",
+  "platform": "Cloudflare Pages",
+  "project": "scbt-tts-compare",
+  "environment": "Production",
+  "branch": "main",
+  "deploymentId": "5a734818-8a3b-4e05-9786-9c08ee93653e",
+  "deploymentUrl": "https://5a734818.scbt-tts-compare.pages.dev",
+  "publicUrl": "https://scbt-tts-compare.pages.dev/?v=20260721-gemini31-final",
+  "previousProductionDeploymentId": "18721fec-869b-42b3-bc78-375c01ac180a",
+  "sourceDirectory": "audio-generation/cloudflare-publish/gemini-3-1-flash-part1-01-05-20260721",
+  "uploadedFiles": 6,
+  "verification": {
+    "htmlStatus": 200,
+    "htmlContentType": "text/html; charset=utf-8",
+    "audioStatus": 200,
+    "audioContentType": "audio/wav",
+    "mobileViewport": "390x844",
+    "horizontalOverflow": false,
+    "audioElements": 5,
+    "allAudioReadyState": 4,
+    "playbackConfirmed": true,
+    "playbackRate": 1
+  },
+  "githubUpdated": false
+}

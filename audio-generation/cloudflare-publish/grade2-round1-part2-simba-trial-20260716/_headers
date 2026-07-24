@@ -1,0 +1,4 @@
+/audio/*
+  Content-Type: audio/mpeg
+  Cache-Control: public, max-age=3600
+

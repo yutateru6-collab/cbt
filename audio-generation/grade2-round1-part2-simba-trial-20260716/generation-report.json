@@ -1,0 +1,512 @@
+{
+  "sources": [
+    "audio-generation\\grade2-sample-part2-pilot.json",
+    "audio-generation\\grade2-sample-part2-rest.json"
+  ],
+  "outputDirectory": "audio-generation\\grade2-round1-part2-simba-trial-20260716",
+  "preflight": {
+    "items": [
+      "No16",
+      "No17",
+      "No18"
+    ],
+    "missing": {
+      "calls": 0,
+      "characters": 0
+    },
+    "ceilings": {
+      "calls": 16,
+      "totalCharacters": 3500,
+      "requestCharacters": 2000
+    },
+    "timingMs": {
+      "numberToBody": 1150,
+      "sentenceBreakHardSilence": 420,
+      "bodyToQuestion": 1100
+    },
+    "segments": [
+      {
+        "item": "No16",
+        "role": "number",
+        "voice": "Geffen",
+        "ttsText": "Number sixteen.",
+        "inputCharacters": 15,
+        "cached": true,
+        "gapAfterMs": 1150,
+        "ratePercent": 0
+      },
+      {
+        "item": "No16",
+        "role": "bodySentence",
+        "voice": "Geffen",
+        "ttsText": "During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge.",
+        "inputCharacters": 219,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": -5
+      },
+      {
+        "item": "No16",
+        "role": "bodySentence",
+        "voice": "Geffen",
+        "ttsText": "She knew the basic facts, but she often forgot important dates during busy tours.",
+        "inputCharacters": 176,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": -5
+      },
+      {
+        "item": "No16",
+        "role": "bodySentence",
+        "voice": "Geffen",
+        "ttsText": "Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift.",
+        "inputCharacters": 195,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": -5
+      },
+      {
+        "item": "No16",
+        "role": "bodySentence",
+        "voice": "Geffen",
+        "ttsText": "She can now explain the bridge's history more clearly.",
+        "inputCharacters": 149,
+        "cached": true,
+        "gapAfterMs": 1100,
+        "ratePercent": -5
+      },
+      {
+        "item": "No16",
+        "role": "question",
+        "voice": "Dominic",
+        "ttsText": "Question. What helped Nina explain the bridge's history better?",
+        "inputCharacters": 63,
+        "cached": true,
+        "gapAfterMs": 0,
+        "ratePercent": 0
+      },
+      {
+        "item": "No17",
+        "role": "number",
+        "voice": "Wyatt",
+        "ttsText": "Number seventeen.",
+        "inputCharacters": 17,
+        "cached": true,
+        "gapAfterMs": 1150,
+        "ratePercent": 0
+      },
+      {
+        "item": "No17",
+        "role": "bodySentence",
+        "voice": "Wyatt",
+        "ttsText": "The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday.",
+        "inputCharacters": 188,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": -11
+      },
+      {
+        "item": "No17",
+        "role": "bodySentence",
+        "voice": "Wyatt",
+        "ttsText": "Those rooms will be unavailable from nine A M until three P M, but the swimming pool will remain open as usual.",
+        "inputCharacters": 207,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": -11
+      },
+      {
+        "item": "No17",
+        "role": "bodySentence",
+        "voice": "Wyatt",
+        "ttsText": "Visitors should use the smaller changing area beside Court Two.",
+        "inputCharacters": 159,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": -11
+      },
+      {
+        "item": "No17",
+        "role": "bodySentence",
+        "voice": "Wyatt",
+        "ttsText": "Please bring your own lock, since the temporary lockers do not have built-in keys.",
+        "inputCharacters": 178,
+        "cached": true,
+        "gapAfterMs": 1100,
+        "ratePercent": -11
+      },
+      {
+        "item": "No17",
+        "role": "question",
+        "voice": "Harper",
+        "ttsText": "Question. What should visitors bring to the sports center?",
+        "inputCharacters": 58,
+        "cached": true,
+        "gapAfterMs": 0,
+        "ratePercent": 0
+      },
+      {
+        "item": "No18",
+        "role": "number",
+        "voice": "Imogen",
+        "ttsText": "Number eighteen.",
+        "inputCharacters": 16,
+        "cached": true,
+        "gapAfterMs": 1150,
+        "ratePercent": 0
+      },
+      {
+        "item": "No18",
+        "role": "bodySentence",
+        "voice": "Imogen",
+        "ttsText": "A customer asked Leo to prepare a birthday cake without nuts.",
+        "inputCharacters": 156,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": -5
+      },
+      {
+        "item": "No18",
+        "role": "bodySentence",
+        "voice": "Imogen",
+        "ttsText": "He carefully checked the ingredients, but the chocolate decorations he usually buys were made in a factory that also handles almonds.",
+        "inputCharacters": 228,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": -5
+      },
+      {
+        "item": "No18",
+        "role": "bodySentence",
+        "voice": "Imogen",
+        "ttsText": "Leo called the customer and suggested using fresh fruit instead.",
+        "inputCharacters": 159,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": -5
+      },
+      {
+        "item": "No18",
+        "role": "bodySentence",
+        "voice": "Imogen",
+        "ttsText": "The customer agreed, so he changed the design while keeping the same price and delivery time for Saturday.",
+        "inputCharacters": 201,
+        "cached": true,
+        "gapAfterMs": 1100,
+        "ratePercent": -5
+      },
+      {
+        "item": "No18",
+        "role": "question",
+        "voice": "Hugh",
+        "ttsText": "Question. Why did Leo replace the chocolate decorations?",
+        "inputCharacters": 56,
+        "cached": true,
+        "gapAfterMs": 0,
+        "ratePercent": 0
+      }
+    ]
+  },
+  "actual": {
+    "calls": 0,
+    "inputCharacters": 0,
+    "billableCharacters": 0
+  },
+  "records": [],
+  "outputs": [
+    {
+      "item": "No16",
+      "number": 16,
+      "segments": [
+        {
+          "role": "number",
+          "voice": {
+            "id": "geffen_32",
+            "name": "Geffen",
+            "gender": "female"
+          },
+          "plainText": "Number 16.",
+          "ttsText": "Number sixteen.",
+          "synthesisInput": "Number sixteen.",
+          "gapAfterMs": 1150,
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "geffen_32",
+            "name": "Geffen",
+            "gender": "female"
+          },
+          "plainText": "During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge.",
+          "ttsText": "During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-5%\">During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge.</prosody></speechify:style></speak>",
+          "gapAfterMs": 420,
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "geffen_32",
+            "name": "Geffen",
+            "gender": "female"
+          },
+          "plainText": "She knew the basic facts, but she often forgot important dates during busy tours.",
+          "ttsText": "She knew the basic facts, but she often forgot important dates during busy tours.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-5%\">She knew the basic facts, but she often forgot important dates during busy tours.</prosody></speechify:style></speak>",
+          "gapAfterMs": 420,
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "geffen_32",
+            "name": "Geffen",
+            "gender": "female"
+          },
+          "plainText": "Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift.",
+          "ttsText": "Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-5%\">Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift.</prosody></speechify:style></speak>",
+          "gapAfterMs": 420,
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "geffen_32",
+            "name": "Geffen",
+            "gender": "female"
+          },
+          "plainText": "She can now explain the bridge's history more clearly.",
+          "ttsText": "She can now explain the bridge's history more clearly.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-5%\">She can now explain the bridge's history more clearly.</prosody></speechify:style></speak>",
+          "gapAfterMs": 1100,
+          "reused": false
+        },
+        {
+          "role": "question",
+          "voice": {
+            "id": "dominic_32",
+            "name": "Dominic",
+            "gender": "male"
+          },
+          "plainText": "Question. What helped Nina explain the bridge's history better?",
+          "ttsText": "Question. What helped Nina explain the bridge's history better?",
+          "synthesisInput": "Question. What helped Nina explain the bridge's history better?",
+          "gapAfterMs": 0,
+          "reused": true
+        }
+      ],
+      "wav": "audio-generation\\grade2-round1-part2-simba-trial-20260716\\audio\\No16-r2.wav",
+      "mp3": "audio-generation\\grade2-round1-part2-simba-trial-20260716\\audio\\No16-r2.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "28.099292"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "28.099297"
+      }
+    },
+    {
+      "item": "No17",
+      "number": 17,
+      "segments": [
+        {
+          "role": "number",
+          "voice": {
+            "id": "wyatt_32",
+            "name": "Wyatt",
+            "gender": "male"
+          },
+          "plainText": "Number 17.",
+          "ttsText": "Number seventeen.",
+          "synthesisInput": "Number seventeen.",
+          "gapAfterMs": 1150,
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "wyatt_32",
+            "name": "Wyatt",
+            "gender": "male"
+          },
+          "plainText": "The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday.",
+          "ttsText": "The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-11%\">The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday.</prosody></speechify:style></speak>",
+          "gapAfterMs": 420,
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "wyatt_32",
+            "name": "Wyatt",
+            "gender": "male"
+          },
+          "plainText": "Those rooms will be unavailable from 9 a.m. until 3 p.m., but the swimming pool will remain open as usual.",
+          "ttsText": "Those rooms will be unavailable from nine A M until three P M, but the swimming pool will remain open as usual.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-11%\">Those rooms will be unavailable from nine A M until three P M, but the swimming pool will remain open as usual.</prosody></speechify:style></speak>",
+          "gapAfterMs": 420,
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "wyatt_32",
+            "name": "Wyatt",
+            "gender": "male"
+          },
+          "plainText": "Visitors should use the smaller changing area beside Court Two.",
+          "ttsText": "Visitors should use the smaller changing area beside Court Two.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-11%\">Visitors should use the smaller changing area beside Court Two.</prosody></speechify:style></speak>",
+          "gapAfterMs": 420,
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "wyatt_32",
+            "name": "Wyatt",
+            "gender": "male"
+          },
+          "plainText": "Please bring your own lock, since the temporary lockers do not have built-in keys.",
+          "ttsText": "Please bring your own lock, since the temporary lockers do not have built-in keys.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-11%\">Please bring your own lock, since the temporary lockers do not have built-in keys.</prosody></speechify:style></speak>",
+          "gapAfterMs": 1100,
+          "reused": false
+        },
+        {
+          "role": "question",
+          "voice": {
+            "id": "harper_32",
+            "name": "Harper",
+            "gender": "female"
+          },
+          "plainText": "Question. What should visitors bring to the sports center?",
+          "ttsText": "Question. What should visitors bring to the sports center?",
+          "synthesisInput": "Question. What should visitors bring to the sports center?",
+          "gapAfterMs": 0,
+          "reused": false
+        }
+      ],
+      "wav": "audio-generation\\grade2-round1-part2-simba-trial-20260716\\audio\\No17-r2.wav",
+      "mp3": "audio-generation\\grade2-round1-part2-simba-trial-20260716\\audio\\No17-r2.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "27.945667"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "27.945669"
+      }
+    },
+    {
+      "item": "No18",
+      "number": 18,
+      "segments": [
+        {
+          "role": "number",
+          "voice": {
+            "id": "imogen_32",
+            "name": "Imogen",
+            "gender": "female"
+          },
+          "plainText": "Number 18.",
+          "ttsText": "Number eighteen.",
+          "synthesisInput": "Number eighteen.",
+          "gapAfterMs": 1150,
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "imogen_32",
+            "name": "Imogen",
+            "gender": "female"
+          },
+          "plainText": "A customer asked Leo to prepare a birthday cake without nuts.",
+          "ttsText": "A customer asked Leo to prepare a birthday cake without nuts.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-5%\">A customer asked Leo to prepare a birthday cake without nuts.</prosody></speechify:style></speak>",
+          "gapAfterMs": 420,
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "imogen_32",
+            "name": "Imogen",
+            "gender": "female"
+          },
+          "plainText": "He carefully checked the ingredients, but the chocolate decorations he usually buys were made in a factory that also handles almonds.",
+          "ttsText": "He carefully checked the ingredients, but the chocolate decorations he usually buys were made in a factory that also handles almonds.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-5%\">He carefully checked the ingredients, but the chocolate decorations he usually buys were made in a factory that also handles almonds.</prosody></speechify:style></speak>",
+          "gapAfterMs": 420,
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "imogen_32",
+            "name": "Imogen",
+            "gender": "female"
+          },
+          "plainText": "Leo called the customer and suggested using fresh fruit instead.",
+          "ttsText": "Leo called the customer and suggested using fresh fruit instead.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-5%\">Leo called the customer and suggested using fresh fruit instead.</prosody></speechify:style></speak>",
+          "gapAfterMs": 420,
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "imogen_32",
+            "name": "Imogen",
+            "gender": "female"
+          },
+          "plainText": "The customer agreed, so he changed the design while keeping the same price and delivery time for Saturday.",
+          "ttsText": "The customer agreed, so he changed the design while keeping the same price and delivery time for Saturday.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\"><prosody rate=\"-5%\">The customer agreed, so he changed the design while keeping the same price and delivery time for Saturday.</prosody></speechify:style></speak>",
+          "gapAfterMs": 1100,
+          "reused": false
+        },
+        {
+          "role": "question",
+          "voice": {
+            "id": "hugh_32",
+            "name": "Hugh",
+            "gender": "male"
+          },
+          "plainText": "Question. Why did Leo replace the chocolate decorations?",
+          "ttsText": "Question. Why did Leo replace the chocolate decorations?",
+          "synthesisInput": "Question. Why did Leo replace the chocolate decorations?",
+          "gapAfterMs": 0,
+          "reused": false
+        }
+      ],
+      "wav": "audio-generation\\grade2-round1-part2-simba-trial-20260716\\audio\\No18-r2.wav",
+      "mp3": "audio-generation\\grade2-round1-part2-simba-trial-20260716\\audio\\No18-r2.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "29.327167"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "29.327188"
+      }
+    }
+  ]
+}

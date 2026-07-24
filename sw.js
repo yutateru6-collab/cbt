@@ -1,21 +1,23 @@
-const CACHE_NAME = "cbt-app-shell-v1";
+const CACHE_NAME = "cbt-grade2-app-shell-v30";
 const APP_SHELL = [
   "/",
   "/index.html",
   "/exam.html",
   "/styles.css",
   "/lp.css",
+  "/app-config-grade2.js",
   "/app.js",
   "/exam-data.js",
   "/grade2-set-01.js",
   "/grade2-vocab-sets.js",
   "/grade2-listening-part2-sets.js",
-  "/pre1-listening-sets.js",
   "/manifest.webmanifest",
-  "/assets/app-icon.svg"
+  "/assets/app-icon.svg",
+  "/assets/grade2-speaking-picture-story-02.png"
 ];
 
 self.addEventListener("install", (event) => {
+  self.skipWaiting();
   event.waitUntil(
     caches
       .open(CACHE_NAME)

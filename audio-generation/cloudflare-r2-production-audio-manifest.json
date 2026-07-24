@@ -1,0 +1,741 @@
+{
+  "generatedAt": "2026-07-24T05:25:07.751Z",
+  "release": "20260724-simba32",
+  "bucket": "mimilisten-audio",
+  "publicBaseUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev",
+  "cacheControl": "public, max-age=31536000, immutable",
+  "objectCount": 73,
+  "totalBytes": 173792448,
+  "objects": [
+    {
+      "localPath": "assets/audio/grade2/sample/part1/simba-3.2-final/No01.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part1/No01.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part1/No01.wav",
+      "contentType": "audio/wav",
+      "bytes": 2767948,
+      "md5": "65949d2275b95303f41470d82f577562",
+      "sha256": "ed0071e17cb59e210a0eb50e1931e234a6744349c70b0d417e03cbbe0b6ef389"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part1/simba-3.2-final/No02.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part1/No02.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part1/No02.wav",
+      "contentType": "audio/wav",
+      "bytes": 3173876,
+      "md5": "37e63bf00b3d44f71dc849e93b4f125a",
+      "sha256": "7e01e6c64704323764131e8d5d631efd6cf32a261f9e9b3a52a92c60371eab4e"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part1/simba-3.2-final/No03.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part1/No03.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part1/No03.wav",
+      "contentType": "audio/wav",
+      "bytes": 2809240,
+      "md5": "9bff8f93cdac5433735e07bf612978fb",
+      "sha256": "54f5fec68558bb23953d1d23cdab8730753fdb21a794322e4c769a0649e594ca"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part1/simba-3.2-final/No04.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part1/No04.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part1/No04.wav",
+      "contentType": "audio/wav",
+      "bytes": 2777824,
+      "md5": "66ae05365d338520c9ae20a4a73af418",
+      "sha256": "2baf9e9be7899cb9383e2b991d93cdde80846454f5957851e43a72c994ab5715"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part1/simba-3.2-final/No05.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part1/No05.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part1/No05.wav",
+      "contentType": "audio/wav",
+      "bytes": 3184416,
+      "md5": "d29e83f8ee7a8c4bdec7e52ef51aeea4",
+      "sha256": "3803476c4e92fe57ba5efb70f9ee7969cc46fd873cbfe28324ab1b275ca45976"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part1/simba-3.2-final/No06.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part1/No06.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part1/No06.wav",
+      "contentType": "audio/wav",
+      "bytes": 3014360,
+      "md5": "0203f93aff4c33ab35e436a955843f97",
+      "sha256": "59af130cb9f942558004c9feacd7f65ae8f6b2b74de01adbdd4485465bd1d127"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part1/simba-3.2-final/No07.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part1/No07.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part1/No07.wav",
+      "contentType": "audio/wav",
+      "bytes": 2884128,
+      "md5": "ec167ecaa78eef2d60270ab74de2a605",
+      "sha256": "b6ab3863af95c72a5b96bd07ccfadacfaea6afee9cc4995f6ca6d235eadab07a"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part1/simba-3.2-final/No08.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part1/No08.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part1/No08.wav",
+      "contentType": "audio/wav",
+      "bytes": 2729052,
+      "md5": "5fb4d3bab0a25a9da276fba0022bda7f",
+      "sha256": "d0a7ffad2eb039f98c544dc1b16b47da1af1cb7424e38cc54ed9853235e2f5e6"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part1/simba-3.2-final/No09.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part1/No09.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part1/No09.wav",
+      "contentType": "audio/wav",
+      "bytes": 2724904,
+      "md5": "35e412b6f375884ae679b15297c174c1",
+      "sha256": "2c0d697ddc260c089ebe9d47f57486a88f02d8d5c1a779521d7f445aeaab9748"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part1/simba-3.2-final/No10.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part1/No10.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part1/No10.wav",
+      "contentType": "audio/wav",
+      "bytes": 2905024,
+      "md5": "e08406a572d602bac06a6519ed995791",
+      "sha256": "598d09ebffecca6db183aca616412b2a3dfa7b16a648afcefe0a2644f22a9c41"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part1/simba-3.2-final/No11.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part1/No11.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part1/No11.wav",
+      "contentType": "audio/wav",
+      "bytes": 2989720,
+      "md5": "86f470e8b2e5d9ad8295f9afd52ca9f1",
+      "sha256": "de4d20e34e00dc7822d32eac08314ddbc4401b7f4298157f7d292510bac42410"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part1/simba-3.2-final/No12.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part1/No12.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part1/No12.wav",
+      "contentType": "audio/wav",
+      "bytes": 2978276,
+      "md5": "f2d5f31e3477c8c9e17834b746571069",
+      "sha256": "b2cea30d18634b64fa19e6db60697c05b119fb5eaa3ef2a9355a892ab9b71e07"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part1/simba-3.2-final/No13.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part1/No13.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part1/No13.wav",
+      "contentType": "audio/wav",
+      "bytes": 2969020,
+      "md5": "b31c997365bdf7c6e00cc23fddeef1e4",
+      "sha256": "4557bc76592ef3c5f9a999920ad130198880f85edf6cb4afd4cc93510e0b5aa0"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part1/simba-3.2-final/No14.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part1/No14.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part1/No14.wav",
+      "contentType": "audio/wav",
+      "bytes": 2764232,
+      "md5": "1574553e45bef142dfa508023f3dca58",
+      "sha256": "d66335685a25a802ae808fd3aaa8382146ec486bbd04c542cf30047e11db9da5"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part1/simba-3.2-final/No15.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part1/No15.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part1/No15.wav",
+      "contentType": "audio/wav",
+      "bytes": 2836172,
+      "md5": "8345822e48c3bd35f74fe339ecdb305b",
+      "sha256": "f876bd005588c000dedd63a06bd96da37b98201a6b38ed2e1f613a3d297d7081"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part2/simba-3.2-final/No16.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part2/No16.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part2/No16.wav",
+      "contentType": "audio/wav",
+      "bytes": 2975140,
+      "md5": "1421487d42f77c55445258e1caa41227",
+      "sha256": "1402320e6ef9228c340840448a2c80cb85e9a966bceb1c510d04539da110e6da"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part2/simba-3.2-final/No17.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part2/No17.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part2/No17.wav",
+      "contentType": "audio/wav",
+      "bytes": 2789852,
+      "md5": "510714283c73b0bca962884d9e3f55d4",
+      "sha256": "ee0d097ca81a64b0cd68782e054987c424434201aa05c9cc8cf0f17cc60c9677"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part2/simba-3.2-final/No18.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part2/No18.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part2/No18.wav",
+      "contentType": "audio/wav",
+      "bytes": 2906144,
+      "md5": "b203aa3473d6e43dc3a4fe5df97b84e6",
+      "sha256": "2190c7e2513b93f7e0943b1180b1481dd5063fd2cb0b6add203885fcee6331a7"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part2/simba-3.2-final/No19.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part2/No19.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part2/No19.wav",
+      "contentType": "audio/wav",
+      "bytes": 2876512,
+      "md5": "78c0ab2129a209a8122fedb022fb1447",
+      "sha256": "7a77cf2032cb0bc3dd8bbe9cd5edcd53035cafe8f762a189ec42ef564649da8a"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part2/simba-3.2-final/No20.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part2/No20.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part2/No20.wav",
+      "contentType": "audio/wav",
+      "bytes": 2619492,
+      "md5": "a225e66148b51acad55bb3a05c8bd11f",
+      "sha256": "39e2139175073af9e9df6a85bff4a2a191787cd445f4f66aae83718db53253d4"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part2/simba-3.2-final/No21.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part2/No21.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part2/No21.wav",
+      "contentType": "audio/wav",
+      "bytes": 2774420,
+      "md5": "554aa727f0bf7d336986802c560bde62",
+      "sha256": "e9b967578c055ee33d52b09d429e61e67952d7b94fa118c41185ce4a39fbabe6"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part2/simba-3.2-final/No22.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part2/No22.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part2/No22.wav",
+      "contentType": "audio/wav",
+      "bytes": 2966372,
+      "md5": "853e0b5450640640493f43fa9dd00bc0",
+      "sha256": "61eaeec1a1a7cd529a74f1e22e07f021b6dc8df8d11e0aca0068ceb2f8a966f1"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part2/simba-3.2-final/No23.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part2/No23.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part2/No23.wav",
+      "contentType": "audio/wav",
+      "bytes": 3177960,
+      "md5": "0513531deda529c5bccdbf745c6a1353",
+      "sha256": "131afea0999ae53bdf07ae254f8d06cd0acd469572e242a4b1be8774e24346ff"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part2/simba-3.2-final/No24.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part2/No24.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part2/No24.wav",
+      "contentType": "audio/wav",
+      "bytes": 2815548,
+      "md5": "8cd8da1aafad07ea70f58b65ee801e97",
+      "sha256": "e7592d74889794a6de9d381c6cab409b79583aecebd9df8620df5dcdb548eecb"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part2/simba-3.2-final/No25.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part2/No25.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part2/No25.wav",
+      "contentType": "audio/wav",
+      "bytes": 2741068,
+      "md5": "689f1b8ac5def6c1e9aba1ca96d62de4",
+      "sha256": "8949249301e45bdf0a915aee5816dac5ec978634038d2989495b21c82e38a215"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part2/simba-3.2-final/No26.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part2/No26.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part2/No26.wav",
+      "contentType": "audio/wav",
+      "bytes": 2801072,
+      "md5": "9c34855a6b10af03285f8e06c6eebff6",
+      "sha256": "b3370e87691b9714e8ee20ad8b777c21e29070db58cc374202592ea8ad9b917a"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part2/simba-3.2-final/No27.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part2/No27.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part2/No27.wav",
+      "contentType": "audio/wav",
+      "bytes": 2672988,
+      "md5": "36494240326cfcb4bd50016a0f724123",
+      "sha256": "6d1f014161f319f10fb200dbaf3dc12bf9e07167f4fa8a90b974c1e26f2966dc"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part2/simba-3.2-final/No28.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part2/No28.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part2/No28.wav",
+      "contentType": "audio/wav",
+      "bytes": 2585632,
+      "md5": "0c761616dc3d86d68d777235b12a1633",
+      "sha256": "ceadbe9bbdb7bbd81f6f5c8bf0ea3d5f38b69fa1c1ca9604522c2ffdb42ac9cf"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part2/simba-3.2-final/No29.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part2/No29.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part2/No29.wav",
+      "contentType": "audio/wav",
+      "bytes": 2655112,
+      "md5": "b286590e099c84c96286f9ea07bc866a",
+      "sha256": "ce88212ef19870b7363aa2288637525a0fe2d8d93afc827c8deb702655e65a7f"
+    },
+    {
+      "localPath": "assets/audio/grade2/sample/part2/simba-3.2-final/No30.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/sample/listening/part2/No30.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/sample/listening/part2/No30.wav",
+      "contentType": "audio/wav",
+      "bytes": 2746588,
+      "md5": "f0169a8a5b55b110bbc952de103cad58",
+      "sha256": "c4b04e6f51a838ea2536f921e0b7accf4c609f05c971dc1e62dc9d49f7b33dbc"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part1/simba-3.2-final/No01.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No01.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No01.wav",
+      "contentType": "audio/wav",
+      "bytes": 3021344,
+      "md5": "a6cd34bbb41539a91995e44974c1e5b1",
+      "sha256": "b740b44502361901a9ac26ee4f3a56c07ede1f7701dfe0de0070fb19d2463e25"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part1/simba-3.2-final/No02.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No02.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No02.wav",
+      "contentType": "audio/wav",
+      "bytes": 2919936,
+      "md5": "104a27f3aeef2a76dbfb965d66534b53",
+      "sha256": "f8a8e3201f08b83ff51529f775296eb9d9ab5c88f1de2e6e308aef40fc7ec3e3"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part1/simba-3.2-final/No03.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No03.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No03.wav",
+      "contentType": "audio/wav",
+      "bytes": 2533940,
+      "md5": "d9397305eb02fb1a7d359aaea023950f",
+      "sha256": "e0fac82803a4d432fa1ea3998e8b1903c5cf1f440993b28399efb75031a59261"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part1/simba-3.2-final/No04.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No04.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No04.wav",
+      "contentType": "audio/wav",
+      "bytes": 2746348,
+      "md5": "cc31b5d6291e935bb732d02e7360bb23",
+      "sha256": "462bde216adc64a810b9a11bb89ae9c9398674a1bc87fbef5e7976d4e30b2398"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part1/simba-3.2-final/No05.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No05.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No05.wav",
+      "contentType": "audio/wav",
+      "bytes": 2778648,
+      "md5": "be4b1c4640edce97f5b7c39bd417021f",
+      "sha256": "68eb5d34172cd4d777e9dfbdfc308b2c50eda173b049bc15ddc344a27e70c795"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part1/simba-3.2-final/No06.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No06.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No06.wav",
+      "contentType": "audio/wav",
+      "bytes": 2885104,
+      "md5": "b82b96f5f568caf4531f26db32ea2c9c",
+      "sha256": "eabcc8a8815be7dea2ae12a560523d5b2d97e45ddbed98f0091aec6654da6e28"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part1/simba-3.2-final/No07.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No07.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No07.wav",
+      "contentType": "audio/wav",
+      "bytes": 2880612,
+      "md5": "12317977f0ab30bf262c8ee5e849503d",
+      "sha256": "0cbf52fa7b622bde279f4ce63ab88c78aacd356ca70800c7e304320c07990b7d"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part1/simba-3.2-final/No08.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No08.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No08.wav",
+      "contentType": "audio/wav",
+      "bytes": 3030832,
+      "md5": "3a65d7d4c33ed5ae540c8943b520f99a",
+      "sha256": "a14b303e7184fc9529d6a56a73c6dbcad093192b352eb3752975d55dcbde46b8"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part1/simba-3.2-final/No09.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No09.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No09.wav",
+      "contentType": "audio/wav",
+      "bytes": 2792380,
+      "md5": "891c7e660100e7000daf7985f27453da",
+      "sha256": "8f8163a5bcc30c10102509268dec004ec355b15f6c92877d8f2fc81829ded08b"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part1/simba-3.2-final/No10.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No10.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No10.wav",
+      "contentType": "audio/wav",
+      "bytes": 2855640,
+      "md5": "4e0db63b015dc1be205619cdb9ef8be3",
+      "sha256": "f0331b300544b7792eea174bf08535f55674970d57f0f582495d34d161224449"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part1/simba-3.2-final/No11.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No11.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No11.wav",
+      "contentType": "audio/wav",
+      "bytes": 2702608,
+      "md5": "b7fd84a5fa4377471e08c67fe59f37be",
+      "sha256": "a6b8f0544b3b8f3f4339231c68bb3da28a194182d875258010dbffec5c876aa2"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part1/simba-3.2-final/No12.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No12.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No12.wav",
+      "contentType": "audio/wav",
+      "bytes": 2826208,
+      "md5": "20683a6cae8830f80372c91073ae288a",
+      "sha256": "0c5a3d0bcf637b0325329908bd0b41665202f66c71166d525426dbd95a8ae072"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part1/simba-3.2-final/No13.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No13.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No13.wav",
+      "contentType": "audio/wav",
+      "bytes": 2974836,
+      "md5": "f8da0849480b72df8aca2ce56b672233",
+      "sha256": "f8d85ddff9e4901038935aff3a55bad04801b136c3ad230ec6509136c2b138cd"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part1/simba-3.2-final/No14.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No14.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No14.wav",
+      "contentType": "audio/wav",
+      "bytes": 3095336,
+      "md5": "dbbe2a50caf2147eda4e66838efe0460",
+      "sha256": "064cabac8848b225440d0ac434ef36f82292b11220862baba2ece6b0d81a1fd1"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part1/simba-3.2-final/No15.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No15.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part1/No15.wav",
+      "contentType": "audio/wav",
+      "bytes": 3131056,
+      "md5": "d5dc8c372708f9ebace6c932f71cb5b6",
+      "sha256": "65b65cbacd2765811ecb0c0ea9f205a9cedb983c59616d3f2190d525227fa65e"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part2/simba-3.2-final/No16.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No16.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No16.wav",
+      "contentType": "audio/wav",
+      "bytes": 2821976,
+      "md5": "f80f9471a9fb736813077d6e2f522b0e",
+      "sha256": "5e9ac47597241c0aa2485f1989cd03d90ee44fc7a727df2e78cb332c4706f889"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part2/simba-3.2-final/No17.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No17.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No17.wav",
+      "contentType": "audio/wav",
+      "bytes": 2778216,
+      "md5": "48e1720c09f502bec6ddc0f2de9fcfee",
+      "sha256": "1ffc61670938dc32b9edfed35b7177f5e04a1a30d745d66f542502194e9407fc"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part2/simba-3.2-final/No18.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No18.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No18.wav",
+      "contentType": "audio/wav",
+      "bytes": 2846484,
+      "md5": "0a3987571242f7d605157e85866a373c",
+      "sha256": "586df796da99aa5bd34cf46130178a1dbcef20a13e4f91780712b4bcff799eb0"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part2/simba-3.2-final/No19.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No19.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No19.wav",
+      "contentType": "audio/wav",
+      "bytes": 2793060,
+      "md5": "90d0f4c022edbf6dc8b013a088f86635",
+      "sha256": "bb131412f7b30d4062c131e77f541e42f965b18e17e279a7dec4f44aa4bf232e"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part2/simba-3.2-final/No20.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No20.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No20.wav",
+      "contentType": "audio/wav",
+      "bytes": 2763556,
+      "md5": "765375fe1ad2b136aeb92ea30e651b3e",
+      "sha256": "cef4af87a10ebb5eb0f35e687edaaef72a2a22661c67b7fed3d985cc879b12cb"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part2/simba-3.2-final/No21.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No21.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No21.wav",
+      "contentType": "audio/wav",
+      "bytes": 3225200,
+      "md5": "e269b9c6e3719709afff2e4ce40276df",
+      "sha256": "4c374f157064f833d211f04092b2b4b6927cc578d5e6a088794eb5304239da1b"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part2/simba-3.2-final/No22.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No22.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No22.wav",
+      "contentType": "audio/wav",
+      "bytes": 3373980,
+      "md5": "a2b03b38af243700aeba762c60fd5006",
+      "sha256": "c0426ca805200375c9dbb273f6bb7aec3efb2944ed514c816653edb5a6fcac6b"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part2/simba-3.2-final/No23.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No23.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No23.wav",
+      "contentType": "audio/wav",
+      "bytes": 3021092,
+      "md5": "137a6fd49b8f81e01146441871b995ea",
+      "sha256": "1a0f1917e06b95775634d47e9897dec81156a433b28b42e7ba84cbc749583a5c"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part2/simba-3.2-final/No24.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No24.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No24.wav",
+      "contentType": "audio/wav",
+      "bytes": 3280788,
+      "md5": "994179ad2defd5eba8d60e445dcc1a8f",
+      "sha256": "2d8303809770540b6bf923d5c97af03a98487fe677f6fe71eef94ad318ce3c4f"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part2/simba-3.2-final/No25.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No25.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No25.wav",
+      "contentType": "audio/wav",
+      "bytes": 3312904,
+      "md5": "172161b0c4380ae46b5c43900be107b6",
+      "sha256": "e6c9c17d2e6943c8c275fb424bb5f8e9ccf62cc2102f6340a81ab62b16567489"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part2/simba-3.2-final/No26.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No26.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No26.wav",
+      "contentType": "audio/wav",
+      "bytes": 2933948,
+      "md5": "b96614425bd7930adad2bb2ff0d982aa",
+      "sha256": "fcd7c4202d42a496a7f7f242c48dff72f02ad222fd8ba51e682db798e7d19ea2"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part2/simba-3.2-final/No27.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No27.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No27.wav",
+      "contentType": "audio/wav",
+      "bytes": 3075088,
+      "md5": "19d18ededf147c06e19e46977322b372",
+      "sha256": "3ff5258b67e905c8d21fbe8550061e5164ed60d1d69df57cf9b24365d02410f1"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part2/simba-3.2-final/No28.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No28.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No28.wav",
+      "contentType": "audio/wav",
+      "bytes": 3053884,
+      "md5": "d3d7f86bde2cc92a984cd7909eeb26b7",
+      "sha256": "c152fe69e6bd32edba1e586c3bfa46bcbe5d98ae1c6591ddd286cf632c281ec3"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part2/simba-3.2-final/No29.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No29.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No29.wav",
+      "contentType": "audio/wav",
+      "bytes": 2584704,
+      "md5": "c1af6b7bfc494134bae501c051c2cf1a",
+      "sha256": "2c88db9cdb4e5e62456a68f6a0b39816399a26e720f8e4b254889f700a0f2195"
+    },
+    {
+      "localPath": "assets/audio/grade2/set-02/part2/simba-3.2-final/No30.wav",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No30.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/set-02/listening/part2/No30.wav",
+      "contentType": "audio/wav",
+      "bytes": 2861432,
+      "md5": "a41cfcc22473b7e0496c55105d809f54",
+      "sha256": "1763eff55725acdaabf64bde35d6e78c0495aa09a43816262acef48561966e9c"
+    },
+    {
+      "localPath": "assets/audio/grade2/speaking/examiner/no-1.mp3",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/speaking/examiner/no-1.mp3",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/speaking/examiner/no-1.mp3",
+      "contentType": "audio/mpeg",
+      "bytes": 29232,
+      "md5": "872fb0dcd99c10888f1189e8dd396189",
+      "sha256": "ed9c1d6447cbe81c517728a5a58414e0b072469a061efb7a7920d9cbfac21caf"
+    },
+    {
+      "localPath": "assets/audio/grade2/speaking/examiner/no-2-preparation.mp3",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/speaking/examiner/no-2-preparation.mp3",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/speaking/examiner/no-2-preparation.mp3",
+      "contentType": "audio/mpeg",
+      "bytes": 61200,
+      "md5": "4bc901b72ebfd7258ac81d7255268bb9",
+      "sha256": "aba2a91907eb1a9e32d649598e398dbc32a846a77ff5a7ba7a49e867865f77c0"
+    },
+    {
+      "localPath": "assets/audio/grade2/speaking/examiner/no-2.mp3",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/speaking/examiner/no-2.mp3",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/speaking/examiner/no-2.mp3",
+      "contentType": "audio/mpeg",
+      "bytes": 8640,
+      "md5": "2bb932e030e9e756cc9a888f158a7e56",
+      "sha256": "60c86e5fe0a928d76559b91070e62eb7cad494ddfd4c0dbe059de8e0db8938a8"
+    },
+    {
+      "localPath": "assets/audio/grade2/speaking/examiner/no-3.mp3",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/speaking/examiner/no-3.mp3",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/speaking/examiner/no-3.mp3",
+      "contentType": "audio/mpeg",
+      "bytes": 25056,
+      "md5": "2f44a10b1677c6b5c11bfe4559f2b37d",
+      "sha256": "a0010d6ff2a9a0f15aa21232b4b386b4c13c3ca489c17210665f66658563a379"
+    },
+    {
+      "localPath": "assets/audio/grade2/speaking/examiner/no-4.mp3",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/speaking/examiner/no-4.mp3",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/speaking/examiner/no-4.mp3",
+      "contentType": "audio/mpeg",
+      "bytes": 20592,
+      "md5": "9b71f8696e059c6fba3e6ad99e933905",
+      "sha256": "957eb1c2fdffabe5518ce62ce53d26994505044e11feb3a4ed373263e57e6a6d"
+    },
+    {
+      "localPath": "assets/audio/grade2/speaking/examiner/read-aloud.mp3",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/speaking/examiner/read-aloud.mp3",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/speaking/examiner/read-aloud.mp3",
+      "contentType": "audio/mpeg",
+      "bytes": 20448,
+      "md5": "e716490ec4b66bcf36d8f127ec6c1cc9",
+      "sha256": "cf66b4c8d886b64696631b4640770f116ba6b89b6b2dd7b1b23995eb8544713c"
+    },
+    {
+      "localPath": "assets/audio/grade2/speaking/examiner/silent-reading.mp3",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/speaking/examiner/silent-reading.mp3",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/speaking/examiner/silent-reading.mp3",
+      "contentType": "audio/mpeg",
+      "bytes": 25200,
+      "md5": "ada0ccee83d6e2c93863bb3623027755",
+      "sha256": "9a3e3ccd64d11686a450aaf52dab47208049d0a824883158b2f2f7f166c1d1cb"
+    },
+    {
+      "localPath": "assets/audio/grade2/speaking/examiner/sound-check.mp3",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/speaking/examiner/sound-check.mp3",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/speaking/examiner/sound-check.mp3",
+      "contentType": "audio/mpeg",
+      "bytes": 30240,
+      "md5": "258f15841316d8f1d02f9f2f4ee5cf96",
+      "sha256": "b8854710af1969e427a918b88f8715e792b85ac77cef8e9b578408230996296d"
+    },
+    {
+      "localPath": "assets/audio/grade2/speaking/examiner/turn-card.mp3",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/speaking/examiner/turn-card.mp3",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/speaking/examiner/turn-card.mp3",
+      "contentType": "audio/mpeg",
+      "bytes": 17280,
+      "md5": "ff5bf191e80bddabeb068f7327dd9095",
+      "sha256": "4eebe95023fadd5eecd957e50f2faa37e72f86d1dc3b174feeaa73f080966d69"
+    },
+    {
+      "localPath": "assets/audio/grade2/speaking/examiner/warmup-1.mp3",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/speaking/examiner/warmup-1.mp3",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/speaking/examiner/warmup-1.mp3",
+      "contentType": "audio/mpeg",
+      "bytes": 13536,
+      "md5": "17660ffe2c1af959d8e1339b15660453",
+      "sha256": "057556a7fdec605fa75e9470784427968a30ae8707d7f244e0a8247b2997a98b"
+    },
+    {
+      "localPath": "assets/audio/grade2/speaking/examiner/warmup-2.mp3",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/speaking/examiner/warmup-2.mp3",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/speaking/examiner/warmup-2.mp3",
+      "contentType": "audio/mpeg",
+      "bytes": 14112,
+      "md5": "cc7916b6bd3e25b5620ae283dc66d3a8",
+      "sha256": "cd90cad7d0fc2f5626cec6e4107fe9c067018611fa4c73c6587f484354e79568"
+    },
+    {
+      "localPath": "assets/audio/grade2/speaking/examiner/why-not.mp3",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/speaking/examiner/why-not.mp3",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/speaking/examiner/why-not.mp3",
+      "contentType": "audio/mpeg",
+      "bytes": 7200,
+      "md5": "49caaf90da1892f98e1f812cf6414635",
+      "sha256": "2a05d1763bcb94ad3800277d0377f32ab8db6a294729e31f372e0006fa4cb441"
+    },
+    {
+      "localPath": "assets/audio/grade2/speaking/examiner/why.mp3",
+      "bucket": "mimilisten-audio",
+      "key": "scbt/grade2/releases/20260724-simba32/speaking/examiner/why.mp3",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32/speaking/examiner/why.mp3",
+      "contentType": "audio/mpeg",
+      "bytes": 6480,
+      "md5": "1a32b68dc5188764f0ae33bfb0e375fc",
+      "sha256": "08505d988854f9b95dfeb55ec4330728241aa2ff9bd96ae8f4bb81ec8dfa50ab"
+    }
+  ]
+}

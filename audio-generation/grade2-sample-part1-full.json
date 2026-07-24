@@ -7,47 +7,95 @@
   ],
   "voices": {
     "A": "en-CA-ClaraNeural",
-    "B": "en-US-ChristopherNeural"
+    "B": "en-GB-RyanNeural"
+  },
+  "rates": {
+    "A": "-13%",
+    "B": "-13%"
   },
   "voicePairPlan": [
     {
       "start": 1,
-      "end": 3,
+      "end": 1,
       "voices": {
         "A": "en-CA-ClaraNeural",
-        "B": "en-US-ChristopherNeural"
+        "B": "en-US-AndrewMultilingualNeural"
+      },
+      "rates": {
+        "A": "-13%",
+        "B": "-13%"
       }
     },
     {
-      "start": 4,
+      "start": 2,
+      "end": 2,
+      "voices": {
+        "A": "en-CA-ClaraNeural",
+        "B": "en-US-AndrewMultilingualNeural"
+      },
+      "rates": {
+        "A": "-13%",
+        "B": "-13%"
+      }
+    },
+    {
+      "start": 3,
+      "end": 4,
+      "voices": {
+        "A": "en-US-EmmaMultilingualNeural",
+        "B": "en-GB-RyanNeural"
+      },
+      "rates": {
+        "A": "-13%",
+        "B": "-13%"
+      }
+    },
+    {
+      "start": 5,
       "end": 6,
       "voices": {
-        "A": "en-GB-SoniaNeural",
-        "B": "en-GB-RyanNeural"
+        "A": "en-US-AvaMultilingualNeural",
+        "B": "en-AU-WilliamMultilingualNeural"
+      },
+      "rates": {
+        "A": "-13%",
+        "B": "-13%"
       }
     },
     {
       "start": 7,
-      "end": 9,
+      "end": 8,
       "voices": {
-        "A": "en-US-JennyNeural",
-        "B": "en-US-GuyNeural"
+        "A": "en-US-EmmaMultilingualNeural",
+        "B": "en-US-AndrewMultilingualNeural"
+      },
+      "rates": {
+        "A": "-13%",
+        "B": "-13%"
       }
     },
     {
-      "start": 10,
-      "end": 12,
+      "start": 9,
+      "end": 10,
       "voices": {
-        "A": "en-US-AriaNeural",
-        "B": "en-US-EricNeural"
+        "A": "en-CA-ClaraNeural",
+        "B": "en-GB-RyanNeural"
+      },
+      "rates": {
+        "A": "-13%",
+        "B": "-13%"
       }
     },
     {
-      "start": 13,
+      "start": 11,
       "end": 15,
       "voices": {
         "A": "en-US-MichelleNeural",
-        "B": "en-CA-LiamNeural"
+        "B": "en-US-BrianNeural"
+      },
+      "rates": {
+        "A": "-13%",
+        "B": "-13%"
       }
     }
   ],
@@ -59,7 +107,7 @@
       "segments": [
         {
           "speaker": "B",
-          "text": "No. 1.",
+          "text": "Number 1.",
           "gapAfterMs": 450
         },
         {
@@ -92,7 +140,7 @@
       "segments": [
         {
           "speaker": "A",
-          "text": "No. 2.",
+          "text": "Number 2.",
           "gapAfterMs": 450
         },
         {
@@ -125,7 +173,7 @@
       "segments": [
         {
           "speaker": "B",
-          "text": "No. 3.",
+          "text": "Number 3.",
           "gapAfterMs": 450
         },
         {
@@ -158,7 +206,7 @@
       "segments": [
         {
           "speaker": "B",
-          "text": "No. 4.",
+          "text": "Number 4.",
           "gapAfterMs": 450
         },
         {
@@ -191,7 +239,7 @@
       "segments": [
         {
           "speaker": "A",
-          "text": "No. 5.",
+          "text": "Number 5.",
           "gapAfterMs": 450
         },
         {
@@ -224,7 +272,7 @@
       "segments": [
         {
           "speaker": "A",
-          "text": "No. 6.",
+          "text": "Number 6.",
           "gapAfterMs": 450
         },
         {
@@ -257,7 +305,7 @@
       "segments": [
         {
           "speaker": "B",
-          "text": "No. 7.",
+          "text": "Number 7.",
           "gapAfterMs": 450
         },
         {
@@ -290,7 +338,7 @@
       "segments": [
         {
           "speaker": "A",
-          "text": "No. 8.",
+          "text": "Number 8.",
           "gapAfterMs": 450
         },
         {
@@ -323,7 +371,7 @@
       "segments": [
         {
           "speaker": "B",
-          "text": "No. 9.",
+          "text": "Number 9.",
           "gapAfterMs": 450
         },
         {
@@ -356,7 +404,7 @@
       "segments": [
         {
           "speaker": "A",
-          "text": "No. 10.",
+          "text": "Number 10.",
           "gapAfterMs": 450
         },
         {
@@ -389,7 +437,7 @@
       "segments": [
         {
           "speaker": "A",
-          "text": "No. 11.",
+          "text": "Number 11.",
           "gapAfterMs": 450
         },
         {
@@ -422,7 +470,7 @@
       "segments": [
         {
           "speaker": "B",
-          "text": "No. 12.",
+          "text": "Number 12.",
           "gapAfterMs": 450
         },
         {
@@ -455,7 +503,7 @@
       "segments": [
         {
           "speaker": "A",
-          "text": "No. 13.",
+          "text": "Number 13.",
           "gapAfterMs": 450
         },
         {
@@ -488,7 +536,7 @@
       "segments": [
         {
           "speaker": "B",
-          "text": "No. 14.",
+          "text": "Number 14.",
           "gapAfterMs": 450
         },
         {
@@ -521,7 +569,7 @@
       "segments": [
         {
           "speaker": "A",
-          "text": "No. 15.",
+          "text": "Number 15.",
           "gapAfterMs": 450
         },
         {

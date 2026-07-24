@@ -1,0 +1,249 @@
+{
+  "mode": "completed",
+  "generatedAt": "2026-07-18T16:27:34.283171+00:00",
+  "provider": "Azure Speech REST API",
+  "region": "eastus",
+  "part": "Part 1",
+  "numbers": [
+    1,
+    2,
+    3
+  ],
+  "sourceSet": "set-01",
+  "outputFormat": "riff-48khz-16bit-mono-pcm",
+  "trackCount": 3,
+  "apiRequestCount": 3,
+  "voiceFamily": "Standard Neural only",
+  "timingMs": {
+    "numberToBody": 1150,
+    "turnGap": 550,
+    "bodyToQuestion": 1100,
+    "questionToText": 350
+  },
+  "deliveryContract": {
+    "azureDirectWav": true,
+    "sampleRateHz": 48000,
+    "bitsPerSample": 16,
+    "channels": 1,
+    "oneAzureRequestPerQuestion": true,
+    "postSynthesisConcatenation": false,
+    "postSynthesisConversion": false,
+    "lossyEncoding": false,
+    "remaster": false,
+    "playbackRateModification": false,
+    "prosody": false,
+    "expressAs": false
+  },
+  "items": [
+    {
+      "id": "No01",
+      "number": 1,
+      "voices": {
+        "A": "en-US-AriaNeural",
+        "B": "en-US-AndrewMultilingualNeural",
+        "narrator": "en-US-EmmaMultilingualNeural"
+      },
+      "questionText": "What does the girl ask the boy to do?",
+      "scriptHtml": "<p><strong>B</strong> The recording for our school radio show still isn&#x27;t in the shared folder.</p><p><strong>A</strong> I finished editing it, but the file is too large to send by email. Could you upload it from the media room?</p><p><strong>B</strong> Sure, but I need the final title before lunch because the teacher checks everything at one.</p><p><strong>A</strong> I&#x27;ll message you the title now. The interview section doesn&#x27;t need any more changes.</p><p class=\"question\"><strong>Question</strong> What does the girl ask the boy to do?</p>",
+      "ssml": "ssml/part1-No01-standard-neural-48k-pcm-direct.ssml",
+      "ssmlSha256": "75fc8ea743183405a2bbe262a209b61239e56092d59fa2bfc883bc6ccd1886ab",
+      "outputFormatRequested": "riff-48khz-16bit-mono-pcm",
+      "oneAzureRequest": true,
+      "postSynthesisConcatenation": false,
+      "postSynthesisConversion": false,
+      "lossyEncodingApplied": false,
+      "remasterApplied": false,
+      "playbackRateModification": false,
+      "ok": true,
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/x-wav",
+        "requestId": null,
+        "bytes": 3097244,
+        "elapsedSeconds": 3.056
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "httpStatus": 200,
+          "reason": null
+        }
+      ],
+      "wave": {
+        "channels": 1,
+        "sampleWidthBytes": 2,
+        "bitsPerSample": 16,
+        "sampleRateHz": 48000,
+        "frameCount": 1548600,
+        "durationSeconds": 32.263,
+        "compressionType": "NONE"
+      },
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "32.262500",
+          "bit_rate": "768010"
+        }
+      },
+      "loudness": {
+        "available": true,
+        "integratedLufs": -20.2,
+        "truePeakDbtp": -3.5
+      },
+      "sha256": "b2279bfae1614c0da95fb2d6750fc1508a71917e6fb172d3d333445012d163df",
+      "publishedSha256": "b2279bfae1614c0da95fb2d6750fc1508a71917e6fb172d3d333445012d163df",
+      "directWav": "audio/part1-No01-standard-neural-48k-pcm-direct.wav",
+      "publishedWav": "audio/part1-No01-standard-neural-48k-pcm-direct.wav"
+    },
+    {
+      "id": "No02",
+      "number": 2,
+      "voices": {
+        "A": "en-US-AriaNeural",
+        "B": "en-US-AndrewMultilingualNeural",
+        "narrator": "en-US-EmmaMultilingualNeural"
+      },
+      "questionText": "What is true about the yoga class?",
+      "scriptHtml": "<p><strong>A</strong> I signed up for the beginner yoga class that meets on Wednesday evenings.</p><p><strong>B</strong> That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven.</p><p><strong>A</strong> Thursday works for me. Do I need to register again at the front desk?</p><p><strong>B</strong> No, your name is already on the new list. Just bring the same membership card.</p><p class=\"question\"><strong>Question</strong> What is true about the yoga class?</p>",
+      "ssml": "ssml/part1-No02-standard-neural-48k-pcm-direct.ssml",
+      "ssmlSha256": "f1498732c79ffb5484ed857d90a5d955729c4d3a15eed108e895b6f68f7e1f46",
+      "outputFormatRequested": "riff-48khz-16bit-mono-pcm",
+      "oneAzureRequest": true,
+      "postSynthesisConcatenation": false,
+      "postSynthesisConversion": false,
+      "lossyEncodingApplied": false,
+      "remasterApplied": false,
+      "playbackRateModification": false,
+      "ok": true,
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/x-wav",
+        "requestId": null,
+        "bytes": 2959244,
+        "elapsedSeconds": 2.851
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "httpStatus": 200,
+          "reason": null
+        }
+      ],
+      "wave": {
+        "channels": 1,
+        "sampleWidthBytes": 2,
+        "bitsPerSample": 16,
+        "sampleRateHz": 48000,
+        "frameCount": 1479600,
+        "durationSeconds": 30.825,
+        "compressionType": "NONE"
+      },
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "30.825000",
+          "bit_rate": "768011"
+        }
+      },
+      "loudness": {
+        "available": true,
+        "integratedLufs": -19.8,
+        "truePeakDbtp": -1.7
+      },
+      "sha256": "d980622af01d6792729f92f73c2ce9c7fc33cda65d8e2f55da5bb383fa29c25f",
+      "publishedSha256": "d980622af01d6792729f92f73c2ce9c7fc33cda65d8e2f55da5bb383fa29c25f",
+      "directWav": "audio/part1-No02-standard-neural-48k-pcm-direct.wav",
+      "publishedWav": "audio/part1-No02-standard-neural-48k-pcm-direct.wav"
+    },
+    {
+      "id": "No03",
+      "number": 3,
+      "voices": {
+        "A": "en-US-AriaNeural",
+        "B": "en-US-AndrewMultilingualNeural",
+        "narrator": "en-US-EmmaMultilingualNeural"
+      },
+      "questionText": "Why will the woman stay home this afternoon?",
+      "scriptHtml": "<p><strong>A</strong> I can&#x27;t meet you at the café this afternoon. A repair worker is coming to look at our washing machine.</p><p><strong>B</strong> Didn&#x27;t your brother say he would stay home for that?</p><p><strong>A</strong> He was supposed to, but his manager asked him to work an extra shift. The worker may arrive anytime between two and five.</p><p><strong>B</strong> No problem. We can meet tomorrow after my class instead.</p><p class=\"question\"><strong>Question</strong> Why will the woman stay home this afternoon?</p>",
+      "ssml": "ssml/part1-No03-standard-neural-48k-pcm-direct.ssml",
+      "ssmlSha256": "4a171bd01e6e4f7858d2a2e9207297faed435ac0a3bcbec33933c89d5e70fec7",
+      "outputFormatRequested": "riff-48khz-16bit-mono-pcm",
+      "oneAzureRequest": true,
+      "postSynthesisConcatenation": false,
+      "postSynthesisConversion": false,
+      "lossyEncodingApplied": false,
+      "remasterApplied": false,
+      "playbackRateModification": false,
+      "ok": true,
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/x-wav",
+        "requestId": null,
+        "bytes": 2979644,
+        "elapsedSeconds": 5.456
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "httpStatus": 200,
+          "reason": null
+        }
+      ],
+      "wave": {
+        "channels": 1,
+        "sampleWidthBytes": 2,
+        "bitsPerSample": 16,
+        "sampleRateHz": 48000,
+        "frameCount": 1489800,
+        "durationSeconds": 31.038,
+        "compressionType": "NONE"
+      },
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "31.037500",
+          "bit_rate": "768011"
+        }
+      },
+      "loudness": {
+        "available": true,
+        "integratedLufs": -19.2,
+        "truePeakDbtp": -2.8
+      },
+      "sha256": "47eeb1b0d545f6d707874de10c7f0439762a8706d155cc4f4a2ed95c2e92e8dc",
+      "publishedSha256": "47eeb1b0d545f6d707874de10c7f0439762a8706d155cc4f4a2ed95c2e92e8dc",
+      "directWav": "audio/part1-No03-standard-neural-48k-pcm-direct.wav",
+      "publishedWav": "audio/part1-No03-standard-neural-48k-pcm-direct.wav"
+    }
+  ]
+}

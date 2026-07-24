@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Part 1｜Azure 48kHz PCM WAV直出し</title>
+  <style>
+    :root { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:#14231b; background:#f3f0e9; }
+    * { box-sizing:border-box; } body { margin:0; }
+    main { width:min(820px,calc(100% - 24px)); margin:auto; padding:28px 0 60px; }
+    h1 { margin:0 0 12px; font-size:clamp(27px,7vw,43px); line-height:1.15; }
+    .lead,.note { color:#526158; line-height:1.75; }
+    .direct { margin:18px 0; padding:15px 17px; background:#e6f1eb; border:1px solid #b8d1c3; border-radius:15px; line-height:1.7; }
+    .direct strong { display:block; color:#125f3e; }
+    .toolbar { position:sticky; top:8px; z-index:5; display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:22px 0 28px; padding:12px; background:rgba(255,255,255,.96); border:1px solid #d3d9d5; border-radius:16px; box-shadow:0 8px 25px rgba(29,49,38,.10); }
+    .toolbar strong { margin-right:auto; }
+    button { appearance:none; border:1px solid #929f97; border-radius:999px; padding:9px 14px; background:#fff; color:#20372a; font-weight:750; }
+    button.active { background:#156c47; color:#fff; border-color:#156c47; }
+    .quality-note { width:100%; margin:2px 0 0; color:#6b746e; font-size:13px; }
+    .question-card { margin:18px 0 25px; padding:19px; background:#fff; border:1px solid #d7ddd8; border-radius:19px; }
+    .question-head { display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:10px; margin-bottom:14px; }
+    h2 { margin:0; font-size:24px; } .question-head span { color:#156c47; font-size:14px; font-weight:750; }
+    audio { display:block; width:100%; }
+    .format { display:inline-block; margin-top:10px; padding:5px 9px; border-radius:999px; background:#eef3f0; color:#4f6056; font-size:12px; font-weight:700; }
+    details { margin-top:15px; padding-top:13px; border-top:1px solid #e2e6e3; }
+    summary { cursor:pointer; font-weight:750; } details p { line-height:1.65; } details strong { display:inline-block; min-width:28px; }
+    .question { margin-top:16px; }
+    @media (max-width:680px) {
+      main { width:min(100% - 16px,820px); padding-top:20px; }
+      .toolbar strong { width:100%; margin:0; } .question-card { padding:14px; }
+    }
+  </style>
+</head>
+<body><main>
+  <h1>Part 1<br>48kHz PCM WAV 直出し</h1>
+  <p class="lead">Dragon HD Omni（Ava／Andrew／Emma）で3問作成。ゆっくり・はっきり・丁寧に読むようAzureへ指示しています。</p>
+  <div class="direct">
+    <strong>Azureの返却WAVをそのまま配信</strong>
+    MP3変換なし／再圧縮なし／EQなし／リマスターなし／後からの音源連結なし。各問題は、番号から最後の質問まで1回のAzureリクエストで生成しています。
+  </div>
+  <div class="toolbar">
+    <strong>再生速度</strong>
+    <button type="button" data-rate="0.87">0.87</button>
+    <button type="button" data-rate="0.90">0.90</button>
+    <button type="button" data-rate="1.00" class="active">1.00</button>
+    <p class="quality-note">音質を判断するときは1.00で聴いてください。0.87／0.90はスマホ側の再生速度変更です。</p>
+  </div>
+  
+            <section class="question-card">
+              <div class="question-head">
+                <h2>Number 1</h2>
+                <span>Ava × Andrew／ナレーター Emma</span>
+              </div>
+              <audio controls preload="metadata" src="audio/part1-No01-dragon-hd-omni-48k-pcm-direct.wav"></audio>
+              <div class="format">48kHz · 16bit · PCM · mono · WAV</div>
+              <details>
+                <summary>英文を見る</summary>
+                <p><strong>B</strong> The recording for our school radio show still isn&#x27;t in the shared folder.</p><p><strong>A</strong> I finished editing it, but the file is too large to send by email. Could you upload it from the media room?</p><p><strong>B</strong> Sure, but I need the final title before lunch because the teacher checks everything at one.</p><p><strong>A</strong> I&#x27;ll message you the title now. The interview section doesn&#x27;t need any more changes.</p><p class="question"><strong>Question</strong> What does the girl ask the boy to do?</p>
+              </details>
+            </section>
+            
+            <section class="question-card">
+              <div class="question-head">
+                <h2>Number 2</h2>
+                <span>Ava × Andrew／ナレーター Emma</span>
+              </div>
+              <audio controls preload="metadata" src="audio/part1-No02-dragon-hd-omni-48k-pcm-direct.wav"></audio>
+              <div class="format">48kHz · 16bit · PCM · mono · WAV</div>
+              <details>
+                <summary>英文を見る</summary>
+                <p><strong>A</strong> I signed up for the beginner yoga class that meets on Wednesday evenings.</p><p><strong>B</strong> That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven.</p><p><strong>A</strong> Thursday works for me. Do I need to register again at the front desk?</p><p><strong>B</strong> No, your name is already on the new list. Just bring the same membership card.</p><p class="question"><strong>Question</strong> What is true about the yoga class?</p>
+              </details>
+            </section>
+            
+            <section class="question-card">
+              <div class="question-head">
+                <h2>Number 3</h2>
+                <span>Ava × Andrew／ナレーター Emma</span>
+              </div>
+              <audio controls preload="metadata" src="audio/part1-No03-dragon-hd-omni-48k-pcm-direct.wav"></audio>
+              <div class="format">48kHz · 16bit · PCM · mono · WAV</div>
+              <details>
+                <summary>英文を見る</summary>
+                <p><strong>A</strong> I can&#x27;t meet you at the café this afternoon. A repair worker is coming to look at our washing machine.</p><p><strong>B</strong> Didn&#x27;t your brother say he would stay home for that?</p><p><strong>A</strong> He was supposed to, but his manager asked him to work an extra shift. The worker may arrive anytime between two and five.</p><p><strong>B</strong> No problem. We can meet tomorrow after my class instead.</p><p class="question"><strong>Question</strong> Why will the woman stay home this afternoon?</p>
+              </details>
+            </section>
+            
+  <p class="note">間隔：問題番号後1.35秒／会話ターン間0.55秒／会話後1.3秒／“Question.”後0.35秒。すべて同じ1つのSSML内で指定しています。</p>
+</main>
+<script>
+  let selectedRate = 1.0;
+  const audios = [...document.querySelectorAll('audio')];
+  const applyRate = audio => {
+    audio.playbackRate = selectedRate;
+    audio.defaultPlaybackRate = selectedRate;
+    audio.preservesPitch = true;
+    audio.webkitPreservesPitch = true;
+  };
+  audios.forEach(audio => {
+    applyRate(audio);
+    ['loadedmetadata','canplay','play','playing'].forEach(name => audio.addEventListener(name, () => applyRate(audio)));
+  });
+  document.querySelectorAll('[data-rate]').forEach(button => button.addEventListener('click', () => {
+    selectedRate = Number(button.dataset.rate);
+    document.querySelectorAll('[data-rate]').forEach(other => other.classList.toggle('active', other === button));
+    audios.forEach(applyRate);
+  }));
+</script>
+</body></html>

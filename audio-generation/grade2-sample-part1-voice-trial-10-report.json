@@ -1,0 +1,172 @@
+[
+  {
+    "id": "No01",
+    "number": 1,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No01.mp3",
+    "bytes": 480813,
+    "duration": "29.960000",
+    "bitRate": "128000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "+0%",
+      "B": "-5%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "128k"
+  },
+  {
+    "id": "No02",
+    "number": 2,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No02.mp3",
+    "bytes": 534957,
+    "duration": "33.344000",
+    "bitRate": "128000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "+0%",
+      "B": "-5%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "128k"
+  },
+  {
+    "id": "No03",
+    "number": 3,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No03.mp3",
+    "bytes": 396717,
+    "duration": "24.704000",
+    "bitRate": "128000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "+0%",
+      "B": "+0%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "128k"
+  },
+  {
+    "id": "No04",
+    "number": 4,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No04.mp3",
+    "bytes": 405549,
+    "duration": "25.256000",
+    "bitRate": "128000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "+0%",
+      "B": "+0%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "128k"
+  },
+  {
+    "id": "No05",
+    "number": 5,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No05.mp3",
+    "bytes": 467757,
+    "duration": "29.144000",
+    "bitRate": "128000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "+0%",
+      "B": "-5%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "128k"
+  },
+  {
+    "id": "No06",
+    "number": 6,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No06.mp3",
+    "bytes": 444717,
+    "duration": "27.704000",
+    "bitRate": "128000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "+0%",
+      "B": "-5%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "128k"
+  },
+  {
+    "id": "No07",
+    "number": 7,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No07.mp3",
+    "bytes": 526509,
+    "duration": "32.816000",
+    "bitRate": "128000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "+0%",
+      "B": "+0%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "128k"
+  },
+  {
+    "id": "No08",
+    "number": 8,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No08.mp3",
+    "bytes": 478509,
+    "duration": "29.816000",
+    "bitRate": "128000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "+0%",
+      "B": "+0%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "128k"
+  },
+  {
+    "id": "No09",
+    "number": 9,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No09.mp3",
+    "bytes": 497325,
+    "duration": "30.992000",
+    "bitRate": "128000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "+0%",
+      "B": "-5%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "128k"
+  },
+  {
+    "id": "No10",
+    "number": 10,
+    "path": "assets\\audio\\grade2\\sample\\part1\\No10.mp3",
+    "bytes": 557997,
+    "duration": "34.784000",
+    "bitRate": "128000",
+    "sampleRate": "24000",
+    "channels": 1,
+    "rates": {
+      "A": "+0%",
+      "B": "-5%"
+    },
+    "defaultRate": "+0%",
+    "volume": "+0%",
+    "bitrateSetting": "128k"
+  }
+]

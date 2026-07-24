@@ -1,0 +1,30 @@
+{
+  "project": "scbt-tts-compare",
+  "branch": "main",
+  "deploymentId": "855f83e4",
+  "deploymentUrl": "https://855f83e4.scbt-tts-compare.pages.dev",
+  "publicUrl": "https://scbt-tts-compare.pages.dev/?v=20260722-gemini31",
+  "sourceDirectory": "audio-generation/cloudflare-publish/gemini-3-1-flash-part1-01-07-part2-16-17-20260722",
+  "deployedWith": "wrangler 4.112.0",
+  "verification": {
+    "htmlStatus": 200,
+    "htmlContentType": "text/html; charset=utf-8",
+    "audioElementCount": 9,
+    "publicAudioStatus": 200,
+    "publicAudioContentType": "audio/wav",
+    "newAudioHashesMatchLocal": true,
+    "browserVisualVerification": false,
+    "browserVisualVerificationReason": "No browser was connected to the browser runtime."
+  },
+  "files": [
+    { "name": "No01.wav", "bytes": 1266224, "sha256": "065246d7b526a2b06c6c86a4585c12b1243929745e8db88188e8da3eaf3ec9c4" },
+    { "name": "No02.wav", "bytes": 1433450, "sha256": "566b35bc876875d91ce606cdfc266ea6a2884c84a16634809d3b0caaa0807191" },
+    { "name": "No03.wav", "bytes": 1224904, "sha256": "94506777cd42907a0a2e47fdccdeeaaef7ef1690c1e6b9b587f89bd1ff7877d1" },
+    { "name": "No04.wav", "bytes": 1240092, "sha256": "c62bcc860fcdc338570cd65bec0e5d36584a65ef5bd12abf40141b8ab9a82816" },
+    { "name": "No05.wav", "bytes": 1407474, "sha256": "dc260e61fe0641843ece6bc1c4df285cc8dcb3969863afaa9471529cc6daa96e" },
+    { "name": "No06.wav", "bytes": 1347376, "sha256": "232f50d64d1aa4cf7374b0ae1da66e4ad180f51ba7963aa95d181241395cada1" },
+    { "name": "No07.wav", "bytes": 1285892, "sha256": "871c5da4f984c5cc2cf1ead2ff3cedf0f10d81301cb0ad2fafa166d3312f155c" },
+    { "name": "No16.wav", "bytes": 1495352, "sha256": "c8b4082984f9bc8e46181c19b152857f15c6fe6218b8fde6befb721973aaec5f" },
+    { "name": "No17.wav", "bytes": 1279152, "sha256": "e14b0a24a6062fd45c3612caadb1659d8d0d31099a7366fd64b5a567664d27dc" }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-07-23T16:45:11.761737+00:00",
+  "model": "gemini-3.1-flash-tts-preview",
+  "billingMode": "Batch API",
+  "requestCount": 2,
+  "requestUnit": "one whole two-speaker item per independent candidate request",
+  "candidatesPerItem": 2,
+  "speakerContract": {
+    "Woman": "Kore",
+    "Man": "Puck",
+    "actualRenderedSpeakerQaRequired": true,
+    "plannedVoiceNamesAreNotProofOfRenderedVoiceIdentity": true
+  },
+  "targetWordsPerSecond": 2.38,
+  "pauseInstructions": {
+    "afterNumberSeconds": 0.8,
+    "betweenSpeakerTurnsSeconds": 0.55,
+    "afterQuestionLabelSeconds": 0.6
+  },
+  "postProcessingPlan": {
+    "speed": "none",
+    "speakerIdentity": "measure every complete body turn before selection",
+    "loudness": "constant whole-item PCM gain only after speaker QA passes"
+  },
+  "candidatePriority": [
+    "actual speaker correctness",
+    "transcript and structural completeness",
+    "pace and pauses",
+    "loudness"
+  ],
+  "existingAudioPolicy": "never overwrite existing audio or output directories",
+  "items": [
+    {
+      "id": "No02-c1",
+      "baseId": "No02",
+      "number": 2,
+      "candidate": 1,
+      "manifest": "audio-generation\\grade2-sample-part1-full.json",
+      "segments": [
+        {
+          "speaker": "Woman",
+          "text": "Number 2."
+        },
+        {
+          "speaker": "Woman",
+          "text": "Good afternoon. I reserved a quiet room for two nights under the name Laura Green."
+        },
+        {
+          "speaker": "Man",
+          "text": "I found your reservation, Ms. Green. The quiet room won't be ready until six, but a room near the elevator is available now."
+        },
+        {
+          "speaker": "Woman",
+          "text": "I'd rather wait. Can I leave my suitcase here while I get something to eat?"
+        },
+        {
+          "speaker": "Man",
+          "text": "Certainly. We'll keep it behind the front desk and call you when your room is ready."
+        },
+        {
+          "speaker": "Woman",
+          "text": "Question. What does the man say about the quiet room?"
+        }
+      ],
+      "voices": {
+        "Woman": "Kore",
+        "Man": "Puck"
+      },
+      "mode": "dialogue",
+      "wordCount": 81,
+      "targetDurationSeconds": 34.034,
+      "prompt": "Synthesize the exact two-person dialogue below as audio for an English listening examination.\nDo not speak these instructions, the speaker labels, or the transcript boundary labels.\nWoman is one adult woman and must always use the assigned Woman voice.\nMan is one adult man and must always use the assigned Man voice.\nEvery Woman-labeled line must use only the same Woman voice.\nEvery Man-labeled line must use only the same Man voice.\nNever merge, substitute, swap, imitate, or transfer the two voices.\nNever let either speaker read a line assigned to the other speaker.\nThe difference between the adult woman and adult man must remain clearly audible in every turn.\nUse natural American English suitable for Japanese high school learners.\nSpeak every sentence itself at a relaxed, unhurried pace that is noticeably slower than ordinary conversation.\nDo not create long extra pauses to imitate a slower pace; the spoken words themselves must be slightly slower.\nAim for the complete recording to last approximately 34.0 seconds, including the requested pauses.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause clearly for about 0.80 seconds.\nAt each change between Woman and Man, use a brief natural pause of about 0.55 seconds.\nAfter saying \"Question,\" pause clearly for about 0.60 seconds before reading the question text.\nDo not add other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nWoman: Number 2.\nWoman: Good afternoon. I reserved a quiet room for two nights under the name Laura Green.\nMan: I found your reservation, Ms. Green. The quiet room won't be ready until six, but a room near the elevator is available now.\nWoman: I'd rather wait. Can I leave my suitcase here while I get something to eat?\nMan: Certainly. We'll keep it behind the front desk and call you when your room is ready.\nWoman: Question. What does the man say about the quiet room?\nEND TRANSCRIPT"
+    },
+    {
+      "id": "No02-c2",
+      "baseId": "No02",
+      "number": 2,
+      "candidate": 2,
+      "manifest": "audio-generation\\grade2-sample-part1-full.json",
+      "segments": [
+        {
+          "speaker": "Woman",
+          "text": "Number 2."
+        },
+        {
+          "speaker": "Woman",
+          "text": "Good afternoon. I reserved a quiet room for two nights under the name Laura Green."
+        },
+        {
+          "speaker": "Man",
+          "text": "I found your reservation, Ms. Green. The quiet room won't be ready until six, but a room near the elevator is available now."
+        },
+        {
+          "speaker": "Woman",
+          "text": "I'd rather wait. Can I leave my suitcase here while I get something to eat?"
+        },
+        {
+          "speaker": "Man",
+          "text": "Certainly. We'll keep it behind the front desk and call you when your room is ready."
+        },
+        {
+          "speaker": "Woman",
+          "text": "Question. What does the man say about the quiet room?"
+        }
+      ],
+      "voices": {
+        "Woman": "Kore",
+        "Man": "Puck"
+      },
+      "mode": "dialogue",
+      "wordCount": 81,
+      "targetDurationSeconds": 34.034,
+      "prompt": "Synthesize the exact two-person dialogue below as audio for an English listening examination.\nDo not speak these instructions, the speaker labels, or the transcript boundary labels.\nWoman is one adult woman and must always use the assigned Woman voice.\nMan is one adult man and must always use the assigned Man voice.\nEvery Woman-labeled line must use only the same Woman voice.\nEvery Man-labeled line must use only the same Man voice.\nNever merge, substitute, swap, imitate, or transfer the two voices.\nNever let either speaker read a line assigned to the other speaker.\nThe difference between the adult woman and adult man must remain clearly audible in every turn.\nUse natural American English suitable for Japanese high school learners.\nSpeak every sentence itself at a relaxed, unhurried pace that is noticeably slower than ordinary conversation.\nDo not create long extra pauses to imitate a slower pace; the spoken words themselves must be slightly slower.\nAim for the complete recording to last approximately 34.0 seconds, including the requested pauses.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause clearly for about 0.80 seconds.\nAt each change between Woman and Man, use a brief natural pause of about 0.55 seconds.\nAfter saying \"Question,\" pause clearly for about 0.60 seconds before reading the question text.\nDo not add other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nWoman: Number 2.\nWoman: Good afternoon. I reserved a quiet room for two nights under the name Laura Green.\nMan: I found your reservation, Ms. Green. The quiet room won't be ready until six, but a room near the elevator is available now.\nWoman: I'd rather wait. Can I leave my suitcase here while I get something to eat?\nMan: Certainly. We'll keep it behind the front desk and call you when your room is ready.\nWoman: Question. What does the man say about the quiet room?\nEND TRANSCRIPT"
+    }
+  ]
+}

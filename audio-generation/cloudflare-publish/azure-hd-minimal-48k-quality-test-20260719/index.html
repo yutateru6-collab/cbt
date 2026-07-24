@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Azure HD 最小SSML音質テスト</title>
+  <style>
+    :root { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:#17231c; background:#f1eee7; }
+    * { box-sizing:border-box; } body { margin:0; }
+    main { width:min(780px,calc(100% - 24px)); margin:auto; padding:28px 0 60px; }
+    h1 { margin:0 0 12px; font-size:clamp(28px,7vw,43px); line-height:1.15; }
+    .lead,.note { color:#526057; line-height:1.75; }
+    .contract { margin:18px 0; padding:15px 17px; background:#e5f0e9; border:1px solid #b9d0c2; border-radius:15px; line-height:1.7; }
+    .contract strong { display:block; color:#12603e; }
+    .sentence { margin:20px 0; padding:16px; background:#fff; border:1px solid #d7dcd8; border-radius:15px; font-size:18px; line-height:1.6; }
+    .toolbar { position:sticky; top:8px; z-index:5; display:flex; align-items:center; justify-content:space-between; gap:12px; margin:22px 0 28px; padding:12px 14px; background:rgba(255,255,255,.97); border:1px solid #d1d8d3; border-radius:16px; box-shadow:0 8px 25px rgba(29,49,38,.10); }
+    button { appearance:none; border:1px solid #176c49; border-radius:999px; padding:10px 15px; background:#176c49; color:#fff; font-weight:750; }
+    .voice-card { margin:18px 0; padding:18px; background:#fff; border:1px solid #d6dcd8; border-radius:18px; }
+    .card-head { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:14px; }
+    h2 { margin:0; display:grid; place-items:center; width:42px; height:42px; border-radius:50%; background:#17231c; color:#fff; font-size:22px; }
+    .format { color:#176c49; font-size:13px; font-weight:750; }
+    audio { display:block; width:100%; }
+    .download { display:inline-block; margin-top:10px; color:#176c49; font-size:13px; font-weight:700; }
+    .identity { margin-top:14px; padding:12px; background:#f3f6f4; border-radius:12px; }
+    .identity strong,.identity code,.identity span { display:block; overflow-wrap:anywhere; }
+    .identity code { margin:5px 0; color:#294d39; } .identity span { color:#657169; font-size:13px; }
+    @media (max-width:600px) {
+      main { width:min(100% - 16px,780px); padding-top:20px; }
+      .toolbar { align-items:flex-start; flex-direction:column; }
+      .voice-card { padding:14px; }
+    }
+  </style>
+</head>
+<body><main>
+  <h1>Azure HD<br>最小SSML音質テスト</h1>
+  <p class="lead">A〜Eを、まず声名を見ずに1.00倍で聴いてください。最もクリアなものと、ノイズ・金属感・こもりを感じるものを選びます。</p>
+  <div class="contract">
+    <strong>音質以外の変数を外しました</strong>
+    同一1文／Azure REST直出し／48kHz・16bit・mono PCM WAV／速度変更なし／FFmpegなし／break・express-as・prosody・p・sなし。
+  </div>
+  <p class="sentence" lang="en">I should have told you earlier, but I didn&#x27;t know how.</p>
+  <div class="toolbar">
+    <span>① A〜Eを聴く　② 一番良い声を決める　③ 最後に答えを見る</span>
+    <button id="reveal" type="button">声名を表示</button>
+  </div>
+  
+            <section class="voice-card">
+              <div class="card-head">
+                <h2>A</h2>
+                <span class="format">48kHz · 16bit · PCM WAV</span>
+              </div>
+              <audio controls preload="metadata" src="audio/A-aria-standard-neural.wav"></audio>
+              <a class="download" href="audio/A-aria-standard-neural.wav" download>WAVをそのまま保存</a>
+              <div class="identity" hidden>
+                <strong>Standard Neural</strong>
+                <code>en-US-AriaNeural</code>
+                <span>parameters: なし</span>
+              </div>
+            </section>
+            
+            <section class="voice-card">
+              <div class="card-head">
+                <h2>B</h2>
+                <span class="format">48kHz · 16bit · PCM WAV</span>
+              </div>
+              <audio controls preload="metadata" src="audio/B-andrew-hd-omni-t03.wav"></audio>
+              <a class="download" href="audio/B-andrew-hd-omni-t03.wav" download>WAVをそのまま保存</a>
+              <div class="identity" hidden>
+                <strong>Dragon HD Omni</strong>
+                <code>en-US-Andrew:DragonHDOmniLatestNeural</code>
+                <span>parameters: temperature=0.3</span>
+              </div>
+            </section>
+            
+            <section class="voice-card">
+              <div class="card-head">
+                <h2>C</h2>
+                <span class="format">48kHz · 16bit · PCM WAV</span>
+              </div>
+              <audio controls preload="metadata" src="audio/C-emma2-dragon-hd-t03.wav"></audio>
+              <a class="download" href="audio/C-emma2-dragon-hd-t03.wav" download>WAVをそのまま保存</a>
+              <div class="identity" hidden>
+                <strong>Dragon HD</strong>
+                <code>en-US-Emma2:DragonHDLatestNeural</code>
+                <span>parameters: temperature=0.3</span>
+              </div>
+            </section>
+            
+            <section class="voice-card">
+              <div class="card-head">
+                <h2>D</h2>
+                <span class="format">48kHz · 16bit · PCM WAV</span>
+              </div>
+              <audio controls preload="metadata" src="audio/D-ava-hd-omni-t03.wav"></audio>
+              <a class="download" href="audio/D-ava-hd-omni-t03.wav" download>WAVをそのまま保存</a>
+              <div class="identity" hidden>
+                <strong>Dragon HD Omni</strong>
+                <code>en-US-Ava:DragonHDOmniLatestNeural</code>
+                <span>parameters: temperature=0.3</span>
+              </div>
+            </section>
+            
+            <section class="voice-card">
+              <div class="card-head">
+                <h2>E</h2>
+                <span class="format">48kHz · 16bit · PCM WAV</span>
+              </div>
+              <audio controls preload="metadata" src="audio/E-andrew2-dragon-hd-t03.wav"></audio>
+              <a class="download" href="audio/E-andrew2-dragon-hd-t03.wav" download>WAVをそのまま保存</a>
+              <div class="identity" hidden>
+                <strong>Dragon HD</strong>
+                <code>en-US-Andrew2:DragonHDLatestNeural</code>
+                <span>parameters: temperature=0.3</span>
+              </div>
+            </section>
+            
+  <p class="note">音量はAzure原音のままで、正規化していません。1つ再生すると、ほかの音声は自動停止します。WAV保存リンクもブラウザ再生と同じファイルです。</p>
+</main>
+<script>
+  const audios = [...document.querySelectorAll('audio')];
+  audios.forEach(audio => audio.addEventListener('play', () => {
+    audios.forEach(other => { if (other !== audio) other.pause(); });
+  }));
+  const reveal = document.querySelector('#reveal');
+  let shown = false;
+  reveal.addEventListener('click', () => {
+    shown = !shown;
+    document.querySelectorAll('.identity').forEach(node => node.hidden = !shown);
+    reveal.textContent = shown ? '声名を隠す' : '声名を表示';
+  });
+</script>
+</body></html>

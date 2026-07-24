@@ -1,0 +1,89 @@
+{
+  "createdDate": "2026-07-21",
+  "model": "gemini-3.1-flash-tts-preview",
+  "sdk": {
+    "name": "google-genai",
+    "version": "2.12.1"
+  },
+  "sourceManifest": "audio-generation/grade2-sample-part1-full.json",
+  "numbers": [1, 2, 3, 4, 5],
+  "voices": {
+    "A": {
+      "voice": "Aoede",
+      "role": "adult woman"
+    },
+    "B": {
+      "voice": "Charon",
+      "role": "adult man"
+    }
+  },
+  "generation": {
+    "requests": 5,
+    "assembly": "one multi-speaker request per question",
+    "freeTierDailyRequestLimitObserved": 10
+  },
+  "processing": {
+    "longSilenceThresholdDb": -45,
+    "minimumLongSilenceMs": 800,
+    "internalSilenceKeptMs": 550,
+    "boundarySilenceKeptMs": 50,
+    "speedProcessing": "none",
+    "loudnessProcessing": {
+      "No02.wav": "+3.5 dB",
+      "otherFiles": "none"
+    }
+  },
+  "format": {
+    "codec": "pcm_s16le",
+    "sampleRate": 24000,
+    "channels": 1,
+    "bitsPerSample": 16
+  },
+  "verification": {
+    "silenceDetection": "No silence over 0.8 seconds at -45 dB in any final file",
+    "peakRequirement": "All files below -1.0 dBFS",
+    "manualListeningRequired": true
+  },
+  "items": [
+    {
+      "file": "No01.wav",
+      "bytes": 1266224,
+      "durationSeconds": 26.379,
+      "meanVolumeDb": -19.9,
+      "maxVolumeDb": -2.2,
+      "sha256": "065246d7b526a2b06c6c86a4585c12b1243929745e8db88188e8da3eaf3ec9c4"
+    },
+    {
+      "file": "No02.wav",
+      "bytes": 1433450,
+      "durationSeconds": 29.862,
+      "meanVolumeDb": -21.0,
+      "maxVolumeDb": -1.2,
+      "sha256": "566b35bc876875d91ce606cdfc266ea6a2884c84a16634809d3b0caaa0807191"
+    },
+    {
+      "file": "No03.wav",
+      "bytes": 1224904,
+      "durationSeconds": 25.518,
+      "meanVolumeDb": -20.5,
+      "maxVolumeDb": -1.7,
+      "sha256": "94506777cd42907a0a2e47fdccdeeaaef7ef1690c1e6b9b587f89bd1ff7877d1"
+    },
+    {
+      "file": "No04.wav",
+      "bytes": 1240092,
+      "durationSeconds": 25.834,
+      "meanVolumeDb": -19.5,
+      "maxVolumeDb": -1.7,
+      "sha256": "c62bcc860fcdc338570cd65bec0e5d36584a65ef5bd12abf40141b8ab9a82816"
+    },
+    {
+      "file": "No05.wav",
+      "bytes": 1407474,
+      "durationSeconds": 29.321,
+      "meanVolumeDb": -20.7,
+      "maxVolumeDb": -2.7,
+      "sha256": "dc260e61fe0641843ece6bc1c4df285cc8dcb3969863afaa9471529cc6daa96e"
+    }
+  ]
+}

@@ -1,0 +1,432 @@
+{
+  "sources": [
+    "audio-generation\\grade2-sample-part2-pilot.json",
+    "audio-generation\\grade2-sample-part2-rest.json"
+  ],
+  "outputDirectory": "audio-generation\\grade2-round1-simba-natural-master-20260717\\part2",
+  "preflight": {
+    "items": [
+      "No16",
+      "No17"
+    ],
+    "missing": {
+      "calls": 0,
+      "characters": 0
+    },
+    "ceilings": {
+      "calls": 40,
+      "totalCharacters": 9000,
+      "requestCharacters": 2000
+    },
+    "timingMs": {
+      "numberToBody": 1150,
+      "sentenceBreakHardSilence": 420,
+      "bodyToQuestion": 1300,
+      "questionLabelToText": 350
+    },
+    "speedPolicy": {
+      "master": 1.0,
+      "reviewPageDefault": 0.87
+    },
+    "segments": [
+      {
+        "item": "No16",
+        "role": "number",
+        "voice": "Geffen",
+        "ttsText": "Number sixteen.",
+        "inputCharacters": 30,
+        "cached": true,
+        "gapAfterMs": 1150,
+        "ratePercent": 0
+      },
+      {
+        "item": "No16",
+        "role": "bodySentence",
+        "voice": "Geffen",
+        "ttsText": "During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge.",
+        "inputCharacters": 189,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": 0
+      },
+      {
+        "item": "No16",
+        "role": "bodySentence",
+        "voice": "Geffen",
+        "ttsText": "She knew the basic facts, but she often forgot important dates during busy tours.",
+        "inputCharacters": 146,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": 0
+      },
+      {
+        "item": "No16",
+        "role": "bodySentence",
+        "voice": "Geffen",
+        "ttsText": "Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift.",
+        "inputCharacters": 165,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": 0
+      },
+      {
+        "item": "No16",
+        "role": "bodySentence",
+        "voice": "Geffen",
+        "ttsText": "She can now explain the bridge's history more clearly.",
+        "inputCharacters": 119,
+        "cached": true,
+        "gapAfterMs": 1300,
+        "ratePercent": 0
+      },
+      {
+        "item": "No16",
+        "role": "questionLabel",
+        "voice": "Dominic",
+        "ttsText": "Question.",
+        "inputCharacters": 24,
+        "cached": true,
+        "gapAfterMs": 350,
+        "ratePercent": 0
+      },
+      {
+        "item": "No16",
+        "role": "questionText",
+        "voice": "Dominic",
+        "ttsText": "What helped Nina explain the bridge's history better?",
+        "inputCharacters": 68,
+        "cached": true,
+        "gapAfterMs": 0,
+        "ratePercent": 0
+      },
+      {
+        "item": "No17",
+        "role": "number",
+        "voice": "Wyatt",
+        "ttsText": "Number seventeen.",
+        "inputCharacters": 32,
+        "cached": true,
+        "gapAfterMs": 1150,
+        "ratePercent": 0
+      },
+      {
+        "item": "No17",
+        "role": "bodySentence",
+        "voice": "Wyatt",
+        "ttsText": "The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday.",
+        "inputCharacters": 157,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": 0
+      },
+      {
+        "item": "No17",
+        "role": "bodySentence",
+        "voice": "Wyatt",
+        "ttsText": "Those rooms will be unavailable from nine A M until three P M, but the swimming pool will remain open as usual.",
+        "inputCharacters": 176,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": 0
+      },
+      {
+        "item": "No17",
+        "role": "bodySentence",
+        "voice": "Wyatt",
+        "ttsText": "Visitors should use the smaller changing area beside Court Two.",
+        "inputCharacters": 128,
+        "cached": true,
+        "gapAfterMs": 420,
+        "ratePercent": 0
+      },
+      {
+        "item": "No17",
+        "role": "bodySentence",
+        "voice": "Wyatt",
+        "ttsText": "Please bring your own lock, since the temporary lockers do not have built-in keys.",
+        "inputCharacters": 147,
+        "cached": true,
+        "gapAfterMs": 1300,
+        "ratePercent": 0
+      },
+      {
+        "item": "No17",
+        "role": "questionLabel",
+        "voice": "Harper",
+        "ttsText": "Question.",
+        "inputCharacters": 24,
+        "cached": true,
+        "gapAfterMs": 350,
+        "ratePercent": 0
+      },
+      {
+        "item": "No17",
+        "role": "questionText",
+        "voice": "Harper",
+        "ttsText": "What should visitors bring to the sports center?",
+        "inputCharacters": 63,
+        "cached": true,
+        "gapAfterMs": 0,
+        "ratePercent": 0
+      }
+    ]
+  },
+  "actual": {
+    "calls": 0,
+    "inputCharacters": 0,
+    "billableCharacters": 0
+  },
+  "records": [],
+  "outputs": [
+    {
+      "item": "No16",
+      "number": 16,
+      "segments": [
+        {
+          "role": "number",
+          "voice": {
+            "id": "geffen_32",
+            "name": "Geffen",
+            "gender": "female"
+          },
+          "plainText": "Number 16.",
+          "ttsText": "Number sixteen.",
+          "synthesisInput": "<speak>Number sixteen.</speak>",
+          "gapAfterMs": 1150,
+          "ratePercent": 0,
+          "style": "neutral",
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "geffen_32",
+            "name": "Geffen",
+            "gender": "female"
+          },
+          "plainText": "During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge.",
+          "ttsText": "During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\">During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge.</speechify:style></speak>",
+          "gapAfterMs": 420,
+          "ratePercent": 0,
+          "style": "warm",
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "geffen_32",
+            "name": "Geffen",
+            "gender": "female"
+          },
+          "plainText": "She knew the basic facts, but she often forgot important dates during busy tours.",
+          "ttsText": "She knew the basic facts, but she often forgot important dates during busy tours.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\">She knew the basic facts, but she often forgot important dates during busy tours.</speechify:style></speak>",
+          "gapAfterMs": 420,
+          "ratePercent": 0,
+          "style": "warm",
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "geffen_32",
+            "name": "Geffen",
+            "gender": "female"
+          },
+          "plainText": "Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift.",
+          "ttsText": "Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\">Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift.</speechify:style></speak>",
+          "gapAfterMs": 420,
+          "ratePercent": 0,
+          "style": "warm",
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "geffen_32",
+            "name": "Geffen",
+            "gender": "female"
+          },
+          "plainText": "She can now explain the bridge's history more clearly.",
+          "ttsText": "She can now explain the bridge's history more clearly.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\">She can now explain the bridge's history more clearly.</speechify:style></speak>",
+          "gapAfterMs": 1300,
+          "ratePercent": 0,
+          "style": "warm",
+          "reused": false
+        },
+        {
+          "role": "questionLabel",
+          "voice": {
+            "id": "dominic_32",
+            "name": "Dominic",
+            "gender": "male"
+          },
+          "plainText": "Question.",
+          "ttsText": "Question.",
+          "synthesisInput": "<speak>Question.</speak>",
+          "gapAfterMs": 350,
+          "ratePercent": 0,
+          "style": "neutral",
+          "reused": false
+        },
+        {
+          "role": "questionText",
+          "voice": {
+            "id": "dominic_32",
+            "name": "Dominic",
+            "gender": "male"
+          },
+          "plainText": "What helped Nina explain the bridge's history better?",
+          "ttsText": "What helped Nina explain the bridge's history better?",
+          "synthesisInput": "<speak>What helped Nina explain the bridge's history better?</speak>",
+          "gapAfterMs": 0,
+          "ratePercent": 0,
+          "style": "neutral",
+          "reused": false
+        }
+      ],
+      "wav": "audio-generation\\grade2-round1-simba-natural-master-20260717\\part2\\audio\\No16.wav",
+      "mp3": "audio-generation\\grade2-round1-simba-natural-master-20260717\\part2\\audio\\No16.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "28.349042"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "28.349048"
+      }
+    },
+    {
+      "item": "No17",
+      "number": 17,
+      "segments": [
+        {
+          "role": "number",
+          "voice": {
+            "id": "wyatt_32",
+            "name": "Wyatt",
+            "gender": "male"
+          },
+          "plainText": "Number 17.",
+          "ttsText": "Number seventeen.",
+          "synthesisInput": "<speak>Number seventeen.</speak>",
+          "gapAfterMs": 1150,
+          "ratePercent": 0,
+          "style": "neutral",
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "wyatt_32",
+            "name": "Wyatt",
+            "gender": "male"
+          },
+          "plainText": "The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday.",
+          "ttsText": "The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\">The Westside Sports Center will replace the lockers in its main changing rooms next Tuesday.</speechify:style></speak>",
+          "gapAfterMs": 420,
+          "ratePercent": 0,
+          "style": "warm",
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "wyatt_32",
+            "name": "Wyatt",
+            "gender": "male"
+          },
+          "plainText": "Those rooms will be unavailable from 9 a.m. until 3 p.m., but the swimming pool will remain open as usual.",
+          "ttsText": "Those rooms will be unavailable from nine A M until three P M, but the swimming pool will remain open as usual.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\">Those rooms will be unavailable from nine A M until three P M, but the swimming pool will remain open as usual.</speechify:style></speak>",
+          "gapAfterMs": 420,
+          "ratePercent": 0,
+          "style": "warm",
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "wyatt_32",
+            "name": "Wyatt",
+            "gender": "male"
+          },
+          "plainText": "Visitors should use the smaller changing area beside Court Two.",
+          "ttsText": "Visitors should use the smaller changing area beside Court Two.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\">Visitors should use the smaller changing area beside Court Two.</speechify:style></speak>",
+          "gapAfterMs": 420,
+          "ratePercent": 0,
+          "style": "warm",
+          "reused": false
+        },
+        {
+          "role": "bodySentence",
+          "voice": {
+            "id": "wyatt_32",
+            "name": "Wyatt",
+            "gender": "male"
+          },
+          "plainText": "Please bring your own lock, since the temporary lockers do not have built-in keys.",
+          "ttsText": "Please bring your own lock, since the temporary lockers do not have built-in keys.",
+          "synthesisInput": "<speak><speechify:style emotion=\"warm\">Please bring your own lock, since the temporary lockers do not have built-in keys.</speechify:style></speak>",
+          "gapAfterMs": 1300,
+          "ratePercent": 0,
+          "style": "warm",
+          "reused": false
+        },
+        {
+          "role": "questionLabel",
+          "voice": {
+            "id": "harper_32",
+            "name": "Harper",
+            "gender": "female"
+          },
+          "plainText": "Question.",
+          "ttsText": "Question.",
+          "synthesisInput": "<speak>Question.</speak>",
+          "gapAfterMs": 350,
+          "ratePercent": 0,
+          "style": "neutral",
+          "reused": false
+        },
+        {
+          "role": "questionText",
+          "voice": {
+            "id": "harper_32",
+            "name": "Harper",
+            "gender": "female"
+          },
+          "plainText": "What should visitors bring to the sports center?",
+          "ttsText": "What should visitors bring to the sports center?",
+          "synthesisInput": "<speak>What should visitors bring to the sports center?</speak>",
+          "gapAfterMs": 0,
+          "ratePercent": 0,
+          "style": "neutral",
+          "reused": false
+        }
+      ],
+      "wav": "audio-generation\\grade2-round1-simba-natural-master-20260717\\part2\\audio\\No17.wav",
+      "mp3": "audio-generation\\grade2-round1-simba-natural-master-20260717\\part2\\audio\\No17.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "26.447333"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "26.447347"
+      }
+    }
+  ]
+}

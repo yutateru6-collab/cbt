@@ -1,0 +1,355 @@
+{
+  "source": "audio-generation\\grade2-round1\\part1\\resolved-manifest.json",
+  "outputDirectory": "audio-generation\\tts-provider-comparison-20260716",
+  "preflight": {
+    "items": [
+      "No01",
+      "No02"
+    ],
+    "variants": [
+      {
+        "label": "A",
+        "name": "Speechify Simba 3.2 — Geffen × Dominic",
+        "provider": "speechify",
+        "voices": {
+          "A": {
+            "id": "geffen_32",
+            "name": "Geffen",
+            "gender": "female"
+          },
+          "B": {
+            "id": "dominic_32",
+            "name": "Dominic",
+            "gender": "male"
+          }
+        }
+      },
+      {
+        "label": "B",
+        "name": "Speechify Simba 3.2 — Harper × Wyatt",
+        "provider": "speechify",
+        "voices": {
+          "A": {
+            "id": "harper_32",
+            "name": "Harper",
+            "gender": "female"
+          },
+          "B": {
+            "id": "wyatt_32",
+            "name": "Wyatt",
+            "gender": "male"
+          }
+        }
+      },
+      {
+        "label": "C",
+        "name": "Speechify Simba 3.2 — Imogen × Hugh",
+        "provider": "speechify",
+        "voices": {
+          "A": {
+            "id": "imogen_32",
+            "name": "Imogen",
+            "gender": "female"
+          },
+          "B": {
+            "id": "hugh_32",
+            "name": "Hugh",
+            "gender": "male"
+          }
+        }
+      }
+    ],
+    "missing": {
+      "speechify": {
+        "calls": 16,
+        "characters": 1392
+      },
+      "openai": {
+        "calls": 0,
+        "characters": 0
+      },
+      "edge": {
+        "calls": 0,
+        "characters": 0
+      }
+    },
+    "ceilings": {
+      "speechify": {
+        "calls": 16,
+        "characters": 1400
+      },
+      "openai": {
+        "calls": 8,
+        "characters": 700
+      },
+      "edge": {
+        "calls": 8
+      }
+    },
+    "timingMs": {
+      "numberToBody": 1350,
+      "turnGap": 550,
+      "bodyToQuestion": 1100
+    }
+  },
+  "actual": {
+    "speechify": {
+      "calls": 16,
+      "characters": 1392
+    },
+    "openai": {
+      "calls": 0,
+      "characters": 0
+    },
+    "edge": {
+      "calls": 0,
+      "characters": 0
+    }
+  },
+  "records": [
+    {
+      "provider": "speechify",
+      "model": "simba-3.2",
+      "voice": "wyatt_32",
+      "characters": 73,
+      "billableCharacters": 73,
+      "requestId": "f9c27905d0a6778b308687cf"
+    },
+    {
+      "provider": "speechify",
+      "model": "simba-3.2",
+      "voice": "harper_32",
+      "characters": 107,
+      "billableCharacters": 107,
+      "requestId": "6b7cc4c5f78764bedc358426"
+    },
+    {
+      "provider": "speechify",
+      "model": "simba-3.2",
+      "voice": "wyatt_32",
+      "characters": 91,
+      "billableCharacters": 91,
+      "requestId": "ec8e60fc5e2df72ec07d2716"
+    },
+    {
+      "provider": "speechify",
+      "model": "simba-3.2",
+      "voice": "harper_32",
+      "characters": 84,
+      "billableCharacters": 84,
+      "requestId": "1502ac0db2a2f23d4764a9cd"
+    },
+    {
+      "provider": "speechify",
+      "model": "simba-3.2",
+      "voice": "harper_32",
+      "characters": 73,
+      "billableCharacters": 73,
+      "requestId": "a3611315060c4594023d20e1"
+    },
+    {
+      "provider": "speechify",
+      "model": "simba-3.2",
+      "voice": "wyatt_32",
+      "characters": 121,
+      "billableCharacters": 121,
+      "requestId": "b8242aafa2c87a1e51d0ad49"
+    },
+    {
+      "provider": "speechify",
+      "model": "simba-3.2",
+      "voice": "harper_32",
+      "characters": 69,
+      "billableCharacters": 69,
+      "requestId": "0f027236c56be3d8706932b9"
+    },
+    {
+      "provider": "speechify",
+      "model": "simba-3.2",
+      "voice": "wyatt_32",
+      "characters": 78,
+      "billableCharacters": 78,
+      "requestId": "84b9f2390ec0d34f6b72aa81"
+    },
+    {
+      "provider": "speechify",
+      "model": "simba-3.2",
+      "voice": "hugh_32",
+      "characters": 73,
+      "billableCharacters": 73,
+      "requestId": "fe9c57ffd24d5a1af2a0b4f3"
+    },
+    {
+      "provider": "speechify",
+      "model": "simba-3.2",
+      "voice": "imogen_32",
+      "characters": 107,
+      "billableCharacters": 107,
+      "requestId": "9fae48d7d2c62cb96e3c672d"
+    },
+    {
+      "provider": "speechify",
+      "model": "simba-3.2",
+      "voice": "hugh_32",
+      "characters": 91,
+      "billableCharacters": 91,
+      "requestId": "59219970522eef4ea8afd5f4"
+    },
+    {
+      "provider": "speechify",
+      "model": "simba-3.2",
+      "voice": "imogen_32",
+      "characters": 84,
+      "billableCharacters": 84,
+      "requestId": "cd5617f6538b1133bb39bb34"
+    },
+    {
+      "provider": "speechify",
+      "model": "simba-3.2",
+      "voice": "imogen_32",
+      "characters": 73,
+      "billableCharacters": 73,
+      "requestId": "3be601be670a63421258de98"
+    },
+    {
+      "provider": "speechify",
+      "model": "simba-3.2",
+      "voice": "hugh_32",
+      "characters": 121,
+      "billableCharacters": 121,
+      "requestId": "ddbc251fd394b137023cab13"
+    },
+    {
+      "provider": "speechify",
+      "model": "simba-3.2",
+      "voice": "imogen_32",
+      "characters": 69,
+      "billableCharacters": 69,
+      "requestId": "2a4c486982e44efe560b93da"
+    },
+    {
+      "provider": "speechify",
+      "model": "simba-3.2",
+      "voice": "hugh_32",
+      "characters": 78,
+      "billableCharacters": 78,
+      "requestId": "4cbf05027691b93096e1145c"
+    }
+  ],
+  "outputs": [
+    {
+      "item": "No01",
+      "label": "A",
+      "variant": "Speechify Simba 3.2 — Geffen × Dominic",
+      "wav": "audio-generation\\tts-provider-comparison-20260716\\simba-geffen-dominic\\No01.wav",
+      "mp3": "audio-generation\\tts-provider-comparison-20260716\\simba-geffen-dominic\\No01.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "26.997875"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "26.997891"
+      }
+    },
+    {
+      "item": "No01",
+      "label": "B",
+      "variant": "Speechify Simba 3.2 — Harper × Wyatt",
+      "wav": "audio-generation\\tts-provider-comparison-20260716\\simba-harper-wyatt\\No01.wav",
+      "mp3": "audio-generation\\tts-provider-comparison-20260716\\simba-harper-wyatt\\No01.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "25.807625"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "25.807642"
+      }
+    },
+    {
+      "item": "No01",
+      "label": "C",
+      "variant": "Speechify Simba 3.2 — Imogen × Hugh",
+      "wav": "audio-generation\\tts-provider-comparison-20260716\\simba-imogen-hugh\\No01.wav",
+      "mp3": "audio-generation\\tts-provider-comparison-20260716\\simba-imogen-hugh\\No01.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "27.027625"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "27.027642"
+      }
+    },
+    {
+      "item": "No02",
+      "label": "A",
+      "variant": "Speechify Simba 3.2 — Geffen × Dominic",
+      "wav": "audio-generation\\tts-provider-comparison-20260716\\simba-geffen-dominic\\No02.wav",
+      "mp3": "audio-generation\\tts-provider-comparison-20260716\\simba-geffen-dominic\\No02.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "26.369375"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "26.369388"
+      }
+    },
+    {
+      "item": "No02",
+      "label": "B",
+      "variant": "Speechify Simba 3.2 — Harper × Wyatt",
+      "wav": "audio-generation\\tts-provider-comparison-20260716\\simba-harper-wyatt\\No02.wav",
+      "mp3": "audio-generation\\tts-provider-comparison-20260716\\simba-harper-wyatt\\No02.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "24.367000"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "24.367007"
+      }
+    },
+    {
+      "item": "No02",
+      "label": "C",
+      "variant": "Speechify Simba 3.2 — Imogen × Hugh",
+      "wav": "audio-generation\\tts-provider-comparison-20260716\\simba-imogen-hugh\\No02.wav",
+      "mp3": "audio-generation\\tts-provider-comparison-20260716\\simba-imogen-hugh\\No02.mp3",
+      "wavProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "duration": "25.089708"
+      },
+      "mp3Probe": {
+        "codec_name": "mp3",
+        "sample_rate": "44100",
+        "channels": 1,
+        "duration": "25.089728"
+      }
+    }
+  ]
+}

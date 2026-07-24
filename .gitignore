@@ -1,4 +1,17 @@
 .codex/
+node_modules/
 .wrangler/
 worker-dist/
 .wrangler-dry-run-out/
+
+# Runtime and generated audio is stored in Cloudflare R2.
+assets/audio/
+audio-generation/**/*.wav
+audio-generation/**/*.mp3
+
+# Re-creatable generator caches and request logs.
+audio-generation/**/__pycache__/
+audio-generation/**/*.pyc
+audio-generation/**/*.log
+audio-generation/**/*.headers
+audio-generation/**/*.bin

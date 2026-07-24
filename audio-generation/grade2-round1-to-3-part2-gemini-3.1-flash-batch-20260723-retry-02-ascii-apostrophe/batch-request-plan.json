@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-07-23T07:59:26.373685+00:00",
+  "model": "gemini-3.1-flash-tts-preview",
+  "billingMode": "Batch API",
+  "requestCount": 1,
+  "requestLimit": 1,
+  "requestUnit": "one whole listening item per independent request",
+  "sets": [
+    "set-01",
+    "set-02",
+    "set-03"
+  ],
+  "voiceRotation": {
+    "set-01": [
+      {
+        "start": 16,
+        "end": 20,
+        "voice": "Achird"
+      },
+      {
+        "start": 21,
+        "end": 25,
+        "voice": "Zephyr"
+      },
+      {
+        "start": 26,
+        "end": 30,
+        "voice": "Kore"
+      }
+    ],
+    "set-02": [
+      {
+        "start": 16,
+        "end": 20,
+        "voice": "Zephyr"
+      },
+      {
+        "start": 21,
+        "end": 25,
+        "voice": "Kore"
+      },
+      {
+        "start": 26,
+        "end": 30,
+        "voice": "Achird"
+      }
+    ],
+    "set-03": [
+      {
+        "start": 16,
+        "end": 20,
+        "voice": "Kore"
+      },
+      {
+        "start": 21,
+        "end": 25,
+        "voice": "Achird"
+      },
+      {
+        "start": 26,
+        "end": 30,
+        "voice": "Zephyr"
+      }
+    ]
+  },
+  "paceInstructions": [
+    "Maintain a steady pace.",
+    "Do not rush, accelerate, over-enunciate, or stretch individual words."
+  ],
+  "pauseInstructions": {
+    "afterNumberSeconds": 0.6,
+    "beforeQuestion": "ordinary natural sentence-boundary timing only",
+    "afterQuestionLabelSeconds": 0.4,
+    "otherDeliberatePauses": "none"
+  },
+  "postProcessingPlan": {
+    "speed": "none",
+    "loudness": {
+      "Kore": "-3.0 dB whole-file gain after collection",
+      "Achird": "none",
+      "Zephyr": "none"
+    },
+    "silence": "trim leading and trailing boundaries only during collection",
+    "normalization": "none",
+    "eq": "none",
+    "compression": "none"
+  },
+  "sourceFiles": [
+    {
+      "path": "grade2-set-01.js",
+      "sha256": "c5dd9c8bee4c2293c84e2b39af7de9f9aa47633b82e4a32e2a533d2fa87a9093"
+    },
+    {
+      "path": "grade2-vocab-sets.js",
+      "sha256": "8866ebe1ce3e3a295708e8ffc1088d376aba96784493910d58489c256079ce81"
+    },
+    {
+      "path": "grade2-listening-part2-sets.js",
+      "sha256": "709210a5611fa0433be143f441e4338a32e8b7e887101a96344379b24fc3eff2"
+    },
+    {
+      "path": "exam-data.js",
+      "sha256": "fe37a76ecf1632bf6cad202600d30f1868992a05e1ce1245806395f680cdd3dd"
+    }
+  ],
+  "existingAudioPolicy": "never overwrite existing audio or output directories",
+  "items": [
+    {
+      "id": "set-02-No29",
+      "setKey": "set-02",
+      "setLabel": "第2回",
+      "number": 29,
+      "segments": [
+        {
+          "speaker": "N",
+          "text": "Number 29."
+        },
+        {
+          "speaker": "N",
+          "text": "The Lakeside Hotel will serve breakfast in the conference room tomorrow because the main dining room is being painted. Breakfast hours will not change. Guests should take the elevator to the third floor and follow the signs from there. Room service will also be available, but guests must order it before ten o'clock this evening."
+        },
+        {
+          "speaker": "N",
+          "text": "Question. Where will breakfast be served tomorrow?"
+        }
+      ],
+      "voices": {
+        "N": "Achird"
+      },
+      "mode": "narration",
+      "prompt": "Synthesize the exact transcript below as audio for an English listening examination.\nDo not speak these instructions or the transcript boundary labels.\nUse one adult narrator throughout.\nUse natural American English suitable for Japanese high school learners.\nMaintain a steady pace.\nDo not rush, accelerate, over-enunciate, or stretch individual words.\nAfter the Number line, pause briefly for about 0.6 seconds before beginning the body.\nAfter saying \"Question,\" pause briefly for about 0.4 seconds before reading the question text.\nOtherwise, read continuously with ordinary natural sentence-boundary timing.\nDo not add any other deliberate pauses.\nUse natural intonation without sounding theatrical or robotic.\nDo not emphasize any detail in a way that reveals the answer.\nRead every transcript word exactly once. Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\nNumber 29.\nThe Lakeside Hotel will serve breakfast in the conference room tomorrow because the main dining room is being painted. Breakfast hours will not change. Guests should take the elevator to the third floor and follow the signs from there. Room service will also be available, but guests must order it before ten o'clock this evening.\nQuestion. Where will breakfast be served tomorrow?\nEND TRANSCRIPT",
+      "ttsCharacterNormalization": {
+        "from": "U+2019 RIGHT SINGLE QUOTATION MARK",
+        "to": "U+0027 APOSTROPHE",
+        "spokenContentChanged": false
+      }
+    }
+  ],
+  "retryOf": "batches/xqs1ibxwcf4hwoywm2ee2htipzomw03dstd8",
+  "characterNormalization": {
+    "from": "U+2019 RIGHT SINGLE QUOTATION MARK",
+    "to": "U+0027 APOSTROPHE",
+    "spokenContentChanged": false
+  }
+}

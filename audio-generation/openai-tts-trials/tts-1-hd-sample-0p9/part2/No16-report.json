@@ -1,0 +1,49 @@
+{
+  "mode": "completed",
+  "item": "No16",
+  "model": "tts-1-hd",
+  "voices": {
+    "A": "nova",
+    "B": "onyx",
+    "N": "nova"
+  },
+  "speed": 0.9,
+  "responseFormat": "wav",
+  "sourceSegments": 3,
+  "synthesisSegments": 2,
+  "maxApiCalls": 2,
+  "maxRetriesPerSegment": 0,
+  "estimatedCostCapUsd": 0.05,
+  "instructions": null,
+  "estimate": {
+    "characters": 439,
+    "words": 72,
+    "estimatedDurationSeconds": 37.57,
+    "estimatedCostUsd": 0.0132,
+    "costBasis": "30 USD per 1M input characters"
+  },
+  "output": "audio-generation\\openai-tts-trials\\tts-1-hd-sample-0p9\\part2\\No16.wav",
+  "segments": [
+    {
+      "speaker": "N",
+      "voice": "nova",
+      "text": "Number 16... During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge. She knew the basic facts, but she often forgot important dates during busy tours. Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift. She can now explain the bridge's history more clearly.",
+      "gapAfterMs": 650
+    },
+    {
+      "speaker": "N",
+      "voice": "nova",
+      "text": "Question. What helped Nina explain the bridge's history better?",
+      "gapAfterMs": 0
+    }
+  ],
+  "apiCalls": 2,
+  "cachedSegments": 0,
+  "outputBytes": 1507944,
+  "outputMetadata": {
+    "codec_name": "pcm_s16le",
+    "sample_rate": "24000",
+    "channels": 1,
+    "duration": "31.413875"
+  }
+}

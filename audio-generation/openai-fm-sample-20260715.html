@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OpenAI.fm 英検2級リスニング試聴</title>
+  <style>
+    :root { color-scheme: light; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+    body { margin: 0; background: #f5f2ea; color: #191919; }
+    main { max-width: 760px; margin: 0 auto; padding: 32px 18px 56px; }
+    h1 { margin: 0 0 8px; font-size: clamp(24px, 5vw, 36px); }
+    .lead { margin: 0 0 24px; color: #555; line-height: 1.7; }
+    .player, .track { background: #fff; border: 1px solid #d8d2c6; border-radius: 16px; }
+    .player { padding: 20px; box-shadow: 0 10px 30px rgb(0 0 0 / 7%); }
+    .controls { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+    button { border: 0; border-radius: 999px; padding: 12px 18px; font: inherit; font-weight: 700; cursor: pointer; }
+    button.primary { background: #ff4f12; color: #fff; }
+    button.secondary { background: #ece8df; color: #191919; }
+    button:disabled { cursor: wait; opacity: .55; }
+    audio { width: 100%; }
+    #status { min-height: 1.6em; margin: 12px 0 0; font-weight: 700; }
+    .note { margin: 8px 0 0; color: #666; font-size: 14px; line-height: 1.6; }
+    h2 { margin: 32px 0 12px; font-size: 20px; }
+    .track-list { display: grid; gap: 10px; }
+    .track { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px; padding: 14px 16px; }
+    .track strong { display: block; }
+    .track span { color: #6a655c; font-size: 13px; }
+    .track button { padding: 8px 13px; background: #191919; color: #fff; font-size: 13px; }
+    .track.current { border-color: #ff4f12; box-shadow: 0 0 0 2px rgb(255 79 18 / 15%); }
+    @media (max-width: 520px) { .track { grid-template-columns: 1fr; } .track button { width: 100%; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>英検2級リスニング TTS試聴</h1>
+    <p class="lead">OpenAI.fmの無料デモで生成した、Part 1（Cedar／Marin）とPart 2（Sage）のサンプルです。</p>
+
+    <section class="player" aria-label="連続試聴プレーヤー">
+      <div class="controls">
+        <button class="primary" id="playAll">▶ 全部まとめて再生</button>
+        <button class="secondary" id="playPart1">Part 1だけ</button>
+        <button class="secondary" id="playPart2">Part 2だけ</button>
+        <button class="secondary" id="pause">一時停止</button>
+      </div>
+      <audio id="audio" controls preload="none"></audio>
+      <p id="status">再生する範囲を選んでください。</p>
+      <p class="note">速度は数値変換ではなく、読み上げ指示に「approximately 0.9 speed」と指定しています。APIキー・クレジットカード・課金は使用していません。</p>
+    </section>
+
+    <h2>収録内容</h2>
+    <div class="track-list" id="trackList"></div>
+  </main>
+
+  <script>
+    const part1Prompt = `Voice: Clear, natural, and appropriate for a Japanese Grade 2 English proficiency listening test. Sound like an ordinary adult speaker, not an announcer or voice actor.
+
+Punctuation: Follow the punctuation carefully. Use short, natural pauses at commas and full stops, with a clear pause between the question number, conversation, and final question.
+
+Delivery: Speak at approximately 0.9 speed with clear articulation and a natural conversational rhythm. Keep the delivery steady and easy to follow without sounding unnaturally slow.
+
+Phrasing: Read the text exactly as written. Do not add, omit, paraphrase, or correct any words. Pronounce contractions, names, times, and numbers clearly and naturally.
+
+Tone: Neutral and realistic, with only light emotion appropriate to an everyday conversation. Avoid exaggerated acting, dramatic emphasis, or emphasizing words that could reveal the answer.`;
+
+    const part2Prompt = `Voice: Clear, neutral, and professional, suitable for a Japanese Grade 2 English proficiency listening test. Sound like a calm adult narrator, not a documentary narrator or storyteller.
+
+Punctuation: Follow the punctuation carefully. Use natural sentence pauses and a clear pause between the question number, passage, and final question.
+
+Delivery: Speak at approximately 0.9 speed with steady pacing and clear articulation. Maintain an even rhythm throughout the passage without rushing the final sentences.
+
+Phrasing: Read the text exactly as written. Do not add, omit, paraphrase, or correct any words. Pronounce proper names, dates, times, numbers, and key nouns clearly.
+
+Tone: Calm, objective, and informative. Use slight natural emphasis for readability, but do not dramatize the story or emphasize details in a way that reveals the answer.`;
+
+    const tracks = [
+      { part: 1, label: "Part 1 / Cedar 1", voice: "cedar", generation: "f4799257-0989-4d56-9ffc-5372aa18acb7", prompt: part1Prompt, gap: 550, input: "Number 1. Did you finish the poster for tomorrow's science fair?" },
+      { part: 1, label: "Part 1 / Marin 1", voice: "marin", generation: "0db38cbe-b90b-49d5-be3e-28a52c27a097", prompt: part1Prompt, gap: 550, input: "Almost, but the printer in the library stopped working. Could you print the final page at home tonight?" },
+      { part: 1, label: "Part 1 / Cedar 2", voice: "cedar", generation: "35fc24f0-892a-4f86-ac2b-973d067e47cf", prompt: part1Prompt, gap: 550, input: "I can, but send me the file before seven. I have basketball practice after that." },
+      { part: 1, label: "Part 1 / Marin 2", voice: "marin", generation: "74e97418-554f-40d6-920b-f137a22c0b62", prompt: part1Prompt, gap: 800, input: "Thanks. I'll email it during lunch and bring the other pages tomorrow." },
+      { part: 1, label: "Part 1 / Question", voice: "cedar", generation: "ee93bbdf-8097-48c4-911f-9db7e4b6aa8e", prompt: part1Prompt, gap: 1800, input: "Question. What does the girl ask the boy to do?" },
+      { part: 2, label: "Part 2 / Sage", voice: "sage", generation: "a43301f2-8148-4151-8f2f-2ffa9766d6c4", prompt: part2Prompt, gap: 0, input: `Number 16.
+
+During her first month as a volunteer at a local museum, Nina had trouble answering visitors' questions about an old bridge. She knew the basic facts, but she often forgot important dates during busy tours. Instead of memorizing a long guidebook, she made a small timeline and reviewed it before each shift. She can now explain the bridge's history more clearly.
+
+Question. What helped Nina explain the bridge's history better?` }
+    ];
+
+    const audio = document.getElementById("audio");
+    const status = document.getElementById("status");
+    const trackList = document.getElementById("trackList");
+    let queue = [];
+    let queuePosition = 0;
+
+    function audioUrl(track) {
+      const query = new URLSearchParams({ input: track.input, prompt: track.prompt, voice: track.voice, generation: track.generation });
+      return `https://www.openai.fm/api/generate?${query}`;
+    }
+
+    function markCurrent(index) {
+      document.querySelectorAll(".track").forEach((element, itemIndex) => element.classList.toggle("current", itemIndex === index));
+    }
+
+    async function playTrack(index) {
+      const track = tracks[index];
+      if (!track) return;
+      markCurrent(index);
+      status.textContent = `${track.label} を読み込み中…`;
+      const nextUrl = audioUrl(track);
+      if (audio.src !== nextUrl) audio.src = nextUrl;
+      try {
+        await audio.play();
+        status.textContent = `${track.label} を再生中`;
+      } catch (error) {
+        status.textContent = "自動再生できませんでした。音声プレーヤーの再生ボタンを押してください。";
+      }
+    }
+
+    function startQueue(indices) {
+      queue = indices;
+      queuePosition = 0;
+      playTrack(queue[queuePosition]);
+    }
+
+    audio.addEventListener("ended", () => {
+      const finishedTrack = tracks[queue[queuePosition]];
+      queuePosition += 1;
+      if (queuePosition >= queue.length) {
+        status.textContent = "再生が終わりました。";
+        markCurrent(-1);
+        return;
+      }
+      status.textContent = "次の音声へ…";
+      setTimeout(() => playTrack(queue[queuePosition]), finishedTrack?.gap ?? 600);
+    });
+
+    audio.addEventListener("error", () => {
+      status.textContent = "音声の読み込みに失敗しました。少し待ってから、もう一度再生してください。";
+    });
+
+    document.getElementById("playAll").addEventListener("click", () => startQueue(tracks.map((_, index) => index)));
+    document.getElementById("playPart1").addEventListener("click", () => startQueue(tracks.map((track, index) => track.part === 1 ? index : -1).filter(index => index >= 0)));
+    document.getElementById("playPart2").addEventListener("click", () => startQueue([5]));
+    document.getElementById("pause").addEventListener("click", () => { audio.pause(); status.textContent = "一時停止中"; });
+
+    tracks.forEach((track, index) => {
+      const row = document.createElement("div");
+      row.className = "track";
+      row.innerHTML = `<div><strong>${track.label}</strong><span>${track.voice} / 速度指示 約0.9</span></div><button type="button">この音声を再生</button>`;
+      row.querySelector("button").addEventListener("click", () => startQueue([index]));
+      trackList.appendChild(row);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+{
+  "mode": "completed",
+  "item": "No02",
+  "model": "gpt-4o-mini-tts",
+  "voices": {
+    "A": "coral",
+    "B": "fable",
+    "N": "coral"
+  },
+  "speed": 1.0,
+  "responseFormat": "wav",
+  "sourceSegments": 6,
+  "synthesisSegments": 5,
+  "maxApiCalls": 5,
+  "maxRetriesPerSegment": 0,
+  "estimatedCostCapUsd": 0.05,
+  "instructionsProfile": "part1-normal",
+  "accent": "British English",
+  "instructions": "Voice: A clear, natural adult speaker using British English, suitable for a Japanese Eiken Grade 2 listening examination. Sound like a real person in an official language test, not a voice actor, commercial narrator, or artificial announcement.\n\nDelivery: Speak only slightly slower than ordinary conversational English, approximately five percent slower, while preserving natural rhythm, connected speech, and fluent intonation. Do not sound stretched, sleepy, robotic, or excessively slow.\n\nPronunciation: Use clear and accurate pronunciation appropriate to British English. Keep contractions and connected speech natural. Do not over-pronounce every word.\n\nPunctuation and pauses: Follow punctuation carefully. Use short, natural pauses at commas and full stops. Leave a clear pause before the final question, but do not insert unnecessary pauses inside a sentence.\n\nExam style: Maintain the neutral, clear, and realistic delivery of an official Eiken Grade 2 listening recording. Use only light, natural emotion. Do not emphasize words or details in a way that reveals the answer.\n\nAccuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain any words.\n\nAudio quality: Produce an ultra-clean, high-resolution studio-quality voice recording with crisp intelligibility and a full, natural vocal tone. Avoid background noise, hiss, reverb, distortion, clipping, metallic texture, muffled sound, breathiness, and compression artifacts.",
+  "estimate": {
+    "characters": 434,
+    "words": 81,
+    "estimatedDurationSeconds": 38.57,
+    "estimatedCostUsd": 0.0193,
+    "costBasis": "conservative duration estimate"
+  },
+  "output": "audio-generation\\openai-tts-trials\\grade2-part1-us-uk-four-voices-1p0\\part1\\No02.wav",
+  "segments": [
+    {
+      "speaker": "A",
+      "voice": "coral",
+      "text": "Number 2... Good afternoon. I reserved a quiet room for two nights under the name Laura Green.",
+      "gapAfterMs": 180
+    },
+    {
+      "speaker": "B",
+      "voice": "fable",
+      "text": "I found your reservation, Ms. Green. The quiet room won't be ready until six, but a room near the elevator is available now.",
+      "gapAfterMs": 180
+    },
+    {
+      "speaker": "A",
+      "voice": "coral",
+      "text": "I'd rather wait. Can I leave my suitcase here while I get something to eat?",
+      "gapAfterMs": 180
+    },
+    {
+      "speaker": "B",
+      "voice": "fable",
+      "text": "Certainly. We'll keep it behind the front desk and call you when your room is ready.",
+      "gapAfterMs": 650
+    },
+    {
+      "speaker": "A",
+      "voice": "coral",
+      "text": "Question. What does the man say about the quiet room?",
+      "gapAfterMs": 0
+    }
+  ],
+  "apiCalls": 5,
+  "cachedSegments": 0,
+  "outputBytes": 1561998,
+  "outputMetadata": {
+    "codec_name": "pcm_s16le",
+    "sample_rate": "24000",
+    "channels": 1,
+    "duration": "32.540000"
+  }
+}

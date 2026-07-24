@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dragon HD Omni ゆっくり明瞭読み</title>
+  <style>
+    :root { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:#16231c; background:#f2efe8; }
+    * { box-sizing:border-box; } body { margin:0; }
+    main { width:min(820px,calc(100% - 24px)); margin:auto; padding:28px 0 56px; }
+    h1 { margin:0 0 10px; font-size:clamp(27px,7vw,42px); line-height:1.16; }
+    .lead,.note { color:#536159; line-height:1.75; }
+    .prompt-box { margin:18px 0; padding:14px 16px; background:#e8f1ec; border:1px solid #bfd3c7; border-radius:14px; }
+    .prompt-box strong { display:block; margin-bottom:5px; } .prompt-box code { white-space:normal; line-height:1.55; }
+    .toolbar { position:sticky; top:8px; z-index:5; display:flex; flex-wrap:wrap; gap:8px; align-items:center; padding:12px; margin:20px 0 28px; background:rgba(255,255,255,.96); border:1px solid #d6dbd5; border-radius:16px; box-shadow:0 8px 26px rgba(32,48,39,.10); }
+    .toolbar strong { margin-right:auto; }
+    button,a.tab { appearance:none; border:1px solid #97a39c; border-radius:999px; background:#fff; color:#20352a; padding:9px 13px; font-weight:700; text-decoration:none; }
+    button.active { background:#176b47; color:#fff; border-color:#176b47; }
+    .part-section { scroll-margin-top:90px; margin-top:36px; } h2 { font-size:26px; }
+    .question-card { margin:18px 0 24px; padding:18px; background:#fff; border:1px solid #d9ddd8; border-radius:18px; }
+    .question-head { display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-bottom:14px; }
+    h3 { margin:0; font-size:23px; } .question-head span { color:#176b47; font-weight:750; font-size:14px; }
+    audio { display:block; width:100%; }
+    details { margin-top:15px; border-top:1px solid #e2e5e1; padding-top:12px; }
+    summary { cursor:pointer; font-weight:750; } details p { line-height:1.65; } details strong { display:inline-block; min-width:28px; }
+    .pending { color:#9a3d2d; }
+    @media (max-width:680px) {
+      main { width:min(100% - 16px,820px); padding-top:20px; }
+      .toolbar strong { width:100%; margin:0; } .question-card { padding:14px; }
+    }
+  </style>
+</head>
+<body><main>
+  <h1>Dragon HD Omni<br>ゆっくり・明瞭・丁寧</h1>
+  <p class="lead">Part 1を3問、Part 2を3問作りました。各問題は最初から最後までAzureへの1回のリクエストで生成し、文・発話ごとの音源生成や後結合はしていません。</p>
+  <div class="prompt-box"><strong>読み方プロンプトの中心文</strong><code>Speak slowly, clearly, and carefully for an English listening examination. Use precise pronunciation and an unhurried but natural pace.</code></div>
+  <div class="toolbar">
+    <strong>再生速度</strong>
+    <button type="button" data-rate="0.87">0.87</button>
+    <button type="button" data-rate="0.90">0.90</button>
+    <button type="button" data-rate="1.00" class="active">1.00</button>
+    <a class="tab" href="#part1">Part 1</a><a class="tab" href="#part2">Part 2</a>
+  </div>
+  <section id="part1" class="part-section"><h2>Part 1 会話</h2>
+                <section class="question-card">
+                  <div class="question-head"><h3>Number 1</h3><span>Ava × Andrew／試験ナレーター Emma</span></div>
+                  <audio controls preload="metadata" src="audio/part1-No01-dragon-hd-omni-prompted.mp3"></audio>
+                  <details><summary>原稿を見る</summary><p><strong>B</strong> The recording for our school radio show still isn&#x27;t in the shared folder.</p><p><strong>A</strong> I finished editing it, but the file is too large to send by email. Could you upload it from the media room?</p><p><strong>B</strong> Sure, but I need the final title before lunch because the teacher checks everything at one.</p><p><strong>A</strong> I&#x27;ll message you the title now. The interview section doesn&#x27;t need any more changes.</p><p><strong>Question</strong> What does the girl ask the boy to do?</p></details>
+                </section>
+                
+                <section class="question-card">
+                  <div class="question-head"><h3>Number 2</h3><span>Ava × Andrew／試験ナレーター Emma</span></div>
+                  <audio controls preload="metadata" src="audio/part1-No02-dragon-hd-omni-prompted.mp3"></audio>
+                  <details><summary>原稿を見る</summary><p><strong>A</strong> I signed up for the beginner yoga class that meets on Wednesday evenings.</p><p><strong>B</strong> That class has moved to Thursday because the instructor is attending a training course. The starting time is still seven.</p><p><strong>A</strong> Thursday works for me. Do I need to register again at the front desk?</p><p><strong>B</strong> No, your name is already on the new list. Just bring the same membership card.</p><p><strong>Question</strong> What is true about the yoga class?</p></details>
+                </section>
+                
+                <section class="question-card">
+                  <div class="question-head"><h3>Number 3</h3><span>Ava × Andrew／試験ナレーター Emma</span></div>
+                  <audio controls preload="metadata" src="audio/part1-No03-dragon-hd-omni-prompted.mp3"></audio>
+                  <details><summary>原稿を見る</summary><p><strong>A</strong> I can&#x27;t meet you at the cafe this afternoon. A repair worker is coming to look at our washing machine.</p><p><strong>B</strong> Didn&#x27;t your brother say he would stay home for that?</p><p><strong>A</strong> He was supposed to, but his manager asked him to work an extra shift. The worker may arrive anytime between two and five.</p><p><strong>B</strong> No problem. We can meet tomorrow after my class instead.</p><p><strong>Question</strong> Why will the woman stay home this afternoon?</p></details>
+                </section>
+                </section><section id="part2" class="part-section"><h2>Part 2 ナレーション</h2>
+                <section class="question-card">
+                  <div class="question-head"><h3>Number 16</h3><span>本文 Ava／試験ナレーター Andrew</span></div>
+                  <audio controls preload="metadata" src="audio/part2-No16-dragon-hd-omni-prompted.mp3"></audio>
+                  <details><summary>原稿を見る</summary><p>During her first weeks at a design company, Nina tried to write down every comment made during team meetings. She often missed later points because she was still writing. A colleague showed her how to divide a page into decisions and tasks. Nina used the new format at the next meeting and found it easier to follow the discussion.</p><p><strong>Question</strong> Why did Nina change how she took notes?</p></details>
+                </section>
+                
+                <section class="question-card">
+                  <div class="question-head"><h3>Number 17</h3><span>本文 Andrew／試験ナレーター Emma</span></div>
+                  <audio controls preload="metadata" src="audio/part2-No17-dragon-hd-omni-prompted.mp3"></audio>
+                  <details><summary>原稿を見る</summary><p>The Riverside Science Center will open its space exhibition this Saturday. The main hall will be available from nine, but the planetarium will remain closed until one because new equipment is being tested. Visitors with morning planetarium tickets may use them for any afternoon show. The cafe and gift shop will operate on their normal schedule.</p><p><strong>Question</strong> What can morning planetarium ticket holders do?</p></details>
+                </section>
+                
+                <section class="question-card">
+                  <div class="question-head"><h3>Number 18</h3><span>本文 Emma／試験ナレーター Andrew</span></div>
+                  <audio controls preload="metadata" src="audio/part2-No18-dragon-hd-omni-prompted.mp3"></audio>
+                  <details><summary>原稿を見る</summary><p>For several years, Omar grew vegetables on his apartment balcony. Last spring, nearby construction blocked most of the sunlight. He considered moving the plants indoors, but there was not enough space. Instead, he rented a small garden plot near his office. He now checks the plants during his lunch break, though carrying tools there is sometimes inconvenient.</p><p><strong>Question</strong> How did Omar deal with the lack of sunlight?</p></details>
+                </section>
+                </section>
+  <p class="note">今回はプロンプト自体による読み方を確認するため、初期再生速度は1.00です。0.87・0.90へ切り替える場合も音程保持を指定します。</p>
+</main>
+<script>
+  let selectedRate = 1.0;
+  const audios = [...document.querySelectorAll('audio')];
+  const applyRate = audio => {
+    audio.playbackRate = selectedRate;
+    audio.defaultPlaybackRate = selectedRate;
+    audio.preservesPitch = true;
+    audio.webkitPreservesPitch = true;
+  };
+  audios.forEach(audio => {
+    applyRate(audio);
+    ['loadedmetadata','canplay','play','playing'].forEach(name => audio.addEventListener(name, () => applyRate(audio)));
+  });
+  document.querySelectorAll('[data-rate]').forEach(button => button.addEventListener('click', () => {
+    selectedRate = Number(button.dataset.rate);
+    document.querySelectorAll('[data-rate]').forEach(other => other.classList.toggle('active', other === button));
+    audios.forEach(applyRate);
+  }));
+</script>
+</body></html>

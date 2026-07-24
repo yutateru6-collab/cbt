@@ -1,0 +1,71 @@
+[
+  {
+    "id": "No01",
+    "number": 1,
+    "engine": "kokoro-onnx",
+    "speakerA": "af_heart",
+    "speakerB": "am_michael",
+    "speed": 0.87,
+    "lang": "en-us",
+    "sampleRate": 24000,
+    "sourceSegments": 6,
+    "synthesisSegments": 5,
+    "mergeLeadingNumber": true,
+    "titleReplacements": [],
+    "duration": 25.104667,
+    "sourcePeak": 0.7817835807800293,
+    "peakScale": 0.9055521213347085,
+    "path": "audio-generation\\local-tts-trials\\kokoro-pair-comparison-20260715\\01-heart-michael\\merged\\No01.wav",
+    "bytes": 1205068
+  },
+  {
+    "id": "No02",
+    "number": 2,
+    "engine": "kokoro-onnx",
+    "speakerA": "af_heart",
+    "speakerB": "am_michael",
+    "speed": 0.87,
+    "lang": "en-us",
+    "sampleRate": 24000,
+    "sourceSegments": 6,
+    "synthesisSegments": 5,
+    "mergeLeadingNumber": true,
+    "titleReplacements": [
+      {
+        "sourceText": "I found your reservation, Ms. Green. The quiet room won't be ready until six, but a room near the elevator is available now.",
+        "spokenText": "I found your reservation, Miz Green. The quiet room won't be ready until six, but a room near the elevator is available now.",
+        "replacements": [
+          {
+            "from": "\\bMs\\.(?=\\s+[A-Z])",
+            "to": "Miz",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "duration": 29.307333,
+    "sourcePeak": 0.9067890048027039,
+    "peakScale": 0.7807172079176594,
+    "path": "audio-generation\\local-tts-trials\\kokoro-pair-comparison-20260715\\01-heart-michael\\merged\\No02.wav",
+    "bytes": 1406796
+  },
+  {
+    "id": "No03",
+    "number": 3,
+    "engine": "kokoro-onnx",
+    "speakerA": "af_heart",
+    "speakerB": "am_michael",
+    "speed": 0.87,
+    "lang": "en-us",
+    "sampleRate": 24000,
+    "sourceSegments": 6,
+    "synthesisSegments": 5,
+    "mergeLeadingNumber": true,
+    "titleReplacements": [],
+    "duration": 24.379333,
+    "sourcePeak": 0.7304731607437134,
+    "peakScale": 0.9691605633795255,
+    "path": "audio-generation\\local-tts-trials\\kokoro-pair-comparison-20260715\\01-heart-michael\\merged\\No03.wav",
+    "bytes": 1170252
+  }
+]

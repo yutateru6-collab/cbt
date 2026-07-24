@@ -1,0 +1,369 @@
+{
+  "mode": "completed",
+  "generatedAt": "2026-07-18T16:09:13.947971+00:00",
+  "provider": "Azure Speech REST API",
+  "region": "eastus",
+  "testText": "I should have told you earlier, but I didn't know how.",
+  "textSha256": "6e31d9a401b8e63b9735add898a4b1bbca5ffe3b41aa960ffb5def1f895ab547",
+  "outputFormat": "riff-48khz-16bit-mono-pcm",
+  "trackCount": 5,
+  "apiRequestCount": 5,
+  "qualityIsolationContract": {
+    "sameText": true,
+    "minimalSsml": true,
+    "singleVoicePerFile": true,
+    "temperatureOnlyForHd": 0.3,
+    "break": false,
+    "expressAs": false,
+    "prosody": false,
+    "paragraphTag": false,
+    "sentenceTag": false,
+    "ffmpeg": false,
+    "postSynthesisConversion": false,
+    "lossyEncoding": false,
+    "remaster": false,
+    "playbackRateModification": false
+  },
+  "items": [
+    {
+      "blindLabel": "A",
+      "key": "aria-standard-neural",
+      "voice": "en-US-AriaNeural",
+      "modelFamily": "Standard Neural",
+      "parameters": null,
+      "text": "I should have told you earlier, but I didn't know how.",
+      "ssml": "ssml/A-aria-standard-neural.ssml",
+      "ssmlSha256": "5e19c7246aab56b5847cbb6997b4897e001058dacc59363d590c20480bda712a",
+      "outputFormatRequested": "riff-48khz-16bit-mono-pcm",
+      "oneAzureRequest": true,
+      "singleVoice": true,
+      "forbiddenSsmlPresent": false,
+      "postSynthesisConversion": false,
+      "lossyEncodingApplied": false,
+      "remasterApplied": false,
+      "playbackRateModification": false,
+      "ok": true,
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/x-wav",
+        "requestId": null,
+        "bytes": 349244,
+        "elapsedSeconds": 1.949
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "httpStatus": 200,
+          "reason": null
+        }
+      ],
+      "wave": {
+        "channels": 1,
+        "sampleWidthBytes": 2,
+        "bitsPerSample": 16,
+        "sampleRateHz": 48000,
+        "frameCount": 174600,
+        "durationSeconds": 3.638,
+        "compressionType": "NONE"
+      },
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "3.637500",
+          "bit_rate": "768096"
+        }
+      },
+      "loudness": {
+        "available": true,
+        "integratedLufs": -20.6,
+        "truePeakDbtp": -3.9
+      },
+      "sha256": "8a424c19b2630910d4aa6711311e4b39ac4eda703c731fcd8a7aa3dc719ae815",
+      "publishedSha256": "8a424c19b2630910d4aa6711311e4b39ac4eda703c731fcd8a7aa3dc719ae815",
+      "directWav": "audio/A-aria-standard-neural.wav",
+      "publishedWav": "audio/A-aria-standard-neural.wav"
+    },
+    {
+      "blindLabel": "B",
+      "key": "andrew-hd-omni-t03",
+      "voice": "en-US-Andrew:DragonHDOmniLatestNeural",
+      "modelFamily": "Dragon HD Omni",
+      "parameters": "temperature=0.3",
+      "text": "I should have told you earlier, but I didn't know how.",
+      "ssml": "ssml/B-andrew-hd-omni-t03.ssml",
+      "ssmlSha256": "ac115564c2eb5c5bdef71825b53829cfe6b2d7bdfdb986cf7cc1cebb4640dbac",
+      "outputFormatRequested": "riff-48khz-16bit-mono-pcm",
+      "oneAzureRequest": true,
+      "singleVoice": true,
+      "forbiddenSsmlPresent": false,
+      "postSynthesisConversion": false,
+      "lossyEncodingApplied": false,
+      "remasterApplied": false,
+      "playbackRateModification": false,
+      "ok": true,
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/x-wav",
+        "requestId": null,
+        "bytes": 249644,
+        "elapsedSeconds": 2.005
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "httpStatus": 200,
+          "reason": null
+        }
+      ],
+      "wave": {
+        "channels": 1,
+        "sampleWidthBytes": 2,
+        "bitsPerSample": 16,
+        "sampleRateHz": 48000,
+        "frameCount": 124800,
+        "durationSeconds": 2.6,
+        "compressionType": "NONE"
+      },
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "2.600000",
+          "bit_rate": "768135"
+        }
+      },
+      "loudness": {
+        "available": true,
+        "integratedLufs": -18.1,
+        "truePeakDbtp": -3.4
+      },
+      "sha256": "91d7ac62d7de19f00e72cf64f51dab60c8647a9695d45332c60bd2ccc3482458",
+      "publishedSha256": "91d7ac62d7de19f00e72cf64f51dab60c8647a9695d45332c60bd2ccc3482458",
+      "directWav": "audio/B-andrew-hd-omni-t03.wav",
+      "publishedWav": "audio/B-andrew-hd-omni-t03.wav"
+    },
+    {
+      "blindLabel": "C",
+      "key": "emma2-dragon-hd-t03",
+      "voice": "en-US-Emma2:DragonHDLatestNeural",
+      "modelFamily": "Dragon HD",
+      "parameters": "temperature=0.3",
+      "text": "I should have told you earlier, but I didn't know how.",
+      "ssml": "ssml/C-emma2-dragon-hd-t03.ssml",
+      "ssmlSha256": "99a624dc0585491124d9f730b83337a58047bfd10198edda51054ede1134ddc4",
+      "outputFormatRequested": "riff-48khz-16bit-mono-pcm",
+      "oneAzureRequest": true,
+      "singleVoice": true,
+      "forbiddenSsmlPresent": false,
+      "postSynthesisConversion": false,
+      "lossyEncodingApplied": false,
+      "remasterApplied": false,
+      "playbackRateModification": false,
+      "ok": true,
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/x-wav",
+        "requestId": null,
+        "bytes": 220844,
+        "elapsedSeconds": 2.425
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "httpStatus": 200,
+          "reason": null
+        }
+      ],
+      "wave": {
+        "channels": 1,
+        "sampleWidthBytes": 2,
+        "bitsPerSample": 16,
+        "sampleRateHz": 48000,
+        "frameCount": 110400,
+        "durationSeconds": 2.3,
+        "compressionType": "NONE"
+      },
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "2.300000",
+          "bit_rate": "768153"
+        }
+      },
+      "loudness": {
+        "available": true,
+        "integratedLufs": -20.9,
+        "truePeakDbtp": -3.2
+      },
+      "sha256": "3e17e3df45565e4a4bb0d34a25009cc78e18f1389a85b70cfe338db478e148eb",
+      "publishedSha256": "3e17e3df45565e4a4bb0d34a25009cc78e18f1389a85b70cfe338db478e148eb",
+      "directWav": "audio/C-emma2-dragon-hd-t03.wav",
+      "publishedWav": "audio/C-emma2-dragon-hd-t03.wav"
+    },
+    {
+      "blindLabel": "D",
+      "key": "ava-hd-omni-t03",
+      "voice": "en-US-Ava:DragonHDOmniLatestNeural",
+      "modelFamily": "Dragon HD Omni",
+      "parameters": "temperature=0.3",
+      "text": "I should have told you earlier, but I didn't know how.",
+      "ssml": "ssml/D-ava-hd-omni-t03.ssml",
+      "ssmlSha256": "686ff93adba0f4bbc6b7834fad8a7d4695588d95dda96e48bfdf182f45f8de13",
+      "outputFormatRequested": "riff-48khz-16bit-mono-pcm",
+      "oneAzureRequest": true,
+      "singleVoice": true,
+      "forbiddenSsmlPresent": false,
+      "postSynthesisConversion": false,
+      "lossyEncodingApplied": false,
+      "remasterApplied": false,
+      "playbackRateModification": false,
+      "ok": true,
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/x-wav",
+        "requestId": null,
+        "bytes": 254444,
+        "elapsedSeconds": 2.197
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "httpStatus": 200,
+          "reason": null
+        }
+      ],
+      "wave": {
+        "channels": 1,
+        "sampleWidthBytes": 2,
+        "bitsPerSample": 16,
+        "sampleRateHz": 48000,
+        "frameCount": 127200,
+        "durationSeconds": 2.65,
+        "compressionType": "NONE"
+      },
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "2.650000",
+          "bit_rate": "768132"
+        }
+      },
+      "loudness": {
+        "available": true,
+        "integratedLufs": -18.9,
+        "truePeakDbtp": -3.1
+      },
+      "sha256": "1ab7ba98e68bd76ff72cec08a8838ea1aafdd130eee3a031459be3c5e6f6c8e7",
+      "publishedSha256": "1ab7ba98e68bd76ff72cec08a8838ea1aafdd130eee3a031459be3c5e6f6c8e7",
+      "directWav": "audio/D-ava-hd-omni-t03.wav",
+      "publishedWav": "audio/D-ava-hd-omni-t03.wav"
+    },
+    {
+      "blindLabel": "E",
+      "key": "andrew2-dragon-hd-t03",
+      "voice": "en-US-Andrew2:DragonHDLatestNeural",
+      "modelFamily": "Dragon HD",
+      "parameters": "temperature=0.3",
+      "text": "I should have told you earlier, but I didn't know how.",
+      "ssml": "ssml/E-andrew2-dragon-hd-t03.ssml",
+      "ssmlSha256": "ce7fd83f0042743157a03541789202254e9cef67ccb02ae4a2fdf298f187288c",
+      "outputFormatRequested": "riff-48khz-16bit-mono-pcm",
+      "oneAzureRequest": true,
+      "singleVoice": true,
+      "forbiddenSsmlPresent": false,
+      "postSynthesisConversion": false,
+      "lossyEncodingApplied": false,
+      "remasterApplied": false,
+      "playbackRateModification": false,
+      "ok": true,
+      "azure": {
+        "ok": true,
+        "httpStatus": 200,
+        "contentType": "audio/x-wav",
+        "requestId": null,
+        "bytes": 254444,
+        "elapsedSeconds": 2.575
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "httpStatus": 200,
+          "reason": null
+        }
+      ],
+      "wave": {
+        "channels": 1,
+        "sampleWidthBytes": 2,
+        "bitsPerSample": 16,
+        "sampleRateHz": 48000,
+        "frameCount": 127200,
+        "durationSeconds": 2.65,
+        "compressionType": "NONE"
+      },
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "48000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "2.650000",
+          "bit_rate": "768132"
+        }
+      },
+      "loudness": {
+        "available": true,
+        "integratedLufs": -24.6,
+        "truePeakDbtp": -10.6
+      },
+      "sha256": "56eaf9afce296b9483b5eae7b1a74dfe734ea3074231b735f12ff46d7c86b867",
+      "publishedSha256": "56eaf9afce296b9483b5eae7b1a74dfe734ea3074231b735f12ff46d7c86b867",
+      "directWav": "audio/E-andrew2-dragon-hd-t03.wav",
+      "publishedWav": "audio/E-andrew2-dragon-hd-t03.wav"
+    }
+  ]
+}

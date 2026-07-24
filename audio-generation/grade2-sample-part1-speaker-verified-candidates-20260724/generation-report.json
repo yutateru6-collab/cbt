@@ -1,0 +1,259 @@
+{
+  "model": "gemini-3.1-flash-tts-preview",
+  "billingMode": "Batch API",
+  "batchJob": {
+    "submittedAt": "2026-07-23T16:31:58.981660+00:00",
+    "name": "batches/tugu6laqb775compw0f4sf47cgexzujwnmcf",
+    "displayName": "grade2-sample-part1-speaker-verified-candidates-20260724",
+    "model": "models/gemini-3.1-flash-tts-preview",
+    "state": "JOB_STATE_SUCCEEDED",
+    "requestCount": 10,
+    "checkedAt": "2026-07-23T16:37:05.811596+00:00",
+    "error": null
+  },
+  "requestCount": 8,
+  "requestedCount": 10,
+  "failedCount": 2,
+  "failures": [
+    {
+      "id": "No04-c2",
+      "number": 4,
+      "error": {
+        "code": 3,
+        "message": "Request contains an invalid argument."
+      }
+    },
+    {
+      "id": "No05-c1",
+      "number": 5,
+      "error": {
+        "code": 3,
+        "message": "Request contains an invalid argument."
+      }
+    }
+  ],
+  "format": {
+    "sampleRate": 24000,
+    "channels": 1,
+    "sampleWidth": 2,
+    "encoding": "PCM signed 16-bit little-endian WAV"
+  },
+  "postProcessing": {
+    "speed": "none",
+    "loudness": "none",
+    "silence": "leading and trailing boundary trim only"
+  },
+  "usageTotals": {
+    "promptTokens": 3485,
+    "outputAudioTokens": 7588,
+    "totalTokens": 11073
+  },
+  "estimatedBatchCostUsd": {
+    "input": 0.0017425,
+    "outputAudio": 0.07588,
+    "total": 0.0776225
+  },
+  "items": [
+    {
+      "id": "No01-c1",
+      "number": 1,
+      "voices": {
+        "Woman": "Kore",
+        "Man": "Puck"
+      },
+      "file": "No01-c1.wav",
+      "bytes": 1466510,
+      "sha256": "ba8e8473cce792af0528ef7c5d33d2e385c99fed6caf0364a7dbc6de745824f5",
+      "sourceMimeType": "audio/pcm",
+      "boundaryTrim": {
+        "reusedExistingCollectedFile": true
+      },
+      "usage": {
+        "promptTokens": 428,
+        "outputAudioTokens": 996,
+        "totalTokens": 1424
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 733233,
+      "durationSeconds": 30.551
+    },
+    {
+      "id": "No01-c2",
+      "number": 1,
+      "voices": {
+        "Woman": "Kore",
+        "Man": "Puck"
+      },
+      "file": "No01-c2.wav",
+      "bytes": 1310436,
+      "sha256": "ec006af4dd49c6c9d6089ee8f8174c0d8d6f96a6e1b8e3abe94ac7a03ed65753",
+      "sourceMimeType": "audio/pcm",
+      "boundaryTrim": {
+        "reusedExistingCollectedFile": true
+      },
+      "usage": {
+        "promptTokens": 428,
+        "outputAudioTokens": 890,
+        "totalTokens": 1318
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 655196,
+      "durationSeconds": 27.3
+    },
+    {
+      "id": "No02-c1",
+      "number": 2,
+      "voices": {
+        "Woman": "Kore",
+        "Man": "Puck"
+      },
+      "file": "No02-c1.wav",
+      "bytes": 1418666,
+      "sha256": "c4e4e38bc2699d1939527c85ce78a52221555f36da6377ffb4494a6126f88bc8",
+      "sourceMimeType": "audio/pcm",
+      "boundaryTrim": {
+        "reusedExistingCollectedFile": true
+      },
+      "usage": {
+        "promptTokens": 447,
+        "outputAudioTokens": 963,
+        "totalTokens": 1410
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 709311,
+      "durationSeconds": 29.555
+    },
+    {
+      "id": "No02-c2",
+      "number": 2,
+      "voices": {
+        "Woman": "Kore",
+        "Man": "Puck"
+      },
+      "file": "No02-c2.wav",
+      "bytes": 1467078,
+      "sha256": "bbae7b326345fef6989db5e6f79adb65e270a7248f0f2202a648ef1d383efcbb",
+      "sourceMimeType": "audio/pcm",
+      "boundaryTrim": {
+        "reusedExistingCollectedFile": true
+      },
+      "usage": {
+        "promptTokens": 447,
+        "outputAudioTokens": 994,
+        "totalTokens": 1441
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 733517,
+      "durationSeconds": 30.563
+    },
+    {
+      "id": "No03-c1",
+      "number": 3,
+      "voices": {
+        "Woman": "Kore",
+        "Man": "Puck"
+      },
+      "file": "No03-c1.wav",
+      "bytes": 1342466,
+      "sha256": "260ee80de13d5853f512a0af28e6f8a4669964850ce47391e795c862df5a4c63",
+      "sourceMimeType": "audio/pcm",
+      "boundaryTrim": {
+        "reusedExistingCollectedFile": true
+      },
+      "usage": {
+        "promptTokens": 432,
+        "outputAudioTokens": 914,
+        "totalTokens": 1346
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 671211,
+      "durationSeconds": 27.967
+    },
+    {
+      "id": "No03-c2",
+      "number": 3,
+      "voices": {
+        "Woman": "Kore",
+        "Man": "Puck"
+      },
+      "file": "No03-c2.wav",
+      "bytes": 1380520,
+      "sha256": "9099b3f7d4f7cf7bdee84cadc6c20e467c18a8e70ae8b14c13de02f8c5bda672",
+      "sourceMimeType": "audio/pcm",
+      "boundaryTrim": {
+        "reusedExistingCollectedFile": true
+      },
+      "usage": {
+        "promptTokens": 432,
+        "outputAudioTokens": 930,
+        "totalTokens": 1362
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 690238,
+      "durationSeconds": 28.76
+    },
+    {
+      "id": "No04-c1",
+      "number": 4,
+      "voices": {
+        "Woman": "Kore",
+        "Man": "Puck"
+      },
+      "file": "No04-c1.wav",
+      "bytes": 1304534,
+      "sha256": "eb921e37802a1bbd7264c3a34c546b073ba6eec2b0842b15f18eb969aca2c8ae",
+      "sourceMimeType": "audio/pcm",
+      "boundaryTrim": {
+        "reusedExistingCollectedFile": true
+      },
+      "usage": {
+        "promptTokens": 437,
+        "outputAudioTokens": 885,
+        "totalTokens": 1322
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 652245,
+      "durationSeconds": 27.177
+    },
+    {
+      "id": "No05-c2",
+      "number": 5,
+      "voices": {
+        "Woman": "Kore",
+        "Man": "Puck"
+      },
+      "file": "No05-c2.wav",
+      "bytes": 1495660,
+      "sha256": "55573642133778c7342cbe98e3b3cb7675f99f1f7bbac1197e689055a549d1cf",
+      "sourceMimeType": "audio/l16; rate=24000; channels=1",
+      "boundaryTrim": {
+        "leadingTrimMs": 233.75,
+        "trailingTrimMs": 327.583
+      },
+      "usage": {
+        "promptTokens": 434,
+        "outputAudioTokens": 1016,
+        "totalTokens": 1450
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frames": 747808,
+      "durationSeconds": 31.159
+    }
+  ]
+}

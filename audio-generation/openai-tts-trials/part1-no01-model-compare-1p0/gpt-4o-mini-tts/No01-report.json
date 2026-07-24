@@ -1,0 +1,68 @@
+{
+  "mode": "completed",
+  "item": "No01",
+  "model": "gpt-4o-mini-tts",
+  "voices": {
+    "A": "marin",
+    "B": "cedar",
+    "N": "marin"
+  },
+  "speed": 1.0,
+  "responseFormat": "wav",
+  "sourceSegments": 6,
+  "synthesisSegments": 5,
+  "maxApiCalls": 5,
+  "maxRetriesPerSegment": 0,
+  "estimatedCostCapUsd": 0.05,
+  "instructionsProfile": "part1-normal",
+  "instructions": "Voice: Clear, natural, and appropriate for a Japanese Grade 2 English proficiency listening test. Sound like an ordinary adult speaker, not an announcer or voice actor.\n\nPunctuation: Follow the punctuation carefully. Use short, natural pauses at commas and full stops.\n\nDelivery: Speak at a natural normal speed with clear articulation and a natural conversational rhythm. Keep the delivery steady without sounding artificially slow.\n\nPhrasing: Read the text exactly as written. Do not add, omit, paraphrase, or correct any words. Pronounce contractions, names, times, and numbers clearly and naturally.\n\nTone: Neutral and realistic, with only light emotion appropriate to an everyday conversation. Avoid exaggerated acting or emphasis that could reveal the answer.",
+  "estimate": {
+    "characters": 370,
+    "words": 66,
+    "estimatedDurationSeconds": 31.65,
+    "estimatedCostUsd": 0.0158,
+    "costBasis": "conservative duration estimate"
+  },
+  "output": "audio-generation\\openai-tts-trials\\part1-no01-model-compare-1p0\\gpt-4o-mini-tts\\No01.wav",
+  "segments": [
+    {
+      "speaker": "B",
+      "voice": "cedar",
+      "text": "Number 1... Did you finish the poster for tomorrow's science fair?",
+      "gapAfterMs": 180
+    },
+    {
+      "speaker": "A",
+      "voice": "marin",
+      "text": "Almost, but the printer in the library stopped working. Could you print the final page at home tonight?",
+      "gapAfterMs": 180
+    },
+    {
+      "speaker": "B",
+      "voice": "cedar",
+      "text": "I can, but send me the file before seven. I have basketball practice after that.",
+      "gapAfterMs": 180
+    },
+    {
+      "speaker": "A",
+      "voice": "marin",
+      "text": "Thanks. I'll email it during lunch and bring the other pages tomorrow.",
+      "gapAfterMs": 650
+    },
+    {
+      "speaker": "B",
+      "voice": "cedar",
+      "text": "Question. What does the girl ask the boy to do?",
+      "gapAfterMs": 0
+    }
+  ],
+  "apiCalls": 5,
+  "cachedSegments": 0,
+  "outputBytes": 1156398,
+  "outputMetadata": {
+    "codec_name": "pcm_s16le",
+    "sample_rate": "24000",
+    "channels": 1,
+    "duration": "24.090000"
+  }
+}

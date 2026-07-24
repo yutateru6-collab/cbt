@@ -1,0 +1,3 @@
+/audio/*
+  Cache-Control: public, max-age=3600
+  Content-Type: audio/wav

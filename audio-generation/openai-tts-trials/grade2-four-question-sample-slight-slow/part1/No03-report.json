@@ -1,0 +1,69 @@
+{
+  "mode": "completed",
+  "item": "No03",
+  "model": "gpt-4o-mini-tts",
+  "voices": {
+    "A": "marin",
+    "B": "cedar",
+    "N": "marin"
+  },
+  "speed": 1.0,
+  "responseFormat": "wav",
+  "sourceSegments": 6,
+  "synthesisSegments": 5,
+  "maxApiCalls": 5,
+  "maxRetriesPerSegment": 0,
+  "estimatedCostCapUsd": 0.05,
+  "instructionsProfile": "part1-normal",
+  "accent": "American English",
+  "instructions": "Voice: A clear, natural adult speaker using American English, suitable for a Japanese Eiken Grade 2 listening examination. Sound like a real person in an official language test, not a voice actor, commercial narrator, or artificial announcement.\n\nDelivery: Speak only slightly slower than ordinary conversational English, approximately five percent slower, while preserving natural rhythm, connected speech, and fluent intonation. Do not sound stretched, sleepy, robotic, or excessively slow.\n\nPronunciation: Use clear and accurate pronunciation appropriate to American English. Keep contractions and connected speech natural. Do not over-pronounce every word.\n\nPunctuation and pauses: Follow punctuation carefully. Use short, natural pauses at commas and full stops. Leave a clear pause before the final question, but do not insert unnecessary pauses inside a sentence.\n\nExam style: Maintain the neutral, clear, and realistic delivery of an official Eiken Grade 2 listening recording. Use only light, natural emotion. Do not emphasize words or details in a way that reveals the answer.\n\nAccuracy: Read the supplied text exactly as written. Do not add, omit, repeat, paraphrase, correct, or explain any words.\n\nAudio quality: Produce an ultra-clean, high-resolution studio-quality voice recording with crisp intelligibility and a full, natural vocal tone. Avoid background noise, hiss, reverb, distortion, clipping, metallic texture, muffled sound, breathiness, and compression artifacts.",
+  "estimate": {
+    "characters": 367,
+    "words": 67,
+    "estimatedDurationSeconds": 32.11,
+    "estimatedCostUsd": 0.0161,
+    "costBasis": "conservative duration estimate"
+  },
+  "output": "audio-generation\\openai-tts-trials\\grade2-four-question-sample-slight-slow\\part1\\No03.wav",
+  "segments": [
+    {
+      "speaker": "B",
+      "voice": "cedar",
+      "text": "Number 3... I'm starting dinner now. We have an unexpected guest tonight.",
+      "gapAfterMs": 180
+    },
+    {
+      "speaker": "A",
+      "voice": "marin",
+      "text": "Really? I thought we were going to eat at the new Thai restaurant.",
+      "gapAfterMs": 180
+    },
+    {
+      "speaker": "B",
+      "voice": "cedar",
+      "text": "Dad is bringing Grandma over, and she doesn't like spicy food. Could you set the table?",
+      "gapAfterMs": 180
+    },
+    {
+      "speaker": "A",
+      "voice": "marin",
+      "text": "Sure. I'll make a salad too. The soup and chicken should be enough for the main dishes.",
+      "gapAfterMs": 650
+    },
+    {
+      "speaker": "B",
+      "voice": "cedar",
+      "text": "Question. Why is the man preparing dinner at home?",
+      "gapAfterMs": 0
+    }
+  ],
+  "apiCalls": 5,
+  "cachedSegments": 0,
+  "outputBytes": 1177998,
+  "outputMetadata": {
+    "codec_name": "pcm_s16le",
+    "sample_rate": "24000",
+    "channels": 1,
+    "duration": "24.540000"
+  }
+}

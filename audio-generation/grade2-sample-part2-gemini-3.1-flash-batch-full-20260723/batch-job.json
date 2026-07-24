@@ -1,0 +1,10 @@
+{
+  "submittedAt": "2026-07-22T17:35:37.902847+00:00",
+  "name": "batches/msieoh2a25rwdu8e4fqtlvm08xuquolq4typ",
+  "displayName": "grade2-sample-part2-gemini31-full-20260723",
+  "model": "models/gemini-3.1-flash-tts-preview",
+  "state": "JOB_STATE_SUCCEEDED",
+  "requestCount": 15,
+  "checkedAt": "2026-07-22T17:49:29.837136+00:00",
+  "error": null
+}

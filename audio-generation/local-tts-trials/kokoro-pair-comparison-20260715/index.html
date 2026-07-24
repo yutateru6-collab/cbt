@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kokoro 英検2級 Part 1 音声比較</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: "Yu Gothic UI", "Hiragino Sans", sans-serif;
+      color: #172033;
+      background: #eef2f7;
+    }
+    body {
+      margin: 0;
+      padding: 28px 18px 48px;
+    }
+    main {
+      width: min(1080px, 100%);
+      margin: 0 auto;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(24px, 4vw, 38px);
+    }
+    h2 {
+      margin: 0;
+      font-size: 22px;
+    }
+    p {
+      line-height: 1.7;
+    }
+    .intro,
+    section {
+      background: #fff;
+      border: 1px solid #d8e0eb;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(31, 49, 79, 0.08);
+    }
+    .intro {
+      margin-bottom: 20px;
+      padding: 18px 20px;
+    }
+    .intro p {
+      margin: 6px 0;
+    }
+    .badge {
+      display: inline-block;
+      margin-right: 8px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #e8f0ff;
+      color: #2855a6;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    section {
+      margin-top: 20px;
+      padding: 20px;
+    }
+    .pair-meta {
+      margin: 6px 0 18px;
+      color: #566176;
+    }
+    .question {
+      display: grid;
+      grid-template-columns: 90px minmax(0, 1fr) minmax(0, 1fr);
+      gap: 12px;
+      align-items: stretch;
+      margin-top: 12px;
+    }
+    .number,
+    .audio-card {
+      border: 1px solid #dce3ed;
+      border-radius: 12px;
+      background: #f9fbfd;
+    }
+    .number {
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      font-weight: 800;
+    }
+    .audio-card {
+      padding: 12px;
+    }
+    .audio-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    audio {
+      display: block;
+      width: 100%;
+    }
+    .note {
+      margin: 8px 0 0;
+      color: #687489;
+      font-size: 12px;
+    }
+    button {
+      border: 0;
+      border-radius: 10px;
+      padding: 10px 16px;
+      background: #2855a6;
+      color: #fff;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    @media (max-width: 760px) {
+      .question {
+        grid-template-columns: 1fr;
+      }
+      .number {
+        min-height: 42px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Kokoro 英検2級 Part 1 音声比較</h1>
+    <div class="intro">
+      <p><span class="badge">速度 0.87</span><span class="badge">24kHz WAV</span><span class="badge">全18本</span></p>
+      <p>左は従来どおり <b>Numberを単独合成</b>、右は <b>Numberと最初の発話をまとめて合成</b>した版です。</p>
+      <p>No.2 の表示原稿は「Ms. Green」のまま、音声入力だけ正しい発音になるよう「Miz Green」に補正しています。</p>
+      <button type="button" id="stop-all">すべて停止</button>
+    </div>
+
+    <section>
+      <h2>ペア1：af_heart × am_michael</h2>
+      <p class="pair-meta">米国英語（en-us）／現在の基準ペア</p>
+      <div class="question">
+        <div class="number">No.1</div>
+        <div class="audio-card"><strong>通常</strong><audio controls preload="metadata" src="01-heart-michael/separate/No01.wav"></audio></div>
+        <div class="audio-card"><strong>短文連結</strong><audio controls preload="metadata" src="01-heart-michael/merged/No01.wav"></audio></div>
+      </div>
+      <div class="question">
+        <div class="number">No.2</div>
+        <div class="audio-card"><strong>通常</strong><audio controls preload="metadata" src="01-heart-michael/separate/No02.wav"></audio><p class="note">Ms. Green の発音補正あり</p></div>
+        <div class="audio-card"><strong>短文連結</strong><audio controls preload="metadata" src="01-heart-michael/merged/No02.wav"></audio><p class="note">Ms. Green の発音補正あり</p></div>
+      </div>
+      <div class="question">
+        <div class="number">No.3</div>
+        <div class="audio-card"><strong>通常</strong><audio controls preload="metadata" src="01-heart-michael/separate/No03.wav"></audio></div>
+        <div class="audio-card"><strong>短文連結</strong><audio controls preload="metadata" src="01-heart-michael/merged/No03.wav"></audio></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>ペア2：af_bella × am_fenrir</h2>
+      <p class="pair-meta">米国英語（en-us）</p>
+      <div class="question">
+        <div class="number">No.1</div>
+        <div class="audio-card"><strong>通常</strong><audio controls preload="metadata" src="02-bella-fenrir/separate/No01.wav"></audio></div>
+        <div class="audio-card"><strong>短文連結</strong><audio controls preload="metadata" src="02-bella-fenrir/merged/No01.wav"></audio></div>
+      </div>
+      <div class="question">
+        <div class="number">No.2</div>
+        <div class="audio-card"><strong>通常</strong><audio controls preload="metadata" src="02-bella-fenrir/separate/No02.wav"></audio><p class="note">Ms. Green の発音補正あり</p></div>
+        <div class="audio-card"><strong>短文連結</strong><audio controls preload="metadata" src="02-bella-fenrir/merged/No02.wav"></audio><p class="note">Ms. Green の発音補正あり</p></div>
+      </div>
+      <div class="question">
+        <div class="number">No.3</div>
+        <div class="audio-card"><strong>通常</strong><audio controls preload="metadata" src="02-bella-fenrir/separate/No03.wav"></audio></div>
+        <div class="audio-card"><strong>短文連結</strong><audio controls preload="metadata" src="02-bella-fenrir/merged/No03.wav"></audio></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>ペア3：bf_emma × bm_george</h2>
+      <p class="pair-meta">英国英語（en-gb）</p>
+      <div class="question">
+        <div class="number">No.1</div>
+        <div class="audio-card"><strong>通常</strong><audio controls preload="metadata" src="03-emma-george/separate/No01.wav"></audio></div>
+        <div class="audio-card"><strong>短文連結</strong><audio controls preload="metadata" src="03-emma-george/merged/No01.wav"></audio></div>
+      </div>
+      <div class="question">
+        <div class="number">No.2</div>
+        <div class="audio-card"><strong>通常</strong><audio controls preload="metadata" src="03-emma-george/separate/No02.wav"></audio><p class="note">Ms. Green の発音補正あり</p></div>
+        <div class="audio-card"><strong>短文連結</strong><audio controls preload="metadata" src="03-emma-george/merged/No02.wav"></audio><p class="note">Ms. Green の発音補正あり</p></div>
+      </div>
+      <div class="question">
+        <div class="number">No.3</div>
+        <div class="audio-card"><strong>通常</strong><audio controls preload="metadata" src="03-emma-george/separate/No03.wav"></audio></div>
+        <div class="audio-card"><strong>短文連結</strong><audio controls preload="metadata" src="03-emma-george/merged/No03.wav"></audio></div>
+      </div>
+    </section>
+  </main>
+  <script>
+    const players = [...document.querySelectorAll('audio')];
+    players.forEach((player) => {
+      player.addEventListener('play', () => {
+        players.filter((other) => other !== player).forEach((other) => other.pause());
+      });
+    });
+    document.querySelector('#stop-all').addEventListener('click', () => {
+      players.forEach((player) => {
+        player.pause();
+        player.currentTime = 0;
+      });
+    });
+  </script>
+</body>
+</html>

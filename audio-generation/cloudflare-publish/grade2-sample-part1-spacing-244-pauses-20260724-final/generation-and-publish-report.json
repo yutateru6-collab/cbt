@@ -1,0 +1,254 @@
+{
+  "createdAt": "2026-07-23T15:59:43.465584+00:00",
+  "model": "gemini-3.1-flash-tts-preview",
+  "billingMode": "Batch API",
+  "requestCount": 5,
+  "targetWordsPerSecond": 2.44,
+  "selectedNaturalSpeech": {
+    "minimumWordsPerSecond": 2.336,
+    "medianWordsPerSecond": 2.412,
+    "maximumWordsPerSecond": 2.493,
+    "speedPostProcessing": false
+  },
+  "deliveryIncludingExtraLabelPauses": {
+    "medianWordsPerSecond": 2.384,
+    "extraAfterNumberMs": 200,
+    "extraAfterQuestionMs": 200
+  },
+  "loudnessProcessing": {
+    "targetActiveRmsDbfs": -18.6,
+    "method": "one constant linear PCM gain per complete item",
+    "normalization": false,
+    "eq": false,
+    "compression": false,
+    "resampling": false
+  },
+  "additionalBatchCostThisRevisionUsd": 0.095948,
+  "items": [
+    {
+      "id": "No01",
+      "number": 1,
+      "voices": {
+        "A": "Kore",
+        "B": "Puck"
+      },
+      "sourceJob": "first pace retry",
+      "sourceFile": "audio-generation/grade2-sample-part1-gemini-spacing-244-retry-20260724/No01.wav",
+      "sourceSha256": "c1ff611174961ba32ed3960dca65df84108b3703ed80f1125721d75252eda5bc",
+      "file": "audio/sample-part1-no01-kore-puck-spacing244-v20260724.wav",
+      "sha256": "276f8b0531499cf57a8eebab5ca4b4be2bb08a44528ae58f63f95abadf633f9d",
+      "gainDb": -3.45,
+      "wordCount": 66,
+      "selectedWordsPerSecondBeforeExtraPauses": 2.336,
+      "wordsPerSecond": 2.304,
+      "transcript": "B: Number 1.\nB: Did you finish the poster for tomorrow's science fair?\nA: Almost, but the printer in the library stopped working. Could you print the final page at home tonight?\nB: I can, but send me the file before seven. I have basketball practice after that.\nA: Thanks. I'll email it during lunch and bring the other pages tomorrow.\nB: Question. What does the girl ask the boy to do?",
+      "sourceMetrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 678040,
+        "durationSeconds": 28.252,
+        "peakDbfs": -1.21,
+        "rmsDbfs": -16.84,
+        "activeRmsDbfs": -15.15,
+        "activeThresholdDbfs": -50.0
+      },
+      "pauseProcessing": {
+        "method": "insert zero PCM only inside detected label gaps",
+        "addedAfterNumberMs": 200,
+        "addedAfterQuestionMs": 200,
+        "numberGapBeforeMs": 782.0,
+        "questionGapBeforeMs": 716.5
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frameCount": 687640,
+      "durationSeconds": 28.652,
+      "peakDbfs": -4.66,
+      "rmsDbfs": -20.35,
+      "activeRmsDbfs": -18.42,
+      "activeThresholdDbfs": -50.0
+    },
+    {
+      "id": "No02",
+      "number": 2,
+      "voices": {
+        "A": "Kore",
+        "B": "Puck"
+      },
+      "sourceJob": "previous calm batch",
+      "sourceFile": "audio-generation/grade2-sample-part1-five-gemini-calm-batch-20260724/No02.wav",
+      "sourceSha256": "31c47b029f3f1b8778b98acc9509117b8e6ac3a7ae34b41b419ef77c170dca0e",
+      "file": "audio/sample-part1-no02-kore-puck-spacing244-v20260724.wav",
+      "sha256": "65cc488a433107e84063ddd31274301284216b353bd521cbc0d749faf104b9fe",
+      "gainDb": -3.69,
+      "wordCount": 81,
+      "selectedWordsPerSecondBeforeExtraPauses": 2.412,
+      "wordsPerSecond": 2.384,
+      "transcript": "A: Number 2.\nA: Good afternoon. I reserved a quiet room for two nights under the name Laura Green.\nB: I found your reservation, Ms. Green. The quiet room won't be ready until six, but a room near the elevator is available now.\nA: I'd rather wait. Can I leave my suitcase here while I get something to eat?\nB: Certainly. We'll keep it behind the front desk and call you when your room is ready.\nA: Question. What does the man say about the quiet room?",
+      "sourceMetrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 805848,
+        "durationSeconds": 33.577,
+        "peakDbfs": -1.66,
+        "rmsDbfs": -16.48,
+        "activeRmsDbfs": -14.91,
+        "activeThresholdDbfs": -50.0
+      },
+      "pauseProcessing": {
+        "method": "insert zero PCM only inside detected label gaps",
+        "addedAfterNumberMs": 200,
+        "addedAfterQuestionMs": 200,
+        "numberGapBeforeMs": 638.6,
+        "questionGapBeforeMs": 802.2
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frameCount": 815448,
+      "durationSeconds": 33.977,
+      "peakDbfs": -5.35,
+      "rmsDbfs": -20.22,
+      "activeRmsDbfs": -18.46,
+      "activeThresholdDbfs": -50.0
+    },
+    {
+      "id": "No03",
+      "number": 3,
+      "voices": {
+        "A": "Kore",
+        "B": "Puck"
+      },
+      "sourceJob": "previous calm batch",
+      "sourceFile": "audio-generation/grade2-sample-part1-five-gemini-calm-batch-20260724/No03.wav",
+      "sourceSha256": "1c579e0aeecf5502613d0c319ab102a48f72cfd9750044efe1c2e6018f664fea",
+      "file": "audio/sample-part1-no03-kore-puck-spacing244-v20260724.wav",
+      "sha256": "f1d5b168c69994247d9d41068ebb972fc94f2149767b42c37722f3646d96d37c",
+      "gainDb": 1.15,
+      "wordCount": 67,
+      "selectedWordsPerSecondBeforeExtraPauses": 2.44,
+      "wordsPerSecond": 2.405,
+      "transcript": "B: Number 3.\nB: I'm starting dinner now. We have an unexpected guest tonight.\nA: Really? I thought we were going to eat at the new Thai restaurant.\nB: Dad is bringing Grandma over, and she doesn't like spicy food. Could you set the table?\nA: Sure. I'll make a salad too. The soup and chicken should be enough for the main dishes.\nB: Question. Why is the man preparing dinner at home?",
+      "sourceMetrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 658932,
+        "durationSeconds": 27.456,
+        "peakDbfs": -1.9,
+        "rmsDbfs": -21.82,
+        "activeRmsDbfs": -19.75,
+        "activeThresholdDbfs": -50.0
+      },
+      "pauseProcessing": {
+        "method": "insert zero PCM only inside detected label gaps",
+        "addedAfterNumberMs": 200,
+        "addedAfterQuestionMs": 200,
+        "numberGapBeforeMs": 629.0,
+        "questionGapBeforeMs": 771.6
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frameCount": 668532,
+      "durationSeconds": 27.855,
+      "peakDbfs": -0.75,
+      "rmsDbfs": -20.73,
+      "activeRmsDbfs": -18.67,
+      "activeThresholdDbfs": -50.0
+    },
+    {
+      "id": "No04",
+      "number": 4,
+      "voices": {
+        "A": "Kore",
+        "B": "Puck"
+      },
+      "sourceJob": "first pace retry",
+      "sourceFile": "audio-generation/grade2-sample-part1-gemini-spacing-244-retry-20260724/No04.wav",
+      "sourceSha256": "50ca91c5b68fb89c8ae39fd067ad10123ddac8f5f83d11d830b1b7b7f4e8ef09",
+      "file": "audio/sample-part1-no04-kore-puck-spacing244-v20260724.wav",
+      "sha256": "d6ef4aa8267c79905b46e99d6ed28ad44f7a133b429fee83efecb807aa5e2f40",
+      "gainDb": -3.28,
+      "wordCount": 73,
+      "selectedWordsPerSecondBeforeExtraPauses": 2.493,
+      "wordsPerSecond": 2.459,
+      "transcript": "B: Number 4.\nB: The monthly sales report is due tomorrow, and I'm still checking the figures from our Osaka office.\nA: I finished my section early. I can review those figures after lunch if that would help.\nB: That would be great. I'll send you the spreadsheet and mark the numbers that look unusual.\nA: Perfect. I have a meeting at two, so I'll look at it before then.\nB: Question. What does the woman offer to do?",
+      "sourceMetrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 702845,
+        "durationSeconds": 29.285,
+        "peakDbfs": -1.47,
+        "rmsDbfs": -17.07,
+        "activeRmsDbfs": -15.32,
+        "activeThresholdDbfs": -50.0
+      },
+      "pauseProcessing": {
+        "method": "insert zero PCM only inside detected label gaps",
+        "addedAfterNumberMs": 200,
+        "addedAfterQuestionMs": 200,
+        "numberGapBeforeMs": 1060.6,
+        "questionGapBeforeMs": 712.9
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frameCount": 712445,
+      "durationSeconds": 29.685,
+      "peakDbfs": -4.75,
+      "rmsDbfs": -20.41,
+      "activeRmsDbfs": -18.44,
+      "activeThresholdDbfs": -50.0
+    },
+    {
+      "id": "No05",
+      "number": 5,
+      "voices": {
+        "A": "Kore",
+        "B": "Puck"
+      },
+      "sourceJob": "initial spacing batch",
+      "sourceFile": "audio-generation/grade2-sample-part1-five-gemini-spacing-244-batch-20260724/No05.wav",
+      "sourceSha256": "93d102237a6b959f7c0d34cb471e24ab4572521a6b814ffc1ee12b358e2ee3b9",
+      "file": "audio/sample-part1-no05-kore-puck-spacing244-v20260724.wav",
+      "sha256": "33c979fc8d79936321bbf140b88603f17bab8d25da368050e29d73dddf115f91",
+      "gainDb": -3.39,
+      "wordCount": 75,
+      "selectedWordsPerSecondBeforeExtraPauses": 2.36,
+      "wordsPerSecond": 2.331,
+      "transcript": "A: Number 5.\nA: Excuse me, does this bus stop at the city art museum?\nB: Not today. The road in front of the museum is closed, so this bus only goes as far as Central Station.\nA: I see. Is there another way to get there from the station?\nB: Take the Green Line train one stop, then walk two blocks north. The museum entrance is across from the post office.\nA: Question. Where will the woman probably go first?",
+      "sourceMetrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 762549,
+        "durationSeconds": 31.773,
+        "peakDbfs": -1.57,
+        "rmsDbfs": -16.96,
+        "activeRmsDbfs": -15.21,
+        "activeThresholdDbfs": -50.0
+      },
+      "pauseProcessing": {
+        "method": "insert zero PCM only inside detected label gaps",
+        "addedAfterNumberMs": 200,
+        "addedAfterQuestionMs": 200,
+        "numberGapBeforeMs": 594.7,
+        "questionGapBeforeMs": 767.9
+      },
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "frameCount": 772149,
+      "durationSeconds": 32.173,
+      "peakDbfs": -4.96,
+      "rmsDbfs": -20.41,
+      "activeRmsDbfs": -18.43,
+      "activeThresholdDbfs": -50.0
+    }
+  ]
+}

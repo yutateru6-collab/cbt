@@ -1,0 +1,1633 @@
+{
+  "mode": "completed",
+  "generatedAt": "2026-07-20T02:42:34.654090+00:00",
+  "provider": "SpeechifyAI",
+  "endpoint": "https://api.speechify.ai/v1/audio/speech",
+  "apiVersion": "2026-07-07",
+  "model": "simba-3.2",
+  "language": "en-US",
+  "parts": {
+    "Part 1": [],
+    "Part 2": [
+      25,
+      26,
+      27,
+      28,
+      29,
+      30
+    ]
+  },
+  "sourceSet": "sample",
+  "apiRequestCount": 18,
+  "billableCharacters": 2464,
+  "rates": {
+    "part1NumberAndDialogue": "-13%",
+    "part2NumberAndBody": "-13%",
+    "questionAndText": "-13%"
+  },
+  "timingMs": {
+    "numberToBody": 1150,
+    "turnGap": 550,
+    "bodyToQuestion": 1100,
+    "questionToText": 350
+  },
+  "deliveryContract": {
+    "approvedVoicesOnly": [
+      "dominic_32",
+      "geffen_32",
+      "hugh_32"
+    ],
+    "part1FemaleMalePair": true,
+    "part1CompleteTurnRequests": true,
+    "part2WholeBodyOneRequest": true,
+    "sentenceLevelSplit": false,
+    "questionAndQuestionTextOneRequest": true,
+    "speechifyDirectWav": true,
+    "losslessPcmConcatenation": true,
+    "speechPcmSamplesChanged": false,
+    "silenceInsertionOnly": true,
+    "ffmpegProcessing": false,
+    "postSynthesisReencoding": false,
+    "postSynthesisResampling": false,
+    "lossyEncoding": false,
+    "silenceTrimming": false,
+    "loudnessNormalization": false,
+    "eqDenoiseRemaster": false,
+    "playbackRate": 1.0
+  },
+  "preflight": {
+    "provider": "SpeechifyAI",
+    "model": "simba-3.2",
+    "language": "en-US",
+    "apiVersion": "2026-07-07",
+    "audioFormat": "wav",
+    "expectedRequestUnits": 18,
+    "missingCalls": 18,
+    "missingInputCharacters": 3418,
+    "maxCalls": 18,
+    "maxInputCharacters": 10000,
+    "items": [
+      {
+        "id": "part2-No25",
+        "part": "Part 2",
+        "wholeBodyOneRequest": true,
+        "sentenceLevelSplit": false,
+        "segments": [
+          {
+            "role": "number",
+            "speaker": "narrator",
+            "voice": "Hugh",
+            "voiceId": "hugh_32",
+            "rate": "-13%",
+            "input": "<speak><prosody rate=\"-13%\">Number twenty-five.</prosody></speak>",
+            "gapAfterMs": 1150,
+            "cached": false
+          },
+          {
+            "role": "body",
+            "speaker": "body",
+            "voice": "Dominic",
+            "voiceId": "dominic_32",
+            "rate": "-13%",
+            "input": "<speak><prosody rate=\"-13%\">Noise from the street had begun to wake Daniel before his alarm. He first tried wearing earplugs, but they made it hard for him to hear his baby at night. He then moved a tall bookshelf against the outside wall and added thick curtains. The room became quieter, although he still wakes early when garbage trucks stop nearby on Fridays.</prosody></speak>",
+            "gapAfterMs": 1100,
+            "cached": false
+          },
+          {
+            "role": "question",
+            "speaker": "narrator",
+            "voice": "Hugh",
+            "voiceId": "hugh_32",
+            "rate": "-13%",
+            "input": "<speak><prosody rate=\"-13%\">Question.<break time=\"350ms\"/>What made Daniel’s room quieter?</prosody></speak>",
+            "gapAfterMs": 0,
+            "cached": false
+          }
+        ]
+      },
+      {
+        "id": "part2-No26",
+        "part": "Part 2",
+        "wholeBodyOneRequest": true,
+        "sentenceLevelSplit": false,
+        "segments": [
+          {
+            "role": "number",
+            "speaker": "narrator",
+            "voice": "Hugh",
+            "voiceId": "hugh_32",
+            "rate": "-13%",
+            "input": "<speak><prosody rate=\"-13%\">Number twenty-six.</prosody></speak>",
+            "gapAfterMs": 1150,
+            "cached": false
+          },
+          {
+            "role": "body",
+            "speaker": "body",
+            "voice": "Geffen",
+            "voiceId": "geffen_32",
+            "rate": "-13%",
+            "input": "<speak><prosody rate=\"-13%\">A thermos bottle slows the movement of heat between a drink and the air around it. Many bottles have two walls with very little air between them. This space reduces heat transfer, so hot drinks stay hot and cold drinks stay cold longer. A tight lid also limits the amount of warm or cool air that can escape from the bottle.</prosody></speak>",
+            "gapAfterMs": 1100,
+            "cached": false
+          },
+          {
+            "role": "question",
+            "speaker": "narrator",
+            "voice": "Hugh",
+            "voiceId": "hugh_32",
+            "rate": "-13%",
+            "input": "<speak><prosody rate=\"-13%\">Question.<break time=\"350ms\"/>Why can a thermos keep drinks hot or cold?</prosody></speak>",
+            "gapAfterMs": 0,
+            "cached": false
+          }
+        ]
+      },
+      {
+        "id": "part2-No27",
+        "part": "Part 2",
+        "wholeBodyOneRequest": true,
+        "sentenceLevelSplit": false,
+        "segments": [
+          {
+            "role": "number",
+            "speaker": "narrator",
+            "voice": "Hugh",
+            "voiceId": "hugh_32",
+            "rate": "-13%",
+            "input": "<speak><prosody rate=\"-13%\">Number twenty-seven.</prosody></speak>",
+            "gapAfterMs": 1150,
+            "cached": false
+          },
+          {
+            "role": "body",
+            "speaker": "body",
+            "voice": "Geffen",
+            "voiceId": "geffen_32",
+            "rate": "-13%",
+            "input": "<speak><prosody rate=\"-13%\">Priya ordered hiking shoes from an online store before a school trip. The shoes fit well, but one lace hook was loose. The store offered either a refund or a replacement, though a replacement would not arrive before her departure. Priya kept the shoes, had the hook repaired locally, and sent the receipt to the store for repayment afterward.</prosody></speak>",
+            "gapAfterMs": 1100,
+            "cached": false
+          },
+          {
+            "role": "question",
+            "speaker": "narrator",
+            "voice": "Hugh",
+            "voiceId": "hugh_32",
+            "rate": "-13%",
+            "input": "<speak><prosody rate=\"-13%\">Question.<break time=\"350ms\"/>Why did Priya keep the hiking shoes?</prosody></speak>",
+            "gapAfterMs": 0,
+            "cached": false
+          }
+        ]
+      },
+      {
+        "id": "part2-No28",
+        "part": "Part 2",
+        "wholeBodyOneRequest": true,
+        "sentenceLevelSplit": false,
+        "segments": [
+          {
+            "role": "number",
+            "speaker": "narrator",
+            "voice": "Hugh",
+            "voiceId": "hugh_32",
+            "rate": "-13%",
+            "input": "<speak><prosody rate=\"-13%\">Number twenty-eight.</prosody></speak>",
+            "gapAfterMs": 1150,
+            "cached": false
+          },
+          {
+            "role": "body",
+            "speaker": "body",
+            "voice": "Geffen",
+            "voiceId": "geffen_32",
+            "rate": "-13%",
+            "input": "<speak><prosody rate=\"-13%\">Before his parents’ anniversary dinner, Marcus promised to collect a special dessert from a bakery. On the day of the dinner, his work meeting was moved to a later time. His sister could visit the bakery, but she did not know which order to collect. Marcus forwarded her the confirmation message and asked her to pick it up on his behalf.</prosody></speak>",
+            "gapAfterMs": 1100,
+            "cached": false
+          },
+          {
+            "role": "question",
+            "speaker": "narrator",
+            "voice": "Hugh",
+            "voiceId": "hugh_32",
+            "rate": "-13%",
+            "input": "<speak><prosody rate=\"-13%\">Question.<break time=\"350ms\"/>What did Marcus ask his sister to do?</prosody></speak>",
+            "gapAfterMs": 0,
+            "cached": false
+          }
+        ]
+      },
+      {
+        "id": "part2-No29",
+        "part": "Part 2",
+        "wholeBodyOneRequest": true,
+        "sentenceLevelSplit": false,
+        "segments": [
+          {
+            "role": "number",
+            "speaker": "narrator",
+            "voice": "Hugh",
+            "voiceId": "hugh_32",
+            "rate": "-13%",
+            "input": "<speak><prosody rate=\"-13%\">Number twenty-nine.</prosody></speak>",
+            "gapAfterMs": 1150,
+            "cached": false
+          },
+          {
+            "role": "body",
+            "speaker": "body",
+            "voice": "Geffen",
+            "voiceId": "geffen_32",
+            "rate": "-13%",
+            "input": "<speak><prosody rate=\"-13%\">The City Library’s second floor will be closed for painting from Monday through Thursday. Books from that floor can still be requested at the information desk, although they may take up to twenty minutes to arrive. Study tables have been moved to the meeting room downstairs. The children’s area and computer room will operate normally throughout the painting work.</prosody></speak>",
+            "gapAfterMs": 1100,
+            "cached": false
+          },
+          {
+            "role": "question",
+            "speaker": "narrator",
+            "voice": "Hugh",
+            "voiceId": "hugh_32",
+            "rate": "-13%",
+            "input": "<speak><prosody rate=\"-13%\">Question.<break time=\"350ms\"/>Where have the library’s study tables been moved?</prosody></speak>",
+            "gapAfterMs": 0,
+            "cached": false
+          }
+        ]
+      },
+      {
+        "id": "part2-No30",
+        "part": "Part 2",
+        "wholeBodyOneRequest": true,
+        "sentenceLevelSplit": false,
+        "segments": [
+          {
+            "role": "number",
+            "speaker": "narrator",
+            "voice": "Hugh",
+            "voiceId": "hugh_32",
+            "rate": "-13%",
+            "input": "<speak><prosody rate=\"-13%\">Number thirty.</prosody></speak>",
+            "gapAfterMs": 1150,
+            "cached": false
+          },
+          {
+            "role": "body",
+            "speaker": "body",
+            "voice": "Geffen",
+            "voiceId": "geffen_32",
+            "rate": "-13%",
+            "input": "<speak><prosody rate=\"-13%\">Recently, Hana discovered that several photos from a school event were missing from her laptop. She had copied them from her camera, but she had not checked whether the transfer was complete before deleting the originals. A technician recovered most of the files. Since then, Hana has kept two copies and checks both carefully before clearing her camera’s memory card.</prosody></speak>",
+            "gapAfterMs": 1100,
+            "cached": false
+          },
+          {
+            "role": "question",
+            "speaker": "narrator",
+            "voice": "Hugh",
+            "voiceId": "hugh_32",
+            "rate": "-13%",
+            "input": "<speak><prosody rate=\"-13%\">Question.<break time=\"350ms\"/>What new habit has Hana adopted?</prosody></speak>",
+            "gapAfterMs": 0,
+            "cached": false
+          }
+        ]
+      }
+    ],
+    "source": "grade2-listening-part2-sets.js",
+    "castPlan": {
+      "body25": "dominic_32",
+      "body26To30": "geffen_32",
+      "numberAndQuestionNarrator": "hugh_32"
+    },
+    "rate": "-13%",
+    "nominalSpeed": 0.87
+  },
+  "items": [
+    {
+      "id": "part2-No25",
+      "part": "Part 2",
+      "number": 25,
+      "voices": {
+        "body": {
+          "id": "dominic_32",
+          "name": "Dominic",
+          "gender": "male"
+        },
+        "narrator": {
+          "id": "hugh_32",
+          "name": "Hugh",
+          "gender": "male"
+        }
+      },
+      "scriptHtml": "<p>Noise from the street had begun to wake Daniel before his alarm. He first tried wearing earplugs, but they made it hard for him to hear his baby at night. He then moved a tall bookshelf against the outside wall and added thick curtains. The room became quieter, although he still wakes early when garbage trucks stop nearby on Fridays.</p><p class=\"question\"><strong>Question</strong> What made Daniel’s room quieter?</p>",
+      "segments": [
+        {
+          "role": "number",
+          "speaker": "narrator",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "displayText": "Number 25.",
+          "ttsText": "Number twenty-five.",
+          "ttsOverrides": [
+            {
+              "from": "25",
+              "to": "twenty-five"
+            }
+          ],
+          "rate": "-13%",
+          "input": "<speak><prosody rate=\"-13%\">Number twenty-five.</prosody></speak>",
+          "gapAfterMs": 1150,
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No25\\number-hugh_32-0153b7d5eefdbea86d3bcb3b.wav",
+          "sourceFileSha256": "b4295b7c54e58a987b4e7844b4bf1c3f1a79dd2df071d13e5d1c0749b2506361",
+          "sourcePcmSha256": "d656272517030e18c44ec7940bed5d0342627f66e08d317d757be87c05a50ae3",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 80880,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 1.685
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 5.744,
+            "billableCharacters": 19,
+            "requestId": "78447f2a2a734e21019aefda"
+          }
+        },
+        {
+          "role": "body",
+          "speaker": "body",
+          "voice": "Dominic",
+          "voiceId": "dominic_32",
+          "displayText": "Noise from the street had begun to wake Daniel before his alarm. He first tried wearing earplugs, but they made it hard for him to hear his baby at night. He then moved a tall bookshelf against the outside wall and added thick curtains. The room became quieter, although he still wakes early when garbage trucks stop nearby on Fridays.",
+          "ttsText": "Noise from the street had begun to wake Daniel before his alarm. He first tried wearing earplugs, but they made it hard for him to hear his baby at night. He then moved a tall bookshelf against the outside wall and added thick curtains. The room became quieter, although he still wakes early when garbage trucks stop nearby on Fridays.",
+          "ttsOverrides": [],
+          "rate": "-13%",
+          "input": "<speak><prosody rate=\"-13%\">Noise from the street had begun to wake Daniel before his alarm. He first tried wearing earplugs, but they made it hard for him to hear his baby at night. He then moved a tall bookshelf against the outside wall and added thick curtains. The room became quieter, although he still wakes early when garbage trucks stop nearby on Fridays.</prosody></speak>",
+          "gapAfterMs": 1100,
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No25\\body-dominic_32-8891924d28cfbba70b62784a.wav",
+          "sourceFileSha256": "28272cc67d1c3f631be80d099205dbf3d3f7236c90b6a04db5bc8d0e5dd106a7",
+          "sourcePcmSha256": "318a98136cba3716bc50079b2cdf7730627cb7e8e681c3043b2c5ef298eb0e8d",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 1056218,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 22.005
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 5.365,
+            "billableCharacters": 335,
+            "requestId": "cabae193b440b74010f25f73"
+          }
+        },
+        {
+          "role": "question",
+          "speaker": "narrator",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "displayText": "Question. What made Daniel’s room quieter?",
+          "ttsText": "Question. What made Daniel’s room quieter?",
+          "ttsOverrides": [],
+          "rate": "-13%",
+          "input": "<speak><prosody rate=\"-13%\">Question.<break time=\"350ms\"/>What made Daniel’s room quieter?</prosody></speak>",
+          "gapAfterMs": 0,
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No25\\question-hugh_32-a3e7242506f9d44d99ae419f.wav",
+          "sourceFileSha256": "d4d63a8a876e2c4c8318f4b7ec6522fe25c7d3c5aba5b152fee939c959502fc1",
+          "sourcePcmSha256": "69588678f0ca32be638b1f9095e7736a96102984e6ce57f0d406a141d131e1b6",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 185864,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 3.872
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 2.407,
+            "billableCharacters": 41,
+            "requestId": "1fc20ccd5a9142101c8476e7"
+          }
+        }
+      ],
+      "pcmVerification": {
+        "wave": {
+          "channels": 1,
+          "sampleWidthBytes": 2,
+          "bitsPerSample": 16,
+          "sampleRateHz": 48000,
+          "frameCount": 1430962,
+          "declaredFrameCount": 1430962,
+          "sourceHeaderOpenEnded": false,
+          "compressionType": "NONE",
+          "durationSeconds": 29.812
+        },
+        "expectedPcmSha256": "fc994885a91606496c69b731a92c212d02809822ad5c9ba1c171fada6d159ab0",
+        "finalPcmSha256": "fc994885a91606496c69b731a92c212d02809822ad5c9ba1c171fada6d159ab0",
+        "pcmExactMatch": true,
+        "allSpeechSlicesExact": true
+      },
+      "sliceVerification": [
+        {
+          "role": "number",
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No25\\number-hugh_32-0153b7d5eefdbea86d3bcb3b.wav",
+          "sourceFileSha256": "b4295b7c54e58a987b4e7844b4bf1c3f1a79dd2df071d13e5d1c0749b2506361",
+          "sourcePcmSha256": "d656272517030e18c44ec7940bed5d0342627f66e08d317d757be87c05a50ae3",
+          "finalPcmStartByte": 0,
+          "finalPcmEndByte": 161760,
+          "gapAfterMs": 1150,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 80880,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 1.685
+          },
+          "finalSlicePcmSha256": "d656272517030e18c44ec7940bed5d0342627f66e08d317d757be87c05a50ae3",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "body",
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No25\\body-dominic_32-8891924d28cfbba70b62784a.wav",
+          "sourceFileSha256": "28272cc67d1c3f631be80d099205dbf3d3f7236c90b6a04db5bc8d0e5dd106a7",
+          "sourcePcmSha256": "318a98136cba3716bc50079b2cdf7730627cb7e8e681c3043b2c5ef298eb0e8d",
+          "finalPcmStartByte": 272160,
+          "finalPcmEndByte": 2384596,
+          "gapAfterMs": 1100,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 1056218,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 22.005
+          },
+          "finalSlicePcmSha256": "318a98136cba3716bc50079b2cdf7730627cb7e8e681c3043b2c5ef298eb0e8d",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "question",
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No25\\question-hugh_32-a3e7242506f9d44d99ae419f.wav",
+          "sourceFileSha256": "d4d63a8a876e2c4c8318f4b7ec6522fe25c7d3c5aba5b152fee939c959502fc1",
+          "sourcePcmSha256": "69588678f0ca32be638b1f9095e7736a96102984e6ce57f0d406a141d131e1b6",
+          "finalPcmStartByte": 2490196,
+          "finalPcmEndByte": 2861924,
+          "gapAfterMs": 0,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 185864,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 3.872
+          },
+          "finalSlicePcmSha256": "69588678f0ca32be638b1f9095e7736a96102984e6ce57f0d406a141d131e1b6",
+          "pcmSliceMatch": true
+        }
+      ],
+      "masterWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\audio\\part2-25-simba-3-2-final.wav",
+      "publishedWav": "audio/part2-25-simba-3-2-final.wav",
+      "masterSha256": "0c238f4380f3dffd9b899dc166b175175b9bbab008764de4b4b4c99fe7c1a410",
+      "publishedSha256": "0c238f4380f3dffd9b899dc166b175175b9bbab008764de4b4b4c99fe7c1a410",
+      "publishedCopyHashMatch": true,
+      "fileBytes": 2861968,
+      "samplePeak": {
+        "minimumSample": -28837,
+        "maximumSample": 30690,
+        "fullScaleSampleCount": 0,
+        "maxConsecutiveFullScaleSamples": 0,
+        "noFullScalePlateau": true
+      }
+    },
+    {
+      "id": "part2-No26",
+      "part": "Part 2",
+      "number": 26,
+      "voices": {
+        "body": {
+          "id": "geffen_32",
+          "name": "Geffen",
+          "gender": "female"
+        },
+        "narrator": {
+          "id": "hugh_32",
+          "name": "Hugh",
+          "gender": "male"
+        }
+      },
+      "scriptHtml": "<p>A thermos bottle slows the movement of heat between a drink and the air around it. Many bottles have two walls with very little air between them. This space reduces heat transfer, so hot drinks stay hot and cold drinks stay cold longer. A tight lid also limits the amount of warm or cool air that can escape from the bottle.</p><p class=\"question\"><strong>Question</strong> Why can a thermos keep drinks hot or cold?</p>",
+      "segments": [
+        {
+          "role": "number",
+          "speaker": "narrator",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "displayText": "Number 26.",
+          "ttsText": "Number twenty-six.",
+          "ttsOverrides": [
+            {
+              "from": "26",
+              "to": "twenty-six"
+            }
+          ],
+          "rate": "-13%",
+          "input": "<speak><prosody rate=\"-13%\">Number twenty-six.</prosody></speak>",
+          "gapAfterMs": 1150,
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No26\\number-hugh_32-f6799cb4d29c859407545a62.wav",
+          "sourceFileSha256": "fc7ab9af8cd2dac3ddcc8a3c7473a96e894ad71c51112632ece8d178fb495ed1",
+          "sourcePcmSha256": "16505d167981256b8c5879376d3f59330110b9483268039bc19eb8b47777a960",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 76506,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 1.594
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 1.549,
+            "billableCharacters": 18,
+            "requestId": "5f8c3d5e847d023047456167"
+          }
+        },
+        {
+          "role": "body",
+          "speaker": "body",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "displayText": "A thermos bottle slows the movement of heat between a drink and the air around it. Many bottles have two walls with very little air between them. This space reduces heat transfer, so hot drinks stay hot and cold drinks stay cold longer. A tight lid also limits the amount of warm or cool air that can escape from the bottle.",
+          "ttsText": "A thermos bottle slows the movement of heat between a drink and the air around it. Many bottles have two walls with very little air between them. This space reduces heat transfer, so hot drinks stay hot and cold drinks stay cold longer. A tight lid also limits the amount of warm or cool air that can escape from the bottle.",
+          "ttsOverrides": [],
+          "rate": "-13%",
+          "input": "<speak><prosody rate=\"-13%\">A thermos bottle slows the movement of heat between a drink and the air around it. Many bottles have two walls with very little air between them. This space reduces heat transfer, so hot drinks stay hot and cold drinks stay cold longer. A tight lid also limits the amount of warm or cool air that can escape from the bottle.</prosody></speak>",
+          "gapAfterMs": 1100,
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No26\\body-geffen_32-0f63f4c463fc82622f00ac17.wav",
+          "sourceFileSha256": "cc34e376f9517a7670e21c8a9a103d904d8c9abc911a315584a92915c22a4f61",
+          "sourcePcmSha256": "325633bab0935482445763108341e69c2d259a7c43ba114fb85e55f37f783a1b",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 1015996,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 21.167
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 5.584,
+            "billableCharacters": 324,
+            "requestId": "df6f5c56cc8de7779a54cbe2"
+          }
+        },
+        {
+          "role": "question",
+          "speaker": "narrator",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "displayText": "Question. Why can a thermos keep drinks hot or cold?",
+          "ttsText": "Question. Why can a thermos keep drinks hot or cold?",
+          "ttsOverrides": [],
+          "rate": "-13%",
+          "input": "<speak><prosody rate=\"-13%\">Question.<break time=\"350ms\"/>Why can a thermos keep drinks hot or cold?</prosody></speak>",
+          "gapAfterMs": 0,
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No26\\question-hugh_32-9fd9b39a0a5fd46da651cbdc.wav",
+          "sourceFileSha256": "d5a94e52b13bb0c85c530450ce6081b671b65d79b9934463260723cc98828ff3",
+          "sourcePcmSha256": "ba84e64befbf9d2dd57ddc15bb67c31ed8d49110e843721fecc0ec3767442102",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 247132,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 5.149
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 3.154,
+            "billableCharacters": 51,
+            "requestId": "29ca35658bd644ab80e446fc"
+          }
+        }
+      ],
+      "pcmVerification": {
+        "wave": {
+          "channels": 1,
+          "sampleWidthBytes": 2,
+          "bitsPerSample": 16,
+          "sampleRateHz": 48000,
+          "frameCount": 1447634,
+          "declaredFrameCount": 1447634,
+          "sourceHeaderOpenEnded": false,
+          "compressionType": "NONE",
+          "durationSeconds": 30.159
+        },
+        "expectedPcmSha256": "e247531e1e541ea77590cc93ed5b4faa1e89491c69303325300098f9c1890149",
+        "finalPcmSha256": "e247531e1e541ea77590cc93ed5b4faa1e89491c69303325300098f9c1890149",
+        "pcmExactMatch": true,
+        "allSpeechSlicesExact": true
+      },
+      "sliceVerification": [
+        {
+          "role": "number",
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No26\\number-hugh_32-f6799cb4d29c859407545a62.wav",
+          "sourceFileSha256": "fc7ab9af8cd2dac3ddcc8a3c7473a96e894ad71c51112632ece8d178fb495ed1",
+          "sourcePcmSha256": "16505d167981256b8c5879376d3f59330110b9483268039bc19eb8b47777a960",
+          "finalPcmStartByte": 0,
+          "finalPcmEndByte": 153012,
+          "gapAfterMs": 1150,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 76506,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 1.594
+          },
+          "finalSlicePcmSha256": "16505d167981256b8c5879376d3f59330110b9483268039bc19eb8b47777a960",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "body",
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No26\\body-geffen_32-0f63f4c463fc82622f00ac17.wav",
+          "sourceFileSha256": "cc34e376f9517a7670e21c8a9a103d904d8c9abc911a315584a92915c22a4f61",
+          "sourcePcmSha256": "325633bab0935482445763108341e69c2d259a7c43ba114fb85e55f37f783a1b",
+          "finalPcmStartByte": 263412,
+          "finalPcmEndByte": 2295404,
+          "gapAfterMs": 1100,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 1015996,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 21.167
+          },
+          "finalSlicePcmSha256": "325633bab0935482445763108341e69c2d259a7c43ba114fb85e55f37f783a1b",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "question",
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No26\\question-hugh_32-9fd9b39a0a5fd46da651cbdc.wav",
+          "sourceFileSha256": "d5a94e52b13bb0c85c530450ce6081b671b65d79b9934463260723cc98828ff3",
+          "sourcePcmSha256": "ba84e64befbf9d2dd57ddc15bb67c31ed8d49110e843721fecc0ec3767442102",
+          "finalPcmStartByte": 2401004,
+          "finalPcmEndByte": 2895268,
+          "gapAfterMs": 0,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 247132,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 5.149
+          },
+          "finalSlicePcmSha256": "ba84e64befbf9d2dd57ddc15bb67c31ed8d49110e843721fecc0ec3767442102",
+          "pcmSliceMatch": true
+        }
+      ],
+      "masterWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\audio\\part2-26-simba-3-2-final.wav",
+      "publishedWav": "audio/part2-26-simba-3-2-final.wav",
+      "masterSha256": "7751e4c289780e83af590042e42c34ffe5eeb10bba64286caff4d02384b5ea35",
+      "publishedSha256": "7751e4c289780e83af590042e42c34ffe5eeb10bba64286caff4d02384b5ea35",
+      "publishedCopyHashMatch": true,
+      "fileBytes": 2895312,
+      "samplePeak": {
+        "minimumSample": -25876,
+        "maximumSample": 28529,
+        "fullScaleSampleCount": 0,
+        "maxConsecutiveFullScaleSamples": 0,
+        "noFullScalePlateau": true
+      }
+    },
+    {
+      "id": "part2-No27",
+      "part": "Part 2",
+      "number": 27,
+      "voices": {
+        "body": {
+          "id": "geffen_32",
+          "name": "Geffen",
+          "gender": "female"
+        },
+        "narrator": {
+          "id": "hugh_32",
+          "name": "Hugh",
+          "gender": "male"
+        }
+      },
+      "scriptHtml": "<p>Priya ordered hiking shoes from an online store before a school trip. The shoes fit well, but one lace hook was loose. The store offered either a refund or a replacement, though a replacement would not arrive before her departure. Priya kept the shoes, had the hook repaired locally, and sent the receipt to the store for repayment afterward.</p><p class=\"question\"><strong>Question</strong> Why did Priya keep the hiking shoes?</p>",
+      "segments": [
+        {
+          "role": "number",
+          "speaker": "narrator",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "displayText": "Number 27.",
+          "ttsText": "Number twenty-seven.",
+          "ttsOverrides": [
+            {
+              "from": "27",
+              "to": "twenty-seven"
+            }
+          ],
+          "rate": "-13%",
+          "input": "<speak><prosody rate=\"-13%\">Number twenty-seven.</prosody></speak>",
+          "gapAfterMs": 1150,
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No27\\number-hugh_32-bf655f729ab68af446f66cb4.wav",
+          "sourceFileSha256": "6c6e2b76d477662617c40aca194abe455217f031f91ca2119c1b0faa72ae16f0",
+          "sourcePcmSha256": "dd5dad8a647464c4264c8a13cb2d9e3943a6d4b876545a8333e8372d333a465d",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 74512,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 1.552
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 1.94,
+            "billableCharacters": 20,
+            "requestId": "000335af75cedf9741b24f85"
+          }
+        },
+        {
+          "role": "body",
+          "speaker": "body",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "displayText": "Priya ordered hiking shoes from an online store before a school trip. The shoes fit well, but one lace hook was loose. The store offered either a refund or a replacement, though a replacement would not arrive before her departure. Priya kept the shoes, had the hook repaired locally, and sent the receipt to the store for repayment afterward.",
+          "ttsText": "Priya ordered hiking shoes from an online store before a school trip. The shoes fit well, but one lace hook was loose. The store offered either a refund or a replacement, though a replacement would not arrive before her departure. Priya kept the shoes, had the hook repaired locally, and sent the receipt to the store for repayment afterward.",
+          "ttsOverrides": [],
+          "rate": "-13%",
+          "input": "<speak><prosody rate=\"-13%\">Priya ordered hiking shoes from an online store before a school trip. The shoes fit well, but one lace hook was loose. The store offered either a refund or a replacement, though a replacement would not arrive before her departure. Priya kept the shoes, had the hook repaired locally, and sent the receipt to the store for repayment afterward.</prosody></speak>",
+          "gapAfterMs": 1100,
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No27\\body-geffen_32-fb0b0905da3d3c0f8ee2997a.wav",
+          "sourceFileSha256": "d17b2d9a7bee0287791664214f0585db4d46945bc5aa195252899f0b86994e3f",
+          "sourcePcmSha256": "b8556734741bcc283d0051eff9916cd9313e34c8392ff16c06f91cb0eb918a8e",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 1058646,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 22.055
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 4.463,
+            "billableCharacters": 342,
+            "requestId": "4010ed5e550f9c8f1da407a6"
+          }
+        },
+        {
+          "role": "question",
+          "speaker": "narrator",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "displayText": "Question. Why did Priya keep the hiking shoes?",
+          "ttsText": "Question. Why did Priya keep the hiking shoes?",
+          "ttsOverrides": [],
+          "rate": "-13%",
+          "input": "<speak><prosody rate=\"-13%\">Question.<break time=\"350ms\"/>Why did Priya keep the hiking shoes?</prosody></speak>",
+          "gapAfterMs": 0,
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No27\\question-hugh_32-366ef5c80d03e7674fdfff6a.wav",
+          "sourceFileSha256": "008104fa3ea5fcccf3b973ee44d24d2664dc480bd90156468b1d4971679549c6",
+          "sourcePcmSha256": "94eea54abe139b4b80d0f38231c03f8dd812f5b8dae33b205fb179fa71229ecd",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 221472,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 4.614
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 2.459,
+            "billableCharacters": 45,
+            "requestId": "70b80c41358e67b26c945ea8"
+          }
+        }
+      ],
+      "pcmVerification": {
+        "wave": {
+          "channels": 1,
+          "sampleWidthBytes": 2,
+          "bitsPerSample": 16,
+          "sampleRateHz": 48000,
+          "frameCount": 1462630,
+          "declaredFrameCount": 1462630,
+          "sourceHeaderOpenEnded": false,
+          "compressionType": "NONE",
+          "durationSeconds": 30.471
+        },
+        "expectedPcmSha256": "062c3177f224027b134d7b3b0339eefc0ebf937348eb19a51f129d1832aeeaef",
+        "finalPcmSha256": "062c3177f224027b134d7b3b0339eefc0ebf937348eb19a51f129d1832aeeaef",
+        "pcmExactMatch": true,
+        "allSpeechSlicesExact": true
+      },
+      "sliceVerification": [
+        {
+          "role": "number",
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No27\\number-hugh_32-bf655f729ab68af446f66cb4.wav",
+          "sourceFileSha256": "6c6e2b76d477662617c40aca194abe455217f031f91ca2119c1b0faa72ae16f0",
+          "sourcePcmSha256": "dd5dad8a647464c4264c8a13cb2d9e3943a6d4b876545a8333e8372d333a465d",
+          "finalPcmStartByte": 0,
+          "finalPcmEndByte": 149024,
+          "gapAfterMs": 1150,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 74512,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 1.552
+          },
+          "finalSlicePcmSha256": "dd5dad8a647464c4264c8a13cb2d9e3943a6d4b876545a8333e8372d333a465d",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "body",
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No27\\body-geffen_32-fb0b0905da3d3c0f8ee2997a.wav",
+          "sourceFileSha256": "d17b2d9a7bee0287791664214f0585db4d46945bc5aa195252899f0b86994e3f",
+          "sourcePcmSha256": "b8556734741bcc283d0051eff9916cd9313e34c8392ff16c06f91cb0eb918a8e",
+          "finalPcmStartByte": 259424,
+          "finalPcmEndByte": 2376716,
+          "gapAfterMs": 1100,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 1058646,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 22.055
+          },
+          "finalSlicePcmSha256": "b8556734741bcc283d0051eff9916cd9313e34c8392ff16c06f91cb0eb918a8e",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "question",
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No27\\question-hugh_32-366ef5c80d03e7674fdfff6a.wav",
+          "sourceFileSha256": "008104fa3ea5fcccf3b973ee44d24d2664dc480bd90156468b1d4971679549c6",
+          "sourcePcmSha256": "94eea54abe139b4b80d0f38231c03f8dd812f5b8dae33b205fb179fa71229ecd",
+          "finalPcmStartByte": 2482316,
+          "finalPcmEndByte": 2925260,
+          "gapAfterMs": 0,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 221472,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 4.614
+          },
+          "finalSlicePcmSha256": "94eea54abe139b4b80d0f38231c03f8dd812f5b8dae33b205fb179fa71229ecd",
+          "pcmSliceMatch": true
+        }
+      ],
+      "masterWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\audio\\part2-27-simba-3-2-final.wav",
+      "publishedWav": "audio/part2-27-simba-3-2-final.wav",
+      "masterSha256": "0fe5438b2fe40dad4cc371fe208c4139c0359f918b64fff3071c0ae37f9f1198",
+      "publishedSha256": "0fe5438b2fe40dad4cc371fe208c4139c0359f918b64fff3071c0ae37f9f1198",
+      "publishedCopyHashMatch": true,
+      "fileBytes": 2925304,
+      "samplePeak": {
+        "minimumSample": -26848,
+        "maximumSample": 29532,
+        "fullScaleSampleCount": 0,
+        "maxConsecutiveFullScaleSamples": 0,
+        "noFullScalePlateau": true
+      }
+    },
+    {
+      "id": "part2-No28",
+      "part": "Part 2",
+      "number": 28,
+      "voices": {
+        "body": {
+          "id": "geffen_32",
+          "name": "Geffen",
+          "gender": "female"
+        },
+        "narrator": {
+          "id": "hugh_32",
+          "name": "Hugh",
+          "gender": "male"
+        }
+      },
+      "scriptHtml": "<p>Before his parents’ anniversary dinner, Marcus promised to collect a special dessert from a bakery. On the day of the dinner, his work meeting was moved to a later time. His sister could visit the bakery, but she did not know which order to collect. Marcus forwarded her the confirmation message and asked her to pick it up on his behalf.</p><p class=\"question\"><strong>Question</strong> What did Marcus ask his sister to do?</p>",
+      "segments": [
+        {
+          "role": "number",
+          "speaker": "narrator",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "displayText": "Number 28.",
+          "ttsText": "Number twenty-eight.",
+          "ttsOverrides": [
+            {
+              "from": "28",
+              "to": "twenty-eight"
+            }
+          ],
+          "rate": "-13%",
+          "input": "<speak><prosody rate=\"-13%\">Number twenty-eight.</prosody></speak>",
+          "gapAfterMs": 1150,
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No28\\number-hugh_32-4fe1da4c72a95146f778fb3d.wav",
+          "sourceFileSha256": "723f212d790f5c01f47096b27814520ae8908a7b7d333c8d51c1aaee39e0ba70",
+          "sourcePcmSha256": "2e6b8ee18bf21db0b5254fb3630c4a5e4d2b2e7dda2c54ddf38d5229fb8e1563",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 71522,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 1.49
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 2.279,
+            "billableCharacters": 20,
+            "requestId": "d30ecda910593010e8a73717"
+          }
+        },
+        {
+          "role": "body",
+          "speaker": "body",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "displayText": "Before his parents’ anniversary dinner, Marcus promised to collect a special dessert from a bakery. On the day of the dinner, his work meeting was moved to a later time. His sister could visit the bakery, but she did not know which order to collect. Marcus forwarded her the confirmation message and asked her to pick it up on his behalf.",
+          "ttsText": "Before his parents’ anniversary dinner, Marcus promised to collect a special dessert from a bakery. On the day of the dinner, his work meeting was moved to a later time. His sister could visit the bakery, but she did not know which order to collect. Marcus forwarded her the confirmation message and asked her to pick it up on his behalf.",
+          "ttsOverrides": [],
+          "rate": "-13%",
+          "input": "<speak><prosody rate=\"-13%\">Before his parents’ anniversary dinner, Marcus promised to collect a special dessert from a bakery. On the day of the dinner, his work meeting was moved to a later time. His sister could visit the bakery, but she did not know which order to collect. Marcus forwarded her the confirmation message and asked her to pick it up on his behalf.</prosody></speak>",
+          "gapAfterMs": 1100,
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No28\\body-geffen_32-8fb812baa80b29667d09554b.wav",
+          "sourceFileSha256": "453e427575d30eb1243f1910a524e6b8264739e39cb4d1fc37ca3d0984534402",
+          "sourcePcmSha256": "13ee53abef83c82a55a37dd3ee0aa27e859ff5f56c9a78bbedc52e3dad9ee495",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 1002066,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 20.876
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 5.203,
+            "billableCharacters": 338,
+            "requestId": "ff098d2c3fe2b9a39b700a4c"
+          }
+        },
+        {
+          "role": "question",
+          "speaker": "narrator",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "displayText": "Question. What did Marcus ask his sister to do?",
+          "ttsText": "Question. What did Marcus ask his sister to do?",
+          "ttsOverrides": [],
+          "rate": "-13%",
+          "input": "<speak><prosody rate=\"-13%\">Question.<break time=\"350ms\"/>What did Marcus ask his sister to do?</prosody></speak>",
+          "gapAfterMs": 0,
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No28\\question-hugh_32-c3a16e26e4d43c03ba54c94c.wav",
+          "sourceFileSha256": "0b8c76712d6f3266a698062cbb6b60cb942b133b31d2df8d84454fb45664171a",
+          "sourcePcmSha256": "9fe59fa8181888ce1ae9de1ea575ac0f164d7a4ebc7127dfbef7769b77910a2a",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 198022,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 4.125
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 2.655,
+            "billableCharacters": 46,
+            "requestId": "f5debbb09dac040a323b1a52"
+          }
+        }
+      ],
+      "pcmVerification": {
+        "wave": {
+          "channels": 1,
+          "sampleWidthBytes": 2,
+          "bitsPerSample": 16,
+          "sampleRateHz": 48000,
+          "frameCount": 1379610,
+          "declaredFrameCount": 1379610,
+          "sourceHeaderOpenEnded": false,
+          "compressionType": "NONE",
+          "durationSeconds": 28.742
+        },
+        "expectedPcmSha256": "9150c8b6fa462b41a7f759ef1547cbb31f7d67d5a317bfac73fca1877c4135a4",
+        "finalPcmSha256": "9150c8b6fa462b41a7f759ef1547cbb31f7d67d5a317bfac73fca1877c4135a4",
+        "pcmExactMatch": true,
+        "allSpeechSlicesExact": true
+      },
+      "sliceVerification": [
+        {
+          "role": "number",
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No28\\number-hugh_32-4fe1da4c72a95146f778fb3d.wav",
+          "sourceFileSha256": "723f212d790f5c01f47096b27814520ae8908a7b7d333c8d51c1aaee39e0ba70",
+          "sourcePcmSha256": "2e6b8ee18bf21db0b5254fb3630c4a5e4d2b2e7dda2c54ddf38d5229fb8e1563",
+          "finalPcmStartByte": 0,
+          "finalPcmEndByte": 143044,
+          "gapAfterMs": 1150,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 71522,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 1.49
+          },
+          "finalSlicePcmSha256": "2e6b8ee18bf21db0b5254fb3630c4a5e4d2b2e7dda2c54ddf38d5229fb8e1563",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "body",
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No28\\body-geffen_32-8fb812baa80b29667d09554b.wav",
+          "sourceFileSha256": "453e427575d30eb1243f1910a524e6b8264739e39cb4d1fc37ca3d0984534402",
+          "sourcePcmSha256": "13ee53abef83c82a55a37dd3ee0aa27e859ff5f56c9a78bbedc52e3dad9ee495",
+          "finalPcmStartByte": 253444,
+          "finalPcmEndByte": 2257576,
+          "gapAfterMs": 1100,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 1002066,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 20.876
+          },
+          "finalSlicePcmSha256": "13ee53abef83c82a55a37dd3ee0aa27e859ff5f56c9a78bbedc52e3dad9ee495",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "question",
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No28\\question-hugh_32-c3a16e26e4d43c03ba54c94c.wav",
+          "sourceFileSha256": "0b8c76712d6f3266a698062cbb6b60cb942b133b31d2df8d84454fb45664171a",
+          "sourcePcmSha256": "9fe59fa8181888ce1ae9de1ea575ac0f164d7a4ebc7127dfbef7769b77910a2a",
+          "finalPcmStartByte": 2363176,
+          "finalPcmEndByte": 2759220,
+          "gapAfterMs": 0,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 198022,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 4.125
+          },
+          "finalSlicePcmSha256": "9fe59fa8181888ce1ae9de1ea575ac0f164d7a4ebc7127dfbef7769b77910a2a",
+          "pcmSliceMatch": true
+        }
+      ],
+      "masterWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\audio\\part2-28-simba-3-2-final.wav",
+      "publishedWav": "audio/part2-28-simba-3-2-final.wav",
+      "masterSha256": "7d315a518368f7b3f7d636195f2f4a79b0a88a7fa0575529f3bf162ccffaddeb",
+      "publishedSha256": "7d315a518368f7b3f7d636195f2f4a79b0a88a7fa0575529f3bf162ccffaddeb",
+      "publishedCopyHashMatch": true,
+      "fileBytes": 2759264,
+      "samplePeak": {
+        "minimumSample": -27479,
+        "maximumSample": 28359,
+        "fullScaleSampleCount": 0,
+        "maxConsecutiveFullScaleSamples": 0,
+        "noFullScalePlateau": true
+      }
+    },
+    {
+      "id": "part2-No29",
+      "part": "Part 2",
+      "number": 29,
+      "voices": {
+        "body": {
+          "id": "geffen_32",
+          "name": "Geffen",
+          "gender": "female"
+        },
+        "narrator": {
+          "id": "hugh_32",
+          "name": "Hugh",
+          "gender": "male"
+        }
+      },
+      "scriptHtml": "<p>The City Library’s second floor will be closed for painting from Monday through Thursday. Books from that floor can still be requested at the information desk, although they may take up to twenty minutes to arrive. Study tables have been moved to the meeting room downstairs. The children’s area and computer room will operate normally throughout the painting work.</p><p class=\"question\"><strong>Question</strong> Where have the library’s study tables been moved?</p>",
+      "segments": [
+        {
+          "role": "number",
+          "speaker": "narrator",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "displayText": "Number 29.",
+          "ttsText": "Number twenty-nine.",
+          "ttsOverrides": [
+            {
+              "from": "29",
+              "to": "twenty-nine"
+            }
+          ],
+          "rate": "-13%",
+          "input": "<speak><prosody rate=\"-13%\">Number twenty-nine.</prosody></speak>",
+          "gapAfterMs": 1150,
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No29\\number-hugh_32-3b43e9e3d4aadfd43eff3bb8.wav",
+          "sourceFileSha256": "55096a54a8923852a418d8988e2c79a3508299591b459a1474b17c330b40e716",
+          "sourcePcmSha256": "79bcfb0532d6ce1d48b71d24a2960534289eeaaf786bfc796c9dbdec490e947d",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 83678,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 1.743
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 1.88,
+            "billableCharacters": 19,
+            "requestId": "41391915e8f6cae3965d2f2c"
+          }
+        },
+        {
+          "role": "body",
+          "speaker": "body",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "displayText": "The City Library’s second floor will be closed for painting from Monday through Thursday. Books from that floor can still be requested at the information desk, although they may take up to twenty minutes to arrive. Study tables have been moved to the meeting room downstairs. The children’s area and computer room will operate normally throughout the painting work.",
+          "ttsText": "The City Library’s second floor will be closed for painting from Monday through Thursday. Books from that floor can still be requested at the information desk, although they may take up to twenty minutes to arrive. Study tables have been moved to the meeting room downstairs. The children’s area and computer room will operate normally throughout the painting work.",
+          "ttsOverrides": [],
+          "rate": "-13%",
+          "input": "<speak><prosody rate=\"-13%\">The City Library’s second floor will be closed for painting from Monday through Thursday. Books from that floor can still be requested at the information desk, although they may take up to twenty minutes to arrive. Study tables have been moved to the meeting room downstairs. The children’s area and computer room will operate normally throughout the painting work.</prosody></speak>",
+          "gapAfterMs": 1100,
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No29\\body-geffen_32-b481c715cbbacfad78c9b585.wav",
+          "sourceFileSha256": "a17c16cb23fa683564e5a24c56086e6aeca3f08274e69ce8aae5396591fdfcef",
+          "sourcePcmSha256": "ec9178eca13f4e5c2a772412409e5d83a9117dcf7df4440ebdfef64f8fac17d6",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 999488,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 20.823
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 5.406,
+            "billableCharacters": 365,
+            "requestId": "e370dc876e14e69133f19633"
+          }
+        },
+        {
+          "role": "question",
+          "speaker": "narrator",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "displayText": "Question. Where have the library’s study tables been moved?",
+          "ttsText": "Question. Where have the library’s study tables been moved?",
+          "ttsOverrides": [],
+          "rate": "-13%",
+          "input": "<speak><prosody rate=\"-13%\">Question.<break time=\"350ms\"/>Where have the library’s study tables been moved?</prosody></speak>",
+          "gapAfterMs": 0,
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No29\\question-hugh_32-a069b708a488aa05974fe747.wav",
+          "sourceFileSha256": "fa0b6486ebf543bceb2a71241dae3bfb57981df18cf590021b81d1ae0211adc0",
+          "sourcePcmSha256": "fa60d1fbce8afcb1f851d89d60be17d847d2c4e0d9786019300f17c47775d3f7",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 223908,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 4.665
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 3.569,
+            "billableCharacters": 58,
+            "requestId": "38dd6caf40a90624e96150ea"
+          }
+        }
+      ],
+      "pcmVerification": {
+        "wave": {
+          "channels": 1,
+          "sampleWidthBytes": 2,
+          "bitsPerSample": 16,
+          "sampleRateHz": 48000,
+          "frameCount": 1415074,
+          "declaredFrameCount": 1415074,
+          "sourceHeaderOpenEnded": false,
+          "compressionType": "NONE",
+          "durationSeconds": 29.481
+        },
+        "expectedPcmSha256": "d4056046fc3986a79200d6e407d12de6646333fc2eef1e22ee2e083bc59d06ac",
+        "finalPcmSha256": "d4056046fc3986a79200d6e407d12de6646333fc2eef1e22ee2e083bc59d06ac",
+        "pcmExactMatch": true,
+        "allSpeechSlicesExact": true
+      },
+      "sliceVerification": [
+        {
+          "role": "number",
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No29\\number-hugh_32-3b43e9e3d4aadfd43eff3bb8.wav",
+          "sourceFileSha256": "55096a54a8923852a418d8988e2c79a3508299591b459a1474b17c330b40e716",
+          "sourcePcmSha256": "79bcfb0532d6ce1d48b71d24a2960534289eeaaf786bfc796c9dbdec490e947d",
+          "finalPcmStartByte": 0,
+          "finalPcmEndByte": 167356,
+          "gapAfterMs": 1150,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 83678,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 1.743
+          },
+          "finalSlicePcmSha256": "79bcfb0532d6ce1d48b71d24a2960534289eeaaf786bfc796c9dbdec490e947d",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "body",
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No29\\body-geffen_32-b481c715cbbacfad78c9b585.wav",
+          "sourceFileSha256": "a17c16cb23fa683564e5a24c56086e6aeca3f08274e69ce8aae5396591fdfcef",
+          "sourcePcmSha256": "ec9178eca13f4e5c2a772412409e5d83a9117dcf7df4440ebdfef64f8fac17d6",
+          "finalPcmStartByte": 277756,
+          "finalPcmEndByte": 2276732,
+          "gapAfterMs": 1100,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 999488,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 20.823
+          },
+          "finalSlicePcmSha256": "ec9178eca13f4e5c2a772412409e5d83a9117dcf7df4440ebdfef64f8fac17d6",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "question",
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No29\\question-hugh_32-a069b708a488aa05974fe747.wav",
+          "sourceFileSha256": "fa0b6486ebf543bceb2a71241dae3bfb57981df18cf590021b81d1ae0211adc0",
+          "sourcePcmSha256": "fa60d1fbce8afcb1f851d89d60be17d847d2c4e0d9786019300f17c47775d3f7",
+          "finalPcmStartByte": 2382332,
+          "finalPcmEndByte": 2830148,
+          "gapAfterMs": 0,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 223908,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 4.665
+          },
+          "finalSlicePcmSha256": "fa60d1fbce8afcb1f851d89d60be17d847d2c4e0d9786019300f17c47775d3f7",
+          "pcmSliceMatch": true
+        }
+      ],
+      "masterWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\audio\\part2-29-simba-3-2-final.wav",
+      "publishedWav": "audio/part2-29-simba-3-2-final.wav",
+      "masterSha256": "7fd38f5987bdf155a505a8d7b271be31deffb8d4942d96fa74a7a806ea88ae50",
+      "publishedSha256": "7fd38f5987bdf155a505a8d7b271be31deffb8d4942d96fa74a7a806ea88ae50",
+      "publishedCopyHashMatch": true,
+      "fileBytes": 2830192,
+      "samplePeak": {
+        "minimumSample": -27377,
+        "maximumSample": 28534,
+        "fullScaleSampleCount": 0,
+        "maxConsecutiveFullScaleSamples": 0,
+        "noFullScalePlateau": true
+      }
+    },
+    {
+      "id": "part2-No30",
+      "part": "Part 2",
+      "number": 30,
+      "voices": {
+        "body": {
+          "id": "geffen_32",
+          "name": "Geffen",
+          "gender": "female"
+        },
+        "narrator": {
+          "id": "hugh_32",
+          "name": "Hugh",
+          "gender": "male"
+        }
+      },
+      "scriptHtml": "<p>Recently, Hana discovered that several photos from a school event were missing from her laptop. She had copied them from her camera, but she had not checked whether the transfer was complete before deleting the originals. A technician recovered most of the files. Since then, Hana has kept two copies and checks both carefully before clearing her camera’s memory card.</p><p class=\"question\"><strong>Question</strong> What new habit has Hana adopted?</p>",
+      "segments": [
+        {
+          "role": "number",
+          "speaker": "narrator",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "displayText": "Number 30.",
+          "ttsText": "Number thirty.",
+          "ttsOverrides": [
+            {
+              "from": "30",
+              "to": "thirty"
+            }
+          ],
+          "rate": "-13%",
+          "input": "<speak><prosody rate=\"-13%\">Number thirty.</prosody></speak>",
+          "gapAfterMs": 1150,
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No30\\number-hugh_32-07332aa452992856decbfc6b.wav",
+          "sourceFileSha256": "61267f372177faa8b50b8a50b8712ad5b25e7c2c40bde207932f3ff8a5784664",
+          "sourcePcmSha256": "11b82a01b42f776313ab1f2b9054e548af01bd1552af49643c6b6dfa87d8f742",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 59976,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 1.25
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 1.617,
+            "billableCharacters": 14,
+            "requestId": "789396f9ec58638f174b1815"
+          }
+        },
+        {
+          "role": "body",
+          "speaker": "body",
+          "voice": "Geffen",
+          "voiceId": "geffen_32",
+          "displayText": "Recently, Hana discovered that several photos from a school event were missing from her laptop. She had copied them from her camera, but she had not checked whether the transfer was complete before deleting the originals. A technician recovered most of the files. Since then, Hana has kept two copies and checks both carefully before clearing her camera’s memory card.",
+          "ttsText": "Recently, Hana discovered that several photos from a school event were missing from her laptop. She had copied them from her camera, but she had not checked whether the transfer was complete before deleting the originals. A technician recovered most of the files. Since then, Hana has kept two copies and checks both carefully before clearing her camera’s memory card.",
+          "ttsOverrides": [],
+          "rate": "-13%",
+          "input": "<speak><prosody rate=\"-13%\">Recently, Hana discovered that several photos from a school event were missing from her laptop. She had copied them from her camera, but she had not checked whether the transfer was complete before deleting the originals. A technician recovered most of the files. Since then, Hana has kept two copies and checks both carefully before clearing her camera’s memory card.</prosody></speak>",
+          "gapAfterMs": 1100,
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No30\\body-geffen_32-de364502977468c07b8a8131.wav",
+          "sourceFileSha256": "a3d6325c8f1595979dfce9aa6d398e605820520bce8f0e3e20c53cf5eee37ef9",
+          "sourcePcmSha256": "05a43be4bee1139e35f44b7687d8b13de1cb917e5561215acc6dee97d9584dd1",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 1101060,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 22.939
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 5.465,
+            "billableCharacters": 368,
+            "requestId": "46814d825f9f6df618c3c901"
+          }
+        },
+        {
+          "role": "question",
+          "speaker": "narrator",
+          "voice": "Hugh",
+          "voiceId": "hugh_32",
+          "displayText": "Question. What new habit has Hana adopted?",
+          "ttsText": "Question. What new habit has Hana adopted?",
+          "ttsOverrides": [],
+          "rate": "-13%",
+          "input": "<speak><prosody rate=\"-13%\">Question.<break time=\"350ms\"/>What new habit has Hana adopted?</prosody></speak>",
+          "gapAfterMs": 0,
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No30\\question-hugh_32-0c4f8423192a56dbf30f06d0.wav",
+          "sourceFileSha256": "78cdeaee1dd1dcb191c729c04deacc0749eeb79b6b4ae99fedb8f01b7eae2371",
+          "sourcePcmSha256": "0f7ebdec619a774bbc4df9eefaedf01d984e92ac58bbca32bccda5ea2f5feb24",
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 207378,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 4.32
+          },
+          "api": {
+            "httpStatus": 200,
+            "elapsedSeconds": 3.066,
+            "billableCharacters": 41,
+            "requestId": "fcd86f1ce4bcf115df4768f2"
+          }
+        }
+      ],
+      "pcmVerification": {
+        "wave": {
+          "channels": 1,
+          "sampleWidthBytes": 2,
+          "bitsPerSample": 16,
+          "sampleRateHz": 48000,
+          "frameCount": 1476414,
+          "declaredFrameCount": 1476414,
+          "sourceHeaderOpenEnded": false,
+          "compressionType": "NONE",
+          "durationSeconds": 30.759
+        },
+        "expectedPcmSha256": "76743549ce062531bc46fde2241b49affe9b691500c0998c2f7bfa3f073421d6",
+        "finalPcmSha256": "76743549ce062531bc46fde2241b49affe9b691500c0998c2f7bfa3f073421d6",
+        "pcmExactMatch": true,
+        "allSpeechSlicesExact": true
+      },
+      "sliceVerification": [
+        {
+          "role": "number",
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No30\\number-hugh_32-07332aa452992856decbfc6b.wav",
+          "sourceFileSha256": "61267f372177faa8b50b8a50b8712ad5b25e7c2c40bde207932f3ff8a5784664",
+          "sourcePcmSha256": "11b82a01b42f776313ab1f2b9054e548af01bd1552af49643c6b6dfa87d8f742",
+          "finalPcmStartByte": 0,
+          "finalPcmEndByte": 119952,
+          "gapAfterMs": 1150,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 59976,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 1.25
+          },
+          "finalSlicePcmSha256": "11b82a01b42f776313ab1f2b9054e548af01bd1552af49643c6b6dfa87d8f742",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "body",
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No30\\body-geffen_32-de364502977468c07b8a8131.wav",
+          "sourceFileSha256": "a3d6325c8f1595979dfce9aa6d398e605820520bce8f0e3e20c53cf5eee37ef9",
+          "sourcePcmSha256": "05a43be4bee1139e35f44b7687d8b13de1cb917e5561215acc6dee97d9584dd1",
+          "finalPcmStartByte": 230352,
+          "finalPcmEndByte": 2432472,
+          "gapAfterMs": 1100,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 1101060,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 22.939
+          },
+          "finalSlicePcmSha256": "05a43be4bee1139e35f44b7687d8b13de1cb917e5561215acc6dee97d9584dd1",
+          "pcmSliceMatch": true
+        },
+        {
+          "role": "question",
+          "sourceWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\segments\\part2-No30\\question-hugh_32-0c4f8423192a56dbf30f06d0.wav",
+          "sourceFileSha256": "78cdeaee1dd1dcb191c729c04deacc0749eeb79b6b4ae99fedb8f01b7eae2371",
+          "sourcePcmSha256": "0f7ebdec619a774bbc4df9eefaedf01d984e92ac58bbca32bccda5ea2f5feb24",
+          "finalPcmStartByte": 2538072,
+          "finalPcmEndByte": 2952828,
+          "gapAfterMs": 0,
+          "wave": {
+            "channels": 1,
+            "sampleWidthBytes": 2,
+            "bitsPerSample": 16,
+            "sampleRateHz": 48000,
+            "frameCount": 207378,
+            "declaredFrameCount": 2147483647,
+            "sourceHeaderOpenEnded": true,
+            "compressionType": "NONE",
+            "durationSeconds": 4.32
+          },
+          "finalSlicePcmSha256": "0f7ebdec619a774bbc4df9eefaedf01d984e92ac58bbca32bccda5ea2f5feb24",
+          "pcmSliceMatch": true
+        }
+      ],
+      "masterWav": "audio-generation\\grade2-sample-part2-25-30-simba-0p87-20260720\\audio\\part2-30-simba-3-2-final.wav",
+      "publishedWav": "audio/part2-30-simba-3-2-final.wav",
+      "masterSha256": "3ae0b468d66f609ee9f9cd3b6bb4d16dde81dcb046c6c25b7dd20c35ab3eb51b",
+      "publishedSha256": "3ae0b468d66f609ee9f9cd3b6bb4d16dde81dcb046c6c25b7dd20c35ab3eb51b",
+      "publishedCopyHashMatch": true,
+      "fileBytes": 2952872,
+      "samplePeak": {
+        "minimumSample": -27098,
+        "maximumSample": 31531,
+        "fullScaleSampleCount": 0,
+        "maxConsecutiveFullScaleSamples": 0,
+        "noFullScalePlateau": true
+      }
+    }
+  ],
+  "source": "grade2-listening-part2-sets.js",
+  "baseMemo": "audio-generation/simba-3-2-final-production-memo.md",
+  "rateOverrideReason": "User-requested Part 2 No.25-30 at 0.87x",
+  "castPlan": {
+    "body25": "dominic_32",
+    "body26To30": "geffen_32",
+    "numberAndQuestionNarrator": "hugh_32"
+  },
+  "requestUnitCount": 18
+}
