@@ -135,7 +135,7 @@ window.scbtGrade2VocabSets = [
             "id": 9,
             "section": "短文語句",
             "type": "vocabulary",
-            "text": "A: I don’t think my parents will let me study abroad next summer.\nB: Maybe the teacher can (　　　) them by explaining the program’s safety rules.",
+            "text": "A: I don’t think my parents will let me study abroad next summer.\nB: Maybe the teacher can (　　　) them to let you go by explaining the program’s safety rules.",
             "choices": [
               "persuade",
               "warn",
@@ -143,7 +143,7 @@ window.scbtGrade2VocabSets = [
               "inform"
             ],
             "correct": 1,
-            "explanation": "1 persuade\n両親が留学を許してくれなさそうなので、先生が安全ルールを説明して考えを変えてもらう場面です。persuade 人で「人を説得する」です。\nwarn は「警告する」、remind は「思い出させる」、inform は「知らせる」です。"
+            "explanation": "1 persuade\n両親が留学を許してくれなさそうなので、先生が安全ルールを説明し、許可するよう説得する場面です。persuade 人 to do で「人を説得して～してもらう」という意味です。\nwarn は「警告する」、remind は「思い出させる」、inform は「知らせる」で、この文脈の「許可するよう説得する」には合いません。"
           },
           {
             "id": 10,
@@ -233,7 +233,7 @@ window.scbtGrade2VocabSets = [
             "id": 16,
             "section": "短文語句",
             "type": "phrase",
-            "text": "A: Does that clinic still accept patients on Sundays?\nB: No. Since April, it is (　　　) open on weekends because two doctors moved away.",
+            "text": "A: Does that clinic still accept patients on Sundays?\nB: No. It is (　　　) open on weekends because two doctors moved away in April.",
             "choices": [
               "no sooner",
               "no less",
@@ -250,12 +250,12 @@ window.scbtGrade2VocabSets = [
             "text": "Since the guesthouse was (　　　) of the station, the travelers walked there with their bags instead of taking a taxi.",
             "choices": [
               "at walking distance",
-              "in walking distance",
+              "beyond walking distance",
               "to walking distance",
               "within walking distance"
             ],
             "correct": 4,
-            "explanation": "4 within walking distance\n駅から歩ける距離にあったので、旅行者たちはタクシーを使わず歩いたという文脈です。within walking distance of ～ は「～から歩いて行ける距離に」という固定表現です。\n他の選択肢は、walking distance of the station と自然につながる表現ではありません。"
+            "explanation": "4 within walking distance\n駅から歩ける距離にあったので、旅行者たちはタクシーを使わず歩いたという文脈です。within walking distance of ～ は「～から歩いて行ける距離に」という固定表現です。\nbeyond walking distance は「歩いて行ける距離を超えて」という反対の意味です。at walking distance と to walking distance は、この文では自然につながりません。"
           }
         ]
       },
@@ -379,7 +379,7 @@ window.scbtGrade2VocabSets = [
           "Dear Haruto,",
           "The museum has finished arranging the small-group storage tour that you requested last month, and your reservation is now complete. The tour will take place this Saturday. Because the storage rooms are smaller than the main galleries, only ten visitors can join each tour. This program is meant for people who want to learn how museums protect objects that are not usually shown to the public, so a staff member will explain the basic rules before anyone enters the rooms.",
           "Please arrive at the staff entrance on Oak Street by 10:20 a.m. The tour will begin at 10:30 and should finish by noon. In an earlier notice, visitors were asked to meet in the main lobby, but a school group will be using that area in the morning. You should bring a photo ID, and comfortable shoes are recommended. Large bags cannot be taken into the storage rooms, but lockers will be available near the entrance. Photography is allowed in the preparation room, not in the storage rooms themselves.",
-          "Please reply by Thursday afternoon to confirm that you are still coming. Also, let us know if you would like to borrow a small notepad during the tour, as writing directly on clipboards is not allowed near some objects. If we do not receive your reply, we may offer your reservation to a person on the waiting list.",
+          "Please reply by Thursday afternoon to confirm that you are still coming. Also, let us know if you would like to borrow a small notepad and pencil during the tour, as visitors may not bring their own writing materials near some objects. If we do not receive your reply, we may offer your reservation to a person on the waiting list.",
           "Sincerely,\nLisa Morgan\nVisitor Programs Officer"
         ],
         "questions": [
@@ -626,15 +626,15 @@ window.scbtGrade2VocabSets = [
             "id": 5,
             "section": "短文語句",
             "type": "vocabulary",
-            "text": "Several guests at the café had little ( ) after the late lunch, so they shared one slice of cake instead of ordering three.",
+            "text": "Several guests at the café were still full after a late lunch, so they had little ( ) and shared one slice of cake instead of ordering three.",
             "choices": [
               "appetite",
-              "interest",
+              "confidence",
               "patience",
               "energy"
             ],
             "correct": 1,
-            "explanation": "appetite は「食欲」。遅い昼食のあとであまり食欲がなかったため、ケーキを1切れだけ分けた、という流れです。\ninterest は「興味」、patience は「忍耐」、energy は「体力・エネルギー」。"
+            "explanation": "appetite は「食欲」。遅い昼食のあとでまだ満腹だったため、食欲がほとんどなく、ケーキを1切れだけ分けたという流れです。\nconfidence は「自信」、patience は「忍耐」、energy は「体力・エネルギー」です。"
           },
           {
             "id": 6,
