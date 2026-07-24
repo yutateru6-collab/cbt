@@ -24,3 +24,8 @@ that manifest after replacing production audio with:
 ```powershell
 node scripts/generate-r2-audio-manifest.mjs
 ```
+
+Historical and intermediate WAV/MP3 files are backed up separately in the
+private R2 bucket `cbt-project-archive`. The archive object keys, SHA-256
+hashes, and complete source-file lists are recorded in
+`audio-generation/cloudflare-r2-heavy-audio-archive-manifest.json`.
