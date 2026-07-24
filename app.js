@@ -733,6 +733,7 @@ let grade2SpeakingDeadline = 0;
 let grade2SpeakingAdvanceInProgress = false;
 let grade2SpeakingActivationToken = 0;
 let listeningAudioElement = null;
+let listeningSpeechUtterance = null;
 let listeningPlaybackQuestionId = null;
 let listeningPlaybackPhase = "idle";
 let listeningAnswerDeadline = 0;
@@ -1439,7 +1440,11 @@ function stopListeningPlayback() {
     listeningAudioElement.removeAttribute("src");
     listeningAudioElement.load();
   }
+  if (listeningSpeechUtterance && "speechSynthesis" in window) {
+    window.speechSynthesis.cancel();
+  }
   listeningAudioElement = null;
+  listeningSpeechUtterance = null;
   listeningPlaybackQuestionId = null;
   listeningPlaybackPhase = "idle";
   listeningAnswerDeadline = 0;
@@ -1459,6 +1464,9 @@ function ensureListeningPlaybackState() {
   if (question.audioFile) {
     listeningPlaybackPhase = "audio";
     appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
+  } else if (question.script) {
+    listeningPlaybackPhase = "blocked";
+    appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
   } else {
     startListeningAnswerCountdown();
   }
@@ -1466,8 +1474,9 @@ function ensureListeningPlaybackState() {
 
 function updateListeningPlaybackUi() {
   const question = listeningQuestions[appState.listeningIndex];
-  const hasAudio = Boolean(question?.audioFile);
-  const isAnswerPhase = !hasAudio || listeningPlaybackPhase === "answer";
+  const hasPlayback = Boolean(question?.audioFile || question?.script);
+  const usesBrowserVoice = Boolean(question?.script && !question?.audioFile);
+  const isAnswerPhase = !hasPlayback || listeningPlaybackPhase === "answer";
   const status = app.querySelector("[data-listening-audio-status] span");
   const playButton = app.querySelector('[data-action="listen-play"]');
   const answerTime = app.querySelector(".answer-time");
@@ -1477,15 +1486,19 @@ function updateListeningPlaybackUi() {
   const timerBar = app.querySelector("[data-listening-answer-bar]");
 
   if (status) {
-    status.textContent = !hasAudio
-      ? "音声ファイル未設定（仮スクリプトで問題管理中）"
+    status.textContent = !hasPlayback
+      ? "音声・台本が設定されていません。"
       : listeningPlaybackPhase === "answer"
         ? "音声が終了しました。10秒後に自動で次の問題へ進みます。"
         : listeningPlaybackPhase === "blocked" || listeningPlaybackPhase === "error"
-          ? "音声を再生するには再生ボタンを押してください。"
-          : "音声を再生しています。";
+          ? usesBrowserVoice
+            ? "ブラウザ音声で台本を再生します。再生ボタンを押してください。"
+            : "音声を再生するには再生ボタンを押してください。"
+          : usesBrowserVoice
+            ? "ブラウザ音声で台本を再生しています。"
+            : "音声を再生しています。";
   }
-  if (playButton) playButton.hidden = !["blocked", "error"].includes(listeningPlaybackPhase);
+  if (playButton) playButton.hidden = !hasPlayback || !["blocked", "error"].includes(listeningPlaybackPhase);
   if (answerTime) answerTime.classList.toggle("waiting", !isAnswerPhase);
   const audioPhaseLabel = ["blocked", "error"].includes(listeningPlaybackPhase) ? "音声再生待ち" : "音声再生中";
   if (phaseLabel) phaseLabel.textContent = isAnswerPhase ? "解答時間" : audioPhaseLabel;
@@ -1499,6 +1512,51 @@ function updateListeningPlaybackUi() {
 
 async function playListeningAudio() {
   const question = listeningQuestions[appState.listeningIndex];
+  if (!question?.audioFile && question?.script) {
+    if (!("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") {
+      listeningPlaybackPhase = "error";
+      updateListeningPlaybackUi();
+      return;
+    }
+    window.speechSynthesis.cancel();
+    const spokenScript = String(question.script).replace(/(^|\s)[A-Z]{1,2}:\s*/g, "$1");
+    const spokenQuestion =
+      question.part === "Part 1"
+        ? question.choices.map((choice, index) => `Option ${index + 1}. ${choice}`).join(" ")
+        : question.questionText
+          ? `Question. ${question.questionText}`
+          : "";
+    const utterance = new SpeechSynthesisUtterance(`${spokenScript} ${spokenQuestion}`.trim());
+    listeningSpeechUtterance = utterance;
+    utterance.lang = "en-US";
+    utterance.rate = 0.9;
+    utterance.pitch = 1;
+    utterance.addEventListener(
+      "end",
+      () => {
+        if (listeningPlaybackQuestionId !== question.id || listeningSpeechUtterance !== utterance) return;
+        listeningSpeechUtterance = null;
+        startListeningAnswerCountdown();
+        saveState();
+        updateListeningPlaybackUi();
+      },
+      { once: true },
+    );
+    utterance.addEventListener(
+      "error",
+      () => {
+        if (listeningPlaybackQuestionId !== question.id || listeningSpeechUtterance !== utterance) return;
+        listeningSpeechUtterance = null;
+        listeningPlaybackPhase = "error";
+        updateListeningPlaybackUi();
+      },
+      { once: true },
+    );
+    listeningPlaybackPhase = "audio";
+    updateListeningPlaybackUi();
+    window.speechSynthesis.speak(utterance);
+    return;
+  }
   if (!question?.audioFile) return;
   const audio = listeningAudioElement || app.querySelector("[data-listening-audio]");
   if (!audio) return;
@@ -1545,16 +1603,21 @@ function mountListeningAudio() {
 
 function renderListening() {
   const question = listeningQuestions[appState.listeningIndex];
-  const hasAudio = Boolean(question.audioFile);
+  const hasPlayback = Boolean(question.audioFile || question.script);
+  const usesBrowserVoice = Boolean(question.script && !question.audioFile);
   const isRealLifeQuestion = question.part === "Part 3" && Boolean(question.situation);
-  const isAnswerPhase = !hasAudio || listeningPlaybackPhase === "answer";
-  const audioStatusText = !hasAudio
-    ? "音声ファイル未設定（仮スクリプトで問題管理中）"
+  const isAnswerPhase = !hasPlayback || listeningPlaybackPhase === "answer";
+  const audioStatusText = !hasPlayback
+    ? "音声・台本が設定されていません。"
     : listeningPlaybackPhase === "answer"
       ? "音声が終了しました。10秒後に自動で次の問題へ進みます。"
       : listeningPlaybackPhase === "blocked" || listeningPlaybackPhase === "error"
-        ? "音声を再生するには再生ボタンを押してください。"
-        : "音声を再生しています。";
+        ? usesBrowserVoice
+          ? "ブラウザ音声で台本を再生します。再生ボタンを押してください。"
+          : "音声を再生するには再生ボタンを押してください。"
+        : usesBrowserVoice
+          ? "ブラウザ音声で台本を再生しています。"
+          : "音声を再生しています。";
   return `
     ${renderHeader(`${question.section} No.${question.id}を再生中...`)}
     <section class="listen-frame">
@@ -1563,11 +1626,11 @@ function renderListening() {
           <div class="section-badge">${question.section}</div>
           <p>${question.instruction}</p>
         </div>
-        <div class="audio-status ${hasAudio ? "" : "muted"}" data-listening-audio-status>
+        <div class="audio-status ${hasPlayback ? "" : "muted"}" data-listening-audio-status>
           <span>${audioStatusText}</span>
-          ${hasAudio ? `<button class="listen-play-button" data-action="listen-play" ${listeningPlaybackPhase === "blocked" || listeningPlaybackPhase === "error" ? "" : "hidden"}>▶ 音声を再生</button>` : ""}
+          ${hasPlayback ? `<button class="listen-play-button" data-action="listen-play" ${listeningPlaybackPhase === "blocked" || listeningPlaybackPhase === "error" ? "" : "hidden"}>▶ 音声を再生</button>` : ""}
         </div>
-        ${hasAudio ? `<audio class="listen-audio-element" data-listening-audio preload="metadata" src="${escapeHtml(question.audioFile)}"></audio>` : ""}
+        ${question.audioFile ? `<audio class="listen-audio-element" data-listening-audio preload="metadata" src="${escapeHtml(question.audioFile)}"></audio>` : ""}
         <button class="nav-button prev" data-action="listen-prev" ${appState.listeningIndex === 0 ? "disabled" : ""}>▲ 前の問題へ</button>
         <div class="listen-question">
           <p class="listen-question-number">No.${question.id}</p>
@@ -3918,7 +3981,7 @@ function tickTimers() {
 
   if (appState.module === "listening") {
     const question = listeningQuestions[appState.listeningIndex];
-    if (question?.audioFile && (listeningPlaybackQuestionId !== question.id || listeningPlaybackPhase !== "answer")) {
+    if ((question?.audioFile || question?.script) && (listeningPlaybackQuestionId !== question.id || listeningPlaybackPhase !== "answer")) {
       return;
     }
     if (!listeningAnswerDeadline) {

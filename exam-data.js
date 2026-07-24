@@ -1,6 +1,7 @@
 (() => {
   const grade2Set01 = window.scbtGrade2Set01 || {};
   const grade2VocabSets = window.scbtGrade2VocabSets || [];
+  const pre2Sets = window.scbtPre2Sets || [];
   const pre1VocabSets = window.scbtPre1VocabSets || [];
   const pre1ReadingGapSets = window.scbtPre1ReadingGapSets || [];
   const pre1ReadingContentSets = window.scbtPre1ReadingContentSets || [];
@@ -646,6 +647,9 @@
     };
     if (gradeKey === "grade2" && Array.isArray(grade2VocabSets) && grade2VocabSets.length > 0) {
       return [sampleSet, ...grade2VocabSets];
+    }
+    if (gradeKey === "pre2" && Array.isArray(pre2Sets) && pre2Sets.length > 0) {
+      return pre2Sets;
     }
     if (gradeKey === "pre1" && Array.isArray(pre1ListeningSets) && pre1ListeningSets.length > 0) {
       return pre1ListeningSets.map((set, index) => {
