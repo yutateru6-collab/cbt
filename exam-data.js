@@ -149,14 +149,72 @@
     });
   }
 
-  function makePre1SummaryTask() {
-    return makeWritingTask(32, "summary", "英文要約", "60〜70語", {
+  const pre1SummaryRubric = [
+    "本文全体の主題を明確に示す",
+    "主要な利点と課題の両方を含める",
+    "具体例を並べすぎず、要点を自分の表現でまとめる",
+    "自分の意見や本文外の情報を入れない",
+    "60〜70語に収める",
+  ];
+
+  const pre1SummaryContent = [
+    {
       sourceTitle: "Digital Receipts",
       source: [
         "Many stores now offer digital receipts instead of paper ones. Customers can receive them by e-mail or through an app after making a purchase. This system can reduce the amount of paper used by businesses, and it also helps shoppers keep records without carrying many small slips of paper. For companies, digital receipts may make it easier to understand buying habits and improve customer service.",
         "There are also advantages when customers need to return items. Paper receipts are often lost or damaged, but digital records can be found quickly. Some stores connect receipts to loyalty programs, allowing shoppers to check past purchases and receive useful information about products they have bought. They can also reduce the time employees spend searching for purchase records. As a result, digital receipts can make shopping more convenient for both customers and stores.",
         "At the same time, some concerns remain. Not all customers want to give stores their e-mail addresses or use apps for every purchase. Others worry that companies may collect too much personal data. In addition, older customers or people without smartphones may prefer paper receipts. Stores must therefore provide clear choices if they want digital receipts to become widely accepted.",
       ],
+      modelAnswer:
+        "Digital receipts allow shoppers to store purchase records electronically while helping businesses reduce paper use and understand customers. They also make returns more convenient because records are easier to find. However, the system may require people to share personal information, raising privacy concerns, and it can disadvantage those who do not use smartphones. Therefore, stores should continue offering customers a choice.",
+    },
+    {
+      sourceTitle: "Community Science Projects",
+      source: [
+        "Scientists need large amounts of information to understand changes in local wildlife, but they cannot visit every place regularly. In response, some research groups organize community science projects. Volunteers use mobile apps to photograph birds, insects, or plants and record where they found them. The observations are then sent to researchers, who combine them into large databases and compare the records from year to year.",
+        "Supporters say these projects allow scientists to study wider areas over longer periods without greatly increasing costs. The data can reveal changes in migration routes or the spread of unfamiliar species. Taking part may also deepen volunteers' interest in nature, and participants sometimes become more willing to protect habitats in their communities. Schools can use the projects to give students practical experience with scientific research.",
+        "However, volunteer observations are not always reliable. Participants may identify a species incorrectly or report mainly unusual animals, producing an incomplete picture. Researchers must therefore spend time checking records and teaching volunteers how to collect information consistently. Projects that publish precise locations can also create risks if the data reveal where rare species live, since collectors or large numbers of visitors might disturb them.",
+      ],
+      modelAnswer:
+        "Community science projects allow volunteers to gather wildlife observations for researchers. They enable scientists to study broad areas at relatively low cost and may encourage the public to care more about nature. However, volunteers can misidentify species or submit unbalanced information, so researchers must check the data and provide careful training. Publishing exact locations may also put rare wildlife at risk.",
+    },
+    {
+      sourceTitle: "Demand-Responsive Buses",
+      source: [
+        "Conventional buses follow fixed routes and timetables, even in areas where only a few passengers use them. Some local governments are therefore introducing demand-responsive buses. Instead of waiting at a regular stop, passengers request a ride by phone or through an app. A computer groups nearby requests and creates a route for each vehicle, while a call center assists people who cannot book online.",
+        "Supporters argue that flexible services can connect older residents and people without cars to shops, hospitals, and train stations. Because buses travel only where they are needed, they may carry fewer empty seats and reduce fuel use. Information about requests can also help governments understand when and where transportation is most necessary. This may allow a small number of vehicles to serve places where a full bus route would be too expensive.",
+        "Nevertheless, the system has drawbacks. Passengers may not know their exact pickup time until shortly before the bus arrives, which makes planning difficult. People unfamiliar with apps may struggle to book rides, while poorly designed software may give priority to busy neighborhoods and leave remote users waiting. Operating the service also requires trained drivers, reliable communication systems, and enough vehicles when many people request rides at once.",
+      ],
+      modelAnswer:
+        "Demand-responsive buses create flexible routes after passengers request rides by phone or app. They can improve access for people without cars while reducing empty journeys and fuel use, and request data may help governments plan transport. However, uncertain pickup times make travel difficult to organize, some users may struggle with technology, and remote communities could receive poorer service than busier areas.",
+    },
+    {
+      sourceTitle: "Construction-Material Banks",
+      source: [
+        "When buildings are renovated or demolished, usable materials are often discarded with the rest of the waste. To address this problem, some cities are creating construction-material banks. Workers examine buildings before demolition and list items such as bricks, doors, wooden beams, and lighting equipment in an online database. Builders can then buy or reserve these materials for new projects instead of ordering newly manufactured products.",
+        "Advocates say the banks can reduce the amount of waste sent to landfills and decrease demand for fresh wood, metal, and other resources. Reused materials may cost less than new ones, making some building projects more affordable. Older doors or bricks can also preserve the character of a neighborhood. In addition, collecting and repairing the items may create jobs for people with practical skills.",
+        "However, recovered materials must be inspected carefully because damaged items may not meet modern safety standards. Storage and transportation can be expensive, particularly for large or heavy objects. Builders may also find it difficult to obtain enough matching materials at the time they are needed. If they depend too heavily on an uncertain supply, construction schedules could be delayed and labor costs could rise.",
+      ],
+      modelAnswer:
+        "Construction-material banks collect reusable parts from buildings and offer them for new projects. This can reduce landfill waste and demand for newly produced materials, while lowering costs and preserving local character. However, recovered items must be inspected to meet safety standards, and storing or transporting heavy materials can be expensive. An uncertain supply may also make project schedules difficult to manage.",
+    },
+    {
+      sourceTitle: "AI Translation in Public Services",
+      source: [
+        "Local governments often need to provide information in several languages, especially in communities with growing immigrant populations. Hiring professional interpreters for every counter, telephone call, and document can be difficult. Some offices have therefore begun using artificial-intelligence translation tools to help staff communicate with residents and produce basic notices more quickly. The systems can translate written messages or spoken conversations within seconds.",
+        "Supporters say the tools make routine information available without a long wait and can cover languages for which interpreters are difficult to find. They may also reduce the time employees spend translating simple questions, allowing staff and professional interpreters to focus on complicated cases. During emergencies, rapid translation could help governments send instructions to a larger number of residents.",
+        "However, AI systems may misunderstand cultural expressions, regional speech, or words whose meanings depend on context. An inaccurate translation about taxes, legal rights, or evacuation procedures could have serious consequences. There are also concerns about entering residents' personal information into such systems. For these reasons, trained people must review important messages, and residents should still be able to request help from a human interpreter.",
+      ],
+      modelAnswer:
+        "Some local governments use AI translation to communicate with residents in multiple languages. The tools can provide routine information quickly, cover languages for which interpreters are scarce, and reduce staff workloads. However, mistranslations may have serious consequences in legal, financial, or safety-related matters. The systems may also expose personal information, so trained people must review important messages and remain available.",
+    },
+  ];
+
+  function makePre1SummaryTask(setNumber = 1) {
+    const content = pre1SummaryContent[setNumber - 1] || pre1SummaryContent[0];
+    return makeWritingTask(32, "summary", "英文要約", "60〜70語", {
+      ...content,
+      rubric: [...pre1SummaryRubric],
     });
   }
 
@@ -609,16 +667,16 @@
           label: set.label || `第${index + 1}回`,
           description:
             vocabSet && readingGapSet && readingContentSet
-              ? "語彙・熟語18問／空所補充2大問／長文読解2大問／リスニングPart 1・2・3収録"
+              ? "語彙・熟語18問／空所補充2大問／長文読解2大問／英文要約／リスニングPart 1・2・3収録"
               : vocabSet && readingGapSet
-                ? "語彙・熟語18問／空所補充2大問／リスニングPart 1・2・3収録"
+                ? "語彙・熟語18問／空所補充2大問／英文要約／リスニングPart 1・2・3収録"
               : vocabSet
-                ? "語彙・熟語18問／リスニングPart 1・2・3収録"
-                : "リスニングPart 1・2・3収録",
+                ? "語彙・熟語18問／英文要約／リスニングPart 1・2・3収録"
+                : "英文要約／リスニングPart 1・2・3収録",
           status: "ready",
           enabled: true,
           readingPages,
-          writingTasks: grade.writingTasks,
+          writingTasks: [makePre1SummaryTask(index + 1), ...grade.writingTasks.slice(1)],
           listeningQuestions: set.questions,
           speakingSteps: grade.speakingSteps,
         };
