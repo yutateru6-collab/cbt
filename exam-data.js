@@ -3,6 +3,7 @@
   const grade2VocabSets = window.scbtGrade2VocabSets || [];
   const pre1VocabSets = window.scbtPre1VocabSets || [];
   const pre1ReadingGapSets = window.scbtPre1ReadingGapSets || [];
+  const pre1ReadingContentSets = window.scbtPre1ReadingContentSets || [];
   const pre1ListeningSets = window.scbtPre1ListeningSets || [];
 
   const modules = {
@@ -592,20 +593,25 @@
       return pre1ListeningSets.map((set, index) => {
         const vocabSet = pre1VocabSets.find((candidate) => candidate.key === set.key);
         const readingGapSet = pre1ReadingGapSets.find((candidate) => candidate.key === set.key);
+        const readingContentSet = pre1ReadingContentSets.find((candidate) => candidate.key === set.key);
         const readingPages = [
           ...(vocabSet?.readingPage ? [vocabSet.readingPage] : grade.readingPages.slice(0, 1)),
           ...(Array.isArray(readingGapSet?.readingPages) && readingGapSet.readingPages.length === 2
             ? readingGapSet.readingPages
             : grade.readingPages.slice(1, 3)),
-          ...grade.readingPages.slice(3),
+          ...(Array.isArray(readingContentSet?.readingPages) && readingContentSet.readingPages.length === 2
+            ? readingContentSet.readingPages
+            : grade.readingPages.slice(3)),
         ];
         return {
           key: set.key || `set-${String(index + 1).padStart(2, "0")}`,
           setId: `pre1-${set.key || `set-${String(index + 1).padStart(2, "0")}`}`,
           label: set.label || `第${index + 1}回`,
           description:
-            vocabSet && readingGapSet
-              ? "語彙・熟語18問／空所補充2大問／リスニングPart 1・2・3収録"
+            vocabSet && readingGapSet && readingContentSet
+              ? "語彙・熟語18問／空所補充2大問／長文読解2大問／リスニングPart 1・2・3収録"
+              : vocabSet && readingGapSet
+                ? "語彙・熟語18問／空所補充2大問／リスニングPart 1・2・3収録"
               : vocabSet
                 ? "語彙・熟語18問／リスニングPart 1・2・3収録"
                 : "リスニングPart 1・2・3収録",
