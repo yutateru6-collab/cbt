@@ -126,14 +126,14 @@
 
   function makeGrade2SummaryTask() {
     return makeWritingTask(32, "summary", "英文要約", "45〜55語", {
-      sourceTitle: "Community Tool Libraries",
+      sourceTitle: "",
       source: [
-        "In some towns, people are starting tool libraries. These places allow residents to borrow items such as drills, ladders, and sewing machines. Many people only need such tools once or twice a year, so buying them can be expensive and wasteful. Tool libraries help people save money while reducing the number of things kept unused at home.",
-        "Supporters say these libraries can also make communities stronger. Volunteers often repair broken tools and teach beginners how to use them safely. Because of this, neighbors who did not know one another may start talking and sharing skills. Some schools and community centers have begun working with tool libraries for local projects.",
-        "However, there are challenges. Tools must be checked carefully after each use, and some items are costly to replace if they are lost or damaged. Libraries also need enough staff or volunteers to manage reservations. Without a clear system, users may have trouble borrowing the tools they need.",
+        "Some schools have started repair clubs where students fix broken items such as bags, lamps, and small radios. Instead of throwing these items away, students bring them to the club and try to make them useful again.",
+        "What are the benefits of these clubs? Students learn practical skills that are not usually taught in regular classes. They also understand how products are made and why throwing things away too quickly can be wasteful. Some clubs hold events for local residents, allowing students to work with adult volunteers and talk with people of different ages.",
+        "However, repair clubs also have difficulties. Some items are dangerous for students to fix, so schools need adults who know how to use tools safely. Replacement parts can cost money, and a single repair may take a long time. Schools therefore need clear rules about which items students can accept and how much time they can spend on each one.",
       ],
       rubric: ["本文全体の要点を含める", "利点と課題の両方に触れる", "自分の意見や本文外の情報を入れない", "45〜55語に収める"],
-      modelAnswer: "Tool libraries let people borrow tools they rarely use, helping them save money and reduce unused items at home. They can also strengthen communities because volunteers teach repair skills. However, tools must be checked carefully, and libraries need enough staff to manage reservations and problems.",
+      modelAnswer: "School repair clubs help students learn practical skills, understand how products are made, and avoid throwing useful items away. They can also connect students with local residents. However, schools need skilled adults and clear safety rules, while replacement parts and time-consuming repairs can make the clubs difficult to manage.",
     });
   }
 
@@ -141,12 +141,13 @@
     return makeWritingTask(33, "essay", "英作文", "80〜100語", {
       lead: "以下のTOPICについて、あなたの意見とその理由を2つ書きなさい。",
       note: "POINTSは理由を書く際の参考となる観点です。ただし、これら以外の観点から理由を書いてもかまいません。",
+      warning: "解答がTOPICに示された問いの答えになっていない場合や、TOPICからずれていると判断された場合は、0点と採点されることがあります。TOPICの内容をよく読んでから答えてください。",
       sourceTitle: "TOPIC",
-      source: ["Do you think local governments should create more bicycle lanes in cities?"],
-      points: ["Safety", "Cost", "The environment"],
+      source: ["Some libraries and community centers have quiet areas for studying or working. Do you think this is a good idea?"],
+      points: ["Concentration", "Cost", "Space"],
       pointsRule: "POINTSは参考です。使っても使わなくてもかまいません。",
       rubric: ["自分の立場を明確にする", "理由を2つ示す", "理由を具体例で支える", "80〜100語に収める"],
-      modelAnswer: "I think local governments should create more bicycle lanes. First, bicycle lanes can make streets safer. If cyclists have their own space, they are less likely to ride too close to cars or people walking. Second, bicycle lanes can help the environment. When short trips by bicycle become easier, some people may drive less. Building lanes costs money, but safer and cleaner streets are worth the cost.",
+      modelAnswer: "I think this is a good idea. First, quiet areas help students and workers concentrate. For example, students can finish homework after school without being disturbed by conversations or phone calls. Second, these spaces give more people a suitable place to work. Some homes are crowded or noisy, so not everyone can concentrate there. By providing desks and good lighting, public buildings can support such people. Therefore, libraries and community centers should create more quiet areas for everyone in the community.",
     });
   }
 

@@ -1182,6 +1182,7 @@ function renderWriting() {
   const task = writingTasks[appState.writingTask];
   const value = appState.writingAnswers[task.id] || "";
   const wordStatus = getWordStatus(task, value);
+  const isGrade2Summary = isGrade2SummaryTask(task);
   return `
     ${renderHeader("残り時間")}
     <section class="exam-frame">
@@ -1204,12 +1205,13 @@ function renderWriting() {
               <div class="writing-prompt">
                 <p>● ${escapeHtml(task.lead)}</p>
                 <p>● ${escapeHtml(task.note)}</p>
-                <p>● ${escapeHtml(task.wordRule || "語数の目安")}は${escapeHtml(task.targetWords)}です。</p>
+                ${task.warning ? `<p>● ${escapeHtml(task.warning)}</p>` : ""}
+                ${isGrade2Summary ? "" : `<p>● ${escapeHtml(task.wordRule || "語数の目安")}は${escapeHtml(task.targetWords)}です。</p>`}
               </div>
               ${renderWritingConditions(task)}
               ${renderToolRow()}
               <div class="email-card">
-                <strong>${escapeHtml(task.sourceTitle)}</strong>
+                ${task.sourceTitle ? `<strong>${escapeHtml(task.sourceTitle)}</strong>` : ""}
                 ${task.source.map((line) => `<p>${escapeHtml(line)}</p>`).join("")}
               </div>
               ${renderWritingPoints(task)}
@@ -1276,11 +1278,12 @@ function renderToolIcon(name) {
 
 function renderWritingPoints(task) {
   if (!task.points || task.points.length === 0) return "";
+  const showPointsRule = !isGrade2WritingTask(task);
 
   return `
     <div class="points-card">
       <strong>POINTS</strong>
-      <p>${escapeHtml(task.pointsRule || "理由を書く際の参考となる観点です。")}</p>
+      ${showPointsRule ? `<p>${escapeHtml(task.pointsRule || "理由を書く際の参考となる観点です。")}</p>` : ""}
       <div class="points-list">
         ${task.points.map((point) => `<span>${escapeHtml(point)}</span>`).join("")}
       </div>
@@ -1289,6 +1292,7 @@ function renderWritingPoints(task) {
 }
 
 function renderWritingConditions(task) {
+  if (isGrade2WritingTask(task)) return "";
   const rubric = Array.isArray(task.rubric) ? task.rubric : [];
   return `
     <div class="writing-condition-card">
@@ -1307,6 +1311,7 @@ function renderWritingConditions(task) {
 }
 
 function renderWritingSelfCheck(task) {
+  if (isGrade2WritingTask(task)) return "";
   const items = getWritingCheckItems(task);
   const checkedItems = appState.writingChecks[task.id] || {};
   if (items.length === 0) return "";
@@ -1336,6 +1341,14 @@ function renderWritingSelfCheck(task) {
       </div>
     </div>
   `;
+}
+
+function isGrade2SummaryTask(task) {
+  return selectedGrade === "grade2" && task?.kind === "summary";
+}
+
+function isGrade2WritingTask(task) {
+  return selectedGrade === "grade2" && (task?.kind === "summary" || task?.kind === "essay");
 }
 
 function renderAnswerDrawer() {

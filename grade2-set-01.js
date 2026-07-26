@@ -992,26 +992,26 @@ window.scbtGrade2Set01 = {
       "kind": "summary",
       "label": "英文要約",
       "targetWords": "45〜55語",
-      "lead": "英文を読み、その内容を英語で要約しなさい。",
-      "note": "自分の意見や本文にない情報は入れず、本文全体の要点を45〜55語でまとめなさい。",
-      "sourceTitle": "School Repair Clubs",
+      "lead": "以下の英文を読んで、その内容を45〜55語の英語で要約し、解答欄に記入しなさい。",
+      "note": "解答が英文の要約になっていないと判断された場合は、0点と採点されることがあります。英文をよく読んでから答えてください。",
+      "sourceTitle": "",
       "source": [
-        "Some schools have started repair clubs where students fix broken items such as bags, lamps, and small radios. Teachers say these clubs help students understand how products are made and why throwing things away too quickly can be wasteful. Students also learn practical skills that are not usually taught in regular classes.",
-        "The clubs can benefit the wider community as well. Local residents sometimes bring items to school events, and students try to repair them with help from adult volunteers. Through these activities, students talk with people of different ages and learn that old objects may still be useful if they are repaired carefully.",
-        "However, repair clubs also have difficulties. Some items are dangerous for students to fix, and schools need teachers or volunteers who know how to use tools safely. Replacement parts can also cost money. For these reasons, schools must set clear rules about what students can repair."
+        "Some schools have started repair clubs where students fix broken items such as bags, lamps, and small radios. Instead of throwing these items away, students bring them to the club and try to make them useful again.",
+        "What are the benefits of these clubs? Students learn practical skills that are not usually taught in regular classes. They also understand how products are made and why throwing things away too quickly can be wasteful. Some clubs hold events for local residents, allowing students to work with adult volunteers and talk with people of different ages.",
+        "However, repair clubs also have difficulties. Some items are dangerous for students to fix, so schools need adults who know how to use tools safely. Replacement parts can cost money, and a single repair may take a long time. Schools therefore need clear rules about which items students can accept and how much time they can spend on each one."
       ],
       "fixedBefore": "",
       "fixedAfter": "",
       "points": [],
       "pointsRule": "",
-      "wordRule": "語数の目安",
+      "wordRule": "語数",
       "rubric": [
         "本文全体の要点を含める",
         "利点と課題の両方に触れる",
         "本文外の意見を入れない",
         "45〜55語に収める"
       ],
-      "modelAnswer": "School repair clubs teach students how products are made and help them avoid waste by fixing broken items. They can also connect students with local residents through repair events. However, schools need skilled adults, safety rules, and money for parts because some repairs are difficult or dangerous."
+      "modelAnswer": "School repair clubs help students learn practical skills, understand how products are made, and avoid throwing useful items away. They can also connect students with local residents. However, schools need skilled adults and clear safety rules, while replacement parts and time-consuming repairs can make the clubs difficult to manage."
     },
     {
       "id": 33,
@@ -1020,16 +1020,17 @@ window.scbtGrade2Set01 = {
       "targetWords": "80〜100語",
       "lead": "以下のTOPICについて、あなたの意見とその理由を2つ書きなさい。",
       "note": "POINTSは理由を書く際の参考となる観点です。ただし、これら以外の観点から理由を書いてもかまいません。",
+      "warning": "解答がTOPICに示された問いの答えになっていない場合や、TOPICからずれていると判断された場合は、0点と採点されることがあります。TOPICの内容をよく読んでから答えてください。",
       "sourceTitle": "TOPIC",
       "source": [
-        "Do you think more public places should have quiet areas for studying or working?"
+        "Some libraries and community centers have quiet areas for studying or working. Do you think this is a good idea?"
       ],
       "fixedBefore": "",
       "fixedAfter": "",
       "points": [
-        "Students",
+        "Concentration",
         "Cost",
-        "Communication"
+        "Space"
       ],
       "pointsRule": "POINTSは参考です。使っても使わなくてもかまいません。",
       "wordRule": "語数の目安",
@@ -1039,7 +1040,7 @@ window.scbtGrade2Set01 = {
         "具体例を入れる",
         "80〜100語に収める"
       ],
-      "modelAnswer": "I think more public places should have quiet areas for studying or working. First, students often need a place to concentrate after school. A quiet area in a library or community center can help them study before going home. Second, adults who work online may also use such spaces between appointments. It costs money to prepare these areas, but simple rules and a few desks can make public places more useful for many people."
+      "modelAnswer": "I think this is a good idea. First, quiet areas help students and workers concentrate. For example, students can finish homework after school without being disturbed by conversations or phone calls. Second, these spaces give more people a suitable place to work. Some homes are crowded or noisy, so not everyone can concentrate there. By providing desks and good lighting, public buildings can support such people. Therefore, libraries and community centers should create more quiet areas for everyone in the community."
     }
   ],
   "speakingSteps": [

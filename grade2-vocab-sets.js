@@ -3,7 +3,7 @@ window.scbtGrade2VocabSets = [
     "key": "set-01",
     "setId": "grade2-set-01",
     "label": "第1回",
-    "description": "リーディング全パート収録",
+    "description": "リーディング全パート／ライティング2題収録",
     "status": "ready",
     "enabled": true,
     "availableModules": [
@@ -514,12 +514,39 @@ window.scbtGrade2VocabSets = [
     ],
     "writingTasks": [
       {
+        "id": 32,
+        "kind": "summary",
+        "label": "英文要約",
+        "targetWords": "45〜55語",
+        "lead": "以下の英文を読んで、その内容を45〜55語の英語で要約し、解答欄に記入しなさい。",
+        "note": "解答が英文の要約になっていないと判断された場合は、0点と採点されることがあります。英文をよく読んでから答えてください。",
+        "sourceTitle": "",
+        "source": [
+          "In many places, high school classes begin early in the morning. Recently, some schools have moved the start of the school day to a later time. They hope this change will better match the daily lives of teenage students.",
+          "What are the benefits of doing this? Students who start school later may get more sleep and arrive feeling more awake. As a result, they may find it easier to pay attention in class. A later start can also reduce the number of students who miss the first lesson because of long trips or crowded trains.",
+          "However, changing the schedule can cause problems. Classes may end later, leaving less time for sports, music, or part-time jobs after school. In addition, parents may find it harder to organize family schedules if younger children still start school early or if adults must leave home for work before the teenagers."
+        ],
+        "fixedBefore": "",
+        "fixedAfter": "",
+        "points": [],
+        "pointsRule": "",
+        "wordRule": "語数",
+        "rubric": [
+          "本文全体の要点を含める",
+          "利点と課題の両方に触れる",
+          "本文外の意見を入れない",
+          "45〜55語に収める"
+        ],
+        "modelAnswer": "Some high schools have begun starting classes later. This may help students get more sleep, pay attention in class, and arrive on time. However, a later schedule can reduce the time available for after-school activities or jobs, and it may make it harder for families to organize their mornings."
+      },
+      {
         "id": 33,
         "kind": "essay",
         "label": "英作文",
         "targetWords": "80〜100語",
         "lead": "以下のTOPICについて、あなたの意見とその理由を2つ書きなさい。",
         "note": "POINTSは理由を書く際の参考となる観点です。ただし、これら以外の観点から理由を書いてもかまいません。",
+        "warning": "解答がTOPICに示された問いの答えになっていない場合や、TOPICからずれていると判断された場合は、0点と採点されることがあります。TOPICの内容をよく読んでから答えてください。",
         "sourceTitle": "TOPIC",
         "source": [
           "Today, some students use artificial intelligence tools to help them study. Do you think this is a good idea?"
@@ -540,7 +567,7 @@ window.scbtGrade2VocabSets = [
           "80〜100語に収める",
           "文法・語彙・つづりを見直す"
         ],
-        "modelAnswer": "I think this is a good idea. First, AI tools can help students understand difficult points quickly. For example, when they do not understand a grammar rule, they can ask for another explanation and keep studying at home. Second, students can save time because AI can suggest useful practice questions for their weak points. However, they should not copy answers without thinking, and teachers should explain when AI may be used. If schools make clear rules, AI can become a helpful study partner for many students."
+        "modelAnswer": "I think this is a good idea. First, AI tools can give students explanations that match their needs. If one explanation is too difficult, they can ask for a simpler one and continue studying at home. Second, these tools can provide practice for weak points. A student who often makes mistakes with the past tense, for example, can request more questions about it and receive quick feedback. This helps students use their study time effectively. Therefore, AI can be useful when schools teach students how to use it responsibly."
       }
     ],
     "listeningQuestions": [],
@@ -550,7 +577,7 @@ window.scbtGrade2VocabSets = [
     "key": "set-02",
     "setId": "grade2-set-02",
     "label": "第2回",
-    "description": "リーディング全パート収録",
+    "description": "リーディング全パート／ライティング2題収録",
     "status": "ready",
     "enabled": true,
     "availableModules": [
@@ -1061,12 +1088,39 @@ window.scbtGrade2VocabSets = [
     ],
     "writingTasks": [
       {
+        "id": 32,
+        "kind": "summary",
+        "label": "英文要約",
+        "targetWords": "45〜55語",
+        "lead": "以下の英文を読んで、その内容を45〜55語の英語で要約し、解答欄に記入しなさい。",
+        "note": "解答が英文の要約になっていないと判断された場合は、0点と採点されることがあります。英文をよく読んでから答えてください。",
+        "sourceTitle": "",
+        "source": [
+          "Supermarkets and community centers in some towns have installed food-sharing shelves. People and stores can leave unopened food that they do not need, and others may take it for free. These shelves are becoming one way to deal with food waste.",
+          "What are the advantages of this system? Food that is still safe can be used instead of being thrown away. The shelves can also support people who want to spend less on groceries. In some communities, volunteers check the shelves and share information about cooking, which helps neighbors get to know one another.",
+          "On the other hand, food-sharing shelves require careful management. Items without clear dates may be unsafe, and some food must be kept cold. Volunteers therefore need rules about what can be accepted and how long it can remain. If shelves are not checked regularly, people may stop trusting the system."
+        ],
+        "fixedBefore": "",
+        "fixedAfter": "",
+        "points": [],
+        "pointsRule": "",
+        "wordRule": "語数",
+        "rubric": [
+          "本文全体の要点を含める",
+          "利点と課題の両方に触れる",
+          "本文外の意見を入れない",
+          "45〜55語に収める"
+        ],
+        "modelAnswer": "Food-sharing shelves let people and stores offer unused food for free. They can reduce waste, lower grocery costs, and bring neighbors together. However, unclear dates and poor storage may make food unsafe. Volunteers must follow clear rules and check the shelves regularly, or people may lose trust in the system."
+      },
+      {
         "id": 33,
         "kind": "essay",
         "label": "英作文",
         "targetWords": "80〜100語",
         "lead": "以下のTOPICについて、あなたの意見とその理由を2つ書きなさい。",
         "note": "POINTSは理由を書く際の参考となる観点です。ただし、これら以外の観点から理由を書いてもかまいません。",
+        "warning": "解答がTOPICに示された問いの答えになっていない場合や、TOPICからずれていると判断された場合は、0点と採点されることがあります。TOPICの内容をよく読んでから答えてください。",
         "sourceTitle": "TOPIC",
         "source": [
           "These days, many people use apps to buy tickets for trains, movies, and events. Do you think more people will use such apps in the future?"
@@ -1087,7 +1141,7 @@ window.scbtGrade2VocabSets = [
           "80〜100語に収める",
           "文法・語彙・つづりを見直す"
         ],
-        "modelAnswer": "I think more people will use such apps in the future. First, they are convenient. People can buy tickets at home and do not have to wait in long lines at stations or theaters. Second, digital tickets can be useful for companies because they can manage seats and payments more easily. Some older people may still prefer paper tickets, and security problems are possible. However, app designs are becoming simpler, and companies are improving safety. For these reasons, ticket apps will probably become more common."
+        "modelAnswer": "I think more people will use such apps in the future. First, ticket apps are convenient because customers can buy tickets at any time and avoid waiting in long lines. They can also keep several tickets on one phone. Second, these apps help companies manage seats and payments efficiently. Companies can update schedules quickly and send useful information directly to customers. As smartphones become easier to use and online payments become safer, both customers and companies will have more reasons to choose ticket apps."
       }
     ],
     "listeningQuestions": [],
@@ -1097,7 +1151,7 @@ window.scbtGrade2VocabSets = [
     "key": "set-03",
     "setId": "grade2-set-03",
     "label": "第3回",
-    "description": "リーディング全パート収録",
+    "description": "リーディング全パート／ライティング2題収録",
     "status": "ready",
     "enabled": true,
     "availableModules": [
@@ -1608,12 +1662,39 @@ window.scbtGrade2VocabSets = [
     ],
     "writingTasks": [
       {
+        "id": 32,
+        "kind": "summary",
+        "label": "英文要約",
+        "targetWords": "45〜55語",
+        "lead": "以下の英文を読んで、その内容を45〜55語の英語で要約し、解答欄に記入しなさい。",
+        "note": "解答が英文の要約になっていないと判断された場合は、0点と採点されることがあります。英文をよく読んでから答えてください。",
+        "sourceTitle": "",
+        "source": [
+          "Museums usually require visitors to travel to see their collections. Recently, however, more museums have created online tours that show paintings, historical objects, and exhibition rooms. People can explore these tours on computers or smartphones from almost anywhere and at any time of day.",
+          "What are some advantages of online museum tours? They allow people who live far away or have difficulty traveling to view important collections. Schools can also use them during lessons without paying for buses or tickets. Some tours provide close-up images and extra explanations that visitors can study at their own speed.",
+          "However, online tours have limitations. Looking at an image on a screen cannot fully show the size or texture of a real object. Visitors may also have technical problems if their Internet connection is slow. Moreover, creating detailed digital tours requires time, special equipment, and staff with the right skills."
+        ],
+        "fixedBefore": "",
+        "fixedAfter": "",
+        "points": [],
+        "pointsRule": "",
+        "wordRule": "語数",
+        "rubric": [
+          "本文全体の要点を含める",
+          "利点と課題の両方に触れる",
+          "本文外の意見を入れない",
+          "45〜55語に収める"
+        ],
+        "modelAnswer": "Online museum tours let distant visitors and students explore collections without traveling or paying for trips, and they may provide detailed information. However, screens cannot provide a complete sense of an object's size or surface. Slow Internet can interrupt visits, and museums need time, equipment, and skilled staff to create the tours."
+      },
+      {
         "id": 33,
         "kind": "essay",
         "label": "英作文",
         "targetWords": "80〜100語",
         "lead": "以下のTOPICについて、あなたの意見とその理由を2つ書きなさい。",
         "note": "POINTSは理由を書く際の参考となる観点です。ただし、これら以外の観点から理由を書いてもかまいません。",
+        "warning": "解答がTOPICに示された問いの答えになっていない場合や、TOPICからずれていると判断された場合は、0点と採点されることがあります。TOPICの内容をよく読んでから答えてください。",
         "sourceTitle": "TOPIC",
         "source": [
           "Some people choose to work for companies that help protect the environment. Do you think the number of such people will increase in the future?"
@@ -1621,9 +1702,9 @@ window.scbtGrade2VocabSets = [
         "fixedBefore": "",
         "fixedAfter": "",
         "points": [
-          "Careers",
+          "Career choices",
           "Demand",
-          "Motivation"
+          "Skills"
         ],
         "pointsRule": "POINTSは参考です。使っても使わなくてもかまいません。",
         "wordRule": "語数の目安",
@@ -1634,7 +1715,7 @@ window.scbtGrade2VocabSets = [
           "80〜100語に収める",
           "文法・語彙・つづりを見直す"
         ],
-        "modelAnswer": "I think the number of such people will increase. First, many young workers care about the environment and want their jobs to match their values. Working for a company that reduces waste or saves energy can give them strong motivation. Second, demand for environmentally friendly products is growing in many countries. If more customers choose these products, companies in this field will need more workers. Some jobs may require special knowledge, but students can prepare for them. Therefore, more people will choose these companies in the future."
+        "modelAnswer": "I think the number of such people will increase. First, many young people want work that matches their values. Helping a company reduce waste or save energy can give workers a strong sense of purpose. Second, demand for environmentally friendly products and services is growing. As more customers choose them, companies will need employees who can design better products and develop cleaner technology. Schools and universities are also offering more chances to study environmental subjects. Therefore, more people will be prepared to work for these companies."
       }
     ],
     "listeningQuestions": [],
@@ -1644,7 +1725,7 @@ window.scbtGrade2VocabSets = [
     "key": "set-04",
     "setId": "grade2-set-04",
     "label": "第4回",
-    "description": "リーディング全パート収録",
+    "description": "リーディング全パート／ライティング2題収録",
     "status": "ready",
     "enabled": true,
     "availableModules": [
@@ -2155,15 +2236,42 @@ window.scbtGrade2VocabSets = [
     ],
     "writingTasks": [
       {
+        "id": 32,
+        "kind": "summary",
+        "label": "英文要約",
+        "targetWords": "45〜55語",
+        "lead": "以下の英文を読んで、その内容を45〜55語の英語で要約し、解答欄に記入しなさい。",
+        "note": "解答が英文の要約になっていないと判断された場合は、0点と採点されることがあります。英文をよく読んでから答えてください。",
+        "sourceTitle": "",
+        "source": [
+          "Many people buy clothes for special events and wear them only a few times. In response, some companies now rent dresses, suits, and everyday clothing through stores or websites. Customers return the items after using them for a limited period.",
+          "What are the benefits of clothing rental services? Customers can try different styles without buying every item, so they may spend less money and need less storage space at home. Renting can also reduce the number of rarely used clothes that are thrown away if the same item is worn by several people.",
+          "However, these services face challenges. Companies must inspect and clean every item before sending it to another customer, which takes time and money. Clothes can also be damaged or returned late. In addition, some customers may not find the correct size, and popular items may be unavailable when they are needed."
+        ],
+        "fixedBefore": "",
+        "fixedAfter": "",
+        "points": [],
+        "pointsRule": "",
+        "wordRule": "語数",
+        "rubric": [
+          "本文全体の要点を含める",
+          "利点と課題の両方に触れる",
+          "本文外の意見を入れない",
+          "45〜55語に収める"
+        ],
+        "modelAnswer": "Clothing rental services let customers try different styles while spending less money and keeping fewer clothes at home. Reusing the same items may also reduce waste. However, companies must spend time and money inspecting and cleaning clothes, and customers may face sizing problems or find that popular items are unavailable."
+      },
+      {
         "id": 33,
         "kind": "essay",
         "label": "英作文",
         "targetWords": "80〜100語",
         "lead": "以下のTOPICについて、あなたの意見とその理由を2つ書きなさい。",
         "note": "POINTSは理由を書く際の参考となる観点です。ただし、これら以外の観点から理由を書いてもかまいません。",
+        "warning": "解答がTOPICに示された問いの答えになっていない場合や、TOPICからずれていると判断された場合は、0点と採点されることがあります。TOPICの内容をよく読んでから答えてください。",
         "sourceTitle": "TOPIC",
         "source": [
-          "Today, some customers use lockers to receive packages instead of getting them directly at home. Do you think this kind of service will become more common in the future?"
+          "Some apartment buildings and stores have installed lockers where customers can receive packages. Do you think this is a good idea?"
         ],
         "fixedBefore": "",
         "fixedAfter": "",
@@ -2181,7 +2289,7 @@ window.scbtGrade2VocabSets = [
           "80〜100語に収める",
           "文法・語彙・つづりを見直す"
         ],
-        "modelAnswer": "I think this kind of service will become more common. First, lockers are convenient for people who are not at home during the day. They can pick up their packages after school or work without asking for another delivery. Second, lockers may be safer than leaving packages in front of doors because fewer people can see them. Some companies must pay to install lockers, and small towns may have fewer places for them. However, the service can reduce missed deliveries and help customers."
+        "modelAnswer": "I think this is a good idea. First, package lockers are convenient for people who are not at home during the day. They can collect their packages after school or work instead of arranging another delivery. Second, lockers can protect packages from rain and make them less visible to people passing by. Customers usually receive a code, so only the correct person can open the locker. Package lockers also reduce the number of repeated delivery trips. Therefore, they can benefit both customers and delivery companies."
       }
     ],
     "listeningQuestions": [],
@@ -2191,7 +2299,7 @@ window.scbtGrade2VocabSets = [
     "key": "set-05",
     "setId": "grade2-set-05",
     "label": "第5回",
-    "description": "リーディング全パート収録",
+    "description": "リーディング全パート／ライティング2題収録",
     "status": "ready",
     "enabled": true,
     "availableModules": [
@@ -2702,15 +2810,42 @@ window.scbtGrade2VocabSets = [
     ],
     "writingTasks": [
       {
+        "id": 32,
+        "kind": "summary",
+        "label": "英文要約",
+        "targetWords": "45〜55語",
+        "lead": "以下の英文を読んで、その内容を45〜55語の英語で要約し、解答欄に記入しなさい。",
+        "note": "解答が英文の要約になっていないと判断された場合は、0点と採点されることがあります。英文をよく読んでから答えてください。",
+        "sourceTitle": "",
+        "source": [
+          "Some companies allow employees to spend one or two paid workdays each year helping local organizations. Workers may clean parks, prepare food, or support community events. These programs are often called paid volunteer days, and they are becoming more common.",
+          "What are the advantages of these programs? Local groups can receive help with tasks they might not have enough staff to complete. Employees can learn skills outside their usual jobs and meet coworkers from other departments. Companies may also build stronger relationships with the communities where they do business.",
+          "On the other hand, paid volunteer days can create difficulties. Regular work still has to be completed, so other employees may become busier while volunteers are away. Community organizations must spend time planning useful activities and supervising people with different levels of experience. If the work is poorly organized, neither side may feel that the day was valuable."
+        ],
+        "fixedBefore": "",
+        "fixedAfter": "",
+        "points": [],
+        "pointsRule": "",
+        "wordRule": "語数",
+        "rubric": [
+          "本文全体の要点を含める",
+          "利点と課題の両方に触れる",
+          "本文外の意見を入れない",
+          "45〜55語に収める"
+        ],
+        "modelAnswer": "Paid volunteer days allow employees to help local groups, learn new skills, and meet coworkers outside their departments. They may also improve a company's relationship with the community. However, regular work can become harder for remaining staff, and community groups need time to plan suitable tasks and supervise volunteers effectively."
+      },
+      {
         "id": 33,
         "kind": "essay",
         "label": "英作文",
         "targetWords": "80〜100語",
         "lead": "以下のTOPICについて、あなたの意見とその理由を2つ書きなさい。",
         "note": "POINTSは理由を書く際の参考となる観点です。ただし、これら以外の観点から理由を書いてもかまいません。",
+        "warning": "解答がTOPICに示された問いの答えになっていない場合や、TOPICからずれていると判断された場合は、0点と採点されることがあります。TOPICの内容をよく読んでから答えてください。",
         "sourceTitle": "TOPIC",
         "source": [
-          "These days, many books and video games are turned into movies or TV shows. Do you think the number of such movies and shows will increase in the future?"
+          "These days, many books and video games are turned into movies or TV shows. Do you think this is a good idea?"
         ],
         "fixedBefore": "",
         "fixedAfter": "",
@@ -2728,7 +2863,7 @@ window.scbtGrade2VocabSets = [
           "80〜100語に収める",
           "文法・語彙・つづりを見直す"
         ],
-        "modelAnswer": "I think the number of such movies and shows will increase. First, books and video games already have many fans, so movie companies can attract viewers more easily. Fans often want to see their favorite stories with actors, music, and strong images. Second, these works can bring income from tickets, streaming services, and goods. Quality is sometimes a problem because stories may be changed too much. However, if creators respect the original stories, more adaptations will be popular in the future."
+        "modelAnswer": "I think this is a good idea. First, movies and TV shows can introduce original stories to people who do not usually read books or play video games. If viewers enjoy an adaptation, they may become interested in the original work. Second, adaptations can create new income for writers, artists, actors, and other workers. Popular works may also attract visitors to related events or locations. When creators understand the main ideas of the original story and present them carefully, adaptations can satisfy existing fans and reach new audiences."
       }
     ],
     "listeningQuestions": [],
