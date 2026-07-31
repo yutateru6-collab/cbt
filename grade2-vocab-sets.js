@@ -265,7 +265,7 @@ window.scbtGrade2VocabSets = [
         "instruction": "本文を読み、空所に入る最も適切な語句を選んでください。",
         "passageTitle": "A. Community Water Rules",
         "passage": [
-          "In several old towns, narrow stone channels still run beside the streets. They were built before modern water pipes reached every home. The channels carried spring water to kitchens, workshops, and public washing places. At first, a visitor might see them as decorations, but residents once depended on them for everyday tasks. A blocked channel could stop washing, cooling tools, and watering small vegetable beds. These daily uses made the channels (18), not private decoration, so neighbors had to care for them together.",
+          "In several old towns, narrow stone channels still run beside the streets. They were built before modern water pipes reached every home. The channels carried spring water to kitchens, workshops, and public washing places. At first, a visitor might see them as decorations, but residents once depended on them for everyday tasks. A blocked channel could stop washing, cooling tools, and watering small vegetable beds. These daily uses made the channels (18), rather than merely decorative features, so neighbors had to care for them together.",
           "The channels also shaped local work. In one mountain district, cloth makers rinsed fabric after dyeing it, while farmers guided some water into small fields during planting weeks. Because the supply changed with rainfall, residents placed wooden gates at narrow points and wrote simple turn schedules. These tools did not increase the amount of water. Instead, they helped people (19) before arguments grew serious. The system worked only when many households accepted the same order, even when their own work was delayed.",
           "Today, some channels no longer provide drinking water, but they still have value. Local groups remove leaves, repair small cracks, and teach children why old rules mattered. City planners study the channels because they show how a community managed a limited resource with simple tools and regular cooperation. Some towns also use the channels to guide rainwater during heavy storms. (20), the old system connects history with current questions about water, waste, and public responsibility."
         ],
@@ -276,13 +276,13 @@ window.scbtGrade2VocabSets = [
             "type": "long-blank",
             "text": "空所(18)に入る最も適切なものを選んでください。",
             "choices": [
-              "a cleaning system for homes",
-              "special tools for cloth makers",
-              "shared equipment for the town",
-              "a storage system for farms"
+              "private water systems for individual homes",
+              "special tools for local cloth makers",
+              "shared public resources",
+              "storage systems for nearby farms"
             ],
             "correct": 3,
-            "explanation": "正解は 3. shared equipment for the town です。\n第1段落では、石の水路が家庭、作業場、公共の洗い場などに水を運んでいたことが説明されています。また、水路が詰まると、洗い物、道具を冷やすこと、小さな畑への水やりなど、多くの人の生活に影響したとあります。\nつまり、この水路は一部の人だけのものではなく、町全体で使う共有設備でした。\nそのため shared equipment for the town が最も自然です。\n1の a cleaning system for homes は、家庭での洗い物には関係しますが、作業場や畑なども含む本文全体の内容より狭すぎます。\n2の special tools for cloth makers は、第2段落の布作りには関係しますが、第1段落全体では布職人だけの道具ではありません。\n4の a storage system for farms は、農業に少し関係しますが、水を貯める設備として説明されているわけではありません。"
+            "explanation": "正解は 3. shared public resources です。\n第1段落では、石の水路が家庭、作業場、公共の洗い場などに水を運んでいたことが説明されています。また、水路が詰まると、洗い物、道具を冷やすこと、小さな畑への水やりなど、多くの人の生活に影響したとあります。\nつまり、この水路は一部の家庭や仕事だけのものではなく、町の人々が共用する公共資源でした。\nそのため shared public resources が最も自然です。\n1の private water systems for individual homes は、本文にある作業場や公共の洗い場を説明できません。\n2の special tools for local cloth makers は、第2段落の布作りには関係しますが、水路の用途全体を説明できません。\n4の storage systems for nearby farms は、畑への水やりには関係しますが、水をためる設備としては説明されていません。"
           },
           {
             "id": 19,
@@ -1685,7 +1685,7 @@ window.scbtGrade2VocabSets = [
           "本文外の意見を入れない",
           "45〜55語に収める"
         ],
-        "modelAnswer": "Online museum tours let distant visitors and students explore collections without traveling or paying for trips, and they may provide detailed information. However, screens cannot provide a complete sense of an object's size or surface. Slow Internet can interrupt visits, and museums need time, equipment, and skilled staff to create the tours."
+        "modelAnswer": "Online museum tours let distant visitors and students explore collections without traveling or paying for trips, and they may provide detailed information. However, screens cannot provide a complete sense of an object's size or texture. Slow Internet can interrupt visits, and museums need time, equipment, and skilled staff to create the tours."
       },
       {
         "id": 33,
@@ -1745,29 +1745,29 @@ window.scbtGrade2VocabSets = [
             "id": 1,
             "section": "短文語句",
             "type": "vocabulary",
-            "text": "A: How much will the class trip cost?\nB: The bus company gave us an ( ) for the trip, but the amount may change after we choose the final route.",
+            "text": "A: How much will the class trip cost?\nB: The bus company gave us a ( ) for the trip, but the amount may change after we choose the final route.",
             "choices": [
               "invoice",
+              "quotation",
               "outline",
-              "estimate",
               "update"
             ],
-            "correct": 3,
-            "explanation": "3 estimate\nestimate は「見積もり」という意味です。\n「最終的な金額は、ルートを決めたあと変わるかもしれない」とあるので、まだ確定料金ではなく、バス会社から出された見積もりだと分かります。\n1 invoice：請求書。通常は支払いを求める正式な書類なので、まだ変わる金額には合いにくいです。\n2 outline：概要。旅行内容の説明ならあり得ますが、費用の答えにはなりません。\n4 update：最新情報。金額そのものを表す語ではありません。"
+            "correct": 2,
+            "explanation": "2 quotation\nquotation は、サービスにかかる予定金額を示す「見積書」という意味です。最終ルートによって金額が変わる可能性があるため、支払い後の書類ではなく、事前の見積書が合います。\ninvoice は「請求書」、outline は「概要」、update は「最新情報」です。"
           },
           {
             "id": 2,
             "section": "短文語句",
             "type": "vocabulary",
-            "text": "After passengers noticed a burning smell on the school bus, a mechanic came to ( ) the engine before deciding whether it was safe to drive.",
+            "text": "After passengers noticed a burning smell on the school bus, a mechanic came to ( ) the cause of the problem before deciding whether it was safe to drive.",
             "choices": [
-              "inspect",
               "adjust",
               "clean",
-              "replace"
+              "replace",
+              "determine"
             ],
-            "correct": 1,
-            "explanation": "1 inspect\ninspect は「点検する、調べる」という意味です。\n焦げたにおいがしたあと、運転して安全かどうかを判断する前に整備士がエンジンを点検する、という自然な流れです。\n2 adjust：調整する。点検後ならあり得ますが、まず安全確認する場面では inspect が最適です。\n3 clean：掃除する。焦げたにおいの原因確認には弱いです。\n4 replace：交換する。いきなり交換するのではなく、まず点検する場面です。"
+            "correct": 4,
+            "explanation": "4 determine\ndetermine the cause で「原因を突き止める」という意味です。安全に運転できるか判断する前に、整備士が焦げたにおいの原因を調べる流れです。\nadjust、clean、replace は、原因を確認した後に必要になる可能性はありますが、cause と自然につながりません。"
           },
           {
             "id": 3,
@@ -1775,13 +1775,13 @@ window.scbtGrade2VocabSets = [
             "type": "vocabulary",
             "text": "A: Did the school’s new printer work well today?\nB: Yes, it ran ( ) during lunch and did not jam once, so we printed all the club posters without trouble.",
             "choices": [
+              "smoothly",
               "slowly",
               "noisily",
-              "unevenly",
-              "smoothly"
+              "unevenly"
             ],
-            "correct": 4,
-            "explanation": "4 smoothly\nsmoothly は「順調に、問題なく」という意味です。\n「一度も紙詰まりせず、ポスターを全部印刷できた」とあるので、プリンターが順調に動いたという意味になります。\n1 slowly：ゆっくり。問題なく動いたことの説明にはなりません。\n2 noisily：うるさく。印刷できた理由にはなりません。\n3 unevenly：むらがあって、不安定に。本文の「紙詰まりしなかった」と逆方向です。"
+            "correct": 1,
+            "explanation": "1 smoothly\nsmoothly は「順調に、問題なく」という意味です。一度も紙詰まりせず、ポスターを全部印刷できたことから分かります。\nslowly は「ゆっくり」、noisily は「うるさく」、unevenly は「不安定に」です。"
           },
           {
             "id": 4,
@@ -1790,12 +1790,12 @@ window.scbtGrade2VocabSets = [
             "text": "A: Why didn’t Rina join the speech contest?\nB: She felt ( ) about speaking to a large audience and finally decided not to enter, although her teacher encouraged her.",
             "choices": [
               "eager",
-              "reluctant",
               "confident",
+              "reluctant",
               "curious"
             ],
-            "correct": 2,
-            "explanation": "2 reluctant\nreluctant は「気が進まない、乗り気でない」という意味です。\n先生に勧められたにもかかわらず、大勢の前で話すことに気が進まず、結局出場しなかったという文脈です。\n1 eager：熱心な、やりたがっている。出場しなかった理由と逆です。\n3 confident：自信がある。これも出場しなかった理由になりにくいです。\n4 curious：興味がある。興味があるだけでは、出場しなかった理由として弱いです。"
+            "correct": 3,
+            "explanation": "3 reluctant\nreluctant は「気が進まない、乗り気でない」という意味です。先生に勧められても、大勢の前で話すことに気が進まず出場しなかった文脈です。\neager と confident は出場しなかった理由と反対で、curious は「興味がある」です。"
           },
           {
             "id": 5,
@@ -1805,11 +1805,11 @@ window.scbtGrade2VocabSets = [
             "choices": [
               "flavor",
               "portion",
-              "ingredient",
-              "package"
+              "package",
+              "ingredient"
             ],
-            "correct": 3,
-            "explanation": "3 ingredient\ningredient は「材料、成分」という意味です。\nスープのラベルを見たところ、ピーナッツオイルが含まれていたため、アレルギーのある友人に注意したという流れです。\n1 flavor：味。ピーナッツオイルは味ではなく材料です。\n2 portion：一人分、分量。アレルギーの原因物質そのものではありません。\n4 package：包装。中身の成分ではありません。"
+            "correct": 4,
+            "explanation": "4 ingredient\ningredient は「材料、成分」という意味です。ラベルでピーナッツオイルが含まれていることを確認した場面です。\nflavor は「味」、portion は「一人分」、package は「包装」です。"
           },
           {
             "id": 6,
@@ -1817,13 +1817,13 @@ window.scbtGrade2VocabSets = [
             "type": "vocabulary",
             "text": "A: These storage boxes all look alike.\nB: Please ( ) each box before moving them, so the library staff know which books are inside.",
             "choices": [
-              "label",
               "seal",
+              "label",
               "weigh",
               "stack"
             ],
-            "correct": 1,
-            "explanation": "1 label\nlabel は動詞で「ラベルを貼る、表示する」という意味です。\n箱がどれも似ているので、中にどの本が入っているか分かるようにラベルをつける、という文脈です。\n2 seal：封をする。中身が分かるようにはなりません。\n3 weigh：重さを量る。中の本の種類を知る目的には合いません。\n4 stack：積み重ねる。整理には関係しますが、中身の識別には不十分です。"
+            "correct": 2,
+            "explanation": "2 label\nlabel は動詞で「ラベルを付ける」という意味です。似た箱の中身を職員が区別できるように表示する場面です。\nseal は「封をする」、weigh は「重さを量る」、stack は「積み重ねる」です。"
           },
           {
             "id": 7,
@@ -1833,25 +1833,25 @@ window.scbtGrade2VocabSets = [
             "choices": [
               "modest",
               "anonymous",
-              "official",
-              "substantial"
+              "substantial",
+              "official"
             ],
-            "correct": 4,
-            "explanation": "4 substantial\nsubstantial は「かなりの、相当な」という意味です。\n子ども用の読書室を作れるほどの寄付なので、少額ではなく、かなり大きな寄付だと分かります。\n1 modest：控えめな、少ない。読書室を作れるほどの寄付とは合いにくいです。\n2 anonymous：匿名の。本文では金額の大きさがポイントです。\n3 official：公式の。寄付の規模を表す語ではありません。"
+            "correct": 3,
+            "explanation": "3 substantial\nsubstantial は「かなりの、相当な」という意味です。読書室を建てられるほどの寄付なので、規模の大きさを表します。\nmodest は「少額の」、anonymous は「匿名の」、official は「公式の」です。"
           },
           {
             "id": 8,
             "section": "短文語句",
             "type": "vocabulary",
-            "text": "At the airport, staff asked each passenger to ( ) their suitcase before it was placed on the tour bus, so no one took the wrong bag.",
+            "text": "At the airport, staff asked each passenger to ( ) a name tag to their suitcase before it was placed on the tour bus, so no one took the wrong bag.",
             "choices": [
-              "lift",
-              "identify",
+              "attach",
+              "remove",
               "cover",
               "weigh"
             ],
-            "correct": 2,
-            "explanation": "2 identify\nidentify は「特定する、確認する」という意味です。\n空港で、誰かが違うバッグを取らないように、自分のスーツケースを確認する場面です。\n1 lift：持ち上げる。間違い防止の目的には直接つながりません。\n3 cover：覆う。自分の荷物か確認する意味にはなりません。\n4 weigh：重さを量る。空港ならあり得る動作ですが、「wrong bag を防ぐ」という目的には合いません。"
+            "correct": 1,
+            "explanation": "1 attach\nattach A to B で「AをBに取り付ける」という意味です。荷物の取り違えを防ぐため、スーツケースに名札を付ける場面です。\nremove は「外す」、cover は「覆う」、weigh は「重さを量る」です。"
           },
           {
             "id": 9,
@@ -1859,13 +1859,13 @@ window.scbtGrade2VocabSets = [
             "type": "vocabulary",
             "text": "After several low scores, Mina tried a new ( ) for studying vocabulary; instead of copying lists, she used new words in short stories.",
             "choices": [
-              "approach",
               "excuse",
               "resource",
+              "approach",
               "fortune"
             ],
-            "correct": 1,
-            "explanation": "1 approach\napproach は「方法、取り組み方」という意味です。\n単語リストを写すのではなく、短い物語の中で単語を使うという、新しい学習方法を試した場面です。\n2 excuse：言い訳。学習方法ではありません。\n3 resource：資料、教材。単語帳やアプリならあり得ますが、本文は「やり方」の変化を説明しています。\n4 fortune：幸運、財産。文脈に合いません。"
+            "correct": 3,
+            "explanation": "3 approach\napproach は「方法、取り組み方」という意味です。単語リストを書き写す方法から、物語の中で使う方法へ変えた場面です。\nexcuse は「言い訳」、resource は「資料」、fortune は「幸運・財産」です。"
           },
           {
             "id": 10,
@@ -1873,13 +1873,13 @@ window.scbtGrade2VocabSets = [
             "type": "vocabulary",
             "text": "A: Did you understand the last paragraph of the article?\nB: I ( ) understood it; several technical terms were unfamiliar, so I need to read it again.",
             "choices": [
+              "barely",
               "fully",
               "quickly",
-              "barely",
               "easily"
             ],
-            "correct": 3,
-            "explanation": "3 barely\nbarely は「かろうじて、ほとんど〜ない」という意味です。\n専門用語がいくつも分からず、もう一度読む必要があるため、「ほとんど理解できなかった」という意味になります。\n1 fully：完全に。本文の内容と逆です。\n2 quickly：すぐに。理解できなかった文脈には合いません。\n4 easily：簡単に。これも本文と逆です。"
+            "correct": 1,
+            "explanation": "1 barely\nbarely は「かろうじて、ほとんど～ない」という意味です。専門用語が分からず読み直す必要があるため、十分には理解できなかったと分かります。\nfully と easily は文脈と反対で、quickly は理解の程度を表しません。"
           },
           {
             "id": 11,
@@ -1888,12 +1888,12 @@ window.scbtGrade2VocabSets = [
             "text": "A: I missed yesterday’s basketball practice.\nB: Extra shooting drills today may help you ( ) the training you missed before Saturday’s game.",
             "choices": [
               "keep up with",
-              "make up for",
               "come up with",
-              "look back on"
+              "look back on",
+              "make up for"
             ],
-            "correct": 2,
-            "explanation": "2 make up for\nmake up for は「〜を埋め合わせる」という意味です。\n昨日の練習を休んだので、追加のシュート練習で不足分を補うという文脈です。\n1 keep up with：〜についていく。継続中の練習に遅れないという意味なら使えますが、休んだ分を補う意味では弱いです。\n3 come up with：思いつく。training を目的語にすると「練習内容を考え出す」に近くなり、文脈がずれます。\n4 look back on：振り返る。実際に練習不足を補う意味にはなりません。"
+            "correct": 4,
+            "explanation": "4 make up for\nmake up for は「～を埋め合わせる」という意味です。休んだ練習の不足分を追加練習で補う場面です。\nkeep up with は「ついていく」、come up with は「思いつく」、look back on は「振り返る」です。"
           },
           {
             "id": 12,
@@ -1902,12 +1902,12 @@ window.scbtGrade2VocabSets = [
             "text": "Before adding more night buses, the city will ( ) a survey in several neighborhoods, with workers asking residents about travel after 10 p.m.",
             "choices": [
               "draw up",
+              "conduct",
               "send out",
-              "look over",
-              "carry out"
+              "look over"
             ],
-            "correct": 4,
-            "explanation": "4 carry out\ncarry out は「実施する」という意味です。\n市が夜間バスを増やす前に、住民に聞き取りをして調査を実施するという文脈です。\n1 draw up：作成する。アンケート用紙を作る意味ならあり得ますが、本文では住民に聞いて調査を行う場面です。\n2 send out：発送する、配布する。調査票を送るならあり得ますが、本文では workers asking residents とあるので、実施する意味が最も自然です。\n3 look over：目を通す。調査結果を確認する段階ならあり得ますが、本文は調査を行う前の話です。"
+            "correct": 2,
+            "explanation": "2 conduct\nconduct a survey で「調査を実施する」という意味です。職員が住民に質問して調査を行う場面です。\ndraw up は「作成する」、send out は「配布する」、look over は「目を通す」です。"
           },
           {
             "id": 13,
@@ -1915,13 +1915,13 @@ window.scbtGrade2VocabSets = [
             "type": "phrase",
             "text": "While sorting boxes in the attic, Nao ( ) a postcard his grandmother had sent from Canada thirty years earlier.",
             "choices": [
-              "came across",
               "got through",
+              "stumbled upon",
               "went over",
               "held back"
             ],
-            "correct": 1,
-            "explanation": "1 came across\ncome across は「偶然見つける」という意味です。\n屋根裏で箱を整理していたときに、30年前のはがきを偶然見つけたという文脈です。\n2 got through：終える、切り抜ける。postcard とは合いにくいです。\n3 went over：詳しく確認する。見つける意味ではありません。\n4 held back：抑える、引き止める、差し控える。偶然見つける意味にはなりません。"
+            "correct": 2,
+            "explanation": "2 stumbled upon\nstumble upon は「偶然見つける」という意味です。屋根裏の整理中に、予想していなかった古いはがきを見つけた場面です。\nget through は「終える」、go over は「詳しく確認する」、hold back は「抑える」です。"
           },
           {
             "id": 14,
@@ -1931,11 +1931,11 @@ window.scbtGrade2VocabSets = [
             "choices": [
               "hand in",
               "look over",
-              "fill out",
-              "pass around"
+              "pass around",
+              "fill out"
             ],
-            "correct": 3,
-            "explanation": "3 fill out\nfill out は「記入する」という意味です。\n学校の保健室に行く前に、けがの報告書に名前・日付・症状を書き入れる場面です。\n1 hand in：提出する。最終的には提出するかもしれませんが、本文ではまず情報を書き込むことが求められています。\n2 look over：目を通す。見るだけでは名前や症状を記入できません。\n4 pass around：回して配る。保健室の記録用紙としては不自然です。"
+            "correct": 4,
+            "explanation": "4 fill out\nfill out は「記入する」という意味です。報告書に名前・日付・症状を書き入れるよう求められています。\nhand in は「提出する」、look over は「目を通す」、pass around は「回して配る」です。"
           },
           {
             "id": 15,
@@ -1943,13 +1943,13 @@ window.scbtGrade2VocabSets = [
             "type": "phrase",
             "text": "Students may borrow the art room’s camera for the weekend ( ) they return it in good condition before Monday’s first lesson.",
             "choices": [
+              "provided that",
               "as far as",
-              "as long as",
-              "as soon as",
-              "as well as"
+              "in case",
+              "as soon as"
             ],
-            "correct": 2,
-            "explanation": "2 as long as\nas long as は「〜する限り、〜という条件で」という意味です。\nカメラを借りられる条件が「月曜の最初の授業までに良い状態で返すこと」なので、条件を表す as long as が正解です。\n1 as far as：〜する範囲では。条件を表すには不自然です。\n3 as soon as：〜するとすぐに。借りる条件ではなく、時間の直後関係を表します。\n4 as well as：〜だけでなく、〜も。条件の意味になりません。"
+            "correct": 1,
+            "explanation": "1 provided that\nprovided that は「～という条件で」という意味です。カメラを借りる条件として、月曜日までに良い状態で返すことが示されています。\nas far as は「～する範囲では」、in case は「～の場合に備えて」、as soon as は「～するとすぐに」です。"
           },
           {
             "id": 16,
@@ -1959,11 +1959,11 @@ window.scbtGrade2VocabSets = [
             "choices": [
               "at present",
               "at once",
-              "at least",
-              "at random"
+              "at random",
+              "at least"
             ],
-            "correct": 4,
-            "explanation": "4 at random\nat random は「無作為に、ランダムに」という意味です。\n全員に同じチャンスがあると書かれているので、名前は無作為に選ばれると分かります。\n1 at present：現在は。\n2 at once：すぐに。\n3 at least：少なくとも。\n4 at random：無作為に。"
+            "correct": 3,
+            "explanation": "3 at random\nat random は「無作為に」という意味です。全員に同じ当選機会を与えるため、名前を無作為に選ぶ場面です。\nat present は「現在」、at once は「すぐに」、at least は「少なくとも」です。"
           },
           {
             "id": 17,
@@ -1971,13 +1971,13 @@ window.scbtGrade2VocabSets = [
             "type": "phrase",
             "text": "After several people pressed the elevator buttons without result, a staff member put up a sign saying it was ( ).",
             "choices": [
-              "out of order",
+              "under repair",
               "out of date",
               "out of place",
               "out of work"
             ],
             "correct": 1,
-            "explanation": "1 out of order\nout of order は「故障中で」という意味です。\nボタンを押してもエレベーターが反応しないため、故障中の表示を出したという文脈です。\n2 out of date：時代遅れで、期限切れで。\n3 out of place：場違いで、不適切な場所にあって。\n4 out of work：失業中で。人について使う表現です。"
+            "explanation": "1 under repair\nunder repair は「修理中で」という意味です。ボタンを押しても反応せず、職員が利用停止の案内を出した場面です。\nout of date は「時代遅れで」、out of place は「場違いで」、out of work は「失業中で」です。"
           }
         ]
       },
@@ -1985,11 +1985,11 @@ window.scbtGrade2VocabSets = [
         "label": "長文語句 2A",
         "kind": "long",
         "instruction": "本文を読み、空所に入る最も適切な語句を選んでください。",
-        "passageTitle": "A. Canal Marks",
+        "passageTitle": "A. Snow Fences",
         "passage": [
-          "Before trucks became common, goods in many canal towns moved slowly by boat. Warehouses near the water stored grain, cloth, tools, and coal for merchants who might not be there when a boat arrived. To avoid confusion, workers painted small marks or fixed metal plates near doors and loading spaces. The marks could show a merchant's symbol, a storage number, or a warehouse section. Since receipts were easy to lose during busy seasons, the marks helped clerks (18) before goods were moved again.",
-          "The system worked only when marks and notebooks were kept together. A circle might represent one merchant in one town but another merchant farther along the canal. Some warehouses also changed owners, and old marks were sometimes left in place. Clerks therefore had to check dates, numbers, and written descriptions, not just the sign on the wall. (19), a mark became reliable when it was part of a larger record system. This kept workers from trusting one painted symbol too quickly.",
-          "Modern researchers study these markings because they show how a town organized trade before printed labels and central databases. By comparing marks with maps, tax lists, and old account books, researchers can see which streets handled heavy goods and which families controlled storage space. Marks found near bridges may point to businesses that depended on quick loading, while marks near inns may suggest trade with travelers. Together, these small signs help historians (20) across several generations."
+          "On open roads in snowy regions, strong winds can push loose snow across the ground and build deep drifts. A snowplow may clear the road in the morning, only for wind to cover it again a few hours later. To reduce this problem, road workers place rows of wooden or plastic snow fences in nearby fields. The fences do not block all the wind. Instead, they slow it down, causing much of the snow to fall before it reaches the road. In this way, snow fences can (18).",
+          "The position of a snow fence is important. If it stands too close to the road, the drift may form on the road itself. Workers must consider the usual wind direction, the shape of the land, and the expected depth of the snow. A fence with large gaps may work in one location but fail in another where the snow is wetter or the wind is stronger. For this reason, (19). Records from earlier winters often help engineers decide the height, length, and distance needed.",
+          "Many modern snow fences can be taken down after winter and reused the following year. They are also placed near railway lines and walking paths where repeated drifting causes delays. The fences cannot replace plows during a major storm, but they can reduce how often some areas must be cleared. Some road departments now combine weather reports with sensors that measure wind and snow movement. The information helps them (20) rather than installing fences along every open field."
         ],
         "questions": [
           {
@@ -1998,13 +1998,13 @@ window.scbtGrade2VocabSets = [
             "type": "long-blank",
             "text": "空所(18)に入る最も適切なものを選んでください。",
             "choices": [
-              "estimate weight from painted symbols",
-              "arrange boats by owner names",
-              "connect each shipment with records",
-              "copy receipts for distant buyers"
+              "make road signs easier to read during storms",
+              "melt loose snow before it reaches the ground",
+              "guide drivers across fields when roads disappear",
+              "keep deep drifts from forming on parts of the road"
             ],
-            "correct": 3,
-            "explanation": "正解は 3. connect each shipment with records です。\n第1段落では、運河沿いの倉庫に、商人の記号・保管番号・倉庫区分などを示す印が付けられていたと説明されています。また、領収書は忙しい時期に失われやすかったとも書かれています。つまり、その印は、荷物と記録を照合するために使われたと考えるのが自然です。\n1の estimate weight from painted symbols は、印から重さを推定するという内容ですが、本文に重さの情報はありません。\n2の arrange boats by owner names は、船の並べ方の話になっており、本文の中心である荷物と記録の照合からずれています。\n4の copy receipts for distant buyers は、receipts という本文語に関係しそうですが、領収書を写すことや遠方の買い手については述べられていません。"
+            "correct": 4,
+            "explanation": "正解は 4. keep deep drifts from forming on parts of the road です。\nフェンスは風を弱め、雪を道路へ届く前に落とすことで、道路上に深い吹きだまりができにくくします。\n1は標識の視認性、2は雪を溶かす働き、3は運転経路の案内であり、本文の説明とは異なります。"
           },
           {
             "id": 19,
@@ -2012,13 +2012,13 @@ window.scbtGrade2VocabSets = [
             "type": "long-blank",
             "text": "空所(19)に入る最も適切なものを選んでください。",
             "choices": [
-              "At first glance",
-              "In daily use",
-              "For storage fees",
-              "Along the canal"
+              "the same fence design works beside every road",
+              "effective fence design depends on local conditions",
+              "snowplows are unnecessary wherever fences are used",
+              "the strongest fences should be placed nearest the road"
             ],
             "correct": 2,
-            "explanation": "正解は 2. In daily use です。\n第2段落では、印だけでは不十分だったことが説明されています。同じ形の印が別の町では別の商人を表すことがあり、倉庫の所有者が変わった後も古い印が残ることがありました。そのため、実際の運用では、印は記録システムと組み合わせて初めて信頼できるものになった、という流れです。したがって In daily use が最も自然です。\n1の At first glance は「一見すると」という意味で、見た目の印象を述べる表現です。しかし、ここでは見た目ではなく、実際の使用場面での信頼性が問題になっています。\n3の For storage fees は「保管料のために」という意味ですが、後ろの文全体を自然につなげるには狭すぎます。\n4の Along the canal は場所を表すだけで、前文の「印だけでは不十分だった」という流れを受けられません。"
+            "explanation": "正解は 2. effective fence design depends on local conditions です。\n必要な隙間、高さ、設置距離は、風向き・地形・雪の性質によって変わるため、地域条件に合わせる必要があります。\n1と3は本文の説明を一般化しすぎており、4は道路に近すぎると吹きだまりが道路上にできるという内容と反対です。"
           },
           {
             "id": 20,
@@ -2026,13 +2026,13 @@ window.scbtGrade2VocabSets = [
             "type": "long-blank",
             "text": "空所(20)に入る最も適切なものを選んでください。",
             "choices": [
-              "compare prices of canal tickets",
-              "locate families who painted signs",
-              "list boats that carried passengers",
-              "trace changes in local trade"
+              "measure how quickly reusable plastic becomes weak",
+              "replace permanent barriers beside railway lines",
+              "choose locations where fences can reduce repeated drifting",
+              "keep roads open without using weather information"
             ],
-            "correct": 4,
-            "explanation": "正解は 4. trace changes in local trade です。\n第3段落では、研究者が印を地図、税の記録、古い帳簿と比べることで、どの通りが重い商品を扱っていたか、どの家族が保管場所を支配していたかを調べられると説明されています。さらに、橋の近くの印や宿屋の近くの印から、町の商業活動の様子が読み取れるとあります。したがって、印は地域の交易の変化をたどる手がかりになる、という内容が最も合います。\n1の compare prices of canal tickets は、運河に関係はありますが、本文は乗船券の価格ではなく、倉庫・商人・荷物の流れを扱っています。\n2の locate families who painted signs は、families という語に関係しそうですが、本文の焦点は「印を描いた家族」ではなく、商業や保管の仕組みです。\n3の list boats that carried passengers は、boats という本文語には近いものの、本文は旅客船ではなく商品の保管と移動について述べています。"
+            "correct": 3,
+            "explanation": "正解は 3. choose locations where fences can reduce repeated drifting です。\n風と雪のデータを使うことで、すべての野原に設置するのではなく、吹きだまり対策として効果の高い場所を選べます。\n1と2はデータ利用の主目的ではなく、4はweather reportsを利用するという本文と矛盾します。"
           }
         ]
       },
@@ -2053,13 +2053,13 @@ window.scbtGrade2VocabSets = [
             "type": "long-blank",
             "text": "空所(21)に入る最も適切なものを選んでください。",
             "choices": [
-              "hunt mainly above bright roads",
               "move between shelters and feeding areas",
+              "hunt mainly above bright roads",
               "gather under lamps near houses",
               "rest inside hollow trees by day"
             ],
-            "correct": 2,
-            "explanation": "正解は 2. move between shelters and feeding areas です。\n第1段落では、コウモリが生け垣、木の列、細い林などをたどって飛ぶと説明されています。これらは音を反射し、コウモリにとってなじみのある「縁」のような目印になります。そして、科学者はこれらを travel corridors と呼んでいます。つまり、コウモリはそれらを使って、すみかと餌場の間を移動していると考えるのが自然です。\n1の hunt mainly above bright roads は、bright roads という要素は本文に近いですが、明るい道路はむしろ移動を妨げる要素として出ています。\n3の gather under lamps near houses は、lamps という本文語に関係しますが、本文ではランプの下に集まることが目的とはされていません。\n4の rest inside hollow trees by day は、hollow trees という語には関係しますが、ここで問われているのは夜の移動経路の役割です。"
+            "correct": 1,
+            "explanation": "正解は 1. move between shelters and feeding areas です。\n生け垣や木の列は、コウモリがすみかと餌場の間を移動するときに使うtravel corridorsとして説明されています。\n明るい道路やランプは経路を妨げる要因で、hollow treesは出発するすみかの例です。"
           },
           {
             "id": 22,
@@ -2067,13 +2067,13 @@ window.scbtGrade2VocabSets = [
             "type": "long-blank",
             "text": "空所(22)に入る最も適切なものを選んでください。",
             "choices": [
-              "When trees remain close together",
               "When lights shine across the gap",
               "When fields become much wider",
-              "When nearby shelters disappear"
+              "When nearby shelters disappear",
+              "When trees remain close together"
             ],
-            "correct": 1,
-            "explanation": "正解は 1. When trees remain close together です。\n第2段落では、コウモリが通る corridor に切れ目ができても、その影響は一様ではないと説明されています。重要なのは、切れ目の広さ、明るさ、そして両側に木が残っているかどうかです。さらに、枝がほとんどつながっているような狭い道路なら渡ることがある一方、広い開けた場所では引き返すことがあると述べられています。したがって、木が近くに残っている場合、コウモリはその経路を使い続ける可能性がある、という流れになります。\n2の When lights shine across the gap は、明かりが差す場合ですが、本文では明るさは移動を難しくする要因として扱われています。\n3の When fields become much wider は、広い開けた場所に近くなり、むしろ使い続けにくい条件です。\n4の When nearby shelters disappear は、すみかがなくなる条件なので、その経路を使い続ける理由としては弱いです。"
+            "correct": 4,
+            "explanation": "正解は 4. When trees remain close together です。\n枝がほとんど接する狭い切れ目なら、土地が変化した後もコウモリが経路を使い続ける可能性があります。\n強い照明、広い野原、すみかの消失は、経路を使い続けやすくする条件ではありません。"
           },
           {
             "id": 23,
@@ -2082,12 +2082,12 @@ window.scbtGrade2VocabSets = [
             "text": "空所(23)に入る最も適切なものを選んでください。",
             "choices": [
               "add parking spaces beside hedges",
-              "widen roads through tree lines",
               "plant new hedges or reduce lighting",
+              "widen roads through tree lines",
               "place detectors near shop lights"
             ],
-            "correct": 3,
-            "explanation": "正解は 3. plant new hedges or reduce lighting です。\n第3段落では、研究者が道路や建物の計画前にコウモリの通り道を調べると説明されています。音を記録する機器を置いたり、ランプが木に直接当たっている場所を確認したりするのは、町の変化による影響を減らすためです。そして最後に、feeding routes がつながったままになるように計画者が判断するとあります。したがって、新しい生け垣を植えたり、照明を減らしたりすることが最も自然です。\n1の add parking spaces beside hedges は、生け垣の近くに駐車場を増やす内容で、移動経路を守る目的とは合いません。\n2の widen roads through tree lines は、木の列を通して道路を広げることになり、むしろ corridor を分断する可能性があります。\n4の place detectors near shop lights は、調査方法には関係しますが、feeding routes をつなげるための具体的な保全策ではありません。"
+            "correct": 2,
+            "explanation": "正解は 2. plant new hedges or reduce lighting です。\n調査結果は、feeding routesをつなげたままにするための植栽や照明調整に使われます。\n駐車場や道路拡幅は経路を分断する可能性があり、detectorsの設置は調査方法であって保全策そのものではありません。"
           }
         ]
       },
@@ -2095,57 +2095,57 @@ window.scbtGrade2VocabSets = [
         "label": "メール 3A",
         "kind": "long",
         "instruction": "Eメールを読み、質問に対する最も適切な答えを選んでください。",
-        "passageTitle": "Your Place in the Weekend Cooking Class",
+        "passageTitle": "Your Volunteer Assignment for River Clean-up Day",
         "passage": [
-          "From: Elena Brooks <e.brooks@greenwaykitchen.org>\nTo: Noah Allen <n.allen@example.org>\nDate: June 8, 2026\nSubject: Your Place in the Weekend Cooking Class",
+          "From: Maya Chen <m.chen@riverfriends.org>\nTo: Noah Allen <n.allen@example.org>\nDate: June 8, 2026\nSubject: Your Volunteer Assignment for River Clean-up Day",
           "Dear Noah,",
-          "Thank you for registering for Greenway Kitchen’s Weekend Cooking Class. Because the class filled quickly, we reviewed the waiting list this morning and found that one person has decided not to attend. I am happy to let you know that a place is now available for you. The class is meant for beginners who want to prepare simple lunches at home, so no special experience is needed.",
-          "The class will take place on Saturday, June 27, from 9:30 a.m. to 1:00 p.m. We first planned to use the main kitchen, but a larger group booked that space, so please come to Kitchen Room B on the first floor. All basic ingredients will be provided. However, please bring a container for taking home food and a small towel. If you have your own apron, you may bring it, but we can lend one to anyone who needs it.",
-          "Please reply by June 15 to confirm that you still want to join the class. In your reply, tell me whether you have any food allergies and whether you will need to borrow an apron. After I receive your reply, I will send the recipe list and payment instructions. If I do not hear from you by June 15, I will offer the place to another person.",
-          "Best regards,\nElena Brooks\nProgram Assistant"
+          "Thank you for volunteering for Green River Clean-up Day on Saturday, June 27. We originally expected you to join the team working along the east walking path. However, more volunteers have registered than we expected, and we now need an additional person at the equipment desk. Because you wrote that you helped manage supplies at your school festival, I would like you to work there with Aya Lewis. You will record which teams receive gloves, bags, and litter pickers and check that the tools are returned.",
+          "The event will run from 8:30 a.m. to 12:30 p.m. Please meet at the North Gate at 8:15, rather than at the visitor center shown on the first map. Construction vehicles will be using the visitor-center parking area that morning. A delivery van will bring the equipment to the North Gate shortly after 8:00, and the boxes are light enough for two people to carry. We will provide work gloves, a safety vest, and lunch. Please bring a reusable water bottle and a hat.",
+          "Please reply by June 15 to confirm that you can attend. In your reply, tell me whether you can arrive by 8:15 and whether you need a task that does not involve lifting boxes. If you cannot arrive early, you may still join one of the walking teams from 9:00. In case of heavy rain, we will announce a new date on our website and send volunteers a text message by 6:00 p.m. on Friday.",
+          "Best regards,\nMaya Chen\nVolunteer Coordinator"
         ],
         "questions": [
           {
             "id": 24,
             "section": "メール 3A",
             "type": "email",
-            "text": "(24) Why is Elena Brooks writing this e-mail?",
+            "text": "(24) Why is Maya Chen writing this e-mail?",
             "choices": [
-              "To tell Noah that a place is available and explain what he should know before the class.",
-              "To ask Noah to help teach a cooking class for beginners.",
-              "To tell Noah that the class has moved because not enough people registered.",
-              "To ask Noah to choose the recipes that will be used in the class."
+              "To ask Noah to move the equipment desk back to the visitor center.",
+              "To tell Noah that the river clean-up has been canceled because of construction.",
+              "To explain Noah’s volunteer assignment and give him practical information for the event.",
+              "To ask Noah to choose which volunteers will work along the east walking path."
             ],
-            "correct": 1,
-            "explanation": "正解は 1 です。第1段落で、Weekend Cooking Class はすぐに満員になったが、1人が参加しないことになったため、Noah に参加枠が空いたと伝えています。また、第2段落以降で、日時、場所、持ち物、返信内容なども説明しています。したがって、Elena は「参加できることになった」と知らせ、授業前に必要な情報を伝えるためにメールを書いています。\n2 は、Noah が教える側になるとは書かれていません。\n3 は、場所変更の話は本文にありますが、理由は「人数不足」ではなく「main kitchen を別の大きなグループが予約したため」です。\n4 は、recipe list は Elena が後で送るもので、Noah がレシピを選ぶとは書かれていません。"
+            "correct": 3,
+            "explanation": "正解は 3 です。MayaはNoahをequipment desk担当に変更し、集合場所、時刻、持ち物、返信事項を伝えています。\n1は集合場所変更の方向が逆で、2は雨天時にも即中止ではなく延期の可能性があります。4は担当者をNoahが選ぶ内容ではありません。"
           },
           {
             "id": 25,
             "section": "メール 3A",
             "type": "email",
-            "text": "(25) What is true about the cooking class?",
+            "text": "(25) What is true about River Clean-up Day?",
             "choices": [
-              "It will be held in the main kitchen, and Noah must bring all the ingredients.",
-              "It will be held in Kitchen Room B, and Noah should bring a container and a small towel.",
-              "It will begin at 1:00 p.m., and Noah can borrow a container if he needs one.",
-              "It is only for people with cooking experience, and everyone must bring an apron."
+              "Noah should meet at the North Gate before the event begins and bring a water bottle and a hat.",
+              "Noah should meet at the visitor center after the delivery van has left.",
+              "Noah must bring his own gloves, safety vest, and lunch to the equipment desk.",
+              "Noah will spend the morning deciding which tools the organizers should buy."
             ],
-            "correct": 2,
-            "explanation": "正解は 2 です。第2段落に、当初は main kitchen を使う予定だったが、別の大きなグループがその場所を予約したため、Kitchen Room B に来るように書かれています。また、持ち物として、食べ物を持ち帰るための container と small towel を持ってくるように指示されています。\n1 は、会場が main kitchen ではなく Kitchen Room B なので不正解です。また、基本的な材料は用意されるため、すべての材料を持参する必要はありません。\n3 は、終了時刻が 1:00 p.m. であり、開始時刻ではありません。また、借りられるのは container ではなく apron です。\n4 は、本文では beginners 向けで、特別な経験は不要とされています。また、apron は持参してもよいが、必要なら借りられます。"
+            "correct": 1,
+            "explanation": "正解は 1 です。Noahは8:15にNorth Gateへ集合し、water bottleとhatを持参します。\nvisitor centerは工事車両が使い、gloves・vest・lunchは主催者が用意します。Noahの役割は道具の配布と返却記録です。"
           },
           {
             "id": 26,
             "section": "メール 3A",
             "type": "email",
-            "text": "(26) Elena says that Noah should",
+            "text": "(26) What does Maya ask Noah to include in his reply?",
             "choices": [
-              "reply by June 15 and say whether he has food allergies and needs to borrow an apron.",
-              "wait for the recipe list before deciding whether he wants to join the class.",
-              "send payment instructions to Greenway Kitchen before June 15.",
-              "bring printed recipes to the class and pay for the ingredients on June 27."
+              "Which walking path he wants to clean and how many litter pickers he can bring.",
+              "Whether he can drive the delivery van and collect tools from the visitor center.",
+              "Whether he wants lunch and which website should announce a rain delay.",
+              "Whether he can arrive by 8:15 and whether he needs work that avoids lifting boxes."
             ],
-            "correct": 1,
-            "explanation": "正解は 1 です。第3段落で、Noah は June 15 までに返信し、まだ参加したいかを確認することに加えて、food allergies があるか、apron を借りる必要があるかを知らせるよう求められています。\n2 は、recipe list を待ってから参加を決めるのではありません。Noah が返信した後に、Elena が recipe list と payment instructions を送る流れです。\n3 は、payment instructions を送るのは Noah ではなく Elena です。\n4 は、printed recipes を持参するとは書かれていません。また、基本的な材料は提供されるため、June 27 に材料費を払うとは本文にありません。"
+            "correct": 4,
+            "explanation": "正解は 4 です。Mayaは返信で、8:15までに到着できるか、箱を持ち上げない仕事が必要かを知らせるよう求めています。\n歩く経路、vanの運転、昼食やwebsiteの選択をNoahに求めてはいません。"
           }
         ]
       },
@@ -2167,13 +2167,13 @@ window.scbtGrade2VocabSets = [
             "type": "long-content",
             "text": "(27) According to the first paragraph, why have researchers become interested in old recordings?",
             "choices": [
+              "Rare early players have become common again, making the recordings easy to use.",
               "They may contain sounds and local information that written records do not show.",
-              "They prove that early recording machines were easier to find than people once thought.",
-              "They were made only in studios, so their quality is usually better than home recordings.",
-              "They were kept in family boxes because museums refused to collect them."
+              "Recordings made in homes are usually clearer and more complete than studio recordings.",
+              "Museums collected them mainly because the notes on their boxes gave full historical details."
             ],
-            "correct": 1,
-            "explanation": "正解：1\n第1段落の最後に、古い録音は accents, songs, and local events that were often never written down の記録として価値があると書かれています。つまり、文字では残っていない音声・歌・地域の出来事を知る手がかりになるということです。\n2は、本文では再生機械は rare だったとあるので逆です。\n3は、録音はスタジオだけでなく、学校・町のホール・個人宅でも作られたとあるので誤りです。\n4は、museumやfamily boxesは出てきますが、博物館が収集を拒否したとは書かれていません。"
+            "correct": 2,
+            "explanation": "正解：2\n古い録音には、文字で残されなかったアクセント、歌、地域行事の音が含まれる可能性があります。\n再生機はrareで、録音場所による品質比較や、箱の説明が完全だったという記述はありません。"
           },
           {
             "id": 28,
@@ -2181,13 +2181,13 @@ window.scbtGrade2VocabSets = [
             "type": "long-content",
             "text": "(28) What was one difficulty with the older way of listening to recordings?",
             "choices": [
+              "Workers could remove dust, but the equipment gave them no way to adjust playback speed.",
+              "Newspaper reports helped identify recordings and protected their surfaces from needle damage.",
               "It could harm the recording, and workers sometimes had to guess details from limited information.",
-              "It made the recording clearer each time it was played, but the labels became difficult to read.",
-              "It required workers to use newspaper reports instead of removing dust from the surface.",
-              "It allowed workers to choose any speed because old recordings sounded the same at all speeds."
+              "Short notes on the boxes made the recordings easy to identify without other evidence."
             ],
-            "correct": 1,
-            "explanation": "正解：1\n第2段落では、古い録音を聞くには針を使う必要があり、再生するたびに表面を傷つける可能性があったとあります。また、箱に名前や短いメモしかない場合があり、作られた時期や場所を推測しなければならなかったとも書かれています。\n2は、再生するたびに音が明瞭になるとは書かれていません。\n3は、新聞記事などを使って情報を推測したのであって、ほこりを取る代わりに新聞記事を使ったわけではありません。\n4は、速度を間違えると音が不自然になるとあるため誤りです。"
+            "correct": 3,
+            "explanation": "正解：3\n針で再生すると表面を傷つける可能性があり、短いラベルしかない場合は新聞記事などから時期や場所を推測する必要がありました。\n速度は調整できましたが、選択を誤ると音が不自然になりました。新聞記事は表面を保護するものではありません。"
           },
           {
             "id": 29,
@@ -2195,13 +2195,13 @@ window.scbtGrade2VocabSets = [
             "type": "long-content",
             "text": "(29) What did the new technology described in the third paragraph make possible?",
             "choices": [
-              "It allowed archives to study fragile recordings more safely and share copies with distant users.",
-              "It removed all background noise from broken recordings so experts no longer had to judge the sound.",
-              "It made cameras unnecessary because computers could play cylinders directly with needles.",
-              "It made archive workers use original recordings more often because scanning took too long."
+              "It repaired missing grooves before the camera made a digital image of the recording.",
+              "It created digital sound without requiring archives to identify when or where it was recorded.",
+              "It encouraged archives to play original recordings more often so that scans could be checked.",
+              "It allowed archives to study fragile recordings more safely and share copies with distant users."
             ],
-            "correct": 1,
-            "explanation": "正解：1\n第3段落では、カメラやスキャナーで溝を読み取り、コンピューターが音に変える技術が説明されています。その結果、壊れやすい録音をより少ないリスクで聞き、遠くにいる人も研究できるデジタルコピーを作れるようになったとあります。\n2は、背景音や壊れた部分の問題が完全になくなるとは書かれていません。\n3は、カメラやスキャナーを使う方法なので、カメラが不要になったわけではありません。\n4は、新技術は原本に触れるリスクを減らすためのもので、原本をより頻繁に使うためではありません。"
+            "correct": 4,
+            "explanation": "正解：4\nカメラやスキャナーで溝を読み取ることで、原本への接触を減らし、遠くの研究者もデジタルコピーを調べられます。\n欠けた部分や背景音は残ることがあり、資料の時期・場所を特定する作業も不要にはなりません。"
           },
           {
             "id": 30,
@@ -2210,12 +2210,12 @@ window.scbtGrade2VocabSets = [
             "text": "(30) What is one point made in the fourth paragraph?",
             "choices": [
               "Digital recordings can help teachers, historians, and communities, but archives must be careful about sharing some materials.",
-              "They are useful only for historians because teachers cannot use old pronunciation in lessons.",
-              "They have helped some communities, so family messages and ceremonies should all be posted online.",
-              "They depend on respectful sharing choices, so better technology is no longer important."
+              "Teachers can study old pronunciation, but historians must continue using written reports instead of recordings.",
+              "Community songs can be shared, so private family messages can be treated in the same way.",
+              "Respectful sharing decisions are needed only when the recording technology is too old to improve."
             ],
             "correct": 1,
-            "explanation": "正解：1\n第4段落では、デジタル化された録音は、言語教師・歴史家・地域の人々に役立つとあります。一方で、家族のメッセージや儀式の録音などは、誰でもオンラインで聞けるようにしてよいとは限らないため、慎重に扱う必要があると書かれています。\n2は、教師も古い発音の変化を示すために使えるとあるので誤りです。\n3は、地域文化の保存に役立つことは書かれていますが、家族のメッセージや儀式をすべて公開すべきとは書かれていません。\n4は、本文では better technology も respectful choices も重要だと述べているため、「技術はもう重要ではない」は誤りです。"
+            "explanation": "正解：1\nデジタル録音は教師、歴史家、地域の学習に役立つ一方、家族のメッセージや儀式を公開する際には配慮が必要です。\n本文は録音と文書の両方を資料として扱い、地域の歌と私的記録を同じ条件で公開できるとは述べていません。"
           },
           {
             "id": 31,
@@ -2223,13 +2223,13 @@ window.scbtGrade2VocabSets = [
             "type": "long-content",
             "text": "(31) Which of the following statements is true?",
             "choices": [
-              "Old recordings may show local culture, but they are valuable only when their labels give full details.",
-              "New scanning methods can help protect recordings, so background noise and broken parts no longer matter.",
+              "Recordings with short labels are useful mainly for studying handwriting rather than sound.",
               "Old recordings can be valuable sources of sound, but using and sharing them requires care.",
-              "Because digital copies can be studied far away, original recordings no longer need to be kept carefully."
+              "Once a digital copy is made, archives can stop protecting the fragile original recording.",
+              "Careful sharing is needed for family messages but not for recordings of community ceremonies."
             ],
-            "correct": 3,
-            "explanation": "正解：3\n本文全体では、古い録音はアクセント・歌・地域の出来事などを知る貴重な資料になりうる一方で、傷みやすく、再生方法にも注意が必要で、さらに公開する際にも配慮が必要だと述べています。したがって、3が本文全体の内容に合います。\n1は、ラベルが詳しくない録音でも、 handwriting や新聞記事、背景の楽器などから情報を推測できるとあるため、「ラベルが完全な場合だけ価値がある」は誤りです。\n2は、スキャン技術は役立ちますが、背景音や壊れた部分の問題は残ると書かれています。\n4は、デジタルコピーを作れることは書かれていますが、原本を大切に保管しなくてよいとは書かれていません。"
+            "correct": 2,
+            "explanation": "正解：2\n古い録音は文字資料にない音を伝える一方、壊れやすく、利用方法と公開範囲の両方に注意が必要です。\n短いラベルでも他資料から情報を補えます。デジタル化後も原本の保護は必要で、儀式の録音にも公開上の配慮が求められます。"
           }
         ]
       }
@@ -2319,15 +2319,15 @@ window.scbtGrade2VocabSets = [
             "id": 1,
             "section": "短文語句",
             "type": "vocabulary",
-            "text": "At the bike shop, Mina asked for a written (　　　) before agreeing to the repairs because she wanted to know the likely price.",
+            "text": "At the bike shop, Mina asked whether the repairs came with a written (　　　) because she wanted protection if the same problem returned.",
             "choices": [
               "receipt",
-              "estimate",
+              "warranty",
               "schedule",
               "label"
             ],
             "correct": 2,
-            "explanation": "2 estimate\n修理に同意する前に「だいたいの料金」を知りたいので、written estimate「書面での見積もり」が自然です。receipt は支払い後の領収書、schedule は予定表、label はラベルです。"
+            "explanation": "2 warranty\n同じ不具合が再発した場合の保証を求めているので、written warranty「書面による保証」が自然です。receipt は「領収書」、schedule は「予定表」、label は「ラベル」です。"
           },
           {
             "id": 2,
@@ -2361,15 +2361,15 @@ window.scbtGrade2VocabSets = [
             "id": 4,
             "section": "短文語句",
             "type": "vocabulary",
-            "text": "Riku (　　　) caught the last bus; the doors closed only seconds after he stepped inside, and the driver had already started the engine.",
+            "text": "Riku (　　　) caught the last bus; the doors closed only seconds after he stepped inside.",
             "choices": [
               "nearly",
               "equally",
               "calmly",
-              "barely"
+              "fortunately"
             ],
             "correct": 4,
-            "explanation": "4 barely\nバスに乗った直後にドアが閉まったので、barely caught the last bus「かろうじて最終バスに間に合った」が自然です。nearly caught は「もう少しで乗れそうだったが、実際には乗れなかった」という意味になりやすいため不適切です。"
+            "explanation": "4 fortunately\n最終バスに実際に乗れ、直後にドアが閉まったので fortunately「幸運にも」が自然です。nearly caught は通常「もう少しで乗れたが、乗れなかった」という意味になります。equally は「同じ程度に」、calmly は「落ち着いて」です。"
           },
           {
             "id": 5,
@@ -2403,15 +2403,15 @@ window.scbtGrade2VocabSets = [
             "id": 7,
             "section": "短文語句",
             "type": "vocabulary",
-            "text": "Several residents said the road felt safer with the new streetlights during the trial month, but city officials wanted more (　　　) than opinions before buying more.",
+            "text": "Several residents said the road felt safer with the new streetlights, but city officials wanted objective (　　　) rather than opinions before buying more.",
             "choices": [
               "approval",
-              "evidence",
+              "data",
               "feedback",
               "guidance"
             ],
             "correct": 2,
-            "explanation": "2 evidence\n住民の「安全に感じる」という意見だけではなく、市は購入前に根拠を求めています。evidence は「証拠・根拠」。approval は「承認」、feedback は「反応・意見」、guidance は「指導・助言」です。"
+            "explanation": "2 data\n住民の意見ではなく客観的な資料を求めているので、objective data「客観的なデータ」が自然です。approval は「承認」、feedback は「反応・意見」、guidance は「指導・助言」です。"
           },
           {
             "id": 8,
@@ -2419,13 +2419,13 @@ window.scbtGrade2VocabSets = [
             "type": "vocabulary",
             "text": "A: Did your map app show the right walking time?\nB: Pretty (　　　), actually; I arrived only two minutes later than it predicted.",
             "choices": [
-              "useful",
+              "ordinary",
               "early",
               "detailed",
               "accurate"
             ],
             "correct": 4,
-            "explanation": "4 accurate\n予測より2分遅れただけなので、アプリの歩行時間表示はかなり accurate「正確」だったと言えます。useful も一見入りそうですが、「予測がどれだけ合っていたか」を直接表すのは accurate です。"
+            "explanation": "4 accurate\n予測との差が2分だけだったので、歩行時間の表示はかなり accurate「正確」だったと言えます。ordinary は「普通の」、early は「早い」、detailed は「詳しい」で、時間予測の一致度を表しません。"
           },
           {
             "id": 9,
@@ -2433,41 +2433,41 @@ window.scbtGrade2VocabSets = [
             "type": "vocabulary",
             "text": "At first, Tom wanted to quit the club, but his friends (　　　) him to stay until the important spring performance was finished.",
             "choices": [
-              "persuaded",
+              "convinced",
               "permitted",
               "expected",
               "taught"
             ],
             "correct": 1,
-            "explanation": "1 persuaded\npersuade 人 to do で「人を説得して〜させる」。辞めたいと思っていたTomを、友人たちが春の発表まで残るよう説得した流れです。permitted は「許可した」、expected は「期待した」、taught は「教えた」です。"
+            "explanation": "1 convinced\nconvince 人 to do で「人を説得して〜させる」という意味です。辞めたいと思っていたTomを、友人たちが春の発表まで残るよう説得した流れです。permitted は「許可した」、expected は「期待した」、taught は「教えた」です。"
           },
           {
             "id": 10,
             "section": "短文語句",
             "type": "vocabulary",
-            "text": "After the alarm rang, the guard realized someone had (　　　) blocked the emergency exit; boxes were stacked there in a neat row near the back door.",
+            "text": "While workers were moving a heavy cabinet through the hall, the emergency exit was (　　　) blocked. They cleared the doorway two minutes later, as soon as the cabinet had passed.",
             "choices": [
-              "briefly",
+              "permanently",
               "safely",
-              "deliberately",
+              "temporarily",
               "separately"
             ],
             "correct": 3,
-            "explanation": "3 deliberately\n箱が非常口付近にきれいに積まれていたため、偶然ではなく intentionally「意図的に」に近い deliberately が自然です。briefly は「短時間」、safely は「安全に」、separately は「別々に」です。"
+            "explanation": "3 temporarily\ntemporarily は「一時的に」という意味です。重い棚を運ぶ間だけ非常口がふさがれ、2分後には通れるようになったため、期間が限られていたと分かります。permanently は「永久に」、safely は「安全に」、separately は「別々に」です。"
           },
           {
             "id": 11,
             "section": "短文語句",
             "type": "phrase",
-            "text": "A: How will the school know whether students like the new lunch menu?\nB: Teachers will (　　　) a short survey at the end of next week.",
+            "text": "A: How will the school learn what students think of the new lunch menu?\nB: Teachers will (　　　) a short questionnaire to every class next week.",
             "choices": [
               "bring up",
               "give back",
               "take over",
-              "carry out"
+              "hand out"
             ],
             "correct": 4,
-            "explanation": "4 carry out\ncarry out a survey で「調査を実施する」という意味です。新しい昼食メニューについて生徒の意見を知るためにアンケートを行う文脈です。bring up は「話題に出す」、give back は「返す」、take over は「引き継ぐ」です。"
+            "explanation": "4 hand out\nhand out a questionnaire で「アンケート用紙を配る」という意味です。every class「すべてのクラスに」が配布先を示しています。bring up は「話題に出す」、give back は「返す」、take over は「引き継ぐ」です。"
           },
           {
             "id": 12,
@@ -2489,13 +2489,13 @@ window.scbtGrade2VocabSets = [
             "type": "phrase",
             "text": "After the print shop lost our order that morning, the manager offered free delivery to (　　　) the trouble caused by the extra wait.",
             "choices": [
-              "make up for",
+              "compensate for",
               "account for",
               "prepare for",
               "allow for"
             ],
             "correct": 1,
-            "explanation": "1 make up for\n店側が注文を失くし、待たせたことへの埋め合わせとして無料配送を申し出ています。make up for ～ は「〜の埋め合わせをする」。account for は「説明する」、prepare for は「備える」、allow for は「考慮に入れる」です。"
+            "explanation": "1 compensate for\n店側が注文を失くし、待たせたことへの埋め合わせとして無料配送を申し出ています。compensate for ～ は「〜を埋め合わせる」。account for は「説明する」、prepare for は「備える」、allow for は「考慮に入れる」です。"
           },
           {
             "id": 14,
@@ -2515,29 +2515,29 @@ window.scbtGrade2VocabSets = [
             "id": 15,
             "section": "短文語句",
             "type": "phrase",
-            "text": "Visitors may take photos in the museum (　　　) they do not use a flash, because strong light can damage old paintings.",
+            "text": "Visitors may take photos in the museum (　　　) they use a flash, because strong light can damage old paintings.",
             "choices": [
               "even though",
               "as soon as",
               "in case",
-              "as long as"
+              "unless"
             ],
             "correct": 4,
-            "explanation": "4 as long as\n「フラッシュを使わない」という条件を守れば写真を撮れる、という意味なので as long as「〜する限り」が正解です。even though は「〜だけれども」、as soon as は「〜するとすぐに」、in case は「〜の場合に備えて」です。"
+            "explanation": "4 unless\n強い光は絵を傷めるため、「フラッシュを使わない限り」写真を撮れるという意味です。unless は「〜でない限り」。even though は「〜だけれども」、as soon as は「〜するとすぐに」、in case は「〜の場合に備えて」です。"
           },
           {
             "id": 16,
             "section": "短文語句",
             "type": "vocabulary",
-            "text": "A: Do we need a taxi from the hotel?\nB: No, the station is (　　　) walking distance, so we can get there in about eight minutes.",
+            "text": "A: Do we need a taxi from the hotel?\nB: No, the station is only (　　　) from here, so we can get there in about eight minutes.",
             "choices": [
-              "beyond",
-              "within",
-              "outside",
-              "near"
+              "a long drive",
+              "a short walk",
+              "outside town",
+              "a few stops"
             ],
             "correct": 2,
-            "explanation": "2 within\nwithin walking distance で「徒歩圏内」という固定表現です。8分ほどで行けるとあるので、この表現が合います。beyond walking distance や outside walking distance は「徒歩では遠い」という逆の意味になります。"
+            "explanation": "2 a short walk\nタクシーは不要で8分ほどで着くので、a short walk「歩いてすぐの距離」が自然です。a long drive と outside town は距離の説明に反し、a few stops は交通手段を示す語がないため合いません。"
           },
           {
             "id": 17,
@@ -2559,11 +2559,11 @@ window.scbtGrade2VocabSets = [
         "label": "長文語句 2A",
         "kind": "long",
         "instruction": "本文を読み、空所に入る最も適切な語句を選んでください。",
-        "passageTitle": "A. Harbor Wall Marks",
+        "passageTitle": "A. Clay Pot Coolers",
         "passage": [
-          "In many old harbor towns, stone walls were built not only to stop waves but also to guide boats into the port. Before electric lights and radios, sailors depended on shapes, colors, and marks that could be seen from the sea. Some walls were painted white, while others had dark stones arranged in lines. These designs were not decoration. They helped sailors recognize the entrance when fog or rain changed the view of the coast. In this way, the walls (18), not just protection against the sea.",
-          "As trade increased, the walls took on another role. Merchants brought salt, fish, cloth, and tools from nearby islands and larger cities. Harbor workers needed to know which boats had arrived and where goods should be unloaded. In some towns, simple symbols were carved into stones near landing places. These marks could show a family name, a type of cargo, or the usual stopping area of a boat. They (19), especially when many small boats entered the harbor on the same day.",
-          "Today, researchers study these walls carefully. They compare the shapes of stones, the positions of marks, and old maps kept by local offices. A single mark is not enough to prove how a harbor was used, because storms and later repairs may have changed the wall. (20), researchers can make stronger guesses about trade and boat movement. Their conclusions are still cautious, but the walls help fill gaps left by missing written records."
+          "Keeping vegetables fresh is difficult in hot regions where electricity is costly or unreliable. One simple device uses two unglazed clay pots of different sizes. The smaller pot is placed inside the larger one, and the space between them is filled with wet sand. Food is put in the inner pot and covered with a damp cloth. Water slowly passes through the outer pot and evaporates from its surface. As the water changes into gas, it carries heat away. In this way, the device can (18).",
+          "The method sounds easy, but local weather matters. Evaporation happens more quickly when the air is dry and can move freely around the pot. In a very humid room, the air already contains much water, so the cooling effect is weaker. Placing the device in a closed box also reduces airflow. Users must add water regularly and keep the cloth and sand wet. For these reasons, clay pot coolers (19), rather than in every hot place.",
+          "Some community groups teach market sellers how to build the coolers with local materials. Their tests show that certain vegetables can remain usable for several extra days, which may reduce food waste and protect sellers' income. However, the device does not reach the low temperatures of an electric refrigerator, so it is not suitable for every kind of food. Results also vary with pot size, airflow, and weather. Clay pot coolers therefore (20), but only when people understand their limits and local conditions."
         ],
         "questions": [
           {
@@ -2572,13 +2572,13 @@ window.scbtGrade2VocabSets = [
             "type": "long-blank",
             "text": "空所(18)に入る最も適切なものを選んでください。",
             "choices": [
-              "helped divide private fishing areas",
-              "showed where cargo was stored",
-              "acted as visual guides",
-              "held ropes for loading boats"
+              "transport water over long distances",
+              "dry clay containers before they are used",
+              "keep some produce fresh longer without electricity",
+              "cook vegetables slowly at a low temperature"
             ],
             "correct": 3,
-            "explanation": "正解：3. acted as visual guides\n第1段落では、港の石壁が波を止めるだけでなく、船を港へ導く役割を持っていたことが説明されています。白く塗られた壁や暗い石の線は飾りではなく、霧や雨で海岸の見え方が変わっても、船乗りが港の入口を見分けるための目印でした。したがって、「視覚的な案内役として働いた」という3が最も自然です。\n1は「私的な漁場を分けるのに役立った」で、海や港には関係しますが、本文の焦点である船の誘導とはずれます。\n2は「貨物が保管される場所を示した」で、港の機能としてはありそうですが、第1段落の内容ではありません。\n4は「船積み用のロープを支えた」で、港の壁に関係しそうではありますが、本文の視覚的な目印という役割とは合いません。"
+            "explanation": "正解：3. keep some produce fresh longer without electricity\n第1段落では、ぬれた砂の水分が外側の鉢から蒸発するときに熱を奪い、内側の鉢を冷やす仕組みが説明されています。したがって、電気を使わず一部の農産物を長く新鮮に保つという3が正解です。\n1は、水を遠くへ運ぶ装置ではありません。\n2は、鉢を乾燥させるのではなく、砂や布をぬれた状態に保ちます。\n4は、野菜を加熱調理するのではなく冷やす装置です。"
           },
           {
             "id": 19,
@@ -2586,13 +2586,13 @@ window.scbtGrade2VocabSets = [
             "type": "long-blank",
             "text": "空所(19)に入る最も適切なものを選んでください。",
             "choices": [
-              "kept unloading work organized",
-              "helped crews compare arrival times",
-              "marked routes to deeper water",
-              "recorded wall repairs after storms"
+              "work best when dry air can move around them",
+              "become colder in humid, closed rooms",
+              "require electric fans to produce any cooling",
+              "remain effective without additional water"
             ],
             "correct": 1,
-            "explanation": "正解：1. kept unloading work organized\n第2段落では、貿易が増え、多くの船や荷物が港に集まるようになったことが述べられています。石に刻まれた印は、家族名、貨物の種類、船がよく止まる場所などを示すことができました。そのため、多くの小舟が同じ日に入港しても、荷下ろし作業を整理しやすくしたと考えられます。よって1が正解です。\n2は「乗組員が到着時間を比べるのに役立った」で、港の管理には関係しそうですが、本文には到着時間を記録したとは書かれていません。\n3は「深い水路への道を示した」で、第1段落の航行案内には近いですが、第2段落の荷下ろし管理とは焦点が違います。\n4は「嵐の後の壁の修理を記録した」で、第3段落の修理や損傷には近いものの、第2段落の印の役割とは合いません。"
+            "explanation": "正解：1. work best when dry air can move around them\n第2段落では、乾いた空気が鉢の周囲を動くと蒸発が速くなり、冷却効果が高まると説明されています。したがって1が正解です。\n2は、湿度の高い閉ざされた部屋では効果が弱くなるので逆です。\n3は、電動ファンが必須とは書かれていません。\n4は、水を定期的に足す必要があるため不正解です。"
           },
           {
             "id": 20,
@@ -2600,13 +2600,13 @@ window.scbtGrade2VocabSets = [
             "type": "long-blank",
             "text": "空所(20)に入る最も適切なものを選んでください。",
             "choices": [
-              "Before the wall was repaired",
-              "Although the maps are useful",
-              "If one symbol is unusual",
-              "When several clues agree"
+              "can cool whole buildings during the hottest months",
+              "keep food as cold as electric refrigerators do",
+              "remove the need to follow ordinary food-safety rules",
+              "provide limited, low-cost cooling where the climate is suitable"
             ],
             "correct": 4,
-            "explanation": "正解：4. When several clues agree\n第3段落では、研究者が石の形、印の位置、古い地図などを比べると説明されています。ただし、1つの印だけでは港の使われ方を証明するには不十分で、嵐や後の修理によって壁が変わった可能性もあります。だからこそ、複数の手がかりが一致したときに、貿易や船の動きについてより強い推測ができます。よって4が正解です。\n1は「壁が修理される前に」で、時間関係として本文の流れに合いません。\n2は「地図は役に立つけれども」で、譲歩表現としては入りますが、その後の「より強い推測ができる」という内容とのつながりが弱いです。\n3は「1つの記号が珍しいなら」で、1つの印だけでは十分でないという直前の内容と合いません。"
+            "explanation": "正解：4. provide limited, low-cost cooling where the climate is suitable\n第3段落では、安価な材料で作れ、食品を数日長く保てる一方、電気冷蔵庫ほど低温にはならず、天候などで結果が変わると説明されています。したがって、適した気候で限定的かつ低コストの冷却手段になるという4が正解です。\n1は、建物全体を冷やす装置ではありません。\n2は、電気冷蔵庫と同じ低温にはならないと明記されています。\n3は、食品安全上の注意が不要になるとは書かれていません。"
           }
         ]
       },
@@ -2669,57 +2669,57 @@ window.scbtGrade2VocabSets = [
         "label": "メール 3A",
         "kind": "long",
         "instruction": "Eメールを読み、質問に対する最も適切な答えを選んでください。",
-        "passageTitle": "Museum Photo Walk",
+        "passageTitle": "Saturday Book Donation Drop-off",
         "passage": [
-          "From: Clara Evans <c.evans@northbaymuseum.org>\nTo: Kenji Sato <k.sato@example.com>\nDate: September 4, 2026\nSubject: Museum Photo Walk",
-          "Dear Mr. Sato,",
-          "I hope you are looking forward to the Museum Photo Walk next weekend. I am contacting everyone who reserved a place because we need to make two changes to the plan. We first planned to begin in the museum garden, but part of it is now being repaired. Instead, the group will meet in the East Gallery, where the guide will briefly introduce the old street photographs on display.",
-          "The event will take place on September 19 from 1:00 to 3:30 p.m. Please arrive by 12:45 so we can check your name and give you a visitor badge. You may use either a camera or a phone, but tripods cannot be used inside the gallery. Please bring comfortable shoes and make sure your battery is fully charged. The guide will also show how to frame simple city scenes. If it rains, the outdoor walking part will be replaced with an indoor photo activity using objects from the museum collection.",
-          "Please reply by September 12 and tell us whether you will use a camera or a phone. Also, let us know if you need the route without stairs during the walk. If you cannot attend in the afternoon, you may ask to join the morning group, but only eight places are still open.",
-          "Best regards,\nClara Evans\nVisitor Programs Assistant"
+          "From: Daniel Moore <d.moore@northlibrary.org>\nTo: Aiko Tanaka <a.tanaka@example.com>\nDate: October 6, 2026\nSubject: Saturday Book Donation Drop-off",
+          "Dear Ms. Tanaka,",
+          "Thank you for offering books for the North Library's annual used-book sale. I am writing because the drop-off plan for this Saturday has changed. Our delivery van is being repaired, so volunteers cannot collect donations at Central School as planned. Please bring your boxes to the side entrance of North Library instead. The entrance faces Pine Street and will be marked with a yellow sign.",
+          "We can accept clean novels, picture books, travel books, and recent study guides. Please do not bring old magazines, badly damaged books, or textbooks with missing pages. To help volunteers sort donations quickly, place children's books and adult books in separate boxes and label each box clearly. Cars may stop beside the entrance for ten minutes while boxes are unloaded.",
+          "Please reply by October 9 with the number of boxes you plan to bring and your expected arrival time between 9:00 a.m. and noon. If you cannot transport the boxes yourself, mention this in your reply. We have a small volunteer team that can collect donations from a few local homes on Friday evening.",
+          "Best regards,\nDaniel Moore\nBook Sale Coordinator"
         ],
         "questions": [
           {
             "id": 24,
             "section": "メール 3A",
             "type": "email",
-            "text": "(24) Why is Clara Evans writing this e-mail?",
+            "text": "(24) Why is Daniel Moore writing this e-mail?",
             "choices": [
-              "To ask Kenji Sato to help repair the museum garden before the photo walk.",
-              "To explain changes to the meeting plan and give details about the photo walk.",
-              "To ask Kenji Sato to lend old street photographs to the East Gallery.",
-              "To tell Kenji Sato that the afternoon event has been replaced by the morning group."
+              "To ask Aiko Tanaka to help repair the library's delivery van.",
+              "To explain a changed drop-off location and how donations should be prepared.",
+              "To invite Aiko Tanaka to sell travel books at Central School.",
+              "To tell Aiko Tanaka that the used-book sale has moved to Friday evening."
             ],
             "correct": 2,
-            "explanation": "第1段落に “we need to make two changes to the plan” とあり、集合場所が museum garden から East Gallery に変わったことが説明されています。また、その後の段落で日時、持ち物、雨の場合、返信内容などの詳細も伝えています。したがって正答は2です。\n1は museum garden と repaired という本文情報を使っていますが、Kenjiが修理を手伝うとは書かれていません。\n3は old street photographs と East Gallery という本文情報を使っていますが、Kenjiが写真を貸すわけではありません。\n4は morning group という本文情報を使っていますが、午後のイベント自体が朝のグループに置き換わったわけではありません。"
+            "explanation": "第1段落で、土曜日の寄付本の持ち込み場所が Central School から North Library の脇入口へ変わったと説明し、第2段落で受け入れ可能な本や箱の分け方を案内しています。したがって正答は2です。\n1は van と repaired という本文情報を組み合わせていますが、Aikoに修理を頼んでいるわけではありません。\n3は travel books と Central School が本文に出ますが、販売への招待ではありません。\n4は Friday evening が出ますが、これは一部の家庭への回収時間で、古本市の移動ではありません。"
           },
           {
             "id": 25,
             "section": "メール 3A",
             "type": "email",
-            "text": "(25) What is true about the event?",
+            "text": "(25) What is true about the donation drop-off?",
             "choices": [
-              "Participants should arrive before 1:00 and may use either a camera or a phone.",
-              "Participants should meet first in the museum garden and receive a visitor badge there.",
-              "Participants should bring a tripod because it will be needed inside the East Gallery.",
-              "Participants will take outdoor photos even if it rains during the event."
+              "Donors should use the library's side entrance and separate children's books from adult books.",
+              "Donors may leave cars beside the entrance for as long as they need.",
+              "The library accepts old magazines if they are packed separately.",
+              "Volunteers will collect every donation from Central School on Saturday."
             ],
             "correct": 1,
-            "explanation": "第2段落に、イベントは1:00開始で、12:45までに来るように書かれています。また、camera でも phone でもよいとあります。したがって正答は1です。\n2は museum garden が本文に出ていますが、そこは修理中のため、最初の集合場所は East Gallery です。\n3は tripod が本文に出ていますが、gallery の中では使えないと書かれています。\n4は rain の場合についての情報を使っていますが、雨なら outdoor walking part は indoor photo activity に変更されます。"
+            "explanation": "第1段落で持ち込み先は North Library の side entrance、第2段落で children's books と adult books を別々の箱にするよう指示されています。したがって正答は1です。\n2は、車を止められるのは10分間だけです。\n3は、old magazines は受け入れないと明記されています。\n4は、Central School での回収ができなくなったため場所を変更しています。"
           },
           {
             "id": 26,
             "section": "メール 3A",
             "type": "email",
-            "text": "(26) By September 12, Kenji Sato should",
+            "text": "(26) By October 9, Aiko Tanaka should",
             "choices": [
-              "choose which old street photographs the guide will introduce.",
-              "ask whether the museum garden repairs will finish before September 19.",
-              "tell the museum what he will use to take photos and whether he needs a route without stairs.",
-              "send the museum some objects to use for the indoor photo activity."
+              "send a list of all book titles and explain why each one is useful.",
+              "reserve a ten-minute parking space beside Central School.",
+              "report her box count and arrival time, and say if she needs home collection.",
+              "decide which local homes the volunteer team should visit on Friday."
             ],
             "correct": 3,
-            "explanation": "第3段落に、September 12までに、camera を使うのか phone を使うのかを伝えること、さらに階段のないルートが必要かどうかを知らせることが求められています。したがって正答は3です。\n1は old street photographs と guide という本文情報を使っていますが、紹介する写真をKenjiが選ぶわけではありません。\n2は garden repairs と September 19 という本文情報を使っていますが、修理完了予定を確認するよう求められてはいません。\n4は objects と indoor photo activity という本文情報を使っていますが、それらは雨の場合にmuseum collectionの物を使うという話で、Kenjiが物を送るわけではありません。"
+            "explanation": "第3段落で、October 9までに箱の数と9時から正午までの到着予定時刻を伝え、自分で運べない場合はそのことも返信に書くよう求められています。したがって正答は3です。\n1は、本の題名一覧を送る指示はありません。\n2は、10分間の停車はできますが、Central School の駐車予約をするわけではありません。\n4は、回収先を決めるのは図書館側であり、Aikoではありません。"
           }
         ]
       },
@@ -2741,13 +2741,13 @@ window.scbtGrade2VocabSets = [
             "type": "long-content",
             "text": "(27) According to the first paragraph, why did some groups begin opening repair cafés?",
             "choices": [
-              "They wanted libraries to become places where people could buy cheaper household objects.",
-              "They hoped older relatives would stop teaching young people how to use basic tools.",
+              "They wanted libraries to teach people how to choose cheaper products instead of repairing old ones.",
+              "They hoped to save usable objects, but believed repair skills were already common in most families.",
               "They were concerned that useful objects and repair skills were being lost.",
-              "They found that radios, coats, and chairs had become too expensive to repair."
+              "They found that cheaper household products were usually easier for families to repair."
             ],
             "correct": 3,
-            "explanation": "答え：3\n第1段落では、昔は家庭用品を修理して長く使っていたが、製品が安くなるにつれて壊れた物が捨てられるようになったと説明されています。その結果、修理の技術とまだ使える物が失われることを心配した人たちが、repair cafés を開き始めました。\n1は「安い家庭用品を買う場所にする」という内容で、本文とは違います。\n2は、若い人に道具の使い方を教えなくするためではありません。\n4は、修理が高くなったからではなく、物を買い替えることが増えたことが背景です。"
+            "explanation": "答え：3\n第1段落では、製品が安くなって壊れた物が捨てられるようになり、修理技術とまだ使える物が失われることを心配した人たちが repair cafés を始めたと説明されています。\n1は、安い新品の選び方を教えることが目的ではありません。\n2は、修理技術がすでに広く残っているのではなく、消えつつあると心配していました。\n4は、安い製品が修理しやすくなったとは書かれていません。"
           },
           {
             "id": 28,
@@ -2756,12 +2756,12 @@ window.scbtGrade2VocabSets = [
             "text": "(28) How is a repair café different from a repair shop?",
             "choices": [
               "The owner often stays with the volunteer and helps while information about the item is recorded.",
-              "The owner usually leaves the item at the café and returns after a professional has repaired it.",
-              "Volunteers mainly collect dangerous objects because those items are the easiest to fix quickly.",
-              "Volunteers avoid writing notes because each event uses the same tools and materials."
+              "The owner describes the problem, but then leaves while a professional completes the repair.",
+              "Volunteers repair dangerous items first if the owner helps them record the parts that are needed.",
+              "Volunteers record an item's condition only when an attempted repair has failed."
             ],
             "correct": 1,
-            "explanation": "答え：1\n第2段落では、repair café では持ち主がボランティアのそばに残り、簡単な作業を手伝うとあります。また、ボランティアは物の種類、問題点、必要な部品、修理が成功したかどうかを記録します。したがって1が正解です。\n2は、修理店のように物を預けて後で戻るわけではないので不正解です。\n3は、危険そうな物は専門家が確認するまで修理しないとあるため不正解です。\n4は、記録を取ると本文にあるため不正解です。"
+            "explanation": "答え：1\n第2段落では、持ち主がボランティアのそばに残って簡単な作業を手伝い、品物の問題点や必要な部品なども記録するとあります。したがって1が正解です。\n2は、持ち主が品物を預けて帰る修理店とは違う、という本文に反します。\n3は、危険そうな品物は専門家が確認するまで修理しません。\n4は、成功・失敗にかかわらず品物や問題点を記録します。"
           },
           {
             "id": 29,
@@ -2769,13 +2769,13 @@ window.scbtGrade2VocabSets = [
             "type": "long-content",
             "text": "(29) What did the review of several repair café events show?",
             "choices": [
-              "The number of fixed objects was the only information organizers needed to judge success.",
-              "Most repaired objects failed again because visitors refused to wait for difficult repairs.",
-              "Volunteers needed to stop accepting clothing because it caused more problems than electronics.",
-              "Some objects were hard to repair again because of weak parts, missing instructions, or limited time."
+              "Counting fixed objects showed which practical repair skills visitors had learned.",
+              "Most repairs failed because owners left before volunteers could finish difficult work.",
+              "Creating separate tables solved the shortage of replacement parts found during the review.",
+              "The number of successful repairs hid problems with unavailable parts, missing instructions, and visitors waiting too long."
             ],
             "correct": 4,
-            "explanation": "答え：4\n第3段落では、修理できた数だけを数えても十分ではないことが分かったと説明されています。弱いプラスチック部品が交換できなかったり、安全に開けるための説明書がなかったり、難しい品物に時間をかけすぎたりする問題がありました。したがって4が正解です。\n1は、修理できた数だけでは全体が分からないと本文にあるので不正解です。\n2は、訪問者が待つのを拒んだからではなく、難しい品物に時間がかかりすぎたことが問題です。\n3は、衣類を受け入れなくなったとは書かれていません。"
+            "explanation": "答え：4\n第3段落では、修理できた数だけでは全体像が分からず、交換部品や説明書がないこと、難しい品物に時間をかけすぎてほかの来場者を待たせることが問題だと説明されています。したがって4が正解です。\n1は、修理できた数から技能習得の内容が分かったとは書かれていません。\n2は、持ち主が帰ったことではなく、難しい修理に時間がかかったことが問題です。\n3は、分野別の机は作業方法の改善であり、交換部品の不足自体を解決したとは書かれていません。"
           },
           {
             "id": 30,
@@ -2783,13 +2783,13 @@ window.scbtGrade2VocabSets = [
             "type": "long-content",
             "text": "(30) What is one possible use of repair records today?",
             "choices": [
-              "They can help schools decide which volunteers should stop teaching students practical skills.",
+              "They can help schools choose which simple machines volunteers should teach students to repair.",
               "They can help design students learn which parts often break and which products are hard to open.",
-              "They can prove that professional repair services are no longer necessary in most communities.",
-              "They can allow organizers to repair dangerous items without checking safety rules."
+              "They can show design students which products are easiest to open and therefore need no changes.",
+              "They can help organizers decide which dangerous items may be repaired without a professional check."
             ],
             "correct": 2,
-            "explanation": "答え：2\n第4段落では、いくつかの町が修理記録をデザインを学ぶ学生と共有しているとあります。その学生たちは、どの部品がよく壊れるのか、どの商品が開けにくいのかを調べています。したがって2が正解です。\n1は、学校がボランティアを招いて実用的な技術を教えているので、本文と違います。\n3は、repair cafés は専門の修理サービスを置き換えるものではないと本文にあります。\n4は、安全確認なしに危険な物を修理するとは書かれていません。"
+            "explanation": "答え：2\n第4段落では、町が修理記録をデザインを学ぶ学生と共有し、学生が壊れやすい部品や開けにくい製品を調べているとあります。したがって2が正解です。\n1は、学校での技能教育と修理記録の共有という別々の情報を誤って結び付けています。\n3は、学生が調べるのは開けにくい製品であり、変更不要の製品を探すのではありません。\n4は、危険な品物には専門家の確認が必要です。"
           },
           {
             "id": 31,
@@ -2797,13 +2797,13 @@ window.scbtGrade2VocabSets = [
             "type": "long-content",
             "text": "(31) Which of the following statements is true?",
             "choices": [
-              "Repair cafés were started because cheap products made people repair household objects more often.",
-              "Repair cafés mainly work by taking broken items away from owners and sending them to factories.",
+              "Cheaper products encouraged people to repair more objects, so repair skills spread through families.",
+              "Clear repair records allow owners to leave their objects instead of joining the work.",
               "Repair cafés can preserve useful skills, but they need records, limits, and safety checks to work well.",
-              "Repair cafés have already solved most waste problems by replacing professional repair services."
+              "By sharing records, repair cafés can replace professional services for difficult or dangerous items."
             ],
             "correct": 3,
-            "explanation": "答え：3\n本文全体では、repair cafés は修理の技術を残し、使える物を捨てずにすむ可能性がある一方で、記録、時間制限、安全確認が必要だと説明されています。したがって3が正解です。\n1は、安い製品が増えたことで修理が増えたのではなく、むしろ捨てられる物が増えたことが背景です。\n2は、持ち主がそばにいて作業を手伝うとあるので不正解です。\n4は、repair cafés が専門修理サービスを置き換えたり、廃棄物問題をすべて解決したりするとは書かれていません"
+            "explanation": "答え：3\n本文全体では、repair cafés は修理技術を残す可能性がある一方、明確な記録、時間制限、安全確認が必要だと説明されています。したがって3が正解です。\n1は、製品が安くなると修理ではなく廃棄が増えたという本文と逆です。\n2は、持ち主がそばに残って作業を手伝う点を、記録の役割と誤って結び付けています。\n4は、専門サービスを置き換えるものではなく、危険な品物には専門家の確認が必要です。"
           }
         ]
       }

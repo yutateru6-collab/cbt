@@ -1,4 +1,4 @@
-const CACHE_NAME = "cbt-grade2-app-shell-v33-writing-final";
+const CACHE_NAME = "cbt-grade2-app-shell-v46-production-complete";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -10,10 +10,17 @@ const APP_SHELL = [
   "/exam-data.js",
   "/grade2-set-01.js",
   "/grade2-vocab-sets.js",
+  "/grade2-speaking-sets.js",
   "/grade2-listening-part2-sets.js",
   "/manifest.webmanifest",
   "/assets/app-icon.svg",
-  "/assets/grade2-speaking-picture-story-02.png"
+  "/assets/grade2-speaking-picture-story-02.png",
+  "/assets/grade2-speaking-picture-story-02-anime.png",
+  "/assets/grade2-speaking-picture-story-sample-anime.png",
+  "/assets/grade2-speaking-picture-story-set-02-anime.png",
+  "/assets/grade2-speaking-picture-story-set-03-anime.png",
+  "/assets/grade2-speaking-picture-story-set-04-anime.png",
+  "/assets/grade2-speaking-picture-story-set-05-anime.png"
 ];
 
 self.addEventListener("install", (event) => {
@@ -39,6 +46,20 @@ self.addEventListener("fetch", (event) => {
   const request = event.request;
   const url = new URL(request.url);
   if (request.method !== "GET" || url.origin !== self.location.origin || url.pathname.startsWith("/assets/audio/")) return;
+
+  if (request.mode === "navigate") {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          if (response && response.status === 200 && response.type === "basic") {
+            caches.open(CACHE_NAME).then((cache) => cache.put(request, response.clone()));
+          }
+          return response;
+        })
+        .catch(() => caches.match(request).then((cached) => cached || caches.match("/exam.html")))
+    );
+    return;
+  }
 
   event.respondWith(
     caches.match(request).then((cached) => {

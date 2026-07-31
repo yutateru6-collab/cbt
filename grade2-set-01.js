@@ -199,7 +199,7 @@ window.scbtGrade2Set01 = {
           "text": "(14) The usual street was closed, so the festival guide had to (　　　) a new route that would still pass all three main stages.",
           "choices": [
             "set aside",
-            "followed up",
+            "follow up",
             "work out",
             "take over"
           ],
@@ -282,7 +282,7 @@ window.scbtGrade2Set01 = {
           "text": "空所(19)に入る最も適切なものを選びなさい。",
           "choices": [
             "By comparison",
-            "For example",
+            "Before long",
             "For this reason",
             "Nevertheless"
           ],
@@ -342,7 +342,7 @@ window.scbtGrade2Set01 = {
             "As a result"
           ],
           "correct": 2,
-          "explanation": "正答: In addition / 正答根拠: 飛び方を乱す仕組みの説明に、照明の向きによる影響を追加している / 誤答の設計: 1は例示、3は逆接、4は結果であり、単純な追加関係に合わない。"
+          "explanation": "正答: In addition / 正答根拠: 飛び方を乱す仕組みの説明に、照明の向きによる影響を追加している / 誤答の設計: 1は時間の経過、3は逆接、4は結果を示すため、追加情報を導く流れに合わない。"
         },
         {
           "id": 23,
@@ -437,10 +437,10 @@ window.scbtGrade2Set01 = {
           "type": "long-content",
           "text": "(27) According to the first paragraph, why did cork become a useful material long ago?",
           "choices": [
-            "Its bark was thick enough to make useful objects, but only after the tree was cut down.",
-            "It was easier to shape than other materials because it came from young trees.",
+            "People could shape the bark into useful objects, but they first had to cut down the tree.",
+            "People could collect it from young trees and use it mainly as a roof covering.",
             "It could be used for several practical purposes without killing the tree.",
-            "Its bark grew back so quickly that workers could remove it several times each year."
+            "Workers could harvest the same tree repeatedly without waiting for new bark to grow."
           ],
           "correct": 3,
           "explanation": "根拠: 第1段落の複数の実用品への利用と、木を切らずに樹皮を繰り返し採取できる点 / 正答の作り方: 複数用途＋木を殺さない特徴を統合 / 誤答設計: 木の伐採、若木、採取間隔という本文情報に近い要素を誤って組み合わせた"
@@ -452,9 +452,9 @@ window.scbtGrade2Set01 = {
           "text": "(28) How does cork’s structure help it work well as a bottle stopper?",
           "choices": [
             "Its tiny air-filled spaces help block liquid and allow it to return to its shape after pressure.",
-            "Boiling creates the closed spaces that make every piece of cork exactly the same.",
-            "Its air-filled spaces allow liquid to pass through while keeping the cork soft.",
-            "Because the bark grows back, a stopper can recover its shape after pressure."
+            "Boiling creates the closed spaces that allow cork to recover after pressure.",
+            "Its air-filled spaces keep cork soft by allowing a small amount of liquid to pass through.",
+            "The bark’s ability to grow back makes each finished stopper return to its original shape."
           ],
           "correct": 1,
           "explanation": "根拠: 第2段落の「tiny closed rooms」「difficult for water and air to pass through」「return to nearly its original shape」 / 正答の作り方: 構造と機能をまとめて言い換え / 誤答設計: 煮沸、液体の通過、樹皮の再生という別情報を構造の効果と取り違えた"
@@ -479,13 +479,13 @@ window.scbtGrade2Set01 = {
           "type": "long-content",
           "text": "(30) What do some factories do with cork left over from making other products?",
           "choices": [
-            "They boil it into large sheets before workers remove bark from the trees.",
+            "They boil the grains into new bark sheets before the next harvest.",
             "They grind it into small grains and form it into materials for new products.",
-            "They use it only to make bottle stoppers that are all the same size.",
-            "They return it to young cork oak trees so that new bark will grow sooner."
+            "They mix it with synthetic stoppers to prevent unpleasant smells in wine.",
+            "They spread it over woodland soil to replace the soil-protection role of cork oaks."
           ],
           "correct": 2,
-          "explanation": "根拠: 第4段落の「grind it into small grains」「press it into sheets, blocks, and boards」 / 正答の作り方: 加工工程と再利用の目的を言い換え / 誤答設計: 樹皮の一次加工、用途の限定、若木の成長という別情報を混ぜた"
+          "explanation": "根拠: 第4段落の「grind it into small grains」「press it into sheets, blocks, and boards」 / 正答の作り方: 加工工程と再利用の目的を言い換え / 誤答設計: 煮沸、合成栓、土壌保護という本文中の別情報を残り物の用途と誤って結び付けた"
         },
         {
           "id": 31,
@@ -493,13 +493,13 @@ window.scbtGrade2Set01 = {
           "type": "long-content",
           "text": "(31) Which of the following statements is true?",
           "choices": [
-            "The supply of usable cork can be increased quickly because bark from young trees is ready in a few months.",
-            "Cork production no longer depends on trained workers because leftover pieces can be pressed by machines.",
+            "Training more workers would allow young cork oaks to produce usable bark much sooner.",
+            "Reusing leftover pieces reduces waste and removes the need for skilled bark harvesting.",
             "It can take many years before young cork oaks provide usable bark, so production cannot be expanded quickly.",
-            "Land managers can protect cork oak woodlands only by stopping the reuse of leftover cork."
+            "Supporting cork oak woodlands makes the bark grow back fast enough to meet sudden increases in demand."
           ],
           "correct": 3,
-          "explanation": "根拠: 第4段落の「young trees take many years before their bark can be used」 / 正答の作り方: 若木の成長期間から、生産を短期間で増やしにくいことを推論 / 誤答設計: 数か月、熟練者不要、再利用中止という本文と矛盾する説明を置いた"
+          "explanation": "根拠: 第4段落の「young trees take many years before their bark can be used」 / 正答の作り方: 若木の成長期間から、生産を短期間で増やしにくいことを推論 / 誤答設計: 作業者育成、残材利用、森林支援という対策を、若木の成長速度や熟練採取の必要性まで変えるものとして誤って結び付けた"
         }
       ]
     }

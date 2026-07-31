@@ -423,17 +423,23 @@ function buildGrade2SpeakingFlow(sourceSteps) {
     silentReading.cardText ||
     readAloud.cardText ||
     "Some stores now have refill stations for soap, shampoo, and other daily products. Customers bring empty bottles and fill them again instead of buying new plastic containers. These stations can reduce waste and help people think about how they shop. However, stores must keep the machines clean and make the prices easy to understand.";
-  const pictureStory = {
+  const defaultPictureStory = {
     cardTitle,
     cardText,
-    imageSrc: "assets/grade2-speaking-picture-story-02.png",
+    imageSrc: "assets/grade2-speaking-picture-story-02-anime.png",
     imageAlt: "Three-panel picture story for speaking practice.",
     openingSentence: "One day, Maya and her father went to a supermarket that had a refill station.",
     firstSpeech: "Let's refill this bottle instead of buying a new one.",
     firstSpeechSpeaker: "Maya's father",
-    firstSpeechTail: "right",
+    firstSpeechTail: "center",
     firstTimeLabel: "A few minutes later",
     secondTimeLabel: "That evening at home",
+  };
+  const pictureStory = {
+    ...defaultPictureStory,
+    ...(no2.pictureStory || {}),
+    cardTitle,
+    cardText,
   };
 
   return [

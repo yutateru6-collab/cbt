@@ -1,6 +1,10 @@
 (() => {
   const listeningAudioBase =
     "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32";
+  const geminiListeningAudioBase =
+    "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260729-gemini31";
+  const testCompleteListeningAudioBase =
+    "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/test/20260729-complete";
   const listeningPart2Sets = [
   {
     "key": "sample",
@@ -2621,17 +2625,17 @@
         "instruction": "英文の内容に関する質問に答えてください。",
         "voice": "Female",
         "audioFile": "",
-        "script": "The breakfast room at the Hilltop Hotel is being repaired tomorrow morning. Breakfast will instead be served in the second-floor conference room from 6:30 until 9:30 as usual. Guests should use the elevators near the front desk, since the stairs beside the restaurant are temporarily closed. Room-service breakfast will still be available for an additional charge throughout the morning.",
-        "questionText": "Where will hotel guests have breakfast tomorrow?",
-        "text": "Where will hotel guests have breakfast tomorrow?",
+        "script": "Last month, Keiko joined a weekend photography class. She expected to learn how to use an expensive camera, but the teacher first asked students to take pictures with their phones. By comparing light and shadow in several photos, Keiko learned that good pictures depend more on careful observation than costly equipment. She now practices during her walk home.",
+        "questionText": "What did Keiko learn in the class?",
+        "text": "What did Keiko learn in the class?",
         "choices": [
-          "In the hotel restaurant.",
-          "In the second-floor conference room.",
-          "At the front-desk waiting area.",
-          "Inside their guest rooms for free."
+          "Expensive cameras always take better pictures.",
+          "Careful observation is important in photography.",
+          "Phone cameras cannot show light and shadow.",
+          "Photography classes should be held outdoors."
         ],
         "correct": 2,
-        "explanation": "正答は2です。設問は「Where will hotel guests have breakfast tomorrow?」について尋ねており、本文では「In the second-floor conference room.」に当たる内容が説明されています。"
+        "explanation": "正答は2です。高価な機材よりも、光や影を注意深く観察することが良い写真につながるとKeikoは学びました。"
       },
       {
         "id": 18,
@@ -2659,17 +2663,17 @@
         "instruction": "英文の内容に関する質問に答えてください。",
         "voice": "Male",
         "audioFile": "",
-        "script": "Trees can make city streets feel cooler in more than one way. Their leaves provide shade, reducing the amount of sunlight that reaches roads and buildings during the day. Trees also release water into the air through their leaves. As this water changes into vapor, it uses heat from the surrounding air, which can slightly lower nearby temperatures on hot days.",
-        "questionText": "How can trees help cool city streets?",
-        "text": "How can trees help cool city streets?",
+        "script": "The Westside Swimming Pool will open one hour later than usual this Saturday because staff members will be practicing emergency procedures. Morning swimming lessons will begin at ten instead of nine. Members who booked the nine o'clock class may attend the later class or receive a free pass for another day. The pool will close at its normal time.",
+        "questionText": "Why will the Westside Swimming Pool open later this Saturday?",
+        "text": "Why will the Westside Swimming Pool open later this Saturday?",
         "choices": [
-          "By blocking sunlight and releasing water.",
-          "By reflecting heat from nearby buildings.",
-          "By preventing roads from absorbing rain.",
-          "By moving warm air above the leaves."
+          "Staff members will practice emergency procedures.",
+          "New swimming instructors need more training.",
+          "Repair work will continue through the weekend.",
+          "A private race will use the pool in the morning."
         ],
         "correct": 1,
-        "explanation": "正答は1です。設問は「How can trees help cool city streets?」について尋ねており、本文では「By blocking sunlight and releasing water.」に当たる内容が説明されています。"
+        "explanation": "正答は1です。職員が緊急時の手順を練習するため、土曜日は通常より1時間遅く開館します。"
       },
       {
         "id": 20,
@@ -2792,17 +2796,17 @@
         "instruction": "英文の内容に関する質問に答えてください。",
         "voice": "Male",
         "audioFile": "",
-        "script": "Salt can help melt ice on a road because it changes the temperature at which water freezes. When salt mixes with a thin layer of liquid water, the mixture must become colder than pure water before freezing again. This can prevent some ice from forming again. However, salt becomes less effective when the weather is extremely cold for long periods.",
-        "questionText": "Why can salt help prevent ice from forming again?",
-        "text": "Why can salt help prevent ice from forming again?",
+        "script": "Leo wanted to improve his English speaking, but he felt nervous in large classes. A friend invited him to a small international cooking group. Members prepared meals together and used English to explain recipes. Because Leo was concentrating on the cooking, he worried less about making mistakes. He now attends the group twice a month.",
+        "questionText": "Why did the cooking group help Leo practice English?",
+        "text": "Why did the cooking group help Leo practice English?",
         "choices": [
-          "It raises the temperature of the road.",
-          "It removes all water from the surface.",
-          "It makes the road absorb more sunlight.",
-          "It lowers the temperature at which water freezes."
+          "It trained him to work as a professional chef.",
+          "Members translated every recipe into his first language.",
+          "The group was larger than his regular English class.",
+          "He could use English while concentrating on another activity."
         ],
         "correct": 4,
-        "explanation": "正答は4です。設問は「Why can salt help prevent ice from forming again?」について尋ねており、本文では「It lowers the temperature at which water freezes.」に当たる内容が説明されています。"
+        "explanation": "正答は4です。料理に集中しながら英語を使えたため、Leoは間違いをあまり気にせず会話を練習できました。"
       },
       {
         "id": 27,
@@ -3463,6 +3467,17 @@
   const existingSets = Array.isArray(window.scbtGrade2VocabSets) ? window.scbtGrade2VocabSets : [];
   const byKey = Object.fromEntries(listeningPart2Sets.map((set) => [set.key, set]));
 
+  ["set-01", "set-03"].forEach((setKey) => {
+    const listeningSet = byKey[setKey];
+    if (!listeningSet) return;
+
+    listeningSet.questions.forEach((question) => {
+      const partFolder = question.part === "Part 1" ? "part1" : "part2";
+      const number = String(question.id).padStart(2, "0");
+      question.audioFile = `${testCompleteListeningAudioBase}/${setKey}/listening/${partFolder}/No${number}.wav`;
+    });
+  });
+
   const round2Set = byKey["set-02"];
   if (round2Set) {
     round2Set.questions.forEach((question) => {
@@ -3471,6 +3486,17 @@
       question.audioFile = `${listeningAudioBase}/set-02/listening/${partFolder}/No${number}.wav`;
     });
   }
+
+  ["set-04", "set-05"].forEach((setKey) => {
+    const listeningSet = byKey[setKey];
+    if (!listeningSet) return;
+
+    listeningSet.questions.forEach((question) => {
+      const partFolder = question.part === "Part 1" ? "part1" : "part2";
+      const number = String(question.id).padStart(2, "0");
+      question.audioFile = `${geminiListeningAudioBase}/${setKey}/listening/${partFolder}/No${number}.wav`;
+    });
+  });
 
   const sampleSet = byKey.sample;
   if (sampleSet) {

@@ -1,6 +1,7 @@
 (() => {
   const grade2Set01 = window.scbtGrade2Set01 || {};
   const grade2VocabSets = window.scbtGrade2VocabSets || [];
+  const grade2SpeakingSets = window.scbtGrade2SpeakingSets || [];
   const pre2Sets = window.scbtPre2Sets || [];
   const pre1VocabSets = window.scbtPre1VocabSets || [];
   const pre1ReadingGapSets = window.scbtPre1ReadingGapSets || [];
@@ -647,7 +648,19 @@
       speakingSteps: grade.speakingSteps,
     };
     if (gradeKey === "grade2" && Array.isArray(grade2VocabSets) && grade2VocabSets.length > 0) {
-      return [sampleSet, ...grade2VocabSets];
+      const speakingByKey = new Map(grade2SpeakingSets.map((set) => [set.key, set]));
+      const attachSpeaking = (set) => {
+        const speakingSet = speakingByKey.get(set.key);
+        if (!Array.isArray(speakingSet?.speakingSteps) || speakingSet.speakingSteps.length === 0) return set;
+        return {
+          ...set,
+          speakingSteps: speakingSet.speakingSteps,
+          ...(Array.isArray(set.availableModules)
+            ? { availableModules: [...new Set([...set.availableModules, "speaking"])] }
+            : {}),
+        };
+      };
+      return [attachSpeaking(sampleSet), ...grade2VocabSets.map(attachSpeaking)];
     }
     if (gradeKey === "pre2" && Array.isArray(pre2Sets) && pre2Sets.length > 0) {
       return pre2Sets;
