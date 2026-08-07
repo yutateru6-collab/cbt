@@ -1,0 +1,72 @@
+{
+  "createdAt": "2026-08-07T06:30:22.256953+00:00",
+  "workerUrl": "https://cbt.itisnowornever271.workers.dev",
+  "versionId": "5258afb8-f84b-4502-993c-a6ef02b25629",
+  "checks": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "contentType": "text/html",
+      "bytes": 39009,
+      "sha256": "5f1f4989e8ddfe0cc76fe1f62b3a3054abcdb36abb04f30a148361fad50eccaa",
+      "localSha256": "5f1f4989e8ddfe0cc76fe1f62b3a3054abcdb36abb04f30a148361fad50eccaa",
+      "bodyMatched": true,
+      "mimePassed": true,
+      "passed": true
+    },
+    {
+      "file": "exam.html",
+      "status": 200,
+      "contentType": "text/html",
+      "bytes": 1714,
+      "sha256": "fcf1ec029626dc78c643b05d0b8ce503e029e30bc170af7e8ab36533302004e5",
+      "localSha256": "fcf1ec029626dc78c643b05d0b8ce503e029e30bc170af7e8ab36533302004e5",
+      "bodyMatched": true,
+      "mimePassed": true,
+      "passed": true
+    },
+    {
+      "file": "grade2-listening-part2-sets.js",
+      "status": 200,
+      "contentType": "text/javascript",
+      "bytes": 222205,
+      "sha256": "f75a3ce5338efab6b067f5817766a73b76758f5ce24a3d370a26e82a7e304c45",
+      "localSha256": "f75a3ce5338efab6b067f5817766a73b76758f5ce24a3d370a26e82a7e304c45",
+      "bodyMatched": true,
+      "mimePassed": true,
+      "passed": true
+    },
+    {
+      "file": "sw-set02-v2.js",
+      "status": 200,
+      "contentType": "text/javascript",
+      "bytes": 2356,
+      "sha256": "1dfdc449bbc6d7d1cd00ece2ce098e76bb86cfb985f378cbf71c809dbf3c986d",
+      "localSha256": "1dfdc449bbc6d7d1cd00ece2ce098e76bb86cfb985f378cbf71c809dbf3c986d",
+      "bodyMatched": true,
+      "mimePassed": true,
+      "passed": true
+    },
+    {
+      "file": "styles.css",
+      "status": 200,
+      "contentType": "text/css",
+      "bytes": 59426,
+      "sha256": "533e90801381e1008ef4ac9ea4a8c3e4dd755f984db003cc75fe7694377e0225",
+      "localSha256": "533e90801381e1008ef4ac9ea4a8c3e4dd755f984db003cc75fe7694377e0225",
+      "bodyMatched": true,
+      "mimePassed": true,
+      "passed": true
+    }
+  ],
+  "markers": {
+    "examUsesVersionedListeningJs": true,
+    "examRegistersUniqueServiceWorker": true,
+    "set02UsesNewR2Release": true,
+    "serviceWorkerCacheBumped": true
+  },
+  "allHttpAndHashPassed": true,
+  "allMarkersPassed": true,
+  "productionR2Report": "audio-generation/r2-grade2-set02-gemini-v2-20260807-upload-report.json",
+  "manualListeningRequired": true
+}

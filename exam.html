@@ -18,13 +18,13 @@
     <script src="./grade2-set-01.js?v=grade2-production-complete-v1"></script>
     <script src="./grade2-vocab-sets.js?v=grade2-production-complete-v1"></script>
     <script src="./grade2-speaking-sets.js?v=grade2-production-complete-v1"></script>
-    <script src="./grade2-listening-part2-sets.js?v=grade2-production-complete-v1"></script>
+    <script src="./grade2-listening-part2-sets.js?v=grade2-set02-gemini-v2-20260807"></script>
     <script src="./exam-data.js?v=grade2-production-complete-v1"></script>
     <script src="./app.js?v=grade2-production-complete-v1"></script>
     <script>
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
-          navigator.serviceWorker.register("./sw.js?v=grade2-production-complete-v1", { updateViaCache: "none" }).catch(() => {});
+          navigator.serviceWorker.register("./sw-set02-v2.js?v=grade2-set02-gemini-v2-20260807", { updateViaCache: "none" }).catch(() => {});
         });
       }
     </script>

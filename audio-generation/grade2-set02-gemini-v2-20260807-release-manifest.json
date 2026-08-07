@@ -1,0 +1,1611 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-08-07T06:31:21.205624+00:00",
+  "release": "grade2-set02-gemini-approved-v2-20260807",
+  "setKey": "set-02",
+  "changeScope": [
+    "Part 1 No.1: lower and stabilize Puck male voice",
+    "Part 1 No.10: shorten pause after Number 10",
+    "Rebuild continuous audio from corrected 30-item order"
+  ],
+  "model": "gemini-3.1-flash-tts-preview",
+  "billingMode": "Batch API",
+  "batchCostUsd": {
+    "input": 0.007656,
+    "outputAudio": 0.27035,
+    "total": 0.278006
+  },
+  "apiFailures": [],
+  "policy": {
+    "paceTargetWordsPerSecond": 2.3,
+    "paceToleranceWordsPerSecond": 0.18,
+    "numberGapMs": {
+      "minimum": 650.0,
+      "target": 900.0,
+      "maximum": 1300.0
+    },
+    "No01Puck": {
+      "maximumTurnMedianF0Hz": 150.0,
+      "maximumMeanMedianF0Hz": 145.0
+    },
+    "speedPostProcessing": "none"
+  },
+  "selectedCorrections": [
+    {
+      "id": "set-02-part1-No01-user-correction-c08-20260807",
+      "number": 1,
+      "file": "set-02-part1-No01-user-correction-c08-20260807.wav",
+      "durationSeconds": 34.528,
+      "effectiveWordsPerSecond": 2.443,
+      "paceDelta": 0.143,
+      "pacePassed": true,
+      "speakerPassed": true,
+      "numberGapMs": 860.0,
+      "numberGapPassed": true,
+      "puckTurnMedianF0Hz": [
+        148.15,
+        137.93
+      ],
+      "puckMeanMedianF0Hz": 143.04,
+      "strictNo01VoicePassed": true,
+      "accepted": true,
+      "speakerQa": {
+        "id": "set-02-part1-No01-user-correction-c08-20260807",
+        "baseId": "set-02-part1-No01-approved-gemini-20260806",
+        "number": 1,
+        "candidate": 8,
+        "file": "set-02-part1-No01-user-correction-c08-20260807.wav",
+        "durationSeconds": 34.528,
+        "wordCount": 78,
+        "wordsPerSecond": 2.259,
+        "paceDeltaFromTarget": -0.181,
+        "pacePassed": false,
+        "speakerPassed": true,
+        "allTurnsPassed": true,
+        "separationPassed": true,
+        "womanMedianF0Hz": 182.19,
+        "manMedianF0Hz": 143.04,
+        "womanManRatio": 1.274,
+        "bodyTurns": [
+          {
+            "bodyTurn": 1,
+            "speaker": "Woman",
+            "text": "The biology lab is missing two pairs of safety goggles after yesterday's experiment.",
+            "startSeconds": 1.925,
+            "endSeconds": 8.745,
+            "medianF0Hz": 190.48,
+            "p10F0Hz": 114.29,
+            "p90F0Hz": 250.0,
+            "medianCorrelation": 0.912,
+            "reliableFrameCount": 250,
+            "expectedRole": "Woman",
+            "observedClass": "Kore-like",
+            "distanceToKoreHz": 0.02,
+            "distanceToPuckHz": 47.58,
+            "turnPassed": true
+          },
+          {
+            "bodyTurn": 2,
+            "speaker": "Man",
+            "text": "I borrowed one pair for the science club demonstration and left it in my locker.",
+            "startSeconds": 9.493,
+            "endSeconds": 14.679,
+            "medianF0Hz": 148.15,
+            "p10F0Hz": 86.96,
+            "p90F0Hz": 200.0,
+            "medianCorrelation": 0.873,
+            "reliableFrameCount": 190,
+            "expectedRole": "Man",
+            "observedClass": "Puck-like",
+            "distanceToKoreHz": 42.35,
+            "distanceToPuckHz": 5.25,
+            "turnPassed": true
+          },
+          {
+            "bodyTurn": 3,
+            "speaker": "Woman",
+            "text": "Could you return it to the lab office before third period? Mr. Evans needs to count the equipment.",
+            "startSeconds": 15.302,
+            "endSeconds": 19.421,
+            "medianF0Hz": 173.91,
+            "p10F0Hz": 142.86,
+            "p90F0Hz": 266.67,
+            "medianCorrelation": 0.934,
+            "reliableFrameCount": 153,
+            "expectedRole": "Woman",
+            "observedClass": "Kore-like",
+            "distanceToKoreHz": 16.59,
+            "distanceToPuckHz": 31.01,
+            "turnPassed": true
+          },
+          {
+            "bodyTurn": 4,
+            "speaker": "Man",
+            "text": "Of course. I'll take it there on my way to math class and check whether Maya has the other pair.",
+            "startSeconds": 19.943,
+            "endSeconds": 29.464,
+            "medianF0Hz": 137.93,
+            "p10F0Hz": 86.96,
+            "p90F0Hz": 210.53,
+            "medianCorrelation": 0.856,
+            "reliableFrameCount": 254,
+            "expectedRole": "Man",
+            "observedClass": "Puck-like",
+            "distanceToKoreHz": 52.57,
+            "distanceToPuckHz": 4.97,
+            "turnPassed": true
+          }
+        ],
+        "selectedBoundaries": [
+          {
+            "startSeconds": 1.065,
+            "endSeconds": 1.925,
+            "durationMs": 860.0,
+            "activeFraction": 0.0423,
+            "expectedActiveFraction": 0.0256
+          },
+          {
+            "startSeconds": 8.745,
+            "endSeconds": 9.493,
+            "durationMs": 748.2,
+            "activeFraction": 0.2932,
+            "expectedActiveFraction": 0.1923
+          },
+          {
+            "startSeconds": 14.679,
+            "endSeconds": 15.302,
+            "durationMs": 622.9,
+            "activeFraction": 0.4745,
+            "expectedActiveFraction": 0.3846
+          },
+          {
+            "startSeconds": 19.421,
+            "endSeconds": 19.943,
+            "durationMs": 521.5,
+            "activeFraction": 0.6174,
+            "expectedActiveFraction": 0.6154
+          },
+          {
+            "startSeconds": 29.464,
+            "endSeconds": 30.11,
+            "durationMs": 646.1,
+            "activeFraction": 0.8732,
+            "expectedActiveFraction": 0.8718
+          }
+        ],
+        "detectedBoundaryCandidateCount": 9,
+        "candidatePassed": false
+      },
+      "sha256": "e8390cd58a39474d8fe0153735ab9cd697e145be8a45c811d7af68bef8c42a4a"
+    },
+    {
+      "id": "set-02-part1-No10-user-correction-c11-20260807",
+      "number": 10,
+      "file": "set-02-part1-No10-user-correction-c11-20260807.wav",
+      "durationSeconds": 33.087,
+      "effectiveWordsPerSecond": 2.296,
+      "paceDelta": -0.004,
+      "pacePassed": true,
+      "speakerPassed": true,
+      "numberGapMs": 980.8,
+      "numberGapPassed": true,
+      "puckTurnMedianF0Hz": [
+        129.03,
+        114.29
+      ],
+      "puckMeanMedianF0Hz": 121.66,
+      "strictNo01VoicePassed": true,
+      "accepted": true,
+      "speakerQa": {
+        "id": "set-02-part1-No10-user-correction-c11-20260807",
+        "baseId": "set-02-part1-No10-approved-gemini-20260806",
+        "number": 10,
+        "candidate": 11,
+        "file": "set-02-part1-No10-user-correction-c11-20260807.wav",
+        "durationSeconds": 33.087,
+        "wordCount": 70,
+        "wordsPerSecond": 2.116,
+        "paceDeltaFromTarget": -0.324,
+        "pacePassed": false,
+        "speakerPassed": true,
+        "allTurnsPassed": true,
+        "separationPassed": true,
+        "womanMedianF0Hz": 186.15,
+        "manMedianF0Hz": 121.66,
+        "womanManRatio": 1.53,
+        "bodyTurns": [
+          {
+            "bodyTurn": 1,
+            "speaker": "Man",
+            "text": "The charity book sale ends at four, and there will be twenty boxes left afterward.",
+            "startSeconds": 1.853,
+            "endSeconds": 7.852,
+            "medianF0Hz": 129.03,
+            "p10F0Hz": 85.11,
+            "p90F0Hz": 235.29,
+            "medianCorrelation": 0.866,
+            "reliableFrameCount": 160,
+            "expectedRole": "Man",
+            "observedClass": "Puck-like",
+            "distanceToKoreHz": 61.47,
+            "distanceToPuckHz": 13.87,
+            "turnPassed": true
+          },
+          {
+            "bodyTurn": 2,
+            "speaker": "Woman",
+            "text": "I can help pack them, but my car is too small to carry everything to the storage room.",
+            "startSeconds": 8.728,
+            "endSeconds": 15.733,
+            "medianF0Hz": 181.82,
+            "p10F0Hz": 125.0,
+            "p90F0Hz": 285.71,
+            "medianCorrelation": 0.877,
+            "reliableFrameCount": 199,
+            "expectedRole": "Woman",
+            "observedClass": "Kore-like",
+            "distanceToKoreHz": 8.68,
+            "distanceToPuckHz": 38.92,
+            "turnPassed": true
+          },
+          {
+            "bodyTurn": 3,
+            "speaker": "Man",
+            "text": "My uncle's van is available. I'll collect the boxes once the tables are folded.",
+            "startSeconds": 16.374,
+            "endSeconds": 21.663,
+            "medianF0Hz": 114.29,
+            "p10F0Hz": 74.07,
+            "p90F0Hz": 210.53,
+            "medianCorrelation": 0.751,
+            "reliableFrameCount": 142,
+            "expectedRole": "Man",
+            "observedClass": "Puck-like",
+            "distanceToKoreHz": 76.21,
+            "distanceToPuckHz": 28.61,
+            "turnPassed": true
+          },
+          {
+            "bodyTurn": 4,
+            "speaker": "Woman",
+            "text": "Great. The storage room key will be at the community center desk.",
+            "startSeconds": 22.4,
+            "endSeconds": 27.529,
+            "medianF0Hz": 190.48,
+            "p10F0Hz": 121.21,
+            "p90F0Hz": 250.0,
+            "medianCorrelation": 0.956,
+            "reliableFrameCount": 142,
+            "expectedRole": "Woman",
+            "observedClass": "Kore-like",
+            "distanceToKoreHz": 0.02,
+            "distanceToPuckHz": 47.58,
+            "turnPassed": true
+          }
+        ],
+        "selectedBoundaries": [
+          {
+            "startSeconds": 0.872,
+            "endSeconds": 1.853,
+            "durationMs": 980.8,
+            "activeFraction": 0.0349,
+            "expectedActiveFraction": 0.0286
+          },
+          {
+            "startSeconds": 7.852,
+            "endSeconds": 8.728,
+            "durationMs": 876.5,
+            "activeFraction": 0.2548,
+            "expectedActiveFraction": 0.2429
+          },
+          {
+            "startSeconds": 15.733,
+            "endSeconds": 16.374,
+            "durationMs": 640.6,
+            "activeFraction": 0.5103,
+            "expectedActiveFraction": 0.5
+          },
+          {
+            "startSeconds": 21.663,
+            "endSeconds": 22.4,
+            "durationMs": 736.2,
+            "activeFraction": 0.6976,
+            "expectedActiveFraction": 0.7
+          },
+          {
+            "startSeconds": 27.529,
+            "endSeconds": 29.331,
+            "durationMs": 1802.1,
+            "activeFraction": 0.8895,
+            "expectedActiveFraction": 0.8714
+          }
+        ],
+        "detectedBoundaryCandidateCount": 10,
+        "candidatePassed": false
+      },
+      "sha256": "4193a373dbe3b2917aca4541e7198b5b6c102d76e4cae18b33f86f7c6bf6b3ed"
+    }
+  ],
+  "qaSummary": {
+    "itemCount": 30,
+    "pacePassedCount": 30,
+    "part1SpeakerPassedCount": 15,
+    "changedItemCount": 2,
+    "speedPostProcessing": "none",
+    "wavFormat": "PCM signed 16-bit, 24000 Hz, mono"
+  },
+  "items": [
+    {
+      "id": "set-02-part1-No01-approved-gemini-20260806",
+      "part": "Part 1",
+      "number": 1,
+      "displayNumber": 1,
+      "voices": {
+        "Kore": "Kore",
+        "Puck": "Puck"
+      },
+      "selectedCandidateId": "set-02-part1-No01-user-correction-c08-20260807",
+      "file": "audio/part1-no01.wav",
+      "sha256": "9e9636d1f6edeac55bf310d04eb557a63cad79890fa4d4579196fe52f0315367",
+      "bytes": 1657380,
+      "durationSeconds": 34.528,
+      "effectiveWordsPerSecond": 2.443,
+      "targetEffectiveWordsPerSecond": 2.3,
+      "paceDelta": 0.143,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -16.53,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": -2.07,
+          "peakCeilingDbfs": -2.5,
+          "appliedGainDb": -2.07,
+          "gainCappedForHeadroom": false
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 828668,
+        "durationSeconds": 34.528,
+        "peakDbfs": -3.57,
+        "rmsDbfs": -20.1,
+        "activeRmsDbfs": -18.51,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part1-No02-approved-gemini-20260806",
+      "part": "Part 1",
+      "number": 2,
+      "displayNumber": 2,
+      "voices": {
+        "Kore": "Kore",
+        "Puck": "Puck"
+      },
+      "selectedCandidateId": "set-02-part1-No02-approved-gemini-r2c4-20260806",
+      "file": "audio/part1-no02.wav",
+      "sha256": "f7f913f40760c27b915b7e562dec999cd728f9d8c302adefdc3d50bac9922d57",
+      "bytes": 1699490,
+      "durationSeconds": 35.405,
+      "effectiveWordsPerSecond": 2.225,
+      "targetEffectiveWordsPerSecond": 2.3,
+      "paceDelta": -0.075,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -17.68,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": -0.92,
+          "peakCeilingDbfs": -2.5,
+          "appliedGainDb": -0.92,
+          "gainCappedForHeadroom": false
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 849723,
+        "durationSeconds": 35.405,
+        "peakDbfs": -2.73,
+        "rmsDbfs": -20.58,
+        "activeRmsDbfs": -18.55,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part1-No03-approved-gemini-20260806",
+      "part": "Part 1",
+      "number": 3,
+      "displayNumber": 3,
+      "voices": {
+        "Kore": "Kore",
+        "Puck": "Puck"
+      },
+      "selectedCandidateId": "set-02-part1-No03-approved-gemini-r2c3-20260806",
+      "file": "audio/part1-no03.wav",
+      "sha256": "e06c4b2d9647a325316ee234c7bace0d88bc7c73cbef1e8b4e2d1346fd06b40e",
+      "bytes": 1493328,
+      "durationSeconds": 31.11,
+      "effectiveWordsPerSecond": 2.315,
+      "targetEffectiveWordsPerSecond": 2.3,
+      "paceDelta": 0.015,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -15.79,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": -2.81,
+          "peakCeilingDbfs": -2.5,
+          "appliedGainDb": -2.81,
+          "gainCappedForHeadroom": false
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 746642,
+        "durationSeconds": 31.11,
+        "peakDbfs": -4.16,
+        "rmsDbfs": -20.5,
+        "activeRmsDbfs": -18.47,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part1-No04-approved-gemini-20260806",
+      "part": "Part 1",
+      "number": 4,
+      "displayNumber": 4,
+      "voices": {
+        "Kore": "Kore",
+        "Puck": "Puck"
+      },
+      "selectedCandidateId": "set-02-part1-No04-approved-gemini-r2c3-20260806",
+      "file": "audio/part1-no04.wav",
+      "sha256": "78d51d34fa8a50992f2502145ef693086e8cd5d60977e608bed9f3c7cb8a34ba",
+      "bytes": 1549146,
+      "durationSeconds": 32.273,
+      "effectiveWordsPerSecond": 2.46,
+      "targetEffectiveWordsPerSecond": 2.3,
+      "paceDelta": 0.16,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -15.59,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": -3.01,
+          "peakCeilingDbfs": -2.5,
+          "appliedGainDb": -3.01,
+          "gainCappedForHeadroom": false
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 774551,
+        "durationSeconds": 32.273,
+        "peakDbfs": -4.58,
+        "rmsDbfs": -20.24,
+        "activeRmsDbfs": -18.46,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part1-No05-approved-gemini-20260806",
+      "part": "Part 1",
+      "number": 5,
+      "displayNumber": 5,
+      "voices": {
+        "Kore": "Kore",
+        "Puck": "Puck"
+      },
+      "selectedCandidateId": "set-02-part1-No05-approved-gemini-r2c2-20260806",
+      "file": "audio/part1-no05.wav",
+      "sha256": "8a3d06ec7813ea8112f76803e712f04468a17ea7bf80d086c763bca676390513",
+      "bytes": 1510700,
+      "durationSeconds": 31.472,
+      "effectiveWordsPerSecond": 2.182,
+      "targetEffectiveWordsPerSecond": 2.3,
+      "paceDelta": -0.118,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -17.04,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": -1.56,
+          "peakCeilingDbfs": -2.5,
+          "appliedGainDb": -1.56,
+          "gainCappedForHeadroom": false
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 755328,
+        "durationSeconds": 31.472,
+        "peakDbfs": -3.74,
+        "rmsDbfs": -20.45,
+        "activeRmsDbfs": -18.53,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part1-No06-approved-gemini-20260806",
+      "part": "Part 1",
+      "number": 6,
+      "displayNumber": 6,
+      "voices": {
+        "Kore": "Kore",
+        "Puck": "Puck"
+      },
+      "selectedCandidateId": "set-02-part1-No06-approved-gemini-c4-20260806",
+      "file": "audio/part1-no06.wav",
+      "sha256": "37f99f47f50a2f18f82a66e7056f536f5247f3d143116317f56742f0d829e3f5",
+      "bytes": 1488598,
+      "durationSeconds": 31.012,
+      "effectiveWordsPerSecond": 2.358,
+      "targetEffectiveWordsPerSecond": 2.3,
+      "paceDelta": 0.058,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -16.61,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": -1.99,
+          "peakCeilingDbfs": -2.5,
+          "appliedGainDb": -1.99,
+          "gainCappedForHeadroom": false
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 744277,
+        "durationSeconds": 31.012,
+        "peakDbfs": -3.47,
+        "rmsDbfs": -20.47,
+        "activeRmsDbfs": -18.49,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part1-No07-approved-gemini-20260806",
+      "part": "Part 1",
+      "number": 7,
+      "displayNumber": 7,
+      "voices": {
+        "Kore": "Kore",
+        "Puck": "Puck"
+      },
+      "selectedCandidateId": "set-02-part1-No07-approved-gemini-c4-20260806",
+      "file": "audio/part1-no07.wav",
+      "sha256": "048abc84ea54afcaaad4e4ca6f7b6bb9e7b9a2dfe4ec7c794d4ea0c09bd018db",
+      "bytes": 1663006,
+      "durationSeconds": 34.645,
+      "effectiveWordsPerSecond": 2.247,
+      "targetEffectiveWordsPerSecond": 2.3,
+      "paceDelta": -0.053,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -15.41,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": -3.19,
+          "peakCeilingDbfs": -2.5,
+          "appliedGainDb": -3.19,
+          "gainCappedForHeadroom": false
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 831481,
+        "durationSeconds": 34.645,
+        "peakDbfs": -4.71,
+        "rmsDbfs": -20.31,
+        "activeRmsDbfs": -18.42,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part1-No08-approved-gemini-20260806",
+      "part": "Part 1",
+      "number": 8,
+      "displayNumber": 8,
+      "voices": {
+        "Kore": "Kore",
+        "Puck": "Puck"
+      },
+      "selectedCandidateId": "set-02-part1-No08-approved-gemini-r3c5-20260806",
+      "file": "audio/part1-no08.wav",
+      "sha256": "980c7a59fb45693621f03eb6b12f41016d39efb3548aa21cd680e087fbb2ef76",
+      "bytes": 1661622,
+      "durationSeconds": 34.616,
+      "effectiveWordsPerSecond": 2.311,
+      "targetEffectiveWordsPerSecond": 2.3,
+      "paceDelta": 0.011,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -17.73,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": -0.87,
+          "peakCeilingDbfs": -2.5,
+          "appliedGainDb": -1.07,
+          "gainCappedForHeadroom": true
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 830789,
+        "durationSeconds": 34.616,
+        "peakDbfs": -2.51,
+        "rmsDbfs": -20.95,
+        "activeRmsDbfs": -18.74,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part1-No09-approved-gemini-20260806",
+      "part": "Part 1",
+      "number": 9,
+      "displayNumber": 9,
+      "voices": {
+        "Kore": "Kore",
+        "Puck": "Puck"
+      },
+      "selectedCandidateId": "set-02-part1-No09-approved-gemini-r2c2-20260806",
+      "file": "audio/part1-no09.wav",
+      "sha256": "07f5d69cf9e19cdf3bd363eaf51d5e4f44d4c388e883bf011701c2353794285f",
+      "bytes": 1506858,
+      "durationSeconds": 31.392,
+      "effectiveWordsPerSecond": 2.362,
+      "targetEffectiveWordsPerSecond": 2.3,
+      "paceDelta": 0.062,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -16.15,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": -2.45,
+          "peakCeilingDbfs": -2.5,
+          "appliedGainDb": -2.45,
+          "gainCappedForHeadroom": false
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 753407,
+        "durationSeconds": 31.392,
+        "peakDbfs": -4.27,
+        "rmsDbfs": -20.35,
+        "activeRmsDbfs": -18.48,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part1-No10-approved-gemini-20260806",
+      "part": "Part 1",
+      "number": 10,
+      "displayNumber": 10,
+      "voices": {
+        "Kore": "Kore",
+        "Puck": "Puck"
+      },
+      "selectedCandidateId": "set-02-part1-No10-user-correction-c11-20260807",
+      "file": "audio/part1-no10.wav",
+      "sha256": "55e6918567f1e12eabd315c73bcfa5bcdf8201d004788e230a73374c8613da2f",
+      "bytes": 1588210,
+      "durationSeconds": 33.087,
+      "effectiveWordsPerSecond": 2.296,
+      "targetEffectiveWordsPerSecond": 2.3,
+      "paceDelta": -0.004,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -18.54,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": -0.06,
+          "peakCeilingDbfs": -2.5,
+          "appliedGainDb": -0.55,
+          "gainCappedForHeadroom": true
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 794083,
+        "durationSeconds": 33.087,
+        "peakDbfs": -2.5,
+        "rmsDbfs": -21.13,
+        "activeRmsDbfs": -19.06,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part1-No11-approved-gemini-20260806",
+      "part": "Part 1",
+      "number": 11,
+      "displayNumber": 11,
+      "voices": {
+        "Kore": "Kore",
+        "Puck": "Puck"
+      },
+      "selectedCandidateId": "set-02-part1-No11-approved-gemini-r2c3-20260806",
+      "file": "audio/part1-no11.wav",
+      "sha256": "66c2da209237f046814afa3d0c11b0a3181e2aef44aa5633672e85c552a78940",
+      "bytes": 1565920,
+      "durationSeconds": 32.622,
+      "effectiveWordsPerSecond": 2.265,
+      "targetEffectiveWordsPerSecond": 2.3,
+      "paceDelta": -0.035,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -18.19,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": -0.41,
+          "peakCeilingDbfs": -2.5,
+          "appliedGainDb": -0.8,
+          "gainCappedForHeadroom": true
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 782938,
+        "durationSeconds": 32.622,
+        "peakDbfs": -2.51,
+        "rmsDbfs": -20.74,
+        "activeRmsDbfs": -18.96,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part1-No12-approved-gemini-20260806",
+      "part": "Part 1",
+      "number": 12,
+      "displayNumber": 12,
+      "voices": {
+        "Kore": "Kore",
+        "Puck": "Puck"
+      },
+      "selectedCandidateId": "set-02-part1-No12-approved-gemini-c1-20260806",
+      "file": "audio/part1-no12.wav",
+      "sha256": "989696dfa3cc0bc073a7e93768768b4c1b9e66d8e2f684fb9efe9a403dab50b9",
+      "bytes": 1608804,
+      "durationSeconds": 33.516,
+      "effectiveWordsPerSecond": 2.361,
+      "targetEffectiveWordsPerSecond": 2.3,
+      "paceDelta": 0.061,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -14.87,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": -3.73,
+          "peakCeilingDbfs": -2.5,
+          "appliedGainDb": -3.73,
+          "gainCappedForHeadroom": false
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 804380,
+        "durationSeconds": 33.516,
+        "peakDbfs": -5.21,
+        "rmsDbfs": -20.08,
+        "activeRmsDbfs": -18.43,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part1-No13-approved-gemini-20260806",
+      "part": "Part 1",
+      "number": 13,
+      "displayNumber": 13,
+      "voices": {
+        "Kore": "Kore",
+        "Puck": "Puck"
+      },
+      "selectedCandidateId": "set-02-part1-No13-approved-gemini-r4c1-20260806",
+      "file": "audio/part1-no13.wav",
+      "sha256": "3b2270e2ce5f6266144ba84134cd1aee66c26b8054ae90e1adebc908b0e94486",
+      "bytes": 1526812,
+      "durationSeconds": 31.808,
+      "effectiveWordsPerSecond": 2.294,
+      "targetEffectiveWordsPerSecond": 2.3,
+      "paceDelta": -0.006,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -16.16,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": -2.44,
+          "peakCeilingDbfs": -2.5,
+          "appliedGainDb": -2.44,
+          "gainCappedForHeadroom": false
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 763384,
+        "durationSeconds": 31.808,
+        "peakDbfs": -4.13,
+        "rmsDbfs": -20.77,
+        "activeRmsDbfs": -18.45,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part1-No14-approved-gemini-20260806",
+      "part": "Part 1",
+      "number": 14,
+      "displayNumber": 14,
+      "voices": {
+        "Kore": "Kore",
+        "Puck": "Puck"
+      },
+      "selectedCandidateId": "set-02-part1-No14-approved-gemini-c1-20260806",
+      "file": "audio/part1-no14.wav",
+      "sha256": "952d6731a9ce45bbd83d3272141f2ba8b5bffa2c0d1371eedff1db291b9c4fa7",
+      "bytes": 1520788,
+      "durationSeconds": 31.682,
+      "effectiveWordsPerSecond": 2.235,
+      "targetEffectiveWordsPerSecond": 2.3,
+      "paceDelta": -0.065,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -17.33,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": -1.27,
+          "peakCeilingDbfs": -2.5,
+          "appliedGainDb": -1.27,
+          "gainCappedForHeadroom": false
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 760372,
+        "durationSeconds": 31.682,
+        "peakDbfs": -3.02,
+        "rmsDbfs": -20.14,
+        "activeRmsDbfs": -18.53,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part1-No15-approved-gemini-20260806",
+      "part": "Part 1",
+      "number": 15,
+      "displayNumber": 15,
+      "voices": {
+        "Kore": "Kore",
+        "Puck": "Puck"
+      },
+      "selectedCandidateId": "set-02-part1-No15-approved-gemini-r3c3-20260806",
+      "file": "audio/part1-no15.wav",
+      "sha256": "e9a84c36a03e09e67d16f3978752bd942af4cdb487fc1c3498c65992570b4da6",
+      "bytes": 1613676,
+      "durationSeconds": 33.617,
+      "effectiveWordsPerSecond": 2.257,
+      "targetEffectiveWordsPerSecond": 2.3,
+      "paceDelta": -0.043,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -19.7,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": 1.1,
+          "peakCeilingDbfs": -2.5,
+          "appliedGainDb": 0.95,
+          "gainCappedForHeadroom": true
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 806816,
+        "durationSeconds": 33.617,
+        "peakDbfs": -2.5,
+        "rmsDbfs": -20.58,
+        "activeRmsDbfs": -18.81,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part2-No16-approved-gemini-20260806",
+      "part": "Part 2",
+      "number": 16,
+      "displayNumber": 1,
+      "voices": {
+        "N": "Achird"
+      },
+      "selectedCandidateId": "set-02-part2-No16-approved-gemini-r2c2-20260806",
+      "file": "audio/part2-no16.wav",
+      "sha256": "4520b57c5955b4332d6a1bdd2bc1599df68010a09d18a4ee08addca216457640",
+      "bytes": 1439300,
+      "durationSeconds": 29.985,
+      "effectiveWordsPerSecond": 2.382,
+      "targetEffectiveWordsPerSecond": 2.45,
+      "paceDelta": -0.068,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -17.37,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": -1.23,
+          "peakCeilingDbfs": -0.85,
+          "appliedGainDb": -1.23,
+          "gainCappedForHeadroom": false
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 719628,
+        "durationSeconds": 29.985,
+        "peakDbfs": -3.23,
+        "rmsDbfs": -20.55,
+        "activeRmsDbfs": -18.52,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part2-No17-approved-gemini-20260806",
+      "part": "Part 2",
+      "number": 17,
+      "displayNumber": 2,
+      "voices": {
+        "N": "Achird"
+      },
+      "selectedCandidateId": "set-02-part2-No17-approved-gemini-c1-20260806",
+      "file": "audio/part2-no17.wav",
+      "sha256": "5939982a31b9a4d2e64f23b0835496df7803b217a043a0906edb4d25de8d6306",
+      "bytes": 1506686,
+      "durationSeconds": 31.388,
+      "effectiveWordsPerSecond": 2.335,
+      "targetEffectiveWordsPerSecond": 2.45,
+      "paceDelta": -0.115,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -17.7,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": -0.9,
+          "peakCeilingDbfs": -0.85,
+          "appliedGainDb": -0.9,
+          "gainCappedForHeadroom": false
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 753321,
+        "durationSeconds": 31.388,
+        "peakDbfs": -2.83,
+        "rmsDbfs": -20.64,
+        "activeRmsDbfs": -18.54,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part2-No18-approved-gemini-20260806",
+      "part": "Part 2",
+      "number": 18,
+      "displayNumber": 3,
+      "voices": {
+        "N": "Achird"
+      },
+      "selectedCandidateId": "set-02-part2-No18-approved-gemini-r2c2-20260806",
+      "file": "audio/part2-no18.wav",
+      "sha256": "4c98268fc261207f9b43204759d4ccce2bdc80194836d3b68fd03f74a27f471e",
+      "bytes": 1463460,
+      "durationSeconds": 30.488,
+      "effectiveWordsPerSecond": 2.447,
+      "targetEffectiveWordsPerSecond": 2.45,
+      "paceDelta": -0.003,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -20.1,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": 1.5,
+          "peakCeilingDbfs": -0.85,
+          "appliedGainDb": 1.5,
+          "gainCappedForHeadroom": false
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 731708,
+        "durationSeconds": 30.488,
+        "peakDbfs": -3.15,
+        "rmsDbfs": -20.82,
+        "activeRmsDbfs": -18.69,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part2-No19-approved-gemini-20260806",
+      "part": "Part 2",
+      "number": 19,
+      "displayNumber": 4,
+      "voices": {
+        "N": "Achird"
+      },
+      "selectedCandidateId": "set-02-part2-No19-approved-gemini-c1-20260806",
+      "file": "audio/part2-no19.wav",
+      "sha256": "0a7789859779c03058c6a6d7885ce90825c4f51cfc8e69f065cd6813f0b0c552",
+      "bytes": 1520286,
+      "durationSeconds": 31.672,
+      "effectiveWordsPerSecond": 2.485,
+      "targetEffectiveWordsPerSecond": 2.45,
+      "paceDelta": 0.035,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -16.86,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": -1.74,
+          "peakCeilingDbfs": -0.85,
+          "appliedGainDb": -1.74,
+          "gainCappedForHeadroom": false
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 760121,
+        "durationSeconds": 31.672,
+        "peakDbfs": -4.29,
+        "rmsDbfs": -20.52,
+        "activeRmsDbfs": -18.52,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part2-No20-approved-gemini-20260806",
+      "part": "Part 2",
+      "number": 20,
+      "displayNumber": 5,
+      "voices": {
+        "N": "Achird"
+      },
+      "selectedCandidateId": "set-02-part2-No20-approved-gemini-c1-20260806",
+      "file": "audio/part2-no20.wav",
+      "sha256": "94e1cce0dff0e160538acfc799965cb0aa8f1965daeeffc4743af94c49bee9cc",
+      "bytes": 1507424,
+      "durationSeconds": 31.404,
+      "effectiveWordsPerSecond": 2.369,
+      "targetEffectiveWordsPerSecond": 2.45,
+      "paceDelta": -0.081,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -19.45,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": 0.85,
+          "peakCeilingDbfs": -0.85,
+          "appliedGainDb": 0.85,
+          "gainCappedForHeadroom": false
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 753690,
+        "durationSeconds": 31.404,
+        "peakDbfs": -1.45,
+        "rmsDbfs": -20.89,
+        "activeRmsDbfs": -18.65,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part2-No21-approved-gemini-20260806",
+      "part": "Part 2",
+      "number": 21,
+      "displayNumber": 6,
+      "voices": {
+        "N": "Achird"
+      },
+      "selectedCandidateId": "set-02-part2-No21-approved-gemini-c2-20260806",
+      "file": "audio/part2-no21.wav",
+      "sha256": "2b9bf70fbe3158f891af56e6f0b542c5d89d76bc3748834cf97c0f58c247f66b",
+      "bytes": 1534050,
+      "durationSeconds": 31.958,
+      "effectiveWordsPerSecond": 2.495,
+      "targetEffectiveWordsPerSecond": 2.45,
+      "paceDelta": 0.045,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -16.92,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": -1.68,
+          "peakCeilingDbfs": -0.85,
+          "appliedGainDb": -1.68,
+          "gainCappedForHeadroom": false
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 767003,
+        "durationSeconds": 31.958,
+        "peakDbfs": -3.5,
+        "rmsDbfs": -20.54,
+        "activeRmsDbfs": -18.52,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part2-No22-approved-gemini-20260806",
+      "part": "Part 2",
+      "number": 22,
+      "displayNumber": 7,
+      "voices": {
+        "N": "Achird"
+      },
+      "selectedCandidateId": "set-02-part2-No22-approved-gemini-c1-20260806",
+      "file": "audio/part2-no22.wav",
+      "sha256": "56f3537d3d44c8258bbdd5d80f8e52556786e2f7735279cd9064db4410d6e82c",
+      "bytes": 1543130,
+      "durationSeconds": 32.148,
+      "effectiveWordsPerSecond": 2.309,
+      "targetEffectiveWordsPerSecond": 2.45,
+      "paceDelta": -0.141,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -19.52,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": 0.92,
+          "peakCeilingDbfs": -0.85,
+          "appliedGainDb": 0.92,
+          "gainCappedForHeadroom": false
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 771543,
+        "durationSeconds": 32.148,
+        "peakDbfs": -2.41,
+        "rmsDbfs": -20.53,
+        "activeRmsDbfs": -18.66,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part2-No23-approved-gemini-20260806",
+      "part": "Part 2",
+      "number": 23,
+      "displayNumber": 8,
+      "voices": {
+        "N": "Achird"
+      },
+      "selectedCandidateId": "set-02-part2-No23-approved-gemini-c2-20260806",
+      "file": "audio/part2-no23.wav",
+      "sha256": "14261834612dcca8d27459268c982368b4d9d8be31dec1ae40eec508d68a8caf",
+      "bytes": 1508964,
+      "durationSeconds": 31.436,
+      "effectiveWordsPerSecond": 2.366,
+      "targetEffectiveWordsPerSecond": 2.45,
+      "paceDelta": -0.084,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -18.39,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": -0.21,
+          "peakCeilingDbfs": -0.85,
+          "appliedGainDb": -0.21,
+          "gainCappedForHeadroom": false
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 754460,
+        "durationSeconds": 31.436,
+        "peakDbfs": -1.72,
+        "rmsDbfs": -20.78,
+        "activeRmsDbfs": -18.59,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part2-No24-approved-gemini-20260806",
+      "part": "Part 2",
+      "number": 24,
+      "displayNumber": 9,
+      "voices": {
+        "N": "Achird"
+      },
+      "selectedCandidateId": "set-02-part2-No24-approved-gemini-c2-20260806",
+      "file": "audio/part2-no24.wav",
+      "sha256": "62d4297c096fb96435a3be7e51a8a3b0bbeb6ab618801ef7e1ce5d8cf9f0ee69",
+      "bytes": 1452718,
+      "durationSeconds": 30.264,
+      "effectiveWordsPerSecond": 2.467,
+      "targetEffectiveWordsPerSecond": 2.45,
+      "paceDelta": 0.017,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -19.31,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": 0.71,
+          "peakCeilingDbfs": -0.85,
+          "appliedGainDb": 0.71,
+          "gainCappedForHeadroom": false
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 726337,
+        "durationSeconds": 30.264,
+        "peakDbfs": -2.41,
+        "rmsDbfs": -20.52,
+        "activeRmsDbfs": -18.64,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part2-No25-approved-gemini-20260806",
+      "part": "Part 2",
+      "number": 25,
+      "displayNumber": 10,
+      "voices": {
+        "N": "Achird"
+      },
+      "selectedCandidateId": "set-02-part2-No25-approved-gemini-c1-20260806",
+      "file": "audio/part2-no25.wav",
+      "sha256": "eceea43fe123d2d1e33ae5ed6a955497487917fc40fe2f88d747b19d524671c4",
+      "bytes": 1522856,
+      "durationSeconds": 31.725,
+      "effectiveWordsPerSecond": 2.412,
+      "targetEffectiveWordsPerSecond": 2.45,
+      "paceDelta": -0.038,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -20.0,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": 1.4,
+          "peakCeilingDbfs": -0.85,
+          "appliedGainDb": 1.4,
+          "gainCappedForHeadroom": false
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 761406,
+        "durationSeconds": 31.725,
+        "peakDbfs": -2.13,
+        "rmsDbfs": -20.57,
+        "activeRmsDbfs": -18.68,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part2-No26-approved-gemini-20260806",
+      "part": "Part 2",
+      "number": 26,
+      "displayNumber": 11,
+      "voices": {
+        "N": "Achird"
+      },
+      "selectedCandidateId": "set-02-part2-No26-approved-gemini-r3c4-20260806",
+      "file": "audio/part2-no26.wav",
+      "sha256": "ae66d03aa7a31a464be60be5bbd626169b434e941f7ea95d2e126a74fdba694e",
+      "bytes": 1510758,
+      "durationSeconds": 31.473,
+      "effectiveWordsPerSecond": 2.363,
+      "targetEffectiveWordsPerSecond": 2.45,
+      "paceDelta": -0.087,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -20.24,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": 1.64,
+          "peakCeilingDbfs": -0.85,
+          "appliedGainDb": 1.64,
+          "gainCappedForHeadroom": false
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 755357,
+        "durationSeconds": 31.473,
+        "peakDbfs": -1.31,
+        "rmsDbfs": -20.59,
+        "activeRmsDbfs": -18.72,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part2-No27-approved-gemini-20260806",
+      "part": "Part 2",
+      "number": 27,
+      "displayNumber": 12,
+      "voices": {
+        "N": "Achird"
+      },
+      "selectedCandidateId": "set-02-part2-No27-approved-gemini-r2c2-20260806",
+      "file": "audio/part2-no27.wav",
+      "sha256": "8a1a2be183ecb6d726a3eb772e320212d6c62ce8954af9f0072d698f9710a219",
+      "bytes": 1468158,
+      "durationSeconds": 30.586,
+      "effectiveWordsPerSecond": 2.474,
+      "targetEffectiveWordsPerSecond": 2.45,
+      "paceDelta": 0.024,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -19.79,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": 1.19,
+          "peakCeilingDbfs": -0.85,
+          "appliedGainDb": 1.19,
+          "gainCappedForHeadroom": false
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 734057,
+        "durationSeconds": 30.586,
+        "peakDbfs": -1.44,
+        "rmsDbfs": -20.4,
+        "activeRmsDbfs": -18.67,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part2-No28-approved-gemini-20260806",
+      "part": "Part 2",
+      "number": 28,
+      "displayNumber": 13,
+      "voices": {
+        "N": "Achird"
+      },
+      "selectedCandidateId": "set-02-part2-No28-approved-gemini-r2c2-20260806",
+      "file": "audio/part2-no28.wav",
+      "sha256": "d9550ff9c6b332600052948da72b6ca9fbf11680eb2b5e81dd70ffbdd628ead1",
+      "bytes": 1594674,
+      "durationSeconds": 33.221,
+      "effectiveWordsPerSecond": 2.294,
+      "targetEffectiveWordsPerSecond": 2.45,
+      "paceDelta": -0.156,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -18.61,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": 0.01,
+          "peakCeilingDbfs": -0.85,
+          "appliedGainDb": 0.01,
+          "gainCappedForHeadroom": false
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 797315,
+        "durationSeconds": 33.221,
+        "peakDbfs": -3.67,
+        "rmsDbfs": -20.65,
+        "activeRmsDbfs": -18.6,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part2-No29-approved-gemini-20260806",
+      "part": "Part 2",
+      "number": 29,
+      "displayNumber": 14,
+      "voices": {
+        "N": "Achird"
+      },
+      "selectedCandidateId": "set-02-part2-No29-approved-gemini-c2-20260806",
+      "file": "audio/part2-no29.wav",
+      "sha256": "261f066aa3390589622f1ef8739538e04b6d71d29fc0696ed3bce045981e12bd",
+      "bytes": 1361114,
+      "durationSeconds": 28.356,
+      "effectiveWordsPerSecond": 2.495,
+      "targetEffectiveWordsPerSecond": 2.45,
+      "paceDelta": 0.045,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -15.3,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": -3.3,
+          "peakCeilingDbfs": -0.85,
+          "appliedGainDb": -3.3,
+          "gainCappedForHeadroom": false
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 680535,
+        "durationSeconds": 28.356,
+        "peakDbfs": -4.32,
+        "rmsDbfs": -20.37,
+        "activeRmsDbfs": -18.43,
+        "activeThresholdDbfs": -50.0
+      }
+    },
+    {
+      "id": "set-02-part2-No30-approved-gemini-20260806",
+      "part": "Part 2",
+      "number": 30,
+      "displayNumber": 15,
+      "voices": {
+        "N": "Achird"
+      },
+      "selectedCandidateId": "set-02-part2-No30-approved-gemini-r2c2-20260806",
+      "file": "audio/part2-no30.wav",
+      "sha256": "ea43d8554d0a1fd31e2d35f1de91c59ed756690f389dece7480d11f73ed37564",
+      "bytes": 1428582,
+      "durationSeconds": 29.761,
+      "effectiveWordsPerSecond": 2.513,
+      "targetEffectiveWordsPerSecond": 2.45,
+      "paceDelta": 0.063,
+      "paceAccepted": true,
+      "processing": {
+        "speedChange": false,
+        "wholeFileConstantGain": {
+          "sourceActiveRmsDbfs": -17.78,
+          "targetActiveRmsDbfs": -18.6,
+          "desiredGainDb": -0.82,
+          "peakCeilingDbfs": -0.85,
+          "appliedGainDb": -0.82,
+          "gainCappedForHeadroom": false
+        }
+      },
+      "metrics": {
+        "sampleRate": 24000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "frameCount": 714269,
+        "durationSeconds": 29.761,
+        "peakDbfs": -2.71,
+        "rmsDbfs": -20.36,
+        "activeRmsDbfs": -18.55,
+        "activeThresholdDbfs": -50.0
+      }
+    }
+  ],
+  "continuousAudio": {
+    "createdAt": "2026-08-07T06:19:38.615340+00:00",
+    "sourceItemCount": 30,
+    "order": "Part 1 No.1-15, then Part 2 No.1-15",
+    "gapSecondsBetweenItems": 1.0,
+    "losslessWav": {
+      "file": "audio-generation/grade2-set02-full-approved-selected-v2-20260807/all-30-continuous-lossless.wav",
+      "sha256": "d5012cad9278ac2a597097ee3dc68dc04b037db6f153e7cc1588a1c2aab91f84",
+      "bytes": 47407222,
+      "durationSeconds": 987.65,
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleWidth": 2,
+      "reencoded": false
+    },
+    "smartphoneMp3": {
+      "file": "audio/all-30-continuous.mp3",
+      "sha256": "1b4104f2ca44aa5a1f8feeb6f8bc53ef4d490dae9b43fd3ebc82547dd79edaf6",
+      "bytes": 15803949,
+      "bitrateKbps": 128
+    },
+    "sourceAudioChanged": false
+  },
+  "reviewPages": {
+    "deploymentUrl": "https://6146516e.scbt-tts-compare.pages.dev",
+    "stableUrl": "https://scbt-tts-compare.pages.dev",
+    "html": {
+      "status": 200,
+      "contentType": "text/html",
+      "bytes": 10000,
+      "passed": true
+    },
+    "assetCount": 31,
+    "assetPassedCount": 31,
+    "allAssetsPassed": true,
+    "allRangeSupported": false,
+    "rangeLimitation": "Cloudflare Pages returned full 200 responses; production R2 range support is verified separately."
+  },
+  "productionR2": {
+    "bucket": "mimilisten-audio",
+    "prefix": "scbt/grade2/releases/20260807-gemini-approved-v2",
+    "publicBase": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev",
+    "fileCount": 31,
+    "allUploaded": true,
+    "allVerified": true,
+    "allRangeVerified": true,
+    "productionReady": true,
+    "report": "audio-generation/r2-grade2-set02-gemini-v2-20260807-upload-report.json"
+  },
+  "productionWorker": {
+    "url": "https://cbt.itisnowornever271.workers.dev",
+    "versionId": "5258afb8-f84b-4502-993c-a6ef02b25629",
+    "allHttpAndHashPassed": true,
+    "allMarkersPassed": true,
+    "report": "audio-generation/grade2-set02-gemini-v2-20260807-production-deployment-report.json"
+  },
+  "manualListeningRequired": true
+}

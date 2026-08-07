@@ -1,0 +1,1322 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-08-07T06:23:29.593822+00:00",
+  "updatedAt": "2026-08-07T06:24:33.101627+00:00",
+  "packageManifest": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/generation-and-publish-report.json",
+  "packageManifestSha256": "329d1ce82df9ad24507b7aebcb4455fa0a0718e63ae7c6c6e4d6b88a67c43620",
+  "bucket": "mimilisten-audio",
+  "prefix": "scbt/grade2/releases/20260807-gemini-approved-v2",
+  "publicBase": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev",
+  "fileCount": 31,
+  "totalBytes": 61820447,
+  "entries": [
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part1-no01.wav",
+      "localBytes": 1657380,
+      "localSha256": "9e9636d1f6edeac55bf310d04eb557a63cad79890fa4d4579196fe52f0315367",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No01.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No01.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:31.595936+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:23:38.863500+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 6.212,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No01.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:23.485356+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1657380,
+            "sha256": "9e9636d1f6edeac55bf310d04eb557a63cad79890fa4d4579196fe52f0315367",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part1-no02.wav",
+      "localBytes": 1699490,
+      "localSha256": "f7f913f40760c27b915b7e562dec999cd728f9d8c302adefdc3d50bac9922d57",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No02.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No02.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:31.579169+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:23:38.422466+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 5.769,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No02.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:22.709761+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1699490,
+            "sha256": "f7f913f40760c27b915b7e562dec999cd728f9d8c302adefdc3d50bac9922d57",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part1-no03.wav",
+      "localBytes": 1493328,
+      "localSha256": "e06c4b2d9647a325316ee234c7bace0d88bc7c73cbef1e8b4e2d1346fd06b40e",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No03.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No03.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:31.576385+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:23:39.201092+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 6.522,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No03.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:23.642249+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1493328,
+            "sha256": "e06c4b2d9647a325316ee234c7bace0d88bc7c73cbef1e8b4e2d1346fd06b40e",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part1-no04.wav",
+      "localBytes": 1549146,
+      "localSha256": "78d51d34fa8a50992f2502145ef693086e8cd5d60977e608bed9f3c7cb8a34ba",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No04.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No04.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:31.584061+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:23:39.185330+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 6.473,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No04.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:23.261984+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1549146,
+            "sha256": "78d51d34fa8a50992f2502145ef693086e8cd5d60977e608bed9f3c7cb8a34ba",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part1-no05.wav",
+      "localBytes": 1510700,
+      "localSha256": "8a3d06ec7813ea8112f76803e712f04468a17ea7bf80d086c763bca676390513",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No05.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No05.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:31.726410+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:23:43.752997+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 5.33,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No05.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:23.695042+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1510700,
+            "sha256": "8a3d06ec7813ea8112f76803e712f04468a17ea7bf80d086c763bca676390513",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part1-no06.wav",
+      "localBytes": 1488598,
+      "localSha256": "37f99f47f50a2f18f82a66e7056f536f5247f3d143116317f56742f0d829e3f5",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No06.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No06.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:31.726932+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:23:44.236160+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 5.369,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No06.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:23.984900+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1488598,
+            "sha256": "37f99f47f50a2f18f82a66e7056f536f5247f3d143116317f56742f0d829e3f5",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part1-no07.wav",
+      "localBytes": 1663006,
+      "localSha256": "048abc84ea54afcaaad4e4ca6f7b6bb9e7b9a2dfe4ec7c794d4ea0c09bd018db",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No07.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No07.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:31.735146+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:23:44.811154+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 5.626,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No07.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:24.813252+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1663006,
+            "sha256": "048abc84ea54afcaaad4e4ca6f7b6bb9e7b9a2dfe4ec7c794d4ea0c09bd018db",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part1-no08.wav",
+      "localBytes": 1661622,
+      "localSha256": "980c7a59fb45693621f03eb6b12f41016d39efb3548aa21cd680e087fbb2ef76",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No08.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No08.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:31.736718+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:23:44.704693+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 5.503,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No08.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:24.618842+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1661622,
+            "sha256": "980c7a59fb45693621f03eb6b12f41016d39efb3548aa21cd680e087fbb2ef76",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part1-no09.wav",
+      "localBytes": 1506858,
+      "localSha256": "07f5d69cf9e19cdf3bd363eaf51d5e4f44d4c388e883bf011701c2353794285f",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No09.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No09.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:31.891176+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:23:49.585386+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 5.832,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No09.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:25.053909+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1506858,
+            "sha256": "07f5d69cf9e19cdf3bd363eaf51d5e4f44d4c388e883bf011701c2353794285f",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part1-no10.wav",
+      "localBytes": 1588210,
+      "localSha256": "55e6918567f1e12eabd315c73bcfa5bcdf8201d004788e230a73374c8613da2f",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No10.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No10.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:31.885881+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:23:49.849362+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 5.609,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No10.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:25.400903+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1588210,
+            "sha256": "55e6918567f1e12eabd315c73bcfa5bcdf8201d004788e230a73374c8613da2f",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part1-no11.wav",
+      "localBytes": 1565920,
+      "localSha256": "66c2da209237f046814afa3d0c11b0a3181e2aef44aa5633672e85c552a78940",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No11.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No11.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:31.878436+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:23:50.357995+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 5.653,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No11.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:25.763994+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1565920,
+            "sha256": "66c2da209237f046814afa3d0c11b0a3181e2aef44aa5633672e85c552a78940",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part1-no12.wav",
+      "localBytes": 1608804,
+      "localSha256": "989696dfa3cc0bc073a7e93768768b4c1b9e66d8e2f684fb9efe9a403dab50b9",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No12.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No12.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:31.882030+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:23:50.278498+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 5.467,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No12.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:25.958717+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1608804,
+            "sha256": "989696dfa3cc0bc073a7e93768768b4c1b9e66d8e2f684fb9efe9a403dab50b9",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part1-no13.wav",
+      "localBytes": 1526812,
+      "localSha256": "3b2270e2ce5f6266144ba84134cd1aee66c26b8054ae90e1adebc908b0e94486",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No13.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No13.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:32.066986+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:23:55.348294+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 5.763,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No13.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:26.145336+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1526812,
+            "sha256": "3b2270e2ce5f6266144ba84134cd1aee66c26b8054ae90e1adebc908b0e94486",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part1-no14.wav",
+      "localBytes": 1520788,
+      "localSha256": "952d6731a9ce45bbd83d3272141f2ba8b5bffa2c0d1371eedff1db291b9c4fa7",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No14.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No14.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:32.023510+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:23:55.364693+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 5.521,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No14.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:26.648463+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1520788,
+            "sha256": "952d6731a9ce45bbd83d3272141f2ba8b5bffa2c0d1371eedff1db291b9c4fa7",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part1-no15.wav",
+      "localBytes": 1613676,
+      "localSha256": "e9a84c36a03e09e67d16f3978752bd942af4cdb487fc1c3498c65992570b4da6",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No15.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No15.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:32.029715+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:23:55.937910+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 5.659,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No15.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:26.924619+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1613676,
+            "sha256": "e9a84c36a03e09e67d16f3978752bd942af4cdb487fc1c3498c65992570b4da6",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part2-no16.wav",
+      "localBytes": 1439300,
+      "localSha256": "4520b57c5955b4332d6a1bdd2bc1599df68010a09d18a4ee08addca216457640",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No16.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No16.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:32.038290+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:23:56.024194+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 5.666,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No16.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:27.065527+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1439300,
+            "sha256": "4520b57c5955b4332d6a1bdd2bc1599df68010a09d18a4ee08addca216457640",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part2-no17.wav",
+      "localBytes": 1506686,
+      "localSha256": "5939982a31b9a4d2e64f23b0835496df7803b217a043a0906edb4d25de8d6306",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No17.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No17.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:32.184367+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:24:00.609663+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 5.261,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No17.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:27.250922+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1506686,
+            "sha256": "5939982a31b9a4d2e64f23b0835496df7803b217a043a0906edb4d25de8d6306",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part2-no18.wav",
+      "localBytes": 1463460,
+      "localSha256": "4c98268fc261207f9b43204759d4ccce2bdc80194836d3b68fd03f74a27f471e",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No18.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No18.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:32.176587+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:24:00.964208+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 5.599,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No18.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:27.449718+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1463460,
+            "sha256": "4c98268fc261207f9b43204759d4ccce2bdc80194836d3b68fd03f74a27f471e",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part2-no19.wav",
+      "localBytes": 1520286,
+      "localSha256": "0a7789859779c03058c6a6d7885ce90825c4f51cfc8e69f065cd6813f0b0c552",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No19.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No19.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:32.182355+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:24:01.300825+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 5.363,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No19.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:28.004993+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1520286,
+            "sha256": "0a7789859779c03058c6a6d7885ce90825c4f51cfc8e69f065cd6813f0b0c552",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part2-no20.wav",
+      "localBytes": 1507424,
+      "localSha256": "94e1cce0dff0e160538acfc799965cb0aa8f1965daeeffc4743af94c49bee9cc",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No20.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No20.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:32.200516+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:24:01.377635+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 5.353,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No20.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:28.313992+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1507424,
+            "sha256": "94e1cce0dff0e160538acfc799965cb0aa8f1965daeeffc4743af94c49bee9cc",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part2-no21.wav",
+      "localBytes": 1534050,
+      "localSha256": "2b9bf70fbe3158f891af56e6f0b542c5d89d76bc3748834cf97c0f58c247f66b",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No21.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No21.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:32.335898+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:24:06.855806+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 6.246,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No21.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:28.323316+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1534050,
+            "sha256": "2b9bf70fbe3158f891af56e6f0b542c5d89d76bc3748834cf97c0f58c247f66b",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part2-no22.wav",
+      "localBytes": 1543130,
+      "localSha256": "56f3537d3d44c8258bbdd5d80f8e52556786e2f7735279cd9064db4410d6e82c",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No22.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No22.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:32.335952+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:24:07.273957+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 6.31,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No22.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:28.463967+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1543130,
+            "sha256": "56f3537d3d44c8258bbdd5d80f8e52556786e2f7735279cd9064db4410d6e82c",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part2-no23.wav",
+      "localBytes": 1508964,
+      "localSha256": "14261834612dcca8d27459268c982368b4d9d8be31dec1ae40eec508d68a8caf",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No23.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No23.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:32.359335+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:24:06.826856+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 5.526,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No23.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:28.738602+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1508964,
+            "sha256": "14261834612dcca8d27459268c982368b4d9d8be31dec1ae40eec508d68a8caf",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part2-no24.wav",
+      "localBytes": 1452718,
+      "localSha256": "62d4297c096fb96435a3be7e51a8a3b0bbeb6ab618801ef7e1ce5d8cf9f0ee69",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No24.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No24.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:32.348487+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:24:07.755027+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 6.377,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No24.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:29.149672+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1452718,
+            "sha256": "62d4297c096fb96435a3be7e51a8a3b0bbeb6ab618801ef7e1ce5d8cf9f0ee69",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part2-no25.wav",
+      "localBytes": 1522856,
+      "localSha256": "eceea43fe123d2d1e33ae5ed6a955497487917fc40fe2f88d747b19d524671c4",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No25.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No25.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:32.481778+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:24:12.454030+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 5.627,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No25.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:29.423522+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1522856,
+            "sha256": "eceea43fe123d2d1e33ae5ed6a955497487917fc40fe2f88d747b19d524671c4",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part2-no26.wav",
+      "localBytes": 1510758,
+      "localSha256": "ae66d03aa7a31a464be60be5bbd626169b434e941f7ea95d2e126a74fdba694e",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No26.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No26.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:32.496474+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:24:12.551925+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 5.696,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No26.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:29.737195+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1510758,
+            "sha256": "ae66d03aa7a31a464be60be5bbd626169b434e941f7ea95d2e126a74fdba694e",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part2-no27.wav",
+      "localBytes": 1468158,
+      "localSha256": "8a1a2be183ecb6d726a3eb772e320212d6c62ce8954af9f0072d698f9710a219",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No27.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No27.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:32.499801+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:24:12.842342+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 5.568,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No27.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:29.719230+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1468158,
+            "sha256": "8a1a2be183ecb6d726a3eb772e320212d6c62ce8954af9f0072d698f9710a219",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part2-no28.wav",
+      "localBytes": 1594674,
+      "localSha256": "d9550ff9c6b332600052948da72b6ca9fbf11680eb2b5e81dd70ffbdd628ead1",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No28.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No28.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:32.503524+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:24:13.071979+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 5.317,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No28.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:30.026941+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1594674,
+            "sha256": "d9550ff9c6b332600052948da72b6ca9fbf11680eb2b5e81dd70ffbdd628ead1",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part2-no29.wav",
+      "localBytes": 1361114,
+      "localSha256": "261f066aa3390589622f1ef8739538e04b6d71d29fc0696ed3bce045981e12bd",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No29.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No29.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:32.618643+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:24:17.952836+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 5.499,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No29.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:30.348777+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1361114,
+            "sha256": "261f066aa3390589622f1ef8739538e04b6d71d29fc0696ed3bce045981e12bd",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/part2-no30.wav",
+      "localBytes": 1428582,
+      "localSha256": "ea43d8554d0a1fd31e2d35f1de91c59ed756690f389dece7480d11f73ed37564",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No30.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No30.wav",
+      "contentType": "audio/wav",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:32.645961+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:24:18.202893+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 5.651,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part2/No30.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:30.493209+00:00",
+            "status": 200,
+            "contentType": "audio/wav",
+            "contentLength": 1428582,
+            "sha256": "ea43d8554d0a1fd31e2d35f1de91c59ed756690f389dece7480d11f73ed37564",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "localFile": "audio-generation/cloudflare-publish/grade2-set02-full-approved-review-v2-20260807/audio/all-30-continuous.mp3",
+      "localBytes": 15803949,
+      "localSha256": "1b4104f2ca44aa5a1f8feeb6f8bc53ef4d490dae9b43fd3ebc82547dd79edaf6",
+      "r2Bucket": "mimilisten-audio",
+      "r2Key": "scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/continuous/all-30-continuous.mp3",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/continuous/all-30-continuous.mp3",
+      "contentType": "audio/mpeg",
+      "state": "verified",
+      "preflight": {
+        "checkedAt": "2026-08-07T06:23:32.637941+00:00",
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "uploadedAt": "2026-08-07T06:24:21.995225+00:00",
+        "returnCode": 0,
+        "elapsedSeconds": 9.153,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.119.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/continuous/all-30-continuous.mp3\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "passed": true,
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkedAt": "2026-08-07T06:24:33.100463+00:00",
+            "status": 200,
+            "contentType": "audio/mpeg",
+            "contentLength": 15803949,
+            "sha256": "1b4104f2ca44aa5a1f8feeb6f8bc53ef4d490dae9b43fd3ebc82547dd79edaf6",
+            "error": null,
+            "passed": true
+          }
+        ]
+      }
+    }
+  ],
+  "allUploaded": true,
+  "allVerified": true,
+  "rangeVerifiedAt": "2026-08-07T06:24:56.861958+00:00",
+  "rangeChecks": [
+    {
+      "file": "audio/part1-no01.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No01.wav",
+      "status": 206,
+      "contentRange": "bytes 0-1023/1657380",
+      "acceptRanges": "bytes",
+      "bytes": 1024,
+      "first1024Matched": true,
+      "passed": true
+    },
+    {
+      "file": "audio/part1-no10.wav",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/part1/No10.wav",
+      "status": 206,
+      "contentRange": "bytes 0-1023/1588210",
+      "acceptRanges": "bytes",
+      "bytes": 1024,
+      "first1024Matched": true,
+      "passed": true
+    },
+    {
+      "file": "audio/all-30-continuous.mp3",
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2/set-02/listening/continuous/all-30-continuous.mp3",
+      "status": 206,
+      "contentRange": "bytes 0-1023/15803949",
+      "acceptRanges": "bytes",
+      "bytes": 1024,
+      "first1024Matched": true,
+      "passed": true
+    }
+  ],
+  "allRangeVerified": true,
+  "productionReady": true
+}

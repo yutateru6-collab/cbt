@@ -1,6 +1,8 @@
 (() => {
   const listeningAudioBase =
     "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32";
+  const set02GeminiApprovedAudioBase =
+    "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2";
   const geminiListeningAudioBase =
     "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260729-gemini31";
   const testCompleteListeningAudioBase =
@@ -3483,7 +3485,7 @@
     round2Set.questions.forEach((question) => {
       const partFolder = question.part === "Part 1" ? "part1" : "part2";
       const number = String(question.id).padStart(2, "0");
-      question.audioFile = `${listeningAudioBase}/set-02/listening/${partFolder}/No${number}.wav`;
+      question.audioFile = `${set02GeminiApprovedAudioBase}/set-02/listening/${partFolder}/No${number}.wav`;
     });
   }
 

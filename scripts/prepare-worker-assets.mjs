@@ -19,6 +19,7 @@ const rootFiles = [
   "grade2-listening-part2-sets.js",
   "manifest.webmanifest",
   "sw.js",
+  "sw-set02-v2.js",
   "README.md"
 ];
 
