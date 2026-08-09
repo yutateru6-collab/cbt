@@ -1,4 +1,4 @@
-const CACHE_NAME = "cbt-grade2-app-shell-v52-set02-gemini-v2";
+const CACHE_NAME = "cbt-grade2-app-shell-v56-set01-gemini-v5";
 const APP_SHELL = [
   "/",
   "/index.html",

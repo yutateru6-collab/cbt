@@ -3,6 +3,8 @@
     "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32";
   const set02GeminiApprovedAudioBase =
     "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2";
+  const set01GeminiApprovedAudioBase =
+    "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-set01-gemini-approved-v5";
   const geminiListeningAudioBase =
     "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260729-gemini31";
   const testCompleteListeningAudioBase =
@@ -3469,7 +3471,16 @@
   const existingSets = Array.isArray(window.scbtGrade2VocabSets) ? window.scbtGrade2VocabSets : [];
   const byKey = Object.fromEntries(listeningPart2Sets.map((set) => [set.key, set]));
 
-  ["set-01", "set-03"].forEach((setKey) => {
+  const round1Set = byKey["set-01"];
+  if (round1Set) {
+    round1Set.questions.forEach((question) => {
+      const partFolder = question.part === "Part 1" ? "part1" : "part2";
+      const number = String(question.id).padStart(2, "0");
+      question.audioFile = `${set01GeminiApprovedAudioBase}/set-01/listening/${partFolder}/No${number}.wav`;
+    });
+  }
+
+  ["set-03"].forEach((setKey) => {
     const listeningSet = byKey[setKey];
     if (!listeningSet) return;
 

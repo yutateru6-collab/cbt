@@ -1,4 +1,4 @@
-const CACHE_NAME = "cbt-grade2-app-shell-v46-production-complete";
+const CACHE_NAME = "cbt-grade2-app-shell-v56-set01-gemini-v5";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -9,12 +9,14 @@ const APP_SHELL = [
   "/app.js",
   "/exam-data.js",
   "/grade2-set-01.js",
+  "/grade2-set-01-explanations.js",
+  "/grade2-skill-explanations.js",
   "/grade2-vocab-sets.js",
   "/grade2-speaking-sets.js",
   "/grade2-listening-part2-sets.js",
   "/manifest.webmanifest",
   "/assets/app-icon.svg",
-  "/assets/grade2-speaking-picture-story-02.png",
+  "/assets/grade2-speaking-examiner-photo.png",
   "/assets/grade2-speaking-picture-story-02-anime.png",
   "/assets/grade2-speaking-picture-story-sample-anime.png",
   "/assets/grade2-speaking-picture-story-set-02-anime.png",

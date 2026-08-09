@@ -12,6 +12,40 @@ const gradeCatalog = applyImportedGradeOverrides(baseGradeCatalog, importedGrade
 const GRADE_SELECTION_KEY = `${storageNamespace}-selected-grade`;
 const SET_SELECTION_KEY_PREFIX = `${storageNamespace}-selected-set`;
 const requestParams = new URLSearchParams(window.location.search);
+const isGrade2Product = appConfig.mode === "grade2-product" && appConfig.grade === "grade2";
+const ACCESS_PLANS = Object.freeze({
+  single: Object.freeze({
+    key: "single",
+    label: "1回版",
+    setKeys: ["set-01"],
+    allowsExplanations: false,
+    allowsBonus: false,
+  }),
+  three: Object.freeze({
+    key: "three",
+    label: "3回プレミアム",
+    setKeys: ["set-01", "set-02", "set-03"],
+    allowsExplanations: true,
+    allowsBonus: true,
+  }),
+  five: Object.freeze({
+    key: "five",
+    label: "5回プレミアム",
+    setKeys: ["set-01", "set-02", "set-03", "set-04", "set-05"],
+    allowsExplanations: true,
+    allowsBonus: true,
+  }),
+});
+const selectedAccessPlan = resolveAccessPlan();
+const canViewExplanations = selectedAccessPlan.allowsExplanations;
+const canViewBonus = selectedAccessPlan.allowsBonus;
+const previewHostname = window.location.hostname;
+const isPrivateLanPreviewHost =
+  /^10\./.test(previewHostname) ||
+  /^192\.168\./.test(previewHostname) ||
+  /^172\.(1[6-9]|2\d|3[01])\./.test(previewHostname);
+const isLocalPreviewHost =
+  ["127.0.0.1", "localhost", "::1", "[::1]"].includes(previewHostname) || isPrivateLanPreviewHost;
 const requestedLockedGrade = appConfig.grade || window.APP_GRADE || examCatalog.appGrade || "";
 const availableGradeKeys = (examCatalog.gradeOrder || Object.keys(gradeCatalog)).filter((key) => gradeCatalog[key]);
 const fallbackGradeKey = availableGradeKeys[0] || "pre2";
@@ -27,7 +61,8 @@ const selectedGradeDisplay = examData.displayName || selectedGradeLabel;
 const selectedSetLabel = examData.setLabel || selectedSet.label || selectedSetKey;
 const selectedSetImported = isImportedSet(selectedGrade, selectedSet.key);
 const selectedGradeImported = selectedSetImported;
-const isGrade2SpeakingExperience = appConfig.mode === "grade2-product" && selectedGrade === "grade2";
+const isGrade2SpeakingExperience = isGrade2Product && selectedGrade === "grade2";
+const isGrade2ContinuousExam = isGrade2SpeakingExperience;
 
 const appTitle = appConfig.title || `${selectedGradeLabel}CBT形式4技能トレーニング`;
 document.title = appTitle;
@@ -169,9 +204,8 @@ function normalizeSetKey(value) {
 
 function resolveSelectedSet(gradeKey) {
   const grade = gradeCatalog[gradeKey] || gradeCatalog[fallbackGradeKey] || {};
-  const sets = getGradeSets(grade, gradeKey);
-  const enabledSets = sets.filter((set) => set.enabled);
-  const fallbackSet = enabledSets[0] || sets[0] || { key: "set-01" };
+  const enabledSets = getAccessibleExamSets(grade, gradeKey);
+  const fallbackSet = enabledSets[0] || { key: "set-01" };
   const defaultSetKey = normalizeSetKey(grade.defaultSet || fallbackSet.key);
   const requestedSet = requestParams.get("set") || requestParams.get("setKey");
   if (requestedSet) {
@@ -192,8 +226,26 @@ function resolveSelectedSet(gradeKey) {
 }
 
 function resolveExamSet(grade, setKey, gradeKey) {
-  const sets = getGradeSets(grade, gradeKey);
-  return sets.find((set) => set.key === setKey && set.enabled) || sets.find((set) => set.enabled) || sets[0] || makeLegacySet(grade, gradeKey);
+  const sets = getAccessibleExamSets(grade, gradeKey);
+  return sets.find((set) => set.key === setKey) || sets[0] || makeLegacySet(grade, gradeKey);
+}
+
+function resolveAccessPlan() {
+  const requestedPlan = String(requestParams.get("plan") || "").trim().toLowerCase();
+  if (isGrade2Product && requestedPlan === "five") return ACCESS_PLANS.three;
+  return ACCESS_PLANS[requestedPlan] || ACCESS_PLANS.single;
+}
+
+function isSetIncludedInAccessPlan(set) {
+  return selectedAccessPlan.setKeys.includes(normalizeSetKey(set?.key));
+}
+
+function getAccessibleExamSets(grade, gradeKey) {
+  const enabledSets = getGradeSets(grade, gradeKey).filter((set) => set.enabled);
+  if (!appConfig.grade) return enabledSets;
+  const includedSets = enabledSets.filter((set) => isSetIncludedInAccessPlan(set));
+  if (includedSets.length > 0) return includedSets;
+  return enabledSets;
 }
 
 function mergeGradeAndSetData(grade, set) {
@@ -516,6 +568,9 @@ function buildGrade2SpeakingFlow(sourceSteps) {
       autoStart: true,
       replayLimit: 2,
       practiceOnly: true,
+      modelAnswer: warmup.modelAnswer || "",
+      explanation: warmup.explanation || "",
+      explanationTier: warmup.explanationTier || "",
     },
     {
       id: "warmup-2",
@@ -530,6 +585,11 @@ function buildGrade2SpeakingFlow(sourceSteps) {
       autoStart: true,
       replayLimit: 2,
       practiceOnly: true,
+      modelAnswer: "I enjoy playing sports and watching movies on weekends.",
+      explanation: `【答え方】週末に楽しんでいることを一つ直接答えます。I enjoy ...ing または I like to ... を使うと自然です。
+【解答例】I enjoy playing sports and watching movies on weekends.
+【評価上の位置づけ】ウォームアップは採点対象外です。短くても質問に合う一文を、面接官に届く声量で答えれば十分です。`,
+      explanationTier: "premium",
     },
     {
       id: "silent-reading",
@@ -559,6 +619,8 @@ function buildGrade2SpeakingFlow(sourceSteps) {
       recording: true,
       seconds: Number(readAloud.seconds) || 45,
       autoStart: true,
+      explanation: readAloud.explanation || "",
+      explanationTier: readAloud.explanationTier || "",
     },
     {
       id: "no-1",
@@ -574,6 +636,9 @@ function buildGrade2SpeakingFlow(sourceSteps) {
       seconds: Number(no1.seconds) || 30,
       autoStart: true,
       replayLimit: 2,
+      modelAnswer: no1.modelAnswer || "",
+      explanation: no1.explanation || "",
+      explanationTier: no1.explanationTier || "",
     },
     {
       id: "no-2-preparation",
@@ -602,6 +667,9 @@ function buildGrade2SpeakingFlow(sourceSteps) {
       seconds: 60,
       autoStart: true,
       replayLimit: 2,
+      modelAnswer: no2.modelAnswer || "",
+      explanation: no2.explanation || "",
+      explanationTier: no2.explanationTier || "",
     },
     {
       id: "turn-card",
@@ -618,17 +686,19 @@ function buildGrade2SpeakingFlow(sourceSteps) {
     },
     {
       id: "no-3",
-      phase: "choice-question",
+      phase: "question",
       stage: "No. 3",
       label: "No. 3",
-      prompt: "質問を聞き、YesまたはNoを選んでから理由を英語で答えてください。",
-      promptSpeech: no3.questionText || "Do you think more people will choose products with less packaging in the future?",
+      prompt: "質問を聞き、自分の意見と理由を英語で答えてください。",
+      promptSpeech: no3.questionText || "Some people say that more stores should reduce packaging. What do you think about that?",
       visual: "examiner",
       recording: true,
       seconds: 35,
       autoStart: true,
       replayLimit: 2,
-      requiresChoice: true,
+      modelAnswer: no3.modelAnswer || "",
+      explanation: no3.explanation || "",
+      explanationTier: no3.explanationTier || "",
     },
     {
       id: "no-4",
@@ -643,6 +713,9 @@ function buildGrade2SpeakingFlow(sourceSteps) {
       autoStart: true,
       replayLimit: 2,
       requiresChoice: true,
+      modelAnswer: no4.modelAnswer || "",
+      explanation: no4.explanation || "",
+      explanationTier: no4.explanationTier || "",
     },
     {
       id: "review",
@@ -658,7 +731,11 @@ function buildGrade2SpeakingFlow(sourceSteps) {
 }
 
 const availableModuleKeys = new Set(Object.keys(modules).filter(isModuleAvailable));
-const defaultModule = availableModuleKeys.has("reading") ? "reading" : availableModuleKeys.values().next().value || "reading";
+const defaultModule = isGrade2ContinuousExam && availableModuleKeys.has("speaking")
+  ? "speaking"
+  : availableModuleKeys.has("reading")
+    ? "reading"
+    : availableModuleKeys.values().next().value || "reading";
 
 const WRITTEN_EXAM_SECONDS = examData.writtenExamSeconds || 80 * 60;
 const LISTENING_ANSWER_SECONDS = examData.listeningAnswerSeconds || 10;
@@ -674,6 +751,7 @@ const defaultState = {
   module: defaultModule,
   started: false,
   drawerOpen: false,
+  fontLevel: 1,
   readingPage: 0,
   readingItemIndex: 0,
   writingTask: 0,
@@ -709,6 +787,7 @@ const defaultState = {
 };
 
 const appState = loadState();
+normalizeGrade2RequestUrl();
 const speakingRecordingUrls = {};
 const GRADE2_SPEAKING_OUTPUT_VOICE_PREFERENCES = [
   "Microsoft AvaMultilingual",
@@ -738,6 +817,7 @@ let speakingMeterFrame = null;
 let grade2SpeakingDeadline = 0;
 let grade2SpeakingAdvanceInProgress = false;
 let grade2SpeakingActivationToken = 0;
+let speakingDevSuppressAutoStartOnce = isLocalPreviewHost && requestParams.has("speakingStep");
 let listeningAudioElement = null;
 let listeningSpeechUtterance = null;
 let listeningPlaybackQuestionId = null;
@@ -752,6 +832,7 @@ app.addEventListener("input", handleInput);
 
 function render() {
   const moduleInfo = modules[appState.module];
+  app.dataset.fontLevel = String(appState.fontLevel);
 
   if (!appState.started) {
     stopListeningPlayback();
@@ -785,13 +866,45 @@ function render() {
 function renderStart(moduleInfo) {
   return `
     <section class="start-screen">
+      ${renderAccessPlanNotice()}
       ${renderGradePicker()}
       ${renderSetPicker()}
       <div class="start-title">${moduleInfo.title}</div>
       <button class="start-button" data-action="start">${moduleInfo.start}</button>
-      ${renderModuleTabs("技能を選ぶ")}
+      ${renderModuleNavigation("受験順序")}
       ${renderImportPanel()}
       ${renderLegalNotice()}
+    </section>
+  `;
+}
+
+function renderAccessPlanNotice() {
+  const accessText = selectedAccessPlan.key === "five"
+    ? "第1〜5回の解説・スクリプト・模範解答と、プレミアム特典を確認できます。"
+    : selectedAccessPlan.key === "three"
+      ? "第1〜3回の解説・スクリプト・模範解答と、3回プレミアム特典を確認できます。"
+      : "第1回を本番形式で解き、正答を確認できます。詳しい解説は3回プレミアムに含まれます。";
+  const isPre1FivePack = selectedGrade === "pre1" && selectedAccessPlan.key === "five";
+  const planLabel = isPre1FivePack ? "準1級・5回完成セット" : selectedAccessPlan.label;
+  const planAccessText = isPre1FivePack
+    ? "第1回〜第5回の演習・解説・スピーキング練習と、準1級専用の特典を利用できます。"
+    : accessText;
+  const grade2BonusLabel = "ライティング・スピーキング回答型・AI振り返り・直前プラン";
+  const bonusLink = canViewBonus && selectedGrade === "grade2"
+    ? `<a class="access-plan-link" href="./bonus.html?plan=${encodeURIComponent(selectedAccessPlan.key)}">特典を開く（${grade2BonusLabel}）</a>`
+    : "";
+  const pre1BonusLink = isPre1FivePack
+    ? `<a class="access-plan-link" href="./pre1-bonus.html?plan=five">特典を開く（要約・英作文・スピーキング・直前プラン・90語彙）</a>`
+    : "";
+
+  return `
+    <section class="access-plan-notice ${canViewExplanations || isPre1FivePack ? "is-three" : "is-single"}" aria-label="利用プラン">
+      <div>
+        <span>利用プラン</span>
+        <strong>${escapeHtml(planLabel)}</strong>
+      </div>
+      <p>${planAccessText}</p>
+      ${pre1BonusLink || bonusLink}
     </section>
   `;
 }
@@ -801,7 +914,13 @@ function renderLegalNotice() {
     <section class="legal-notice">
       <strong>非公式の自主練習ツールです</strong>
       <p>英検®は公益財団法人 日本英語検定協会の登録商標です。本サービスは同協会の承認・推奨・検討を受けたものではありません。</p>
-      <p>掲載している問題・音声台本・解説は独自作成です。利用規約、プライバシーポリシー、特定商取引法に基づく表記は販売前に整備します。</p>
+      <p>掲載している問題・音声台本・解説は独自作成です。購入前に利用条件と対応環境をご確認ください。</p>
+      <nav class="app-legal-links" aria-label="販売・利用に関する案内">
+        <a href="./tokusho.html">特定商取引法に基づく表記</a>
+        <a href="./terms.html">利用規約</a>
+        <a href="./privacy.html">プライバシーポリシー</a>
+        <a href="./support.html">返金・利用期限・対応PC・お問い合わせ</a>
+      </nav>
     </section>
   `;
 }
@@ -823,7 +942,42 @@ function renderHeader(statusText) {
         ${isTimedWriting ? `<span data-written-timer>${formatClock(appState.writtenRemaining)}</span>` : ""}
       </div>
     </header>
-    ${renderModuleTabs("技能を切り替える")}
+    ${renderModuleNavigation("受験順序")}
+  `;
+}
+
+function renderModuleNavigation(label) {
+  if (!isGrade2ContinuousExam) return renderModuleTabs(label);
+
+  const flowOrder = ["speaking", "listening", "reading", "writing"].filter(isModuleAvailable);
+  const currentIndex = Math.max(0, flowOrder.indexOf(appState.module));
+  const fontLevel = Math.min(5, Math.max(1, Number(appState.fontLevel) || 1));
+
+  return `
+    <nav class="module-picker exam-flow-picker" aria-label="${label}">
+      ${flowOrder
+        .map((key, index) => {
+          const stateClass = index < currentIndex ? "is-complete" : index === currentIndex ? "is-current" : "is-upcoming";
+          return `
+            <span class="exam-flow-step ${stateClass}" ${index === currentIndex ? 'aria-current="step"' : ""}>
+              <span class="exam-flow-index">${index + 1}</span>
+              <span>${escapeHtml(modules[key].label)}</span>
+            </span>
+          `;
+        })
+        .join("")}
+      <button
+        class="font-size-control"
+        data-action="increase-font"
+        aria-label="問題文を大きくする（現在 ${fontLevel}/5）"
+        title="問題文を大きくする"
+        ${fontLevel >= 5 ? "disabled" : ""}
+      >
+        <span class="font-size-symbol" aria-hidden="true">A＋</span>
+        <span class="font-size-step">${fontLevel}/5</span>
+      </button>
+      <button class="module-tab reset-tab" data-action="reset-progress">進行リセット</button>
+    </nav>
   `;
 }
 
@@ -853,7 +1007,7 @@ function renderGradePicker() {
 }
 
 function renderSetPicker() {
-  const sets = getGradeSets(gradeCatalog[selectedGrade] || examData, selectedGrade);
+  const sets = getAccessibleExamSets(gradeCatalog[selectedGrade] || examData, selectedGrade);
   if (sets.length <= 1) return "";
 
   return `
@@ -915,6 +1069,7 @@ function renderImportPanel() {
 }
 
 function renderModuleTabs(label) {
+  const fontLevel = Math.min(5, Math.max(1, Number(appState.fontLevel) || 1));
   return `
     <nav class="module-picker" aria-label="${label}">
       ${Object.entries(modules)
@@ -927,6 +1082,16 @@ function renderModuleTabs(label) {
           `,
         )
         .join("")}
+      <button
+        class="font-size-control"
+        data-action="increase-font"
+        aria-label="問題文を大きくする（現在 ${fontLevel}/5）"
+        title="問題文を大きくする"
+        ${fontLevel >= 5 ? "disabled" : ""}
+      >
+        <span class="font-size-symbol" aria-hidden="true">A＋</span>
+        <span class="font-size-step">${fontLevel}/5</span>
+      </button>
       <button class="module-tab reset-tab" data-action="reset-progress">進行リセット</button>
     </nav>
   `;
@@ -947,6 +1112,7 @@ function renderReading() {
   const frameClass = [
     "reading-frame",
     page.kind === "long" ? "reading-long-frame" : "reading-choice-frame",
+    appState.drawerOpen ? "drawer-open" : "drawer-closed",
     appState.instructionOpen ? "instruction-open" : "",
   ]
     .filter(Boolean)
@@ -1040,6 +1206,7 @@ function getReadingInstructionText(page) {
 }
 
 function renderChoiceQuestion(question) {
+  const answer = appState.answers.written[question.id];
   return `
     <article class="question-block" id="q-${question.id}">
       <div class="question-number">(${question.id})</div>
@@ -1048,12 +1215,19 @@ function renderChoiceQuestion(question) {
         ${question.choices
           .map(
             (choice, index) => `
-              <div class="choice-row">
-                <span class="choice-button choice-marker" aria-hidden="true">
+              <button
+                type="button"
+                class="choice-row problem-choice ${answer === index + 1 ? "selected" : ""}"
+                data-action="written-answer"
+                data-question="${question.id}"
+                data-value="${index + 1}"
+                aria-pressed="${answer === index + 1}"
+              >
+                <span class="choice-button choice-marker ${answer === index + 1 ? "selected" : ""}" aria-hidden="true">
                   ${index + 1}
                 </span>
-                <span>${escapeHtml(choice)}</span>
-              </div>
+                <span class="choice-text">${escapeHtml(choice)}</span>
+              </button>
             `,
           )
           .join("")}
@@ -1161,6 +1335,7 @@ function renderReadingFullView(page) {
 }
 
 function renderCompactChoiceQuestion(question) {
+  const answer = appState.answers.written[question.id];
   return `
     <article class="compact-question" id="q-${question.id}">
       <div class="compact-question-text">
@@ -1170,12 +1345,19 @@ function renderCompactChoiceQuestion(question) {
       ${question.choices
         .map(
           (choice, index) => `
-            <div class="choice-row compact">
-              <span class="choice-button choice-marker" aria-hidden="true">
+            <button
+              type="button"
+              class="choice-row compact problem-choice ${answer === index + 1 ? "selected" : ""}"
+              data-action="written-answer"
+              data-question="${question.id}"
+              data-value="${index + 1}"
+              aria-pressed="${answer === index + 1}"
+            >
+              <span class="choice-button choice-marker ${answer === index + 1 ? "selected" : ""}" aria-hidden="true">
                 ${index + 1}
               </span>
-              <span>${escapeHtml(choice)}</span>
-            </div>
+              <span class="choice-text">${escapeHtml(choice)}</span>
+            </button>
           `,
         )
         .join("")}
@@ -1720,7 +1902,7 @@ function renderSpeaking() {
   const stepIndex = appState.speakingStep;
   return `
     ${renderHeader("音量調整")}
-    <section class="speaking-frame">
+    <section class="speaking-frame ${step.pictureImageSrc ? "pre1-speaking-flow" : ""}">
       <div class="speaking-head">
         <div>${selectedGradeDisplay}</div>
         <label class="volume-row">
@@ -1730,8 +1912,9 @@ function renderSpeaking() {
           <span>大</span>
         </label>
       </div>
+      ${renderSpeakingDevTools()}
       <div class="speaking-body">
-        <div class="interviewer ${step.visual === "カード" ? "card-visual" : ""}">
+        <div class="interviewer ${step.visual === "カード" ? "card-visual" : ""} ${step.pictureImageSrc ? "pre1-card-visual" : ""}">
           ${renderSpeakingVisual(step)}
         </div>
         <aside class="speaking-card">
@@ -1769,6 +1952,25 @@ function renderSpeaking() {
   `;
 }
 
+function renderSpeakingDevTools() {
+  if (!isLocalPreviewHost) return "";
+  const sectionStartIndex = speakingSteps.findIndex((step) => step.phase === "section-start");
+  const canSkipChecks = isGrade2SpeakingExperience && sectionStartIndex > 0 && appState.speakingStep < sectionStartIndex;
+  return `
+    <div class="speaking-dev-tools" role="group" aria-label="開発用スピーキング操作">
+      <div>
+        <strong>開発用</strong>
+        <span>マイク・録音を使わず画面遷移を確認</span>
+      </div>
+      <div class="speaking-dev-actions">
+        ${canSkipChecks ? `<button data-action="speaking-dev-skip-checks">受験前チェックをスキップ</button>` : ""}
+        <button data-action="speaking-dev-prev" ${appState.speakingStep === 0 ? "disabled" : ""}>前へ</button>
+        <button data-action="speaking-dev-next" ${appState.speakingStep >= speakingSteps.length - 1 ? "disabled" : ""}>録音せず次へ</button>
+      </div>
+    </div>
+  `;
+}
+
 function renderGrade2Speaking() {
   const step = speakingSteps[appState.speakingStep] || speakingSteps[0];
   const status = appState.speakingPhaseStatus || "idle";
@@ -1791,10 +1993,11 @@ function renderGrade2Speaking() {
           <span>大</span>
         </label>
       </div>
+      ${renderSpeakingDevTools()}
       <div class="speaking-progress" aria-label="スピーキングの進行状況">
         <div class="speaking-progress-bar" style="width:${Math.round(((appState.speakingStep + 1) / speakingSteps.length) * 100)}%"></div>
       </div>
-      <div class="speaking-body grade2-speaking-body">
+      <div class="speaking-body grade2-speaking-body ${step.visual === "picture" ? "picture-story-layout" : ""}">
         <div class="interviewer grade2-speaking-stage ${["card", "picture"].includes(step.visual) ? "card-visual" : ""}">
           ${renderGrade2SpeakingVisual(step)}
         </div>
@@ -1808,6 +2011,7 @@ function renderGrade2Speaking() {
           ${renderGrade2SpeakingStatus(step, status, timerVisible)}
           ${renderGrade2SpeakingMicMeter(step, status)}
           ${renderGrade2SpeakingActions(step, status, replayRemaining)}
+          ${renderGrade2SpeakingDevSkip(step)}
           ${step.replayLimit ? `<p class="speaking-replay-note">質問の聞き直し：あと${replayRemaining}回</p>` : ""}
           <p class="speaking-privacy-note">録音はこの端末内に保存されます。外部サービスには自動送信されません。</p>
         </aside>
@@ -1834,22 +2038,25 @@ function renderGrade2SpeakingVisual(step) {
       return `
         <article class="grade2-picture-card grade2-picture-story-card">
           <div class="grade2-card-heading">2級 Speaking Card</div>
-          <section class="grade2-picture-story-passage" aria-label="Passage">
-            <h3>${escapeHtml(story.cardTitle || "Passage")}</h3>
-            <p>${escapeHtml(story.cardText || "")}</p>
-          </section>
           <p class="grade2-story-opening">
             <span>Your story should begin with this sentence:</span>
             <strong>${escapeHtml(story.openingSentence || "")}</strong>
           </p>
           <figure class="grade2-picture-story-visual" aria-label="3コマのイラスト">
-            <img src="${escapeHtml(story.imageSrc)}" alt="" />
-            <span
-              class="grade2-story-bubble grade2-story-bubble-first grade2-story-bubble-tail-${firstSpeechTail}"
-              aria-label="${escapeHtml(`${story.firstSpeechSpeaker || "A character"} says: ${story.firstSpeech || ""}`)}"
-            >${escapeHtml(story.firstSpeech || "")}</span>
-            <span class="grade2-story-time grade2-story-time-first">${escapeHtml(story.firstTimeLabel || "")}</span>
-            <span class="grade2-story-time grade2-story-time-second">${escapeHtml(story.secondTimeLabel || "")}</span>
+            <div class="grade2-story-cue-row">
+              <span
+                class="grade2-story-bubble grade2-story-bubble-first grade2-story-bubble-tail-${firstSpeechTail}"
+                aria-label="${escapeHtml(`${story.firstSpeechSpeaker || "A character"} says: ${story.firstSpeech || ""}`)}"
+              >
+                <span class="grade2-story-bubble-speaker">${escapeHtml(story.firstSpeechSpeaker || "A character")}</span>
+                <span>${escapeHtml(story.firstSpeech || "")}</span>
+              </span>
+              <span class="grade2-story-time grade2-story-time-first">${escapeHtml(story.firstTimeLabel || "")}</span>
+              <span class="grade2-story-time grade2-story-time-second">${escapeHtml(story.secondTimeLabel || "")}</span>
+            </div>
+            <div class="grade2-picture-story-image">
+              <img src="${escapeHtml(story.imageSrc)}" alt="" />
+            </div>
           </figure>
         </article>
       `;
@@ -1901,6 +2108,11 @@ function renderGrade2SpeakingVisual(step) {
 
   return `
     <div class="grade2-examiner">
+      <img
+        class="grade2-examiner-photo"
+        src="assets/grade2-speaking-examiner-photo.png"
+        alt="Foreign examiner seated at a desk"
+      />
       <div class="examiner-room">
         <div class="examiner-avatar" aria-label="面接官">
           <span class="examiner-hair"></span>
@@ -1950,6 +2162,18 @@ function renderGrade2SpeakingMicMeter(step, status) {
         <span class="speaking-level-guide low"></span>
         <span class="speaking-level-guide high"></span>
       </div>
+    </div>
+  `;
+}
+
+function renderGrade2SpeakingDevSkip(step) {
+  const preflightPhases = ["setup", "output-check", "microphone-check", "test-recording", "test-playback"];
+  if (!isLocalPreviewHost || !preflightPhases.includes(step.phase)) return "";
+  return `
+    <div class="speaking-dev-skip-panel">
+      <strong>開発用</strong>
+      <button data-action="speaking-dev-skip-checks">受験前チェックを全部スキップ</button>
+      <span>音声・マイク・テスト録音を省略して「スピーキング開始」へ進みます。</span>
     </div>
   `;
 }
@@ -2036,9 +2260,23 @@ function renderGrade2SpeakingActions(step, status, replayRemaining) {
 }
 
 function renderGrade2SpeakingReview() {
+  return `
+    <div class="speaking-section-complete">
+      <div>
+        <h3>スピーキングは終了しました</h3>
+        <p>録音はこの端末内に保存されています。試験中は解答例を表示せず、続けてリスニングへ進みます。</p>
+      </div>
+    </div>
+    <div class="speaking-primary-actions">
+      <button class="start-button compact" data-action="grade2-speaking-continue">リスニングへ進む</button>
+    </div>
+  `;
+}
+
+function renderGenericSpeakingReview() {
   const reviewItems = speakingSteps
     .map((step, index) => ({ step, index }))
-    .filter(({ step }) => step.recording && step.id !== "test-recording");
+    .filter(({ step }) => step.recording);
 
   return `
     <div class="speaking-review-list">
@@ -2046,25 +2284,47 @@ function renderGrade2SpeakingReview() {
         .map(({ step, index }) => {
           const recording = appState.speakingRecordings[index];
           const url = speakingRecordingUrls[index] || "";
+          const promptText = step.questionText || step.openingSentence || step.promptSpeech || "";
+          const evaluationPoints = Array.isArray(step.evaluationPoints) ? step.evaluationPoints.filter(Boolean) : [];
           return `
             <section class="speaking-review-item">
               <div>
-                <strong>${escapeHtml(step.stage || step.label)}</strong>
+                <strong>${escapeHtml(step.label || `Step ${index + 1}`)}</strong>
                 <span>${recording ? formatBytes(recording.size || 0) : "録音なし"}</span>
               </div>
+              ${promptText ? `<p class="speaking-review-question"><strong>Prompt</strong>${escapeHtml(promptText)}</p>` : ""}
               ${url ? `<audio controls preload="metadata" src="${url}"></audio>` : `<p>録音データがありません。</p>`}
               ${recording ? `<button class="small-action" data-action="speaking-record-download" data-step="${index}">ダウンロード</button>` : ""}
+              ${
+                canViewExplanations && step.modelAnswer
+                  ? `<div class="speaking-review-model"><strong>解答例</strong><p>${escapeHtml(step.modelAnswer)}</p></div>`
+                  : ""
+              }
+              ${canViewExplanations ? renderReviewExplanation(step) : ""}
+              ${
+                canViewExplanations && evaluationPoints.length
+                  ? `
+                    <div class="speaking-review-points">
+                      <strong>評価ポイント</strong>
+                      <ul>${evaluationPoints.map((point) => `<li>${escapeHtml(point)}</li>`).join("")}</ul>
+                    </div>
+                  `
+                  : ""
+              }
             </section>
           `;
         })
         .join("")}
     </div>
-    <p class="speaking-ai-note">AIフィードバックを利用する場合も、公式採点ではなく練習用の目安として扱ってください。</p>
   `;
 }
 
 function mountGrade2SpeakingStep() {
   if (!isGrade2SpeakingExperience || !appState.started || appState.module !== "speaking") return;
+  if (speakingDevSuppressAutoStartOnce) {
+    speakingDevSuppressAutoStartOnce = false;
+    return;
+  }
   const step = speakingSteps[appState.speakingStep];
   if (!step?.autoStart || appState.speakingPhaseStatus !== "idle") return;
   const token = ++grade2SpeakingActivationToken;
@@ -2074,7 +2334,42 @@ function mountGrade2SpeakingStep() {
   }, 180);
 }
 
+async function handleSpeakingDevAction(action) {
+  if (!isLocalPreviewHost) return;
+
+  grade2SpeakingActivationToken += 1;
+  grade2SpeakingDeadline = 0;
+  if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+  if (isSpeakingRecordingActive()) await stopSpeakingRecording({ renderAfter: false });
+  stopGrade2MicrophoneCheck();
+
+  let targetStep = appState.speakingStep;
+  if (action === "speaking-dev-skip-checks") {
+    const sectionStartIndex = speakingSteps.findIndex((step) => step.phase === "section-start");
+    if (sectionStartIndex >= 0) targetStep = sectionStartIndex;
+  } else if (action === "speaking-dev-prev") {
+    targetStep = Math.max(0, targetStep - 1);
+  } else if (action === "speaking-dev-next") {
+    targetStep = Math.min(speakingSteps.length - 1, targetStep + 1);
+  } else {
+    return;
+  }
+
+  appState.speakingStep = targetStep;
+  appState.speakingRemaining = getSpeakingStepSeconds(targetStep);
+  appState.speakingPhaseStatus = "idle";
+  appState.speakingRecordMessage = "";
+  speakingDevSuppressAutoStartOnce = true;
+  saveState();
+  render();
+}
+
 async function handleGrade2SpeakingAction(action, target) {
+  if (action === "grade2-speaking-continue") {
+    transitionToGrade2Module("listening");
+    return;
+  }
+
   if (action === "grade2-speaking-next") {
     await advanceGrade2SpeakingStep();
     return;
@@ -2418,7 +2713,48 @@ function handleGrade2SpeakingFailure() {
   render();
 }
 
+function renderPre1SpeakingCard(step) {
+  const pictureCues = Array.isArray(step.pictureCues) ? step.pictureCues : [];
+  return `
+    <article class="pre1-speaking-card">
+      <div class="pre1-story-eyebrow">Grade Pre-1 Speaking Card</div>
+      <h3>${escapeHtml(step.storyTitle || "Narration")}</h3>
+      ${step.storyLead ? `<p class="pre1-story-lead">${escapeHtml(step.storyLead)}</p>` : ""}
+      ${
+        step.openingSentence
+          ? `<p class="pre1-story-opening"><span>Start your narration with this sentence:</span><strong>${escapeHtml(step.openingSentence)}</strong></p>`
+          : ""
+      }
+      <figure class="pre1-story-figure">
+        <img src="${escapeHtml(step.pictureImageSrc)}" alt="${escapeHtml(step.pictureAlt || "Four-panel speaking card")}" />
+      </figure>
+      ${
+        pictureCues.length
+          ? `
+            <div class="pre1-story-cues" aria-label="Picture sequence">
+              ${pictureCues
+                .map(
+                  (cue, index) => `
+                    <div class="pre1-story-cue">
+                      <strong>${index + 1}. ${escapeHtml(cue.time || "")}</strong>
+                      ${cue.text ? `<span>“${escapeHtml(cue.text)}”</span>` : ""}
+                    </div>
+                  `,
+                )
+                .join("")}
+            </div>
+          `
+          : ""
+      }
+    </article>
+  `;
+}
+
 function renderSpeakingVisual(step) {
+  if (step.pictureImageSrc) {
+    return renderPre1SpeakingCard(step);
+  }
+
   if (step.cardText) {
     return `
       <div class="speaking-visual-card">
@@ -2447,6 +2783,13 @@ function renderSpeakingMaterial(step) {
       <div class="speaking-material">
         <strong>Question</strong>
         <p>${escapeHtml(step.questionText)}</p>
+        <button class="small-action speaking-prompt-play" data-action="speaking-prompt-play">▶ 面接官の音声を再生</button>
+      </div>
+    `);
+  } else if (step.promptSpeech) {
+    blocks.push(`
+      <div class="speaking-material speaking-audio-prompt">
+        <button class="small-action speaking-prompt-play" data-action="speaking-prompt-play">▶ 試験音声を再生</button>
       </div>
     `);
   }
@@ -2575,7 +2918,7 @@ function renderModal() {
         <div class="full-modal">
           <button class="modal-close" data-action="close-modal">×</button>
           <div class="email-card">
-            <strong>${escapeHtml(task.sourceTitle)}</strong>
+            ${task.sourceTitle ? `<strong>${escapeHtml(task.sourceTitle)}</strong>` : ""}
             ${task.source.map((line) => `<p>${escapeHtml(line)}</p>`).join("")}
           </div>
           ${renderWritingPoints(task)}
@@ -2648,9 +2991,13 @@ function renderReviewBoard() {
   return `
     <section class="review-board" aria-label="復習">
       <div class="review-board-head">
-        <h2>復習</h2>
-        <span>正答・誤答・未解答と解説を確認できます。</span>
+        <div>
+          <h2>復習</h2>
+          ${canViewExplanations && selectedSet.explanationPackage ? `<span class="review-premium-badge">${escapeHtml(selectedSet.explanationPackage.label)}</span>` : ""}
+        </div>
+        <span>${canViewExplanations ? "正答・誤答・未解答と解説を確認できます。" : "正答・誤答・未解答を確認できます。"}</span>
       </div>
+      ${canViewExplanations ? "" : `<p class="review-plan-note">この版では答え合わせのみです。詳しい解説、スクリプト、模範解答は3回プレミアムに含まれます。</p>`}
       <div class="review-filter-bar" aria-label="復習フィルター">
         ${renderReviewFilterButton("all", "すべて")}
         ${renderReviewFilterButton("wrong", "間違いだけ")}
@@ -2676,6 +3023,16 @@ function renderReviewBoard() {
             ${renderReviewList(writingItems.map((task) => renderWritingReviewItem(task)))}
           </div>
         </section>
+        ${
+          !isGrade2SpeakingExperience && speakingSteps.some((step) => step.recording)
+            ? `
+              <section class="review-speaking-section">
+                <h3>スピーキング</h3>
+                ${renderGenericSpeakingReview()}
+              </section>
+            `
+            : ""
+        }
       </div>
     </section>
   `;
@@ -2714,10 +3071,51 @@ function renderReviewItem(question, answers, type) {
       <div class="review-detail">
         <p>${escapeHtml(promptText)}</p>
         ${renderReviewChoices(question, selected)}
-        ${question.explanation ? `<p class="review-explanation"><strong>解説</strong>${escapeHtml(question.explanation)}</p>` : ""}
-        ${type === "listening" && question.script ? `<p class="review-script"><strong>Script</strong>${escapeHtml(question.script)}</p>` : ""}
+        ${renderReviewExplanation(question)}
+        ${canViewExplanations && type === "listening" && question.script ? `<p class="review-script"><strong>Script</strong>${escapeHtml(question.script)}</p>` : ""}
       </div>
     </details>
+  `;
+}
+
+function renderReviewExplanation(item) {
+  if (!canViewExplanations) return "";
+  const explanation = String(item?.explanation || "").trim();
+  const studyPoint = String(item?.studyPoint || "").trim();
+  if (!explanation && !studyPoint) return "";
+
+  const title = item?.explanationTier === "premium" ? "購入特典・詳しい解説" : "解説";
+  const sections = explanation
+    .split(/\n+/)
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .map((line) => {
+      const match = line.match(/^【([^】]+)】\s*(.*)$/);
+      if (!match) return `<p>${escapeHtml(line)}</p>`;
+      return `
+        <section class="review-explanation-section">
+          <strong>${escapeHtml(match[1])}</strong>
+          <p>${escapeHtml(match[2])}</p>
+        </section>
+      `;
+    })
+    .join("");
+
+  return `
+    <div class="review-explanation ${item?.explanationTier === "premium" ? "is-premium" : ""}">
+      <div class="review-explanation-title">${escapeHtml(title)}</div>
+      ${sections}
+      ${
+        studyPoint
+          ? `
+            <section class="review-takeaway">
+              <strong>今回の学習ポイント</strong>
+              <p>${escapeHtml(studyPoint)}</p>
+            </section>
+          `
+          : ""
+      }
+    </div>
   `;
 }
 
@@ -2758,9 +3156,10 @@ function renderWritingReviewItem(task) {
           <strong>あなたの解答</strong>
           <p>${value.trim() ? escapeHtml(value) : "未入力です。"}</p>
         </div>
-        ${renderWritingReviewChecklist(task)}
+        ${canViewExplanations ? renderWritingReviewChecklist(task) : ""}
+        ${renderReviewExplanation(task)}
         ${
-          task.modelAnswer
+          canViewExplanations && task.modelAnswer
             ? `<div class="review-model-answer"><strong>模範解答例</strong><p>${escapeHtml(task.modelAnswer)}</p></div>`
             : ""
         }
@@ -2779,7 +3178,7 @@ function renderWritingReviewChecklist(task) {
       <strong>自己チェック</strong>
       <ul>
         ${items
-          .map((item, index) => `<li class="${checkedItems[index] ? "checked" : ""}">${checkedItems[index] ? "✓" : "—"} ${escapeHtml(item)}</li>`)
+          .map((item, index) => `<li class="${checkedItems[index] ? "checked" : ""}">${checkedItems[index] ? "✓" : "-"} ${escapeHtml(item)}</li>`)
           .join("")}
       </ul>
     </div>
@@ -2895,16 +3294,28 @@ async function handleClick(event) {
   }
 
   if (target.dataset.set) {
+    const nextSetKey = normalizeSetKey(target.dataset.set);
     try {
-      localStorage.setItem(getSetSelectionKey(selectedGrade), normalizeSetKey(target.dataset.set));
+      localStorage.setItem(getSetSelectionKey(selectedGrade), nextSetKey);
     } catch {
       // Continue with the reload even if local storage is unavailable.
     }
-    window.location.reload();
+    const nextUrl = new URL(window.location.href);
+    nextUrl.searchParams.set("set", nextSetKey);
+    nextUrl.searchParams.delete("setKey");
+    nextUrl.searchParams.set("module", isGrade2ContinuousExam ? "speaking" : appState.module);
+    nextUrl.searchParams.set("start", isGrade2ContinuousExam ? "1" : "0");
+    if (isGrade2ContinuousExam) nextUrl.searchParams.set("fresh", "1");
+    nextUrl.searchParams.delete("started");
+    nextUrl.searchParams.delete("speakingStep");
+    nextUrl.searchParams.delete("question");
+    nextUrl.searchParams.delete("listen");
+    window.location.assign(nextUrl.toString());
     return;
   }
 
   if (target.dataset.module) {
+    if (isGrade2ContinuousExam) return;
     if (!isModuleAvailable(target.dataset.module)) return;
     appState.module = target.dataset.module;
     appState.started = false;
@@ -2920,6 +3331,11 @@ async function handleClick(event) {
 
   const action = target.dataset.action;
   if (!action) return;
+
+  if (action.startsWith("speaking-dev-")) {
+    await handleSpeakingDevAction(action);
+    return;
+  }
 
   if (isGrade2SpeakingExperience && action.startsWith("grade2-speaking-")) {
     await handleGrade2SpeakingAction(action, target);
@@ -2942,6 +3358,7 @@ async function handleClick(event) {
     }
     appState.started = true;
     prepareModuleStart();
+    if (isGrade2ContinuousExam) syncGrade2ModuleUrl(appState.module, { started: true });
   } else if (action === "restart") {
     resetState();
   } else if (action === "reset-progress") {
@@ -2981,6 +3398,8 @@ async function handleClick(event) {
     appState.drawerOpen = !appState.drawerOpen;
   } else if (action === "toggle-instruction") {
     appState.instructionOpen = !appState.instructionOpen;
+  } else if (action === "increase-font") {
+    appState.fontLevel = Math.min(5, (Number(appState.fontLevel) || 1) + 1);
   } else if (action === "show-finish" || (action === "writing-next" && appState.writingTask === writingTasks.length - 1)) {
     appState.modal = "finish";
   } else if (action === "complete-exam") {
@@ -3000,6 +3419,10 @@ async function handleClick(event) {
       appState.readingPage += 1;
       appState.readingItemIndex = 0;
     } else {
+      if (isGrade2ContinuousExam) {
+        transitionToGrade2Module("writing", { resetWrittenTimer: false });
+        return;
+      }
       appState.module = "writing";
       appState.started = false;
     }
@@ -3045,6 +3468,10 @@ async function handleClick(event) {
     return;
   } else if (action === "listen-next") {
     if (appState.listeningIndex >= listeningQuestions.length - 1) {
+      if (isGrade2ContinuousExam) {
+        transitionToGrade2Module("reading");
+        return;
+      }
       appState.modal = "complete";
     } else {
       appState.listeningIndex += 1;
@@ -3056,6 +3483,10 @@ async function handleClick(event) {
   } else if (action === "listen-goto") {
     appState.listeningIndex = Number(target.dataset.page);
     appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
+  } else if (action === "speaking-prompt-play") {
+    const step = speakingSteps[appState.speakingStep];
+    await speakGrade2Prompt(step?.promptSpeech || step?.questionText || "");
+    return;
   } else if (action === "speaking-record-start") {
     await startSpeakingRecording();
     return;
@@ -3069,14 +3500,17 @@ async function handleClick(event) {
     await copySpeakingRecording(Number(target.dataset.step));
     return;
   } else if (action === "speaking-next") {
+    if ("speechSynthesis" in window) window.speechSynthesis.cancel();
     if (isSpeakingRecordingActive()) await stopSpeakingRecording({ renderAfter: false });
     appState.speakingStep = Math.min(speakingSteps.length - 1, appState.speakingStep + 1);
     appState.speakingRemaining = getSpeakingStepSeconds(appState.speakingStep);
   } else if (action === "speaking-prev") {
+    if ("speechSynthesis" in window) window.speechSynthesis.cancel();
     if (isSpeakingRecordingActive()) await stopSpeakingRecording({ renderAfter: false });
     appState.speakingStep = Math.max(0, appState.speakingStep - 1);
     appState.speakingRemaining = getSpeakingStepSeconds(appState.speakingStep);
   } else if (action === "speaking-goto") {
+    if ("speechSynthesis" in window) window.speechSynthesis.cancel();
     if (isSpeakingRecordingActive()) await stopSpeakingRecording({ renderAfter: false });
     appState.speakingStep = Number(target.dataset.page);
     appState.speakingRemaining = getSpeakingStepSeconds(appState.speakingStep);
@@ -3870,6 +4304,9 @@ function formatClock(totalSeconds) {
 
 function loadState() {
   try {
+    if (isGrade2ContinuousExam && requestParams.get("fresh") === "1") {
+      return normalizeState(applyRequestStateOverrides(structuredClone(defaultState)));
+    }
     const savedText = [STORAGE_KEY, ...LEGACY_STORAGE_KEYS]
       .map((key) => localStorage.getItem(key))
       .find((value) => Boolean(value));
@@ -3905,9 +4342,8 @@ function applyRequestStateOverrides(state) {
     if (questionIndex >= 0) state.listeningIndex = questionIndex;
   }
 
-  const localPreviewHost = ["127.0.0.1", "localhost"].includes(window.location.hostname);
-  const requestedSpeakingStep = Number(requestParams.get("speakingStep"));
-  if (localPreviewHost && isGrade2SpeakingExperience && state.module === "speaking" && Number.isInteger(requestedSpeakingStep)) {
+  const requestedSpeakingStep = requestParams.has("speakingStep") ? Number(requestParams.get("speakingStep")) : Number.NaN;
+  if (isLocalPreviewHost && state.module === "speaking" && Number.isInteger(requestedSpeakingStep)) {
     state.speakingStep = Math.min(Math.max(requestedSpeakingStep, 0), speakingSteps.length - 1);
     state.speakingRemaining = getSpeakingStepSeconds(state.speakingStep);
     state.speakingPhaseStatus = "idle";
@@ -3921,6 +4357,8 @@ function normalizeState(state) {
     state.module = defaultModule;
     state.started = false;
   }
+  if (isGrade2ContinuousExam && !state.started) state.module = defaultModule;
+  state.fontLevel = Math.min(5, Math.max(1, Number(state.fontLevel) || 1));
   state.readingPage = Math.min(Math.max(Number(state.readingPage) || 0, 0), readingPages.length - 1);
   state.readingItemIndex = Math.min(Math.max(Number(state.readingItemIndex) || 0, 0), getLastReadingItemIndex(readingPages[state.readingPage]));
   state.writingTask = Math.min(Math.max(Number(state.writingTask) || 0, 0), writingTasks.length - 1);
@@ -3965,6 +4403,54 @@ function resetState() {
   Object.assign(appState, fresh);
   localStorage.removeItem(STORAGE_KEY);
   LEGACY_STORAGE_KEYS.forEach((key) => localStorage.removeItem(key));
+  if (isGrade2ContinuousExam) syncGrade2ModuleUrl(defaultModule, { started: false });
+}
+
+function normalizeGrade2RequestUrl() {
+  if (!isGrade2ContinuousExam || !window.history?.replaceState) return;
+  const url = new URL(window.location.href);
+  let changed = false;
+  if (url.searchParams.get("plan") === "five") {
+    url.searchParams.set("plan", "three");
+    changed = true;
+  }
+  if (url.searchParams.has("fresh")) {
+    url.searchParams.delete("fresh");
+    changed = true;
+  }
+  if (changed) window.history.replaceState(null, "", url.toString());
+}
+
+function syncGrade2ModuleUrl(moduleKey, { started = true } = {}) {
+  if (!isGrade2ContinuousExam || !window.history?.replaceState) return;
+  const url = new URL(window.location.href);
+  url.searchParams.set("module", moduleKey);
+  url.searchParams.set("start", started ? "1" : "0");
+  url.searchParams.delete("started");
+  url.searchParams.delete("speakingStep");
+  url.searchParams.delete("question");
+  url.searchParams.delete("listen");
+  window.history.replaceState(null, "", url.toString());
+}
+
+function transitionToGrade2Module(moduleKey, { resetWrittenTimer = true } = {}) {
+  if (!isGrade2ContinuousExam || !isModuleAvailable(moduleKey)) return;
+  stopListeningPlayback();
+  grade2SpeakingActivationToken += 1;
+  grade2SpeakingDeadline = 0;
+  appState.module = moduleKey;
+  appState.started = true;
+  appState.modal = null;
+  if (moduleKey === "listening") {
+    appState.listeningIndex = 0;
+    appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
+  }
+  if (moduleKey === "reading" && resetWrittenTimer) appState.writtenRemaining = WRITTEN_EXAM_SECONDS;
+  if (moduleKey === "writing") appState.writingTask = 0;
+  prepareModuleStart();
+  syncGrade2ModuleUrl(moduleKey, { started: true });
+  saveState();
+  render();
 }
 
 function prepareModuleStart() {
@@ -4024,6 +4510,10 @@ function tickTimers() {
     if (appState.listeningAnswerRemaining <= 0) {
       listeningAnswerDeadline = 0;
       if (appState.listeningIndex >= listeningQuestions.length - 1) {
+        if (isGrade2ContinuousExam) {
+          transitionToGrade2Module("reading");
+          return;
+        }
         appState.modal = "complete";
       } else {
         appState.listeningIndex += 1;
