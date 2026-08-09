@@ -8,15 +8,25 @@ const outDir = join(root, "worker-dist");
 const rootFiles = [
   "index.html",
   "exam.html",
+  "bonus.html",
   "styles.css",
   "lp.css",
+  "bonus.css",
+  "legal.css",
   "app-config-grade2.js",
   "app.js",
   "exam-data.js",
   "grade2-set-01.js",
+  "grade2-set-01-explanations.js",
+  "grade2-skill-explanations.js",
   "grade2-vocab-sets.js",
   "grade2-speaking-sets.js",
   "grade2-listening-part2-sets.js",
+  "grade2-premium-bonus.js",
+  "privacy.html",
+  "support.html",
+  "terms.html",
+  "tokusho.html",
   "manifest.webmanifest",
   "sw.js",
   "sw-set02-v2.js",
@@ -25,8 +35,9 @@ const rootFiles = [
 
 const assetFiles = [
   "app-icon.svg",
-  "grade2-speaking-picture-story-02.png",
+  "grade2-speaking-examiner-photo.png",
   "grade2-speaking-picture-story-02-anime.png",
+  "grade2-speaking-picture-story-02.png",
   "grade2-speaking-picture-story-sample-anime.png",
   "grade2-speaking-picture-story-set-02-anime.png",
   "grade2-speaking-picture-story-set-03-anime.png",
@@ -36,11 +47,20 @@ const assetFiles = [
   "lp-home-practice.png",
   "lp-juku-classroom.png",
   "lp-listening.png",
+  "lp-parent-plan.png",
+  "lp-product-rehearsal-illustration.png",
   "lp-reading.png",
   "lp-result.png",
   "lp-speaking.png",
+  "lp-study-desk-sunlit.png",
+  "lp-summer-rehearsal.png",
   "lp-teacher-check.png",
+  "lp-voices-student-illustration.png",
   "yuta-profile.png"
+];
+
+const nestedFiles = [
+  "output/pdf/eiken-grade2-final-check-writing-template.pdf"
 ];
 
 await rm(outDir, { recursive: true, force: true });
@@ -52,4 +72,10 @@ for (const file of rootFiles) {
 
 for (const file of assetFiles) {
   await cp(join(root, "assets", file), join(outDir, "assets", file));
+}
+
+for (const file of nestedFiles) {
+  const destination = join(outDir, file);
+  await mkdir(dirname(destination), { recursive: true });
+  await cp(join(root, file), destination);
 }
