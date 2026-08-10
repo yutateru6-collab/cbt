@@ -4120,6 +4120,376 @@ button {
   font-weight: 700;
 }
 
+/* Grade 2 developer navigation and four-skill scoring */
+.developer-toolbar {
+  width: min(1080px, calc(100% - 24px));
+  display: grid;
+  gap: 9px;
+  margin: 10px auto;
+  padding: 12px;
+  border: 2px solid #b45309;
+  border-radius: 10px;
+  background: #fff7ed;
+  color: #431407;
+  box-shadow: 0 4px 16px rgba(124, 45, 18, 0.12);
+}
+
+.developer-toolbar-head,
+.developer-toolbar-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.developer-toolbar-head {
+  justify-content: space-between;
+}
+
+.developer-toolbar-head > div {
+  display: grid;
+  gap: 2px;
+}
+
+.developer-toolbar-head strong {
+  color: #9a3412;
+  font-size: 15px;
+}
+
+.developer-toolbar-head span {
+  color: #7c2d12;
+  font-size: 11px;
+}
+
+.developer-toolbar button,
+.developer-location-picker select {
+  min-height: 32px;
+  padding: 5px 10px;
+  border: 1px solid #c2410c;
+  border-radius: 6px;
+  background: #fff;
+  color: #7c2d12;
+  font-weight: 800;
+}
+
+.developer-toolbar button.active {
+  color: #fff;
+  background: #c2410c;
+}
+
+.developer-location-picker {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  color: #7c2d12;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.developer-location-picker select {
+  width: 100%;
+  min-width: 0;
+  font-weight: 600;
+}
+
+.grade2-score-board,
+.grade2-gpt-panel,
+.cse-estimate-panel {
+  width: min(1000px, 100%);
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.score-board-heading,
+.grade2-gpt-head,
+.cse-estimate-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.score-board-heading h2,
+.grade2-gpt-head h2 {
+  margin: 2px 0 0;
+  font-size: 20px;
+}
+
+.score-board-heading span,
+.grade2-gpt-head span,
+.cse-estimate-head span {
+  color: #475569;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+}
+
+.score-board-heading > strong {
+  padding: 5px 9px;
+  border-radius: 999px;
+  color: #991b1b;
+  background: #fef2f2;
+  font-size: 11px;
+}
+
+.grade2-raw-score-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  width: 100%;
+}
+
+.grade2-raw-score-grid .result-card {
+  min-width: 0;
+  min-height: 128px;
+}
+
+.grade2-raw-score-grid .result-card strong {
+  overflow-wrap: anywhere;
+  font-size: clamp(20px, 2.1vw, 28px);
+}
+
+.result-card.primary-score {
+  border-color: #86a9c3;
+  background: #f5faff;
+}
+
+.result-card.combined-score {
+  border-color: #2f6e53;
+  background: #f0f8f4;
+}
+
+.result-card.gpt-pending {
+  border-style: dashed;
+  background: #f8fafc;
+}
+
+.result-card.gpt-pending strong {
+  color: #64748b;
+  font-size: 17px;
+}
+
+.result-card.gpt-scored {
+  border-color: #a78bfa;
+  background: #faf8ff;
+}
+
+.score-pending-note,
+.review-model-note,
+.gpt-model-note {
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  border-left: 3px solid #64748b;
+  background: #f8fafc;
+  color: #475569;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.cse-estimate-panel {
+  margin-top: 16px;
+  border-color: #b9a264;
+  background: #fffdf5;
+}
+
+.cse-estimate-panel.pass { border-color: #5a9b79; background: #f2faf6; }
+.cse-estimate-panel.below { border-color: #d6a0a0; background: #fff7f7; }
+
+.cse-estimate-head strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 20px;
+}
+
+.cse-estimate-head small {
+  max-width: 300px;
+  color: #64748b;
+  text-align: right;
+  line-height: 1.5;
+}
+
+.cse-range-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.cse-range-grid > div {
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid #ddd6b8;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.84);
+}
+
+.cse-range-grid > div.wide {
+  grid-column: span 2;
+}
+
+.cse-range-grid span,
+.cse-range-grid small {
+  display: block;
+  color: #64748b;
+  font-size: 11px;
+}
+
+.cse-range-grid strong {
+  display: block;
+  margin: 4px 0;
+  overflow-wrap: anywhere;
+  font-size: 20px;
+}
+
+.cse-estimate-panel > p {
+  margin: 12px 0 0;
+  color: #475569;
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.grade2-gpt-panel {
+  display: grid;
+  gap: 13px;
+  border-color: #bca5e8;
+  background: #fcfaff;
+}
+
+.gpt-imported-badge,
+.gpt-pending-badge {
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+}
+
+.gpt-imported-badge { color: #166534; background: #dcfce7; }
+.gpt-pending-badge { color: #6b21a8; background: #f3e8ff; }
+
+.gpt-grading-steps {
+  margin: 0;
+  padding-left: 22px;
+  color: #475569;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.grade2-gpt-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.grade2-gpt-actions .small-action {
+  display: inline-grid;
+  place-items: center;
+  min-height: 38px;
+  padding: 6px 14px;
+  text-decoration: none;
+}
+
+.gpt-json-input {
+  min-width: 0;
+  display: grid;
+  gap: 6px;
+  color: #312e81;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.gpt-json-input textarea {
+  width: 100%;
+  min-width: 0;
+  min-height: 190px;
+  resize: vertical;
+  padding: 11px;
+  border: 1px solid #a78bfa;
+  border-radius: 8px;
+  background: #fff;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.grading-message {
+  padding: 10px 12px;
+  border-radius: 7px;
+  font-size: 12px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.grading-message.success { color: #166534; background: #dcfce7; }
+.grading-message.error { color: #991b1b; background: #fee2e2; }
+
+.review-model-note {
+  margin: 0;
+  border-left-color: #b8872d;
+  background: #fffdf5;
+}
+
+@media (max-width: 1040px) {
+  .grade2-raw-score-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 820px) {
+  .developer-toolbar,
+  .grade2-score-board,
+  .grade2-gpt-panel,
+  .cse-estimate-panel {
+    width: 100%;
+  }
+
+  .developer-location-picker {
+    grid-template-columns: 1fr;
+  }
+
+  .grade2-raw-score-grid,
+  .cse-range-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cse-range-grid > div.wide {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 560px) {
+  .score-board-heading,
+  .grade2-gpt-head,
+  .cse-estimate-head {
+    display: grid;
+  }
+
+  .cse-estimate-head small {
+    max-width: none;
+    text-align: left;
+  }
+
+  .grade2-raw-score-grid,
+  .cse-range-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grade2-score-board,
+  .grade2-gpt-panel,
+  .cse-estimate-panel {
+    padding: 13px;
+  }
+
+  .developer-toolbar-row button,
+  .developer-toolbar-head button {
+    flex: 1 1 120px;
+  }
+}
+
 .full-modal {
   width: 710px;
   max-height: 560px;

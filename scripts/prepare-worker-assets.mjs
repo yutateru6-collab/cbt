@@ -14,6 +14,7 @@ const rootFiles = [
   "bonus.css",
   "legal.css",
   "app-config-grade2.js",
+  "grade2-scoring.js",
   "app.js",
   "exam-data.js",
   "grade2-set-01.js",

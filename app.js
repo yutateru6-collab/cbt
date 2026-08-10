@@ -13,6 +13,8 @@ const GRADE_SELECTION_KEY = `${storageNamespace}-selected-grade`;
 const SET_SELECTION_KEY_PREFIX = `${storageNamespace}-selected-set`;
 const requestParams = new URLSearchParams(window.location.search);
 const isGrade2Product = appConfig.mode === "grade2-product" && appConfig.grade === "grade2";
+const grade2Scoring = window.Grade2Scoring || null;
+const isGrade2DeveloperMode = isGrade2Product && requestParams.get("dev") === "1";
 const ACCESS_PLANS = Object.freeze({
   sample: Object.freeze({
     key: "sample",
@@ -78,7 +80,7 @@ const GRADE2_LISTENING_INSTRUCTION_AUDIO = Object.freeze({
   part1: `${GRADE2_SPEAKING_AUDIO_BASE}/instructions/listening-part1-ja.wav`,
   part2: `${GRADE2_SPEAKING_AUDIO_BASE}/instructions/listening-part2-ja.wav`,
 });
-const GRADE2_SPEAKING_FEEDBACK_GPT_URL = String(appConfig.speakingFeedbackGptUrl || "").trim();
+const GRADE2_GRADING_GPT_URL = String(appConfig.gradingGptUrl || appConfig.speakingFeedbackGptUrl || "").trim();
 
 const appTitle = appConfig.title || `${selectedGradeLabel}CBT形式4技能トレーニング`;
 document.title = appTitle;
@@ -867,6 +869,10 @@ const defaultState = {
   speakingMicReady: false,
   speakingMicMessage: "",
   speakingTestConfirmed: false,
+  scored: false,
+  grade2GptScoreDraft: "",
+  grade2GptScoreMessage: "",
+  grade2GptScores: null,
   reviewFilter: "all",
   clipboardText: "",
   importOpen: false,
@@ -905,7 +911,7 @@ let speakingMeterFrame = null;
 let grade2SpeakingDeadline = 0;
 let grade2SpeakingAdvanceInProgress = false;
 let grade2SpeakingActivationToken = 0;
-let speakingDevSuppressAutoStartOnce = isLocalPreviewHost && requestParams.has("speakingStep");
+let speakingDevSuppressAutoStartOnce = isGrade2DeveloperMode && requestParams.has("speakingStep");
 let listeningAudioElement = null;
 let listeningInstructionAudioElement = null;
 let listeningSpeechUtterance = null;
@@ -955,6 +961,7 @@ function render() {
 function renderStart(moduleInfo) {
   return `
     <section class="start-screen">
+      ${renderDeveloperToolbar()}
       ${renderAccessPlanNotice()}
       ${renderGradePicker()}
       ${renderSetPicker()}
@@ -1034,6 +1041,7 @@ function renderHeader(statusText) {
       </div>
     </header>
     ${renderModuleNavigation("受験順序")}
+    ${renderDeveloperToolbar()}
   `;
 }
 
@@ -1069,6 +1077,71 @@ function renderModuleNavigation(label) {
       </button>
       <button class="module-tab reset-tab" data-action="reset-progress">進行リセット</button>
     </nav>
+  `;
+}
+
+function getDeveloperLocationValue() {
+  if (appState.modal === "complete") return "result";
+  if (appState.module === "speaking") return `speaking:${appState.speakingStep}`;
+  if (appState.module === "listening") return `listening:${appState.listeningIndex}`;
+  if (appState.module === "reading") return `reading:${appState.readingPage}:${getCurrentReadingItemIndex(readingPages[appState.readingPage])}`;
+  if (appState.module === "writing") return `writing:${appState.writingTask}`;
+  return "";
+}
+
+function renderDeveloperToolbar() {
+  if (!isGrade2DeveloperMode) return "";
+  const currentLocation = getDeveloperLocationValue();
+  const moduleOrder = ["speaking", "listening", "reading", "writing"].filter(isModuleAvailable);
+  const speakingOptions = speakingSteps
+    .map((step, index) => `<option value="speaking:${index}" ${currentLocation === `speaking:${index}` ? "selected" : ""}>${index + 1}. ${escapeHtml(step.stage || step.label || step.phase || "工程")}</option>`)
+    .join("");
+  const listeningOptions = listeningQuestions
+    .map((question, index) => {
+      const sectionLabel = String(question.section || (index < 15 ? "Part 1" : "Part 2")).replace(/^リスニング\s*/i, "");
+      return `<option value="listening:${index}" ${currentLocation === `listening:${index}` ? "selected" : ""}>${escapeHtml(sectionLabel)} / No.${escapeHtml(question.id)}</option>`;
+    })
+    .join("");
+  const readingOptions = readingPages
+    .flatMap((page, pageIndex) =>
+      page.questions.map((question, questionIndex) => {
+        const value = `reading:${pageIndex}:${questionIndex}`;
+        return `<option value="${value}" ${currentLocation === value ? "selected" : ""}>${escapeHtml(getReadingPageDisplayLabel(page, pageIndex))} / No.${escapeHtml(question.id)}</option>`;
+      }),
+    )
+    .join("");
+  const writingOptions = writingTasks
+    .map((task, index) => `<option value="writing:${index}" ${currentLocation === `writing:${index}` ? "selected" : ""}>${escapeHtml(task.label || `Writing ${index + 1}`)}</option>`)
+    .join("");
+
+  return `
+    <aside class="developer-toolbar" aria-label="開発者モード">
+      <div class="developer-toolbar-head">
+        <div><strong>開発者モード</strong><span>通常版では表示されない自由移動ツール</span></div>
+        <button data-action="dev-exit">開発者モードを終了</button>
+      </div>
+      <div class="developer-toolbar-row developer-set-row" role="group" aria-label="回次">
+        ${["set-01", "set-02", "set-03"]
+          .map((setKey, index) => `<button data-dev-set="${setKey}" class="${selectedSet.key === setKey ? "active" : ""}">第${index + 1}回</button>`)
+          .join("")}
+      </div>
+      <div class="developer-toolbar-row" role="group" aria-label="技能">
+        ${moduleOrder
+          .map((moduleKey) => `<button data-dev-module="${moduleKey}" class="${appState.modal !== "complete" && appState.module === moduleKey ? "active" : ""}">${escapeHtml(modules[moduleKey].label)}</button>`)
+          .join("")}
+        <button data-action="dev-result" class="${appState.modal === "complete" ? "active" : ""}">採点・解説</button>
+      </div>
+      <label class="developer-location-picker">
+        <span>工程・設問へ移動</span>
+        <select data-dev-location>
+          <optgroup label="Speaking">${speakingOptions}</optgroup>
+          <optgroup label="Listening Part 1 / Part 2">${listeningOptions}</optgroup>
+          <optgroup label="Reading">${readingOptions}</optgroup>
+          <optgroup label="Writing">${writingOptions}</optgroup>
+          <option value="result" ${currentLocation === "result" ? "selected" : ""}>採点・回答解説画面</option>
+        </select>
+      </label>
+    </aside>
   `;
 }
 
@@ -2127,7 +2200,7 @@ function renderSpeaking() {
 }
 
 function renderSpeakingDevTools() {
-  if (!isLocalPreviewHost) return "";
+  if (!isGrade2DeveloperMode) return "";
   const sectionStartIndex = speakingSteps.findIndex((step) => step.phase === "section-start");
   const canSkipChecks = isGrade2SpeakingExperience && sectionStartIndex > 0 && appState.speakingStep < sectionStartIndex;
   return `
@@ -2342,7 +2415,7 @@ function renderGrade2SpeakingMicMeter(step, status) {
 
 function renderGrade2SpeakingDevSkip(step) {
   const preflightPhases = ["setup", "output-check", "microphone-check", "test-recording", "test-playback"];
-  if (!isLocalPreviewHost || !preflightPhases.includes(step.phase)) return "";
+  if (!isGrade2DeveloperMode || !preflightPhases.includes(step.phase)) return "";
   return `
     <div class="speaking-dev-skip-panel">
       <strong>開発用</strong>
@@ -2471,7 +2544,7 @@ function renderGenericSpeakingReview() {
               ${recording ? `<button class="small-action" data-action="speaking-record-download" data-step="${index}">ダウンロード</button>` : ""}
               ${
                 canViewExplanations && step.modelAnswer
-                  ? `<div class="speaking-review-model"><strong>解答例</strong><p>${escapeHtml(step.modelAnswer)}</p></div>`
+                  ? `<div class="speaking-review-model"><strong>解答例（比較用・完全一致不要）</strong><p>${escapeHtml(step.modelAnswer)}</p></div>`
                   : ""
               }
               ${canViewExplanations ? renderReviewExplanation(step) : ""}
@@ -2498,40 +2571,81 @@ function renderGrade2SpeakingFeedbackBenefit() {
     <aside class="speaking-feedback-benefit">
       <div>
         <span class="speaking-feedback-kicker">3回プレミアム特典</span>
-        <h4>録音を採点GPTへ送る準備</h4>
-        <p>録音はこの端末のブラウザ内（IndexedDB）に保存されます。上の「ダウンロード」から音声を保存し、採点GPTへアップロードしてください。</p>
+        <h4>録音はこの端末内に保存されています</h4>
+        <p>Read AloudとNo.1〜4の「ダウンロード」から音声を保存し、上の採点パネルでコピーしたデータと一緒に採点GPTへアップロードしてください。マイクテストとWarm-upは採点対象外です。</p>
         <p class="speaking-feedback-note">採点は学習用の目安です。英検の公式採点・合否判定ではありません。</p>
-      </div>
-      <div class="speaking-feedback-actions">
-        <button class="small-action" data-action="copy-speaking-feedback-prompt">採点指示をコピー</button>
-        ${
-          GRADE2_SPEAKING_FEEDBACK_GPT_URL
-            ? `<a class="small-action" href="${escapeHtml(GRADE2_SPEAKING_FEEDBACK_GPT_URL)}" target="_blank" rel="noopener">採点GPTを開く</a>`
-            : `<span class="speaking-feedback-pending">採点GPTの公開URLは後から設定できます。</span>`
-        }
       </div>
     </aside>
   `;
 }
 
-function getGrade2SpeakingFeedbackPrompt() {
-  return `あなたは英検2級S-CBTスピーキングの学習用採点者です。添付する受験者の録音を聞き、次の形式で日本語で診断してください。
-
-1. 質問への応答: 1〜5点
-2. 内容と情報量: 1〜5点
-3. 発音と流暢さ: 1〜5点
-4. 語彙と文法: 1〜5点
-5. 良かった点: 具体的に2点
-6. 最優先の改善点: 1点
-7. より良い解答例: 受験者の英語力から無理なく言える2級レベル
-
-聞き取れない箇所は推測で補わず、その旨を明記してください。これは学習用の参考評価であり、英検の公式採点や合否判定ではないことを最後に示してください。
-
-受験回: ${selectedSetLabel}`;
+function getGrade2GradingPackageText() {
+  const speakingScoreIds = new Set(["read-aloud", "no-1", "no-2", "no-3", "no-4"]);
+  const gradingPackage = {
+    schema: "scbt-grade2-grading-input-v1",
+    setKey: selectedSet.key,
+    setLabel: selectedSetLabel,
+    notice: "学習用の参考採点です。英検公式スコア・公式合否ではありません。模範解答は完全一致を求める正解ではなく、比較用の解答例です。",
+    writingRubric: {
+      summary: { content: "0〜4", organization: "0〜4", vocabulary: "0〜4", grammar: "0〜4", maximum: 16 },
+      essay: { content: "0〜4", organization: "0〜4", vocabulary: "0〜4", grammar: "0〜4", maximum: 16 },
+      totalMaximum: 32,
+    },
+    speakingRubric: {
+      taskResponse: "0〜5",
+      contentAndInformation: "0〜5",
+      pronunciationAndFluency: "0〜5",
+      vocabularyAndGrammar: "0〜5",
+      totalMaximum: 20,
+      audioRule: "Read AloudとNo.1〜4の録音だけを採点し、マイクテストとWarm-upは除外する。聞き取れない箇所は推測しない。",
+    },
+    writing: writingTasks.map((task) => ({
+      id: task.id,
+      label: task.label,
+      prompt: task.lead || "",
+      sourceTitle: task.sourceTitle || "",
+      source: Array.isArray(task.source) ? task.source : [],
+      points: Array.isArray(task.points) ? task.points : [],
+      targetWords: task.targetWords || "",
+      candidateAnswer: appState.writingAnswers[task.id] || "",
+      modelAnswerForComparison: task.modelAnswer || "",
+    })),
+    speaking: speakingSteps
+      .filter((step) => speakingScoreIds.has(step.id))
+      .map((step, index) => ({
+        order: index + 1,
+        id: step.id,
+        label: step.label,
+        prompt: step.questionText || step.promptSpeech || step.prompt || "",
+        passage: step.cardText || "",
+        pictureStory: step.pictureStory || null,
+        modelAnswerForComparison: step.modelAnswer || "",
+        recording: "この項目に対応する音声ファイルを利用者が別途アップロードします。",
+      })),
+    requiredOutput: {
+      explanation: "各課題・各観点の根拠、良かった点、優先改善点、改善例を日本語で説明する。",
+      json: {
+        schema: "scbt-grade2-gpt-score-v1",
+        setKey: selectedSet.key,
+        writing: {
+          summary: { content: 0, organization: 0, vocabulary: 0, grammar: 0, total: 0 },
+          essay: { content: 0, organization: 0, vocabulary: 0, grammar: 0, total: 0 },
+          total: 0,
+        },
+        speaking: {
+          taskResponse: 0,
+          contentAndInformation: 0,
+          pronunciationAndFluency: 0,
+          vocabularyAndGrammar: 0,
+          total: 0,
+        },
+      },
+    },
+  };
+  return `以下は英検2級S-CBTの学習用採点データです。完成Instructionsに従って診断し、説明の最後にrequiredOutput.jsonと同じ構造の採点JSONを必ず返してください。\n\n${JSON.stringify(gradingPackage, null, 2)}`;
 }
 
-async function copyGrade2SpeakingFeedbackPrompt(button) {
-  const text = getGrade2SpeakingFeedbackPrompt();
+async function copyTextToClipboard(text) {
   try {
     await navigator.clipboard.writeText(text);
   } catch {
@@ -2545,7 +2659,11 @@ async function copyGrade2SpeakingFeedbackPrompt(button) {
     document.execCommand("copy");
     textarea.remove();
   }
-  if (button) button.textContent = "採点指示をコピーしました";
+}
+
+async function copyGrade2GradingPackage(button) {
+  await copyTextToClipboard(getGrade2GradingPackageText());
+  if (button) button.textContent = "採点データをコピーしました";
 }
 
 function mountGrade2SpeakingStep() {
@@ -2564,7 +2682,7 @@ function mountGrade2SpeakingStep() {
 }
 
 async function handleSpeakingDevAction(action) {
-  if (!isLocalPreviewHost) return;
+  if (!isGrade2DeveloperMode) return;
 
   grade2SpeakingActivationToken += 1;
   grade2SpeakingDeadline = 0;
@@ -3139,10 +3257,10 @@ function renderModal() {
         <div class="confirm-modal">
           <h2>テストの終了</h2>
           <p>解答済み ${summary.answered}/${summary.total} 問、未解答 ${summary.unanswered} 問、見直し ${summary.reviewed} 問です。</p>
-          <p>一度「はい」を押すと、このテストには戻れません。未解答の問題や見直したい問題が残っている場合は、「いいえ」を押して戻ってください。</p>
+          <p>「採点する」を押すと選択式問題の素点を計算し、回答解説モードへ進みます。未解答の問題や見直したい問題が残っている場合は、「戻る」を押してください。</p>
           <div class="modal-actions">
-            <button data-action="complete-exam">はい</button>
-            <button data-action="close-modal">いいえ</button>
+            <button data-action="complete-exam">採点する</button>
+            <button data-action="close-modal">戻る</button>
           </div>
         </div>
       </div>
@@ -3189,33 +3307,112 @@ function renderModal() {
 
 function renderComplete() {
   const summary = getExamSummary();
+  const resultContent = isGrade2Product ? renderGrade2ScoreResult(summary) : renderLegacyScoreResult(summary);
   return `
     <section class="start-screen result-screen">
+      ${renderDeveloperToolbar()}
       <div class="start-title">試験終了</div>
-      <div class="result-grid">
-        <article class="result-card">
-          <span>リーディング</span>
-          <strong>${summary.reading.correct}/${summary.reading.total}</strong>
-          <small>未解答 ${summary.reading.unanswered} 問</small>
-        </article>
-        <article class="result-card">
-          <span>リスニング</span>
-          <strong>${summary.listening.correct}/${summary.listening.total}</strong>
-          <small>未解答 ${summary.listening.unanswered} 問</small>
-        </article>
-        <article class="result-card">
-          <span>ライティング</span>
-          <strong>${summary.writing.answered}/${summary.writing.total}</strong>
-          <small>入力済みタスク数</small>
-        </article>
-        <article class="result-card">
-          <span>全体状況</span>
-          <strong>${summary.answered}/${summary.total}</strong>
-          <small>未解答 ${summary.unanswered} 問 / 見直し ${summary.reviewed} 問</small>
-        </article>
-      </div>
+      ${resultContent}
       ${renderReviewBoard()}
       <button class="start-button" data-action="restart">最初に戻る</button>
+    </section>
+  `;
+}
+
+function renderLegacyScoreResult(summary) {
+  return `
+    <div class="result-grid">
+      <article class="result-card"><span>リーディング</span><strong>${summary.reading.correct}/${summary.reading.total}</strong><small>未解答 ${summary.reading.unanswered} 問</small></article>
+      <article class="result-card"><span>リスニング</span><strong>${summary.listening.correct}/${summary.listening.total}</strong><small>未解答 ${summary.listening.unanswered} 問</small></article>
+      <article class="result-card"><span>ライティング</span><strong>${summary.writing.answered}/${summary.writing.total}</strong><small>入力済みタスク数</small></article>
+      <article class="result-card"><span>全体状況</span><strong>${summary.answered}/${summary.total}</strong><small>未解答 ${summary.unanswered} 問 / 見直し ${summary.reviewed} 問</small></article>
+    </div>
+  `;
+}
+
+function getValidatedGrade2GptScores() {
+  if (!grade2Scoring || !appState.grade2GptScores) return null;
+  const validation = grade2Scoring.validateGptScorePayload(appState.grade2GptScores, selectedSet.key);
+  return validation.ok ? validation.value : null;
+}
+
+function renderGrade2ScoreResult(summary) {
+  if (!grade2Scoring) {
+    return `<p class="grading-message error">採点処理を読み込めませんでした。ページを再読み込みしてください。</p>`;
+  }
+  const gptScores = getValidatedGrade2GptScores();
+  const scoreView = grade2Scoring.summarizeScores({ reading: summary.reading, listening: summary.listening, gptScores });
+  return `
+    <section class="grade2-score-board" aria-label="採点結果">
+      <div class="score-board-heading">
+        <div><span>採点結果</span><h2>素点を中心に確認</h2></div>
+        <strong>英検公式スコア・公式合否ではありません</strong>
+      </div>
+      <div class="result-grid grade2-raw-score-grid">
+        <article class="result-card primary-score"><span>1. Reading 素点</span><strong>${summary.reading.correct}/${summary.reading.total}</strong><small>未解答 ${summary.reading.unanswered} 問</small></article>
+        <article class="result-card primary-score"><span>2. Listening 素点</span><strong>${summary.listening.correct}/${summary.listening.total}</strong><small>未解答 ${summary.listening.unanswered} 問</small></article>
+        <article class="result-card combined-score"><span>3. Reading＋Listening</span><strong>${scoreView.readingListening.raw}/${scoreView.readingListening.maximum}</strong><small>選択式の合計素点</small></article>
+        <article class="result-card ${gptScores ? "gpt-scored" : "gpt-pending"}"><span>4. Writing</span><strong>${gptScores ? `${gptScores.writing.total}/32` : "GPT採点待ち"}</strong><small>${gptScores ? `要約 ${gptScores.writing.summary.total}/16・英作文 ${gptScores.writing.essay.total}/16` : "採点JSONを下へ貼り付け"}</small></article>
+        <article class="result-card ${gptScores ? "gpt-scored" : "gpt-pending"}"><span>5. Speaking</span><strong>${gptScores ? `${gptScores.speaking.total}/20` : "GPT採点待ち"}</strong><small>${gptScores ? "学習用4観点の素点" : "Read Aloud・No.1〜4を採点"}</small></article>
+      </div>
+      ${gptScores ? renderGrade2CseRanges(scoreView) : `<p class="score-pending-note">WritingとSpeakingのGPT採点JSONを取り込むと、4技能の練習用CSEレンジと合格レベル目安を表示します。</p>`}
+    </section>
+    ${renderGrade2GptPanel(gptScores)}
+  `;
+}
+
+function formatCseRange(range) {
+  return range ? `${range.low}〜${range.high}` : "—";
+}
+
+function renderGrade2CseRanges(scoreView) {
+  return `
+    <section class="cse-estimate-panel ${escapeHtml(scoreView.level.key)}">
+      <div class="cse-estimate-head">
+        <div><span>非公式・練習用CSE目安</span><strong>${escapeHtml(scoreView.level.label)}</strong></div>
+        <small>素点率の帯から算出した重なりのある概算レンジ</small>
+      </div>
+      <div class="cse-range-grid">
+        <div><span>Reading</span><strong>${formatCseRange(scoreView.reading)}</strong></div>
+        <div><span>Listening</span><strong>${formatCseRange(scoreView.listening)}</strong></div>
+        <div><span>Writing</span><strong>${formatCseRange(scoreView.writing)}</strong></div>
+        <div><span>Speaking</span><strong>${formatCseRange(scoreView.speaking)}</strong></div>
+        <div class="wide"><span>一次 R＋L＋W</span><strong>${formatCseRange(scoreView.primary)}</strong><small>基準1520点との位置関係</small></div>
+        <div class="wide"><span>4技能総合</span><strong>${formatCseRange(scoreView.overall)}</strong><small>総合1980点だけでは合否判定しません</small></div>
+      </div>
+      <p>一次レンジとSpeakingレンジを別々に基準と比較しています。公式CSEはIRTによって算出されるため、正答数から正確には換算できません。<a href="https://www.eiken.or.jp/cse/index.html" target="_blank" rel="noopener">英検CSEの公式説明</a> / <a href="https://www.eiken.or.jp/eiken/result/eiken-cse_admission.html" target="_blank" rel="noopener">公式の合否判定方法</a></p>
+    </section>
+  `;
+}
+
+function renderGrade2GptPanel(gptScores) {
+  const messageClass = appState.grade2GptScoreMessage.includes("取り込みました") ? "success" : "error";
+  return `
+    <section class="grade2-gpt-panel" aria-label="GPT採点連携">
+      <div class="grade2-gpt-head">
+        <div><span>3回プレミアム</span><h2>Writing・Speaking 採点GPT連携</h2></div>
+        ${gptScores ? `<strong class="gpt-imported-badge">採点JSON取込済み</strong>` : `<strong class="gpt-pending-badge">GPT採点待ち</strong>`}
+      </div>
+      <ol class="gpt-grading-steps">
+        <li>「採点データをコピー」でWriting問題・答案・比較用解答例・Speaking質問・採点基準をコピーします。</li>
+        <li>Read AloudとNo.1〜4の録音を下の復習欄から保存し、採点GPTへ手動でアップロードします。マイクテストとWarm-upは対象外です。</li>
+        <li>GPTが返した説明の末尾にあるJSONを、コードブロックごと下へ貼り付けます。</li>
+      </ol>
+      <div class="grade2-gpt-actions">
+        <button class="small-action" data-action="copy-grade2-grading-data">採点データをコピー</button>
+        ${
+          GRADE2_GRADING_GPT_URL
+            ? `<a class="small-action" href="${escapeHtml(GRADE2_GRADING_GPT_URL)}" target="_blank" rel="noopener">採点GPTを開く</a>`
+            : `<span class="speaking-feedback-pending">採点GPTは準備中です（gradingGptUrl未設定）。コピーしたデータは保存できます。</span>`
+        }
+      </div>
+      <label class="gpt-json-input">
+        <span>GPTの採点結果JSON</span>
+        <textarea data-grade2-gpt-score-draft spellcheck="false" placeholder="説明文やJSONコードブロックを含むGPTの回答を、そのまま貼り付けてください。">${escapeHtml(appState.grade2GptScoreDraft)}</textarea>
+      </label>
+      <button class="start-button compact" data-action="import-grade2-gpt-score">採点JSONを取り込む</button>
+      ${appState.grade2GptScoreMessage ? `<div class="grading-message ${messageClass}">${escapeHtml(appState.grade2GptScoreMessage)}</div>` : ""}
+      <p class="gpt-model-note">模範解答は完全一致を要求する正解ではなく、内容・構成・表現を比較するための解答例です。貼り戻した素点からCSE目安を再計算し、GPT独自のCSE判断は使いません。</p>
     </section>
   `;
 }
@@ -3230,17 +3427,18 @@ function renderReviewBoard() {
     <section class="review-board" aria-label="復習">
       <div class="review-board-head">
         <div>
-          <h2>復習</h2>
+          <h2>回答解説モード</h2>
           ${canViewExplanations && selectedSet.explanationPackage ? `<span class="review-premium-badge">${escapeHtml(selectedSet.explanationPackage.label)}</span>` : ""}
         </div>
-        <span>${canViewExplanations ? "正答・誤答・未解答と解説を確認できます。" : "正答・誤答・未解答を確認できます。"}</span>
+        <span>${canViewExplanations ? "問題を開くと、自分の解答・正答・全選択肢・根拠・誤答理由・学習ポイントを確認できます。" : "正答・誤答・未解答を確認できます。"}</span>
       </div>
+      <p class="review-model-note">Writing・Speakingの模範解答は完全一致を要求する正解ではなく、比較用の解答例です。</p>
       ${canViewExplanations ? "" : `<p class="review-plan-note">この版では答え合わせのみです。詳しい解説、スクリプト、模範解答は3回プレミアムに含まれます。</p>`}
       <div class="review-filter-bar" aria-label="復習フィルター">
         ${renderReviewFilterButton("all", "すべて")}
-        ${renderReviewFilterButton("wrong", "間違いだけ")}
-        ${renderReviewFilterButton("unanswered", "未解答だけ")}
-        ${renderReviewFilterButton("marked", "見直しだけ")}
+        ${renderReviewFilterButton("wrong", "不正解")}
+        ${renderReviewFilterButton("unanswered", "未解答")}
+        ${renderReviewFilterButton("marked", "見直し")}
       </div>
       <div class="review-columns">
         <section>
@@ -3320,7 +3518,8 @@ function renderReviewItem(question, answers, type) {
 function renderReviewExplanation(item) {
   if (!canViewExplanations) return "";
   const explanation = String(item?.explanation || "").trim();
-  const studyPoint = String(item?.studyPoint || "").trim();
+  const fallbackStudyPoint = /【学習ポイント】/.test(explanation) ? "" : getFallbackStudyPoint(item);
+  const studyPoint = String(item?.studyPoint || fallbackStudyPoint).trim();
   if (!explanation && !studyPoint) return "";
 
   const title = item?.explanationTier === "premium" ? "購入特典・詳しい解説" : "解説";
@@ -3356,6 +3555,20 @@ function renderReviewExplanation(item) {
       }
     </div>
   `;
+}
+
+function getFallbackStudyPoint(item) {
+  if (!Array.isArray(item?.choices) || item.choices.length === 0) return "";
+  if (item?.part === "Part 1") {
+    return "疑問詞と最後のやり取りを結び付け、話者・行動・時刻を取り違えないように聞き取る。";
+  }
+  if (item?.part === "Part 2") {
+    return "質問で問われる人物・理由・結果に絞り、放送内容を言い換えた選択肢を探す。";
+  }
+  if (item?.type === "vocabulary" || item?.section === "短文語句") {
+    return "空所前後の文脈を先に捉え、4択それぞれの意味と語法を照合する。";
+  }
+  return "設問のキーワードと本文の根拠文を照合し、本文にない言い過ぎを含む選択肢を除く。";
 }
 
 function renderReviewChoices(question, selected) {
@@ -3399,7 +3612,7 @@ function renderWritingReviewItem(task) {
         ${renderReviewExplanation(task)}
         ${
           canViewExplanations && task.modelAnswer
-            ? `<div class="review-model-answer"><strong>模範解答例</strong><p>${escapeHtml(task.modelAnswer)}</p></div>`
+            ? `<div class="review-model-answer"><strong>模範解答例（比較用・完全一致不要）</strong><p>${escapeHtml(task.modelAnswer)}</p></div>`
             : ""
         }
       </div>
@@ -3517,6 +3730,101 @@ function getWrittenSummary() {
   };
 }
 
+function syncDeveloperLocationUrl() {
+  if (!isGrade2DeveloperMode || !window.history?.replaceState) return;
+  const url = new URL(window.location.href);
+  url.searchParams.set("dev", "1");
+  url.searchParams.set("start", "1");
+  url.searchParams.delete("started");
+  url.searchParams.delete("question");
+  url.searchParams.delete("listen");
+  url.searchParams.delete("speakingStep");
+  url.searchParams.delete("writingTask");
+  url.searchParams.delete("readingPage");
+  url.searchParams.delete("result");
+  if (appState.modal === "complete") {
+    url.searchParams.set("module", appState.module);
+    url.searchParams.set("result", "1");
+  } else {
+    url.searchParams.set("module", appState.module);
+    if (appState.module === "speaking") url.searchParams.set("speakingStep", String(appState.speakingStep));
+    if (appState.module === "listening") url.searchParams.set("question", String(listeningQuestions[appState.listeningIndex]?.id || 1));
+    if (appState.module === "reading") {
+      const page = readingPages[appState.readingPage];
+      const question = page?.questions?.[getCurrentReadingItemIndex(page)];
+      if (question) url.searchParams.set("question", String(question.id));
+    }
+    if (appState.module === "writing") url.searchParams.set("question", String(writingTasks[appState.writingTask]?.id || 1));
+  }
+  window.history.replaceState(null, "", url.toString());
+}
+
+function moveToDeveloperLocation(value) {
+  if (!isGrade2DeveloperMode) return;
+  const parts = String(value || "").split(":");
+  const moduleKey = parts[0];
+  stopListeningPlayback();
+  grade2SpeakingActivationToken += 1;
+  grade2SpeakingDeadline = 0;
+  appState.started = true;
+  appState.modal = null;
+
+  if (moduleKey === "result") {
+    appState.scored = true;
+    appState.modal = "complete";
+  } else if (moduleKey === "speaking" && isModuleAvailable("speaking")) {
+    appState.module = "speaking";
+    appState.speakingStep = Math.min(Math.max(Number(parts[1]) || 0, 0), speakingSteps.length - 1);
+    appState.speakingRemaining = getSpeakingStepSeconds(appState.speakingStep);
+    appState.speakingPhaseStatus = "idle";
+    speakingDevSuppressAutoStartOnce = true;
+  } else if (moduleKey === "listening" && isModuleAvailable("listening")) {
+    appState.module = "listening";
+    appState.listeningIndex = Math.min(Math.max(Number(parts[1]) || 0, 0), listeningQuestions.length - 1);
+    appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
+  } else if (moduleKey === "reading" && isModuleAvailable("reading")) {
+    appState.module = "reading";
+    appState.readingPage = Math.min(Math.max(Number(parts[1]) || 0, 0), readingPages.length - 1);
+    const page = readingPages[appState.readingPage];
+    const questionIndex = Math.min(Math.max(Number(parts[2]) || 0, 0), Math.max(0, (page?.questions?.length || 1) - 1));
+    const step = getReadingStepSize(page);
+    appState.readingItemIndex = Math.floor(questionIndex / step) * step;
+    appState.drawerOpen = false;
+  } else if (moduleKey === "writing" && isModuleAvailable("writing")) {
+    appState.module = "writing";
+    appState.writingTask = Math.min(Math.max(Number(parts[1]) || 0, 0), writingTasks.length - 1);
+  } else {
+    return;
+  }
+
+  saveState();
+  syncDeveloperLocationUrl();
+  render();
+}
+
+function exitDeveloperMode() {
+  if (!isGrade2DeveloperMode) return;
+  resetState();
+  const url = new URL(window.location.href);
+  ["dev", "module", "question", "listen", "speakingStep", "writingTask", "readingPage", "result", "start", "started", "fresh"].forEach((key) => url.searchParams.delete(key));
+  window.location.assign(url.toString());
+}
+
+function importGrade2GptScore() {
+  if (!grade2Scoring) {
+    appState.grade2GptScoreMessage = "採点処理を読み込めませんでした。ページを再読み込みしてください。";
+    return false;
+  }
+  const result = grade2Scoring.parseAndValidateGptScore(appState.grade2GptScoreDraft, selectedSet.key);
+  if (!result.ok) {
+    appState.grade2GptScoreMessage = `取り込めませんでした：${result.errors.join(" / ")}`;
+    return false;
+  }
+  appState.grade2GptScores = result.value;
+  appState.grade2GptScoreMessage = "採点JSONを取り込みました。素点と練習用CSE目安を再計算しました。";
+  return true;
+}
+
 async function handleClick(event) {
   const target = event.target.closest("button");
   if (!target) return;
@@ -3550,6 +3858,28 @@ async function handleClick(event) {
     nextUrl.searchParams.delete("question");
     nextUrl.searchParams.delete("listen");
     window.location.assign(nextUrl.toString());
+    return;
+  }
+
+  if (target.dataset.devSet) {
+    if (!isGrade2DeveloperMode) return;
+    const nextSetKey = normalizeSetKey(target.dataset.devSet);
+    const nextUrl = new URL(window.location.href);
+    nextUrl.searchParams.set("set", nextSetKey);
+    nextUrl.searchParams.set("dev", "1");
+    nextUrl.searchParams.set("module", "speaking");
+    nextUrl.searchParams.set("speakingStep", "0");
+    nextUrl.searchParams.set("start", "1");
+    nextUrl.searchParams.set("fresh", "1");
+    nextUrl.searchParams.delete("result");
+    nextUrl.searchParams.delete("question");
+    window.location.assign(nextUrl.toString());
+    return;
+  }
+
+  if (target.dataset.devModule) {
+    if (!isGrade2DeveloperMode || !isModuleAvailable(target.dataset.devModule)) return;
+    moveToDeveloperLocation(`${target.dataset.devModule}:0`);
     return;
   }
 
@@ -3633,8 +3963,16 @@ async function handleClick(event) {
     }
   } else if (action === "review-filter") {
     appState.reviewFilter = target.dataset.filter || "all";
-  } else if (action === "copy-speaking-feedback-prompt") {
-    await copyGrade2SpeakingFeedbackPrompt(target);
+  } else if (action === "copy-grade2-grading-data" || action === "copy-speaking-feedback-prompt") {
+    await copyGrade2GradingPackage(target);
+    return;
+  } else if (action === "import-grade2-gpt-score") {
+    importGrade2GptScore();
+  } else if (action === "dev-result") {
+    moveToDeveloperLocation("result");
+    return;
+  } else if (action === "dev-exit") {
+    exitDeveloperMode();
     return;
   } else if (action === "toggle-drawer") {
     appState.drawerOpen = !appState.drawerOpen;
@@ -3645,6 +3983,7 @@ async function handleClick(event) {
   } else if (action === "show-finish" || (action === "writing-next" && appState.writingTask === writingTasks.length - 1)) {
     appState.modal = "finish";
   } else if (action === "complete-exam") {
+    appState.scored = true;
     appState.modal = "complete";
   } else if (action === "close-modal") {
     appState.modal = null;
@@ -3763,6 +4102,11 @@ async function handleClick(event) {
 }
 
 function handleChange(event) {
+  if (event.target.matches("[data-dev-location]")) {
+    moveToDeveloperLocation(event.target.value);
+    return;
+  }
+
   const speakingCheck = event.target.dataset.speakingCheck;
   if (speakingCheck !== undefined) {
     const stepIndex = Number(event.target.dataset.speakingCheckStep);
@@ -3795,6 +4139,13 @@ function handleChange(event) {
 }
 
 function handleInput(event) {
+  if (event.target.matches("[data-grade2-gpt-score-draft]")) {
+    appState.grade2GptScoreDraft = event.target.value;
+    appState.grade2GptScoreMessage = "";
+    saveState();
+    return;
+  }
+
   if (event.target.matches("[data-speaking-volume]")) {
     appState.speakingOutputVolume = Math.max(0, Math.min(100, Number(event.target.value) || 0));
     saveState();
@@ -4570,7 +4921,7 @@ function loadState() {
 
 function applyRequestStateOverrides(state) {
   const requestedModule = requestParams.get("module");
-  if (requestedModule && isModuleAvailable(requestedModule)) {
+  if (isGrade2DeveloperMode && requestedModule && isModuleAvailable(requestedModule)) {
     state.module = requestedModule;
   }
 
@@ -4579,16 +4930,34 @@ function applyRequestStateOverrides(state) {
   if (requestedStart === "0") state.started = false;
 
   const requestedQuestion = Number(requestParams.get("question") || requestParams.get("listen") || "");
-  if (state.module === "listening" && Number.isFinite(requestedQuestion)) {
+  if (isGrade2DeveloperMode && state.module === "listening" && Number.isFinite(requestedQuestion)) {
     const questionIndex = listeningQuestions.findIndex((question) => Number(question.id) === requestedQuestion);
     if (questionIndex >= 0) state.listeningIndex = questionIndex;
   }
+  if (isGrade2DeveloperMode && state.module === "reading" && Number.isFinite(requestedQuestion)) {
+    const pageIndex = readingPages.findIndex((page) => page.questions.some((question) => Number(question.id) === requestedQuestion));
+    if (pageIndex >= 0) {
+      state.readingPage = pageIndex;
+      const questionIndex = readingPages[pageIndex].questions.findIndex((question) => Number(question.id) === requestedQuestion);
+      const step = getReadingStepSize(readingPages[pageIndex]);
+      state.readingItemIndex = Math.floor(Math.max(0, questionIndex) / step) * step;
+    }
+  }
+  if (isGrade2DeveloperMode && state.module === "writing" && Number.isFinite(requestedQuestion)) {
+    const taskIndex = writingTasks.findIndex((task) => Number(task.id) === requestedQuestion);
+    if (taskIndex >= 0) state.writingTask = taskIndex;
+  }
 
   const requestedSpeakingStep = requestParams.has("speakingStep") ? Number(requestParams.get("speakingStep")) : Number.NaN;
-  if (isLocalPreviewHost && state.module === "speaking" && Number.isInteger(requestedSpeakingStep)) {
+  if (isGrade2DeveloperMode && state.module === "speaking" && Number.isInteger(requestedSpeakingStep)) {
     state.speakingStep = Math.min(Math.max(requestedSpeakingStep, 0), speakingSteps.length - 1);
     state.speakingRemaining = getSpeakingStepSeconds(state.speakingStep);
     state.speakingPhaseStatus = "idle";
+  }
+  if (isGrade2DeveloperMode && requestParams.get("result") === "1") {
+    state.started = true;
+    state.scored = true;
+    state.modal = "complete";
   }
 
   return state;
@@ -4619,6 +4988,10 @@ function normalizeState(state) {
   state.speakingOutputVolume = Math.max(0, Math.min(100, Number(state.speakingOutputVolume) || 70));
   state.speakingMicReady = Boolean(state.speakingMicReady);
   state.speakingTestConfirmed = Boolean(state.speakingTestConfirmed);
+  state.scored = Boolean(state.scored);
+  if (typeof state.grade2GptScoreDraft !== "string") state.grade2GptScoreDraft = "";
+  if (typeof state.grade2GptScoreMessage !== "string") state.grade2GptScoreMessage = "";
+  if (!state.grade2GptScores || typeof state.grade2GptScores !== "object" || Array.isArray(state.grade2GptScores)) state.grade2GptScores = null;
   if (typeof state.speakingMicMessage !== "string") state.speakingMicMessage = "";
   if (!['idle', 'prompting', 'counting', 'recording', 'awaiting-choice', 'error'].includes(state.speakingPhaseStatus)) state.speakingPhaseStatus = "idle";
   if (isGrade2SpeakingExperience && ['prompting', 'counting', 'recording'].includes(state.speakingPhaseStatus)) state.speakingPhaseStatus = "idle";

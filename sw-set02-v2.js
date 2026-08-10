@@ -1,4 +1,4 @@
-const CACHE_NAME = "cbt-grade2-app-shell-v58-gemini-speaking";
+const CACHE_NAME = "cbt-grade2-app-shell-v61-scoring-dev";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -6,6 +6,7 @@ const APP_SHELL = [
   "/styles.css",
   "/lp.css",
   "/app-config-grade2.js",
+  "/grade2-scoring.js",
   "/app.js",
   "/exam-data.js",
   "/grade2-set-01.js",
