@@ -1,4 +1,4 @@
-const CACHE_NAME = "cbt-grade2-app-shell-v57-worker-assets";
+const CACHE_NAME = "cbt-grade2-app-shell-v58-gemini-speaking";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -20,7 +20,11 @@ const APP_SHELL = [
   "/assets/grade2-speaking-picture-story-set-02-anime.png",
   "/assets/grade2-speaking-picture-story-set-03-anime.png",
   "/assets/grade2-speaking-picture-story-set-04-anime.png",
-  "/assets/grade2-speaking-picture-story-set-05-anime.png"
+  "/assets/grade2-speaking-picture-story-set-05-anime.png",
+  "/assets/grade2-speaking-picture-story-sample-v2.png",
+  "/assets/grade2-speaking-picture-story-set-01-v2.png",
+  "/assets/grade2-speaking-picture-story-set-02-v2.png",
+  "/assets/grade2-speaking-picture-story-set-03-v2.png"
 ];
 
 self.addEventListener("install", (event) => {

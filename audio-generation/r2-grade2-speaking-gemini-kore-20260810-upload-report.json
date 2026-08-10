@@ -1,0 +1,1175 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-08-10T03:45:26.953423+00:00",
+  "updatedAt": "2026-08-10T03:46:23.920904+00:00",
+  "bucket": "mimilisten-audio",
+  "prefix": "scbt/grade2/releases/20260810-gemini-speaking-kore-v1",
+  "publicBase": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev",
+  "manifest": "audio-generation/grade2-speaking-gemini-kore-20260810-v3/generation-report.json",
+  "manifestSha256": "a6c575f6a6302078131fda42bd0739226a348b17d333b2544a06974fe5616bf1",
+  "fileCount": 27,
+  "entries": [
+    {
+      "id": "common/sound-check",
+      "localFile": "audio-generation/grade2-speaking-gemini-kore-20260810-v3/common/sound-check.wav",
+      "localBytes": 276046,
+      "localSha256": "2b6a7b003dd65fba70bd6585bd9a2b4ae8c0b37b85edbc466b75323e5e3f875d",
+      "r2Key": "scbt/grade2/releases/20260810-gemini-speaking-kore-v1/common/sound-check.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-gemini-speaking-kore-v1/common/sound-check.wav",
+      "state": "verified",
+      "preflight": {
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentRange": null,
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "returnCode": 0,
+        "stdout": "⛅️ wrangler 4.114.0\n────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260810-gemini-speaking-kore-v1/common/sound-check.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "attempt": 1,
+        "passed": true,
+        "full": {
+          "status": 200,
+          "contentType": "audio/wav",
+          "contentRange": null,
+          "contentLength": 276046,
+          "sha256": "2b6a7b003dd65fba70bd6585bd9a2b4ae8c0b37b85edbc466b75323e5e3f875d",
+          "error": null
+        },
+        "range": {
+          "status": 206,
+          "contentType": "audio/wav",
+          "contentRange": "bytes 0-127/276046",
+          "contentLength": 128,
+          "sha256": "04c37d801739727d67dc1f44ad12b8c4266487f0c2acd30cf78e0fd1931e3d2d",
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "common/warmup-2",
+      "localFile": "audio-generation/grade2-speaking-gemini-kore-20260810-v3/common/warmup-2.wav",
+      "localBytes": 130482,
+      "localSha256": "10c5469682d79c0ee5566b4538d70222763bb8918b96efdd80dc5b75de137775",
+      "r2Key": "scbt/grade2/releases/20260810-gemini-speaking-kore-v1/common/warmup-2.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-gemini-speaking-kore-v1/common/warmup-2.wav",
+      "state": "verified",
+      "preflight": {
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentRange": null,
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "returnCode": 0,
+        "stdout": "⛅️ wrangler 4.114.0\n────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260810-gemini-speaking-kore-v1/common/warmup-2.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "attempt": 1,
+        "passed": true,
+        "full": {
+          "status": 200,
+          "contentType": "audio/wav",
+          "contentRange": null,
+          "contentLength": 130482,
+          "sha256": "10c5469682d79c0ee5566b4538d70222763bb8918b96efdd80dc5b75de137775",
+          "error": null
+        },
+        "range": {
+          "status": 206,
+          "contentType": "audio/wav",
+          "contentRange": "bytes 0-127/130482",
+          "contentLength": 128,
+          "sha256": "15bd07bb5ac9a1de33bf2122a17507438d5377f44e5aaf15d0ab20a052ed8576",
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "common/silent-reading",
+      "localFile": "audio-generation/grade2-speaking-gemini-kore-20260810-v3/common/silent-reading.wav",
+      "localBytes": 181280,
+      "localSha256": "b0f1c705e83fc8676684e5e17946f5f42dfb454208ab6d7d265788c9e9f553e8",
+      "r2Key": "scbt/grade2/releases/20260810-gemini-speaking-kore-v1/common/silent-reading.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-gemini-speaking-kore-v1/common/silent-reading.wav",
+      "state": "verified",
+      "preflight": {
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentRange": null,
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "returnCode": 0,
+        "stdout": "⛅️ wrangler 4.114.0\n────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260810-gemini-speaking-kore-v1/common/silent-reading.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "attempt": 1,
+        "passed": true,
+        "full": {
+          "status": 200,
+          "contentType": "audio/wav",
+          "contentRange": null,
+          "contentLength": 181280,
+          "sha256": "b0f1c705e83fc8676684e5e17946f5f42dfb454208ab6d7d265788c9e9f553e8",
+          "error": null
+        },
+        "range": {
+          "status": 206,
+          "contentType": "audio/wav",
+          "contentRange": "bytes 0-127/181280",
+          "contentLength": 128,
+          "sha256": "e1eb75ed5a3fb48db9b3ca3c8c38ac4e97c5885bd3357f993c39cdbd72342970",
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "common/read-aloud",
+      "localFile": "audio-generation/grade2-speaking-gemini-kore-20260810-v3/common/read-aloud.wav",
+      "localBytes": 154440,
+      "localSha256": "0247d0e987e64d52b99dd469abf0dfdfa56f8a569aa7d643f0fbd2709f910f64",
+      "r2Key": "scbt/grade2/releases/20260810-gemini-speaking-kore-v1/common/read-aloud.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-gemini-speaking-kore-v1/common/read-aloud.wav",
+      "state": "verified",
+      "preflight": {
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentRange": null,
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "returnCode": 0,
+        "stdout": "⛅️ wrangler 4.114.0\n────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260810-gemini-speaking-kore-v1/common/read-aloud.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "attempt": 1,
+        "passed": true,
+        "full": {
+          "status": 200,
+          "contentType": "audio/wav",
+          "contentRange": null,
+          "contentLength": 154440,
+          "sha256": "0247d0e987e64d52b99dd469abf0dfdfa56f8a569aa7d643f0fbd2709f910f64",
+          "error": null
+        },
+        "range": {
+          "status": 206,
+          "contentType": "audio/wav",
+          "contentRange": "bytes 0-127/154440",
+          "contentLength": 128,
+          "sha256": "fcb43325129b525e210d492b0f20a1aef15d0d99f769e4a6d09778bce6f9da6a",
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "common/no-2-preparation",
+      "localFile": "audio-generation/grade2-speaking-gemini-kore-20260810-v3/common/no-2-preparation.wav",
+      "localBytes": 530608,
+      "localSha256": "c5bc746e981c120d1692d3f700783c9f91ffde1e208cfa0fb816ac4477d978e3",
+      "r2Key": "scbt/grade2/releases/20260810-gemini-speaking-kore-v1/common/no-2-preparation.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-gemini-speaking-kore-v1/common/no-2-preparation.wav",
+      "state": "verified",
+      "preflight": {
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentRange": null,
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "returnCode": 0,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.120.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260810-gemini-speaking-kore-v1/common/no-2-preparation.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "attempt": 1,
+        "passed": true,
+        "full": {
+          "status": 200,
+          "contentType": "audio/wav",
+          "contentRange": null,
+          "contentLength": 530608,
+          "sha256": "c5bc746e981c120d1692d3f700783c9f91ffde1e208cfa0fb816ac4477d978e3",
+          "error": null
+        },
+        "range": {
+          "status": 206,
+          "contentType": "audio/wav",
+          "contentRange": "bytes 0-127/530608",
+          "contentLength": 128,
+          "sha256": "301c60f77a88a3c9c669833de870ad2e3c3670d5bc1eb8f38884ea3a6de57457",
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "common/no-2",
+      "localFile": "audio-generation/grade2-speaking-gemini-kore-20260810-v3/common/no-2.wav",
+      "localBytes": 59078,
+      "localSha256": "0ce155cdeff2b1e7dc6668a0bb4bd9f18e69b70c5e013ae1760868bc38f78509",
+      "r2Key": "scbt/grade2/releases/20260810-gemini-speaking-kore-v1/common/no-2.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-gemini-speaking-kore-v1/common/no-2.wav",
+      "state": "verified",
+      "preflight": {
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentRange": null,
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "returnCode": 0,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.120.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260810-gemini-speaking-kore-v1/common/no-2.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "attempt": 1,
+        "passed": true,
+        "full": {
+          "status": 200,
+          "contentType": "audio/wav",
+          "contentRange": null,
+          "contentLength": 59078,
+          "sha256": "0ce155cdeff2b1e7dc6668a0bb4bd9f18e69b70c5e013ae1760868bc38f78509",
+          "error": null
+        },
+        "range": {
+          "status": 206,
+          "contentType": "audio/wav",
+          "contentRange": "bytes 0-127/59078",
+          "contentLength": 128,
+          "sha256": "e26a2bd310481cf48c1e1fc4811d95c46c6d14e6608378be791f9d32140f9eaa",
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "common/turn-card",
+      "localFile": "audio-generation/grade2-speaking-gemini-kore-20260810-v3/common/turn-card.wav",
+      "localBytes": 144408,
+      "localSha256": "02ddb73842c7cf66aae00f88e471aaa18a69c85b794afcb0e64b2f6f12cca8d1",
+      "r2Key": "scbt/grade2/releases/20260810-gemini-speaking-kore-v1/common/turn-card.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-gemini-speaking-kore-v1/common/turn-card.wav",
+      "state": "verified",
+      "preflight": {
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentRange": null,
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "returnCode": 0,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.120.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260810-gemini-speaking-kore-v1/common/turn-card.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "attempt": 1,
+        "passed": true,
+        "full": {
+          "status": 200,
+          "contentType": "audio/wav",
+          "contentRange": null,
+          "contentLength": 144408,
+          "sha256": "02ddb73842c7cf66aae00f88e471aaa18a69c85b794afcb0e64b2f6f12cca8d1",
+          "error": null
+        },
+        "range": {
+          "status": 206,
+          "contentType": "audio/wav",
+          "contentRange": "bytes 0-127/144408",
+          "contentLength": 128,
+          "sha256": "aef9d4b9f9cae93be9386310d41e2b88f1a72bee5326803fc838bd5879e7bad7",
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "common/why",
+      "localFile": "audio-generation/grade2-speaking-gemini-kore-20260810-v3/common/why.wav",
+      "localBytes": 33828,
+      "localSha256": "6b6b03d2058e313c72c5ef3b79977d4a11a1922ccf76ae9491f98f40a38946a3",
+      "r2Key": "scbt/grade2/releases/20260810-gemini-speaking-kore-v1/common/why.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-gemini-speaking-kore-v1/common/why.wav",
+      "state": "verified",
+      "preflight": {
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentRange": null,
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "returnCode": 0,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.120.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260810-gemini-speaking-kore-v1/common/why.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "attempt": 1,
+        "passed": true,
+        "full": {
+          "status": 200,
+          "contentType": "audio/wav",
+          "contentRange": null,
+          "contentLength": 33828,
+          "sha256": "6b6b03d2058e313c72c5ef3b79977d4a11a1922ccf76ae9491f98f40a38946a3",
+          "error": null
+        },
+        "range": {
+          "status": 206,
+          "contentType": "audio/wav",
+          "contentRange": "bytes 0-127/33828",
+          "contentLength": 128,
+          "sha256": "91fe5b0d73bc03d9b7c6191b6a7b901ff73e9e01d935891ef63584b0331ceeb0",
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "common/why-not",
+      "localFile": "audio-generation/grade2-speaking-gemini-kore-20260810-v3/common/why-not.wav",
+      "localBytes": 44450,
+      "localSha256": "d23fea83aadfd621b27a5c5495bd10340443bddf7f16b375134c52c00bdc39ce",
+      "r2Key": "scbt/grade2/releases/20260810-gemini-speaking-kore-v1/common/why-not.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-gemini-speaking-kore-v1/common/why-not.wav",
+      "state": "verified",
+      "preflight": {
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentRange": null,
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "returnCode": 0,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.120.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260810-gemini-speaking-kore-v1/common/why-not.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "attempt": 1,
+        "passed": true,
+        "full": {
+          "status": 200,
+          "contentType": "audio/wav",
+          "contentRange": null,
+          "contentLength": 44450,
+          "sha256": "d23fea83aadfd621b27a5c5495bd10340443bddf7f16b375134c52c00bdc39ce",
+          "error": null
+        },
+        "range": {
+          "status": 206,
+          "contentType": "audio/wav",
+          "contentRange": "bytes 0-127/44450",
+          "contentLength": 128,
+          "sha256": "d55054d92b5954ff310b4f17c2f02334b1b0cc710f08bdf995b78e425ce344c2",
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "sample/warmup-1",
+      "localFile": "audio-generation/grade2-speaking-gemini-kore-20260810-v3/sample/warmup-1.wav",
+      "localBytes": 142886,
+      "localSha256": "46d7a3603413ffd1d471edc6335828dd4521d2a938c9f8a9f7f9defd49272a73",
+      "r2Key": "scbt/grade2/releases/20260810-gemini-speaking-kore-v1/sample/warmup-1.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-gemini-speaking-kore-v1/sample/warmup-1.wav",
+      "state": "verified",
+      "preflight": {
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentRange": null,
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "returnCode": 0,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.120.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260810-gemini-speaking-kore-v1/sample/warmup-1.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "attempt": 1,
+        "passed": true,
+        "full": {
+          "status": 200,
+          "contentType": "audio/wav",
+          "contentRange": null,
+          "contentLength": 142886,
+          "sha256": "46d7a3603413ffd1d471edc6335828dd4521d2a938c9f8a9f7f9defd49272a73",
+          "error": null
+        },
+        "range": {
+          "status": 206,
+          "contentType": "audio/wav",
+          "contentRange": "bytes 0-127/142886",
+          "contentLength": 128,
+          "sha256": "921c87cd69eed37c65f29e5b4f980ffccec34124cb528dcd8928080b0cf5daf1",
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "sample/no-1",
+      "localFile": "audio-generation/grade2-speaking-gemini-kore-20260810-v3/sample/no-1.wav",
+      "localBytes": 306480,
+      "localSha256": "574f4a996895064f0e2f08cdefd920a2f9a66610e0cc895fb8aa8b6296a3c377",
+      "r2Key": "scbt/grade2/releases/20260810-gemini-speaking-kore-v1/sample/no-1.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-gemini-speaking-kore-v1/sample/no-1.wav",
+      "state": "verified",
+      "preflight": {
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentRange": null,
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "returnCode": 0,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.120.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260810-gemini-speaking-kore-v1/sample/no-1.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "attempt": 1,
+        "passed": true,
+        "full": {
+          "status": 200,
+          "contentType": "audio/wav",
+          "contentRange": null,
+          "contentLength": 306480,
+          "sha256": "574f4a996895064f0e2f08cdefd920a2f9a66610e0cc895fb8aa8b6296a3c377",
+          "error": null
+        },
+        "range": {
+          "status": 206,
+          "contentType": "audio/wav",
+          "contentRange": "bytes 0-127/306480",
+          "contentLength": 128,
+          "sha256": "7e0bab9237d1afc9ce556758988a9877251bfced3b58d5d11ba15a556fe3f753",
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "sample/no-3",
+      "localFile": "audio-generation/grade2-speaking-gemini-kore-20260810-v3/sample/no-3.wav",
+      "localBytes": 496430,
+      "localSha256": "58b460b891f0908be9eeeb5e63db73b77c53165795f04f1c352b5951991a3302",
+      "r2Key": "scbt/grade2/releases/20260810-gemini-speaking-kore-v1/sample/no-3.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-gemini-speaking-kore-v1/sample/no-3.wav",
+      "state": "verified",
+      "preflight": {
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentRange": null,
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "returnCode": 0,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.120.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260810-gemini-speaking-kore-v1/sample/no-3.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "attempt": 1,
+        "passed": true,
+        "full": {
+          "status": 200,
+          "contentType": "audio/wav",
+          "contentRange": null,
+          "contentLength": 496430,
+          "sha256": "58b460b891f0908be9eeeb5e63db73b77c53165795f04f1c352b5951991a3302",
+          "error": null
+        },
+        "range": {
+          "status": 206,
+          "contentType": "audio/wav",
+          "contentRange": "bytes 0-127/496430",
+          "contentLength": 128,
+          "sha256": "5a2ecd93e268ef1f381076a731c557c4423e238105095e73a73d16c3833e3837",
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "sample/no-4",
+      "localFile": "audio-generation/grade2-speaking-gemini-kore-20260810-v3/sample/no-4.wav",
+      "localBytes": 344958,
+      "localSha256": "1afcc767cc8c74ee19fdf25ecfcf028ba3da29bb2d5b7b52a2aba8bae3bff8d2",
+      "r2Key": "scbt/grade2/releases/20260810-gemini-speaking-kore-v1/sample/no-4.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-gemini-speaking-kore-v1/sample/no-4.wav",
+      "state": "verified",
+      "preflight": {
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentRange": null,
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "returnCode": 0,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.120.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260810-gemini-speaking-kore-v1/sample/no-4.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "attempt": 1,
+        "passed": true,
+        "full": {
+          "status": 200,
+          "contentType": "audio/wav",
+          "contentRange": null,
+          "contentLength": 344958,
+          "sha256": "1afcc767cc8c74ee19fdf25ecfcf028ba3da29bb2d5b7b52a2aba8bae3bff8d2",
+          "error": null
+        },
+        "range": {
+          "status": 206,
+          "contentType": "audio/wav",
+          "contentRange": "bytes 0-127/344958",
+          "contentLength": 128,
+          "sha256": "f0269f771ec255756344bcd5823bf4ac9f088378d53ea7b6e71a3f2a2a2ccd3e",
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "set-01/warmup-1",
+      "localFile": "audio-generation/grade2-speaking-gemini-kore-20260810-v3/set-01/warmup-1.wav",
+      "localBytes": 117600,
+      "localSha256": "2fee5f5cfa0d0766fe2d0f02f684d3dddf3fa271d23ddf862750b00c42a0746a",
+      "r2Key": "scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-01/warmup-1.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-01/warmup-1.wav",
+      "state": "verified",
+      "preflight": {
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentRange": null,
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "returnCode": 0,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.120.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-01/warmup-1.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "attempt": 1,
+        "passed": true,
+        "full": {
+          "status": 200,
+          "contentType": "audio/wav",
+          "contentRange": null,
+          "contentLength": 117600,
+          "sha256": "2fee5f5cfa0d0766fe2d0f02f684d3dddf3fa271d23ddf862750b00c42a0746a",
+          "error": null
+        },
+        "range": {
+          "status": 206,
+          "contentType": "audio/wav",
+          "contentRange": "bytes 0-127/117600",
+          "contentLength": 128,
+          "sha256": "b3007784ccd2dfb4bd1787e9e9ad0d662a6fdf6e8dace0c6ea591eee088375bf",
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "set-01/no-1",
+      "localFile": "audio-generation/grade2-speaking-gemini-kore-20260810-v3/set-01/no-1.wav",
+      "localBytes": 361924,
+      "localSha256": "326fa02f851d8699311cc989dc0cd91a0bc6a0cb0770d3a091fd7196cfbdcc5b",
+      "r2Key": "scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-01/no-1.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-01/no-1.wav",
+      "state": "verified",
+      "preflight": {
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentRange": null,
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "returnCode": 0,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.120.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-01/no-1.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "attempt": 1,
+        "passed": true,
+        "full": {
+          "status": 200,
+          "contentType": "audio/wav",
+          "contentRange": null,
+          "contentLength": 361924,
+          "sha256": "326fa02f851d8699311cc989dc0cd91a0bc6a0cb0770d3a091fd7196cfbdcc5b",
+          "error": null
+        },
+        "range": {
+          "status": 206,
+          "contentType": "audio/wav",
+          "contentRange": "bytes 0-127/361924",
+          "contentLength": 128,
+          "sha256": "8f944662c43ce8bf147d245cd496f83c987f942d053edc38ededb785b8846bef",
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "set-01/no-3",
+      "localFile": "audio-generation/grade2-speaking-gemini-kore-20260810-v3/set-01/no-3.wav",
+      "localBytes": 491610,
+      "localSha256": "44e3084f60e791d4040e3050bda9d2ddadf9b1409b084e8964c1e51e264f47c9",
+      "r2Key": "scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-01/no-3.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-01/no-3.wav",
+      "state": "verified",
+      "preflight": {
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentRange": null,
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "returnCode": 0,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.120.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-01/no-3.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "attempt": 1,
+        "passed": true,
+        "full": {
+          "status": 200,
+          "contentType": "audio/wav",
+          "contentRange": null,
+          "contentLength": 491610,
+          "sha256": "44e3084f60e791d4040e3050bda9d2ddadf9b1409b084e8964c1e51e264f47c9",
+          "error": null
+        },
+        "range": {
+          "status": 206,
+          "contentType": "audio/wav",
+          "contentRange": "bytes 0-127/491610",
+          "contentLength": 128,
+          "sha256": "62fd7064fc4c0484bd96a2e8a6e393db00d663bbd40c220194050f78ca76c730",
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "set-01/no-4",
+      "localFile": "audio-generation/grade2-speaking-gemini-kore-20260810-v3/set-01/no-4.wav",
+      "localBytes": 327870,
+      "localSha256": "adcff7bcfcbfebfc8d05ce2abe9ca151442b289dc3eea48a461a20aef53fc8dd",
+      "r2Key": "scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-01/no-4.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-01/no-4.wav",
+      "state": "verified",
+      "preflight": {
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentRange": null,
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "returnCode": 0,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.120.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-01/no-4.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "attempt": 1,
+        "passed": true,
+        "full": {
+          "status": 200,
+          "contentType": "audio/wav",
+          "contentRange": null,
+          "contentLength": 327870,
+          "sha256": "adcff7bcfcbfebfc8d05ce2abe9ca151442b289dc3eea48a461a20aef53fc8dd",
+          "error": null
+        },
+        "range": {
+          "status": 206,
+          "contentType": "audio/wav",
+          "contentRange": "bytes 0-127/327870",
+          "contentLength": 128,
+          "sha256": "8e970d6cdb795dc67cc73bebe6e75c13f2fa18baa38af6fbffd2911a0a1b7545",
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "set-02/warmup-1",
+      "localFile": "audio-generation/grade2-speaking-gemini-kore-20260810-v3/set-02/warmup-1.wav",
+      "localBytes": 127680,
+      "localSha256": "0962ca95c17ea23db3f7a6e3e4ae4a40c2c537a1e109d8c33088d0030fdd3141",
+      "r2Key": "scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-02/warmup-1.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-02/warmup-1.wav",
+      "state": "verified",
+      "preflight": {
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentRange": null,
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "returnCode": 0,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.120.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-02/warmup-1.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "attempt": 1,
+        "passed": true,
+        "full": {
+          "status": 200,
+          "contentType": "audio/wav",
+          "contentRange": null,
+          "contentLength": 127680,
+          "sha256": "0962ca95c17ea23db3f7a6e3e4ae4a40c2c537a1e109d8c33088d0030fdd3141",
+          "error": null
+        },
+        "range": {
+          "status": 206,
+          "contentType": "audio/wav",
+          "contentRange": "bytes 0-127/127680",
+          "contentLength": 128,
+          "sha256": "5e696dddd8a020c7ea6acac1a4d08509dcfc4f9f6d07c149d98da6676f1b3401",
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "set-02/no-1",
+      "localFile": "audio-generation/grade2-speaking-gemini-kore-20260810-v3/set-02/no-1.wav",
+      "localBytes": 367508,
+      "localSha256": "2dae1093dbd994fcf92464315050ff2b127ae597745722f67a674c6d07abc3d2",
+      "r2Key": "scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-02/no-1.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-02/no-1.wav",
+      "state": "verified",
+      "preflight": {
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentRange": null,
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "returnCode": 0,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.120.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-02/no-1.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "attempt": 1,
+        "passed": true,
+        "full": {
+          "status": 200,
+          "contentType": "audio/wav",
+          "contentRange": null,
+          "contentLength": 367508,
+          "sha256": "2dae1093dbd994fcf92464315050ff2b127ae597745722f67a674c6d07abc3d2",
+          "error": null
+        },
+        "range": {
+          "status": 206,
+          "contentType": "audio/wav",
+          "contentRange": "bytes 0-127/367508",
+          "contentLength": 128,
+          "sha256": "f48a1b72622363944c27f5cb0d7d733e57f7cbd0200115fcebc0c91fea5e6e63",
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "set-02/no-3",
+      "localFile": "audio-generation/grade2-speaking-gemini-kore-20260810-v3/set-02/no-3.wav",
+      "localBytes": 451962,
+      "localSha256": "c81d4b4ff845f9e8060674b2443337a036fb552e4f2610cd0c92c870705f8663",
+      "r2Key": "scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-02/no-3.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-02/no-3.wav",
+      "state": "verified",
+      "preflight": {
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentRange": null,
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "returnCode": 0,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.120.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-02/no-3.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "attempt": 1,
+        "passed": true,
+        "full": {
+          "status": 200,
+          "contentType": "audio/wav",
+          "contentRange": null,
+          "contentLength": 451962,
+          "sha256": "c81d4b4ff845f9e8060674b2443337a036fb552e4f2610cd0c92c870705f8663",
+          "error": null
+        },
+        "range": {
+          "status": 206,
+          "contentType": "audio/wav",
+          "contentRange": "bytes 0-127/451962",
+          "contentLength": 128,
+          "sha256": "61797c997c35843a40edb10e68306659526ff70701c5208c0e7dd4e7707b301d",
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "set-02/no-4",
+      "localFile": "audio-generation/grade2-speaking-gemini-kore-20260810-v3/set-02/no-4.wav",
+      "localBytes": 311108,
+      "localSha256": "559a3e7dbafba6fcd86b5c3db65ed6fe7097a2a8faa98add55ea66e3015e9754",
+      "r2Key": "scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-02/no-4.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-02/no-4.wav",
+      "state": "verified",
+      "preflight": {
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentRange": null,
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "returnCode": 0,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.120.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-02/no-4.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "attempt": 1,
+        "passed": true,
+        "full": {
+          "status": 200,
+          "contentType": "audio/wav",
+          "contentRange": null,
+          "contentLength": 311108,
+          "sha256": "559a3e7dbafba6fcd86b5c3db65ed6fe7097a2a8faa98add55ea66e3015e9754",
+          "error": null
+        },
+        "range": {
+          "status": 206,
+          "contentType": "audio/wav",
+          "contentRange": "bytes 0-127/311108",
+          "contentLength": 128,
+          "sha256": "0edb426c59c1551dfdecad6bb082ea4e2f62becf19ec87ec34d249bec3a01db6",
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "set-03/warmup-1",
+      "localFile": "audio-generation/grade2-speaking-gemini-kore-20260810-v3/set-03/warmup-1.wav",
+      "localBytes": 176744,
+      "localSha256": "a7240d9376b11ed4182d6bfab0b0a56900adb557ec045e658e97ccb77cef352d",
+      "r2Key": "scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-03/warmup-1.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-03/warmup-1.wav",
+      "state": "verified",
+      "preflight": {
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentRange": null,
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "returnCode": 0,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.120.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-03/warmup-1.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "attempt": 1,
+        "passed": true,
+        "full": {
+          "status": 200,
+          "contentType": "audio/wav",
+          "contentRange": null,
+          "contentLength": 176744,
+          "sha256": "a7240d9376b11ed4182d6bfab0b0a56900adb557ec045e658e97ccb77cef352d",
+          "error": null
+        },
+        "range": {
+          "status": 206,
+          "contentType": "audio/wav",
+          "contentRange": "bytes 0-127/176744",
+          "contentLength": 128,
+          "sha256": "7dfb0fa0c0eeb492fef5eac4f5fb29b259e8452a7a06c138ac1089c958f0362c",
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "set-03/no-1",
+      "localFile": "audio-generation/grade2-speaking-gemini-kore-20260810-v3/set-03/no-1.wav",
+      "localBytes": 339582,
+      "localSha256": "773e4137fe9c9a4b3884cad2b9f55b0feae49591e932d8c3953b032ed5f8ccac",
+      "r2Key": "scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-03/no-1.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-03/no-1.wav",
+      "state": "verified",
+      "preflight": {
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentRange": null,
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "returnCode": 0,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.120.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-03/no-1.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "attempt": 1,
+        "passed": true,
+        "full": {
+          "status": 200,
+          "contentType": "audio/wav",
+          "contentRange": null,
+          "contentLength": 339582,
+          "sha256": "773e4137fe9c9a4b3884cad2b9f55b0feae49591e932d8c3953b032ed5f8ccac",
+          "error": null
+        },
+        "range": {
+          "status": 206,
+          "contentType": "audio/wav",
+          "contentRange": "bytes 0-127/339582",
+          "contentLength": 128,
+          "sha256": "55acb12663bf234540b7db0e695334ec5eee454bd5eefca5c73073c7df3baf92",
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "set-03/no-3",
+      "localFile": "audio-generation/grade2-speaking-gemini-kore-20260810-v3/set-03/no-3.wav",
+      "localBytes": 561456,
+      "localSha256": "9c8002e37c28861c7a37afe695e5f38803b814238927cf93163e239f33ce23ee",
+      "r2Key": "scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-03/no-3.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-03/no-3.wav",
+      "state": "verified",
+      "preflight": {
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentRange": null,
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "returnCode": 0,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.120.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-03/no-3.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "attempt": 1,
+        "passed": true,
+        "full": {
+          "status": 200,
+          "contentType": "audio/wav",
+          "contentRange": null,
+          "contentLength": 561456,
+          "sha256": "9c8002e37c28861c7a37afe695e5f38803b814238927cf93163e239f33ce23ee",
+          "error": null
+        },
+        "range": {
+          "status": 206,
+          "contentType": "audio/wav",
+          "contentRange": "bytes 0-127/561456",
+          "contentLength": 128,
+          "sha256": "6c63d3ffa1a1d6e18c59c54aeace6ec8f335f72884442ab741fdaacf07a71d68",
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "set-03/no-4",
+      "localFile": "audio-generation/grade2-speaking-gemini-kore-20260810-v3/set-03/no-4.wav",
+      "localBytes": 330910,
+      "localSha256": "f5781abb0330657ed6114855b2360c3411e56b8ac6d191f4075df0f628e91d7b",
+      "r2Key": "scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-03/no-4.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-03/no-4.wav",
+      "state": "verified",
+      "preflight": {
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentRange": null,
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "returnCode": 0,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.120.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260810-gemini-speaking-kore-v1/set-03/no-4.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "attempt": 1,
+        "passed": true,
+        "full": {
+          "status": 200,
+          "contentType": "audio/wav",
+          "contentRange": null,
+          "contentLength": 330910,
+          "sha256": "f5781abb0330657ed6114855b2360c3411e56b8ac6d191f4075df0f628e91d7b",
+          "error": null
+        },
+        "range": {
+          "status": 206,
+          "contentType": "audio/wav",
+          "contentRange": "bytes 0-127/330910",
+          "contentLength": 128,
+          "sha256": "328ce4eb4d5f9097766609cf9c9e0140fe19c1b5ba5dac3eac0a02ba0bbe3b2a",
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "instructions/listening-part1-ja",
+      "localFile": "audio-generation/grade2-speaking-gemini-kore-20260810-v3/instructions/listening-part1-ja.wav",
+      "localBytes": 852274,
+      "localSha256": "ac09e3ebfb2aee633992f2c2f013c7e1dcf84f96cb797eb2cabe65398cfe579d",
+      "r2Key": "scbt/grade2/releases/20260810-gemini-speaking-kore-v1/instructions/listening-part1-ja.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-gemini-speaking-kore-v1/instructions/listening-part1-ja.wav",
+      "state": "verified",
+      "preflight": {
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentRange": null,
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "returnCode": 0,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.120.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260810-gemini-speaking-kore-v1/instructions/listening-part1-ja.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "attempt": 1,
+        "passed": true,
+        "full": {
+          "status": 200,
+          "contentType": "audio/wav",
+          "contentRange": null,
+          "contentLength": 852274,
+          "sha256": "ac09e3ebfb2aee633992f2c2f013c7e1dcf84f96cb797eb2cabe65398cfe579d",
+          "error": null
+        },
+        "range": {
+          "status": 206,
+          "contentType": "audio/wav",
+          "contentRange": "bytes 0-127/852274",
+          "contentLength": 128,
+          "sha256": "d06c6935a1f2570418fef084535151da00490f3c00cb072ae3215195dbdbd210",
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "instructions/listening-part2-ja",
+      "localFile": "audio-generation/grade2-speaking-gemini-kore-20260810-v3/instructions/listening-part2-ja.wav",
+      "localBytes": 797918,
+      "localSha256": "4c516450f4da45c956d729403d494e624fc3dd2938d6cef11693306b080226af",
+      "r2Key": "scbt/grade2/releases/20260810-gemini-speaking-kore-v1/instructions/listening-part2-ja.wav",
+      "publicUrl": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-gemini-speaking-kore-v1/instructions/listening-part2-ja.wav",
+      "state": "verified",
+      "preflight": {
+        "action": "upload",
+        "status": 404,
+        "contentType": "text/html",
+        "contentRange": null,
+        "contentLength": 27150,
+        "sha256": "62c1c0b235e26952857139537b65f8272026cd1c385c1bf6dba20481ee8a6619",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "upload": {
+        "returnCode": 0,
+        "stdout": "⛅️ wrangler 4.114.0 (update available 4.120.0)\n───────────────────────────────────────────────\nResource location: remote \n\nCreating object \"scbt/grade2/releases/20260810-gemini-speaking-kore-v1/instructions/listening-part2-ja.wav\" in bucket \"mimilisten-audio\".\nUpload complete.",
+        "stderr": ""
+      },
+      "verification": {
+        "attempt": 1,
+        "passed": true,
+        "full": {
+          "status": 200,
+          "contentType": "audio/wav",
+          "contentRange": null,
+          "contentLength": 797918,
+          "sha256": "4c516450f4da45c956d729403d494e624fc3dd2938d6cef11693306b080226af",
+          "error": null
+        },
+        "range": {
+          "status": 206,
+          "contentType": "audio/wav",
+          "contentRange": "bytes 0-127/797918",
+          "contentLength": 128,
+          "sha256": "12f0d7fccf22409f71f5de7b2853416ba7a045c62e3a1eb5b9f8a64349c81449",
+          "error": null
+        }
+      }
+    }
+  ],
+  "allVerified": true
+}

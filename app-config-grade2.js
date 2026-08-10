@@ -5,6 +5,7 @@ window.APP_CONFIG = Object.freeze({
   gradeLabel: "2級専用版",
   storageNamespace: "cbt-grade2",
   allowDataImport: false,
+  speakingFeedbackGptUrl: "",
 });
 
 window.APP_GRADE = window.APP_CONFIG.grade;

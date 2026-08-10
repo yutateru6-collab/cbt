@@ -3,7 +3,7 @@
 - 監査日: 2026-08-10
 - 対象: 2級専用Webアプリ、LP、購入者特典、法務表示、ローカル音声・公開記録
 - 公式基線: `audits/scbt-grade2-official-format-20260810.md`
-- 総合判定: **ローカル版・第1回音声R2・Cloudflare Workers公開版は条件付きPASS。**
+- 総合判定: **今回のローカル実装と新しいスピーキング音声R2は条件付きPASS。アプリ本体の今回分は未デプロイ。**
 
 ## 結論
 
@@ -11,7 +11,7 @@
 
 販売表示は「1回版 / 3回プレミアム」に統一し、5回プレミアムと第4・5回の表示を2級画面から外した。第4・5回の問題・音声データ自体は削除していない。特典は3回プレミアム向けに、ライティング回答型、スピーキング即答型、AI振り返り、7日・14日プラン、弱点別ルート、直前PDFを統合した。語彙ミニアプリは特典画面から外した。
 
-ただし、**「本番と完全に同一」とは判定できない。** 公式公開情報はSpeaking各問の録音秒数・再録音・ビープ・技能間画面、Listening個別操作、Reading / Writingの切替UIを公開していない。第1回の最新v5音声は、2026-08-10のユーザー公開指示を採用承認として新しい不変R2 prefixへ公開し、30件のHTTP・MIME・SHA-256・Rangeを検証した。Codexがこの作業中に耳で30件を再実聴した、という記録にはしていない。GitHubへのpush後、既存のCloudflare Git連携がアプリ本体を自動デプロイしたため、手動の `wrangler deploy` は実行していないが、固定公開URLで配信内容を再検証した。
+ただし、**「本番と完全に同一」とは判定できない。** 公式公開情報はSpeaking各問の録音秒数・再録音・ビープ・技能間画面、Listening個別操作、Reading / Writingの切替UIを公開していない。第1回の最新v5リスニング音声30件に加え、今回のGeminiスピーキング・日本語説明音声27件を別の不変R2 prefixへ公開し、HTTP・MIME・SHA-256・Rangeを検証した。アプリ本体の今回分はローカル確認までで、Cloudflare Workers本番デプロイは実行していない。
 
 ## 受験導線の監査
 
@@ -26,12 +26,15 @@
 
 3. **Speaking — Healthy with official-limit caveat**
    - 音量、マイク、テスト録音、本番録音を確認できる。
+   - Gemini 3.1 Flash TTS Preview / Koreへ統一し、No.3・No.4は番号アナウンスのあとに各回の質問を読む。
+   - No.2の3コマは、パッセージと同じ出来事をそのまま描かず、別の具体的な展開へ差し替えた。
    - 試験中の終了画面から模範解答・解説を外し、Listeningへの一方向ボタンだけを表示する。
    - 公式は技能全体15分を公開しているが、各問秒数は非公開のため、アプリ内の設問別秒数を「公式仕様」とは扱わない。
 
 4. **Listening — Needs caution**
    - 30問、4肢、画面＋音声、残時間の非表示は公式基線と一致する。
-   - Speaking終了後にNo.1が始まり、No.30終了後にReadingへ移る。
+   - Speaking終了後は日本語の第1部説明を再生してからNo.1を開始し、第2部の先頭でも日本語説明を再生する。
+   - No.30終了後にReadingへ移る。
    - 現行UIには前問・問題一覧・再生失敗時の手動再生がある。公式公開資料では個別の移動・再生操作が確認できないため、完全再現とは断定しない。
 
 5. **Reading / Writing — Healthy**
@@ -43,6 +46,7 @@
 6. **結果・復習 — Healthy for practice use**
    - Writing終了後だけ試験全体を終了する。
    - 正答・解説・模範解答は試験進行中ではなく終了後の復習用途として扱う。
+   - Speaking録音は端末内IndexedDBへ保存し、終了後に再生・ダウンロードできる。3回版では採点GPT用の指示文をコピーできる。
 
 ## 公式形式との照合
 
@@ -62,6 +66,7 @@
 1. **LP — Healthy**
    - 1回版 980円、3回プレミアム 1,480円の2プラン。
    - 5回プレミアムを削除。
+   - 無料サンプル導線を追加し、S → L第1部・第2部 → R → Wを少量ずつ操作できる。
    - 語彙ミニアプリの訴求を外し、実際に統合した特典へ差し替え。
 
 2. **購入者特典 — Healthy**
@@ -81,6 +86,7 @@
 | 第1回 | `scbt/grade2/releases/20260810-set01-gemini-approved-v5` | 最新v5の30 WAVを新規の不変prefixへ公開。`r2-grade2-set01-gemini-v5-20260810-upload-report.json` で30/30件のHTTP 200・`audio/wav`・SHA-256一致・Range 206を検証 | PASS（2026-08-10公開） |
 | 第2回 | `scbt/grade2/releases/20260807-gemini-approved-v2` | 30 WAV + 連続MP3をR2へアップロードし、HTTP / SHA-256 / Rangeを検証。Git HEAD `fa49520` と追跡先は同じ記録 | PASS（2026-08-07記録） |
 | 第3回 | `scbt/grade2/test/20260729-complete` | 第1・3回の60 WAVをR2で検証済み。現行コードも同じ公開先を参照 | PASS（2026-07-29記録） |
+| Speaking共通・サンプル・第1〜3回 | `scbt/grade2/releases/20260810-gemini-speaking-kore-v1` | Gemini 3.1 Flash TTS Preview / Koreの英語25 WAV、日本語説明2 WAV。27/27件のHTTP 200・`audio/wav`・SHA-256一致・Range 206を検証 | PASS（2026-08-10公開） |
 
 第1回・第2回・第3回の現行アプリ参照音声は、いずれもR2上の検証済みURLを使う状態になった。第1回は今回の新規prefix、第2回は2026-08-07承認版、第3回は2026-07-29検証版を参照する。音声R2更新とアプリ本体デプロイは別操作だが、今回のGitHub pushにより既存のCloudflare Git連携がアプリ本体も自動デプロイした。
 
@@ -101,16 +107,20 @@
 - データ監査: 第1〜3回すべて Reading 31 / Listening 30 / Writing 2 / audioFile 30 — PASS。
 - 第1回v5音声: 30 WAV、24 kHz・16-bit・mono、ローカルmanifest SHA-256一致 — PASS。
 - 第1回v5 R2: 30/30件のHTTP 200・`audio/wav`・全体SHA-256・Range 206 — PASS。
+- Speaking / Listening説明: Gemini TTS 27 WAV、24 kHz・16-bit・mono、生成レポートSHA-256一致 — PASS。
+- Speaking / Listening説明R2: 27/27件のHTTP 200・`audio/wav`・全体SHA-256・Range 206 — PASS。
 - ローカルHTTP: `/`、`exam.html`、`bonus.html` は `text/html`、JSは `text/javascript`、CSSは `text/css`、すべてHTTP 200 — PASS。
 - ブラウザ導線: 回選択 → Speaking → Listening → Reading → Writing、URL同期、R/Wタイマー継承 — PASS。
-- Workers配信成果物: 解説JS、特典、法務ページ、PDF、面接官画像、LP追加画像を `worker-dist` へ収録し、HTTP / MIMEを検証 — PASS。
-- 固定公開URL: `https://cbt.itisnowornever271.workers.dev/` を1024 × 768で確認し、第1〜3回表示、3回プレミアム、Speaking開始、第1回v5音声URL、主要アセット、コンソールエラーなしを検証 — PASS。
+- 実ブラウザ: PC幅と820 × 1180のタブレット幅でLP、No.2、結果画面を確認。タブレットで見つかったNo.2右パネルの切れを修正し、再確認後は横はみ出しなし — PASS。
+- 無料サンプル: Speaking短縮フロー、Listening 4問（第1部2・第2部2）、Reading 3問、Writing 1題 — PASS。
+- Workers配信成果物: 最初の再生成はPASS。タブレットCSS修正後の再生成は、確認用サーバーが `worker-dist` を使用中でWindowsの `EBUSY` となったため未再実行。元ソース配信で修正後表示を確認した。
+- 固定公開URL: 今回のアプリ本体差分は未デプロイのため未確認。
 - `git diff --check` — PASS（CRLF変換予告のみ）。
 
 ## 本番公開前の必須ゲート
 
-1. **完了** — 2026-08-10のユーザー公開指示を第1回v5の採用承認として記録した。Codexによる30件の耳での再実聴は未実施。
-2. **完了** — 不変R2 prefixへ30件を公開し、SHA-256・MIME・Rangeを再検証した。
-3. **一部完了** — アプリ参照先は新prefixへ変更し、公開版No.1の実URL一致を確認済み。30問の耳での通し聴きは残る。
-4. **完了** — ローカル変更を作業ブランチへcommit / pushし、ドラフトPRを作成した。
-5. **自動実施・確認完了** — pushにより既存のCloudflare Git連携がアプリ本体をデプロイした。固定公開URLをタブレット相当で再確認した。
+1. **完了** — 第1回v5リスニング音声30件は不変R2 prefixへ公開・検証済み。
+2. **完了** — 新しいGeminiスピーキング・日本語説明音声27件を不変R2 prefixへ公開し、SHA-256・MIME・Rangeを再検証した。
+3. **ローカル完了** — アプリ参照先、技能遷移、無料サンプル、録音復習、PC・タブレット表示を確認した。新音声27件の人耳による全件実聴は別ゲートとして残る。
+4. **実施中** — 今回の対象差分を作業ブランチへcommit / pushする。GitHub CLIが未ログインのため、PR作成は別経路が使えない場合は未完了となる。
+5. **未実施** — 今回のアプリ本体はCloudflare Workers本番へデプロイしていない。固定公開URLの今回差分確認も未実施。

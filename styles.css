@@ -2748,7 +2748,8 @@ button {
     min-height: calc(100svh - 92px);
   }
 
-  .grade2-speaking-body {
+  .grade2-speaking-body,
+  .grade2-speaking-body.picture-story-layout {
     grid-template-columns: 1fr;
   }
 
@@ -3142,6 +3143,79 @@ button {
   color: #374151;
   font-size: 12px;
   line-height: 1.5;
+}
+
+.speaking-feedback-benefit {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  margin-top: 14px;
+  padding: 16px;
+  border: 1px solid #c8d9cf;
+  border-radius: 8px;
+  background: #f4f8f5;
+}
+
+.speaking-feedback-benefit h4,
+.speaking-feedback-benefit p {
+  margin: 0;
+}
+
+.speaking-feedback-benefit h4 {
+  margin-top: 4px;
+  color: #233f31;
+}
+
+.speaking-feedback-benefit p {
+  margin-top: 7px;
+  color: #4b5e54;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.speaking-feedback-kicker {
+  color: #246347;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.speaking-feedback-benefit .speaking-feedback-note {
+  color: #68736d;
+  font-size: 11px;
+}
+
+.speaking-feedback-actions {
+  display: grid;
+  gap: 8px;
+  justify-items: stretch;
+  min-width: 180px;
+}
+
+.speaking-feedback-actions .small-action {
+  display: inline-grid;
+  place-items: center;
+  min-height: 34px;
+  padding: 4px 12px;
+  text-decoration: none;
+}
+
+.speaking-feedback-pending {
+  max-width: 210px;
+  color: #68736d;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+  .speaking-feedback-benefit {
+    grid-template-columns: 1fr;
+  }
+
+  .speaking-feedback-actions {
+    min-width: 0;
+  }
 }
 
 .review-explanation strong,

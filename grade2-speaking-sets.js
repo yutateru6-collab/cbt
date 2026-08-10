@@ -83,17 +83,17 @@
       },
       no2: {
         pictureStory: {
-          imageSrc: "assets/grade2-speaking-picture-story-sample-anime.png",
-          imageAlt: "Three-panel story about borrowing tools from a community library.",
-          openingSentence: "One day, Emi and her older brother went to a community library that lent tools.",
-          firstSpeech: "Let's borrow a toolbox to fix the shelf at home.",
+          imageSrc: "assets/grade2-speaking-picture-story-sample-v2.png",
+          imageAlt: "Three-panel story about exchanging an old racket for a basketball at a community sports center.",
+          openingSentence: "One day, Emi and her older brother visited a community sports center.",
+          firstSpeech: "Let's exchange this old racket for something we can use.",
           firstSpeechSpeaker: "Emi's brother",
           firstSpeechTail: "center",
-          firstTimeLabel: "Later that afternoon",
-          secondTimeLabel: "That evening at home",
+          firstTimeLabel: "A few minutes later",
+          secondTimeLabel: "Later at a nearby park",
         },
         modelAnswer:
-          "One day, Emi and her older brother went to a community library that lent tools. Emi's brother said, “Let's borrow a toolbox to fix the shelf at home.” Later that afternoon, a librarian was handing them a toolbox, and Emi was signing a form. That evening at home, her brother was fixing the shelf while Emi was holding it steady.",
+          "One day, Emi and her older brother visited a community sports center. Emi's brother said, “Let's exchange this old racket for something we can use.” A few minutes later, a staff member was giving them a basketball, and Emi was handing him the racket. Later at a nearby park, Emi was playing basketball with her brother when the ball rolled toward a puddle.",
       },
       no3: {
         question: "Some people say that more libraries should lend useful items besides books. What do you think about that?",
@@ -119,17 +119,17 @@
       },
       no2: {
         pictureStory: {
-          imageSrc: "assets/grade2-speaking-picture-story-02-anime.png",
-          imageAlt: "Three-panel story about using a refill station at a supermarket.",
-          openingSentence: "One day, Maya and her father went to a supermarket that had a refill station.",
-          firstSpeech: "Let's refill this bottle instead of buying a new one.",
+          imageSrc: "assets/grade2-speaking-picture-story-set-01-v2.png",
+          imageAlt: "Three-panel story about using a reusable produce bag while shopping for apples.",
+          openingSentence: "One day, Maya and her father were shopping for fruit at a supermarket.",
+          firstSpeech: "Let's use these reusable bags for the apples.",
           firstSpeechSpeaker: "Maya's father",
           firstSpeechTail: "center",
           firstTimeLabel: "A few minutes later",
           secondTimeLabel: "That evening at home",
         },
         modelAnswer:
-          "One day, Maya and her father went to a supermarket that had a refill station. Maya's father said, “Let's refill this bottle instead of buying a new one.” A few minutes later, Maya was filling the bottle while a clerk was showing her how to use the station. That evening at home, Maya was looking at the leaking bottle, and her father was wiping soap from the floor.",
+          "One day, Maya and her father were shopping for fruit at a supermarket. Maya's father said, “Let's use these reusable bags for the apples.” A few minutes later, Maya was putting apples into a reusable bag while a clerk was helping her weigh them. That evening at home, the bag tore, and the apples rolled across the floor while Maya and her father looked surprised.",
       },
       no3: {
         question: "Some people say that more stores should offer refill stations. What do you think about that?",
@@ -155,17 +155,17 @@
       },
       no2: {
         pictureStory: {
-          imageSrc: "assets/grade2-speaking-picture-story-set-02-anime.png",
-          imageAlt: "Three-panel story about using digital tickets at a science museum.",
-          openingSentence: "One day, Rina and her mother planned to visit a science museum.",
-          firstSpeech: "Let's buy digital tickets before we leave.",
+          imageSrc: "assets/grade2-speaking-picture-story-set-02-v2.png",
+          imageAlt: "Three-panel story about using a phone audio guide at a science museum.",
+          openingSentence: "One day, Rina and her mother visited a science museum.",
+          firstSpeech: "Let's use the audio guide on my phone.",
           firstSpeechSpeaker: "Rina",
           firstSpeechTail: "center",
-          firstTimeLabel: "Later at the museum",
+          firstTimeLabel: "Later at the dinosaur exhibit",
           secondTimeLabel: "A few minutes later",
         },
         modelAnswer:
-          "One day, Rina and her mother planned to visit a science museum. Rina said, “Let's buy digital tickets before we leave.” Later at the museum, Rina was scanning a ticket on her phone while her mother was waiting beside her. A few minutes later, they were looking at a robot exhibit, and Rina's mother was taking a picture.",
+          "One day, Rina and her mother visited a science museum. Rina said, “Let's use the audio guide on my phone.” Later at the dinosaur exhibit, they were listening to the guide while looking at a dinosaur skeleton. A few minutes later, Rina's phone battery was empty, so her mother offered her a portable charger.",
       },
       no3: {
         question: "Some people say that museums should use more digital services. What do you think about that?",
@@ -191,17 +191,17 @@
       },
       no2: {
         pictureStory: {
-          imageSrc: "assets/grade2-speaking-picture-story-set-03-anime.png",
-          imageAlt: "Three-panel story about teaching a grandmother to order groceries online.",
-          openingSentence: "One day, Kenta visited his grandmother at her apartment.",
-          firstSpeech: "I'll show you how to order groceries online.",
-          firstSpeechSpeaker: "Kenta",
+          imageSrc: "assets/grade2-speaking-picture-story-set-03-v2.png",
+          imageAlt: "Three-panel story about making supermarket shelf labels easier to read.",
+          openingSentence: "One day, Kenta and his grandmother were shopping at a supermarket.",
+          firstSpeech: "I can't read these small labels.",
+          firstSpeechSpeaker: "Kenta's grandmother",
           firstSpeechTail: "center",
           firstTimeLabel: "A few minutes later",
-          secondTimeLabel: "The next afternoon",
+          secondTimeLabel: "One week later",
         },
         modelAnswer:
-          "One day, Kenta visited his grandmother at her apartment. Kenta said, “I'll show you how to order groceries online.” A few minutes later, Kenta was showing her a shopping website, and his grandmother was choosing vegetables. The next afternoon, a delivery worker was handing grocery bags to Kenta's grandmother while Kenta was standing beside her.",
+          "One day, Kenta and his grandmother were shopping at a supermarket. Kenta's grandmother said, “I can't read these small labels.” A few minutes later, Kenta was asking the manager to make the labels larger, and the manager was taking notes. One week later, his grandmother was reading the new large labels, and Kenta was giving her a thumbs-up.",
       },
       no3: {
         question:
