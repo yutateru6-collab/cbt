@@ -10,7 +10,7 @@
     <title>2級 CBT形式4技能トレーニング</title>
     <link rel="manifest" href="./manifest.webmanifest?v=grade2-listening-round2-v4" />
     <link rel="icon" href="./assets/app-icon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="./styles.css?v=grade2-scoring-dev-v3" />
+    <link rel="stylesheet" href="./styles.css?v=grade2-speaking-scroll-fix-v1" />
   </head>
   <body>
     <main id="app" class="app-shell"></main>
@@ -27,7 +27,7 @@
     <script>
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
-          navigator.serviceWorker.register("./sw-set02-v2.js?v=grade2-scoring-dev-v3", { updateViaCache: "none" }).catch(() => {});
+          navigator.serviceWorker.register("./sw-set02-v2.js?v=grade2-speaking-scroll-fix-v1", { updateViaCache: "none" }).catch(() => {});
         });
       }
     </script>

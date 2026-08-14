@@ -1,4 +1,4 @@
-const CACHE_NAME = "cbt-grade2-app-shell-v61-scoring-dev";
+const CACHE_NAME = "cbt-grade2-app-shell-v62-speaking-scroll-fix";
 const APP_SHELL = [
   "/",
   "/index.html",

@@ -3514,6 +3514,11 @@ button {
     overflow: auto;
   }
 
+  .grade2-speaking-panel {
+    max-height: none;
+    overflow: visible;
+  }
+
   .reading-full-layout,
   .reading-full-choice {
     grid-template-columns: 1fr;
