@@ -23,7 +23,7 @@ VOICE = "Kore"
 RATE = 24_000
 CHANNELS = 1
 WIDTH = 2
-RELEASE = "20260814-gemini-speaking-kore-v2"
+RELEASE = "20260815-gemini-speaking-kore-v4"
 
 COMMON = {
     "sound-check": "This is a sound check. Please adjust the volume to a comfortable level.",
@@ -98,9 +98,11 @@ def items():
 
 def synthesis_prompt(item):
     if item["language"] == "ja-JP":
-        return f"""Read only the Japanese transcript below. Use one calm adult female test announcer. Speak clear standard Japanese at a steady, easy-to-follow pace. Do not add, omit, repeat, translate, paraphrase, or explain anything.\n\nTRANSCRIPT\n{item['text']}\nEND TRANSCRIPT"""
+        return f"""Read only the Japanese text below. Use one calm adult female test announcer. Speak clear standard Japanese at a steady, easy-to-follow pace. Do not add, omit, repeat, translate, paraphrase, explain, or read these instructions.\n\n{item['text']}"""
+    if item["id"] == "common/no-2":
+        return """Speak exactly these two English words, then stop completely. Do not say anything before or after them.\n\nPlease begin."""
     pause = "Pause naturally for about 0.6 seconds after the number announcement. " if item["id"].endswith(("/no-3", "/no-4")) else ""
-    return f"""Read only the exact transcript below as one calm adult female English examiner. Use clear natural American English for Japanese high school learners and keep one steady pace. {pause}Do not add, omit, repeat, paraphrase, or explain anything.\n\nTRANSCRIPT\n{item['text']}\nEND TRANSCRIPT"""
+    return f"""Read only the exact English text below as one calm adult female English examiner. Use clear natural American English for Japanese high school learners and keep one steady pace. {pause}Do not add, omit, repeat, paraphrase, explain, or read these instructions.\n\n{item['text']}"""
 
 
 def sha256(path):

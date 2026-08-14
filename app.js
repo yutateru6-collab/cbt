@@ -979,7 +979,10 @@ let speakingMeterFrame = null;
 let grade2SpeakingDeadline = 0;
 let grade2SpeakingAdvanceInProgress = false;
 let grade2SpeakingActivationToken = 0;
-let speakingDevSuppressAutoStartOnce = isGrade2DeveloperMode && requestParams.has("speakingStep");
+let speakingDevSuppressAutoStartOnce =
+  isGrade2DeveloperMode &&
+  requestParams.has("speakingStep") &&
+  shouldSuppressGrade2SpeakingAutoStart(speakingSteps[appState.speakingStep]);
 let listeningAudioElement = null;
 let listeningInstructionAudioElement = null;
 let listeningSpeechUtterance = null;
@@ -2881,6 +2884,10 @@ function mountGrade2SpeakingStep() {
   }, 180);
 }
 
+function shouldSuppressGrade2SpeakingAutoStart(step) {
+  return step?.id !== "silent-reading";
+}
+
 async function handleSpeakingDevAction(action) {
   if (!isGrade2DeveloperMode) return;
 
@@ -2906,7 +2913,7 @@ async function handleSpeakingDevAction(action) {
   appState.speakingRemaining = getSpeakingStepSeconds(targetStep);
   appState.speakingPhaseStatus = "idle";
   appState.speakingRecordMessage = "";
-  speakingDevSuppressAutoStartOnce = true;
+  speakingDevSuppressAutoStartOnce = shouldSuppressGrade2SpeakingAutoStart(speakingSteps[targetStep]);
   saveState();
   render();
 }
@@ -4007,7 +4014,7 @@ function moveToDeveloperLocation(value) {
     appState.speakingStep = Math.min(Math.max(Number(parts[1]) || 0, 0), speakingSteps.length - 1);
     appState.speakingRemaining = getSpeakingStepSeconds(appState.speakingStep);
     appState.speakingPhaseStatus = "idle";
-    speakingDevSuppressAutoStartOnce = true;
+    speakingDevSuppressAutoStartOnce = shouldSuppressGrade2SpeakingAutoStart(speakingSteps[appState.speakingStep]);
   } else if (moduleKey === "listening" && isModuleAvailable("listening")) {
     appState.module = "listening";
     appState.listeningIndex = Math.min(Math.max(Number(parts[1]) || 0, 0), listeningQuestions.length - 1);
