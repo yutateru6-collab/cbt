@@ -1,4 +1,4 @@
-const CACHE_NAME = "cbt-grade2-app-shell-v63-speaking-scroll-fix";
+const CACHE_NAME = "cbt-grade2-app-shell-v64-speaking-listening-refresh";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -27,7 +27,13 @@ const APP_SHELL = [
   "/assets/grade2-speaking-picture-story-sample-v2.png",
   "/assets/grade2-speaking-picture-story-set-01-v2.png",
   "/assets/grade2-speaking-picture-story-set-02-v2.png",
-  "/assets/grade2-speaking-picture-story-set-03-v2.png"
+  "/assets/grade2-speaking-picture-story-set-03-v2.png",
+  "/assets/grade2-speaking-picture-story-sample-v3.png",
+  "/assets/grade2-speaking-picture-story-set-01-v3.png",
+  "/assets/grade2-speaking-picture-story-set-02-v3.png",
+  "/assets/grade2-speaking-picture-story-set-03-v3.png",
+  "/assets/grade2-speaking-picture-story-set-04-v3.png",
+  "/assets/grade2-speaking-picture-story-set-05-v3.png",
 ];
 
 self.addEventListener("install", (event) => {

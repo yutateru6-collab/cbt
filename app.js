@@ -605,6 +605,34 @@ function buildGrade2SpeakingFlow(sourceSteps) {
       seconds: 0,
     },
     {
+      id: "grade-introduction",
+      phase: "prompt-only",
+      stage: "スピーキング開始案内",
+      label: "試験の進め方",
+      prompt: "テスト構成、録音、聞き直し、端末保存について日本語で案内します。",
+      promptSpeech:
+        "これから2級スピーキングテストを始めます。はじめに、採点対象外のウォームアップを行います。そのあと、問題カードの黙読、音読、ナンバー1からナンバー4へ進みます。案内や質問の音声が終わってから、マイクに向かって答えてください。質問は2回まで聞き直せます。録音はこの端末内に保存され、テスト終了後にダウンロードできます。",
+      promptAudioFile: getGrade2SpeakingAudioUrl("instructions", "speaking-start-ja"),
+      visual: "examiner",
+      recording: false,
+      seconds: 0,
+      autoStart: true,
+    },
+    {
+      id: "warmup-introduction",
+      phase: "prompt-only",
+      stage: "Warm-up",
+      label: "Warm-up Instructions",
+      prompt: "2問とも採点対象外です。質問を聞き、英語で答えてください。",
+      promptSpeech:
+        "We will begin with two warm-up questions. These questions are not scored. Please answer each question in English.",
+      promptAudioFile: getGrade2SpeakingAudioUrl("common", "warmup-intro"),
+      visual: "examiner",
+      recording: false,
+      seconds: 0,
+      autoStart: true,
+    },
+    {
       id: "warmup-1",
       phase: "question",
       stage: "Warm-up 1",
@@ -641,6 +669,21 @@ function buildGrade2SpeakingFlow(sourceSteps) {
 【解答例】I enjoy playing sports and watching movies on weekends.
 【評価上の位置づけ】ウォームアップは採点対象外です。短くても質問に合う一文を、面接官に届く声量で答えれば十分です。`,
       explanationTier: "premium",
+    },
+    {
+      id: "card-introduction",
+      phase: "prompt-only",
+      stage: "問題カード",
+      label: "Card Instructions",
+      prompt: "ここから採点対象の問題です。問題カードを見てください。",
+      promptSpeech: "Now, we will begin the test. Please look at the card.",
+      promptAudioFile: getGrade2SpeakingAudioUrl("common", "card-introduction"),
+      visual: "card",
+      cardTitle,
+      cardText,
+      recording: false,
+      seconds: 0,
+      autoStart: true,
     },
     {
       id: "silent-reading",
@@ -749,7 +792,9 @@ function buildGrade2SpeakingFlow(sourceSteps) {
       label: "No. 3",
       prompt: "質問を聞き、自分の意見と理由を英語で答えてください。",
       promptSpeech: `Now, No. 3. ${no3.questionText || "Some people say that more stores should reduce packaging. What do you think about that?"}`,
-      promptAudioFile: getGrade2SpeakingAudioUrl(selectedSet.key, "no-3"),
+      // No.3 was revised before its new immutable audio release was generated.
+      // Use the browser voice so the former question audio can never be played.
+      promptAudioFile: "",
       questionText: no3.questionText || "Some people say that more stores should reduce packaging. What do you think about that?",
       visual: "examiner",
       recording: true,
@@ -767,7 +812,9 @@ function buildGrade2SpeakingFlow(sourceSteps) {
       label: "No. 4",
       prompt: "質問を聞き、YesまたはNoを選んでから理由を英語で答えてください。",
       promptSpeech: `Now, No. 4. ${no4.questionText || "Do you think students should learn more practical skills at school?"}`,
-      promptAudioFile: getGrade2SpeakingAudioUrl(selectedSet.key, "no-4"),
+      // No.4 was revised before its new immutable audio release was generated.
+      // Use the browser voice so the former question audio can never be played.
+      promptAudioFile: "",
       questionText: no4.questionText || "Do you think students should learn more practical skills at school?",
       visual: "examiner",
       recording: true,
@@ -778,6 +825,19 @@ function buildGrade2SpeakingFlow(sourceSteps) {
       modelAnswer: no4.modelAnswer || "",
       explanation: no4.explanation || "",
       explanationTier: no4.explanationTier || "",
+    },
+    {
+      id: "section-finish",
+      phase: "prompt-only",
+      stage: "スピーキング終了",
+      label: "End of Speaking Test",
+      prompt: "終了案内の音声が流れます。",
+      promptSpeech: "This is the end of the speaking test.",
+      promptAudioFile: getGrade2SpeakingAudioUrl("common", "section-finish"),
+      visual: "examiner",
+      recording: false,
+      seconds: 0,
+      autoStart: true,
     },
     {
       id: "review",
@@ -797,7 +857,10 @@ function buildGrade2SpeakingFlow(sourceSteps) {
     "output-check",
     "microphone-check",
     "section-start",
+    "grade-introduction",
+    "warmup-introduction",
     "warmup-1",
+    "card-introduction",
     "silent-reading",
     "read-aloud",
     "no-1",
@@ -806,6 +869,7 @@ function buildGrade2SpeakingFlow(sourceSteps) {
     "turn-card",
     "no-3",
     "no-4",
+    "section-finish",
     "review",
   ]);
   const sampleSeconds = {
@@ -852,6 +916,8 @@ const defaultState = {
   writtenRemaining: WRITTEN_EXAM_SECONDS,
   listeningAnswerRemaining: LISTENING_ANSWER_SECONDS,
   listeningIntroducedSections: {},
+  listeningPlayedQuestionIds: {},
+  listeningReviewMode: false,
   speakingRemaining: getSpeakingStepSeconds(0),
   answers: {
     written: {},
@@ -867,6 +933,7 @@ const defaultState = {
   speakingOutputVolume: 70,
   speakingReplayCounts: {},
   speakingChoices: {},
+  speakingBreakOpen: false,
   speakingMicReady: false,
   speakingMicMessage: "",
   speakingTestConfirmed: false,
@@ -1831,8 +1898,19 @@ function getGrade2ListeningSectionKey(question) {
 }
 
 function needsGrade2ListeningInstruction(question) {
+  if (appState.listeningReviewMode) return false;
   const sectionKey = getGrade2ListeningSectionKey(question);
   return Boolean(sectionKey && !appState.listeningIntroducedSections[sectionKey]);
+}
+
+function hasPlayedListeningQuestion(questionId) {
+  return Boolean(appState.listeningPlayedQuestionIds[String(questionId)]);
+}
+
+function markListeningQuestionPlayed(questionId) {
+  if (questionId === null || questionId === undefined) return;
+  appState.listeningPlayedQuestionIds[String(questionId)] = true;
+  saveState();
 }
 
 async function playGrade2ListeningInstruction(question) {
@@ -1889,7 +1967,13 @@ function ensureListeningPlaybackState() {
   if (!question || listeningPlaybackQuestionId === question.id) return;
   stopListeningPlayback();
   listeningPlaybackQuestionId = question.id;
-  if (needsGrade2ListeningInstruction(question)) {
+  if (appState.listeningReviewMode) {
+    listeningPlaybackPhase = "review";
+    appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
+  } else if (hasPlayedListeningQuestion(question.id)) {
+    listeningPlaybackPhase = "review-answer";
+    appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
+  } else if (needsGrade2ListeningInstruction(question)) {
     listeningPlaybackPhase = "instruction";
     appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
   } else if (question.audioFile) {
@@ -1907,7 +1991,8 @@ function updateListeningPlaybackUi() {
   const question = listeningQuestions[appState.listeningIndex];
   const hasPlayback = Boolean(question?.audioFile || question?.script);
   const usesBrowserVoice = Boolean(question?.script && !question?.audioFile);
-  const isAnswerPhase = !hasPlayback || listeningPlaybackPhase === "answer";
+  const isReviewPhase = appState.listeningReviewMode || ["review", "review-answer"].includes(listeningPlaybackPhase);
+  const isAnswerPhase = !hasPlayback || listeningPlaybackPhase === "answer" || isReviewPhase;
   const status = app.querySelector("[data-listening-audio-status] span");
   const playButton = app.querySelector('[data-action="listen-play"]');
   const answerTime = app.querySelector(".answer-time");
@@ -1917,7 +2002,9 @@ function updateListeningPlaybackUi() {
   const timerBar = app.querySelector("[data-listening-answer-bar]");
 
   if (status) {
-    status.textContent = !hasPlayback
+    status.textContent = isReviewPhase
+      ? "復習モードです。音声を聞く場合は再生ボタンを押してください。"
+      : !hasPlayback
       ? "音声・台本が設定されていません。"
       : listeningPlaybackPhase === "instruction"
         ? "日本語の試験説明を再生しています。続けて問題音声が始まります。"
@@ -1933,24 +2020,30 @@ function updateListeningPlaybackUi() {
             ? "ブラウザ音声で台本を再生しています。"
             : "音声を再生しています。";
   }
-  if (playButton) playButton.hidden = !hasPlayback || !["blocked", "error", "instruction-error"].includes(listeningPlaybackPhase);
+  if (playButton) playButton.hidden = !hasPlayback || (!isReviewPhase && !["blocked", "error", "instruction-error"].includes(listeningPlaybackPhase));
   if (answerTime) answerTime.classList.toggle("waiting", !isAnswerPhase);
   const audioPhaseLabel = listeningPlaybackPhase === "instruction"
     ? "試験説明"
     : ["blocked", "error", "instruction-error"].includes(listeningPlaybackPhase)
       ? "音声再生待ち"
       : "音声再生中";
-  if (phaseLabel) phaseLabel.textContent = isAnswerPhase ? "解答時間" : audioPhaseLabel;
-  if (timer) timer.textContent = isAnswerPhase ? appState.listeningAnswerRemaining : "--";
-  if (timerUnit) timerUnit.textContent = isAnswerPhase ? "秒" : "";
+  if (phaseLabel) phaseLabel.textContent = isReviewPhase ? "復習中" : isAnswerPhase ? "解答時間" : audioPhaseLabel;
+  if (timer) timer.textContent = isReviewPhase ? "--" : isAnswerPhase ? appState.listeningAnswerRemaining : "--";
+  if (timerUnit) timerUnit.textContent = isReviewPhase ? "" : isAnswerPhase ? "秒" : "";
   if (timerBar) {
     const percent = isAnswerPhase ? Math.max(0, Math.min(100, (appState.listeningAnswerRemaining / LISTENING_ANSWER_SECONDS) * 100)) : 100;
     timerBar.style.width = `${percent}%`;
   }
 }
 
-async function playListeningAudio() {
+async function playListeningAudio({ force = false } = {}) {
   const question = listeningQuestions[appState.listeningIndex];
+  if (!question) return;
+  if (!force && !appState.listeningReviewMode && hasPlayedListeningQuestion(question.id)) {
+    listeningPlaybackPhase = "review-answer";
+    updateListeningPlaybackUi();
+    return;
+  }
   if (needsGrade2ListeningInstruction(question)) {
     await playGrade2ListeningInstruction(question);
     return;
@@ -1979,7 +2072,11 @@ async function playListeningAudio() {
       () => {
         if (listeningPlaybackQuestionId !== question.id || listeningSpeechUtterance !== utterance) return;
         listeningSpeechUtterance = null;
-        startListeningAnswerCountdown();
+        if (appState.listeningReviewMode) {
+          listeningPlaybackPhase = "review";
+        } else {
+          startListeningAnswerCountdown();
+        }
         saveState();
         updateListeningPlaybackUi();
       },
@@ -1996,6 +2093,7 @@ async function playListeningAudio() {
       { once: true },
     );
     listeningPlaybackPhase = "audio";
+    markListeningQuestionPlayed(question.id);
     updateListeningPlaybackUi();
     window.speechSynthesis.speak(utterance);
     return;
@@ -2017,7 +2115,7 @@ async function playListeningAudio() {
 
 function mountListeningAudio() {
   const question = listeningQuestions[appState.listeningIndex];
-  if (listeningPlaybackPhase === "answer") {
+  if (["answer", "review", "review-answer"].includes(listeningPlaybackPhase)) {
     updateListeningPlaybackUi();
     return;
   }
@@ -2028,12 +2126,17 @@ function mountListeningAudio() {
     listeningAudioElement = audio;
     audio.addEventListener("playing", () => {
       if (listeningPlaybackQuestionId !== questionId) return;
+      markListeningQuestionPlayed(questionId);
       listeningPlaybackPhase = "audio";
       updateListeningPlaybackUi();
     });
     audio.addEventListener("ended", () => {
       if (listeningPlaybackQuestionId !== questionId) return;
-      startListeningAnswerCountdown();
+      if (appState.listeningReviewMode) {
+        listeningPlaybackPhase = "review";
+      } else {
+        startListeningAnswerCountdown();
+      }
       saveState();
       updateListeningPlaybackUi();
     });
@@ -2051,7 +2154,9 @@ function renderListening() {
   const hasPlayback = Boolean(question.audioFile || question.script);
   const usesBrowserVoice = Boolean(question.script && !question.audioFile);
   const isRealLifeQuestion = question.part === "Part 3" && Boolean(question.situation);
-  const isAnswerPhase = !hasPlayback || listeningPlaybackPhase === "answer";
+  const isReviewPhase = appState.listeningReviewMode || ["review", "review-answer"].includes(listeningPlaybackPhase);
+  const canNavigateListeningList = appState.listeningReviewMode || isGrade2DeveloperMode;
+  const isAnswerPhase = !hasPlayback || listeningPlaybackPhase === "answer" || isReviewPhase;
   const audioStatusText = !hasPlayback
     ? "音声・台本が設定されていません。"
     : listeningPlaybackPhase === "instruction"
@@ -2115,17 +2220,16 @@ function renderListening() {
         </div>
       </main>
       <aside class="listen-side">
+        ${appState.listeningReviewMode ? `<button class="current-button" data-action="listen-review-close">復習を終了して結果へ戻る</button>` : ""}
         <button class="current-button" data-action="listen-current">再生中の問題を表示する</button>
         <div class="listen-list">
           ${listeningQuestions
             .map(
               (item, index) => `
                 <div class="listen-list-row ${index === appState.listeningIndex ? "current" : ""}">
-                  <button class="listen-jump" data-action="listen-goto" data-page="${index}">No.${item.id}</button>
+                  ${canNavigateListeningList ? `<button class="listen-jump" data-action="listen-goto" data-page="${index}">No.${item.id}</button>` : `<span class="listen-jump listen-jump-static">No.${item.id}</span>`}
                   <input class="listen-mark" type="checkbox" data-review-question="l-${item.id}" ${appState.reviews[`l-${item.id}`] ? "checked" : ""} />
-                  <button class="listen-box ${appState.answers.listening[item.id] ? "answered" : ""}" data-action="listen-goto" data-page="${index}">
-                    ${appState.answers.listening[item.id] || ""}
-                  </button>
+                  ${canNavigateListeningList ? `<button class="listen-box ${appState.answers.listening[item.id] ? "answered" : ""}" data-action="listen-goto" data-page="${index}">${appState.answers.listening[item.id] || ""}</button>` : `<span class="listen-box listen-box-static ${appState.answers.listening[item.id] ? "answered" : ""}">${appState.answers.listening[item.id] || ""}</span>`}
                 </div>
               `,
             )
@@ -2507,18 +2611,113 @@ function renderGrade2SpeakingActions(step, status, replayRemaining) {
   return "";
 }
 
-function renderGrade2SpeakingReview() {
+function getGrade2ScoredSpeakingSteps() {
+  const scoredIds = new Set(["read-aloud", "no-1", "no-2", "no-3", "no-4"]);
+  return speakingSteps.map((step, index) => ({ step, index })).filter(({ step }) => scoredIds.has(step.id));
+}
+
+function renderGrade2SpeakingReviewV2() {
+  const scoredSteps = getGrade2ScoredSpeakingSteps();
+  const missingLabels = scoredSteps
+    .filter(({ index }) => !appState.speakingRecordings[index])
+    .map(({ step }) => step.label);
+
+  if (appState.speakingBreakOpen) {
+    return `
+      <div class="speaking-section-complete speaking-break-panel">
+        <div>
+          <h3>休憩中（練習用）</h3>
+          <p>本番のS-CBTには、スピーキングとリスニングの間の休憩はありません。準備ができたらリスニングへ進んでください。</p>
+        </div>
+      </div>
+      <div class="speaking-primary-actions">
+        <button class="start-button compact" data-action="grade2-speaking-resume">リスニングへ進む</button>
+      </div>
+    `;
+  }
+
   return `
     <div class="speaking-section-complete">
       <div>
         <h3>スピーキングは終了しました</h3>
-        <p>録音はこの端末内に保存されています。試験中は解答例を表示せず、続けてリスニングへ進みます。</p>
+        <p>録音はこの端末内に保存されています。本番形式では、そのままリスニングへ進みます。</p>
       </div>
     </div>
+    ${missingLabels.length ? `<p class="speaking-record-message error">未保存の採点対象録音：${escapeHtml(missingLabels.join("、"))}</p>` : ""}
+    ${appState.speakingRecordMessage ? `<p class="speaking-record-message">${escapeHtml(appState.speakingRecordMessage)}</p>` : ""}
     <div class="speaking-primary-actions">
-      <button class="start-button compact" data-action="grade2-speaking-continue">リスニングへ進む</button>
+      <button class="start-button compact" data-action="grade2-speaking-continue">そのままリスニングへ進む（本番形式）</button>
+      <button class="small-action" data-action="grade2-speaking-break">一旦休憩する（練習用・本番には休憩なし）</button>
+      <button class="small-action" data-action="grade2-speaking-download-all" ${missingLabels.length ? "disabled" : ""}>採点用5音声をまとめてダウンロード</button>
+      <button class="small-action" data-action="grade2-speaking-copy-grading-prompt">ChatGPT採点用プロンプトをコピー</button>
+    </div>
+    <p class="speaking-download-note">保存先はブラウザ標準のダウンロード先（通常はWindowsの「ダウンロード」）です。複数ダウンロードが拒否された場合は、下の個別ボタンを使用してください。</p>
+    <div class="speaking-review-list compact-list">
+      ${scoredSteps
+        .map(({ step, index }) => {
+          const recording = appState.speakingRecordings[index];
+          return `<section class="speaking-review-item"><div><strong>${escapeHtml(step.label)}</strong><span>${recording ? formatBytes(recording.size || 0) : "録音なし"}</span></div>${recording ? `<button class="small-action" data-action="speaking-record-download" data-step="${index}">個別ダウンロード</button>` : ""}</section>`;
+        })
+        .join("")}
     </div>
   `;
+}
+
+function getGrade2SpeakingGradingPrompt() {
+  const items = getGrade2ScoredSpeakingSteps().map(({ step, index }, order) => ({
+    order: order + 1,
+    fileName: buildSpeakingRecordingFileName(index, appState.speakingRecordings[index]?.type || "audio/webm"),
+    task: step.label,
+    question: step.questionText || step.promptSpeech || "Read the passage aloud.",
+    passage: step.cardText || "",
+    pictureStory: step.pictureStory
+      ? {
+          openingSentence: step.pictureStory.openingSentence,
+          firstSpeech: step.pictureStory.firstSpeech,
+          firstTimeLabel: step.pictureStory.firstTimeLabel,
+          secondTimeLabel: step.pictureStory.secondTimeLabel,
+        }
+      : null,
+  }));
+  return `あなたは英検2級S-CBTスピーキング練習の採点者です。添付する5つの音声を、下の問題との対応を厳守して採点してください。これは学習用の非公式採点であり、英検協会の公式採点ではありません。\n\n採点対象ファイルと問題：\n${items
+    .map(
+      (item) =>
+        `${item.order}. ${item.fileName} — ${item.task}\n質問: ${item.question}${item.passage ? `\n本文: ${item.passage}` : ""}${item.pictureStory ? `\nNo.2開始文: ${item.pictureStory.openingSentence}\n1コマ目の発言: ${item.pictureStory.firstSpeech}\n時刻表示: ${item.pictureStory.firstTimeLabel} / ${item.pictureStory.secondTimeLabel}` : ""}`,
+    )
+    .join("\n\n")}\n\n採点基準（各0〜5点、合計20点）：\n- 課題達成・応答の適切さ\n- 内容・情報量\n- 発音・流暢さ\n- 語彙・文法\n\n必須ルール：\n- 聞き取れない箇所を推測して補わない。「聞き取れない」と明記する。\n- 各音声について、聞き取れた回答の要約、良い点、改善点、具体的な改善例を日本語で示す。\n- 4観点それぞれの点数と根拠、合計点を示す。\n- 最後に、次回最優先で直す点を3つ示す。\n- 公式採点ではないことを結果にも明記する。`;
+}
+
+async function downloadAllGrade2SpeakingRecordings() {
+  const scoredSteps = getGrade2ScoredSpeakingSteps();
+  const records = [];
+  for (const item of scoredSteps) {
+    const blob = await getSpeakingRecordingBlob(item.index);
+    if (!blob) {
+      appState.speakingRecordMessage = `${item.step.label}の録音がないため、一括ダウンロードできません。`;
+      saveState();
+      render();
+      return;
+    }
+    records.push({ ...item, blob });
+  }
+  for (const record of records) {
+    const url = URL.createObjectURL(record.blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = buildSpeakingRecordingFileName(record.index, record.blob.type);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    window.setTimeout(() => URL.revokeObjectURL(url), 1500);
+    await waitForGrade2Speaking(180);
+  }
+  appState.speakingRecordMessage = "採点用5音声のダウンロードを開始しました。表示されない場合は、ブラウザの複数ダウンロード許可を確認するか個別ボタンを使用してください。";
+  saveState();
+  render();
+}
+
+function renderGrade2SpeakingReview() {
+  return renderGrade2SpeakingReviewV2();
 }
 
 function renderGenericSpeakingReview() {
@@ -2714,7 +2913,34 @@ async function handleSpeakingDevAction(action) {
 
 async function handleGrade2SpeakingAction(action, target) {
   if (action === "grade2-speaking-continue") {
+    appState.speakingBreakOpen = false;
     transitionToGrade2Module("listening");
+    return;
+  }
+
+  if (action === "grade2-speaking-break") {
+    appState.speakingBreakOpen = true;
+    saveState();
+    render();
+    return;
+  }
+
+  if (action === "grade2-speaking-resume") {
+    appState.speakingBreakOpen = false;
+    transitionToGrade2Module("listening");
+    return;
+  }
+
+  if (action === "grade2-speaking-download-all") {
+    await downloadAllGrade2SpeakingRecordings();
+    return;
+  }
+
+  if (action === "grade2-speaking-copy-grading-prompt") {
+    await copyTextToClipboard(getGrade2SpeakingGradingPrompt());
+    appState.speakingRecordMessage = "ChatGPT採点用プロンプトをコピーしました。5つの音声と一緒に貼り付けてください。";
+    saveState();
+    render();
     return;
   }
 
@@ -3359,6 +3585,9 @@ function renderGrade2ScoreResult(summary) {
       ${gptScores ? renderGrade2CseRanges(scoreView) : `<p class="score-pending-note">WritingとSpeakingのGPT採点JSONを取り込むと、4技能の練習用CSEレンジと合格レベル目安を表示します。</p>`}
     </section>
     ${renderGrade2GptPanel(gptScores)}
+    <div class="result-review-actions">
+      <button class="small-action" data-action="listen-review-open">リスニングを個別復習する</button>
+    </div>
   `;
 }
 
@@ -3921,6 +4150,7 @@ async function handleClick(event) {
       appState.speakingRemaining = getSpeakingStepSeconds(0);
       appState.speakingReplayCounts = {};
       appState.speakingChoices = {};
+      appState.speakingBreakOpen = false;
       appState.speakingMicReady = false;
       appState.speakingMicMessage = "";
       appState.speakingTestConfirmed = false;
@@ -4046,10 +4276,25 @@ async function handleClick(event) {
     });
     return;
   } else if (action === "listen-play") {
-    await playListeningAudio();
+    await playListeningAudio({ force: appState.listeningReviewMode });
     return;
+  } else if (action === "listen-review-open") {
+    stopListeningPlayback();
+    appState.module = "listening";
+    appState.started = true;
+    appState.modal = null;
+    appState.listeningReviewMode = true;
+    appState.listeningIndex = 0;
+    appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
+    listeningPlaybackPhase = "review";
+    syncGrade2ModuleUrl("listening", { started: true });
+  } else if (action === "listen-review-close") {
+    stopListeningPlayback();
+    appState.listeningReviewMode = false;
+    appState.modal = "complete";
   } else if (action === "listen-next") {
     if (appState.listeningIndex >= listeningQuestions.length - 1) {
+      if (appState.listeningReviewMode) return;
       if (isGrade2ContinuousExam) {
         transitionToGrade2Module("reading");
         return;
@@ -4063,6 +4308,7 @@ async function handleClick(event) {
     appState.listeningIndex = Math.max(0, appState.listeningIndex - 1);
     appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
   } else if (action === "listen-goto") {
+    if (!appState.listeningReviewMode && !isGrade2DeveloperMode) return;
     appState.listeningIndex = Number(target.dataset.page);
     appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
   } else if (action === "speaking-prompt-play") {
@@ -4826,6 +5072,15 @@ function getRecordingFormatLabel(type) {
 
 function buildSpeakingRecordingFileName(stepIndex, type) {
   const extension = getRecordingExtension(type);
+  const stepId = speakingSteps[Number(stepIndex)]?.id || "recording";
+  const semanticId = {
+    "read-aloud": "read-aloud",
+    "no-1": "no-1",
+    "no-2": "no-2",
+    "no-3": "no-3",
+    "no-4": "no-4",
+  }[stepId];
+  if (semanticId) return `${selectedGrade}-${selectedSet.key}-speaking-${semanticId}.${extension}`;
   const stepNumber = String(Number(stepIndex) + 1).padStart(2, "0");
   return `${selectedGrade}-${selectedSet.key}-speaking-step-${stepNumber}.${extension}`;
 }
@@ -4982,10 +5237,13 @@ function normalizeState(state) {
   if (!state.writingChecks || typeof state.writingChecks !== "object") state.writingChecks = {};
   if (!state.speakingRecordings || typeof state.speakingRecordings !== "object") state.speakingRecordings = {};
   if (!state.listeningIntroducedSections || typeof state.listeningIntroducedSections !== "object") state.listeningIntroducedSections = {};
+  if (!state.listeningPlayedQuestionIds || typeof state.listeningPlayedQuestionIds !== "object" || Array.isArray(state.listeningPlayedQuestionIds)) state.listeningPlayedQuestionIds = {};
+  state.listeningReviewMode = Boolean(state.listeningReviewMode);
   if (!state.speakingSelfChecks || typeof state.speakingSelfChecks !== "object") state.speakingSelfChecks = {};
   if (typeof state.speakingRecordMessage !== "string") state.speakingRecordMessage = "";
   if (!state.speakingReplayCounts || typeof state.speakingReplayCounts !== "object") state.speakingReplayCounts = {};
   if (!state.speakingChoices || typeof state.speakingChoices !== "object") state.speakingChoices = {};
+  state.speakingBreakOpen = Boolean(state.speakingBreakOpen);
   state.speakingOutputVolume = Math.max(0, Math.min(100, Number(state.speakingOutputVolume) || 70));
   state.speakingMicReady = Boolean(state.speakingMicReady);
   state.speakingTestConfirmed = Boolean(state.speakingTestConfirmed);
@@ -5062,6 +5320,8 @@ function transitionToGrade2Module(moduleKey, { resetWrittenTimer = true } = {}) 
     appState.listeningIndex = 0;
     appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
     appState.listeningIntroducedSections = {};
+    appState.listeningPlayedQuestionIds = {};
+    appState.listeningReviewMode = false;
   }
   if (moduleKey === "reading" && resetWrittenTimer) appState.writtenRemaining = WRITTEN_EXAM_SECONDS;
   if (moduleKey === "writing") appState.writingTask = 0;
@@ -5103,6 +5363,7 @@ function tickTimers() {
   }
 
   if (appState.module === "listening") {
+    if (appState.listeningReviewMode || ["review", "review-answer"].includes(listeningPlaybackPhase)) return;
     const question = listeningQuestions[appState.listeningIndex];
     if ((question?.audioFile || question?.script) && (listeningPlaybackQuestionId !== question.id || listeningPlaybackPhase !== "answer")) {
       return;

@@ -4,7 +4,7 @@
       {
         label: "Warm-up",
         seconds: 10,
-        prompt: "面接官の質問を聞いて、マイクに向かって答えます。",
+        prompt: "面接官の質問を聞いて、マイクに向かって英語で答えます。",
         visual: "面接官",
         recording: true,
         questionText: config.warmupQuestion,
@@ -42,7 +42,7 @@
       {
         label: "No.2",
         seconds: 60,
-        prompt: "イラストの展開を説明します。",
+        prompt: "3コマのイラストの展開を説明します。",
         visual: "カード",
         recording: true,
         pictureStory: config.no2.pictureStory,
@@ -79,31 +79,33 @@
       no1: {
         question: "According to the passage, how can residents finish repairs without buying new tools?",
         modelAnswer: "By borrowing hammers and other equipment from libraries that lend simple tools.",
-        answerEvidence: "such libraries -> libraries that have started lending simple tools",
+        answerEvidence: "such libraries → libraries that have started lending simple tools",
       },
       no2: {
         pictureStory: {
-          imageSrc: "assets/grade2-speaking-picture-story-sample-v2.png",
-          imageAlt: "Three-panel story about exchanging an old racket for a basketball at a community sports center.",
-          openingSentence: "One day, Emi and her older brother visited a community sports center.",
-          firstSpeech: "Let's exchange this old racket for something we can use.",
-          firstSpeechSpeaker: "Emi's brother",
+          imageSrc: "assets/grade2-speaking-picture-story-sample-v3.png",
+          imageAlt: "Three-panel story about borrowing a ladder, painting a room, and spilling paint.",
+          openingSentence: "One day, Leo and his mother visited a community tool library.",
+          firstSpeech: "Let's borrow this ladder to paint your room.",
+          firstSpeechSpeaker: "Leo's mother",
           firstSpeechTail: "center",
-          firstTimeLabel: "A few minutes later",
-          secondTimeLabel: "Later at a nearby park",
+          firstTimeLabel: "The next afternoon at home",
+          secondTimeLabel: "A few minutes later",
         },
         modelAnswer:
-          "One day, Emi and her older brother visited a community sports center. Emi's brother said, “Let's exchange this old racket for something we can use.” A few minutes later, a staff member was giving them a basketball, and Emi was handing him the racket. Later at a nearby park, Emi was playing basketball with her brother when the ball rolled toward a puddle.",
+          "One day, Leo and his mother visited a community tool library. Leo's mother said, ‘Let's borrow this ladder to paint your room.’ The next afternoon at home, Leo was painting the wall while his mother held the paint tray. A few minutes later, a paint can fell over and paint spread across the floor. Leo thought that they should have covered the floor first.",
       },
       no3: {
-        question: "Some people say that more libraries should lend useful items besides books. What do you think about that?",
+        question:
+          "Some people say that borrowing tools from libraries is better than buying tools for small home repairs. What do you think about that?",
         modelAnswer:
-          "I agree. People can borrow things they only need for a short time. It can also help communities reduce waste.",
+          "I agree. People can save money by borrowing tools that they rarely need. Sharing tools can also reduce waste.",
       },
       no4: {
-        question: "Do you think children should help with simple repairs at home?",
+        question:
+          "Today, some restaurants let customers order meals with tablet computers. Do you think more restaurants will use this system in the future?",
         modelAnswer:
-          "Yes. They can learn practical skills from their families. They will also become more responsible at home.",
+          "Yes. Tablet ordering can reduce waiting time and make orders clearer. It can also show menus in several languages.",
       },
     },
     {
@@ -115,31 +117,33 @@
       no1: {
         question: "According to the passage, how can customers buy daily products without using new plastic containers?",
         modelAnswer: "By bringing empty bottles and filling them at refill stations.",
-        answerEvidence: "these stations -> refill stations for soap and shampoo",
+        answerEvidence: "these stations → refill stations for soap and shampoo",
       },
       no2: {
         pictureStory: {
-          imageSrc: "assets/grade2-speaking-picture-story-set-01-v2.png",
-          imageAlt: "Three-panel story about using a reusable produce bag while shopping for apples.",
-          openingSentence: "One day, Maya and her father were shopping for fruit at a supermarket.",
-          firstSpeech: "Let's use these reusable bags for the apples.",
+          imageSrc: "assets/grade2-speaking-picture-story-set-01-v3.png",
+          imageAlt: "Three-panel story about filling a large shampoo bottle and discovering a leak on the way home.",
+          openingSentence: "One day, Maya and her father visited a store with a refill station.",
+          firstSpeech: "Let's fill this large bottle with shampoo.",
           firstSpeechSpeaker: "Maya's father",
           firstSpeechTail: "center",
           firstTimeLabel: "A few minutes later",
-          secondTimeLabel: "That evening at home",
+          secondTimeLabel: "On the way home",
         },
         modelAnswer:
-          "One day, Maya and her father were shopping for fruit at a supermarket. Maya's father said, “Let's use these reusable bags for the apples.” A few minutes later, Maya was putting apples into a reusable bag while a clerk was helping her weigh them. That evening at home, the bag tore, and the apples rolled across the floor while Maya and her father looked surprised.",
+          "One day, Maya and her father visited a store with a refill station. Maya's father said, ‘Let's fill this large bottle with shampoo.’ A few minutes later, a clerk was helping them fill the bottle. On the way home, shampoo leaked from the loose cap into their bag. Maya thought that they should have closed the cap tightly.",
       },
       no3: {
-        question: "Some people say that more stores should offer refill stations. What do you think about that?",
+        question:
+          "Some people say that local governments should help stores install refill stations. What do you think about that?",
         modelAnswer:
-          "I agree. Refill stations can reduce plastic waste. They can also make people think more carefully about what they buy.",
+          "I agree. The equipment may be too expensive for small stores. Government support could help reduce plastic waste in more communities.",
       },
       no4: {
-        question: "Do you think people should bring their own bags when they go shopping?",
+        question:
+          "These days, many people post photographs of their daily lives online. Do you think people are careful enough about their personal information when they do this?",
         modelAnswer:
-          "Yes. Reusable bags can reduce the number of plastic bags people use. They are also stronger and easier to carry.",
+          "No. Photos can reveal a person's home, school, or location without them noticing. People should check every photo carefully before posting it.",
       },
     },
     {
@@ -151,31 +155,33 @@
       no1: {
         question: "According to the passage, how can visitors enter museums without standing in long ticket lines?",
         modelAnswer: "By saving digital tickets on their phones before they arrive.",
-        answerEvidence: "these tickets -> digital tickets offered on museum websites",
+        answerEvidence: "these tickets → digital tickets offered on museum websites",
       },
       no2: {
         pictureStory: {
-          imageSrc: "assets/grade2-speaking-picture-story-set-02-v2.png",
-          imageAlt: "Three-panel story about using a phone audio guide at a science museum.",
-          openingSentence: "One day, Rina and her mother visited a science museum.",
-          firstSpeech: "Let's use the audio guide on my phone.",
+          imageSrc: "assets/grade2-speaking-picture-story-set-02-v3.png",
+          imageAlt: "Three-panel story about buying museum tickets online and discovering the date is wrong.",
+          openingSentence: "One day, Rina and her uncle were planning a visit to a museum.",
+          firstSpeech: "Let's buy our tickets online tonight.",
           firstSpeechSpeaker: "Rina",
           firstSpeechTail: "center",
-          firstTimeLabel: "Later at the dinosaur exhibit",
-          secondTimeLabel: "A few minutes later",
+          firstTimeLabel: "That evening at home",
+          secondTimeLabel: "The next morning at the museum",
         },
         modelAnswer:
-          "One day, Rina and her mother visited a science museum. Rina said, “Let's use the audio guide on my phone.” Later at the dinosaur exhibit, they were listening to the guide while looking at a dinosaur skeleton. A few minutes later, Rina's phone battery was empty, so her mother offered her a portable charger.",
+          "One day, Rina and her uncle were planning a visit to a museum. Rina said, ‘Let's buy our tickets online tonight.’ That evening at home, Rina bought two tickets on her phone. The next morning at the museum, a staff member told them that the tickets were for another date. Rina realized that she had chosen the wrong date.",
       },
       no3: {
-        question: "Some people say that museums should use more digital services. What do you think about that?",
+        question:
+          "Some people say that more museums will offer digital tickets and guides in the future. What do you think about that?",
         modelAnswer:
-          "I agree. Digital services can make visits more convenient. Museums can also give visitors information in several languages.",
+          "I agree. Digital services make visits more convenient. They can also give visitors information in several languages.",
       },
       no4: {
-        question: "Do you think students should visit museums more often?",
+        question:
+          "Today, some schools allow students to wear casual clothes instead of uniforms on special days. Do you think this is a good idea?",
         modelAnswer:
-          "Yes. Students can learn things that are difficult to understand from textbooks alone. Museum visits can also make them more interested in history and science.",
+          "Yes. Students can learn to choose suitable clothes by themselves. Special casual-clothes days can also make school more enjoyable.",
       },
     },
     {
@@ -187,21 +193,21 @@
       no1: {
         question: "According to the passage, why do supermarkets provide simple guides and telephone support?",
         modelAnswer: "Because many older customers are not familiar with grocery delivery services.",
-        answerEvidence: "such services -> supermarkets delivering food directly to customers' homes",
+        answerEvidence: "such services → supermarkets delivering food directly to customers' homes",
       },
       no2: {
         pictureStory: {
-          imageSrc: "assets/grade2-speaking-picture-story-set-03-v2.png",
-          imageAlt: "Three-panel story about making supermarket shelf labels easier to read.",
-          openingSentence: "One day, Kenta and his grandmother were shopping at a supermarket.",
-          firstSpeech: "I can't read these small labels.",
-          firstSpeechSpeaker: "Kenta's grandmother",
+          imageSrc: "assets/grade2-speaking-picture-story-set-03-v3.png",
+          imageAlt: "Three-panel story about ordering frozen groceries and finding that the freezer is full.",
+          openingSentence: "One day, Kenta and his grandmother were ordering groceries online.",
+          firstSpeech: "Let's order the heavy frozen food, too.",
+          firstSpeechSpeaker: "Kenta",
           firstSpeechTail: "center",
-          firstTimeLabel: "A few minutes later",
-          secondTimeLabel: "One week later",
+          firstTimeLabel: "That afternoon",
+          secondTimeLabel: "A few minutes later",
         },
         modelAnswer:
-          "One day, Kenta and his grandmother were shopping at a supermarket. Kenta's grandmother said, “I can't read these small labels.” A few minutes later, Kenta was asking the manager to make the labels larger, and the manager was taking notes. One week later, his grandmother was reading the new large labels, and Kenta was giving her a thumbs-up.",
+          "One day, Kenta and his grandmother were ordering groceries online. Kenta said, ‘Let's order the heavy frozen food, too.’ That afternoon, a delivery worker brought several bags to their home. A few minutes later, the frozen food would not fit in the full freezer. Kenta thought that they should have organized the freezer first.",
       },
       no3: {
         question:
@@ -210,9 +216,10 @@
           "I agree. Some older customers are not used to shopping online. Clear support can help them buy what they need safely.",
       },
       no4: {
-        question: "Do you think families should eat dinner together more often?",
+        question:
+          "Nowadays, some people use their smartphones while walking on busy streets. Do you think people should stop doing this?",
         modelAnswer:
-          "Yes. Family members can talk about their day and understand each other better. Eating together can also help people develop healthier habits.",
+          "Yes. They may not notice cars, bicycles, or other people. Stopping in a safe place before using a phone can prevent accidents.",
       },
     },
     {
@@ -224,31 +231,33 @@
       no1: {
         question: "According to the passage, how can students leave less food on their plates?",
         modelAnswer: "By choosing one of the portion sizes carefully.",
-        answerEvidence: "these sizes -> several portion sizes offered to students",
+        answerEvidence: "these sizes → several portion sizes offered to students",
       },
       no2: {
         pictureStory: {
-          imageSrc: "assets/grade2-speaking-picture-story-set-04-anime.png",
-          imageAlt: "Three-panel story about choosing lunch portions at school.",
-          openingSentence: "One day, Aoi and her classmates were having lunch at school.",
-          firstSpeech: "I'll choose a smaller portion today.",
+          imageSrc: "assets/grade2-speaking-picture-story-set-04-v3.png",
+          imageAlt: "Three-panel story about choosing the smallest lunch portion and becoming hungry during practice.",
+          openingSentence: "One day, Aoi and her classmate were choosing their school lunch portions.",
+          firstSpeech: "I'll take the smallest portion today.",
           firstSpeechSpeaker: "Aoi",
           firstSpeechTail: "center",
-          firstTimeLabel: "A few minutes later",
-          secondTimeLabel: "After lunch",
+          firstTimeLabel: "After lunch",
+          secondTimeLabel: "During afternoon practice",
         },
         modelAnswer:
-          "One day, Aoi and her classmates were having lunch at school. Aoi said, “I'll choose a smaller portion today.” A few minutes later, Aoi had finished all of her lunch, but her friend still had a large amount of food on his tray. After lunch, Aoi was returning an empty tray, and her friend was throwing away some food.",
+          "One day, Aoi and her classmate were choosing their school lunch portions. Aoi said, ‘I'll take the smallest portion today.’ After lunch, Aoi had finished everything on her tray. During afternoon practice, however, she became very hungry and thought that she should have chosen a larger portion.",
       },
       no3: {
-        question: "Some people say that schools should let students choose their lunch portion sizes. What do you think about that?",
+        question:
+          "Some people say that letting students choose from several lunch sizes is better than asking everyone to finish the same amount. What do you think about that?",
         modelAnswer:
-          "I agree. Students know how much food they can eat. Choosing portion sizes can reduce waste and help students make responsible decisions.",
+          "I agree. Students need different amounts of food. Several portion sizes can reduce waste without forcing students to eat too much.",
       },
       no4: {
-        question: "Do you think students should learn how to cook at school?",
+        question:
+          "Today, many people work or study at cafés. Do you think more people will do this in the future?",
         modelAnswer:
-          "Yes. Cooking is an important skill for daily life. Students can also learn how to choose healthy food.",
+          "Yes. Many cafés provide comfortable seats and internet access. People who work remotely may want a place outside their homes.",
       },
     },
     {
@@ -264,28 +273,29 @@
       },
       no2: {
         pictureStory: {
-          imageSrc: "assets/grade2-speaking-picture-story-set-05-anime.png",
-          imageAlt: "Three-panel story about making a neighborhood park easier to use.",
-          openingSentence: "One day, Yuki and her grandfather visited a neighborhood park.",
-          firstSpeech: "This narrow path is difficult for me to use.",
-          firstSpeechSpeaker: "Yuki's grandfather",
+          imageSrc: "assets/grade2-speaking-picture-story-set-05-v3.png",
+          imageAlt: "Three-panel story about a picnic in a renovated park where all benches are occupied.",
+          openingSentence: "One day, Yuki and her grandfather were planning a picnic at a city park.",
+          firstSpeech: "Let's meet near the new benches at noon.",
+          firstSpeechSpeaker: "Yuki",
           firstSpeechTail: "center",
-          firstTimeLabel: "One month later",
-          secondTimeLabel: "Later that afternoon",
+          firstTimeLabel: "The next day at the park",
+          secondTimeLabel: "At noon",
         },
         modelAnswer:
-          "One day, Yuki and her grandfather visited a neighborhood park. Yuki's grandfather said, “This narrow path is difficult for me to use.” One month later, city workers were making the path wider, and Yuki was watching the work with her grandfather. Later that afternoon, her grandfather was using the wider path while Yuki was sitting on a new bench and offering him some water.",
+          "One day, Yuki and her grandfather were planning a picnic at a city park. Yuki said, ‘Let's meet near the new benches at noon.’ The next day at the park, they walked comfortably along a wide new path. At noon, all the benches were occupied, so Yuki thought that they should have brought folding chairs.",
       },
       no3: {
         question:
-          "Some people say that cities should spend more money making public parks easier for everyone to use. What do you think about that?",
+          "Some people say that cities should spend more money on wide paths and benches than on new playground equipment. What do you think about that?",
         modelAnswer:
-          "I agree. Public parks should be safe and comfortable for everyone. Better paths and benches can help older people and people with disabilities.",
+          "I agree. Wide paths and benches make parks usable for people of many ages and abilities. Cities can improve playground equipment after basic access is provided.",
       },
       no4: {
-        question: "Do you think people should exercise outside more often?",
+        question:
+          "These days, many people buy things online after reading customer reviews. Do you think people are careful enough when they trust these reviews?",
         modelAnswer:
-          "Yes. Outdoor exercise is a good way to stay healthy and reduce stress. People can also enjoy nature while they exercise.",
+          "No. Some reviews may be false or written without enough experience. People should compare many reviews and other information before buying something.",
       },
     },
   ];

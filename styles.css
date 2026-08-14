@@ -4637,3 +4637,51 @@ body.grade2-developer-mode .grade2-speaking-panel {
 .hidden {
   display: none;
 }
+.listen-jump-static,
+.listen-box-static {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  user-select: none;
+}
+
+.speaking-primary-actions {
+  flex-wrap: wrap;
+}
+
+.speaking-download-note {
+  margin: 12px 0;
+  color: #52606d;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.speaking-break-panel {
+  border-color: #c99400;
+  background: #fffaf0;
+}
+
+.speaking-review-list.compact-list .speaking-review-item {
+  padding: 12px 14px;
+}
+
+.result-review-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 18px;
+}
+
+@media (max-width: 700px) {
+  .speaking-primary-actions > * {
+    width: 100%;
+  }
+
+  .result-review-actions {
+    justify-content: stretch;
+  }
+
+  .result-review-actions > * {
+    width: 100%;
+  }
+}
