@@ -4126,6 +4126,27 @@ button {
 }
 
 /* Grade 2 developer navigation and four-skill scoring */
+body.grade2-developer-mode {
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+body.grade2-developer-mode .app-shell {
+  height: auto;
+  min-height: 100vh;
+}
+
+body.grade2-developer-mode .grade2-speaking-flow {
+  height: auto;
+  min-height: calc(100vh - 92px);
+  overflow: visible;
+}
+
+body.grade2-developer-mode .grade2-speaking-panel {
+  max-height: none;
+  overflow: visible;
+}
+
 .developer-toolbar {
   width: min(1080px, calc(100% - 24px));
   display: grid;

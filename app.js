@@ -15,6 +15,7 @@ const requestParams = new URLSearchParams(window.location.search);
 const isGrade2Product = appConfig.mode === "grade2-product" && appConfig.grade === "grade2";
 const grade2Scoring = window.Grade2Scoring || null;
 const isGrade2DeveloperMode = isGrade2Product && requestParams.get("dev") === "1";
+document.body.classList.toggle("grade2-developer-mode", isGrade2DeveloperMode);
 const ACCESS_PLANS = Object.freeze({
   sample: Object.freeze({
     key: "sample",
