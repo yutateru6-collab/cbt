@@ -81,6 +81,13 @@ const GRADE2_LISTENING_INSTRUCTION_AUDIO = Object.freeze({
   part1: `${GRADE2_SPEAKING_AUDIO_BASE}/instructions/listening-part1-ja.wav`,
   part2: `${GRADE2_SPEAKING_AUDIO_BASE}/instructions/listening-part2-ja.wav`,
 });
+// Measured from the currently selected listening masters. These gains only
+// attenuate louder items, so they cannot introduce clipping or alter timing.
+const GRADE2_LISTENING_AUDIO_GAINS = Object.freeze({
+  "set-01": [0.7612, 0.7612, 0.7638, 0.7603, 0.9141, 0.7691, 0.7691, 0.8138, 0.7586, 0.7577, 0.7621, 0.864, 0.7586, 0.7577, 0.8882, 0.7762, 0.763, 0.7798, 0.778, 0.8072, 0.7754, 0.7682, 0.7691, 0.7736, 0.7736, 1, 0.7665, 0.7789, 0.7709, 0.7682],
+  "set-02": [0.9386, 0.943, 0.9343, 0.9333, 0.9408, 0.9365, 0.929, 0.9638, 0.9354, 1, 0.9886, 0.93, 0.9322, 0.9408, 0.9716, 0.9397, 0.9419, 0.9583, 0.9397, 0.9539, 0.9397, 0.955, 0.9473, 0.9528, 0.9572, 0.9616, 0.9561, 0.9484, 0.93, 0.943],
+  "set-03": [0.8511, 0.8511, 0.8414, 0.8913, 0.871, 0.861, 0.881, 0.861, 0.8913, 0.861, 0.861, 0.8318, 0.881, 0.871, 0.871, 0.912, 0.8318, 0.8414, 0.861, 0.9441, 0.881, 0.7852, 0.8222, 0.9016, 0.8913, 1, 0.8913, 0.912, 0.9772, 0.9333],
+});
 const GRADE2_GRADING_GPT_URL = String(appConfig.gradingGptUrl || appConfig.speakingFeedbackGptUrl || "").trim();
 
 const appTitle = appConfig.title || `${selectedGradeLabel}CBT形式4技能トレーニング`;
@@ -981,6 +988,7 @@ let listeningSpeechUtterance = null;
 let listeningPlaybackQuestionId = null;
 let listeningPlaybackPhase = "idle";
 let listeningAnswerDeadline = 0;
+let listeningPlaybackStarts = 0;
 
 const app = document.getElementById("app");
 document.title = appTitle;
@@ -1009,6 +1017,7 @@ function render() {
     app.innerHTML = renderSpeaking();
     if (isGrade2SpeakingExperience) queueMicrotask(mountGrade2SpeakingStep);
   } else if (appState.module === "listening") {
+    stopListeningPlayback();
     ensureListeningPlaybackState();
     app.innerHTML = renderListening();
     mountListeningAudio();
@@ -1054,6 +1063,9 @@ function renderAccessPlanNotice() {
   const bonusLink = canViewBonus && selectedGrade === "grade2"
     ? `<a class="access-plan-link" href="./bonus.html?plan=${encodeURIComponent(selectedAccessPlan.key)}">特典を開く（${grade2BonusLabel}）</a>`
     : "";
+  const developerLink = selectedGrade === "grade2"
+    ? `<a class="developer-entry-link" href="./exam.html?plan=three&set=set-01&dev=1&module=speaking&speakingStep=0&start=1&fresh=1">開発者用確認</a>`
+    : "";
   const pre1BonusLink = isPre1FivePack
     ? `<a class="access-plan-link" href="./pre1-bonus.html?plan=five">特典を開く（要約・英作文・スピーキング・直前プラン・90語彙）</a>`
     : "";
@@ -1066,6 +1078,7 @@ function renderAccessPlanNotice() {
       </div>
       <p>${planAccessText}</p>
       ${pre1BonusLink || bonusLink}
+      ${developerLink}
     </section>
   `;
 }
@@ -1183,6 +1196,7 @@ function renderDeveloperToolbar() {
         <div><strong>開発者モード</strong><span>通常版では表示されない自由移動ツール</span></div>
         <button data-action="dev-exit">開発者モードを終了</button>
       </div>
+      ${appState.module === "listening" && appState.started ? `<div class="developer-listening-status">Listening: ${escapeHtml(listeningPlaybackPhase)} / 再生開始 ${listeningPlaybackStarts}回</div>` : ""}
       <div class="developer-toolbar-row developer-set-row" role="group" aria-label="回次">
         ${["set-01", "set-02", "set-03"]
           .map((setKey, index) => `<button data-dev-set="${setKey}" class="${selectedSet.key === setKey ? "active" : ""}">第${index + 1}回</button>`)
@@ -1884,6 +1898,40 @@ function stopListeningPlayback() {
   listeningAnswerDeadline = 0;
 }
 
+function getGrade2OutputVolume() {
+  return Math.max(0, Math.min(1, (Number(appState.speakingOutputVolume) || 70) / 100));
+}
+
+function getListeningAudioVolume(question) {
+  const itemNumber = Number(question?.id);
+  const itemGain = GRADE2_LISTENING_AUDIO_GAINS[selectedSet.key]?.[itemNumber - 1] || 1;
+  return Math.max(0, Math.min(1, getGrade2OutputVolume() * itemGain));
+}
+
+function resetListeningAnswerCountdown() {
+  appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
+  listeningAnswerDeadline = 0;
+}
+
+async function replayListeningAudioForDeveloper() {
+  if (!isGrade2DeveloperMode) return;
+  const question = listeningQuestions[appState.listeningIndex];
+  if (!question?.audioFile && !question?.script) return;
+
+  if (listeningInstructionAudioElement) listeningInstructionAudioElement.pause();
+  if (listeningAudioElement) {
+    listeningAudioElement.pause();
+    listeningAudioElement.currentTime = 0;
+  }
+  if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+  listeningInstructionAudioElement = null;
+  listeningSpeechUtterance = null;
+  listeningPlaybackQuestionId = question.id;
+  resetListeningAnswerCountdown();
+  listeningPlaybackPhase = question.audioFile ? "audio" : "blocked";
+  await playListeningAudio({ skipInstruction: true });
+}
+
 function getGrade2ListeningSectionKey(question) {
   if (!isGrade2SpeakingExperience) return "";
   const label = `${question?.part || ""} ${question?.section || ""}`.toLowerCase();
@@ -1916,6 +1964,7 @@ async function playGrade2ListeningInstruction(question) {
   const instructionAudio = new Audio(audioUrl);
   listeningInstructionAudioElement = instructionAudio;
   instructionAudio.preload = "auto";
+  instructionAudio.volume = getListeningAudioVolume(question);
   listeningPlaybackPhase = "instruction";
   updateListeningPlaybackUi();
   instructionAudio.addEventListener(
@@ -1942,6 +1991,7 @@ async function playGrade2ListeningInstruction(question) {
     { once: true },
   );
   try {
+    listeningPlaybackStarts += 1;
     await instructionAudio.play();
   } catch {
     if (listeningInstructionAudioElement === instructionAudio) listeningInstructionAudioElement = null;
@@ -2031,7 +2081,7 @@ function updateListeningPlaybackUi() {
   }
 }
 
-async function playListeningAudio({ force = false } = {}) {
+async function playListeningAudio({ force = false, skipInstruction = false } = {}) {
   const question = listeningQuestions[appState.listeningIndex];
   if (!question) return;
   if (!force && !appState.listeningReviewMode && hasPlayedListeningQuestion(question.id)) {
@@ -2039,7 +2089,7 @@ async function playListeningAudio({ force = false } = {}) {
     updateListeningPlaybackUi();
     return;
   }
-  if (needsGrade2ListeningInstruction(question)) {
+  if (!skipInstruction && needsGrade2ListeningInstruction(question)) {
     await playGrade2ListeningInstruction(question);
     return;
   }
@@ -2062,6 +2112,7 @@ async function playListeningAudio({ force = false } = {}) {
     utterance.lang = "en-US";
     utterance.rate = 0.9;
     utterance.pitch = 1;
+    utterance.volume = getListeningAudioVolume(question);
     utterance.addEventListener(
       "end",
       () => {
@@ -2090,6 +2141,7 @@ async function playListeningAudio({ force = false } = {}) {
     listeningPlaybackPhase = "audio";
     markListeningQuestionPlayed(question.id);
     updateListeningPlaybackUi();
+    listeningPlaybackStarts += 1;
     window.speechSynthesis.speak(utterance);
     return;
   }
@@ -2098,9 +2150,11 @@ async function playListeningAudio({ force = false } = {}) {
   if (!audio) return;
   listeningAudioElement = audio;
   listeningPlaybackPhase = "audio";
+  audio.volume = getListeningAudioVolume(question);
   updateListeningPlaybackUi();
   try {
     audio.currentTime = 0;
+    listeningPlaybackStarts += 1;
     await audio.play();
   } catch {
     listeningPlaybackPhase = "blocked";
@@ -2150,7 +2204,7 @@ function renderListening() {
   const usesBrowserVoice = Boolean(question.script && !question.audioFile);
   const isRealLifeQuestion = question.part === "Part 3" && Boolean(question.situation);
   const isReviewPhase = appState.listeningReviewMode || ["review", "review-answer"].includes(listeningPlaybackPhase);
-  const canNavigateListeningList = appState.listeningReviewMode || isGrade2DeveloperMode;
+  const canNavigateListening = appState.listeningReviewMode || isGrade2DeveloperMode;
   const isAnswerPhase = !hasPlayback || listeningPlaybackPhase === "answer" || isReviewPhase;
   const audioStatusText = !hasPlayback
     ? "音声・台本が設定されていません。"
@@ -2178,9 +2232,10 @@ function renderListening() {
         <div class="audio-status ${hasPlayback ? "" : "muted"}" data-listening-audio-status>
           <span>${audioStatusText}</span>
           ${hasPlayback ? `<button class="listen-play-button" data-action="listen-play" ${["blocked", "error", "instruction-error"].includes(listeningPlaybackPhase) ? "" : "hidden"}>▶ 音声を再生</button>` : ""}
+          ${isGrade2DeveloperMode && hasPlayback ? `<button class="listen-play-button developer-listen-replay" data-action="listen-replay-dev">↻ この問題を最初から聞き直す</button>` : ""}
         </div>
         ${question.audioFile ? `<audio class="listen-audio-element" data-listening-audio preload="metadata" src="${escapeHtml(question.audioFile)}"></audio>` : ""}
-        <button class="nav-button prev" data-action="listen-prev" ${appState.listeningIndex === 0 ? "disabled" : ""}>▲ 前の問題へ</button>
+        ${canNavigateListening ? `<button class="nav-button prev" data-action="listen-prev" ${appState.listeningIndex === 0 ? "disabled" : ""}>▲ 前の問題へ</button>` : ""}
         <div class="listen-question">
           <p class="listen-question-number">No.${question.id}</p>
           ${
@@ -2205,7 +2260,7 @@ function renderListening() {
             .join("")}
           ${renderReview(`l-${question.id}`, "目印をつける")}
         </div>
-        <button class="nav-button next" data-action="listen-next">${appState.listeningIndex === listeningQuestions.length - 1 ? "リスニング終了 ▼" : "次の問題へ ▼"}</button>
+          ${canNavigateListening ? `<button class="nav-button next" data-action="listen-next">${appState.listeningIndex === listeningQuestions.length - 1 ? "リスニング終了 ▼" : "次の問題へ ▼"}</button>` : ""}
         <div class="answer-time ${isAnswerPhase ? "" : "waiting"}">
           <span data-listening-phase-label>${isAnswerPhase ? "解答時間" : listeningPlaybackPhase === "instruction" ? "試験説明" : ["blocked", "error", "instruction-error"].includes(listeningPlaybackPhase) ? "音声再生待ち" : "音声再生中"}</span>
           <div class="answer-time-meter">
@@ -2222,9 +2277,9 @@ function renderListening() {
             .map(
               (item, index) => `
                 <div class="listen-list-row ${index === appState.listeningIndex ? "current" : ""}">
-                  ${canNavigateListeningList ? `<button class="listen-jump" data-action="listen-goto" data-page="${index}">No.${item.id}</button>` : `<span class="listen-jump listen-jump-static">No.${item.id}</span>`}
+                  ${canNavigateListening ? `<button class="listen-jump" data-action="listen-goto" data-page="${index}">No.${item.id}</button>` : `<span class="listen-jump listen-jump-static">No.${item.id}</span>`}
                   <input class="listen-mark" type="checkbox" data-review-question="l-${item.id}" ${appState.reviews[`l-${item.id}`] ? "checked" : ""} />
-                  ${canNavigateListeningList ? `<button class="listen-box ${appState.answers.listening[item.id] ? "answered" : ""}" data-action="listen-goto" data-page="${index}">${appState.answers.listening[item.id] || ""}</button>` : `<span class="listen-box listen-box-static ${appState.answers.listening[item.id] ? "answered" : ""}">${appState.answers.listening[item.id] || ""}</span>`}
+                  ${canNavigateListening ? `<button class="listen-box ${appState.answers.listening[item.id] ? "answered" : ""}" data-action="listen-goto" data-page="${index}">${appState.answers.listening[item.id] || ""}</button>` : `<span class="listen-box listen-box-static ${appState.answers.listening[item.id] ? "answered" : ""}">${appState.answers.listening[item.id] || ""}</span>`}
                 </div>
               `,
             )
@@ -2234,7 +2289,7 @@ function renderListening() {
           <strong>音量</strong>
           <div class="volume-row">
             <span>小</span>
-            <input type="range" min="0" max="100" value="60" />
+            <input data-speaking-volume type="range" min="0" max="100" value="${Number(appState.speakingOutputVolume) || 70}" aria-label="音声の音量" />
             <span>大</span>
           </div>
         </div>
@@ -3239,7 +3294,7 @@ function playGrade2SpeakingAudioPrompt(audioUrl) {
   return new Promise((resolve, reject) => {
     const audio = new Audio(audioUrl);
     audio.preload = "auto";
-    audio.volume = Math.max(0, Math.min(1, (Number(appState.speakingOutputVolume) || 70) / 100));
+    audio.volume = getGrade2OutputVolume();
     audio.addEventListener("ended", resolve, { once: true });
     audio.addEventListener("error", reject, { once: true });
     const playResult = audio.play();
@@ -3268,7 +3323,7 @@ async function speakGrade2Prompt(text, audioUrl = "") {
     utterance.lang = utterance.voice?.lang || "en-US";
     utterance.rate = 0.92;
     utterance.pitch = 1;
-    utterance.volume = Math.max(0, Math.min(1, (Number(appState.speakingOutputVolume) || 70) / 100));
+    utterance.volume = getGrade2OutputVolume();
     utterance.addEventListener("end", resolve, { once: true });
     utterance.addEventListener("error", resolve, { once: true });
     window.speechSynthesis.speak(utterance);
@@ -4281,7 +4336,14 @@ async function handleClick(event) {
     stopListeningPlayback();
     appState.listeningReviewMode = false;
     appState.modal = "complete";
+  } else if (action === "listen-replay-dev") {
+    await replayListeningAudioForDeveloper();
+    return;
+  } else if (action === "listen-current") {
+    app.querySelector(".listen-question")?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    return;
   } else if (action === "listen-next") {
+    if (isGrade2ContinuousExam && !isGrade2DeveloperMode) return;
     if (appState.listeningIndex >= listeningQuestions.length - 1) {
       if (appState.listeningReviewMode) return;
       if (isGrade2ContinuousExam) {
@@ -4294,10 +4356,12 @@ async function handleClick(event) {
       appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
     }
   } else if (action === "listen-prev") {
+    if (isGrade2ContinuousExam && !isGrade2DeveloperMode) return;
     appState.listeningIndex = Math.max(0, appState.listeningIndex - 1);
     appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
   } else if (action === "listen-goto") {
     if (!appState.listeningReviewMode && !isGrade2DeveloperMode) return;
+    if (Number(target.dataset.page) === appState.listeningIndex) return;
     appState.listeningIndex = Number(target.dataset.page);
     appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
   } else if (action === "speaking-prompt-play") {
@@ -4384,6 +4448,10 @@ function handleInput(event) {
 
   if (event.target.matches("[data-speaking-volume]")) {
     appState.speakingOutputVolume = Math.max(0, Math.min(100, Number(event.target.value) || 0));
+    const question = listeningQuestions[appState.listeningIndex];
+    if (listeningAudioElement) listeningAudioElement.volume = getListeningAudioVolume(question);
+    if (listeningInstructionAudioElement) listeningInstructionAudioElement.volume = getListeningAudioVolume(question);
+    if (listeningSpeechUtterance) listeningSpeechUtterance.volume = getListeningAudioVolume(question);
     saveState();
     return;
   }

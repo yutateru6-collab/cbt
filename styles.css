@@ -1414,6 +1414,11 @@ button {
   font-weight: 700;
 }
 
+.developer-listen-replay {
+  margin-top: 7px;
+  background: #9a3412;
+}
+
 .listen-choice {
   display: grid;
   grid-template-columns: 62px 1fr;
@@ -1576,6 +1581,14 @@ button {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.developer-entry-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #6b7280;
+  font-size: 12px;
+  text-decoration: underline;
 }
 
 .speaking-frame {
@@ -4185,6 +4198,15 @@ body.grade2-developer-mode .grade2-speaking-panel {
 .developer-toolbar-head span {
   color: #7c2d12;
   font-size: 11px;
+}
+
+.developer-listening-status {
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.72);
+  color: #7c2d12;
+  font-size: 12px;
+  font-weight: 800;
 }
 
 .developer-toolbar button,
