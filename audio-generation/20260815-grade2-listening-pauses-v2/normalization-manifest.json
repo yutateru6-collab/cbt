@@ -1,0 +1,6306 @@
+{
+  "count": 180,
+  "failures": [],
+  "items": [
+    {
+      "id": "sample/part1/No01",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1383952,
+      "boundaries": {
+        "bodyQuestionGap": [
+          1147345,
+          1214345
+        ],
+        "questionTextGap": [
+          1237113,
+          1275011
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          1147345,
+          1185745
+        ],
+        "questionTextGap": [
+          1208513,
+          1237313
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "ed0071e17cb59e210a0eb50e1931e234a6744349c70b0d417e03cbbe0b6ef389",
+      "outputSha256": "671155409f325e9e774da1163cc906b8de7a23a3f72a44f752f4e3d723dbd647",
+      "outputBytes": 2692552
+    },
+    {
+      "id": "sample/part1/No02",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1586916,
+      "boundaries": {
+        "bodyQuestionGap": [
+          1322546,
+          1393722
+        ],
+        "questionTextGap": [
+          1420306,
+          1456998
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          1322546,
+          1360946
+        ],
+        "questionTextGap": [
+          1387530,
+          1416330
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "7e01e6c64704323764131e8d5d631efd6cf32a261f9e9b3a52a92c60371eab4e",
+      "outputSha256": "396e116ae7d11f00297ccb23018d427cdd2b64415b5161831c5a688c7b620249",
+      "outputBytes": 3092540
+    },
+    {
+      "id": "sample/part1/No03",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1404598,
+      "boundaries": {
+        "bodyQuestionGap": [
+          905384,
+          929093
+        ],
+        "questionTextGap": [
+          981510,
+          1010471
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          905384,
+          943784
+        ],
+        "questionTextGap": [
+          996201,
+          1025001
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "54f5fec68558bb23953d1d23cdab8730753fdb21a794322e4c769a0649e594ca",
+      "outputSha256": "2326cfca5b2c6cacbe10f4bea435d302450f42610fe61bafee674c2693ee86ca",
+      "outputBytes": 2838300
+    },
+    {
+      "id": "sample/part1/No04",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1388890,
+      "boundaries": {
+        "bodyQuestionGap": [
+          1166508,
+          1239274
+        ],
+        "questionTextGap": [
+          1260210,
+          1296708
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          1166508,
+          1204908
+        ],
+        "questionTextGap": [
+          1225844,
+          1254644
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "2baf9e9be7899cb9383e2b991d93cdde80846454f5957851e43a72c994ab5715",
+      "outputSha256": "703d55a85908022a645b5cfa0f0d59c8eb32b42ceaea830fe813941ca9612eed",
+      "outputBytes": 2693696
+    },
+    {
+      "id": "sample/part1/No05",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1592186,
+      "boundaries": {
+        "bodyQuestionGap": [
+          1339024,
+          1409758
+        ],
+        "questionTextGap": [
+          1433270,
+          1471192
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          1339024,
+          1377424
+        ],
+        "questionTextGap": [
+          1400936,
+          1429736
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "3803476c4e92fe57ba5efb70f9ee7969cc46fd873cbfe28324ab1b275ca45976",
+      "outputSha256": "dc8248fb107ac8afe74b8fdf08d38ee6c15176ee1c8428463a1e7c56d824ff46",
+      "outputBytes": 3101504
+    },
+    {
+      "id": "sample/part1/No06",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1507158,
+      "boundaries": {
+        "bodyQuestionGap": [
+          1272121,
+          1343904
+        ],
+        "questionTextGap": [
+          1367386,
+          1403710
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          1272121,
+          1310521
+        ],
+        "questionTextGap": [
+          1334003,
+          1362803
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "59af130cb9f942558004c9feacd7f65ae8f6b2b74de01adbdd4485465bd1d127",
+      "outputSha256": "d7bfa74cfba682cbc878e5953cd77afc8b0694b76f0c271047c8fc1bc64b2793",
+      "outputBytes": 2932546
+    },
+    {
+      "id": "sample/part1/No07",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1442042,
+      "boundaries": {
+        "bodyQuestionGap": [
+          1171952,
+          1245093
+        ],
+        "questionTextGap": [
+          1267818,
+          1305657
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          1171952,
+          1210352
+        ],
+        "questionTextGap": [
+          1233077,
+          1261877
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "b6ab3863af95c72a5b96bd07ccfadacfaea6afee9cc4995f6ca6d235eadab07a",
+      "outputSha256": "fb908ba5dc023e5d4902fd94494be5ab364b17d88f127d578178c5bc0e905823",
+      "outputBytes": 2796568
+    },
+    {
+      "id": "sample/part1/No08",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1364504,
+      "boundaries": {
+        "bodyQuestionGap": [
+          1120247,
+          1191676
+        ],
+        "questionTextGap": [
+          1213896,
+          1250787
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          1120247,
+          1158647
+        ],
+        "questionTextGap": [
+          1180867,
+          1209667
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "d0a7ffad2eb039f98c544dc1b16b47da1af1cb7424e38cc54ed9853235e2f5e6",
+      "outputSha256": "28db3750efca08749fec32bb1056f6cb64fff2618dd8f3b1eab74de55562bf45",
+      "outputBytes": 2646812
+    },
+    {
+      "id": "sample/part1/No09",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1362430,
+      "boundaries": {
+        "bodyQuestionGap": [
+          1128099,
+          1203587
+        ],
+        "questionTextGap": [
+          1228087,
+          1255623
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          1128099,
+          1166499
+        ],
+        "questionTextGap": [
+          1190999,
+          1219799
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "2c0d697ddc260c089ebe9d47f57486a88f02d8d5c1a779521d7f445aeaab9748",
+      "outputSha256": "6e4bf7d1f329b8f14df0986e2599c851cc21f3e566fcd41e7fd12e67b613a41b",
+      "outputBytes": 2653256
+    },
+    {
+      "id": "sample/part1/No10",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1452490,
+      "boundaries": {
+        "bodyQuestionGap": [
+          1181234,
+          1252271
+        ],
+        "questionTextGap": [
+          1273834,
+          1311604
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          1181234,
+          1219634
+        ],
+        "questionTextGap": [
+          1241197,
+          1269997
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "598d09ebffecca6db183aca616412b2a3dfa7b16a648afcefe0a2644f22a9c41",
+      "outputSha256": "992203308cdbc0a2315ba095e6a61fa37907862af2d1155d1dc622c3b152e284",
+      "outputBytes": 2821810
+    },
+    {
+      "id": "sample/part1/No11",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1494838,
+      "boundaries": {
+        "bodyQuestionGap": [
+          1245580,
+          1317717
+        ],
+        "questionTextGap": [
+          1338958,
+          1375775
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          1245580,
+          1283980
+        ],
+        "questionTextGap": [
+          1305221,
+          1334021
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "de4d20e34e00dc7822d32eac08314ddbc4401b7f4298157f7d292510bac42410",
+      "outputSha256": "8d6f56feb310702cb1db1dde38fba5460ae403e0936158736d9d64f99d7ea391",
+      "outputBytes": 2906212
+    },
+    {
+      "id": "sample/part1/No12",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1489116,
+      "boundaries": {
+        "bodyQuestionGap": [
+          1261363,
+          1331473
+        ],
+        "questionTextGap": [
+          1354260,
+          1390489
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          1261363,
+          1299763
+        ],
+        "questionTextGap": [
+          1322550,
+          1351350
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "b2cea30d18634b64fa19e6db60697c05b119fb5eaa3ef2a9355a892ab9b71e07",
+      "outputSha256": "310993f3151bf4da5fc737563a48f31222b171a7c5a7bf6f4edbf21df0607bce",
+      "outputBytes": 2899998
+    },
+    {
+      "id": "sample/part1/No13",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1484488,
+      "boundaries": {
+        "bodyQuestionGap": [
+          1248117,
+          1315947
+        ],
+        "questionTextGap": [
+          1337266,
+          1375565
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          1248117,
+          1286517
+        ],
+        "questionTextGap": [
+          1307836,
+          1336636
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "4557bc76592ef3c5f9a999920ad130198880f85edf6cb4afd4cc93510e0b5aa0",
+      "outputSha256": "a9ee2ca57a3e62447a4f68cb25885b359045e14ce072e07b5f177a1365b0f6fa",
+      "outputBytes": 2891162
+    },
+    {
+      "id": "sample/part1/No14",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1382094,
+      "boundaries": {
+        "bodyQuestionGap": [
+          1115304,
+          1187693
+        ],
+        "questionTextGap": [
+          1210014,
+          1245575
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          1115304,
+          1153704
+        ],
+        "questionTextGap": [
+          1176025,
+          1204825
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "d66335685a25a802ae808fd3aaa8382146ec486bbd04c542cf30047e11db9da5",
+      "outputSha256": "93d84b7f9bd888f6dc07ad67cd1b3f93b837b964bf3e1b576f5b278e362fdc6f",
+      "outputBytes": 2682732
+    },
+    {
+      "id": "sample/part1/No15",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1418064,
+      "boundaries": {
+        "bodyQuestionGap": [
+          1174480,
+          1250229
+        ],
+        "questionTextGap": [
+          1272884,
+          1299416
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          1174480,
+          1212880
+        ],
+        "questionTextGap": [
+          1235535,
+          1264335
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "f876bd005588c000dedd63a06bd96da37b98201a6b38ed2e1f613a3d297d7081",
+      "outputSha256": "b822e4a5804a7458507698fa692c4784cd43b2bc95dc98bb70f758ddb08604a5",
+      "outputBytes": 2766010
+    },
+    {
+      "id": "sample/part2/No16",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1487548,
+      "boundaries": {
+        "bodyQuestionGap": [
+          1178759,
+          1245387
+        ],
+        "questionTextGap": [
+          1267862,
+          1305397
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          1178759,
+          1217159
+        ],
+        "questionTextGap": [
+          1239634,
+          1268434
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "1402320e6ef9228c340840448a2c80cb85e9a966bceb1c510d04539da110e6da",
+      "outputSha256": "bf1695c30d36e9b08fe8b899ab152fbbbed86b060aa4631631aca972327494fc",
+      "outputBytes": 2901214
+    },
+    {
+      "id": "sample/part2/No17",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1394904,
+      "boundaries": {
+        "bodyQuestionGap": [
+          1108334,
+          1181429
+        ],
+        "questionTextGap": [
+          1203873,
+          1241377
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          1108334,
+          1146734
+        ],
+        "questionTextGap": [
+          1169178,
+          1197978
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "ee0d097ca81a64b0cd68782e054987c424434201aa05c9cc8cf0f17cc60c9677",
+      "outputSha256": "e2b7ce249b42cd049097c907579fbefb984d11c854659c272d9e331b4c2d6193",
+      "outputBytes": 2703054
+    },
+    {
+      "id": "sample/part2/No18",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1453050,
+      "boundaries": {
+        "bodyQuestionGap": [
+          1170449,
+          1246071
+        ],
+        "questionTextGap": [
+          1270352,
+          1305211
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          1170449,
+          1208849
+        ],
+        "questionTextGap": [
+          1233130,
+          1261930
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "2190c7e2513b93f7e0943b1180b1481dd5063fd2cb0b6add203885fcee6331a7",
+      "outputSha256": "60931f45febbd9c64e6c4af25bff2dc72095e14732d8c8f436e7d9992fb23698",
+      "outputBytes": 2819582
+    },
+    {
+      "id": "sample/part2/No19",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1438234,
+      "boundaries": {
+        "bodyQuestionGap": [
+          1135574,
+          1204970
+        ],
+        "questionTextGap": [
+          1228060,
+          1264962
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          1135574,
+          1173974
+        ],
+        "questionTextGap": [
+          1197064,
+          1225864
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "7a77cf2032cb0bc3dd8bbe9cd5edcd53035cafe8f762a189ec42ef564649da8a",
+      "outputSha256": "f38e74f0d29417d1928fd2cb9cba2b13126599a6e986ee814a7f1b83b76be6f5",
+      "outputBytes": 2798316
+    },
+    {
+      "id": "sample/part2/No20",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1309724,
+      "boundaries": {
+        "bodyQuestionGap": [
+          1061147,
+          1134316
+        ],
+        "questionTextGap": [
+          1155189,
+          1191152
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          1061147,
+          1099547
+        ],
+        "questionTextGap": [
+          1120420,
+          1149220
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "39e2139175073af9e9df6a85bff4a2a191787cd445f4f66aae83718db53253d4",
+      "outputSha256": "0038d64e38c436e7b5eda10ffb0472add8ce181ffe36fcce45812ec1c283ba62",
+      "outputBytes": 2535628
+    },
+    {
+      "id": "sample/part2/No21",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1387188,
+      "boundaries": {
+        "bodyQuestionGap": [
+          1109299,
+          1169050
+        ],
+        "questionTextGap": [
+          1191975,
+          1228805
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          1109299,
+          1147699
+        ],
+        "questionTextGap": [
+          1170624,
+          1199424
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "e9b967578c055ee33d52b09d429e61e67952d7b94fa118c41185ce4a39fbabe6",
+      "outputSha256": "694668be27c75240d6d49ac2416cfc69e464875e2fbec33116f9ef5fa069a553",
+      "outputBytes": 2715658
+    },
+    {
+      "id": "sample/part2/No22",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1483164,
+      "boundaries": {
+        "bodyQuestionGap": [
+          1190493,
+          1263386
+        ],
+        "questionTextGap": [
+          1289365,
+          1315405
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          1190493,
+          1228893
+        ],
+        "questionTextGap": [
+          1254872,
+          1283672
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "61eaeec1a1a7cd529a74f1e22e07f021b6dc8df8d11e0aca0068ceb2f8a966f1",
+      "outputSha256": "b9cf9d0e95ced9aee0c7fb4c409c1e728b4e8d37aa51bd234b808b9e4023703d",
+      "outputBytes": 2902906
+    },
+    {
+      "id": "sample/part2/No23",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1588958,
+      "boundaries": {
+        "bodyQuestionGap": [
+          1310838,
+          1381267
+        ],
+        "questionTextGap": [
+          1406870,
+          1443250
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          1310838,
+          1349238
+        ],
+        "questionTextGap": [
+          1374841,
+          1403641
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "131afea0999ae53bdf07ae254f8d06cd0acd469572e242a4b1be8774e24346ff",
+      "outputSha256": "3143a0055ba5bfad2dcf216dff6dba973e6834fc49b503967878e7a65016b21b",
+      "outputBytes": 3098742
+    },
+    {
+      "id": "sample/part2/No24",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1407752,
+      "boundaries": {
+        "bodyQuestionGap": [
+          1149078,
+          1220385
+        ],
+        "questionTextGap": [
+          1246200,
+          1280266
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          1149078,
+          1187478
+        ],
+        "questionTextGap": [
+          1213293,
+          1242093
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "e7592d74889794a6de9d381c6cab409b79583aecebd9df8620df5dcdb548eecb",
+      "outputSha256": "43ef2b3b785882371755f00723d2f45ec2c3a5a45da79bc5403044e95d2e8dee",
+      "outputBytes": 2739202
+    },
+    {
+      "id": "sample/part2/No25",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1370512,
+      "boundaries": {
+        "bodyQuestionGap": [
+          1101647,
+          1175940
+        ],
+        "questionTextGap": [
+          1200683,
+          1225411
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          1101647,
+          1140047
+        ],
+        "questionTextGap": [
+          1164790,
+          1193590
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "8949249301e45bdf0a915aee5816dac5ec978634038d2989495b21c82e38a215",
+      "outputSha256": "86361fdcd9ecd72692e3798e63b5b2e728e8693250078612ab9d1a84e580c65b",
+      "outputBytes": 2677426
+    },
+    {
+      "id": "sample/part2/No26",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1400514,
+      "boundaries": {
+        "bodyQuestionGap": [
+          1053658,
+          1126587
+        ],
+        "questionTextGap": [
+          1151457,
+          1186584
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          1053658,
+          1092058
+        ],
+        "questionTextGap": [
+          1116928,
+          1145728
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "b3370e87691b9714e8ee20ad8b777c21e29070db58cc374202592ea8ad9b917a",
+      "outputSha256": "a92fdb4b2b26ba56e7b591077b9710dcc41ad48bb05abd78eabd0a4881fedfb1",
+      "outputBytes": 2719360
+    },
+    {
+      "id": "sample/part2/No27",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1336472,
+      "boundaries": {
+        "bodyQuestionGap": [
+          767234,
+          786259
+        ],
+        "questionTextGap": [
+          796385,
+          803921
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          767234,
+          805634
+        ],
+        "questionTextGap": [
+          815760,
+          844560
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "6d1f014161f319f10fb200dbaf3dc12bf9e07167f4fa8a90b974c1e26f2966dc",
+      "outputSha256": "61179597c80764fe14ceff650a01fa12516599efc1303ded5856db8f7fdaf33e",
+      "outputBytes": 2754266
+    },
+    {
+      "id": "sample/part2/No28",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1292794,
+      "boundaries": {
+        "bodyQuestionGap": [
+          1038149,
+          1105347
+        ],
+        "questionTextGap": [
+          1129641,
+          1159119
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          1038149,
+          1076549
+        ],
+        "questionTextGap": [
+          1100843,
+          1129643
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "ceadbe9bbdb7bbd81f6f5c8bf0ea3d5f38b69fa1c1ca9604522c2ffdb42ac9cf",
+      "outputSha256": "2fc2b698861eff6b77297a960ad5746d0a5ea4dad3ddbb1044616086ca45b8a2",
+      "outputBytes": 2526680
+    },
+    {
+      "id": "sample/part2/No29",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1327534,
+      "boundaries": {
+        "bodyQuestionGap": [
+          1063728,
+          1134592
+        ],
+        "questionTextGap": [
+          1159206,
+          1193641
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          1063728,
+          1102128
+        ],
+        "questionTextGap": [
+          1126742,
+          1155542
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "ce88212ef19870b7363aa2288637525a0fe2d8d93afc827c8deb702655e65a7f",
+      "outputSha256": "99b7586145919eb133386d62d4c9e896c21f9237abd32308d88ca2dda03dc536",
+      "outputBytes": 2578914
+    },
+    {
+      "id": "sample/part2/No30",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 48000,
+      "channels": 1,
+      "sourceFrames": 1373272,
+      "boundaries": {
+        "bodyQuestionGap": [
+          1132918,
+          1205135
+        ],
+        "questionTextGap": [
+          1223954,
+          1247929
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          1132918,
+          1171318
+        ],
+        "questionTextGap": [
+          1190137,
+          1218937
+        ]
+      },
+      "targetGapFrames": [
+        38400,
+        28800
+      ],
+      "sourceSha256": "c4b04e6f51a838ea2536f921e0b7accf4c609f05c971dc1e62dc9d49f7b33dbc",
+      "outputSha256": "882792fe267397714c0b4d9ae4bf830baf925833934e71779cea9002a8162475",
+      "outputBytes": 2688604
+    },
+    {
+      "id": "set-01/part1/No01",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 858623,
+      "boundaries": {
+        "bodyQuestionGap": [
+          744255,
+          759696
+        ],
+        "questionTextGap": [
+          771108,
+          789222
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          744255,
+          763455
+        ],
+        "questionTextGap": [
+          774867,
+          789267
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "5d8a89cdc9a2e277459cb8f909e339a8a6037af2be41d23bf61ce83df7dd6db2",
+      "outputSha256": "0a63618c465bf053f0ddc65f2e6715aa0b3229f0ce8b4962e373df5606f6344c",
+      "outputBytes": 1717380
+    },
+    {
+      "id": "set-01/part1/No02",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 827592,
+      "boundaries": {
+        "bodyQuestionGap": [
+          706650,
+          724793
+        ],
+        "questionTextGap": [
+          736719,
+          758941
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          706650,
+          725850
+        ],
+        "questionTextGap": [
+          737776,
+          752176
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "9b4e63210d71cd76956c5570b8c43d841152dc7db8b3aad1da55f5d6b00008a1",
+      "outputSha256": "c1c62e7bc66f35fd313d263b706b376596016061324fd992f640802de89df0df",
+      "outputBytes": 1641698
+    },
+    {
+      "id": "set-01/part1/No03",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 811425,
+      "boundaries": {
+        "bodyQuestionGap": [
+          686671,
+          706322
+        ],
+        "questionTextGap": [
+          719209,
+          740840
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          686671,
+          705871
+        ],
+        "questionTextGap": [
+          718758,
+          733158
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "360038d6f8e2fc5f538306dd90484f42339cd66575df085d207926316be69946",
+      "outputSha256": "f06ff8b4d88a33e693b50abe1177ff3c530b27b84328a780c4daa8708ef0efa1",
+      "outputBytes": 1607530
+    },
+    {
+      "id": "set-01/part1/No04",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 763921,
+      "boundaries": {
+        "bodyQuestionGap": [
+          644300,
+          678891
+        ],
+        "questionTextGap": [
+          691747,
+          710196
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          644300,
+          663500
+        ],
+        "questionTextGap": [
+          676356,
+          690756
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "af9ddb1ff4476b1b22d39ce7690580dc20b949b8cd08c0958577c106a186bb1f",
+      "outputSha256": "f8b4d5ba8d65c9f8f417a2b30ae83378eafb5196fa10780f25a5dceda08db8d4",
+      "outputBytes": 1489006
+    },
+    {
+      "id": "set-01/part1/No05",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 821557,
+      "boundaries": {
+        "bodyQuestionGap": [
+          649753,
+          754143
+        ],
+        "questionTextGap": [
+          767175,
+          785663
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          649753,
+          668953
+        ],
+        "questionTextGap": [
+          681985,
+          696385
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "2d8afffdc6c91ac20cc045a7fe6a9dec9bbf3b0d471fa6a6eb599128972dd73b",
+      "outputSha256": "ba5df5cb4f0213b8a455aac00b28811d8e5687e1985fe15d1a0a08b051e18806",
+      "outputBytes": 1464602
+    },
+    {
+      "id": "set-01/part1/No06",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 840049,
+      "boundaries": {
+        "bodyQuestionGap": [
+          674704,
+          757290
+        ],
+        "questionTextGap": [
+          770412,
+          788846
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          674704,
+          693904
+        ],
+        "questionTextGap": [
+          707026,
+          721426
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "542a846a8a456f7cf1e8358acf17e2a804be03f50bb05d917504df1c01bae50f",
+      "outputSha256": "6bed3b08b2d4c3d1ecf34d2b303f998d0933ef608312fb1d501800e4bdb7c02d",
+      "outputBytes": 1545302
+    },
+    {
+      "id": "set-01/part1/No07",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 866037,
+      "boundaries": {
+        "bodyQuestionGap": [
+          585028,
+          597396
+        ],
+        "questionTextGap": [
+          609417,
+          623407
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          585028,
+          604228
+        ],
+        "questionTextGap": [
+          616249,
+          630649
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "ee19a0238e00f1d985e99df71cdccb77f90436653dc2cd4e5cf26bc7dc692abb",
+      "outputSha256": "dd811c87d94fa10c16767ff17e914817a71bfe19c475922bc3fe822026a30b12",
+      "outputBytes": 1746602
+    },
+    {
+      "id": "set-01/part1/No08",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 859853,
+      "boundaries": {
+        "bodyQuestionGap": [
+          634271,
+          650285
+        ],
+        "questionTextGap": [
+          663201,
+          680101
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          634271,
+          653471
+        ],
+        "questionTextGap": [
+          666387,
+          680787
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "ae94097da31b79798e1379e485d4b804394b9dfd75d7901e8bb65a95beac469c",
+      "outputSha256": "7bfde29c7443de5886ce13e02b15ac0c5a3c9325ef734f599033d3d3bbf47597",
+      "outputBytes": 1721122
+    },
+    {
+      "id": "set-01/part1/No09",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 811837,
+      "boundaries": {
+        "bodyQuestionGap": [
+          724280,
+          739121
+        ],
+        "questionTextGap": [
+          750955,
+          767823
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          724280,
+          743480
+        ],
+        "questionTextGap": [
+          755314,
+          769714
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "95f6a7fa9f383d34c23024745b159e72b98ef4fbb7cd40afa3673a6f31a19be3",
+      "outputSha256": "c69b7947ae128e52f0287c1744651821446cfa56ef82f327362213c6f861b8ef",
+      "outputBytes": 1627500
+    },
+    {
+      "id": "set-01/part1/No10",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 841036,
+      "boundaries": {
+        "bodyQuestionGap": [
+          554329,
+          565347
+        ],
+        "questionTextGap": [
+          593698,
+          597577
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          554329,
+          573529
+        ],
+        "questionTextGap": [
+          601880,
+          616280
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "cfdea08cc9c9c4ca48e90824d4d75421820407d545ededc0de82beb52210b0db",
+      "outputSha256": "e53907788602bd20b15fa5fc39f910265e1550c26ad0eee2c58fb1e17c26fdac",
+      "outputBytes": 1719522
+    },
+    {
+      "id": "set-01/part1/No11",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 752166,
+      "boundaries": {
+        "bodyQuestionGap": [
+          609063,
+          663207
+        ],
+        "questionTextGap": [
+          675700,
+          693918
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          609063,
+          628263
+        ],
+        "questionTextGap": [
+          640756,
+          655156
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "4444d8b97c9b4c639d4c4fb32d1ec81519ce7edf7db0da3ceb54e66438e82878",
+      "outputSha256": "f171a04a88c2ac87e8f9c352c45aa4a333f4a1285abbf7c98f68458915237f96",
+      "outputBytes": 1426852
+    },
+    {
+      "id": "set-01/part1/No12",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 830146,
+      "boundaries": {
+        "bodyQuestionGap": [
+          617316,
+          633579
+        ],
+        "questionTextGap": [
+          643912,
+          663090
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          617316,
+          636516
+        ],
+        "questionTextGap": [
+          646849,
+          661249
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "60a32f87a455a80a78d05c3903181e3122cfc2d18b1a8728ffd2e391b1e2d9be",
+      "outputSha256": "a90545820672f4e3f2024fdc5c45dccec029f9e4605d9cefc63b123f6e0dffa5",
+      "outputBytes": 1656654
+    },
+    {
+      "id": "set-01/part1/No13",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 767701,
+      "boundaries": {
+        "bodyQuestionGap": [
+          663422,
+          684383
+        ],
+        "questionTextGap": [
+          695185,
+          712201
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          663422,
+          682622
+        ],
+        "questionTextGap": [
+          693424,
+          707824
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "e25dc2a30dc147fe696bb04146c38f6cb7a6d0046f376fec6bcb6c469323a20c",
+      "outputSha256": "ee93a9a7b6d99e98dd9e8b42e6a52a29067d3f9f10f8336823ee788b3dc51d5f",
+      "outputBytes": 1526692
+    },
+    {
+      "id": "set-01/part1/No14",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 806148,
+      "boundaries": {
+        "bodyQuestionGap": [
+          606807,
+          620848
+        ],
+        "questionTextGap": [
+          633956,
+          650103
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          606807,
+          626007
+        ],
+        "questionTextGap": [
+          639115,
+          653515
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "03cefb70357fbaff45018c8c20678b63bf72a866c034c6359e2dbfded0bbeeb6",
+      "outputSha256": "0e422086d07ad2d85ca6491099f0e59d97ec12577263b9ba0394a17c02f4e8ac",
+      "outputBytes": 1619164
+    },
+    {
+      "id": "set-01/part1/No15",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 763542,
+      "boundaries": {
+        "bodyQuestionGap": [
+          641328,
+          674703
+        ],
+        "questionTextGap": [
+          688946,
+          701785
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          641328,
+          660528
+        ],
+        "questionTextGap": [
+          674771,
+          689171
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "efb61421917400f691844746c0e018e1496403d18d40b4c4dfaec24f99599fb3",
+      "outputSha256": "e2e3f39df66a38f004631def71dde385c067f0f12a9cda9f6a73c1da789df0d0",
+      "outputBytes": 1501900
+    },
+    {
+      "id": "set-01/part2/No16",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 776523,
+      "boundaries": {
+        "bodyQuestionGap": [
+          636522,
+          680288
+        ],
+        "questionTextGap": [
+          689334,
+          713203
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          636522,
+          655722
+        ],
+        "questionTextGap": [
+          664768,
+          679168
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "75c89f993ba8be14300bcf3f7e7d10ae368e59cd25f0d8cc09abb136e7abf698",
+      "outputSha256": "3140d968632f6003e9861b983c021def6f1508d179298b0882404c413b9983a6",
+      "outputBytes": 1485020
+    },
+    {
+      "id": "set-01/part2/No17",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 743283,
+      "boundaries": {
+        "bodyQuestionGap": [
+          613847,
+          645727
+        ],
+        "questionTextGap": [
+          655802,
+          675406
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          613847,
+          633047
+        ],
+        "questionTextGap": [
+          643122,
+          657522
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "bddd9ce088684f18884f733962a7ba378d1af65afc4b890850a37eb29acd9a2f",
+      "outputSha256": "a5733a6ab4d361720c0b77cf59f403a1bda32bcc441ae4595650b94d5dcabd93",
+      "outputBytes": 1450842
+    },
+    {
+      "id": "set-01/part2/No18",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 791999,
+      "boundaries": {
+        "bodyQuestionGap": [
+          654275,
+          702388
+        ],
+        "questionTextGap": [
+          712014,
+          731669
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          654275,
+          673475
+        ],
+        "questionTextGap": [
+          683101,
+          697501
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "236c916c73319131b253e0711c14ff3922cd28498a062d3973873275f3a121fa",
+      "outputSha256": "df35323265005a9a83b26867ae5c7d1598175a35b2b73ae4f48bffe4c4a0102e",
+      "outputBytes": 1515706
+    },
+    {
+      "id": "set-01/part2/No19",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 723586,
+      "boundaries": {
+        "bodyQuestionGap": [
+          606356,
+          640360
+        ],
+        "questionTextGap": [
+          648207,
+          663836
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          606356,
+          625556
+        ],
+        "questionTextGap": [
+          633403,
+          647803
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "48816b0a1b523953879b1628a12a2ca05d84e563dd19aadc1ea6c83ad653187f",
+      "outputSha256": "926f92de1bcb876fa875afce34d3d6be5bbad0d9d90bf394533a2d8982de2122",
+      "outputBytes": 1415150
+    },
+    {
+      "id": "set-01/part2/No20",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 776400,
+      "boundaries": {
+        "bodyQuestionGap": [
+          653361,
+          695633
+        ],
+        "questionTextGap": [
+          705032,
+          723033
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          653361,
+          672561
+        ],
+        "questionTextGap": [
+          681960,
+          696360
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "bfe6e28be46510cd854b3f501f3cb57dba25800233bdb4440b1806f9a1f425ff",
+      "outputSha256": "2f62d72580aca5456017e6f3a9656159d11ffbb7f6734d45be17fecccc7c81ec",
+      "outputBytes": 1499498
+    },
+    {
+      "id": "set-01/part2/No21",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 700110,
+      "boundaries": {
+        "bodyQuestionGap": [
+          581252,
+          613752
+        ],
+        "questionTextGap": [
+          624456,
+          634352
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          581252,
+          600452
+        ],
+        "questionTextGap": [
+          611156,
+          625556
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "14a4edbc0ee96b00a865d81a4b30e20d4a943c3b937b1a88e28923f0277fb03b",
+      "outputSha256": "60c65d672e8c5c5bec24849d1f8212206df4035c5ea6c3133c169fbd622b8dc5",
+      "outputBytes": 1382672
+    },
+    {
+      "id": "set-01/part2/No22",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 698810,
+      "boundaries": {
+        "bodyQuestionGap": [
+          567643,
+          610513
+        ],
+        "questionTextGap": [
+          620892,
+          638711
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          567643,
+          586843
+        ],
+        "questionTextGap": [
+          597222,
+          611622
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "b10ab4e2a188aa954960a3894cd47489ac9056e02c6d1b154804fea597e8eeb2",
+      "outputSha256": "9d23d0ca16e88e5e0ad08306015f43486d6c76015789c02974ae8ff2d715c24f",
+      "outputBytes": 1343486
+    },
+    {
+      "id": "set-01/part2/No23",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 746579,
+      "boundaries": {
+        "bodyQuestionGap": [
+          621664,
+          657267
+        ],
+        "questionTextGap": [
+          666694,
+          686995
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          621664,
+          640864
+        ],
+        "questionTextGap": [
+          650291,
+          664691
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "19a244cb0707785528c37fb7122e25656cc76bf1c4c83f0eb2a27c347abbe8ee",
+      "outputSha256": "990a7cfad94fe25f44323867cf255e696063bfb7841c6c18470b35e1b43af065",
+      "outputBytes": 1448594
+    },
+    {
+      "id": "set-01/part2/No24",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 693661,
+      "boundaries": {
+        "bodyQuestionGap": [
+          582447,
+          618579
+        ],
+        "questionTextGap": [
+          626536,
+          641978
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          582447,
+          601647
+        ],
+        "questionTextGap": [
+          609604,
+          624004
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "5581977ac1286776fb48b6e681f26d9398f254eb3f6c94ed61beff2a665a7089",
+      "outputSha256": "7cda4e598cb4e5d154eae3d3050c43e6b49f3cd9514e49709ffb3c1dfa97958c",
+      "outputBytes": 1351418
+    },
+    {
+      "id": "set-01/part2/No25",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 717520,
+      "boundaries": {
+        "bodyQuestionGap": [
+          427570,
+          439560
+        ],
+        "questionTextGap": [
+          444412,
+          449081
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          427570,
+          446770
+        ],
+        "questionTextGap": [
+          451622,
+          466022
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "261506084caea68569bb2e7b3309594ca0188759178c8679be26a4a29d4a3048",
+      "outputSha256": "2d1fbb0820630d82b4f21792d4675f60df35fbefea13662d37929e1d8ebca4c5",
+      "outputBytes": 1468966
+    },
+    {
+      "id": "set-01/part2/No26",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 713580,
+      "boundaries": {
+        "bodyQuestionGap": [
+          597840,
+          634944
+        ],
+        "questionTextGap": [
+          643104,
+          661863
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          597840,
+          617040
+        ],
+        "questionTextGap": [
+          625200,
+          639600
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "7010dcb524525850c00752849ff11c99931d1183b6bb8028d204e59ec2db3b7c",
+      "outputSha256": "38e58b31a7c04eaaf4b61d74479051c533d532b4981effa0880ab01b8f8679f5",
+      "outputBytes": 1382678
+    },
+    {
+      "id": "set-01/part2/No27",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 768759,
+      "boundaries": {
+        "bodyQuestionGap": [
+          644198,
+          670246
+        ],
+        "questionTextGap": [
+          679243,
+          698327
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          644198,
+          663398
+        ],
+        "questionTextGap": [
+          672395,
+          686795
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "44fe14b6e9b88442e4d4fb1fb6416e313298fffa772d20876d2240f3b818f39e",
+      "outputSha256": "1878597e49458cf759331a3dfd13ea050122d08ebb2ce6b3d6e0d3b7131e3c79",
+      "outputBytes": 1514498
+    },
+    {
+      "id": "set-01/part2/No28",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 754904,
+      "boundaries": {
+        "bodyQuestionGap": [
+          626952,
+          669119
+        ],
+        "questionTextGap": [
+          679466,
+          700509
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          626952,
+          646152
+        ],
+        "questionTextGap": [
+          656499,
+          670899
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "626b3ca0c48200a6a0615734ec99c6a1086138182107c35995a9abe8f1134659",
+      "outputSha256": "d29cc653407ce5e96fc25c5586da5deff25bdd6af7c2ae126cc031861d387e90",
+      "outputBytes": 1450632
+    },
+    {
+      "id": "set-01/part2/No29",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 704136,
+      "boundaries": {
+        "bodyQuestionGap": [
+          583152,
+          619204
+        ],
+        "questionTextGap": [
+          629505,
+          647855
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          583152,
+          602352
+        ],
+        "questionTextGap": [
+          612653,
+          627053
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "6045d9e9f97ebf08ff2fc0ae7a0995bcc8d885a71b1de79d2a63c9dc9273cc34",
+      "outputSha256": "531b32982433dcd6d525f08ea87f44b3c9e82a017e91a6b3045e26e03a03c653",
+      "outputBytes": 1366712
+    },
+    {
+      "id": "set-01/part2/No30",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 702279,
+      "boundaries": {
+        "bodyQuestionGap": [
+          584175,
+          606856
+        ],
+        "questionTextGap": [
+          620286,
+          637304
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          584175,
+          603375
+        ],
+        "questionTextGap": [
+          616805,
+          631205
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "d9ae53aaf84dd31994256856b9e8bacaaeb7e6fc95634ef5d14585c5732453ba",
+      "outputSha256": "c942f256cc2286c6c6b73b2f14b94f066f8af2717fd54bba68c2bd1fbfbae152",
+      "outputBytes": 1392404
+    },
+    {
+      "id": "set-02/part1/No01",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 828668,
+      "boundaries": {
+        "bodyQuestionGap": [
+          707058,
+          723900
+        ],
+        "questionTextGap": [
+          738388,
+          753065
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          707058,
+          726258
+        ],
+        "questionTextGap": [
+          740746,
+          755146
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "9e9636d1f6edeac55bf310d04eb557a63cad79890fa4d4579196fe52f0315367",
+      "outputSha256": "54f03875be1841d6dd36c401284d41981c99dc9c3c99b2661848ed51d95195c2",
+      "outputBytes": 1661542
+    },
+    {
+      "id": "set-02/part1/No02",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 849723,
+      "boundaries": {
+        "bodyQuestionGap": [
+          727830,
+          743593
+        ],
+        "questionTextGap": [
+          756236,
+          780055
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          727830,
+          747030
+        ],
+        "questionTextGap": [
+          759673,
+          774073
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "f7f913f40760c27b915b7e562dec999cd728f9d8c302adefdc3d50bac9922d57",
+      "outputSha256": "52d427f4993cb66dfc3991e2f2ab4ca0578eab7b9c8b85b9ef7c4821805b96fc",
+      "outputBytes": 1687526
+    },
+    {
+      "id": "set-02/part1/No03",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 746642,
+      "boundaries": {
+        "bodyQuestionGap": [
+          625158,
+          641035
+        ],
+        "questionTextGap": [
+          656313,
+          688134
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          625158,
+          644358
+        ],
+        "questionTextGap": [
+          659636,
+          674036
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "e06c4b2d9647a325316ee234c7bace0d88bc7c73cbef1e8b4e2d1346fd06b40e",
+      "outputSha256": "cac8130c6f789f2fab18fcb4f0accf5983feaf5e8918f200f902c8d0147347a5",
+      "outputBytes": 1465132
+    },
+    {
+      "id": "set-02/part1/No04",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 774551,
+      "boundaries": {
+        "bodyQuestionGap": [
+          661053,
+          682836
+        ],
+        "questionTextGap": [
+          696983,
+          714769
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          661053,
+          680253
+        ],
+        "questionTextGap": [
+          694400,
+          708800
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "78d51d34fa8a50992f2502145ef693086e8cd5d60977e608bed9f3c7cb8a34ba",
+      "outputSha256": "10d6bc62886d6bdf86c9a8c9d0a74b343fc8ceffe7340b564bcf51db66ae5827",
+      "outputBytes": 1537208
+    },
+    {
+      "id": "set-02/part1/No05",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 755328,
+      "boundaries": {
+        "bodyQuestionGap": [
+          657876,
+          684022
+        ],
+        "questionTextGap": [
+          697806,
+          713400
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          657876,
+          677076
+        ],
+        "questionTextGap": [
+          690860,
+          705260
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "8a3d06ec7813ea8112f76803e712f04468a17ea7bf80d086c763bca676390513",
+      "outputSha256": "0c6dd793387b3bd28cda1921b6fe9164126b9b6f835cfac2a68ac2720deac24b",
+      "outputBytes": 1494420
+    },
+    {
+      "id": "set-02/part1/No06",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 744277,
+      "boundaries": {
+        "bodyQuestionGap": [
+          644573,
+          659741
+        ],
+        "questionTextGap": [
+          671579,
+          682145
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          644573,
+          663773
+        ],
+        "questionTextGap": [
+          675611,
+          690011
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "37f99f47f50a2f18f82a66e7056f536f5247f3d143116317f56742f0d829e3f5",
+      "outputSha256": "487757ba5ac282d8b2e9293bdaa988c41c6b7f4712e5a89b452560b898dd2c8d",
+      "outputBytes": 1504330
+    },
+    {
+      "id": "set-02/part1/No07",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 831481,
+      "boundaries": {
+        "bodyQuestionGap": [
+          727148,
+          744770
+        ],
+        "questionTextGap": [
+          758097,
+          773985
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          727148,
+          746348
+        ],
+        "questionTextGap": [
+          759675,
+          774075
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "048abc84ea54afcaaad4e4ca6f7b6bb9e7b9a2dfe4ec7c794d4ea0c09bd018db",
+      "outputSha256": "8629edf25ab8da8c44b6ff51ebff3c2325d718e2992b25fa120a5e290a18dc99",
+      "outputBytes": 1663186
+    },
+    {
+      "id": "set-02/part1/No08",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 830789,
+      "boundaries": {
+        "bodyQuestionGap": [
+          723545,
+          739400
+        ],
+        "questionTextGap": [
+          750313,
+          767884
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          723545,
+          742745
+        ],
+        "questionTextGap": [
+          753658,
+          768058
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "980c7a59fb45693621f03eb6b12f41016d39efb3548aa21cd680e087fbb2ef76",
+      "outputSha256": "f368cd051bc2306565bc5df1dc1dcb4b1d95350babefca380decbfd6f936dfc9",
+      "outputBytes": 1661970
+    },
+    {
+      "id": "set-02/part1/No09",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 753407,
+      "boundaries": {
+        "bodyQuestionGap": [
+          648934,
+          664846
+        ],
+        "questionTextGap": [
+          679934,
+          695790
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          648934,
+          668134
+        ],
+        "questionTextGap": [
+          683222,
+          697622
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "07f5d69cf9e19cdf3bd363eaf51d5e4f44d4c388e883bf011701c2353794285f",
+      "outputSha256": "293c2991500fa5c6b72d65c3abbe4cbdf2dc8952ea9840ad9e67f9e1e0ab3a45",
+      "outputBytes": 1510522
+    },
+    {
+      "id": "set-02/part1/No10",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 794083,
+      "boundaries": {
+        "bodyQuestionGap": [
+          660331,
+          703958
+        ],
+        "questionTextGap": [
+          715511,
+          735215
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          660331,
+          679531
+        ],
+        "questionTextGap": [
+          691084,
+          705484
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "55e6918567f1e12eabd315c73bcfa5bcdf8201d004788e230a73374c8613da2f",
+      "outputSha256": "abefeb9b5ae10eb95d42fb9d29b6afcaa7eeb1c5ed9a4169854a0c3c19a6716f",
+      "outputBytes": 1528748
+    },
+    {
+      "id": "set-02/part1/No11",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 782938,
+      "boundaries": {
+        "bodyQuestionGap": [
+          659165,
+          684201
+        ],
+        "questionTextGap": [
+          696848,
+          718198
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          659165,
+          678365
+        ],
+        "questionTextGap": [
+          691012,
+          705412
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "66c2da209237f046814afa3d0c11b0a3181e2aef44aa5633672e85c552a78940",
+      "outputSha256": "dbc7be2c9a9942f1c05e3c0af99f0008819f38142faac11a2504cdd6a8ab314c",
+      "outputBytes": 1540348
+    },
+    {
+      "id": "set-02/part1/No12",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 804380,
+      "boundaries": {
+        "bodyQuestionGap": [
+          701644,
+          720182
+        ],
+        "questionTextGap": [
+          734363,
+          751556
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          701644,
+          720844
+        ],
+        "questionTextGap": [
+          735025,
+          749425
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "989696dfa3cc0bc073a7e93768768b4c1b9e66d8e2f684fb9efe9a403dab50b9",
+      "outputSha256": "8d6e1fd377c84704eedd6374dffdcb0665df16842a9ce752e7f92608ca389210",
+      "outputBytes": 1604542
+    },
+    {
+      "id": "set-02/part1/No13",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 763384,
+      "boundaries": {
+        "bodyQuestionGap": [
+          656234,
+          677397
+        ],
+        "questionTextGap": [
+          691688,
+          711666
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          656234,
+          675434
+        ],
+        "questionTextGap": [
+          689725,
+          704125
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "3b2270e2ce5f6266144ba84134cd1aee66c26b8054ae90e1adebc908b0e94486",
+      "outputSha256": "e440e3f5037fb788b8f9feba836bea44deef030b54269ddb765bfbf38addf161",
+      "outputBytes": 1511730
+    },
+    {
+      "id": "set-02/part1/No14",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 760372,
+      "boundaries": {
+        "bodyQuestionGap": [
+          644774,
+          658641
+        ],
+        "questionTextGap": [
+          672527,
+          688899
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          644774,
+          663974
+        ],
+        "questionTextGap": [
+          677860,
+          692260
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "952d6731a9ce45bbd83d3272141f2ba8b5bffa2c0d1371eedff1db291b9c4fa7",
+      "outputSha256": "2a21099522108efd1d35f5cce83ff1bb47fb1d20992ae28f35221f36834b084e",
+      "outputBytes": 1527510
+    },
+    {
+      "id": "set-02/part1/No15",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 806816,
+      "boundaries": {
+        "bodyQuestionGap": [
+          694923,
+          714786
+        ],
+        "questionTextGap": [
+          726174,
+          740961
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          694923,
+          714123
+        ],
+        "questionTextGap": [
+          725511,
+          739911
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "e9a84c36a03e09e67d16f3978752bd942af4cdb487fc1c3498c65992570b4da6",
+      "outputSha256": "783a881e1abfbb9dc1879eb23c0fa56b7e2be5d1ae8d830eda55e58e5823dc96",
+      "outputBytes": 1611576
+    },
+    {
+      "id": "set-02/part2/No16",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 719628,
+      "boundaries": {
+        "bodyQuestionGap": [
+          598472,
+          628086
+        ],
+        "questionTextGap": [
+          636643,
+          655969
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          598472,
+          617672
+        ],
+        "questionTextGap": [
+          626229,
+          640629
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "4520b57c5955b4332d6a1bdd2bc1599df68010a09d18a4ee08addca216457640",
+      "outputSha256": "d7049e563ef638e05b1d5043b60c9746f825b8e9eb4ae65a010e90e9ea4e4ffd",
+      "outputBytes": 1408620
+    },
+    {
+      "id": "set-02/part2/No17",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 753321,
+      "boundaries": {
+        "bodyQuestionGap": [
+          611604,
+          656465
+        ],
+        "questionTextGap": [
+          667074,
+          687118
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          611604,
+          630804
+        ],
+        "questionTextGap": [
+          641413,
+          655813
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "5939982a31b9a4d2e64f23b0835496df7803b217a043a0906edb4d25de8d6306",
+      "outputSha256": "32e81d4b015b1bd829ae1fe05bdecff4943eddcd397b088f86b6d170ebbd89bf",
+      "outputBytes": 1444076
+    },
+    {
+      "id": "set-02/part2/No18",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 731708,
+      "boundaries": {
+        "bodyQuestionGap": [
+          612916,
+          645426
+        ],
+        "questionTextGap": [
+          654214,
+          672021
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          612916,
+          632116
+        ],
+        "questionTextGap": [
+          640904,
+          655304
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "4c98268fc261207f9b43204759d4ccce2bdc80194836d3b68fd03f74a27f471e",
+      "outputSha256": "ad28336469a00c7cba27453806076c9b82eb18e1650133b694c3ba8141887a6e",
+      "outputBytes": 1430026
+    },
+    {
+      "id": "set-02/part2/No19",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 760121,
+      "boundaries": {
+        "bodyQuestionGap": [
+          545400,
+          554034
+        ],
+        "questionTextGap": [
+          570066,
+          574403
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          545400,
+          564600
+        ],
+        "questionTextGap": [
+          580632,
+          595032
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "0a7789859779c03058c6a6d7885ce90825c4f51cfc8e69f065cd6813f0b0c552",
+      "outputSha256": "3657134a497c9e80aed7d2f9a7f3871c1aa7fa48157482594a804d0bc7e61a59",
+      "outputBytes": 1561544
+    },
+    {
+      "id": "set-02/part2/No20",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 753690,
+      "boundaries": {
+        "bodyQuestionGap": [
+          631209,
+          662530
+        ],
+        "questionTextGap": [
+          673073,
+          695491
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          631209,
+          650409
+        ],
+        "questionTextGap": [
+          660952,
+          675352
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "94e1cce0dff0e160538acfc799965cb0aa8f1965daeeffc4743af94c49bee9cc",
+      "outputSha256": "61e0de4839282f66e8369570cc1403195a9014004c95404ababd7c022ca88311",
+      "outputBytes": 1467146
+    },
+    {
+      "id": "set-02/part2/No21",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 767003,
+      "boundaries": {
+        "bodyQuestionGap": [
+          630119,
+          677741
+        ],
+        "questionTextGap": [
+          687622,
+          711913
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          630119,
+          649319
+        ],
+        "questionTextGap": [
+          659200,
+          673600
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "2b9bf70fbe3158f891af56e6f0b542c5d89d76bc3748834cf97c0f58c247f66b",
+      "outputSha256": "0b605a17f9ac6a72dfe800d606d1736e897363c122a277544ca928cc5784bf8c",
+      "outputBytes": 1457424
+    },
+    {
+      "id": "set-02/part2/No22",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 771543,
+      "boundaries": {
+        "bodyQuestionGap": [
+          650434,
+          677836
+        ],
+        "questionTextGap": [
+          689182,
+          697680
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          650434,
+          669634
+        ],
+        "questionTextGap": [
+          680980,
+          695380
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "56f3537d3d44c8258bbdd5d80f8e52556786e2f7735279cd9064db4410d6e82c",
+      "outputSha256": "81303d927906e76fdca32fb7f970666a2cfd2d861a2a273f34cbbb97b1c2540d",
+      "outputBytes": 1538530
+    },
+    {
+      "id": "set-02/part2/No23",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 754460,
+      "boundaries": {
+        "bodyQuestionGap": [
+          602773,
+          669159
+        ],
+        "questionTextGap": [
+          677408,
+          695912
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          602773,
+          621973
+        ],
+        "questionTextGap": [
+          630222,
+          644622
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "14261834612dcca8d27459268c982368b4d9d8be31dec1ae40eec508d68a8caf",
+      "outputSha256": "d266866460794325b8b9c3a50f8b82fc45bf3e31911f4dfbed06315014fc3bbd",
+      "outputBytes": 1406384
+    },
+    {
+      "id": "set-02/part2/No24",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 726337,
+      "boundaries": {
+        "bodyQuestionGap": [
+          599353,
+          624756
+        ],
+        "questionTextGap": [
+          635628,
+          654737
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          599353,
+          618553
+        ],
+        "questionTextGap": [
+          629425,
+          643825
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "62d4297c096fb96435a3be7e51a8a3b0bbeb6ab618801ef7e1ce5d8cf9f0ee69",
+      "outputSha256": "e58c30ecdd33744f005d588af9e663ec0f448df36bb60aaa4e48fb2c9213f96c",
+      "outputBytes": 1430894
+    },
+    {
+      "id": "set-02/part2/No25",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 761406,
+      "boundaries": {
+        "bodyQuestionGap": [
+          629426,
+          665264
+        ],
+        "questionTextGap": [
+          673494,
+          693293
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          629426,
+          648626
+        ],
+        "questionTextGap": [
+          656856,
+          671256
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "eceea43fe123d2d1e33ae5ed6a955497487917fc40fe2f88d747b19d524671c4",
+      "outputSha256": "fe9ffef117a644bb4fb12c225eca65af4e9ef61f2286bd3d40fe05dbb02ca73e",
+      "outputBytes": 1478782
+    },
+    {
+      "id": "set-02/part2/No26",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 755357,
+      "boundaries": {
+        "bodyQuestionGap": [
+          643614,
+          674969
+        ],
+        "questionTextGap": [
+          683845,
+          697643
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          643614,
+          662814
+        ],
+        "questionTextGap": [
+          671690,
+          686090
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "ae66d03aa7a31a464be60be5bbd626169b434e941f7ea95d2e126a74fdba694e",
+      "outputSha256": "4f1eee51c5f37e8a0f7bd51e181471568c71b7e42465b3ad36acf9a990ac114b",
+      "outputBytes": 1487652
+    },
+    {
+      "id": "set-02/part2/No27",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 734057,
+      "boundaries": {
+        "bodyQuestionGap": [
+          625336,
+          651535
+        ],
+        "questionTextGap": [
+          661721,
+          671431
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          625336,
+          644536
+        ],
+        "questionTextGap": [
+          654722,
+          669122
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "8a1a2be183ecb6d726a3eb772e320212d6c62ce8954af9f0072d698f9710a219",
+      "outputSha256": "25c95f17e9a4982bd347cca23f52c52f267936494327dce3ec946c62417df467",
+      "outputBytes": 1463540
+    },
+    {
+      "id": "set-02/part2/No28",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 797315,
+      "boundaries": {
+        "bodyQuestionGap": [
+          671702,
+          702420
+        ],
+        "questionTextGap": [
+          710052,
+          725531
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          671702,
+          690902
+        ],
+        "questionTextGap": [
+          698534,
+          712934
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "d9550ff9c6b332600052948da72b6ca9fbf11680eb2b5e81dd70ffbdd628ead1",
+      "outputSha256": "fc9f37b30d27b0d48ca3d3c5c91ea59500fffda333b706534e7f284b32e7b08d",
+      "outputBytes": 1569480
+    },
+    {
+      "id": "set-02/part2/No29",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 680535,
+      "boundaries": {
+        "bodyQuestionGap": [
+          565849,
+          597525
+        ],
+        "questionTextGap": [
+          607591,
+          630397
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          565849,
+          585049
+        ],
+        "questionTextGap": [
+          595115,
+          609515
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "261f066aa3390589622f1ef8739538e04b6d71d29fc0696ed3bce045981e12bd",
+      "outputSha256": "5aeb537c5338ce04ef6f993763bb301c7af371e0ade8d176778ce034bc70a6b7",
+      "outputBytes": 1319350
+    },
+    {
+      "id": "set-02/part2/No30",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 714269,
+      "boundaries": {
+        "bodyQuestionGap": [
+          587326,
+          616832
+        ],
+        "questionTextGap": [
+          627321,
+          647905
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          587326,
+          606526
+        ],
+        "questionTextGap": [
+          617015,
+          631415
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "ea43d8554d0a1fd31e2d35f1de91c59ed756690f389dece7480d11f73ed37564",
+      "outputSha256": "352e4c66f9341f436b61632e40a39718a79dd47360f6e4a675a56db696ba2675",
+      "outputBytes": 1395602
+    },
+    {
+      "id": "set-03/part1/No01",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 728117,
+      "boundaries": {
+        "bodyQuestionGap": [
+          617296,
+          635686
+        ],
+        "questionTextGap": [
+          650122,
+          665140
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          617296,
+          636496
+        ],
+        "questionTextGap": [
+          650932,
+          665332
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "d76e8d3f383a554f1f83ff3d9304b963fda75598a861ff1f67dc0fdce7c1e0d2",
+      "outputSha256": "506ec4e80b5b370a155ea8ed9d8ed5fef2aa1c7e022435940475abd1405271df",
+      "outputBytes": 1456662
+    },
+    {
+      "id": "set-03/part1/No02",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 642555,
+      "boundaries": {
+        "bodyQuestionGap": [
+          540786,
+          558382
+        ],
+        "questionTextGap": [
+          572159,
+          586670
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          540786,
+          559986
+        ],
+        "questionTextGap": [
+          573763,
+          588163
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "535b5d314c2502432ee7d216a6d703cf10e65141ac0f805c11e9317402f70888",
+      "outputSha256": "7dbe0e06c7c702fb675098ee62c7407f908de0cce46608a7b5968d2106e113f1",
+      "outputBytes": 1288140
+    },
+    {
+      "id": "set-03/part1/No03",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 693494,
+      "boundaries": {
+        "bodyQuestionGap": [
+          580289,
+          596091
+        ],
+        "questionTextGap": [
+          609296,
+          623924
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          580289,
+          599489
+        ],
+        "questionTextGap": [
+          612694,
+          627094
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "77edf0ebd43175f64e06e819e311392b735d0d2d10e14604dead389180f3fdab",
+      "outputSha256": "5e69d313f243754ed3684fe951c1ba98a4354c156be5039d21e9867719ea66a0",
+      "outputBytes": 1393372
+    },
+    {
+      "id": "set-03/part1/No04",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 702282,
+      "boundaries": {
+        "bodyQuestionGap": [
+          613390,
+          631820
+        ],
+        "questionTextGap": [
+          642799,
+          659189
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          613390,
+          632590
+        ],
+        "questionTextGap": [
+          643569,
+          657969
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "d039d94bbb87aebb379731d2c0f1d6768248ea3132b8327f6afbd3a3e501c77a",
+      "outputSha256": "10b0ee302ba8c1787ee8f30bff6ae129552e9477a1c24b47ec387376c41e8d32",
+      "outputBytes": 1402168
+    },
+    {
+      "id": "set-03/part1/No05",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 740151,
+      "boundaries": {
+        "bodyQuestionGap": [
+          622526,
+          656132
+        ],
+        "questionTextGap": [
+          669401,
+          688841
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          622526,
+          641726
+        ],
+        "questionTextGap": [
+          654995,
+          669395
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "92919a081460eaad28a872f26c77e76d12f1ee4a90994d6135b7fe1e36047534",
+      "outputSha256": "8f7f265ecf2fd91897d72481b9e77346122fac2d4f6018a8fa20c3f8bb2e0393",
+      "outputBytes": 1441454
+    },
+    {
+      "id": "set-03/part1/No06",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 673757,
+      "boundaries": {
+        "bodyQuestionGap": [
+          592720,
+          610057
+        ],
+        "questionTextGap": [
+          622610,
+          639195
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          592720,
+          611920
+        ],
+        "questionTextGap": [
+          624473,
+          638873
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "a510dea57354905c69a5d69b9172bc92f3fb96f1329db4ee4a616cb733cf9425",
+      "outputSha256": "39a0c112cb3c2b050b862fe7d7d95a00b3cc78e76d19fca043f712ecca42c2b7",
+      "outputBytes": 1346914
+    },
+    {
+      "id": "set-03/part1/No07",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 707846,
+      "boundaries": {
+        "bodyQuestionGap": [
+          604638,
+          627575
+        ],
+        "questionTextGap": [
+          641645,
+          659844
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          604638,
+          623838
+        ],
+        "questionTextGap": [
+          637908,
+          652308
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "184bc5f1347e2f7cd338a10b5a6b8ccb79e8d6b65b71ee87e5349457e697c24a",
+      "outputSha256": "ca76a6953cb53513248068b28e67fadeba2791be2cd16bf558b416707189c11d",
+      "outputBytes": 1400664
+    },
+    {
+      "id": "set-03/part1/No08",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 710184,
+      "boundaries": {
+        "bodyQuestionGap": [
+          603311,
+          617876
+        ],
+        "questionTextGap": [
+          631553,
+          646643
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          603311,
+          622511
+        ],
+        "questionTextGap": [
+          636188,
+          650588
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "48821f1b0bca6cc3514ba9916e7981a1812ce8e72611f66115156c2e23b03fad",
+      "outputSha256": "9d10a6ad8cadafb3bd20c2b63c244a94246f4c2ff2d6d846d2eedce7f141c741",
+      "outputBytes": 1428302
+    },
+    {
+      "id": "set-03/part1/No09",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 776512,
+      "boundaries": {
+        "bodyQuestionGap": [
+          668783,
+          691910
+        ],
+        "questionTextGap": [
+          705436,
+          724911
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          668783,
+          687983
+        ],
+        "questionTextGap": [
+          701509,
+          715909
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "8d373146ff4c76c64eaee0d1f1cbfbfc1f43b117436711babbbf14132f4a7800",
+      "outputSha256": "ce55619af577c18789379c120a007639b16b6b0a6d397578ba8f0ab2575bd7f4",
+      "outputBytes": 1535064
+    },
+    {
+      "id": "set-03/part1/No10",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 667321,
+      "boundaries": {
+        "bodyQuestionGap": [
+          565866,
+          589148
+        ],
+        "questionTextGap": [
+          601066,
+          616322
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          565866,
+          585066
+        ],
+        "questionTextGap": [
+          596984,
+          611384
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "633c888a700ba2fb9c64b4e10e2111e7e309fd93b89f1d8cc48cca03dcdbbf07",
+      "outputSha256": "2e00f5eac28a2f74216d8a9fd085be049754eba87dd64ad6f129bf0dca004067",
+      "outputBytes": 1324810
+    },
+    {
+      "id": "set-03/part1/No11",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 699516,
+      "boundaries": {
+        "bodyQuestionGap": [
+          586288,
+          601631
+        ],
+        "questionTextGap": [
+          615327,
+          634458
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          586288,
+          605488
+        ],
+        "questionTextGap": [
+          619184,
+          633584
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "1916b5d4a64879c11275f81d6012bdec06129fb52efa17461be1d5c010227cb8",
+      "outputSha256": "cc3b8fed0350b31519c4ba3fbacc5dbf5cf03f179f57cc62b6b09f67d54d640d",
+      "outputBytes": 1397328
+    },
+    {
+      "id": "set-03/part1/No12",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 741624,
+      "boundaries": {
+        "bodyQuestionGap": [
+          635349,
+          649961
+        ],
+        "questionTextGap": [
+          661100,
+          677630
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          635349,
+          654549
+        ],
+        "questionTextGap": [
+          665688,
+          680088
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "5efc97335458bcf6cef92498221a54fcda386dd2c5f8421cf0af8961db144a89",
+      "outputSha256": "68ba7660a321dc54d6a5b6ca2947e8fc980c0a6c2331e4f4e9496501da0d9c5f",
+      "outputBytes": 1488208
+    },
+    {
+      "id": "set-03/part1/No13",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 659580,
+      "boundaries": {
+        "bodyQuestionGap": [
+          577866,
+          591633
+        ],
+        "questionTextGap": [
+          601080,
+          616810
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          577866,
+          597066
+        ],
+        "questionTextGap": [
+          606513,
+          620913
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "17ec8ba204c052084c133962119eeb5de8af6bb41163ac9eb4735c6ce113a13e",
+      "outputSha256": "037bdc7a889d99361c711a30702b5411278ebe1f96c8ae123eb4fbc1fd5241ee",
+      "outputBytes": 1327410
+    },
+    {
+      "id": "set-03/part1/No14",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 729444,
+      "boundaries": {
+        "bodyQuestionGap": [
+          621526,
+          642601
+        ],
+        "questionTextGap": [
+          654933,
+          670106
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          621526,
+          640726
+        ],
+        "questionTextGap": [
+          653058,
+          667458
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "b194d7569119cec455924fdd9b267fcaedcd7c2e19bddae090d372c566718465",
+      "outputSha256": "5216f4b836a475e52fa8476603bc3014ca84169e415c53f10a9dbeb35bb72523",
+      "outputBytes": 1453636
+    },
+    {
+      "id": "set-03/part1/No15",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 745129,
+      "boundaries": {
+        "bodyQuestionGap": [
+          625855,
+          641873
+        ],
+        "questionTextGap": [
+          654232,
+          672779
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          625855,
+          645055
+        ],
+        "questionTextGap": [
+          657414,
+          671814
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "b0bb794de9bcd1e15db231548f3476586fa785e65961f1a533d9389b21579825",
+      "outputSha256": "e5cabcfc66315fbb0ccc0efec998cc692daa3bf662e12cea3c9e775ec95b2cb8",
+      "outputBytes": 1488372
+    },
+    {
+      "id": "set-03/part2/No16",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 756634,
+      "boundaries": {
+        "bodyQuestionGap": [
+          624615,
+          659135
+        ],
+        "questionTextGap": [
+          671138,
+          694160
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          624615,
+          643815
+        ],
+        "questionTextGap": [
+          655818,
+          670218
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "13faa4c3ee910e4309d9a95e5b1eaecfd3eb51895d038a7497a2633279867c07",
+      "outputSha256": "ad7ef1ad51e39443a4a75a4c7905474997feb3c89506614ba066d7e4c4ebc7b2",
+      "outputBytes": 1465428
+    },
+    {
+      "id": "set-03/part2/No17",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 794582,
+      "boundaries": {
+        "bodyQuestionGap": [
+          637530,
+          682895
+        ],
+        "questionTextGap": [
+          695832,
+          707435
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          637530,
+          656730
+        ],
+        "questionTextGap": [
+          669667,
+          684067
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "dc3c058972d818a38f3a6fd0b66ef8d281af5333de745b09961b6056deed702f",
+      "outputSha256": "5ad23b7549f9c00c3f7c8e3efa32027959de1ec19fa064f58a53c7681ac8d722",
+      "outputBytes": 1542472
+    },
+    {
+      "id": "set-03/part2/No18",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 779221,
+      "boundaries": {
+        "bodyQuestionGap": [
+          662008,
+          678721
+        ],
+        "questionTextGap": [
+          688915,
+          700916
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          662008,
+          681208
+        ],
+        "questionTextGap": [
+          691402,
+          705802
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "c05c251213f2860184d04326a5317c7f6e6cc87266efd1cd31741289fee5a53d",
+      "outputSha256": "5ea77e6d9a70718e5b3664375a610f4b591e96cba95fa87c47162d4973694ae4",
+      "outputBytes": 1568258
+    },
+    {
+      "id": "set-03/part2/No19",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 823782,
+      "boundaries": {
+        "bodyQuestionGap": [
+          694392,
+          731713
+        ],
+        "questionTextGap": [
+          743271,
+          754450
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          694392,
+          713592
+        ],
+        "questionTextGap": [
+          725150,
+          739550
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "9dc7940a47b62914646186753f6e2361cebf1d6ff8f2aceac3c36af64a79a726",
+      "outputSha256": "19b4c6ae688441b67581822448b7787a0517e8edb85f7e2c4d55f8a5b0e36d5e",
+      "outputBytes": 1617808
+    },
+    {
+      "id": "set-03/part2/No20",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 759900,
+      "boundaries": {
+        "bodyQuestionGap": [
+          623885,
+          658821
+        ],
+        "questionTextGap": [
+          669349,
+          689564
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          623885,
+          643085
+        ],
+        "questionTextGap": [
+          653613,
+          668013
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "c256693d5eb15a0822b502c04af103ee3c496a4a47cac1106340dce40ad03f06",
+      "outputSha256": "20870846449313d10659140ae22e691e21345a25e1dc113a2bc998adf740d455",
+      "outputBytes": 1476742
+    },
+    {
+      "id": "set-03/part2/No21",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 771927,
+      "boundaries": {
+        "bodyQuestionGap": [
+          618199,
+          673432
+        ],
+        "questionTextGap": [
+          684586,
+          695559
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          618199,
+          637399
+        ],
+        "questionTextGap": [
+          648553,
+          662953
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "1abbf794f6740ac9d573e3c4ce16ad322378c808379651935285891a4b18cae2",
+      "outputSha256": "a25a6b910c19644d38c77ea8cfa1804ef73889963d656587a5a67546887f0c62",
+      "outputBytes": 1478686
+    },
+    {
+      "id": "set-03/part2/No22",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 701569,
+      "boundaries": {
+        "bodyQuestionGap": [
+          570665,
+          596598
+        ],
+        "questionTextGap": [
+          605943,
+          617356
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          570665,
+          589865
+        ],
+        "questionTextGap": [
+          599210,
+          613610
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "b14d6a2e3dddb2a55e1a883e8d92a6696accc14707b894242d81877cb8143eb6",
+      "outputSha256": "b4538d24d0ed1daf19263d67065c94cb2e3ea7629cea51270c39e5b53fcd1934",
+      "outputBytes": 1395690
+    },
+    {
+      "id": "set-03/part2/No23",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 736261,
+      "boundaries": {
+        "bodyQuestionGap": [
+          624399,
+          654541
+        ],
+        "questionTextGap": [
+          664790,
+          675632
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          624399,
+          643599
+        ],
+        "questionTextGap": [
+          653848,
+          668248
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "362e364b5aad55435e837c64221a0bd08823e1a73ec18b1a3d968f684b44906e",
+      "outputSha256": "18918d3eab045e525eee545156d6f55497878ae1828a4cff3f1444d6cabd2713",
+      "outputBytes": 1457798
+    },
+    {
+      "id": "set-03/part2/No24",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 842533,
+      "boundaries": {
+        "bodyQuestionGap": [
+          665859,
+          714576
+        ],
+        "questionTextGap": [
+          724188,
+          748399
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          665859,
+          685059
+        ],
+        "questionTextGap": [
+          694671,
+          709071
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "92c26c6cee11525c702bf260800d36e19cf9a0b87a42e0e45b7c85ff1252db7b",
+      "outputSha256": "fd3418fbf952dba32c0db9485f0f97dbd20001f8f5e94821df621e2dcdabcb9c",
+      "outputBytes": 1606454
+    },
+    {
+      "id": "set-03/part2/No25",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 734226,
+      "boundaries": {
+        "bodyQuestionGap": [
+          608024,
+          635638
+        ],
+        "questionTextGap": [
+          645224,
+          658607
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          608024,
+          627224
+        ],
+        "questionTextGap": [
+          636810,
+          651210
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "7759e802cfe948403b498662d0b3e1bdb374bb341ac9251b0a98cd344c27f026",
+      "outputSha256": "3de2df465ecee085e41516097531485d850e37f78f791430de53adc171deabfc",
+      "outputBytes": 1453702
+    },
+    {
+      "id": "set-03/part2/No26",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 778752,
+      "boundaries": {
+        "bodyQuestionGap": [
+          657335,
+          682137
+        ],
+        "questionTextGap": [
+          693116,
+          704981
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          657335,
+          676535
+        ],
+        "questionTextGap": [
+          687514,
+          701914
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "9eaf9a532ebbe828cabdad3a544be6c0b75dcbbd85a6f8ba71400fd313960e00",
+      "outputSha256": "794c776f7bfed05efd96a2389cd2885c40fc685269e5c48fc5ff498b88b9c147",
+      "outputBytes": 1551414
+    },
+    {
+      "id": "set-03/part2/No27",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 730496,
+      "boundaries": {
+        "bodyQuestionGap": [
+          619503,
+          641958
+        ],
+        "questionTextGap": [
+          653795,
+          674881
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          619503,
+          638703
+        ],
+        "questionTextGap": [
+          650540,
+          664940
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "e824ac94cf4ac83429c7d1cc26482c7c8d60c17ce5a71281a3de7f10562a048f",
+      "outputSha256": "840dfb9f51d3832a56e1837741c694aaf9b40fe84cc47e606e3c73435cfe397d",
+      "outputBytes": 1441154
+    },
+    {
+      "id": "set-03/part2/No28",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 664499,
+      "boundaries": {
+        "bodyQuestionGap": [
+          550334,
+          578480
+        ],
+        "questionTextGap": [
+          590194,
+          600994
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          550334,
+          569534
+        ],
+        "questionTextGap": [
+          581248,
+          595648
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "d8efba209b740c04cbf6a631fd6a455e16a5558f9e36068e70ed5b9f2fdd105d",
+      "outputSha256": "1f9a4fa5bbfaa09f67977be9371f3ebe86e7defa5a1085b1717ecef4829f14f3",
+      "outputBytes": 1318350
+    },
+    {
+      "id": "set-03/part2/No29",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 727392,
+      "boundaries": {
+        "bodyQuestionGap": [
+          451494,
+          463142
+        ],
+        "questionTextGap": [
+          468162,
+          473620
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          451494,
+          470694
+        ],
+        "questionTextGap": [
+          475714,
+          490114
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "63df0ea6e258d47e04d1b6839aaf8a70da5648b01a093aca433d106456335a27",
+      "outputSha256": "61d6c9e3bdd365253e8b69f871bcf7957ba961031e756efe50bbe6ec24458e26",
+      "outputBytes": 1487816
+    },
+    {
+      "id": "set-03/part2/No30",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 729246,
+      "boundaries": {
+        "bodyQuestionGap": [
+          584697,
+          616712
+        ],
+        "questionTextGap": [
+          628022,
+          639141
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          584697,
+          603897
+        ],
+        "questionTextGap": [
+          615207,
+          629607
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "34234d79a183cadcea6dc443cc96c425d7ffb1f536e185b1c7d2299cde850b06",
+      "outputSha256": "e57b21bf089ddecdaf2dbfe4e8cfbb1efdfc9f0c8908e4995cd947e3127544a6",
+      "outputBytes": 1439468
+    },
+    {
+      "id": "set-04/part1/No01",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 827432,
+      "boundaries": {
+        "bodyQuestionGap": [
+          705182,
+          733428
+        ],
+        "questionTextGap": [
+          748076,
+          764686
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          705182,
+          724382
+        ],
+        "questionTextGap": [
+          739030,
+          753430
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "fb7214027b5ab08f3d2c0d1e6daab37d941b0c2f5d3426aa4ed7c2768f6420d9",
+      "outputSha256": "450c8bcf0ffcc774aefc64ea9d9ab7d5399e8ac8ee7581f29a7520e2e3e8472f",
+      "outputBytes": 1632396
+    },
+    {
+      "id": "set-04/part1/No02",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 660566,
+      "boundaries": {
+        "bodyQuestionGap": [
+          559002,
+          585598
+        ],
+        "questionTextGap": [
+          597503,
+          612386
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          559002,
+          578202
+        ],
+        "questionTextGap": [
+          590107,
+          604507
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "bedb98bdec23af66bf00fa4b9f4765790e64250df6aec77bf42ac61897b15e6c",
+      "outputSha256": "4a41554d7deec0d17d8b4c5d31410f047d2e73bdf5e3a0c8c2d53330b1ed2a3f",
+      "outputBytes": 1305418
+    },
+    {
+      "id": "set-04/part1/No03",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 738891,
+      "boundaries": {
+        "bodyQuestionGap": [
+          623528,
+          652395
+        ],
+        "questionTextGap": [
+          665156,
+          681424
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          623528,
+          642728
+        ],
+        "questionTextGap": [
+          655489,
+          669889
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "1e2ce2b11e519c88a581c5a118e12278208125e3c859bde8958c9ac7d15d9198",
+      "outputSha256": "2563bee9c39ce0dc847005b9a6ee84b93623650614414a4f32f9c1d91ae89c41",
+      "outputBytes": 1454756
+    },
+    {
+      "id": "set-04/part1/No04",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 718797,
+      "boundaries": {
+        "bodyQuestionGap": [
+          615648,
+          643811
+        ],
+        "questionTextGap": [
+          656838,
+          673039
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          615648,
+          634848
+        ],
+        "questionTextGap": [
+          647875,
+          662275
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "c404bb4b354913b64db686451e73d590bd30757f72a430b9ad7ef9d4fda241cd",
+      "outputSha256": "222f6dbe3ed74aa1f79f1fb8aede528b2ba2b9241e58d1c81abac1a535086496",
+      "outputBytes": 1416110
+    },
+    {
+      "id": "set-04/part1/No05",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 739439,
+      "boundaries": {
+        "bodyQuestionGap": [
+          633656,
+          664271
+        ],
+        "questionTextGap": [
+          675400,
+          692320
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          633656,
+          652856
+        ],
+        "questionTextGap": [
+          663985,
+          678385
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "768ef4076007e3471ecb66e47ca67e2d0b53917a404d6b8c1f72518b72d6c793",
+      "outputSha256": "ea85a2fd69885fa293e6c27225bbba44a258599dae07c9054578180b26e434ed",
+      "outputBytes": 1451052
+    },
+    {
+      "id": "set-04/part1/No06",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 748340,
+      "boundaries": {
+        "bodyQuestionGap": [
+          645915,
+          673780
+        ],
+        "questionTextGap": [
+          686324,
+          702478
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          645915,
+          665115
+        ],
+        "questionTextGap": [
+          677659,
+          692059
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "1148cd66cfb061a95df2d08d22ebf3fbb44eff25ac1386fba21338d1fa082011",
+      "outputSha256": "34480b3638958615409e3bd506690eaf3917c89a91b9d2537333d4395a84734d",
+      "outputBytes": 1475886
+    },
+    {
+      "id": "set-04/part1/No07",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 732794,
+      "boundaries": {
+        "bodyQuestionGap": [
+          610216,
+          641770
+        ],
+        "questionTextGap": [
+          651682,
+          682923
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          610216,
+          629416
+        ],
+        "questionTextGap": [
+          639328,
+          653728
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "517b109ddb0b11d2bf5ac44839f472a542818d31d3a64ce2924f1f748da91fc5",
+      "outputSha256": "1d81fcd1ce124bc4a10ed13e4217a6a7cc57bd529287934e8dfc5f5ff1e8c543",
+      "outputBytes": 1407242
+    },
+    {
+      "id": "set-04/part1/No08",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 620369,
+      "boundaries": {
+        "bodyQuestionGap": [
+          509303,
+          537679
+        ],
+        "questionTextGap": [
+          549023,
+          565544
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          509303,
+          528503
+        ],
+        "questionTextGap": [
+          539847,
+          554247
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "43f187ea4e78ed83c1622fa83b639a8711e577701bcb59de4c89434aa30708fa",
+      "outputSha256": "1b665d5e7860af57e913eba627b8c0a26a4d7b7c72212fe027a3c4b8d3e6aada",
+      "outputBytes": 1218188
+    },
+    {
+      "id": "set-04/part1/No09",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 719649,
+      "boundaries": {
+        "bodyQuestionGap": [
+          619450,
+          647855
+        ],
+        "questionTextGap": [
+          660309,
+          676655
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          619450,
+          638650
+        ],
+        "questionTextGap": [
+          651104,
+          665504
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "25ad0660b017396a2ffde29134a226b0aab3ace61c74fac90934dd98d0111e87",
+      "outputSha256": "a1873191fd8ecf74ccf6c2ccda18d5ac309e99ef708836d55ac1924d296df2a6",
+      "outputBytes": 1417040
+    },
+    {
+      "id": "set-04/part1/No10",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 748846,
+      "boundaries": {
+        "bodyQuestionGap": [
+          625192,
+          653338
+        ],
+        "questionTextGap": [
+          666170,
+          682508
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          625192,
+          644392
+        ],
+        "questionTextGap": [
+          657224,
+          671624
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "cec2d592c6f217eae330d29baf1a05058203623c280e7f09df9d4ca9b8bba3a4",
+      "outputSha256": "02aff4ccbc6afb68e69f99ed899debfa40dcc97fc42d15b3cfe0966ec4819e18",
+      "outputBytes": 1475968
+    },
+    {
+      "id": "set-04/part1/No11",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 680043,
+      "boundaries": {
+        "bodyQuestionGap": [
+          567685,
+          595613
+        ],
+        "questionTextGap": [
+          607502,
+          628742
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          567685,
+          586885
+        ],
+        "questionTextGap": [
+          598774,
+          613174
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "b3b6f2d0e82ccdd33ef58d93978e50821e7f733716e9bbf8c8734cfca444bc28",
+      "outputSha256": "4f380b97de22c5fea29afa7c4056493349cc1e74d1819962b08e2268cacb1a02",
+      "outputBytes": 1328994
+    },
+    {
+      "id": "set-04/part1/No12",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 708813,
+      "boundaries": {
+        "bodyQuestionGap": [
+          596184,
+          622839
+        ],
+        "questionTextGap": [
+          635299,
+          650050
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          596184,
+          615384
+        ],
+        "questionTextGap": [
+          627844,
+          642244
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "b586e1898ad48ae4d2c2e6eaef0606dddbebf27a53bef90c1bc438b13e40abeb",
+      "outputSha256": "a9b9908ffcc3fdfcd6ed689e546e1437c13433ad90d934362f29bcba3a76d515",
+      "outputBytes": 1402058
+    },
+    {
+      "id": "set-04/part1/No13",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 643919,
+      "boundaries": {
+        "bodyQuestionGap": [
+          547563,
+          575286
+        ],
+        "questionTextGap": [
+          585968,
+          601481
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          547563,
+          566763
+        ],
+        "questionTextGap": [
+          577445,
+          591845
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "6b4ee541719db8ce482aed52ccc2b1e2c17c5b5fd0df2067d3deba025e477eea",
+      "outputSha256": "681c0ef0d5d0b33a8f06d1cefd924a8538927272f471b794eb0045fafada094d",
+      "outputBytes": 1268610
+    },
+    {
+      "id": "set-04/part1/No14",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 718529,
+      "boundaries": {
+        "bodyQuestionGap": [
+          603760,
+          630362
+        ],
+        "questionTextGap": [
+          642010,
+          658541
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          603760,
+          622960
+        ],
+        "questionTextGap": [
+          634608,
+          649008
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "2b939337d4b525451e624dddc29d605bc7cee37e288d6572e1d57dd24411701a",
+      "outputSha256": "c2c0ad233453ea5f61008258f6d9f496c56cb4f0df6eb7e3bbd87d8fdfbd1356",
+      "outputBytes": 1418036
+    },
+    {
+      "id": "set-04/part1/No15",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 778218,
+      "boundaries": {
+        "bodyQuestionGap": [
+          665735,
+          693584
+        ],
+        "questionTextGap": [
+          709571,
+          725172
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          665735,
+          684935
+        ],
+        "questionTextGap": [
+          700922,
+          715322
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "735c1e1ebf72bff1a7411f09834a0f16b11b2eed0712e9ee83c99276130e227f",
+      "outputSha256": "03b76a3b23b5b7d636518e3a61ab5c82750afd52165f1fc8fe6d1523c3103c6a",
+      "outputBytes": 1536780
+    },
+    {
+      "id": "set-04/part2/No16",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 764839,
+      "boundaries": {
+        "bodyQuestionGap": [
+          637207,
+          675748
+        ],
+        "questionTextGap": [
+          687959,
+          699341
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          637207,
+          656407
+        ],
+        "questionTextGap": [
+          668618,
+          683018
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "a16772de1f2aba8a8042e9a7b904e47e5008083a0bcf73a228ca7806fe424232",
+      "outputSha256": "3adf41fc45f3907cd22b66a881de5248ae4925fa355939a5aa9c4711457223bd",
+      "outputBytes": 1497076
+    },
+    {
+      "id": "set-04/part2/No17",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 793820,
+      "boundaries": {
+        "bodyQuestionGap": [
+          672009,
+          713788
+        ],
+        "questionTextGap": [
+          724397,
+          736674
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          672009,
+          691209
+        ],
+        "questionTextGap": [
+          701818,
+          716218
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "a805ab9197d1a24471b998070c19ad38be8d0b1a80e4a8da5c23844e10700a57",
+      "outputSha256": "e50a243fe0b07ba7b4e5c5c6302154aecba9c34e5729026815186ec9aed3f3b6",
+      "outputBytes": 1546772
+    },
+    {
+      "id": "set-04/part2/No18",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 814703,
+      "boundaries": {
+        "bodyQuestionGap": [
+          683292,
+          717811
+        ],
+        "questionTextGap": [
+          728863,
+          751646
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          683292,
+          702492
+        ],
+        "questionTextGap": [
+          713544,
+          727944
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "0b9d5fc08ec30dfe053040245570569998541245d7118f95c41653a6319d7d77",
+      "outputSha256": "15b88159e7a8ebe3420ebfed87535cc7f7d3467383f35c033eccc8708dec7ff2",
+      "outputBytes": 1582046
+    },
+    {
+      "id": "set-04/part2/No19",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 763403,
+      "boundaries": {
+        "bodyQuestionGap": [
+          617987,
+          650108
+        ],
+        "questionTextGap": [
+          662783,
+          674167
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          617987,
+          637187
+        ],
+        "questionTextGap": [
+          649862,
+          664262
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "89aa2b01754bbf0561b36dab1d1a340ad8dddb92075f22c2e31b5d21b04c2302",
+      "outputSha256": "21df66cdda184686e37decf25b51c82fa5a398d20999dd21d7c627b8163e0f70",
+      "outputBytes": 1507040
+    },
+    {
+      "id": "set-04/part2/No20",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 754486,
+      "boundaries": {
+        "bodyQuestionGap": [
+          625751,
+          670122
+        ],
+        "questionTextGap": [
+          682609,
+          693612
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          625751,
+          644951
+        ],
+        "questionTextGap": [
+          657438,
+          671838
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "45fdebd5724c8391fe1c6a8aa2db9eb247a91bc50019019b13e24cd5e607e771",
+      "outputSha256": "17acf646a1c33062d954f7811537bd4665439d2d76a2881927dd336003c3fdb4",
+      "outputBytes": 1465468
+    },
+    {
+      "id": "set-04/part2/No21",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 766748,
+      "boundaries": {
+        "bodyQuestionGap": [
+          633733,
+          669851
+        ],
+        "questionTextGap": [
+          680173,
+          691047
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          633733,
+          652933
+        ],
+        "questionTextGap": [
+          663255,
+          677655
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "e85d2d0027c88b49453826034d248eb1d63eaf643592fa3aeb1824a61ec5afb8",
+      "outputSha256": "2e63f709f8b3ec29a33c72fcd86198aeeadfca748d56c94895b7c6f8940066d4",
+      "outputBytes": 1506756
+    },
+    {
+      "id": "set-04/part2/No22",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 741774,
+      "boundaries": {
+        "bodyQuestionGap": [
+          604223,
+          645622
+        ],
+        "questionTextGap": [
+          655607,
+          667877
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          604223,
+          623423
+        ],
+        "questionTextGap": [
+          633408,
+          647808
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "361d5df06cf92adc3c23cf824ab2ecbca8cda2e2261a4c3cbcf83d8c4e9b096b",
+      "outputSha256": "1223831314c0982a216976702aed9b3e57745a8e258384ee3d9fcecb92247e9d",
+      "outputBytes": 1443454
+    },
+    {
+      "id": "set-04/part2/No23",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 774164,
+      "boundaries": {
+        "bodyQuestionGap": [
+          640870,
+          679554
+        ],
+        "questionTextGap": [
+          691349,
+          702257
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          640870,
+          660070
+        ],
+        "questionTextGap": [
+          671865,
+          686265
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "23e1ec3e4503fbefb92348e5628becebe82cd65d1aa8b4b38ea4416540510c04",
+      "outputSha256": "d3dae4b6a7eb0e7a6ea69bb18dcadd47e5453a4300999d30c563b22990effde5",
+      "outputBytes": 1516388
+    },
+    {
+      "id": "set-04/part2/No24",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 784287,
+      "boundaries": {
+        "bodyQuestionGap": [
+          662269,
+          692052
+        ],
+        "questionTextGap": [
+          704260,
+          715237
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          662269,
+          681469
+        ],
+        "questionTextGap": [
+          693677,
+          708077
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "40a31256a165354884dd09372d42b682c5324c2f5f9b98843abe7cc78dfb296b",
+      "outputSha256": "163d20bbc4dc63e044f2b6d14d89d90cb08e3a33fdff4feace966ad6baa167dc",
+      "outputBytes": 1554298
+    },
+    {
+      "id": "set-04/part2/No25",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 792679,
+      "boundaries": {
+        "bodyQuestionGap": [
+          647178,
+          692157
+        ],
+        "questionTextGap": [
+          702948,
+          721172
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          647178,
+          666378
+        ],
+        "questionTextGap": [
+          677169,
+          691569
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "9d939846eb24e9ec76ab19f2881affa741c74ca0184cf6848116b90070dd573e",
+      "outputSha256": "e7afcf23050a756f3327330dadd27ee250582fc5264b37c3b91d128cccb52120",
+      "outputBytes": 1526196
+    },
+    {
+      "id": "set-04/part2/No26",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 775749,
+      "boundaries": {
+        "bodyQuestionGap": [
+          639496,
+          671311
+        ],
+        "questionTextGap": [
+          684855,
+          695661
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          639496,
+          658696
+        ],
+        "questionTextGap": [
+          672240,
+          686640
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "a67a700b1cf474b90b4b8abaa4dd6a820e1aed12eadd2f4090a361b013801cab",
+      "outputSha256": "76dee0468d6c2f02f8661da729c1253bd7c80f28fe976ffd35531026d6581f8d",
+      "outputBytes": 1533500
+    },
+    {
+      "id": "set-04/part2/No27",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 755445,
+      "boundaries": {
+        "bodyQuestionGap": [
+          640365,
+          671226
+        ],
+        "questionTextGap": [
+          683718,
+          694605
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          640365,
+          659565
+        ],
+        "questionTextGap": [
+          672057,
+          686457
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "a40a27cbd94b110b24df1c7b91322507eda9a95f687154c9113654b10a6715be",
+      "outputSha256": "43d7308ec61d8ff1e3163ee96759db11f6a3160999bfa94ad5c9e6ab6d97abd9",
+      "outputBytes": 1494638
+    },
+    {
+      "id": "set-04/part2/No28",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 826711,
+      "boundaries": {
+        "bodyQuestionGap": [
+          706527,
+          734400
+        ],
+        "questionTextGap": [
+          746746,
+          767302
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          706527,
+          725727
+        ],
+        "questionTextGap": [
+          738073,
+          752473
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "29aa9c75e90f078fe1846045d6876021f0a1d5d6fb55a6d681bab08cefd39b99",
+      "outputSha256": "083514d00ec32c6c2a2c0af44a5d39126c9024d25276611123f79d5b4df90bd7",
+      "outputBytes": 1623808
+    },
+    {
+      "id": "set-04/part2/No29",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 749513,
+      "boundaries": {
+        "bodyQuestionGap": [
+          594591,
+          660624
+        ],
+        "questionTextGap": [
+          671638,
+          682744
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          594591,
+          613791
+        ],
+        "questionTextGap": [
+          624805,
+          639205
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "a3602f0665ce8a0540ead1d4dd6301064219b471a1b10780195b8720827e2504",
+      "outputSha256": "03dc46eed25f41aa798ac9e7c60ef80757494b9e6f85dcf2a87c21290f552f2b",
+      "outputBytes": 1411992
+    },
+    {
+      "id": "set-04/part2/No30",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 746960,
+      "boundaries": {
+        "bodyQuestionGap": [
+          595562,
+          646802
+        ],
+        "questionTextGap": [
+          658378,
+          669223
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          595562,
+          614762
+        ],
+        "questionTextGap": [
+          626338,
+          640738
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "c21f9c3b0b1628ab5e59e3e4b9d454e12a8e275af43f028421f9cd3190ff3b74",
+      "outputSha256": "796c3a3711c2d0dacdcb6f838c254dd96db6e814b3ed99c42a20a2394f6ac4c2",
+      "outputBytes": 1436994
+    },
+    {
+      "id": "set-05/part1/No01",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 716666,
+      "boundaries": {
+        "bodyQuestionGap": [
+          600800,
+          627449
+        ],
+        "questionTextGap": [
+          639572,
+          654039
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          600800,
+          620000
+        ],
+        "questionTextGap": [
+          632123,
+          646523
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "70505c7fb135022f741d13c0aa10bb10abcdde24d7038b208c0f77a80857dc44",
+      "outputSha256": "ff639b9061e5541b91a4ed4fb336055d080fe052490ce6c5b2b649defffacdb1",
+      "outputBytes": 1418344
+    },
+    {
+      "id": "set-05/part1/No02",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 674256,
+      "boundaries": {
+        "bodyQuestionGap": [
+          568641,
+          595370
+        ],
+        "questionTextGap": [
+          606610,
+          622720
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          568641,
+          587841
+        ],
+        "questionTextGap": [
+          599081,
+          613481
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "68df9721c5aa8a3e20f04e636c99fb32809f8327c1b036c215eadcc634b6a0c9",
+      "outputSha256": "c32d943cec5e4602078aa52a7ae92c244b5c0b122fa7177f43ff89a577cca06c",
+      "outputBytes": 1330078
+    },
+    {
+      "id": "set-05/part1/No03",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 649868,
+      "boundaries": {
+        "bodyQuestionGap": [
+          536600,
+          564729
+        ],
+        "questionTextGap": [
+          577468,
+          594106
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          536600,
+          555800
+        ],
+        "questionTextGap": [
+          568539,
+          582939
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "a1e755b70c62d045117951747c8a38ec196e1855b918c266b8cfc95cdef9d1c1",
+      "outputSha256": "e05c21c91bc4b6d033a3d0af435bff1ac6702b2b5856df503b0714c6d78ebb89",
+      "outputBytes": 1277446
+    },
+    {
+      "id": "set-05/part1/No04",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 718851,
+      "boundaries": {
+        "bodyQuestionGap": [
+          617924,
+          646301
+        ],
+        "questionTextGap": [
+          657406,
+          673692
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          617924,
+          637124
+        ],
+        "questionTextGap": [
+          648229,
+          662629
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "771bf9de5280204bc8076903970eed317c8ae8bc9b5be054b2fb7e433be85e73",
+      "outputSha256": "070217f8181b2a18766f0c54f129cda5480cc16fee10a8dcd67343e1670ec54f",
+      "outputBytes": 1415620
+    },
+    {
+      "id": "set-05/part1/No05",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 748607,
+      "boundaries": {
+        "bodyQuestionGap": [
+          657529,
+          685775
+        ],
+        "questionTextGap": [
+          698909,
+          715761
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          657529,
+          676729
+        ],
+        "questionTextGap": [
+          689863,
+          704263
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "6100f55940858dd9acc1bab14be979dc0c3971ed21fce3cca03708f0732ca0ef",
+      "outputSha256": "0f3bebe77981d2834d3b2387f70f078404fa7019a39d37a2306c657e3c94fe81",
+      "outputBytes": 1474262
+    },
+    {
+      "id": "set-05/part1/No06",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 680738,
+      "boundaries": {
+        "bodyQuestionGap": [
+          582506,
+          609174
+        ],
+        "questionTextGap": [
+          621094,
+          635893
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          582506,
+          601706
+        ],
+        "questionTextGap": [
+          613626,
+          628026
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "b54ced8ac047eadc88706d2adc6c23c88ec1a05e7efafc34deaa1a40a84ff203",
+      "outputSha256": "228d5534fbf86e7fefc8dba73e97267bcad298677fa8b56bd2aabc9880df3a33",
+      "outputBytes": 1345786
+    },
+    {
+      "id": "set-05/part1/No07",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 671619,
+      "boundaries": {
+        "bodyQuestionGap": [
+          529539,
+          545949
+        ],
+        "questionTextGap": [
+          559107,
+          586486
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          529539,
+          548739
+        ],
+        "questionTextGap": [
+          561897,
+          576297
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "b6b499070da08634424659baf61a53afc3f43c2af36c26aa584dc8c354511b4e",
+      "outputSha256": "ef10f16a0a3ea179b162fdb1cbc63522503f5f3ffcfd5283aed54911052b73f5",
+      "outputBytes": 1322904
+    },
+    {
+      "id": "set-05/part1/No08",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 676835,
+      "boundaries": {
+        "bodyQuestionGap": [
+          568846,
+          596007
+        ],
+        "questionTextGap": [
+          608421,
+          624025
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          568846,
+          588046
+        ],
+        "questionTextGap": [
+          600460,
+          614860
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "5753fd9f61228790c83d2d1b0db80eefc4f0a02dcd1490c449919ec081a6a3d8",
+      "outputSha256": "ec343cd77d9080fced86940cfa30761a39bbba9201e95c6f839cf443dccfac48",
+      "outputBytes": 1335384
+    },
+    {
+      "id": "set-05/part1/No09",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 748845,
+      "boundaries": {
+        "bodyQuestionGap": [
+          641270,
+          672979
+        ],
+        "questionTextGap": [
+          683513,
+          700131
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          641270,
+          660470
+        ],
+        "questionTextGap": [
+          671004,
+          685404
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "e6970af9d993ee1ec299f31aab8ce119d62c84bc0e739afa29bdd7527eeb0cc1",
+      "outputSha256": "3599841245576919e494daa55da50b7ce7e20a26708015b20364e68f98a96bb3",
+      "outputBytes": 1468280
+    },
+    {
+      "id": "set-05/part1/No10",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 718904,
+      "boundaries": {
+        "bodyQuestionGap": [
+          606451,
+          633192
+        ],
+        "questionTextGap": [
+          645887,
+          660635
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          606451,
+          625651
+        ],
+        "questionTextGap": [
+          638346,
+          652746
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "3a08ad54d5c9c45189e41345c2809b69ac93eec550b6a9635d13118cc89b5803",
+      "outputSha256": "9e1af7428e4628aac5ed12681f9060a1d44d03bcc0961510713318e0e126cc9f",
+      "outputBytes": 1422074
+    },
+    {
+      "id": "set-05/part1/No11",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 686346,
+      "boundaries": {
+        "bodyQuestionGap": [
+          561819,
+          576029
+        ],
+        "questionTextGap": [
+          587490,
+          614334
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          561819,
+          581019
+        ],
+        "questionTextGap": [
+          592480,
+          606880
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "90c715b27240a62d8f8aa58c9b684055cbac668867bfd584a38d7b9a32e32eff",
+      "outputSha256": "c47a41be5c6af7fd6b43f109c8e24521680bec34c3d2b0538cb37e2793344912",
+      "outputBytes": 1357828
+    },
+    {
+      "id": "set-05/part1/No12",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 679493,
+      "boundaries": {
+        "bodyQuestionGap": [
+          574348,
+          602464
+        ],
+        "questionTextGap": [
+          613773,
+          630624
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          574348,
+          593548
+        ],
+        "questionTextGap": [
+          604857,
+          619257
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "4db16059b9cc060f648bd69893fa9d5804736ee75c52d56d66e2f0fe42853e9b",
+      "outputSha256": "dad67f31d85733c8fd124d45db79da28fcdd6c4c28c74bd374f11889916cad25",
+      "outputBytes": 1336296
+    },
+    {
+      "id": "set-05/part1/No13",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 689013,
+      "boundaries": {
+        "bodyQuestionGap": [
+          585083,
+          613400
+        ],
+        "questionTextGap": [
+          623058,
+          639173
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          585083,
+          604283
+        ],
+        "questionTextGap": [
+          613941,
+          628341
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "6d1ece2a2dc87d9f061d8de468f13fc77d66eae8481b0ec017af747f3cf62ac5",
+      "outputSha256": "26816daa0a88131540609d65af55b62e8276062c697b129eea9c70f1458842a3",
+      "outputBytes": 1356406
+    },
+    {
+      "id": "set-05/part1/No14",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 705267,
+      "boundaries": {
+        "bodyQuestionGap": [
+          577708,
+          592799
+        ],
+        "questionTextGap": [
+          603080,
+          629567
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          577708,
+          596908
+        ],
+        "questionTextGap": [
+          607189,
+          621589
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "7a9d57175ea785efaf7c3503b5e1bb8a676f0cbde3af1c66ddf16c1fec1cc11c",
+      "outputSha256": "5015ab861a9199f261d26ae4d516094fe222c8a0d4a7528fdd44b925817adcf4",
+      "outputBytes": 1394622
+    },
+    {
+      "id": "set-05/part1/No15",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 673615,
+      "boundaries": {
+        "bodyQuestionGap": [
+          536042,
+          552324
+        ],
+        "questionTextGap": [
+          564832,
+          599231
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          536042,
+          555242
+        ],
+        "questionTextGap": [
+          567750,
+          582150
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "da5194908c2ee4cb7e4e81eeeb59e78aa0538cc7bccf8f307c1f671e752e9fa9",
+      "outputSha256": "947eb93e09844986347bc33f0e4deb8231a4b92b80356893ddaf18ee2245480c",
+      "outputBytes": 1313112
+    },
+    {
+      "id": "set-05/part2/No16",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 801441,
+      "boundaries": {
+        "bodyQuestionGap": [
+          675207,
+          715282
+        ],
+        "questionTextGap": [
+          727337,
+          738886
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          675207,
+          694407
+        ],
+        "questionTextGap": [
+          706462,
+          720862
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "2da6001ba6e6f43f9d1d759d8e0ada502398e124d7e2cbc3baaefda69978d6fb",
+      "outputSha256": "cc70845ae4f9b12a21d15749b1dbc2cf4e2ac52e0dd745cd733d658285fff446",
+      "outputBytes": 1566878
+    },
+    {
+      "id": "set-05/part2/No17",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 773646,
+      "boundaries": {
+        "bodyQuestionGap": [
+          640977,
+          664761
+        ],
+        "questionTextGap": [
+          674765,
+          695257
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          640977,
+          660177
+        ],
+        "questionTextGap": [
+          670181,
+          684581
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "92db6f47bdf328350888782f35d4d249ccfa00e233c0ffb1beedd692690b2127",
+      "outputSha256": "deae297f25e2b6154207b8ccfa81e0f50dcbcbf98cd4ead0d561e6fb56bff449",
+      "outputBytes": 1525984
+    },
+    {
+      "id": "set-05/part2/No18",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 827989,
+      "boundaries": {
+        "bodyQuestionGap": [
+          688249,
+          729779
+        ],
+        "questionTextGap": [
+          742367,
+          753801
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          688249,
+          707449
+        ],
+        "questionTextGap": [
+          720037,
+          734437
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "9fab53d8454cd984664626e1bfb4bdad2fd7a02b53c63682c5a752486b543f9d",
+      "outputSha256": "d7ef7ebbfd3f8f5ad6fcdb1b02f0dd42e2a03d5bc47fd566ba062c50b86a1320",
+      "outputBytes": 1617294
+    },
+    {
+      "id": "set-05/part2/No19",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 823929,
+      "boundaries": {
+        "bodyQuestionGap": [
+          687328,
+          735536
+        ],
+        "questionTextGap": [
+          747741,
+          765505
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          687328,
+          706528
+        ],
+        "questionTextGap": [
+          718733,
+          733133
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "ca5e70b833233ad42b5c71fb2f77e38dd43ae48075ec7f6d932644a7f8a45a7d",
+      "outputSha256": "c78ec6ae4e87d7a8672d381eb158e4f2e7d915054675a40d4b5f8bf2f493a74f",
+      "outputBytes": 1583158
+    },
+    {
+      "id": "set-05/part2/No20",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 839554,
+      "boundaries": {
+        "bodyQuestionGap": [
+          712463,
+          735818
+        ],
+        "questionTextGap": [
+          747578,
+          768187
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          712463,
+          731663
+        ],
+        "questionTextGap": [
+          743423,
+          757823
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "5e094182e545804dbc0313fddabf3422adf14efb25b7ce18a25cdaab6624dcfa",
+      "outputSha256": "5d6bd19ef8ee788b4c428818b5a3ec1f5847e0e2f09dbe4127df7ead90fcbc58",
+      "outputBytes": 1658424
+    },
+    {
+      "id": "set-05/part2/No21",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 750391,
+      "boundaries": {
+        "bodyQuestionGap": [
+          630001,
+          672955
+        ],
+        "questionTextGap": [
+          684583,
+          695766
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          630001,
+          649201
+        ],
+        "questionTextGap": [
+          660829,
+          675229
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "d611fbfa4e337c95b1801eb9e3040422510183eecdd96837b50d08e91ebc48d7",
+      "outputSha256": "975316674035364f1a38c768dc862c9befd07c56f38dd60342c9cf8dbb52dccf",
+      "outputBytes": 1459752
+    },
+    {
+      "id": "set-05/part2/No22",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 729110,
+      "boundaries": {
+        "bodyQuestionGap": [
+          607669,
+          644643
+        ],
+        "questionTextGap": [
+          653099,
+          665608
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          607669,
+          626869
+        ],
+        "questionTextGap": [
+          635325,
+          649725
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "9654b96bb42eaa496c89073c044e6a5b65bf5105f21f54d652bfade6882b7366",
+      "outputSha256": "7c998dc40b3d85652562abfbae4ceb48bbcfb6ed10f814a0f36b049ecd3e8d63",
+      "outputBytes": 1426498
+    },
+    {
+      "id": "set-05/part2/No23",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 767218,
+      "boundaries": {
+        "bodyQuestionGap": [
+          651091,
+          681008
+        ],
+        "questionTextGap": [
+          689220,
+          711553
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          651091,
+          670291
+        ],
+        "questionTextGap": [
+          678503,
+          692903
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "383746dba7fa335fcc24f84887d7477d8fd98aefa4e295cc0f9d92003cde3981",
+      "outputSha256": "9200c461f5f6dfee0604a5a1d6f13eca5d2afc2a400a939a74bf9e361cf4c542",
+      "outputBytes": 1497180
+    },
+    {
+      "id": "set-05/part2/No24",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 747354,
+      "boundaries": {
+        "bodyQuestionGap": [
+          631332,
+          660900
+        ],
+        "questionTextGap": [
+          669757,
+          691786
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          631332,
+          650532
+        ],
+        "questionTextGap": [
+          659389,
+          673789
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "f9db6b6f3b92f2ba1c5be8191b570e84b168ec38b21fe593075eb7a3999f0480",
+      "outputSha256": "d0b7cc4b33e3ad769564a7ad8a919e3b57a1fd5b399e3b58ac99c2c0c13f811c",
+      "outputBytes": 1458758
+    },
+    {
+      "id": "set-05/part2/No25",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 801045,
+      "boundaries": {
+        "bodyQuestionGap": [
+          686614,
+          726422
+        ],
+        "questionTextGap": [
+          735132,
+          746454
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          686614,
+          705814
+        ],
+        "questionTextGap": [
+          714524,
+          728924
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "60bc04006d60890cba28fb9cf2b08758f038f8e23f1a996249ecf0c597e8af6b",
+      "outputSha256": "80c1d054834a21e73d4fdaeeae2f82eb2ae087ceb982bb0b1f3bb64604cd9fc0",
+      "outputBytes": 1567074
+    },
+    {
+      "id": "set-05/part2/No26",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 705284,
+      "boundaries": {
+        "bodyQuestionGap": [
+          606664,
+          645648
+        ],
+        "questionTextGap": [
+          655886,
+          667065
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          606664,
+          625864
+        ],
+        "questionTextGap": [
+          636102,
+          650502
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "7f08bc51d3aa0a439a3f8c2cc46f0bb31119ffe78243e9b20cc2d9f92df4c0b2",
+      "outputSha256": "149097a742721351b4d61fc5cb4508546894fac241a4f338eb12a3dc37a05807",
+      "outputBytes": 1377486
+    },
+    {
+      "id": "set-05/part2/No27",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 723703,
+      "boundaries": {
+        "bodyQuestionGap": [
+          610990,
+          638470
+        ],
+        "questionTextGap": [
+          649229,
+          671469
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          610990,
+          630190
+        ],
+        "questionTextGap": [
+          640949,
+          655349
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "88e8a9c2e06ba2df00717b344afb134ac0570c0492228dad3640b2d7802182f0",
+      "outputSha256": "c5ad8a6c951fd7c02a16b2c48a39df93a9fb009f1ab3c733bab55431c2fedb0c",
+      "outputBytes": 1415210
+    },
+    {
+      "id": "set-05/part2/No28",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 921756,
+      "boundaries": {
+        "bodyQuestionGap": [
+          778387,
+          818707
+        ],
+        "questionTextGap": [
+          828755,
+          853656
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          778387,
+          797587
+        ],
+        "questionTextGap": [
+          807635,
+          822035
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "b44123735ee21492dcaa8ca26aa83eaea0a5c30b300f0dff821f877beacacbbd",
+      "outputSha256": "fad2879ebbb8d3d08484af976d02e6c60000d0c55e8b2fc615ecfd04ad7fe245",
+      "outputBytes": 1780314
+    },
+    {
+      "id": "set-05/part2/No29",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 847562,
+      "boundaries": {
+        "bodyQuestionGap": [
+          710529,
+          753107
+        ],
+        "questionTextGap": [
+          765428,
+          776949
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          710529,
+          729729
+        ],
+        "questionTextGap": [
+          742050,
+          756450
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "2b76329bdab6a15e661bc212ca5adf5401fa3e2d93316d9e7863609d5e615497",
+      "outputSha256": "40ddb1692c3fd774fc9ebdaf90cd372e2e23896476a53bd5740991eded49bfd7",
+      "outputBytes": 1654170
+    },
+    {
+      "id": "set-05/part2/No30",
+      "status": "normalized",
+      "method": "manual",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sourceFrames": 806560,
+      "boundaries": {
+        "bodyQuestionGap": [
+          678149,
+          702685
+        ],
+        "questionTextGap": [
+          713514,
+          733622
+        ]
+      },
+      "normalizedBoundaries": {
+        "bodyQuestionGap": [
+          678149,
+          697349
+        ],
+        "questionTextGap": [
+          708178,
+          722578
+        ]
+      },
+      "targetGapFrames": [
+        19200,
+        14400
+      ],
+      "sourceSha256": "2b114560bd4c5113bc01519979eda4e59cef8ffb702a458d54ace50171bcea53",
+      "outputSha256": "6fd4948bf4ee16d95a67ae1fe0ec28900af0d22229f9f97f5c36f3165eef9cd8",
+      "outputBytes": 1591076
+    }
+  ]
+}

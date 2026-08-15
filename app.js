@@ -76,7 +76,7 @@ const selectedGradeImported = selectedSetImported;
 const isGrade2SpeakingExperience = isGrade2Product && selectedGrade === "grade2";
 const isGrade2ContinuousExam = isGrade2SpeakingExperience;
 const GRADE2_SPEAKING_AUDIO_BASE =
-  "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-gemini-speaking-kore-v1";
+  "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5";
 const GRADE2_LISTENING_INSTRUCTION_AUDIO = Object.freeze({
   part1: `${GRADE2_SPEAKING_AUDIO_BASE}/instructions/listening-part1-ja.wav`,
   part2: `${GRADE2_SPEAKING_AUDIO_BASE}/instructions/listening-part2-ja.wav`,
@@ -792,9 +792,7 @@ function buildGrade2SpeakingFlow(sourceSteps) {
       label: "No. 3",
       prompt: "質問を聞き、自分の意見と理由を英語で答えてください。",
       promptSpeech: `Now, No. 3. ${no3.questionText || "Some people say that more stores should reduce packaging. What do you think about that?"}`,
-      // No.3 was revised before its new immutable audio release was generated.
-      // Use the browser voice so the former question audio can never be played.
-      promptAudioFile: "",
+      promptAudioFile: getGrade2SpeakingAudioUrl(selectedSet.key, "no-3"),
       questionText: no3.questionText || "Some people say that more stores should reduce packaging. What do you think about that?",
       visual: "examiner",
       recording: true,
@@ -812,9 +810,7 @@ function buildGrade2SpeakingFlow(sourceSteps) {
       label: "No. 4",
       prompt: "質問を聞き、YesまたはNoを選んでから理由を英語で答えてください。",
       promptSpeech: `Now, No. 4. ${no4.questionText || "Do you think students should learn more practical skills at school?"}`,
-      // No.4 was revised before its new immutable audio release was generated.
-      // Use the browser voice so the former question audio can never be played.
-      promptAudioFile: "",
+      promptAudioFile: getGrade2SpeakingAudioUrl(selectedSet.key, "no-4"),
       questionText: no4.questionText || "Do you think students should learn more practical skills at school?",
       visual: "examiner",
       recording: true,
@@ -979,10 +975,6 @@ let speakingMeterFrame = null;
 let grade2SpeakingDeadline = 0;
 let grade2SpeakingAdvanceInProgress = false;
 let grade2SpeakingActivationToken = 0;
-let speakingDevSuppressAutoStartOnce =
-  isGrade2DeveloperMode &&
-  requestParams.has("speakingStep") &&
-  shouldSuppressGrade2SpeakingAutoStart(speakingSteps[appState.speakingStep]);
 let listeningAudioElement = null;
 let listeningInstructionAudioElement = null;
 let listeningSpeechUtterance = null;
@@ -2871,10 +2863,6 @@ async function copyGrade2GradingPackage(button) {
 
 function mountGrade2SpeakingStep() {
   if (!isGrade2SpeakingExperience || !appState.started || appState.module !== "speaking") return;
-  if (speakingDevSuppressAutoStartOnce) {
-    speakingDevSuppressAutoStartOnce = false;
-    return;
-  }
   const step = speakingSteps[appState.speakingStep];
   if (!step?.autoStart || appState.speakingPhaseStatus !== "idle") return;
   const token = ++grade2SpeakingActivationToken;
@@ -2882,10 +2870,6 @@ function mountGrade2SpeakingStep() {
     if (token !== grade2SpeakingActivationToken) return;
     beginGrade2SpeakingStep().catch(handleGrade2SpeakingFailure);
   }, 180);
-}
-
-function shouldSuppressGrade2SpeakingAutoStart(step) {
-  return step?.id !== "silent-reading";
 }
 
 async function handleSpeakingDevAction(action) {
@@ -2913,7 +2897,6 @@ async function handleSpeakingDevAction(action) {
   appState.speakingRemaining = getSpeakingStepSeconds(targetStep);
   appState.speakingPhaseStatus = "idle";
   appState.speakingRecordMessage = "";
-  speakingDevSuppressAutoStartOnce = shouldSuppressGrade2SpeakingAutoStart(speakingSteps[targetStep]);
   saveState();
   render();
 }
@@ -4014,7 +3997,6 @@ function moveToDeveloperLocation(value) {
     appState.speakingStep = Math.min(Math.max(Number(parts[1]) || 0, 0), speakingSteps.length - 1);
     appState.speakingRemaining = getSpeakingStepSeconds(appState.speakingStep);
     appState.speakingPhaseStatus = "idle";
-    speakingDevSuppressAutoStartOnce = shouldSuppressGrade2SpeakingAutoStart(speakingSteps[appState.speakingStep]);
   } else if (moduleKey === "listening" && isModuleAvailable("listening")) {
     appState.module = "listening";
     appState.listeningIndex = Math.min(Math.max(Number(parts[1]) || 0, 0), listeningQuestions.length - 1);

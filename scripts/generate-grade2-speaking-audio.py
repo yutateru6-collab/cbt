@@ -23,7 +23,7 @@ VOICE = "Kore"
 RATE = 24_000
 CHANNELS = 1
 WIDTH = 2
-RELEASE = "20260815-gemini-speaking-kore-v4"
+RELEASE = "20260815-gemini-speaking-kore-v5"
 
 COMMON = {
     "sound-check": "This is a sound check. Please adjust the volume to a comfortable level.",
@@ -98,7 +98,7 @@ def items():
 
 def synthesis_prompt(item):
     if item["language"] == "ja-JP":
-        return f"""Read only the Japanese text below. Use one calm adult female test announcer. Speak clear standard Japanese at a steady, easy-to-follow pace. Do not add, omit, repeat, translate, paraphrase, explain, or read these instructions.\n\n{item['text']}"""
+        return f"""Read only the Japanese text below as an experienced Japanese test announcer speaking naturally to one student. Use a calm adult female voice with warm, human phrasing, subtle natural intonation, and comfortable phrase-level pauses. Keep the delivery clear and professional, but avoid a mechanical rhythm, excessive formality, over-articulation, or equal spacing between every phrase. Do not add, omit, repeat, translate, paraphrase, explain, or read these instructions.\n\n{item['text']}"""
     if item["id"] == "common/no-2":
         return """Speak exactly these two English words, then stop completely. Do not say anything before or after them.\n\nPlease begin."""
     pause = "Pause naturally for about 0.6 seconds after the number announcement. " if item["id"].endswith(("/no-3", "/no-4")) else ""
@@ -128,10 +128,19 @@ def write_wav(path, pcm):
             raise RuntimeError(f"WAV format mismatch for {path}: {actual}")
 
 
+def validate_wav(path):
+    with wave.open(str(path), "rb") as check:
+        actual = (check.getframerate(), check.getnchannels(), check.getsampwidth())
+        if actual != (RATE, CHANNELS, WIDTH):
+            raise RuntimeError(f"WAV format mismatch for {path}: {actual}")
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output-root", type=Path, default=Path("audio-generation"))
     parser.add_argument("--transcripts-only", action="store_true")
+    parser.add_argument("--reuse-from", type=Path)
+    parser.add_argument("--regenerate-language", choices=("en-US", "ja-JP"))
     args = parser.parse_args()
     release_dir = args.output_root / RELEASE
     staging = args.output_root / f".{RELEASE}.staging"
@@ -141,6 +150,8 @@ def main():
             sys.stdout.reconfigure(encoding="utf-8")
         print(json.dumps({"model": MODEL, "voice": VOICE, "items": item_list}, ensure_ascii=False, indent=2))
         return
+    if bool(args.reuse_from) != bool(args.regenerate_language):
+        raise SystemExit("--reuse-from and --regenerate-language must be specified together.")
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
         raise SystemExit("GEMINI_API_KEY is not set; release generation stopped.")
@@ -151,26 +162,50 @@ def main():
     staging.mkdir(parents=True)
     client = genai.Client(api_key=api_key)
     manifest_items = []
+    source_manifest = None
+    source_items = {}
+    if args.reuse_from:
+        source_manifest = json.loads((args.reuse_from / "manifest.json").read_text(encoding="utf-8"))
+        source_items = {item["id"]: item for item in source_manifest["items"]}
     try:
         for item in item_list:
-            response = client.interactions.create(
-                model=MODEL,
-                input=synthesis_prompt(item),
-                response_format={"type": "audio"},
-                generation_config={"speech_config": [{"voice": VOICE}]},
-                extra_headers={"Api-Revision": "2026-05-20"},
-            )
-            output = response.output_audio
-            if not output or not output.data:
-                raise RuntimeError(f"Gemini returned no audio for {item['id']}")
-            pcm = base64.b64decode(output.data) if isinstance(output.data, str) else bytes(output.data)
             path = staging / f"{item['id']}.wav"
-            write_wav(path, pcm)
+            provenance = None
+            if args.reuse_from and item["language"] != args.regenerate_language:
+                source_item = source_items.get(item["id"])
+                if not source_item or source_item["text"] != item["text"] or source_item["language"] != item["language"]:
+                    raise RuntimeError(f"Source manifest mismatch for {item['id']}")
+                source_path = args.reuse_from / source_item["file"]
+                path.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(source_path, path)
+                validate_wav(path)
+                if sha256(path) != source_item["sha256"]:
+                    raise RuntimeError(f"Source hash mismatch for {item['id']}")
+                provenance = {
+                    "type": "reused",
+                    "sourceRelease": source_manifest["release"],
+                    "sourceSha256": source_item["sha256"],
+                }
+            else:
+                response = client.interactions.create(
+                    model=MODEL,
+                    input=synthesis_prompt(item),
+                    response_format={"type": "audio"},
+                    generation_config={"speech_config": [{"voice": VOICE}]},
+                    extra_headers={"Api-Revision": "2026-05-20"},
+                )
+                output = response.output_audio
+                if not output or not output.data:
+                    raise RuntimeError(f"Gemini returned no audio for {item['id']}")
+                pcm = base64.b64decode(output.data) if isinstance(output.data, str) else bytes(output.data)
+                write_wav(path, pcm)
+                provenance = {"type": "regenerated"} if args.reuse_from else {"type": "generated"}
             manifest_items.append({
                 **item,
                 "file": f"{item['id']}.wav",
                 "bytes": path.stat().st_size,
                 "sha256": sha256(path),
+                "provenance": provenance,
             })
         manifest = {
             "release": RELEASE,
@@ -181,6 +216,12 @@ def main():
             "count": len(manifest_items),
             "items": manifest_items,
         }
+        if source_manifest:
+            manifest["sourceRelease"] = source_manifest["release"]
+            manifest["reusedCount"] = sum(item["provenance"]["type"] == "reused" for item in manifest_items)
+            manifest["regeneratedIds"] = [
+                item["id"] for item in manifest_items if item["provenance"]["type"] == "regenerated"
+            ]
         (staging / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         staging.rename(release_dir)
         print(f"Generated and verified {len(manifest_items)} files in {release_dir}")

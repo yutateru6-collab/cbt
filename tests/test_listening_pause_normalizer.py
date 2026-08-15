@@ -3,6 +3,7 @@ import struct
 import unittest
 from pathlib import Path
 from types import SimpleNamespace
+from unittest.mock import patch
 
 
 SCRIPT = Path(__file__).resolve().parents[1] / "scripts" / "normalize-grade2-listening-pauses.py"
@@ -42,6 +43,28 @@ class PauseNormalizerTests(unittest.TestCase):
         self.assertIsNone(boundaries)
         self.assertEqual(method, "ambiguous-auto")
         self.assertEqual(len(candidates), 3)
+
+    def test_auto_detection_finds_question_gaps_among_internal_and_trailing_silence(self):
+        params = SimpleNamespace(framerate=1000, sampwidth=2, nchannels=1, nframes=8000)
+        candidates = [[1000, 1500], [3000, 3800], [4300, 5000], [7000, 7300]]
+
+        with patch.object(normalizer, "find_silence_runs", return_value=candidates):
+            boundaries, method, actual_candidates = normalizer.choose_boundaries(params, b"", None)
+
+        self.assertEqual(boundaries, [[3000, 3800], [4300, 5000]])
+        self.assertEqual(method, "automatic-question-structure")
+        self.assertEqual(actual_candidates, candidates)
+
+    def test_auto_detection_stops_when_multiple_question_structures_match(self):
+        params = SimpleNamespace(framerate=1000, sampwidth=2, nchannels=1, nframes=9000)
+        candidates = [[2000, 2600], [3100, 3700], [4300, 5000], [5600, 6200]]
+
+        with patch.object(normalizer, "find_silence_runs", return_value=candidates):
+            boundaries, method, actual_candidates = normalizer.choose_boundaries(params, b"", None)
+
+        self.assertIsNone(boundaries)
+        self.assertEqual(method, "ambiguous-question-structure")
+        self.assertEqual(actual_candidates, candidates)
 
 
 if __name__ == "__main__":

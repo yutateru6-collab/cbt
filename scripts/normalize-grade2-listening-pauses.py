@@ -19,6 +19,10 @@ from pathlib import Path
 TARGET_GAPS = (0.8, 0.6)
 SILENCE_THRESHOLD = 350
 MIN_SILENCE_SECONDS = 0.15
+MIN_BODY_QUESTION_GAP_SECONDS = 0.35
+MIN_QUESTION_WORD_SECONDS = 0.20
+MAX_QUESTION_WORD_SECONDS = 1.20
+MIN_QUESTION_TEXT_REMAINDER_SECONDS = 1.20
 
 
 def sha256(path):
@@ -70,6 +74,23 @@ def choose_boundaries(params, frames, manual):
             return pairs, "manual", []
         return None, "invalid-manual", []
     candidates = find_silence_runs(params, frames)
+    structural_matches = []
+    for index in range(len(candidates) - 1):
+        first, second = candidates[index : index + 2]
+        first_gap_seconds = (first[1] - first[0]) / params.framerate
+        question_word_seconds = (second[0] - first[1]) / params.framerate
+        question_text_remainder_seconds = (params.nframes - second[1]) / params.framerate
+        if (
+            first_gap_seconds >= MIN_BODY_QUESTION_GAP_SECONDS
+            and MIN_QUESTION_WORD_SECONDS <= question_word_seconds <= MAX_QUESTION_WORD_SECONDS
+            and question_text_remainder_seconds >= MIN_QUESTION_TEXT_REMAINDER_SECONDS
+        ):
+            structural_matches.append(index)
+    if len(structural_matches) == 1:
+        index = structural_matches[0]
+        return candidates[index : index + 2], "automatic-question-structure", candidates
+    if structural_matches:
+        return None, "ambiguous-question-structure", candidates
     # Strict by design: uncertainty must stop the release instead of altering speech.
     if len(candidates) != 2:
         return None, "ambiguous-auto", candidates
@@ -119,7 +140,9 @@ def acquire(item, cache):
     path = cache / f"{item['id'].replace('/', '__')}.wav"
     path.parent.mkdir(parents=True, exist_ok=True)
     if not path.exists():
-        urllib.request.urlretrieve(url, path)
+        request = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 Grade2AudioNormalizer/1.0"})
+        with urllib.request.urlopen(request, timeout=60) as response, path.open("wb") as target:
+            shutil.copyfileobj(response, target)
     return path
 
 

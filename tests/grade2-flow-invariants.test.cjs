@@ -29,9 +29,10 @@ test("speaking completion offers the required paths and five semantic recordings
   assert.ok(appSource.includes("各0〜5点、合計20点"));
 });
 
-test("silent reading auto-starts even when selected from developer navigation", () => {
+test("developer navigation never suppresses speaking auto-start", () => {
   assert.match(appSource, /id: "silent-reading",[\s\S]+seconds: Number\(silentReading\.seconds\) \|\| 20,[\s\S]+autoStart: true,[\s\S]+timed: true/);
-  assert.match(appSource, /function shouldSuppressGrade2SpeakingAutoStart\(step\) \{\s+return step\?\.id !== "silent-reading";\s+\}/);
+  assert.doesNotMatch(appSource, /speakingDevSuppressAutoStartOnce|shouldSuppressGrade2SpeakingAutoStart/);
+  assert.match(appSource, /function mountGrade2SpeakingStep\(\)[\s\S]+beginGrade2SpeakingStep\(\)\.catch/);
   assert.match(appSource, /startGrade2SpeakingTimer\(step\.seconds, "counting"\);/);
   assert.match(appSource, /async function finishGrade2TimedStep\(\)[\s\S]+await advanceGrade2SpeakingStep\(\);/);
 });

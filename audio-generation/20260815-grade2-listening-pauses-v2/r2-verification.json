@@ -1,0 +1,1086 @@
+{
+  "release": "20260815-grade2-listening-pauses-v2",
+  "count": 180,
+  "items": [
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part1/No01.wav",
+      "bytes": 2692552,
+      "sha256": "671155409f325e9e774da1163cc906b8de7a23a3f72a44f752f4e3d723dbd647",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part1/No02.wav",
+      "bytes": 3092540,
+      "sha256": "396e116ae7d11f00297ccb23018d427cdd2b64415b5161831c5a688c7b620249",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part1/No03.wav",
+      "bytes": 2838300,
+      "sha256": "2326cfca5b2c6cacbe10f4bea435d302450f42610fe61bafee674c2693ee86ca",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part1/No04.wav",
+      "bytes": 2693696,
+      "sha256": "703d55a85908022a645b5cfa0f0d59c8eb32b42ceaea830fe813941ca9612eed",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part1/No05.wav",
+      "bytes": 3101504,
+      "sha256": "dc8248fb107ac8afe74b8fdf08d38ee6c15176ee1c8428463a1e7c56d824ff46",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part1/No06.wav",
+      "bytes": 2932546,
+      "sha256": "d7bfa74cfba682cbc878e5953cd77afc8b0694b76f0c271047c8fc1bc64b2793",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part1/No07.wav",
+      "bytes": 2796568,
+      "sha256": "fb908ba5dc023e5d4902fd94494be5ab364b17d88f127d578178c5bc0e905823",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part1/No08.wav",
+      "bytes": 2646812,
+      "sha256": "28db3750efca08749fec32bb1056f6cb64fff2618dd8f3b1eab74de55562bf45",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part1/No09.wav",
+      "bytes": 2653256,
+      "sha256": "6e4bf7d1f329b8f14df0986e2599c851cc21f3e566fcd41e7fd12e67b613a41b",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part1/No10.wav",
+      "bytes": 2821810,
+      "sha256": "992203308cdbc0a2315ba095e6a61fa37907862af2d1155d1dc622c3b152e284",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part1/No11.wav",
+      "bytes": 2906212,
+      "sha256": "8d6f56feb310702cb1db1dde38fba5460ae403e0936158736d9d64f99d7ea391",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part1/No12.wav",
+      "bytes": 2899998,
+      "sha256": "310993f3151bf4da5fc737563a48f31222b171a7c5a7bf6f4edbf21df0607bce",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part1/No13.wav",
+      "bytes": 2891162,
+      "sha256": "a9ee2ca57a3e62447a4f68cb25885b359045e14ce072e07b5f177a1365b0f6fa",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part1/No14.wav",
+      "bytes": 2682732,
+      "sha256": "93d84b7f9bd888f6dc07ad67cd1b3f93b837b964bf3e1b576f5b278e362fdc6f",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part1/No15.wav",
+      "bytes": 2766010,
+      "sha256": "b822e4a5804a7458507698fa692c4784cd43b2bc95dc98bb70f758ddb08604a5",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part2/No16.wav",
+      "bytes": 2901214,
+      "sha256": "bf1695c30d36e9b08fe8b899ab152fbbbed86b060aa4631631aca972327494fc",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part2/No17.wav",
+      "bytes": 2703054,
+      "sha256": "e2b7ce249b42cd049097c907579fbefb984d11c854659c272d9e331b4c2d6193",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part2/No18.wav",
+      "bytes": 2819582,
+      "sha256": "60931f45febbd9c64e6c4af25bff2dc72095e14732d8c8f436e7d9992fb23698",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part2/No19.wav",
+      "bytes": 2798316,
+      "sha256": "f38e74f0d29417d1928fd2cb9cba2b13126599a6e986ee814a7f1b83b76be6f5",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part2/No20.wav",
+      "bytes": 2535628,
+      "sha256": "0038d64e38c436e7b5eda10ffb0472add8ce181ffe36fcce45812ec1c283ba62",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part2/No21.wav",
+      "bytes": 2715658,
+      "sha256": "694668be27c75240d6d49ac2416cfc69e464875e2fbec33116f9ef5fa069a553",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part2/No22.wav",
+      "bytes": 2902906,
+      "sha256": "b9cf9d0e95ced9aee0c7fb4c409c1e728b4e8d37aa51bd234b808b9e4023703d",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part2/No23.wav",
+      "bytes": 3098742,
+      "sha256": "3143a0055ba5bfad2dcf216dff6dba973e6834fc49b503967878e7a65016b21b",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part2/No24.wav",
+      "bytes": 2739202,
+      "sha256": "43ef2b3b785882371755f00723d2f45ec2c3a5a45da79bc5403044e95d2e8dee",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part2/No25.wav",
+      "bytes": 2677426,
+      "sha256": "86361fdcd9ecd72692e3798e63b5b2e728e8693250078612ab9d1a84e580c65b",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part2/No26.wav",
+      "bytes": 2719360,
+      "sha256": "a92fdb4b2b26ba56e7b591077b9710dcc41ad48bb05abd78eabd0a4881fedfb1",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part2/No27.wav",
+      "bytes": 2754266,
+      "sha256": "61179597c80764fe14ceff650a01fa12516599efc1303ded5856db8f7fdaf33e",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part2/No28.wav",
+      "bytes": 2526680,
+      "sha256": "2fc2b698861eff6b77297a960ad5746d0a5ea4dad3ddbb1044616086ca45b8a2",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part2/No29.wav",
+      "bytes": 2578914,
+      "sha256": "99b7586145919eb133386d62d4c9e896c21f9237abd32308d88ca2dda03dc536",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/sample/listening/part2/No30.wav",
+      "bytes": 2688604,
+      "sha256": "882792fe267397714c0b4d9ae4bf830baf925833934e71779cea9002a8162475",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part1/No01.wav",
+      "bytes": 1717380,
+      "sha256": "0a63618c465bf053f0ddc65f2e6715aa0b3229f0ce8b4962e373df5606f6344c",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part1/No02.wav",
+      "bytes": 1641698,
+      "sha256": "c1c62e7bc66f35fd313d263b706b376596016061324fd992f640802de89df0df",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part1/No03.wav",
+      "bytes": 1607530,
+      "sha256": "f06ff8b4d88a33e693b50abe1177ff3c530b27b84328a780c4daa8708ef0efa1",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part1/No04.wav",
+      "bytes": 1489006,
+      "sha256": "f8b4d5ba8d65c9f8f417a2b30ae83378eafb5196fa10780f25a5dceda08db8d4",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part1/No05.wav",
+      "bytes": 1464602,
+      "sha256": "ba5df5cb4f0213b8a455aac00b28811d8e5687e1985fe15d1a0a08b051e18806",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part1/No06.wav",
+      "bytes": 1545302,
+      "sha256": "6bed3b08b2d4c3d1ecf34d2b303f998d0933ef608312fb1d501800e4bdb7c02d",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part1/No07.wav",
+      "bytes": 1746602,
+      "sha256": "dd811c87d94fa10c16767ff17e914817a71bfe19c475922bc3fe822026a30b12",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part1/No08.wav",
+      "bytes": 1721122,
+      "sha256": "7bfde29c7443de5886ce13e02b15ac0c5a3c9325ef734f599033d3d3bbf47597",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part1/No09.wav",
+      "bytes": 1627500,
+      "sha256": "c69b7947ae128e52f0287c1744651821446cfa56ef82f327362213c6f861b8ef",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part1/No10.wav",
+      "bytes": 1719522,
+      "sha256": "e53907788602bd20b15fa5fc39f910265e1550c26ad0eee2c58fb1e17c26fdac",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part1/No11.wav",
+      "bytes": 1426852,
+      "sha256": "f171a04a88c2ac87e8f9c352c45aa4a333f4a1285abbf7c98f68458915237f96",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part1/No12.wav",
+      "bytes": 1656654,
+      "sha256": "a90545820672f4e3f2024fdc5c45dccec029f9e4605d9cefc63b123f6e0dffa5",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part1/No13.wav",
+      "bytes": 1526692,
+      "sha256": "ee93a9a7b6d99e98dd9e8b42e6a52a29067d3f9f10f8336823ee788b3dc51d5f",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part1/No14.wav",
+      "bytes": 1619164,
+      "sha256": "0e422086d07ad2d85ca6491099f0e59d97ec12577263b9ba0394a17c02f4e8ac",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part1/No15.wav",
+      "bytes": 1501900,
+      "sha256": "e2e3f39df66a38f004631def71dde385c067f0f12a9cda9f6a73c1da789df0d0",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part2/No16.wav",
+      "bytes": 1485020,
+      "sha256": "3140d968632f6003e9861b983c021def6f1508d179298b0882404c413b9983a6",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part2/No17.wav",
+      "bytes": 1450842,
+      "sha256": "a5733a6ab4d361720c0b77cf59f403a1bda32bcc441ae4595650b94d5dcabd93",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part2/No18.wav",
+      "bytes": 1515706,
+      "sha256": "df35323265005a9a83b26867ae5c7d1598175a35b2b73ae4f48bffe4c4a0102e",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part2/No19.wav",
+      "bytes": 1415150,
+      "sha256": "926f92de1bcb876fa875afce34d3d6be5bbad0d9d90bf394533a2d8982de2122",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part2/No20.wav",
+      "bytes": 1499498,
+      "sha256": "2f62d72580aca5456017e6f3a9656159d11ffbb7f6734d45be17fecccc7c81ec",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part2/No21.wav",
+      "bytes": 1382672,
+      "sha256": "60c65d672e8c5c5bec24849d1f8212206df4035c5ea6c3133c169fbd622b8dc5",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part2/No22.wav",
+      "bytes": 1343486,
+      "sha256": "9d23d0ca16e88e5e0ad08306015f43486d6c76015789c02974ae8ff2d715c24f",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part2/No23.wav",
+      "bytes": 1448594,
+      "sha256": "990a7cfad94fe25f44323867cf255e696063bfb7841c6c18470b35e1b43af065",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part2/No24.wav",
+      "bytes": 1351418,
+      "sha256": "7cda4e598cb4e5d154eae3d3050c43e6b49f3cd9514e49709ffb3c1dfa97958c",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part2/No25.wav",
+      "bytes": 1468966,
+      "sha256": "2d1fbb0820630d82b4f21792d4675f60df35fbefea13662d37929e1d8ebca4c5",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part2/No26.wav",
+      "bytes": 1382678,
+      "sha256": "38e58b31a7c04eaaf4b61d74479051c533d532b4981effa0880ab01b8f8679f5",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part2/No27.wav",
+      "bytes": 1514498,
+      "sha256": "1878597e49458cf759331a3dfd13ea050122d08ebb2ce6b3d6e0d3b7131e3c79",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part2/No28.wav",
+      "bytes": 1450632,
+      "sha256": "d29cc653407ce5e96fc25c5586da5deff25bdd6af7c2ae126cc031861d387e90",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part2/No29.wav",
+      "bytes": 1366712,
+      "sha256": "531b32982433dcd6d525f08ea87f44b3c9e82a017e91a6b3045e26e03a03c653",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-01/listening/part2/No30.wav",
+      "bytes": 1392404,
+      "sha256": "c942f256cc2286c6c6b73b2f14b94f066f8af2717fd54bba68c2bd1fbfbae152",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part1/No01.wav",
+      "bytes": 1661542,
+      "sha256": "54f03875be1841d6dd36c401284d41981c99dc9c3c99b2661848ed51d95195c2",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part1/No02.wav",
+      "bytes": 1687526,
+      "sha256": "52d427f4993cb66dfc3991e2f2ab4ca0578eab7b9c8b85b9ef7c4821805b96fc",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part1/No03.wav",
+      "bytes": 1465132,
+      "sha256": "cac8130c6f789f2fab18fcb4f0accf5983feaf5e8918f200f902c8d0147347a5",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part1/No04.wav",
+      "bytes": 1537208,
+      "sha256": "10d6bc62886d6bdf86c9a8c9d0a74b343fc8ceffe7340b564bcf51db66ae5827",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part1/No05.wav",
+      "bytes": 1494420,
+      "sha256": "0c6dd793387b3bd28cda1921b6fe9164126b9b6f835cfac2a68ac2720deac24b",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part1/No06.wav",
+      "bytes": 1504330,
+      "sha256": "487757ba5ac282d8b2e9293bdaa988c41c6b7f4712e5a89b452560b898dd2c8d",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part1/No07.wav",
+      "bytes": 1663186,
+      "sha256": "8629edf25ab8da8c44b6ff51ebff3c2325d718e2992b25fa120a5e290a18dc99",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part1/No08.wav",
+      "bytes": 1661970,
+      "sha256": "f368cd051bc2306565bc5df1dc1dcb4b1d95350babefca380decbfd6f936dfc9",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part1/No09.wav",
+      "bytes": 1510522,
+      "sha256": "293c2991500fa5c6b72d65c3abbe4cbdf2dc8952ea9840ad9e67f9e1e0ab3a45",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part1/No10.wav",
+      "bytes": 1528748,
+      "sha256": "abefeb9b5ae10eb95d42fb9d29b6afcaa7eeb1c5ed9a4169854a0c3c19a6716f",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part1/No11.wav",
+      "bytes": 1540348,
+      "sha256": "dbc7be2c9a9942f1c05e3c0af99f0008819f38142faac11a2504cdd6a8ab314c",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part1/No12.wav",
+      "bytes": 1604542,
+      "sha256": "8d6e1fd377c84704eedd6374dffdcb0665df16842a9ce752e7f92608ca389210",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part1/No13.wav",
+      "bytes": 1511730,
+      "sha256": "e440e3f5037fb788b8f9feba836bea44deef030b54269ddb765bfbf38addf161",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part1/No14.wav",
+      "bytes": 1527510,
+      "sha256": "2a21099522108efd1d35f5cce83ff1bb47fb1d20992ae28f35221f36834b084e",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part1/No15.wav",
+      "bytes": 1611576,
+      "sha256": "783a881e1abfbb9dc1879eb23c0fa56b7e2be5d1ae8d830eda55e58e5823dc96",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part2/No16.wav",
+      "bytes": 1408620,
+      "sha256": "d7049e563ef638e05b1d5043b60c9746f825b8e9eb4ae65a010e90e9ea4e4ffd",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part2/No17.wav",
+      "bytes": 1444076,
+      "sha256": "32e81d4b015b1bd829ae1fe05bdecff4943eddcd397b088f86b6d170ebbd89bf",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part2/No18.wav",
+      "bytes": 1430026,
+      "sha256": "ad28336469a00c7cba27453806076c9b82eb18e1650133b694c3ba8141887a6e",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part2/No19.wav",
+      "bytes": 1561544,
+      "sha256": "3657134a497c9e80aed7d2f9a7f3871c1aa7fa48157482594a804d0bc7e61a59",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part2/No20.wav",
+      "bytes": 1467146,
+      "sha256": "61e0de4839282f66e8369570cc1403195a9014004c95404ababd7c022ca88311",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part2/No21.wav",
+      "bytes": 1457424,
+      "sha256": "0b605a17f9ac6a72dfe800d606d1736e897363c122a277544ca928cc5784bf8c",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part2/No22.wav",
+      "bytes": 1538530,
+      "sha256": "81303d927906e76fdca32fb7f970666a2cfd2d861a2a273f34cbbb97b1c2540d",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part2/No23.wav",
+      "bytes": 1406384,
+      "sha256": "d266866460794325b8b9c3a50f8b82fc45bf3e31911f4dfbed06315014fc3bbd",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part2/No24.wav",
+      "bytes": 1430894,
+      "sha256": "e58c30ecdd33744f005d588af9e663ec0f448df36bb60aaa4e48fb2c9213f96c",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part2/No25.wav",
+      "bytes": 1478782,
+      "sha256": "fe9ffef117a644bb4fb12c225eca65af4e9ef61f2286bd3d40fe05dbb02ca73e",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part2/No26.wav",
+      "bytes": 1487652,
+      "sha256": "4f1eee51c5f37e8a0f7bd51e181471568c71b7e42465b3ad36acf9a990ac114b",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part2/No27.wav",
+      "bytes": 1463540,
+      "sha256": "25c95f17e9a4982bd347cca23f52c52f267936494327dce3ec946c62417df467",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part2/No28.wav",
+      "bytes": 1569480,
+      "sha256": "fc9f37b30d27b0d48ca3d3c5c91ea59500fffda333b706534e7f284b32e7b08d",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part2/No29.wav",
+      "bytes": 1319350,
+      "sha256": "5aeb537c5338ce04ef6f993763bb301c7af371e0ade8d176778ce034bc70a6b7",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-02/listening/part2/No30.wav",
+      "bytes": 1395602,
+      "sha256": "352e4c66f9341f436b61632e40a39718a79dd47360f6e4a675a56db696ba2675",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part1/No01.wav",
+      "bytes": 1456662,
+      "sha256": "506ec4e80b5b370a155ea8ed9d8ed5fef2aa1c7e022435940475abd1405271df",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part1/No02.wav",
+      "bytes": 1288140,
+      "sha256": "7dbe0e06c7c702fb675098ee62c7407f908de0cce46608a7b5968d2106e113f1",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part1/No03.wav",
+      "bytes": 1393372,
+      "sha256": "5e69d313f243754ed3684fe951c1ba98a4354c156be5039d21e9867719ea66a0",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part1/No04.wav",
+      "bytes": 1402168,
+      "sha256": "10b0ee302ba8c1787ee8f30bff6ae129552e9477a1c24b47ec387376c41e8d32",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part1/No05.wav",
+      "bytes": 1441454,
+      "sha256": "8f7f265ecf2fd91897d72481b9e77346122fac2d4f6018a8fa20c3f8bb2e0393",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part1/No06.wav",
+      "bytes": 1346914,
+      "sha256": "39a0c112cb3c2b050b862fe7d7d95a00b3cc78e76d19fca043f712ecca42c2b7",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part1/No07.wav",
+      "bytes": 1400664,
+      "sha256": "ca76a6953cb53513248068b28e67fadeba2791be2cd16bf558b416707189c11d",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part1/No08.wav",
+      "bytes": 1428302,
+      "sha256": "9d10a6ad8cadafb3bd20c2b63c244a94246f4c2ff2d6d846d2eedce7f141c741",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part1/No09.wav",
+      "bytes": 1535064,
+      "sha256": "ce55619af577c18789379c120a007639b16b6b0a6d397578ba8f0ab2575bd7f4",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part1/No10.wav",
+      "bytes": 1324810,
+      "sha256": "2e00f5eac28a2f74216d8a9fd085be049754eba87dd64ad6f129bf0dca004067",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part1/No11.wav",
+      "bytes": 1397328,
+      "sha256": "cc3b8fed0350b31519c4ba3fbacc5dbf5cf03f179f57cc62b6b09f67d54d640d",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part1/No12.wav",
+      "bytes": 1488208,
+      "sha256": "68ba7660a321dc54d6a5b6ca2947e8fc980c0a6c2331e4f4e9496501da0d9c5f",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part1/No13.wav",
+      "bytes": 1327410,
+      "sha256": "037bdc7a889d99361c711a30702b5411278ebe1f96c8ae123eb4fbc1fd5241ee",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part1/No14.wav",
+      "bytes": 1453636,
+      "sha256": "5216f4b836a475e52fa8476603bc3014ca84169e415c53f10a9dbeb35bb72523",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part1/No15.wav",
+      "bytes": 1488372,
+      "sha256": "e5cabcfc66315fbb0ccc0efec998cc692daa3bf662e12cea3c9e775ec95b2cb8",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part2/No16.wav",
+      "bytes": 1465428,
+      "sha256": "ad7ef1ad51e39443a4a75a4c7905474997feb3c89506614ba066d7e4c4ebc7b2",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part2/No17.wav",
+      "bytes": 1542472,
+      "sha256": "5ad23b7549f9c00c3f7c8e3efa32027959de1ec19fa064f58a53c7681ac8d722",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part2/No18.wav",
+      "bytes": 1568258,
+      "sha256": "5ea77e6d9a70718e5b3664375a610f4b591e96cba95fa87c47162d4973694ae4",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part2/No19.wav",
+      "bytes": 1617808,
+      "sha256": "19b4c6ae688441b67581822448b7787a0517e8edb85f7e2c4d55f8a5b0e36d5e",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part2/No20.wav",
+      "bytes": 1476742,
+      "sha256": "20870846449313d10659140ae22e691e21345a25e1dc113a2bc998adf740d455",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part2/No21.wav",
+      "bytes": 1478686,
+      "sha256": "a25a6b910c19644d38c77ea8cfa1804ef73889963d656587a5a67546887f0c62",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part2/No22.wav",
+      "bytes": 1395690,
+      "sha256": "b4538d24d0ed1daf19263d67065c94cb2e3ea7629cea51270c39e5b53fcd1934",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part2/No23.wav",
+      "bytes": 1457798,
+      "sha256": "18918d3eab045e525eee545156d6f55497878ae1828a4cff3f1444d6cabd2713",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part2/No24.wav",
+      "bytes": 1606454,
+      "sha256": "fd3418fbf952dba32c0db9485f0f97dbd20001f8f5e94821df621e2dcdabcb9c",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part2/No25.wav",
+      "bytes": 1453702,
+      "sha256": "3de2df465ecee085e41516097531485d850e37f78f791430de53adc171deabfc",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part2/No26.wav",
+      "bytes": 1551414,
+      "sha256": "794c776f7bfed05efd96a2389cd2885c40fc685269e5c48fc5ff498b88b9c147",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part2/No27.wav",
+      "bytes": 1441154,
+      "sha256": "840dfb9f51d3832a56e1837741c694aaf9b40fe84cc47e606e3c73435cfe397d",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part2/No28.wav",
+      "bytes": 1318350,
+      "sha256": "1f9a4fa5bbfaa09f67977be9371f3ebe86e7defa5a1085b1717ecef4829f14f3",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part2/No29.wav",
+      "bytes": 1487816,
+      "sha256": "61d6c9e3bdd365253e8b69f871bcf7957ba961031e756efe50bbe6ec24458e26",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-03/listening/part2/No30.wav",
+      "bytes": 1439468,
+      "sha256": "e57b21bf089ddecdaf2dbfe4e8cfbb1efdfc9f0c8908e4995cd947e3127544a6",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part1/No01.wav",
+      "bytes": 1632396,
+      "sha256": "450c8bcf0ffcc774aefc64ea9d9ab7d5399e8ac8ee7581f29a7520e2e3e8472f",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part1/No02.wav",
+      "bytes": 1305418,
+      "sha256": "4a41554d7deec0d17d8b4c5d31410f047d2e73bdf5e3a0c8c2d53330b1ed2a3f",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part1/No03.wav",
+      "bytes": 1454756,
+      "sha256": "2563bee9c39ce0dc847005b9a6ee84b93623650614414a4f32f9c1d91ae89c41",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part1/No04.wav",
+      "bytes": 1416110,
+      "sha256": "222f6dbe3ed74aa1f79f1fb8aede528b2ba2b9241e58d1c81abac1a535086496",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part1/No05.wav",
+      "bytes": 1451052,
+      "sha256": "ea85a2fd69885fa293e6c27225bbba44a258599dae07c9054578180b26e434ed",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part1/No06.wav",
+      "bytes": 1475886,
+      "sha256": "34480b3638958615409e3bd506690eaf3917c89a91b9d2537333d4395a84734d",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part1/No07.wav",
+      "bytes": 1407242,
+      "sha256": "1d81fcd1ce124bc4a10ed13e4217a6a7cc57bd529287934e8dfc5f5ff1e8c543",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part1/No08.wav",
+      "bytes": 1218188,
+      "sha256": "1b665d5e7860af57e913eba627b8c0a26a4d7b7c72212fe027a3c4b8d3e6aada",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part1/No09.wav",
+      "bytes": 1417040,
+      "sha256": "a1873191fd8ecf74ccf6c2ccda18d5ac309e99ef708836d55ac1924d296df2a6",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part1/No10.wav",
+      "bytes": 1475968,
+      "sha256": "02aff4ccbc6afb68e69f99ed899debfa40dcc97fc42d15b3cfe0966ec4819e18",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part1/No11.wav",
+      "bytes": 1328994,
+      "sha256": "4f380b97de22c5fea29afa7c4056493349cc1e74d1819962b08e2268cacb1a02",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part1/No12.wav",
+      "bytes": 1402058,
+      "sha256": "a9b9908ffcc3fdfcd6ed689e546e1437c13433ad90d934362f29bcba3a76d515",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part1/No13.wav",
+      "bytes": 1268610,
+      "sha256": "681c0ef0d5d0b33a8f06d1cefd924a8538927272f471b794eb0045fafada094d",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part1/No14.wav",
+      "bytes": 1418036,
+      "sha256": "c2c0ad233453ea5f61008258f6d9f496c56cb4f0df6eb7e3bbd87d8fdfbd1356",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part1/No15.wav",
+      "bytes": 1536780,
+      "sha256": "03b76a3b23b5b7d636518e3a61ab5c82750afd52165f1fc8fe6d1523c3103c6a",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part2/No16.wav",
+      "bytes": 1497076,
+      "sha256": "3adf41fc45f3907cd22b66a881de5248ae4925fa355939a5aa9c4711457223bd",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part2/No17.wav",
+      "bytes": 1546772,
+      "sha256": "e50a243fe0b07ba7b4e5c5c6302154aecba9c34e5729026815186ec9aed3f3b6",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part2/No18.wav",
+      "bytes": 1582046,
+      "sha256": "15b88159e7a8ebe3420ebfed87535cc7f7d3467383f35c033eccc8708dec7ff2",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part2/No19.wav",
+      "bytes": 1507040,
+      "sha256": "21df66cdda184686e37decf25b51c82fa5a398d20999dd21d7c627b8163e0f70",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part2/No20.wav",
+      "bytes": 1465468,
+      "sha256": "17acf646a1c33062d954f7811537bd4665439d2d76a2881927dd336003c3fdb4",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part2/No21.wav",
+      "bytes": 1506756,
+      "sha256": "2e63f709f8b3ec29a33c72fcd86198aeeadfca748d56c94895b7c6f8940066d4",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part2/No22.wav",
+      "bytes": 1443454,
+      "sha256": "1223831314c0982a216976702aed9b3e57745a8e258384ee3d9fcecb92247e9d",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part2/No23.wav",
+      "bytes": 1516388,
+      "sha256": "d3dae4b6a7eb0e7a6ea69bb18dcadd47e5453a4300999d30c563b22990effde5",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part2/No24.wav",
+      "bytes": 1554298,
+      "sha256": "163d20bbc4dc63e044f2b6d14d89d90cb08e3a33fdff4feace966ad6baa167dc",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part2/No25.wav",
+      "bytes": 1526196,
+      "sha256": "e7afcf23050a756f3327330dadd27ee250582fc5264b37c3b91d128cccb52120",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part2/No26.wav",
+      "bytes": 1533500,
+      "sha256": "76dee0468d6c2f02f8661da729c1253bd7c80f28fe976ffd35531026d6581f8d",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part2/No27.wav",
+      "bytes": 1494638,
+      "sha256": "43d7308ec61d8ff1e3163ee96759db11f6a3160999bfa94ad5c9e6ab6d97abd9",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part2/No28.wav",
+      "bytes": 1623808,
+      "sha256": "083514d00ec32c6c2a2c0af44a5d39126c9024d25276611123f79d5b4df90bd7",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part2/No29.wav",
+      "bytes": 1411992,
+      "sha256": "03dc46eed25f41aa798ac9e7c60ef80757494b9e6f85dcf2a87c21290f552f2b",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-04/listening/part2/No30.wav",
+      "bytes": 1436994,
+      "sha256": "796c3a3711c2d0dacdcb6f838c254dd96db6e814b3ed99c42a20a2394f6ac4c2",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part1/No01.wav",
+      "bytes": 1418344,
+      "sha256": "ff639b9061e5541b91a4ed4fb336055d080fe052490ce6c5b2b649defffacdb1",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part1/No02.wav",
+      "bytes": 1330078,
+      "sha256": "c32d943cec5e4602078aa52a7ae92c244b5c0b122fa7177f43ff89a577cca06c",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part1/No03.wav",
+      "bytes": 1277446,
+      "sha256": "e05c21c91bc4b6d033a3d0af435bff1ac6702b2b5856df503b0714c6d78ebb89",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part1/No04.wav",
+      "bytes": 1415620,
+      "sha256": "070217f8181b2a18766f0c54f129cda5480cc16fee10a8dcd67343e1670ec54f",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part1/No05.wav",
+      "bytes": 1474262,
+      "sha256": "0f3bebe77981d2834d3b2387f70f078404fa7019a39d37a2306c657e3c94fe81",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part1/No06.wav",
+      "bytes": 1345786,
+      "sha256": "228d5534fbf86e7fefc8dba73e97267bcad298677fa8b56bd2aabc9880df3a33",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part1/No07.wav",
+      "bytes": 1322904,
+      "sha256": "ef10f16a0a3ea179b162fdb1cbc63522503f5f3ffcfd5283aed54911052b73f5",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part1/No08.wav",
+      "bytes": 1335384,
+      "sha256": "ec343cd77d9080fced86940cfa30761a39bbba9201e95c6f839cf443dccfac48",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part1/No09.wav",
+      "bytes": 1468280,
+      "sha256": "3599841245576919e494daa55da50b7ce7e20a26708015b20364e68f98a96bb3",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part1/No10.wav",
+      "bytes": 1422074,
+      "sha256": "9e1af7428e4628aac5ed12681f9060a1d44d03bcc0961510713318e0e126cc9f",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part1/No11.wav",
+      "bytes": 1357828,
+      "sha256": "c47a41be5c6af7fd6b43f109c8e24521680bec34c3d2b0538cb37e2793344912",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part1/No12.wav",
+      "bytes": 1336296,
+      "sha256": "dad67f31d85733c8fd124d45db79da28fcdd6c4c28c74bd374f11889916cad25",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part1/No13.wav",
+      "bytes": 1356406,
+      "sha256": "26816daa0a88131540609d65af55b62e8276062c697b129eea9c70f1458842a3",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part1/No14.wav",
+      "bytes": 1394622,
+      "sha256": "5015ab861a9199f261d26ae4d516094fe222c8a0d4a7528fdd44b925817adcf4",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part1/No15.wav",
+      "bytes": 1313112,
+      "sha256": "947eb93e09844986347bc33f0e4deb8231a4b92b80356893ddaf18ee2245480c",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part2/No16.wav",
+      "bytes": 1566878,
+      "sha256": "cc70845ae4f9b12a21d15749b1dbc2cf4e2ac52e0dd745cd733d658285fff446",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part2/No17.wav",
+      "bytes": 1525984,
+      "sha256": "deae297f25e2b6154207b8ccfa81e0f50dcbcbf98cd4ead0d561e6fb56bff449",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part2/No18.wav",
+      "bytes": 1617294,
+      "sha256": "d7ef7ebbfd3f8f5ad6fcdb1b02f0dd42e2a03d5bc47fd566ba062c50b86a1320",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part2/No19.wav",
+      "bytes": 1583158,
+      "sha256": "c78ec6ae4e87d7a8672d381eb158e4f2e7d915054675a40d4b5f8bf2f493a74f",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part2/No20.wav",
+      "bytes": 1658424,
+      "sha256": "5d6bd19ef8ee788b4c428818b5a3ec1f5847e0e2f09dbe4127df7ead90fcbc58",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part2/No21.wav",
+      "bytes": 1459752,
+      "sha256": "975316674035364f1a38c768dc862c9befd07c56f38dd60342c9cf8dbb52dccf",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part2/No22.wav",
+      "bytes": 1426498,
+      "sha256": "7c998dc40b3d85652562abfbae4ceb48bbcfb6ed10f814a0f36b049ecd3e8d63",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part2/No23.wav",
+      "bytes": 1497180,
+      "sha256": "9200c461f5f6dfee0604a5a1d6f13eca5d2afc2a400a939a74bf9e361cf4c542",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part2/No24.wav",
+      "bytes": 1458758,
+      "sha256": "d0b7cc4b33e3ad769564a7ad8a919e3b57a1fd5b399e3b58ac99c2c0c13f811c",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part2/No25.wav",
+      "bytes": 1567074,
+      "sha256": "80c1d054834a21e73d4fdaeeae2f82eb2ae087ceb982bb0b1f3bb64604cd9fc0",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part2/No26.wav",
+      "bytes": 1377486,
+      "sha256": "149097a742721351b4d61fc5cb4508546894fac241a4f338eb12a3dc37a05807",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part2/No27.wav",
+      "bytes": 1415210,
+      "sha256": "c5ad8a6c951fd7c02a16b2c48a39df93a9fb009f1ab3c733bab55431c2fedb0c",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part2/No28.wav",
+      "bytes": 1780314,
+      "sha256": "fad2879ebbb8d3d08484af976d02e6c60000d0c55e8b2fc615ecfd04ad7fe245",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part2/No29.wav",
+      "bytes": 1654170,
+      "sha256": "40ddb1692c3fd774fc9ebdaf90cd372e2e23896476a53bd5740991eded49bfd7",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2/set-05/listening/part2/No30.wav",
+      "bytes": 1591076,
+      "sha256": "6fd4948bf4ee16d95a67ae1fe0ec28900af0d22229f9f97f5c36f3165eef9cd8",
+      "mime": "audio/wav"
+    }
+  ]
+}

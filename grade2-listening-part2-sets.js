@@ -1,14 +1,14 @@
 (() => {
   const listeningAudioBase =
-    "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260724-simba32";
+    "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2";
   const set02GeminiApprovedAudioBase =
-    "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260807-gemini-approved-v2";
+    "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2";
   const set01GeminiApprovedAudioBase =
-    "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260810-set01-gemini-approved-v5";
+    "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2";
   const geminiListeningAudioBase =
-    "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260729-gemini31";
+    "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2";
   const testCompleteListeningAudioBase =
-    "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/test/20260729-complete";
+    "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2";
   const listeningPart2Sets = [
   {
     "key": "sample",

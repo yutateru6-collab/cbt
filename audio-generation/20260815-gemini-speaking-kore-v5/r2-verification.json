@@ -1,0 +1,240 @@
+{
+  "release": "20260815-gemini-speaking-kore-v5",
+  "count": 39,
+  "items": [
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/common/card-introduction.wav",
+      "bytes": 261164,
+      "sha256": "f5451f481ac797dfa9e9c349d67dafef8538fab741c1fa17c9d307eae188123c",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/common/no-2-preparation.wav",
+      "bytes": 610604,
+      "sha256": "f25382dfbab2ff563d6a7de9fc631ce28b2c63dde827fe173243e607d4eb12ce",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/common/no-2.wav",
+      "bytes": 82604,
+      "sha256": "49147d6e2999f9119f0fb152d91ebdf05992283b0585dd126a59ccb48f113363",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/common/read-aloud.wav",
+      "bytes": 174764,
+      "sha256": "266ca07f2d1116aa6a83825482343b5b1a541ca27db10c690624ef0a69157ad2",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/common/section-finish.wav",
+      "bytes": 169004,
+      "sha256": "e6f9d190fe89154879404236e405fe860dbf8649bbf97616c6a95c2cc4371ae5",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/common/silent-reading.wav",
+      "bytes": 201644,
+      "sha256": "7dc9ef37382dd39963e8a68843f9ff91ca7f3b021293d1030ad7f53dd2bc136b",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/common/sound-check.wav",
+      "bytes": 355244,
+      "sha256": "b9f43d62df957d4ce22815722c0851e3f114c9c76bb39484ccddcc5b0ff9aa78",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/common/turn-card.wav",
+      "bytes": 201644,
+      "sha256": "dfa0908464e57c6afb4cacdf32b4d038436621a9919a63256f24c2ff67fe0581",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/common/warmup-2.wav",
+      "bytes": 178604,
+      "sha256": "c437ae8ae5e187ee9c71d8fc8bcd0e6ea6446a4299a0bff92b09bcbec03148b2",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/common/warmup-intro.wav",
+      "bytes": 505004,
+      "sha256": "f8642ccd414df422f3d45672eb048a5cc7edfa478d4f62fc5c07958dbc863685",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/common/why-not.wav",
+      "bytes": 65324,
+      "sha256": "46aac6e2da29df215f33e36bf7919fe530bd4153cc4de69f671a1dd3ae7034f0",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/common/why.wav",
+      "bytes": 63404,
+      "sha256": "d798168945cfa198ec81d3c09eb5f9cc9d772e9a4d99a364d763e30b83505869",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/instructions/listening-part1-ja.wav",
+      "bytes": 2100524,
+      "sha256": "ffc0c40f0024f63b301a101061f978011ec39f2d25039dd7e43dedd526384ab2",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/instructions/listening-part2-ja.wav",
+      "bytes": 1566764,
+      "sha256": "8d139275691a89dd41e6b8d2e44c678ae309c5f4d8fb69c43337f125d5f73de4",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/instructions/speaking-start-ja.wav",
+      "bytes": 1626284,
+      "sha256": "c740a89a4ce7415bb3475b17db832e310c0cf7dc9a9de7c9951e34319fbd26b3",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/sample/no-1.wav",
+      "bytes": 339884,
+      "sha256": "69248069f0c6fe83b394753f0975d5d13100a0415cddf9dd7ebb76bf1670c3bf",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/sample/no-3.wav",
+      "bytes": 610604,
+      "sha256": "30f0770c565dbbcf6c40222a7a8033b4f88858fef4c2ba07515a045aa4c821c2",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/sample/no-4.wav",
+      "bytes": 714284,
+      "sha256": "82ee0f107c51c0eb3d23408739728bd39bf4dcabe18a9d07463a37345a8a4d7d",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/sample/warmup-1.wav",
+      "bytes": 174764,
+      "sha256": "70b159dfcb6da82c05f5c118e50598cf325062d2fc3356f028d79b1616b9a125",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/set-01/no-1.wav",
+      "bytes": 424364,
+      "sha256": "472c27e155abb8be798cf69cbee0919e9b6d7e44ea0c6ae10ee3baabf303e8b5",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/set-01/no-3.wav",
+      "bytes": 695084,
+      "sha256": "771952da02d2855d1f09cfa15838eb34bb6d9e29f1b99611684b28f9a333247a",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/set-01/no-4.wav",
+      "bytes": 706604,
+      "sha256": "8538e1894d639cf13facb1acea581e2bdd8698b38b4dbe59c4248fd4184e887a",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/set-01/warmup-1.wav",
+      "bytes": 155564,
+      "sha256": "2fcf8b1d1b9ad30ea6225bc87db793cbee6110747e88204bcc945ded2a005614",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/set-02/no-1.wav",
+      "bytes": 451244,
+      "sha256": "1c859b402eaf6dd9226947368fdea30db90a48d7e43e168b52bb76d86441f308",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/set-02/no-3.wav",
+      "bytes": 595244,
+      "sha256": "754de7dd0c487c0fe4ceb81a42b2aaaefc0790ed4649fa2e80434d8a7f28416d",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/set-02/no-4.wav",
+      "bytes": 679724,
+      "sha256": "b83df823e1b8b7ebf9d88aac59f69ecb4a92cf50bc167f634be4739195890806",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/set-02/warmup-1.wav",
+      "bytes": 174764,
+      "sha256": "a6fe0fe4256928c8d814330ae427a02ec4f3065a9c62d8824bf2f3dc32880ef0",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/set-03/no-1.wav",
+      "bytes": 353324,
+      "sha256": "2bf42147b0a16d97d985a52c5955a45bc1c361bc549d085641b8969a2073343c",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/set-03/no-3.wav",
+      "bytes": 681644,
+      "sha256": "bc2114b9d03de62e4541370ef3773a59b5a60a98d3aa276fefd5981ad5c271d8",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/set-03/no-4.wav",
+      "bytes": 579884,
+      "sha256": "3b4591b61ed87886d6eca52f972de7eb9097ee2d419fd4a8823938f79da0b12d",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/set-03/warmup-1.wav",
+      "bytes": 201644,
+      "sha256": "81d491a40c41b95b41b5a41b916063176accfe000fe84b485eb8361ae9af53b8",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/set-04/no-1.wav",
+      "bytes": 289964,
+      "sha256": "af5bb00713416d4afd613b7a11b52d338f59067e24c98da08555cb104cb4f302",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/set-04/no-3.wav",
+      "bytes": 764204,
+      "sha256": "b3a2e3df50cddffb8b194487b184bea83efb918ec98221537777280f2200d2ce",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/set-04/no-4.wav",
+      "bytes": 616364,
+      "sha256": "e1df73004dcadc7057363673231ae5140bb2cb8fda14f3eb95d0bccdc59c0352",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/set-04/warmup-1.wav",
+      "bytes": 161324,
+      "sha256": "3b7cc360d3420357f6457429a981a34515013e1ccc8eb0ae6d9105cf7f302990",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/set-05/no-1.wav",
+      "bytes": 426284,
+      "sha256": "a75c9ccc894bd8c68f651f35b0f3dda90cf3b5c62812917d2d452e01743bad4e",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/set-05/no-3.wav",
+      "bytes": 677804,
+      "sha256": "e061a4b98f980fea690ac3545a9b3661346d31fd257b0c946996fcc65d2b8d28",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/set-05/no-4.wav",
+      "bytes": 698924,
+      "sha256": "4f2bb68d4b06b26f77c3e74dd59e023e802038eb1454f8e5ab5b3d52a648d4ea",
+      "mime": "audio/wav"
+    },
+    {
+      "url": "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5/set-05/warmup-1.wav",
+      "bytes": 144044,
+      "sha256": "013570f85db9718da0d02a2f54f9ea68c751309f18d7762addfe53ada2d9bc7f",
+      "mime": "audio/wav"
+    }
+  ]
+}

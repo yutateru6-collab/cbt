@@ -10,6 +10,7 @@ import argparse
 import hashlib
 import json
 import mimetypes
+import shutil
 import subprocess
 import urllib.request
 from pathlib import Path
@@ -17,6 +18,7 @@ from pathlib import Path
 
 PUBLIC_ORIGIN = "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev"
 BUCKET = "mimilisten-audio"
+WRANGLER = Path("node_modules/wrangler/bin/wrangler.js")
 
 
 def digest_bytes(data):
@@ -32,7 +34,9 @@ def digest_file(path):
 
 
 def request(url, *, method="GET", headers=None):
-    return urllib.request.urlopen(urllib.request.Request(url, method=method, headers=headers or {}), timeout=60)
+    request_headers = {"User-Agent": "Mozilla/5.0 Grade2AudioReleaseVerifier/1.0"}
+    request_headers.update(headers or {})
+    return urllib.request.urlopen(urllib.request.Request(url, method=method, headers=request_headers), timeout=60)
 
 
 def main():
@@ -54,8 +58,11 @@ def main():
     if not args.skip_upload:
         for item in local:
             object_key = f"scbt/grade2/releases/{args.release}/{item['relative']}"
+            node = shutil.which("node")
+            if not node or not WRANGLER.exists():
+                raise RuntimeError("Node or the pinned local Wrangler installation is unavailable.")
             subprocess.run(
-                ["npx", "wrangler", "r2", "object", "put", f"{BUCKET}/{object_key}", "--file", str(item["path"]), "--content-type", "audio/wav", "--remote"],
+                [node, str(WRANGLER), "r2", "object", "put", f"{BUCKET}/{object_key}", "--file", str(item["path"]), "--content-type", "audio/wav", "--remote"],
                 check=True,
             )
     verified = []
