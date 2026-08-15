@@ -41,7 +41,7 @@ test("listening exam and review modes use separate replay rules", () => {
   assert.ok(appSource.includes("listeningPlayedQuestionIds"));
   assert.ok(appSource.includes("listeningReviewMode"));
   assert.ok(appSource.includes("hasPlayedListeningQuestion(question.id)"));
-  assert.ok(appSource.includes("canNavigateListeningList = appState.listeningReviewMode || isGrade2DeveloperMode"));
+  assert.ok(appSource.includes("canNavigateListening = appState.listeningReviewMode || isGrade2DeveloperMode"));
   assert.ok(appSource.includes('data-action="listen-review-open"'));
   assert.ok(appSource.includes("playListeningAudio({ force: appState.listeningReviewMode })"));
 });
