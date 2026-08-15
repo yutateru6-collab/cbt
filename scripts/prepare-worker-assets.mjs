@@ -71,7 +71,8 @@ const assetFiles = [
 ];
 
 const nestedFiles = [
-  "output/pdf/eiken-grade2-final-check-writing-template.pdf"
+  "output/pdf/eiken-grade2-final-check-writing-template.pdf",
+  "assets/audio/grade2/set-01/listening/part1/No05.wav"
 ];
 
 await rm(outDir, { recursive: true, force: true });
