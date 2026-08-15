@@ -6,6 +6,9 @@ const vm = require("node:vm");
 
 const appSource = fs.readFileSync(path.resolve(__dirname, "..", "app.js"), "utf8");
 const styleSource = fs.readFileSync(path.resolve(__dirname, "..", "styles.css"), "utf8");
+const examSource = fs.readFileSync(path.resolve(__dirname, "..", "exam.html"), "utf8");
+const serviceWorkerSource = fs.readFileSync(path.resolve(__dirname, "..", "sw.js"), "utf8");
+const examServiceWorkerSource = fs.readFileSync(path.resolve(__dirname, "..", "sw-set02-v2.js"), "utf8");
 
 test("speaking flow includes all new spoken instructions and the common 650 ms gap", () => {
   for (const id of ["grade-introduction", "warmup-introduction", "card-introduction", "section-finish"]) {
@@ -59,6 +62,14 @@ test("Part 2 instruction is forced at the No.15 to No.16 boundary", () => {
   assert.match(appSource, /delete appState\.listeningIntroducedSections\.part2/);
   assert.match(appSource, /playGrade2ListeningInstruction\(question\)/);
   assert.ok(appSource.includes('part2: `${GRADE2_SPEAKING_AUDIO_BASE}/instructions/listening-part2-ja.wav`'));
+});
+
+test("exam assets and both service workers share the v69 cache release", () => {
+  assert.match(examSource, /styles\.css\?v=grade2-reading-writing-listening-v69/);
+  assert.match(examSource, /app\.js\?v=grade2-reading-writing-listening-v69/);
+  assert.match(examSource, /sw-set02-v2\.js\?v=grade2-reading-writing-listening-v69/);
+  assert.match(serviceWorkerSource, /cbt-grade2-app-shell-v69-reading-writing-listening/);
+  assert.match(examServiceWorkerSource, /cbt-grade2-app-shell-v69-reading-writing-listening/);
 });
 
 test("font size keeps level 1 unchanged and expands through level 6", () => {
