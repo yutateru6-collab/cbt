@@ -2,8 +2,10 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
 const test = require("node:test");
+const vm = require("node:vm");
 
 const appSource = fs.readFileSync(path.resolve(__dirname, "..", "app.js"), "utf8");
+const styleSource = fs.readFileSync(path.resolve(__dirname, "..", "styles.css"), "utf8");
 
 test("speaking flow includes all new spoken instructions and the common 650 ms gap", () => {
   for (const id of ["grade-introduction", "warmup-introduction", "card-introduction", "section-finish"]) {
@@ -44,4 +46,68 @@ test("listening exam and review modes use separate replay rules", () => {
   assert.ok(appSource.includes("canNavigateListening = appState.listeningReviewMode || isGrade2DeveloperMode"));
   assert.ok(appSource.includes('data-action="listen-review-open"'));
   assert.ok(appSource.includes("playListeningAudio({ force: appState.listeningReviewMode })"));
+});
+
+test("listening answer panel separates both parts into two-column sections", () => {
+  assert.match(appSource, /label: "第1部", questions: indexedQuestions\.slice\(0, 15\)/);
+  assert.match(appSource, /label: "第2部", questions: indexedQuestions\.slice\(15, 30\)/);
+  assert.match(styleSource, /\.listen-section-grid\s*\{[\s\S]*?grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)/);
+});
+
+test("Part 2 instruction is forced at the No.15 to No.16 boundary", () => {
+  assert.match(appSource, /currentSection === "part1" && nextSection === "part2"/);
+  assert.match(appSource, /delete appState\.listeningIntroducedSections\.part2/);
+  assert.match(appSource, /playGrade2ListeningInstruction\(question\)/);
+  assert.ok(appSource.includes('part2: `${GRADE2_SPEAKING_AUDIO_BASE}/instructions/listening-part2-ja.wav`'));
+});
+
+test("font size keeps level 1 unchanged and expands through level 6", () => {
+  assert.match(appSource, /const FONT_LEVEL_MAX = 6;/);
+  assert.match(appSource, /Math\.min\(FONT_LEVEL_MAX, \(Number\(appState\.fontLevel\) \|\| 1\) \+ 1\)/);
+  assert.match(appSource, /state\.fontLevel = Math\.min\(FONT_LEVEL_MAX, Math\.max\(1,/);
+  assert.match(styleSource, /\.app-shell\[data-font-level="6"\]\s*\{\s*--question-font-bump: 7\.5px;/);
+  assert.match(styleSource, /--question-font-bump: 0px;/);
+});
+
+test("writing uses a larger editor, a scrollable full view, and blocks clipboard insertion", () => {
+  assert.doesNotMatch(appSource, /data-action="(?:copy-writing|paste-demo)"/);
+  assert.doesNotMatch(appSource, /clipboardText/);
+  for (const eventName of ["copy", "cut", "paste", "dragover", "drop", "beforeinput", "keydown", "keyup"]) {
+    assert.ok(appSource.includes(`app.addEventListener("${eventName}"`));
+  }
+  for (const inlineEvent of ["oncopy", "oncut", "onpaste", "ondragover", "ondrop"]) {
+    assert.ok(appSource.includes(`${inlineEvent}="return false"`));
+  }
+  for (const inputType of ["insertFromPaste", "insertFromPasteAsQuotation", "insertFromDrop", "deleteByCut"]) {
+    assert.ok(appSource.includes(`"${inputType}"`));
+  }
+  assert.match(appSource, /\(event\.ctrlKey \|\| event\.metaKey\)[\s\S]+\["c", "x", "v"\]/);
+  assert.match(appSource, /event\.target\.value = blockedWritingEdit\?\.value \?\? appState\.writingAnswers\[id\]/);
+  assert.ok(appSource.includes('oninput="return guardWritingInlineInput(event)"'));
+  assert.match(styleSource, /\.writing-textarea\s*\{[\s\S]*?height: 340px;/);
+  assert.match(styleSource, /\.writing-full-scroll\s*\{[\s\S]*?overflow-y: auto;/);
+});
+
+test("Grade 2 Part 3B focuses paragraphs for No.27-30 and keeps No.31 and full view complete", () => {
+  assert.match(appSource, /hasExpectedQuestions[\s\S]+"27,28,29,30,31"/);
+  assert.match(appSource, /questionIndex >= 0 && questionIndex < 4/);
+  assert.match(appSource, /return \{ passage: \[passage\[questionIndex\]\], label: `第\$\{questionIndex \+ 1\}段落` \}/);
+  assert.match(appSource, /return \{ passage, label: "全文（第1〜4段落）" \}/);
+  assert.match(appSource, /function renderReadingFullView\(page\)[\s\S]+renderPassageCard\(page, "full-passage-card"\)/);
+});
+
+test("all six Grade 2 sets keep the four-paragraph, five-question Part 3B contract", () => {
+  const context = { window: {} };
+  vm.createContext(context);
+  for (const file of ["grade2-set-01.js", "grade2-vocab-sets.js"]) {
+    vm.runInContext(fs.readFileSync(path.resolve(__dirname, "..", file), "utf8"), context, { filename: file });
+  }
+  const sets = [context.window.scbtGrade2Set01, ...context.window.scbtGrade2VocabSets];
+  assert.equal(sets.length, 6);
+  for (const set of sets) {
+    const page = set.readingPages.find((item) => String(item.label).includes("3B"));
+    assert.ok(page, `${set.setId || set.key}: Part 3B missing`);
+    assert.equal(page.passage.length, 4, `${set.setId || set.key}: paragraph count`);
+    assert.deepEqual(Array.from(page.questions, (question) => question.id), [27, 28, 29, 30, 31], `${set.setId || set.key}: question ids`);
+  }
 });

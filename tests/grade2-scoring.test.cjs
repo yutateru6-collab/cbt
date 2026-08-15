@@ -96,6 +96,20 @@ test("回次違い・範囲外・小数・合計不一致を拒否する", () =>
   assert.match(mismatchResult.errors.join("\n"), /合計/);
 });
 
+test("必須採点項目の欠落を拒否する", () => {
+  const missingWriting = validPayload();
+  delete missingWriting.writing.summary;
+  const writingResult = scoring.validateGptScorePayload(missingWriting, "set-01");
+  assert.equal(writingResult.ok, false);
+  assert.match(writingResult.errors.join("\n"), /writing\.summary/);
+
+  const missingSpeaking = validPayload();
+  delete missingSpeaking.speaking;
+  const speakingResult = scoring.validateGptScorePayload(missingSpeaking, "set-01");
+  assert.equal(speakingResult.ok, false);
+  assert.match(speakingResult.errors.join("\n"), /speaking がありません/);
+});
+
 test("壊れたJSONを日本語エラーにする", () => {
   const result = scoring.parseAndValidateGptScore("```json\n{bad}\n```", "set-01");
   assert.equal(result.ok, false);

@@ -89,6 +89,7 @@ const GRADE2_LISTENING_AUDIO_GAINS = Object.freeze({
   "set-03": [0.8511, 0.8511, 0.8414, 0.8913, 0.871, 0.861, 0.881, 0.861, 0.8913, 0.861, 0.861, 0.8318, 0.881, 0.871, 0.871, 0.912, 0.8318, 0.8414, 0.861, 0.9441, 0.881, 0.7852, 0.8222, 0.9016, 0.8913, 1, 0.8913, 0.912, 0.9772, 0.9333],
 });
 const GRADE2_GRADING_GPT_URL = String(appConfig.gradingGptUrl || appConfig.speakingFeedbackGptUrl || "").trim();
+const FONT_LEVEL_MAX = 6;
 
 const appTitle = appConfig.title || `${selectedGradeLabel}CBT形式4技能トレーニング`;
 document.title = appTitle;
@@ -945,7 +946,6 @@ const defaultState = {
   grade2GptScoreMessage: "",
   grade2GptScores: null,
   reviewFilter: "all",
-  clipboardText: "",
   importOpen: false,
   importDraft: "",
   importMessage: "",
@@ -954,6 +954,7 @@ const defaultState = {
 };
 
 const appState = loadState();
+let blockedWritingEdit = null;
 normalizeGrade2RequestUrl();
 const speakingRecordingUrls = {};
 const GRADE2_SPEAKING_OUTPUT_VOICE_PREFERENCES = [
@@ -995,6 +996,14 @@ document.title = appTitle;
 app.addEventListener("click", handleClick);
 app.addEventListener("change", handleChange);
 app.addEventListener("input", handleInput);
+app.addEventListener("copy", blockWritingClipboardAction, true);
+app.addEventListener("cut", blockWritingClipboardAction, true);
+app.addEventListener("paste", blockWritingClipboardAction, true);
+app.addEventListener("dragover", blockWritingClipboardAction, true);
+app.addEventListener("drop", blockWritingClipboardAction, true);
+app.addEventListener("beforeinput", blockWritingBeforeInput, true);
+app.addEventListener("keydown", blockWritingClipboardShortcut, true);
+app.addEventListener("keyup", clearBlockedWritingEdit, true);
 
 function render() {
   const moduleInfo = modules[appState.module];
@@ -1126,7 +1135,7 @@ function renderModuleNavigation(label) {
 
   const flowOrder = ["speaking", "listening", "reading", "writing"].filter(isModuleAvailable);
   const currentIndex = Math.max(0, flowOrder.indexOf(appState.module));
-  const fontLevel = Math.min(5, Math.max(1, Number(appState.fontLevel) || 1));
+  const fontLevel = Math.min(FONT_LEVEL_MAX, Math.max(1, Number(appState.fontLevel) || 1));
 
   return `
     <nav class="module-picker exam-flow-picker" aria-label="${label}">
@@ -1144,12 +1153,12 @@ function renderModuleNavigation(label) {
       <button
         class="font-size-control"
         data-action="increase-font"
-        aria-label="問題文を大きくする（現在 ${fontLevel}/5）"
+        aria-label="問題文を大きくする（現在 ${fontLevel}/${FONT_LEVEL_MAX}）"
         title="問題文を大きくする"
-        ${fontLevel >= 5 ? "disabled" : ""}
+        ${fontLevel >= FONT_LEVEL_MAX ? "disabled" : ""}
       >
         <span class="font-size-symbol" aria-hidden="true">A＋</span>
-        <span class="font-size-step">${fontLevel}/5</span>
+        <span class="font-size-step">${fontLevel}/${FONT_LEVEL_MAX}</span>
       </button>
       <button class="module-tab reset-tab" data-action="reset-progress">進行リセット</button>
     </nav>
@@ -1310,7 +1319,7 @@ function renderImportPanel() {
 }
 
 function renderModuleTabs(label) {
-  const fontLevel = Math.min(5, Math.max(1, Number(appState.fontLevel) || 1));
+  const fontLevel = Math.min(FONT_LEVEL_MAX, Math.max(1, Number(appState.fontLevel) || 1));
   return `
     <nav class="module-picker" aria-label="${label}">
       ${Object.entries(modules)
@@ -1326,12 +1335,12 @@ function renderModuleTabs(label) {
       <button
         class="font-size-control"
         data-action="increase-font"
-        aria-label="問題文を大きくする（現在 ${fontLevel}/5）"
+        aria-label="問題文を大きくする（現在 ${fontLevel}/${FONT_LEVEL_MAX}）"
         title="問題文を大きくする"
-        ${fontLevel >= 5 ? "disabled" : ""}
+        ${fontLevel >= FONT_LEVEL_MAX ? "disabled" : ""}
       >
         <span class="font-size-symbol" aria-hidden="true">A＋</span>
-        <span class="font-size-step">${fontLevel}/5</span>
+        <span class="font-size-step">${fontLevel}/${FONT_LEVEL_MAX}</span>
       </button>
       <button class="module-tab reset-tab" data-action="reset-progress">進行リセット</button>
     </nav>
@@ -1536,11 +1545,13 @@ function stripLeadingQuestionNumber(text, id) {
 }
 
 function renderLongReadingPage(page, visibleQuestions = getVisibleReadingQuestions(page)) {
+  const passageView = getPart3BPassageView(page);
   return `
     <div class="long-layout">
       <section>
         ${renderToolRow()}
-        ${renderPassageCard(page)}
+        ${passageView.label ? `<div class="passage-range-label">${escapeHtml(passageView.label)}</div>` : ""}
+        ${renderPassageCard(page, "", passageView.passage)}
       </section>
       <section class="side-question">
         ${visibleQuestions.map(renderCompactChoiceQuestion).join("")}
@@ -1549,12 +1560,27 @@ function renderLongReadingPage(page, visibleQuestions = getVisibleReadingQuestio
   `;
 }
 
-function renderPassageCard(page, className = "") {
+function getPart3BPassageView(page) {
+  const passage = Array.isArray(page?.passage) ? page.passage : [];
+  const questions = Array.isArray(page?.questions) ? page.questions : [];
+  const hasExpectedQuestions = questions.map((question) => Number(question.id)).join(",") === "27,28,29,30,31";
+  if (!String(page?.label || "").includes("3B") || passage.length !== 4 || !hasExpectedQuestions) {
+    return { passage, label: "" };
+  }
+
+  const questionIndex = getCurrentReadingItemIndex(page);
+  if (questionIndex >= 0 && questionIndex < 4) {
+    return { passage: [passage[questionIndex]], label: `第${questionIndex + 1}段落` };
+  }
+  return { passage, label: "全文（第1〜4段落）" };
+}
+
+function renderPassageCard(page, className = "", passage = page.passage || []) {
   const extraClass = className ? ` ${className}` : "";
   return `
     <div class="passage-card${extraClass}">
       ${page.hidePassageTitle ? "" : `<strong>${escapeHtml(page.passageTitle || page.label || "長文")}</strong>`}
-      ${(page.passage || []).map((line) => (line ? `<p>${escapeHtml(line)}</p>` : "<br />")).join("")}
+      ${passage.map((line) => (line ? `<p>${escapeHtml(line)}</p>` : "<br />")).join("")}
     </div>
   `;
 }
@@ -1652,12 +1678,19 @@ function renderWriting() {
                 <span data-word-status class="word-status ${wordStatus.className}">${escapeHtml(wordStatus.label)}</span>
                 <strong data-word-count class="word-count ${wordStatus.className}">${wordStatus.count}語</strong>
               </div>
-              <textarea class="writing-textarea" data-writing-id="${task.id}">${escapeHtml(value)}</textarea>
+              <textarea
+                class="writing-textarea"
+                data-writing-id="${task.id}"
+                oncopy="return false"
+                oncut="return false"
+                onpaste="return false"
+                ondragover="return false"
+                ondrop="return false"
+                oninput="return guardWritingInlineInput(event)"
+              >${escapeHtml(value)}</textarea>
               ${task.fixedAfter ? `<p>${escapeHtml(task.fixedAfter)}</p>` : ""}
               ${renderWritingSelfCheck(task)}
               <div class="writing-actions">
-                <button class="small-action" data-action="copy-writing">コピー</button>
-                <button class="small-action" data-action="paste-demo">貼り付け</button>
                 <button class="small-action" data-action="show-full">全体参照</button>
                 ${renderReview(task.id, "あとで見直す")}
               </div>
@@ -2273,17 +2306,7 @@ function renderListening() {
         ${appState.listeningReviewMode ? `<button class="current-button" data-action="listen-review-close">復習を終了して結果へ戻る</button>` : ""}
         <button class="current-button" data-action="listen-current">再生中の問題を表示する</button>
         <div class="listen-list">
-          ${listeningQuestions
-            .map(
-              (item, index) => `
-                <div class="listen-list-row ${index === appState.listeningIndex ? "current" : ""}">
-                  ${canNavigateListening ? `<button class="listen-jump" data-action="listen-goto" data-page="${index}">No.${item.id}</button>` : `<span class="listen-jump listen-jump-static">No.${item.id}</span>`}
-                  <input class="listen-mark" type="checkbox" data-review-question="l-${item.id}" ${appState.reviews[`l-${item.id}`] ? "checked" : ""} />
-                  ${canNavigateListening ? `<button class="listen-box ${appState.answers.listening[item.id] ? "answered" : ""}" data-action="listen-goto" data-page="${index}">${appState.answers.listening[item.id] || ""}</button>` : `<span class="listen-box listen-box-static ${appState.answers.listening[item.id] ? "answered" : ""}">${appState.answers.listening[item.id] || ""}</span>`}
-                </div>
-              `,
-            )
-            .join("")}
+          ${renderListeningAnswerSections(canNavigateListening)}
         </div>
         <div class="volume-box">
           <strong>音量</strong>
@@ -2295,6 +2318,39 @@ function renderListening() {
         </div>
       </aside>
     </section>
+  `;
+}
+
+function renderListeningAnswerSections(canNavigateListening) {
+  const indexedQuestions = listeningQuestions.map((item, index) => ({ item, index }));
+  const sections = isGrade2SpeakingExperience && listeningQuestions.length === 30
+    ? [
+        { key: "part1", label: "第1部", questions: indexedQuestions.slice(0, 15) },
+        { key: "part2", label: "第2部", questions: indexedQuestions.slice(15, 30) },
+      ]
+    : [{ key: "all", label: "", questions: indexedQuestions }];
+
+  return sections
+    .map(
+      (section) => `
+        <section class="listen-section listen-section-${section.key}" ${section.label ? `aria-label="${section.label}"` : ""}>
+          ${section.label ? `<div class="listen-section-title">${section.label}</div>` : ""}
+          <div class="listen-section-grid">
+            ${section.questions.map(({ item, index }) => renderListeningListRow(item, index, canNavigateListening)).join("")}
+          </div>
+        </section>
+      `,
+    )
+    .join("");
+}
+
+function renderListeningListRow(item, index, canNavigateListening) {
+  return `
+    <div class="listen-list-row ${index === appState.listeningIndex ? "current" : ""}">
+      ${canNavigateListening ? `<button class="listen-jump" data-action="listen-goto" data-page="${index}">No.${item.id}</button>` : `<span class="listen-jump listen-jump-static">No.${item.id}</span>`}
+      <input class="listen-mark" type="checkbox" data-review-question="l-${item.id}" ${appState.reviews[`l-${item.id}`] ? "checked" : ""} />
+      ${canNavigateListening ? `<button class="listen-box ${appState.answers.listening[item.id] ? "answered" : ""}" data-action="listen-goto" data-page="${index}">${appState.answers.listening[item.id] || ""}</button>` : `<span class="listen-box listen-box-static ${appState.answers.listening[item.id] ? "answered" : ""}">${appState.answers.listening[item.id] || ""}</span>`}
+    </div>
   `;
 }
 
@@ -3542,14 +3598,16 @@ function renderModal() {
   if (appState.modal === "full") {
     const task = writingTasks[appState.writingTask] || writingTasks[0];
     return `
-      <div class="modal-backdrop">
-        <div class="full-modal">
+      <div class="modal-backdrop writing-full-backdrop">
+        <div class="full-modal writing-full-modal">
           <button class="modal-close" data-action="close-modal">×</button>
-          <div class="email-card">
-            ${task.sourceTitle ? `<strong>${escapeHtml(task.sourceTitle)}</strong>` : ""}
-            ${task.source.map((line) => `<p>${escapeHtml(line)}</p>`).join("")}
+          <div class="writing-full-scroll">
+            <div class="email-card">
+              ${task.sourceTitle ? `<strong>${escapeHtml(task.sourceTitle)}</strong>` : ""}
+              ${task.source.map((line) => `<p>${escapeHtml(line)}</p>`).join("")}
+            </div>
+            ${renderWritingPoints(task)}
           </div>
-          ${renderWritingPoints(task)}
         </div>
       </div>
     `;
@@ -4254,7 +4312,7 @@ async function handleClick(event) {
   } else if (action === "toggle-instruction") {
     appState.instructionOpen = !appState.instructionOpen;
   } else if (action === "increase-font") {
-    appState.fontLevel = Math.min(5, (Number(appState.fontLevel) || 1) + 1);
+    appState.fontLevel = Math.min(FONT_LEVEL_MAX, (Number(appState.fontLevel) || 1) + 1);
   } else if (action === "show-finish" || (action === "writing-next" && appState.writingTask === writingTasks.length - 1)) {
     appState.modal = "finish";
   } else if (action === "complete-exam") {
@@ -4302,14 +4360,6 @@ async function handleClick(event) {
     appState.writingTask = Number(target.dataset.page);
   } else if (action === "jump-written") {
     jumpToWrittenItem(Number(target.dataset.question));
-  } else if (action === "copy-writing") {
-    const task = writingTasks[appState.writingTask];
-    appState.clipboardText = appState.writingAnswers[task.id] || "";
-  } else if (action === "paste-demo") {
-    const task = writingTasks[appState.writingTask];
-    const current = appState.writingAnswers[task.id] || "";
-    const pasteText = appState.clipboardText || "I think this is a good idea because it can help many people.";
-    appState.writingAnswers[task.id] = [current.trim(), pasteText].filter(Boolean).join(" ");
   } else if (action === "listen-answer") {
     const questionId = Number(target.dataset.question);
     const value = Number(target.dataset.value);
@@ -4475,6 +4525,11 @@ function handleInput(event) {
 
   if (!event.target.matches("[data-writing-id]")) return;
   const id = Number(event.target.dataset.writingId);
+  if (blockedWritingEdit?.element === event.target || ["insertFromPaste", "insertFromPasteAsQuotation", "insertFromDrop", "deleteByCut"].includes(event.inputType)) {
+    event.target.value = blockedWritingEdit?.value ?? appState.writingAnswers[id] ?? "";
+    blockedWritingEdit = null;
+    return;
+  }
   appState.writingAnswers[id] = event.target.value;
   const task = writingTasks.find((item) => item.id === id);
   const wordStatus = getWordStatus(task || {}, event.target.value);
@@ -4493,6 +4548,42 @@ function handleInput(event) {
     wordRow.className = `word-row ${wordStatus.className}`;
   }
   saveState();
+}
+
+function blockWritingClipboardAction(event) {
+  if (!event.target.closest?.("[data-writing-id]")) return;
+  event.preventDefault();
+}
+
+function blockWritingBeforeInput(event) {
+  if (!event.target.closest?.("[data-writing-id]")) return;
+  if (["insertFromPaste", "insertFromPasteAsQuotation", "insertFromDrop", "deleteByCut"].includes(event.inputType)) {
+    event.preventDefault();
+  }
+}
+
+function guardWritingInlineInput(event) {
+  const id = Number(event.target.dataset.writingId);
+  if (blockedWritingEdit?.element !== event.target && !["insertFromPaste", "insertFromPasteAsQuotation", "insertFromDrop", "deleteByCut"].includes(event.inputType)) {
+    return true;
+  }
+  event.target.value = blockedWritingEdit?.value ?? appState.writingAnswers[id] ?? "";
+  blockedWritingEdit = null;
+  event.stopPropagation();
+  return false;
+}
+
+function blockWritingClipboardShortcut(event) {
+  if (!event.target.closest?.("[data-writing-id]")) return;
+  const key = String(event.key || "").toLowerCase();
+  if ((event.ctrlKey || event.metaKey) && ["c", "x", "v"].includes(key)) {
+    if (["x", "v"].includes(key)) blockedWritingEdit = { element: event.target, value: event.target.value };
+    event.preventDefault();
+  }
+}
+
+function clearBlockedWritingEdit(event) {
+  if (blockedWritingEdit?.element === event.target) blockedWritingEdit = null;
 }
 
 function jumpToWrittenItem(id) {
@@ -5282,7 +5373,7 @@ function normalizeState(state) {
     state.started = false;
   }
   if (isGrade2ContinuousExam && !state.started) state.module = defaultModule;
-  state.fontLevel = Math.min(5, Math.max(1, Number(state.fontLevel) || 1));
+  state.fontLevel = Math.min(FONT_LEVEL_MAX, Math.max(1, Number(state.fontLevel) || 1));
   state.readingPage = Math.min(Math.max(Number(state.readingPage) || 0, 0), readingPages.length - 1);
   state.readingItemIndex = Math.min(Math.max(Number(state.readingItemIndex) || 0, 0), getLastReadingItemIndex(readingPages[state.readingPage]));
   state.writingTask = Math.min(Math.max(Number(state.writingTask) || 0, 0), writingTasks.length - 1);
@@ -5452,6 +5543,11 @@ function tickTimers() {
         }
         appState.modal = "complete";
       } else {
+        const currentSection = getGrade2ListeningSectionKey(listeningQuestions[appState.listeningIndex]);
+        const nextSection = getGrade2ListeningSectionKey(listeningQuestions[appState.listeningIndex + 1]);
+        if (currentSection === "part1" && nextSection === "part2") {
+          delete appState.listeningIntroducedSections.part2;
+        }
         appState.listeningIndex += 1;
         appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
       }
