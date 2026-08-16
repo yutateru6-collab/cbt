@@ -57,6 +57,7 @@ const assetFiles = [
   "grade2-speaking-picture-story-set-05-v3.png",
   "lp-exam-room.png",
   "lp-home-practice.png",
+  "lp-juku-classroom.png",
   "lp-listening.png",
   "lp-parent-plan.png",
   "lp-product-rehearsal-illustration.png",
