@@ -1,4 +1,4 @@
-const CACHE_NAME = "cbt-grade2-app-shell-v74-listening-dev-preview";
+const CACHE_NAME = "cbt-grade2-app-shell-v75-listening-q5-q9-fix";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -16,6 +16,7 @@ const APP_SHELL = [
   "/grade2-vocab-sets.js",
   "/grade2-speaking-sets.js",
   "/grade2-listening-part2-sets.js",
+  "/grade2-listening-set01-audio-fixes.js",
   "/manifest.webmanifest",
   "/assets/app-icon.svg",
   "/assets/grade2-speaking-examiner-photo.png",
@@ -59,7 +60,12 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   const request = event.request;
   const url = new URL(request.url);
-  if (request.method !== "GET" || url.origin !== self.location.origin || url.pathname.startsWith("/assets/audio/")) return;
+  if (
+    request.method !== "GET" ||
+    url.origin !== self.location.origin ||
+    url.pathname.startsWith("/assets/audio/") ||
+    url.pathname.startsWith("/audio-r2/")
+  ) return;
 
   if (request.mode === "navigate") {
     event.respondWith(

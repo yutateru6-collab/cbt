@@ -1,3 +1,13 @@
+import {
+  GRADE2_LISTENING_FIX_RELEASE,
+  GRADE2_LISTENING_SOURCE_RELEASE,
+  fixGrade2Set01ListeningWav,
+} from "./listening-audio-fix.js";
+
+const FIXED_AUDIO_ROUTE_PREFIX = `/audio-r2/grade2/releases/${GRADE2_LISTENING_FIX_RELEASE}/`;
+const R2_KEY_PREFIX = "scbt/grade2/releases";
+const SET01_FIX_PATH = /^set-01\/listening\/part1\/No(05|06|07|08|09)\.wav$/;
+
 function rangeNotSatisfiable(headers, size) {
   headers.set("Accept-Ranges", "bytes");
   headers.set("Content-Range", `bytes */${size}`);
@@ -42,11 +52,134 @@ function parseSingleByteRange(value, size) {
   return { start, end };
 }
 
+function respondWithAudioBuffer(request, buffer, extraHeaders = {}) {
+  const size = buffer.byteLength;
+  const headers = new Headers(extraHeaders);
+  headers.set("Accept-Ranges", "bytes");
+  headers.set("Content-Type", "audio/wav");
+  headers.set("Cache-Control", "public, max-age=31536000, immutable");
+  const rangeHeader = request.headers.get("Range");
+  if (!rangeHeader) {
+    headers.set("Content-Length", String(size));
+    return new Response(request.method === "HEAD" ? null : buffer, {
+      status: 200,
+      headers,
+    });
+  }
+
+  const range = parseSingleByteRange(rangeHeader, size);
+  if (!range) return rangeNotSatisfiable(headers, size);
+  const body = buffer.slice(range.start, range.end + 1);
+  headers.set("Content-Range", `bytes ${range.start}-${range.end}/${size}`);
+  headers.set("Content-Length", String(body.byteLength));
+  return new Response(request.method === "HEAD" ? null : body, {
+    status: 206,
+    headers,
+  });
+}
+
+function getFixedListeningRequest(pathname) {
+  if (!pathname.startsWith(FIXED_AUDIO_ROUTE_PREFIX)) return null;
+  const relativePath = pathname.slice(FIXED_AUDIO_ROUTE_PREFIX.length);
+  const match = SET01_FIX_PATH.exec(relativePath);
+  if (!match) return { error: "Unsupported listening correction path." };
+  return {
+    relativePath,
+    questionId: Number(match[1]),
+    sourceKey: `${R2_KEY_PREFIX}/${GRADE2_LISTENING_SOURCE_RELEASE}/${relativePath}`,
+    targetKey: `${R2_KEY_PREFIX}/${GRADE2_LISTENING_FIX_RELEASE}/${relativePath}`,
+  };
+}
+
+async function backupCorrectedAudioIfNeeded(env, targetKey, buffer, questionId, fixName) {
+  if (!env.CBT_PROJECT_ARCHIVE) throw new Error("CBT_PROJECT_ARCHIVE R2 binding is unavailable");
+  const existing = await env.CBT_PROJECT_ARCHIVE.head(targetKey);
+  if (existing) return;
+  await env.CBT_PROJECT_ARCHIVE.put(targetKey, buffer, {
+    httpMetadata: {
+      contentType: "audio/wav",
+      cacheControl: "public, max-age=31536000, immutable",
+    },
+    customMetadata: {
+      sourceRelease: GRADE2_LISTENING_SOURCE_RELEASE,
+      fixRelease: GRADE2_LISTENING_FIX_RELEASE,
+      questionId: String(questionId),
+      fix: fixName,
+    },
+  });
+}
+
+async function loadOrCreateCorrectedListeningAudio(env, info) {
+  if (!env.MIMILISTEN_AUDIO) throw new Error("MIMILISTEN_AUDIO R2 binding is unavailable");
+  if (!env.CBT_PROJECT_ARCHIVE) throw new Error("CBT_PROJECT_ARCHIVE R2 binding is unavailable");
+
+  let targetObject = await env.MIMILISTEN_AUDIO.get(info.targetKey);
+  if (targetObject) {
+    const buffer = await targetObject.arrayBuffer();
+    await backupCorrectedAudioIfNeeded(
+      env,
+      info.targetKey,
+      buffer,
+      info.questionId,
+      targetObject.customMetadata?.fix || "verified-existing",
+    );
+    return { buffer, etag: targetObject.httpEtag || "" };
+  }
+
+  const sourceObject = await env.MIMILISTEN_AUDIO.get(info.sourceKey);
+  if (!sourceObject) throw new Error(`Source listening audio not found: ${info.sourceKey}`);
+  const sourceBuffer = await sourceObject.arrayBuffer();
+  const fixed = fixGrade2Set01ListeningWav(sourceBuffer, info.questionId);
+  if (info.questionId === 9 && !fixed.changed) {
+    throw new Error("No.9 intro pause was not confidently detected; refusing to publish an unchanged replacement");
+  }
+
+  const httpMetadata = {
+    contentType: "audio/wav",
+    cacheControl: "public, max-age=31536000, immutable",
+  };
+  const customMetadata = {
+    sourceRelease: GRADE2_LISTENING_SOURCE_RELEASE,
+    fixRelease: GRADE2_LISTENING_FIX_RELEASE,
+    questionId: String(info.questionId),
+    fix: fixed.fix,
+  };
+
+  await Promise.all([
+    env.MIMILISTEN_AUDIO.put(info.targetKey, fixed.buffer, { httpMetadata, customMetadata }),
+    env.CBT_PROJECT_ARCHIVE.put(info.targetKey, fixed.buffer, { httpMetadata, customMetadata }),
+  ]);
+  targetObject = await env.MIMILISTEN_AUDIO.head(info.targetKey);
+  return { buffer: fixed.buffer, etag: targetObject?.httpEtag || "" };
+}
+
+async function handleCorrectedListeningAudio(request, env, info) {
+  try {
+    const result = await loadOrCreateCorrectedListeningAudio(env, info);
+    return respondWithAudioBuffer(request, result.buffer, result.etag ? { ETag: result.etag } : {});
+  } catch (error) {
+    return new Response(`Listening audio correction unavailable: ${error instanceof Error ? error.message : "unknown error"}`, {
+      status: 503,
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Cache-Control": "no-store",
+      },
+    });
+  }
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    const isWav = url.pathname.startsWith("/assets/audio/") && url.pathname.endsWith(".wav");
     const isReadableMethod = request.method === "GET" || request.method === "HEAD";
+    const fixedListeningRequest = getFixedListeningRequest(url.pathname);
+    if (fixedListeningRequest) {
+      if (!isReadableMethod) return new Response("Method not allowed.", { status: 405 });
+      if (fixedListeningRequest.error) return new Response(fixedListeningRequest.error, { status: 404 });
+      return handleCorrectedListeningAudio(request, env, fixedListeningRequest);
+    }
+
+    const isWav = url.pathname.startsWith("/assets/audio/") && url.pathname.endsWith(".wav");
     if (!isWav || !isReadableMethod) {
       return env.ASSETS.fetch(request);
     }
