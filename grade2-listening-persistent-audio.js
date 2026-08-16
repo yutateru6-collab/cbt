@@ -8,6 +8,7 @@
 
   let persistentAudioGeneration = 0;
   let persistentAudioUrl = "";
+  let developerDirectPreviewQuestionId = null;
 
   function resolveListeningAudioUrl(url) {
     try {
@@ -46,6 +47,26 @@
     return generation === persistentAudioGeneration && listeningPlaybackQuestionId === questionId;
   }
 
+  function isDeveloperDirectPreview(question) {
+    return Boolean(
+      isGrade2DeveloperMode &&
+        question &&
+        developerDirectPreviewQuestionId !== null &&
+        String(question.id) === String(developerDirectPreviewQuestionId),
+    );
+  }
+
+  function finishDeveloperDirectPreview(question) {
+    if (!isDeveloperDirectPreview(question)) return false;
+    developerDirectPreviewQuestionId = null;
+    cancelListeningAnswerCountdown();
+    appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
+    listeningPlaybackPhase = "review-answer";
+    saveState();
+    updateListeningPlaybackUi();
+    return true;
+  }
+
   stopListeningPlayback = function stopListeningPlaybackWithPersistentAudio({ preserveCountdown = false } = {}) {
     const keepCountdown = preserveCountdown && isListeningAnswerCountdownActive();
     ++persistentAudioGeneration;
@@ -71,6 +92,12 @@
       listeningPlaybackQuestionId = null;
       listeningPlaybackPhase = "idle";
     }
+  };
+
+  const originalStartListeningAnswerCountdown = startListeningAnswerCountdown;
+  startListeningAnswerCountdown = function startListeningAnswerCountdownWithDeveloperPreview(question = listeningQuestions[appState.listeningIndex]) {
+    if (finishDeveloperDirectPreview(question)) return;
+    return originalStartListeningAnswerCountdown(question);
   };
 
   playGrade2ListeningInstruction = async function playGrade2ListeningInstructionWithPersistentAudio(question) {
@@ -128,21 +155,22 @@
   playListeningAudio = async function playListeningAudioWithPersistentElement({ force = false, skipInstruction = false } = {}) {
     const question = listeningQuestions[appState.listeningIndex];
     if (!question) return;
+    const directPreview = isDeveloperDirectPreview(question);
 
-    if (!force && !appState.listeningReviewMode && hasPlayedListeningQuestion(question.id)) {
+    if (!force && !directPreview && !appState.listeningReviewMode && hasPlayedListeningQuestion(question.id)) {
       listeningPlaybackPhase = "review-answer";
       updateListeningPlaybackUi();
       return;
     }
 
-    if (!skipInstruction && needsGrade2ListeningInstruction(question)) {
+    if (!skipInstruction && !directPreview && needsGrade2ListeningInstruction(question)) {
       await playGrade2ListeningInstruction(question);
       return;
     }
 
     // Keep the existing browser-speech fallback for data that has no audio file.
     if (!question.audioFile) {
-      await originalPlayListeningAudio({ force, skipInstruction: true });
+      await originalPlayListeningAudio({ force: force || directPreview, skipInstruction: true });
       return;
     }
 
@@ -155,7 +183,7 @@
 
     persistentListeningAudio.onplaying = () => {
       if (!isCurrentPersistentPlayback(generation, questionId)) return;
-      markListeningQuestionPlayed(questionId);
+      if (!directPreview) markListeningQuestionPlayed(questionId);
       listeningPlaybackPhase = "audio";
       updateListeningPlaybackUi();
     };
@@ -163,10 +191,13 @@
     persistentListeningAudio.onended = () => {
       if (!isCurrentPersistentPlayback(generation, questionId)) return;
       persistentListeningAudio.onended = null;
+      if (finishDeveloperDirectPreview(question)) {
+        return;
+      }
       if (appState.listeningReviewMode) {
         listeningPlaybackPhase = "review";
       } else {
-        startListeningAnswerCountdown(question);
+        originalStartListeningAnswerCountdown(question);
       }
       saveState();
       updateListeningPlaybackUi();
@@ -175,6 +206,7 @@
     persistentListeningAudio.onerror = () => {
       if (!isCurrentPersistentPlayback(generation, questionId)) return;
       persistentListeningAudio.onerror = null;
+      if (directPreview) developerDirectPreviewQuestionId = null;
       listeningPlaybackPhase = "error";
       updateListeningPlaybackUi();
     };
@@ -190,7 +222,46 @@
     }
   };
 
+  const originalMoveToDeveloperLocation = moveToDeveloperLocation;
+  moveToDeveloperLocation = function moveToDeveloperLocationWithListeningPreview(value) {
+    const parts = String(value || "").split(":");
+    if (isGrade2DeveloperMode && parts[0] === "listening") {
+      const index = Math.min(Math.max(Number(parts[1]) || 0, 0), Math.max(0, listeningQuestions.length - 1));
+      developerDirectPreviewQuestionId = listeningQuestions[index]?.id ?? null;
+    } else {
+      developerDirectPreviewQuestionId = null;
+    }
+    return originalMoveToDeveloperLocation(value);
+  };
+
+  replayListeningAudioForDeveloper = async function replayListeningAudioForDeveloperWithPersistentAudio() {
+    if (!isGrade2DeveloperMode) return;
+    const question = listeningQuestions[appState.listeningIndex];
+    if (!question?.audioFile && !question?.script) return;
+
+    developerDirectPreviewQuestionId = question.id;
+    stopListeningPlayback();
+    listeningPlaybackQuestionId = question.id;
+    resetListeningAnswerCountdown();
+    listeningPlaybackPhase = question.audioFile ? "audio" : "blocked";
+    await playListeningAudio({ force: true, skipInstruction: true });
+  };
+
   mountListeningAudio = function mountListeningAudioWithPersistentElement() {
+    const question = listeningQuestions[appState.listeningIndex];
+    if (
+      developerDirectPreviewQuestionId !== null &&
+      question &&
+      String(question.id) !== String(developerDirectPreviewQuestionId)
+    ) {
+      developerDirectPreviewQuestionId = null;
+    }
+
+    if (isDeveloperDirectPreview(question)) {
+      void playListeningAudio({ force: true, skipInstruction: true });
+      return;
+    }
+
     if (["answer", "review", "review-answer"].includes(listeningPlaybackPhase)) {
       updateListeningPlaybackUi();
       return;
