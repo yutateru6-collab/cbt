@@ -180,13 +180,6 @@
   function goPrevious() {
     if (state.questionIndex > 0) {
       selectQuestion(state.questionIndex - 1);
-      return;
-    }
-    const setIndex = SET_KEYS.indexOf(state.setKey);
-    if (setIndex > 0) {
-      state.setKey = SET_KEYS[setIndex - 1];
-      state.questionIndex = getQuestions().length - 1;
-      loadCurrentQuestion({ autoplay: true });
     }
   }
 
@@ -197,16 +190,8 @@
       return true;
     }
 
-    const setIndex = SET_KEYS.indexOf(state.setKey);
-    if (setIndex < SET_KEYS.length - 1) {
-      state.setKey = SET_KEYS[setIndex + 1];
-      state.questionIndex = 0;
-      loadCurrentQuestion({ autoplay: true });
-      return true;
-    }
-
     if (fromContinuous) {
-      setStatus("第3回 No.30まで再生しました。");
+      setStatus(`${SET_LABELS[state.setKey]} No.30まで再生しました。`);
     }
     return false;
   }
