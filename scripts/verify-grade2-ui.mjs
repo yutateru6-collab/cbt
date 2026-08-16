@@ -119,7 +119,7 @@ try {
       if (JSON.stringify(downloads.sort()) !== JSON.stringify(expectedFiles.sort())) {
         throw new Error(`Batch download mismatch: ${JSON.stringify(downloads)}`);
       }
-      await page.getByRole("button", { name: "ChatGPT採点用プロンプトをコピー" }).click();
+      await page.getByRole("button", { name: "スピーキング単体のAI振り返り用プロンプトをコピー" }).click();
       const copied = await page.evaluate(() => navigator.clipboard.readText());
       if (!copied.includes("各0〜5点、合計20点") || !copied.includes("聞き取れない箇所を推測して補わない")) {
         throw new Error("Speaking grading prompt copy is incomplete");

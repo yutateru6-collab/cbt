@@ -23,7 +23,7 @@ test("speaking completion offers the required paths and five semantic recordings
     "そのままリスニングへ進む（本番形式）",
     "一旦休憩する（練習用・本番には休憩なし）",
     "採点用5音声をまとめてダウンロード",
-    "ChatGPT採点用プロンプトをコピー",
+    "スピーキング単体のAI振り返り用プロンプトをコピー",
   ]) {
     assert.ok(appSource.includes(text));
   }
@@ -64,12 +64,12 @@ test("Part 2 instruction is forced at the No.15 to No.16 boundary", () => {
   assert.ok(appSource.includes('part2: `${GRADE2_SPEAKING_AUDIO_BASE}/instructions/listening-part2-ja.wav`'));
 });
 
-test("exam assets and both service workers share the v69 cache release", () => {
-  assert.match(examSource, /styles\.css\?v=grade2-reading-writing-listening-v69/);
-  assert.match(examSource, /app\.js\?v=grade2-reading-writing-listening-v69/);
-  assert.match(examSource, /sw-set02-v2\.js\?v=grade2-reading-writing-listening-v69/);
-  assert.match(serviceWorkerSource, /cbt-grade2-app-shell-v69-reading-writing-listening/);
-  assert.match(examServiceWorkerSource, /cbt-grade2-app-shell-v69-reading-writing-listening/);
+test("exam assets and both service workers share the v71 AI grading cache release", () => {
+  assert.match(examSource, /styles\.css\?v=grade2-reading-writing-listening-v71-ai-grading/);
+  assert.match(examSource, /app\.js\?v=grade2-reading-writing-listening-v71-ai-grading/);
+  assert.match(examSource, /sw-set02-v2\.js\?v=grade2-reading-writing-listening-v71-ai-grading/);
+  assert.match(serviceWorkerSource, /cbt-grade2-app-shell-v71-ai-grading/);
+  assert.match(examServiceWorkerSource, /cbt-grade2-app-shell-v71-ai-grading/);
 });
 
 test("font size keeps level 1 unchanged and expands through level 6", () => {

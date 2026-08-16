@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#263b4d" />
+    <meta name="referrer" content="no-referrer" />
     <meta
       name="description"
       content="英検2級 S-CBT直前リハーサル購入者向けのスピーキング・ライティング回答型、AI振り返り、直前学習特典です。"
     />
     <title>2級・購入者特典 | S-CBT直前リハーサル</title>
     <link rel="icon" href="./assets/app-icon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="./bonus.css?v=grade2-premium-v2" />
+    <link rel="stylesheet" href="./bonus.css?v=grade2-premium-v71-ai-grading" />
   </head>
   <body>
     <main class="bonus-shell">
@@ -27,6 +28,7 @@
             <span>ライティング回答型</span>
             <span>直前チェックPDF</span>
             <span>AI振り返り</span>
+            <span>外部AI採点</span>
             <span>7日・14日プラン</span>
           </div>
         </section>
@@ -35,6 +37,7 @@
           <a href="#start">使い方</a>
           <a href="#writing">ライティング</a>
           <a href="#speaking">スピーキング</a>
+          <a href="#ai-grading">AI採点</a>
           <a href="#ai-review">AI振り返り</a>
           <a href="#plan">直前プラン</a>
           <a href="#weakness">弱点別</a>
@@ -266,6 +269,26 @@
           </p>
         </section>
 
+        <section class="bonus-section ai-grading-section" id="ai-grading" aria-labelledby="ai-grading-title">
+          <div class="section-heading">
+            <span>外部AI採点</span>
+            <h2 id="ai-grading-title">普段使っているAIで、Writing・Speakingを採点する。</h2>
+            <p>模試の結果画面で採点データをコピーし、Read AloudとNo.1〜4の5音声を保存します。利用するAIへ自分で貼り付け・アップロードし、返ってきたJSONを元のCBT結果画面へ戻してください。</p>
+          </div>
+          <ol class="ai-grading-steps" aria-label="外部AI採点の手順">
+            <li><span>1</span><strong>採点データをコピー</strong><p>Writingの問題・答案と採点基準を結果画面からコピーします。</p></li>
+            <li><span>2</span><strong>5音声を保存</strong><p>Read AloudとNo.1〜4を、採点対象として保存します。</p></li>
+            <li><span>3</span><strong>普段使うAIで採点</strong><p>データを貼り付け、5音声を自分でアップロードします。</p></li>
+            <li><span>4</span><strong>JSONをCBTへ戻す</strong><p>AIの回答末尾にあるJSONを、結果画面へ貼り付けます。</p></li>
+          </ol>
+          <div class="ai-grading-notice">
+            <p><strong>答案や録音は、このCBTアプリから外部AIへ自動送信されません。</strong></p>
+            <p>利用者自身が選んだAIへ手動で貼り付け・アップロードします。実名、学校名、その他の個人情報は入力しないでください。</p>
+            <p>採点は学習用の参考評価であり、英検の公式採点・公式CSE・公式合否ではありません。</p>
+          </div>
+          <button class="bonus-button primary" type="button" data-action="open-ai-provider-dialog">普段使っているAIを選ぶ</button>
+        </section>
+
         <section class="bonus-section" id="ai-review" aria-labelledby="ai-title">
           <div class="section-heading">
             <span>AI振り返りプロンプト</span>
@@ -351,6 +374,24 @@
         </section>
       </div>
 
+      <dialog class="ai-grading-dialog" data-ai-grading-dialog aria-labelledby="ai-grading-dialog-title" aria-describedby="ai-grading-dialog-description">
+        <div class="ai-grading-dialog-head">
+          <div>
+            <span>外部AI採点</span>
+            <h2 id="ai-grading-dialog-title">普段使っているAIを選ぶ</h2>
+          </div>
+          <button class="ai-provider-dialog-close" type="button" data-action="close-ai-grading" aria-label="AI選択を閉じる">×</button>
+        </div>
+        <p id="ai-grading-dialog-description">コピーした採点データを貼り付け、Read AloudとNo.1〜4の5音声を追加してください。選択したAIは、このプレミアム特典ページと同じタブで開きます。</p>
+        <div class="ai-provider-list" aria-label="外部AIの選択肢">
+          <button type="button" data-action="open-external-ai" data-ai-provider="chatgpt"><span class="ai-provider-mark" aria-hidden="true">C</span><span><strong>ChatGPT</strong><small>公式Web版を開く</small></span></button>
+          <button type="button" data-action="open-external-ai" data-ai-provider="gemini"><span class="ai-provider-mark" aria-hidden="true">G</span><span><strong>Gemini</strong><small>公式Web版を開く</small></span></button>
+          <button type="button" data-action="open-external-ai" data-ai-provider="claude"><span class="ai-provider-mark" aria-hidden="true">C</span><span><strong>Claude</strong><small>公式Web版を開く</small></span></button>
+          <button type="button" data-action="open-external-ai" data-ai-provider="perplexity"><span class="ai-provider-mark" aria-hidden="true">P</span><span><strong>Perplexity</strong><small>公式Web版を開く</small></span></button>
+        </div>
+        <p class="ai-grading-dialog-note">音声ファイルを直接解析できるかどうかは、サービス、モデル、プラン、ファイル形式によって異なります。音声を確認できないAIには、発音・流暢さの点数を推測させないでください。</p>
+      </dialog>
+
       <section class="locked-card" data-bonus-locked>
         <span class="eyebrow">購入者特典</span>
         <h1>購入プランから特典を開いてください。</h1>
@@ -367,6 +408,6 @@
       </nav>
       <p>運営: Memora Apps　<a href="mailto:info@memora-apps.com">info@memora-apps.com</a></p>
     </footer>
-    <script src="./grade2-premium-bonus.js?v=grade2-three-premium-v2"></script>
+    <script src="./grade2-premium-bonus.js?v=grade2-three-premium-v71-ai-grading"></script>
   </body>
 </html>

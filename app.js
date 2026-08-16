@@ -89,6 +89,7 @@ const GRADE2_LISTENING_AUDIO_GAINS = Object.freeze({
   "set-03": [0.8511, 0.8511, 0.8414, 0.8913, 0.871, 0.861, 0.881, 0.861, 0.8913, 0.861, 0.861, 0.8318, 0.881, 0.871, 0.871, 0.912, 0.8318, 0.8414, 0.861, 0.9441, 0.881, 0.7852, 0.8222, 0.9016, 0.8913, 1, 0.8913, 0.912, 0.9772, 0.9333],
 });
 const GRADE2_GRADING_GPT_URL = String(appConfig.gradingGptUrl || appConfig.speakingFeedbackGptUrl || "").trim();
+const GRADE2_EXTERNAL_AI_GRADING_URL = "./bonus.html?plan=three#ai-grading";
 const FONT_LEVEL_MAX = 6;
 
 const appTitle = appConfig.title || `${selectedGradeLabel}CBT形式4技能トレーニング`;
@@ -1068,9 +1069,9 @@ function renderAccessPlanNotice() {
   const planAccessText = isPre1FivePack
     ? "第1回〜第5回の演習・解説・スピーキング練習と、準1級専用の特典を利用できます。"
     : accessText;
-  const grade2BonusLabel = "ライティング・スピーキング回答型・録音採点GPT連携・AI振り返り・直前プラン";
+  const grade2BonusLabel = "ライティング・スピーキング回答型・外部AI採点連携・AI振り返り・直前プラン";
   const bonusLink = canViewBonus && selectedGrade === "grade2"
-    ? `<a class="access-plan-link" href="./bonus.html?plan=${encodeURIComponent(selectedAccessPlan.key)}">特典を開く（${grade2BonusLabel}）</a>`
+    ? `<a class="access-plan-link" href="./bonus.html?plan=${encodeURIComponent(selectedAccessPlan.key)}" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">特典を開く（${grade2BonusLabel}）</a>`
     : "";
   const developerLink = selectedGrade === "grade2"
     ? `<a class="developer-entry-link" href="./exam.html?plan=three&set=set-01&dev=1&module=speaking&speakingStep=0&start=1&fresh=1">開発者用確認</a>`
@@ -2755,9 +2756,10 @@ function renderGrade2SpeakingReviewV2() {
       <button class="start-button compact" data-action="grade2-speaking-continue">そのままリスニングへ進む（本番形式）</button>
       <button class="small-action" data-action="grade2-speaking-break">一旦休憩する（練習用・本番には休憩なし）</button>
       <button class="small-action" data-action="grade2-speaking-download-all" ${missingLabels.length ? "disabled" : ""}>採点用5音声をまとめてダウンロード</button>
-      <button class="small-action" data-action="grade2-speaking-copy-grading-prompt">ChatGPT採点用プロンプトをコピー</button>
+      <button class="small-action" data-action="grade2-speaking-copy-grading-prompt">スピーキング単体のAI振り返り用プロンプトをコピー</button>
     </div>
     <p class="speaking-download-note">保存先はブラウザ標準のダウンロード先（通常はWindowsの「ダウンロード」）です。複数ダウンロードが拒否された場合は、下の個別ボタンを使用してください。</p>
+    <p class="speaking-download-note">このプロンプトはスピーキング単体の振り返り用です。最終的なWriting・Speaking採点JSONは、4技能終了後の結果画面から作成します。</p>
     <div class="speaking-review-list compact-list">
       ${scoredSteps
         .map(({ step, index }) => {
@@ -2878,7 +2880,7 @@ function renderGrade2SpeakingFeedbackBenefit() {
       <div>
         <span class="speaking-feedback-kicker">3回プレミアム特典</span>
         <h4>録音はこの端末内に保存されています</h4>
-        <p>Read AloudとNo.1〜4の「ダウンロード」から音声を保存し、上の採点パネルでコピーしたデータと一緒に採点GPTへアップロードしてください。マイクテストとWarm-upは採点対象外です。</p>
+        <p>Read AloudとNo.1〜4の「ダウンロード」から音声を保存し、上の採点パネルでコピーしたデータと一緒に利用する外部AIへ手動でアップロードしてください。マイクテストとWarm-upは採点対象外です。</p>
         <p class="speaking-feedback-note">採点は学習用の目安です。英検の公式採点・合否判定ではありません。</p>
       </div>
     </aside>
@@ -2886,12 +2888,36 @@ function renderGrade2SpeakingFeedbackBenefit() {
 }
 
 function getGrade2GradingPackageText() {
-  const speakingScoreIds = new Set(["read-aloud", "no-1", "no-2", "no-3", "no-4"]);
+  const speaking = getGrade2ScoredSpeakingSteps().map(({ step, index: stepIndex }, order) => {
+      const recording = appState.speakingRecordings[stepIndex] || null;
+      const pictureStory = step.pictureStory
+        ? {
+            imageAlt: step.pictureStory.imageAlt || "",
+            openingSentence: step.pictureStory.openingSentence || "",
+            firstSpeech: step.pictureStory.firstSpeech || "",
+            firstSpeechSpeaker: step.pictureStory.firstSpeechSpeaker || "",
+            firstTimeLabel: step.pictureStory.firstTimeLabel || "",
+            secondTimeLabel: step.pictureStory.secondTimeLabel || "",
+          }
+        : null;
+      return {
+        order: order + 1,
+        stepIndex,
+        id: step.id,
+        label: step.label,
+        expectedRecordingFileName: buildSpeakingRecordingFileName(stepIndex, recording?.type || "audio/webm"),
+        recordingPresent: Boolean(recording),
+        prompt: step.questionText || step.promptSpeech || step.prompt || "",
+        passage: step.cardText || "",
+        pictureStory,
+        modelAnswerForComparison: step.modelAnswer || "",
+      };
+    });
   const gradingPackage = {
     schema: "scbt-grade2-grading-input-v1",
     setKey: selectedSet.key,
     setLabel: selectedSetLabel,
-    notice: "学習用の参考採点です。英検公式スコア・公式合否ではありません。模範解答は完全一致を求める正解ではなく、比較用の解答例です。",
+    notice: "英検2級S-CBT対策の学習用採点です。英検の公式採点、公式CSE、公式合否ではありません。CSE点や合否はAI自身が生成しません。模範解答は完全一致を求める正解ではなく、比較用の解答例です。",
     writingRubric: {
       summary: { content: "0〜4", organization: "0〜4", vocabulary: "0〜4", grammar: "0〜4", maximum: 16 },
       essay: { content: "0〜4", organization: "0〜4", vocabulary: "0〜4", grammar: "0〜4", maximum: 16 },
@@ -2916,18 +2942,7 @@ function getGrade2GradingPackageText() {
       candidateAnswer: appState.writingAnswers[task.id] || "",
       modelAnswerForComparison: task.modelAnswer || "",
     })),
-    speaking: speakingSteps
-      .filter((step) => speakingScoreIds.has(step.id))
-      .map((step, index) => ({
-        order: index + 1,
-        id: step.id,
-        label: step.label,
-        prompt: step.questionText || step.promptSpeech || step.prompt || "",
-        passage: step.cardText || "",
-        pictureStory: step.pictureStory || null,
-        modelAnswerForComparison: step.modelAnswer || "",
-        recording: "この項目に対応する音声ファイルを利用者が別途アップロードします。",
-      })),
+    speaking,
     requiredOutput: {
       explanation: "各課題・各観点の根拠、良かった点、優先改善点、改善例を日本語で説明する。",
       json: {
@@ -2948,28 +2963,113 @@ function getGrade2GradingPackageText() {
       },
     },
   };
-  return `以下は英検2級S-CBTの学習用採点データです。完成Instructionsに従って診断し、説明の最後にrequiredOutput.jsonと同じ構造の採点JSONを必ず返してください。\n\n${JSON.stringify(gradingPackage, null, 2)}`;
+  return [
+    "あなたは英検2級S-CBT対策の学習用Writing・Speaking採点者です。これは学習用の参考評価であり、英検の公式採点・公式CSE・公式合否ではありません。CSE点や合否をAI自身が生成してはいけません。",
+    "",
+    "【入力確認】",
+    "- setKey、Writingの要約と英作文の問題・答案・比較用模範解答、Speakingの5音声がそろっているか確認してください。",
+    "- 必要な答案・音声が不足している場合、架空の点数や0点の完成JSONを出さず、不足内容を先に説明してください。",
+    "- 音声を直接確認できない場合、発音・流暢さを文字起こしだけから推測しないでください。聞き取れない内容も推測せず、判定困難と明記してください。",
+    "- 模範解答は完全一致を求める正解ではなく、比較用です。問題の要求を満たす別の内容・構成・表現も正当に評価してください。",
+    "",
+    "【Speaking音声と設問の対応】",
+    "採点対象はRead Aloud、No.1、No.2、No.3、No.4の5音声だけです。マイクテストとWarm-upは除外してください。アップロードされた各音声をexpectedRecordingFileNameと照合してください。対応を判断できない音声を別問題の回答として採点しないでください。不足・重複・不明なファイルがある場合は、その事実を先に示してください。",
+    JSON.stringify(speaking, null, 2),
+    "",
+    "【Writing採点】",
+    "Writingは要約と英作文を別々に採点してください。contentは課題への応答・必要情報・主張や理由、organizationは論理展開と文のつながり、vocabularyは語彙の適切さと幅、grammarは文法構造の正確さと幅を評価します。各課題はcontent、organization、vocabulary、grammarを各0〜4の整数、totalを4観点の整数合計0〜16とします。2課題合計writing.totalは0〜32で、要約と英作文のtotalの算術合計にしてください。未入力答案や必要情報が不足している答案は架空の点数を出さず、不足を説明してください。語数条件、課題への応答、必要情報、主張・理由、論理展開、語彙、語法、文法を根拠にしてください。",
+    "",
+    "【Speaking採点】",
+    "5音声を対応づけたうえで、taskResponseは質問・指示への応答、contentAndInformationは説明・理由・情報量、pronunciationAndFluencyは聞き取りやすさ・発音・リズム・流暢さ、vocabularyAndGrammarは語彙・文法の適切さと正確さを評価します。4観点を各0〜5の整数、speaking.totalを4観点の整数合計0〜20とします。発音評価では特定の母語アクセントそのものを減点理由にせず、意味の伝達、聞き取りやすさ、語・文の区切り、強勢、速度、沈黙を評価してください。音声を聞けない場合は発音・流暢さを推測しないでください。",
+    "",
+    "【説明の出力順】",
+    "総評、Writing要約の診断、Writing英作文の診断、Speakingの設問別診断、次回までの優先練習3項目の順に日本語で説明してください。各Writing課題は4観点の点数と本文上の根拠、良かった点を最低2点、最優先の改善点を1〜2点、元の答案を生かした改善例、語数条件の影響を示してください。Speakingは5音声それぞれの短い診断、4観点の点数と録音上の根拠、良かった点を最低2点、最優先の改善点を1〜2点、無理なく言える改善例を示してください。",
+    "",
+    JSON.stringify(gradingPackage, null, 2),
+    "",
+    "【固定JSONの出力】",
+    "説明の最後に、下のrequiredOutput.jsonとキー構造を完全一致させたJSONコードブロックを1つだけ出してください。schemaを変更せず、setKeyを入力データと完全一致させ、小数・文字列の点数・分数・単位・コメント・CSE・合否を入れないでください。すべて整数とし、各totalを算術合計と一致させてください。下のJSONの0は形式見本であり、実際の確定した採点点数へ置き換えてください。入力不足、音声を直接確認できない、または点数が確定していない場合は、点数を推測せず不足を説明してJSONを出さないでください。JSONコードブロックの前後に別のJSONや説明を置かず、JSONの後には何も書かないでください。",
+    "```json",
+    JSON.stringify(gradingPackage.requiredOutput.json, null, 2),
+    "```",
+  ].join("\n");
+}
+
+const GRADE2_JSON_OUTPUT_PROMPT_TEMPLATE = `直前に行った英検2級S-CBTの学習用採点について、点数や評価内容を変更せず、CBTアプリへ取り込むためのJSONだけを再出力してください。
+
+【絶対条件】
+- 元の採点データの回次は「{{SET_KEY}}」です。setKeyを必ずこれと完全一致させてください。
+- schemaは "scbt-grade2-gpt-score-v1" と完全一致させてください。
+- 直前の採点で確定した点数を使い、採点し直さないでください。
+- Writing要約と英作文は、content、organization、vocabulary、grammarを各0〜4の整数にしてください。
+- Writing各課題のtotalは4観点の算術合計で、0〜16にしてください。
+- writing.totalは要約と英作文の合計で、0〜32にしてください。
+- Speakingは、taskResponse、contentAndInformation、pronunciationAndFluency、vocabularyAndGrammarを各0〜5の整数にしてください。
+- speaking.totalは4観点の算術合計で、0〜20にしてください。
+- 小数、文字列、分数、単位、コメントを入れないでください。
+- CSE、合否、公式スコアを入れないでください。
+- JSONコードブロックを1つだけ出し、その前後に説明文や別のJSONを置かないでください。
+- 下の0は形式見本です。直前の採点で確定した点数へ必ず置き換えてください。
+- 直前の採点結果が不足している場合、必要な音声を直接確認できていない場合、または点数が確定していない場合は、点数を推測せず、不足を説明してJSONを出さないでください。
+
+{
+  "schema": "scbt-grade2-gpt-score-v1",
+  "setKey": "{{SET_KEY}}",
+  "writing": {
+    "summary": {
+      "content": 0,
+      "organization": 0,
+      "vocabulary": 0,
+      "grammar": 0,
+      "total": 0
+    },
+    "essay": {
+      "content": 0,
+      "organization": 0,
+      "vocabulary": 0,
+      "grammar": 0,
+      "total": 0
+    },
+    "total": 0
+  },
+  "speaking": {
+    "taskResponse": 0,
+    "contentAndInformation": 0,
+    "pronunciationAndFluency": 0,
+    "vocabularyAndGrammar": 0,
+    "total": 0
+  }
+}`;
+
+function getGrade2JsonOutputPrompt() {
+  return GRADE2_JSON_OUTPUT_PROMPT_TEMPLATE.split("{{SET_KEY}}").join(selectedSet.key);
 }
 
 async function copyTextToClipboard(text) {
   try {
     await navigator.clipboard.writeText(text);
+    return true;
   } catch {
-    const textarea = document.createElement("textarea");
-    textarea.value = text;
-    textarea.setAttribute("readonly", "");
-    textarea.style.position = "fixed";
-    textarea.style.opacity = "0";
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand("copy");
-    textarea.remove();
+    try {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      textarea.select();
+      const copied = document.execCommand ? document.execCommand("copy") : false;
+      textarea.remove();
+      return copied;
+    } catch {
+      return false;
+    }
   }
 }
 
 async function copyGrade2GradingPackage(button) {
-  await copyTextToClipboard(getGrade2GradingPackageText());
-  if (button) button.textContent = "採点データをコピーしました";
+  const copied = await copyTextToClipboard(getGrade2GradingPackageText());
+  if (button) button.textContent = copied ? "採点データをコピーしました" : "コピーできませんでした。文章を選択してください";
 }
 
 function mountGrade2SpeakingStep() {
@@ -3038,8 +3138,10 @@ async function handleGrade2SpeakingAction(action, target) {
   }
 
   if (action === "grade2-speaking-copy-grading-prompt") {
-    await copyTextToClipboard(getGrade2SpeakingGradingPrompt());
-    appState.speakingRecordMessage = "ChatGPT採点用プロンプトをコピーしました。5つの音声と一緒に貼り付けてください。";
+    const copied = await copyTextToClipboard(getGrade2SpeakingGradingPrompt());
+    appState.speakingRecordMessage = copied
+      ? "スピーキング単体のAI振り返り用プロンプトをコピーしました。5つの音声と一緒に貼り付けてください。最終JSONは4技能終了後の結果画面で作成します。"
+      : "コピーできませんでした。文章を選択してコピーしてください。";
     saveState();
     render();
     return;
@@ -3682,10 +3784,10 @@ function renderGrade2ScoreResult(summary) {
         <article class="result-card primary-score"><span>1. Reading 素点</span><strong>${summary.reading.correct}/${summary.reading.total}</strong><small>未解答 ${summary.reading.unanswered} 問</small></article>
         <article class="result-card primary-score"><span>2. Listening 素点</span><strong>${summary.listening.correct}/${summary.listening.total}</strong><small>未解答 ${summary.listening.unanswered} 問</small></article>
         <article class="result-card combined-score"><span>3. Reading＋Listening</span><strong>${scoreView.readingListening.raw}/${scoreView.readingListening.maximum}</strong><small>選択式の合計素点</small></article>
-        <article class="result-card ${gptScores ? "gpt-scored" : "gpt-pending"}"><span>4. Writing</span><strong>${gptScores ? `${gptScores.writing.total}/32` : "GPT採点待ち"}</strong><small>${gptScores ? `要約 ${gptScores.writing.summary.total}/16・英作文 ${gptScores.writing.essay.total}/16` : "採点JSONを下へ貼り付け"}</small></article>
-        <article class="result-card ${gptScores ? "gpt-scored" : "gpt-pending"}"><span>5. Speaking</span><strong>${gptScores ? `${gptScores.speaking.total}/20` : "GPT採点待ち"}</strong><small>${gptScores ? "学習用4観点の素点" : "Read Aloud・No.1〜4を採点"}</small></article>
+        <article class="result-card ${gptScores ? "gpt-scored" : "gpt-pending"}"><span>4. Writing</span><strong>${gptScores ? `${gptScores.writing.total}/32` : "AI採点待ち"}</strong><small>${gptScores ? `要約 ${gptScores.writing.summary.total}/16・英作文 ${gptScores.writing.essay.total}/16` : "採点JSONを下へ貼り付け"}</small></article>
+        <article class="result-card ${gptScores ? "gpt-scored" : "gpt-pending"}"><span>5. Speaking</span><strong>${gptScores ? `${gptScores.speaking.total}/20` : "AI採点待ち"}</strong><small>${gptScores ? "学習用4観点の素点" : "Read Aloud・No.1〜4を採点"}</small></article>
       </div>
-      ${gptScores ? renderGrade2CseRanges(scoreView) : `<p class="score-pending-note">WritingとSpeakingのGPT採点JSONを取り込むと、4技能の練習用CSEレンジと合格レベル目安を表示します。</p>`}
+      ${gptScores ? renderGrade2CseRanges(scoreView) : `<p class="score-pending-note">WritingとSpeakingのAI採点JSONを取り込むと、4技能の練習用CSEレンジと合格レベル目安を表示します。</p>`}
     </section>
     ${renderGrade2GptPanel(gptScores)}
     <div class="result-review-actions">
@@ -3720,32 +3822,41 @@ function renderGrade2CseRanges(scoreView) {
 
 function renderGrade2GptPanel(gptScores) {
   const messageClass = appState.grade2GptScoreMessage.includes("取り込みました") ? "success" : "error";
+  const dedicatedAiAction = GRADE2_GRADING_GPT_URL
+    ? `<a class="small-action" href="${escapeHtml(GRADE2_GRADING_GPT_URL)}" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">専用採点AIを開く</a>`
+    : `<span class="speaking-feedback-pending">${canViewBonus ? "専用採点AIは未設定です。下の外部AI選択をご利用ください。" : "専用採点AIは現在設定されていません。"}</span>`;
+  const premiumActions = `
+        ${dedicatedAiAction}
+        ${
+          canViewBonus
+            ? `
+        <button class="small-action" data-action="copy-grade2-grading-data">採点データをコピー</button>
+        <a class="small-action" href="${GRADE2_EXTERNAL_AI_GRADING_URL}" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">普段使っているAIを選ぶ</a>
+        <button class="small-action" data-action="copy-grade2-json-output-prompt">JSONが出なかったときの指示をコピー</button>
+      `
+            : `<p class="speaking-feedback-pending">外部AI採点は3回プレミアム・5回プレミアムで利用できます。</p>`
+        }
+      `;
   return `
-    <section class="grade2-gpt-panel" aria-label="GPT採点連携">
+    <section class="grade2-gpt-panel" aria-label="外部AI採点連携">
       <div class="grade2-gpt-head">
-        <div><span>3回プレミアム</span><h2>Writing・Speaking 採点GPT連携</h2></div>
-        ${gptScores ? `<strong class="gpt-imported-badge">採点JSON取込済み</strong>` : `<strong class="gpt-pending-badge">GPT採点待ち</strong>`}
+        <div><span>3回プレミアム</span><h2>Writing・Speaking 外部AI採点</h2></div>
+        ${gptScores ? `<strong class="gpt-imported-badge">採点JSON取込済み</strong>` : `<strong class="gpt-pending-badge">AI採点待ち</strong>`}
       </div>
       <ol class="gpt-grading-steps">
         <li>「採点データをコピー」でWriting問題・答案・比較用解答例・Speaking質問・採点基準をコピーします。</li>
-        <li>Read AloudとNo.1〜4の録音を下の復習欄から保存し、採点GPTへ手動でアップロードします。マイクテストとWarm-upは対象外です。</li>
-        <li>GPTが返した説明の末尾にあるJSONを、コードブロックごと下へ貼り付けます。</li>
+        <li>Read AloudとNo.1〜4の録音を下の復習欄から保存し、利用するAIへ手動でアップロードします。マイクテストとWarm-upは対象外です。</li>
+        <li>AIが返した説明の末尾にあるJSONを、コードブロックごと下へ貼り付けます。結果画面は閉じずに残してください。</li>
       </ol>
-      <div class="grade2-gpt-actions">
-        <button class="small-action" data-action="copy-grade2-grading-data">採点データをコピー</button>
-        ${
-          GRADE2_GRADING_GPT_URL
-            ? `<a class="small-action" href="${escapeHtml(GRADE2_GRADING_GPT_URL)}" target="_blank" rel="noopener">採点GPTを開く</a>`
-            : `<span class="speaking-feedback-pending">採点GPTは準備中です（gradingGptUrl未設定）。コピーしたデータは保存できます。</span>`
-        }
-      </div>
+      <div class="grade2-gpt-actions">${premiumActions}</div>
+      ${canViewBonus ? `<p class="gpt-keep-open-note">この結果画面は閉じずに残してください。AIでJSONをコピーしたら、このタブへ戻して貼り付けます。</p>` : ""}
       <label class="gpt-json-input">
-        <span>GPTの採点結果JSON</span>
-        <textarea data-grade2-gpt-score-draft spellcheck="false" placeholder="説明文やJSONコードブロックを含むGPTの回答を、そのまま貼り付けてください。">${escapeHtml(appState.grade2GptScoreDraft)}</textarea>
+        <span>AIの採点結果JSON</span>
+        <textarea data-grade2-gpt-score-draft spellcheck="false" placeholder="説明文やJSONコードブロックを含むAIの回答を、そのまま貼り付けてください。">${escapeHtml(appState.grade2GptScoreDraft)}</textarea>
       </label>
       <button class="start-button compact" data-action="import-grade2-gpt-score">採点JSONを取り込む</button>
       ${appState.grade2GptScoreMessage ? `<div class="grading-message ${messageClass}">${escapeHtml(appState.grade2GptScoreMessage)}</div>` : ""}
-      <p class="gpt-model-note">模範解答は完全一致を要求する正解ではなく、内容・構成・表現を比較するための解答例です。貼り戻した素点からCSE目安を再計算し、GPT独自のCSE判断は使いません。</p>
+      <p class="gpt-model-note">模範解答は完全一致を要求する正解ではなく、内容・構成・表現を比較するための解答例です。貼り戻した素点からCSE目安を再計算し、AI独自のCSE判断は使いません。</p>
     </section>
   `;
 }
@@ -4298,6 +4409,10 @@ async function handleClick(event) {
     appState.reviewFilter = target.dataset.filter || "all";
   } else if (action === "copy-grade2-grading-data" || action === "copy-speaking-feedback-prompt") {
     await copyGrade2GradingPackage(target);
+    return;
+  } else if (action === "copy-grade2-json-output-prompt") {
+    const copied = await copyTextToClipboard(getGrade2JsonOutputPrompt());
+    target.textContent = copied ? "JSON再出力の指示をコピーしました" : "コピーできませんでした。文章を選択してください";
     return;
   } else if (action === "import-grade2-gpt-score") {
     importGrade2GptScore();

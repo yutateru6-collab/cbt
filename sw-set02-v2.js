@@ -1,4 +1,4 @@
-const CACHE_NAME = "cbt-grade2-app-shell-v69-reading-writing-listening";
+const CACHE_NAME = "cbt-grade2-app-shell-v71-ai-grading";
 const APP_SHELL = [
   "/",
   "/index.html",

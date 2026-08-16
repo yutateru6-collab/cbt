@@ -4,6 +4,60 @@
   const premiumHasAccess = requestedPremiumPlanKey === "three" || requestedPremiumPlanKey === "five";
   const premiumPlanKey = "three";
   const premiumSetKeys = ["set-01", "set-02", "set-03"];
+  const OFFICIAL_AI_PROVIDER_HOSTS = Object.freeze({
+    chatgpt: Object.freeze(["chatgpt.com"]),
+    gemini: Object.freeze(["gemini.google.com"]),
+    claude: Object.freeze(["claude.ai"]),
+    perplexity: Object.freeze(["perplexity.ai", "www.perplexity.ai"]),
+  });
+  const externalAiProviders = Object.freeze([
+    Object.freeze({
+      id: "chatgpt",
+      label: "ChatGPT",
+      href: "https://chatgpt.com/",
+      description: "公式Web版。音声対応は利用中のモデル・プランをご確認ください。",
+    }),
+    Object.freeze({
+      id: "gemini",
+      label: "Gemini",
+      href: "https://gemini.google.com/",
+      description: "公式Web版。音声対応は利用中のモデル・プランをご確認ください。",
+    }),
+    Object.freeze({
+      id: "claude",
+      label: "Claude",
+      href: "https://claude.ai/",
+      description: "公式Web版。音声対応は利用中のモデル・プランをご確認ください。",
+    }),
+    Object.freeze({
+      id: "perplexity",
+      label: "Perplexity",
+      href: "https://www.perplexity.ai/",
+      description: "公式Web版。音声対応は利用中のモデル・プランをご確認ください。",
+    }),
+  ]);
+  let aiGradingTrigger = null;
+  let aiGradingDialogOpen = false;
+
+  function isAllowedExternalAiProvider(provider) {
+    if (!provider || typeof provider !== "object") return false;
+    const allowedHosts = OFFICIAL_AI_PROVIDER_HOSTS[provider.id] || [];
+    try {
+      const url = new URL(provider.href);
+      return (
+        url.protocol === "https:" &&
+        allowedHosts.includes(url.hostname.toLowerCase()) &&
+        url.pathname === "/" &&
+        !url.search &&
+        !url.hash &&
+        !url.username &&
+        !url.password &&
+        !url.port
+      );
+    } catch {
+      return false;
+    }
+  }
 
   if (!premiumHasAccess) return;
 
@@ -528,6 +582,74 @@
     }
   }
 
+  function openAiGradingDialog(trigger) {
+    const dialog = document.querySelector("[data-ai-grading-dialog]");
+    if (!dialog) return;
+    aiGradingTrigger = trigger || document.activeElement;
+    aiGradingDialogOpen = true;
+    document.body.classList.add("ai-grading-dialog-open");
+    if (typeof dialog.showModal === "function") {
+      if (!dialog.open) dialog.showModal();
+    } else {
+      dialog.setAttribute("open", "");
+      dialog.classList.add("ai-grading-dialog-fallback-open");
+    }
+    dialog.querySelector("[data-action='close-ai-grading']")?.focus();
+  }
+
+  function restoreAiGradingFocus() {
+    aiGradingDialogOpen = false;
+    document.body.classList.remove("ai-grading-dialog-open");
+    const trigger = aiGradingTrigger;
+    aiGradingTrigger = null;
+    if (trigger && document.contains(trigger) && typeof trigger.focus === "function") trigger.focus();
+  }
+
+  function closeAiGradingDialog() {
+    const dialog = document.querySelector("[data-ai-grading-dialog]");
+    if (!dialog) {
+      restoreAiGradingFocus();
+      return;
+    }
+    try {
+      if (typeof dialog.close === "function" && dialog.open) dialog.close();
+      else dialog.removeAttribute("open");
+    } catch {
+      dialog.removeAttribute("open");
+    }
+    dialog.classList.remove("ai-grading-dialog-fallback-open");
+    restoreAiGradingFocus();
+  }
+
+  function openExternalAi(provider) {
+    const selectedProvider = externalAiProviders.find((item) => item.id === provider);
+    if (!isAllowedExternalAiProvider(selectedProvider)) return;
+    closeAiGradingDialog();
+    window.location.assign(selectedProvider.href);
+  }
+
+  function trapAiGradingDialogFocus(event) {
+    if (event.key !== "Tab" || !aiGradingDialogOpen) return;
+    const dialog = document.querySelector("[data-ai-grading-dialog]");
+    if (!dialog?.open) return;
+    const focusable = [...dialog.querySelectorAll("button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex='-1'])")].filter(
+      (element) => !element.hidden && element.getAttribute("aria-hidden") !== "true",
+    );
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    const active = document.activeElement;
+    if (event.shiftKey && (active === first || !dialog.contains(active))) {
+      event.preventDefault();
+      last.focus();
+      return;
+    }
+    if (!event.shiftKey && (active === last || !dialog.contains(active))) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+
   function countWords(value) {
     const normalized = String(value || "").trim();
     return normalized ? normalized.split(/\s+/).length : 0;
@@ -584,7 +706,18 @@
     if (writingInput) renderWordCount(writingInput.dataset.wordInput || "");
   });
 
+  const aiGradingDialog = document.querySelector("[data-ai-grading-dialog]");
+
   document.addEventListener("click", (event) => {
+    if (
+      aiGradingDialogOpen &&
+      aiGradingDialog &&
+      !aiGradingDialog.contains(event.target) &&
+      !event.target.closest("[data-action='open-ai-provider-dialog'], [data-action='open-ai-grading']")
+    ) {
+      closeAiGradingDialog();
+    }
+
     const templateTab = event.target.closest("[data-template-tab]");
     if (templateTab) {
       state.templateKey = templateTab.dataset.templateTab || "summary";
@@ -625,6 +758,21 @@
     const actionButton = event.target.closest("[data-action]");
     if (!actionButton) return;
     const action = actionButton.dataset.action;
+
+    if (action === "open-ai-provider-dialog" || action === "open-ai-grading") {
+      openAiGradingDialog(actionButton);
+      return;
+    }
+
+    if (action === "close-ai-grading") {
+      closeAiGradingDialog();
+      return;
+    }
+
+    if (action === "open-external-ai") {
+      openExternalAi(actionButton.dataset.aiProvider || "");
+      return;
+    }
 
     if (action === "copy-prompt") {
       copyCurrentPrompt();
@@ -683,6 +831,26 @@
       state.vocabMeaningVisible = false;
       renderVocabulary();
     }
+  });
+
+  aiGradingDialog?.addEventListener("click", (event) => {
+    if (event.target === event.currentTarget) closeAiGradingDialog();
+  });
+  aiGradingDialog?.addEventListener("cancel", (event) => {
+    event.preventDefault();
+    closeAiGradingDialog();
+  });
+  aiGradingDialog?.addEventListener("close", () => {
+    aiGradingDialog.classList.remove("ai-grading-dialog-fallback-open");
+    restoreAiGradingFocus();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && aiGradingDialogOpen) {
+      event.preventDefault();
+      closeAiGradingDialog();
+      return;
+    }
+    trapAiGradingDialogFocus(event);
   });
 
   initializePremiumBonus();
