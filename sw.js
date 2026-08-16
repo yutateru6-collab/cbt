@@ -8,6 +8,7 @@ const APP_SHELL = [
   "/app-config-grade2.js",
   "/grade2-scoring.js",
   "/app.js",
+  "/grade2-listening-persistent-audio.js",
   "/exam-data.js",
   "/grade2-set-01.js",
   "/grade2-set-01-explanations.js",
