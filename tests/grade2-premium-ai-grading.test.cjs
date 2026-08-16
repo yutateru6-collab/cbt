@@ -43,10 +43,15 @@ function validPayload(overrides = {}) {
   };
 }
 
-test("1. premium page has the AI grading section, four steps, and required warnings", () => {
+test("1. premium page visibly offers only the PDF and external-AI grading benefits", () => {
+  const visibleBenefits = bonusHtml.match(/<div data-bonus-content hidden>[\s\S]*?<\/div>\s*\n\s*<dialog/u)?.[0] || "";
+  assert.equal((visibleBenefits.match(/<section class="bonus-section/g) || []).length, 2);
+  assert.match(visibleBenefits, /id="pdf"/);
+  assert.match(visibleBenefits, /href="\.\/output\/pdf\/eiken-grade2-final-check-writing-template\.pdf"/);
   assert.match(bonusHtml, /id="ai-grading"/);
-  assert.match(bonusHtml, /href="#ai-grading">AI採点<\/a>/);
-  for (const text of ["採点データをコピー", "5音声を保存", "普段使うAIで採点", "JSONをCBTへ戻す"]) assert.match(bonusHtml, new RegExp(text));
+  assert.match(bonusHtml, /href="#ai-grading">外部AI相談・採点<\/a>/);
+  for (const text of ["採点データをコピー", "5音声を保存", "普段使うAIで相談・採点", "JSONをCBTへ戻す"]) assert.match(bonusHtml, new RegExp(text));
+  assert.doesNotMatch(visibleBenefits, /id="(?:writing|speaking|ai-review|plan|weakness|checklist)"/);
   for (const text of [
     "答案や録音は、このCBTアプリから外部AIへ自動送信されません。",
     "実名、学校名、その他の個人情報は入力しないでください。",
@@ -200,19 +205,19 @@ test("11. existing JSON validation still accepts valid values and rejects mismat
   assert.equal(scoring.validateGptScorePayload(invalid, "set-01").ok, false);
 });
 
-test("12. speaking and normal-flow contracts plus matching v72 mobile developer caches remain present", () => {
+test("12. speaking and normal-flow contracts plus matching v73 mobile developer caches remain present", () => {
   for (const id of ["read-aloud", "no-1", "no-2", "no-3", "no-4"]) assert.match(appSource, new RegExp(`"${id}"`));
   assert.match(appSource, /スピーキング単体のAI振り返り用プロンプトをコピー/);
   assert.match(appSource, /最終的なWriting・Speaking採点JSONは、4技能終了後の結果画面から作成します/);
   assert.match(appSource, /そのままリスニングへ進む（本番形式）/);
   const swCache = swSource.match(/const CACHE_NAME = "([^"]+)"/u)?.[1];
   const swSet02Cache = swSet02Source.match(/const CACHE_NAME = "([^"]+)"/u)?.[1];
-  assert.equal(swCache, "cbt-grade2-app-shell-v72-mobile-dev");
+  assert.equal(swCache, "cbt-grade2-app-shell-v73-mobile-dev");
   assert.equal(swSet02Cache, swCache);
-  assert.match(examHtml, /app\.js\?v=grade2-reading-writing-listening-v72-mobile-dev/);
-  assert.match(examHtml, /sw-set02-v2\.js\?v=grade2-reading-writing-listening-v72-mobile-dev/);
-  assert.match(bonusHtml, /bonus\.css\?v=grade2-premium-v71-ai-grading/);
-  assert.match(bonusHtml, /grade2-premium-bonus\.js\?v=grade2-three-premium-v71-ai-grading/);
+  assert.match(examHtml, /app\.js\?v=grade2-reading-writing-listening-v73-mobile-dev/);
+  assert.match(examHtml, /sw-set02-v2\.js\?v=grade2-reading-writing-listening-v73-mobile-dev/);
+  assert.match(bonusHtml, /bonus\.css\?v=grade2-premium-v72-ai-grading/);
+  assert.match(bonusHtml, /grade2-premium-bonus\.js\?v=grade2-three-premium-v72-ai-grading/);
   assert.match(bonusCss, /prefers-reduced-motion/);
   assert.match(bonusCss, /safe-area-inset-bottom/);
 });

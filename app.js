@@ -920,6 +920,8 @@ const defaultState = {
   speakingStep: 0,
   writtenRemaining: WRITTEN_EXAM_SECONDS,
   listeningAnswerRemaining: LISTENING_ANSWER_SECONDS,
+  listeningAnswerDeadline: 0,
+  listeningCountdownQuestionId: null,
   listeningIntroducedSections: {},
   listeningPlayedQuestionIds: {},
   listeningReviewMode: false,
@@ -990,6 +992,13 @@ let listeningSpeechUtterance = null;
 let listeningPlaybackQuestionId = null;
 let listeningPlaybackPhase = "idle";
 let listeningAnswerDeadline = 0;
+let listeningCountdownTimeout = null;
+let listeningCountdownAdvanceKey = "";
+let listeningCountdownZeroHandoffKey = "";
+let listeningCountdownZeroFrame = 0;
+let listeningCountdownZeroTimeout = null;
+let listeningPlaybackToken = 0;
+let listeningAudioPlaybackToken = 0;
 let listeningPlaybackStarts = 0;
 
 const app = document.getElementById("app");
@@ -1027,7 +1036,7 @@ function render() {
     app.innerHTML = renderSpeaking();
     if (isGrade2SpeakingExperience) queueMicrotask(mountGrade2SpeakingStep);
   } else if (appState.module === "listening") {
-    stopListeningPlayback();
+    stopListeningPlayback({ preserveCountdown: true });
     ensureListeningPlaybackState();
     app.innerHTML = renderListening();
     mountListeningAudio();
@@ -1912,7 +1921,9 @@ function renderReview(id, text) {
   `;
 }
 
-function stopListeningPlayback() {
+function stopListeningPlayback({ preserveCountdown = false } = {}) {
+  const keepCountdown = preserveCountdown && isListeningAnswerCountdownActive();
+  listeningPlaybackToken += 1;
   if (listeningInstructionAudioElement) {
     listeningInstructionAudioElement.pause();
     listeningInstructionAudioElement.removeAttribute("src");
@@ -1929,9 +1940,12 @@ function stopListeningPlayback() {
   listeningInstructionAudioElement = null;
   listeningAudioElement = null;
   listeningSpeechUtterance = null;
-  listeningPlaybackQuestionId = null;
-  listeningPlaybackPhase = "idle";
-  listeningAnswerDeadline = 0;
+  listeningAudioPlaybackToken = 0;
+  if (!keepCountdown) {
+    cancelListeningAnswerCountdown();
+    listeningPlaybackQuestionId = null;
+    listeningPlaybackPhase = "idle";
+  }
 }
 
 function getGrade2OutputVolume() {
@@ -1946,7 +1960,7 @@ function getListeningAudioVolume(question) {
 
 function resetListeningAnswerCountdown() {
   appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
-  listeningAnswerDeadline = 0;
+  cancelListeningAnswerCountdown();
 }
 
 async function replayListeningAudioForDeveloper() {
@@ -1998,6 +2012,7 @@ async function playGrade2ListeningInstruction(question) {
   if (!sectionKey || !audioUrl || appState.listeningIntroducedSections[sectionKey]) return false;
 
   const instructionAudio = new Audio(audioUrl);
+  const playbackToken = ++listeningPlaybackToken;
   listeningInstructionAudioElement = instructionAudio;
   instructionAudio.preload = "auto";
   instructionAudio.volume = getListeningAudioVolume(question);
@@ -2006,7 +2021,7 @@ async function playGrade2ListeningInstruction(question) {
   instructionAudio.addEventListener(
     "ended",
     () => {
-      if (listeningInstructionAudioElement !== instructionAudio || listeningPlaybackQuestionId !== question.id) return;
+      if (listeningInstructionAudioElement !== instructionAudio || listeningPlaybackQuestionId !== question.id || listeningPlaybackToken !== playbackToken) return;
       listeningInstructionAudioElement = null;
       appState.listeningIntroducedSections[sectionKey] = true;
       listeningPlaybackPhase = question.audioFile ? "audio" : question.script ? "blocked" : "answer";
@@ -2019,7 +2034,7 @@ async function playGrade2ListeningInstruction(question) {
   instructionAudio.addEventListener(
     "error",
     () => {
-      if (listeningInstructionAudioElement !== instructionAudio) return;
+      if (listeningInstructionAudioElement !== instructionAudio || listeningPlaybackToken !== playbackToken) return;
       listeningInstructionAudioElement = null;
       listeningPlaybackPhase = "instruction-error";
       updateListeningPlaybackUi();
@@ -2030,27 +2045,160 @@ async function playGrade2ListeningInstruction(question) {
     listeningPlaybackStarts += 1;
     await instructionAudio.play();
   } catch {
-    if (listeningInstructionAudioElement === instructionAudio) listeningInstructionAudioElement = null;
+    if (listeningInstructionAudioElement !== instructionAudio || listeningPlaybackQuestionId !== question.id || listeningPlaybackToken !== playbackToken) return false;
+    listeningInstructionAudioElement = null;
     listeningPlaybackPhase = "instruction-error";
     updateListeningPlaybackUi();
   }
   return true;
 }
 
-function startListeningAnswerCountdown() {
+function getListeningCountdownQuestion() {
+  return listeningQuestions[appState.listeningIndex] || null;
+}
+
+function isListeningAnswerCountdownActive(question = getListeningCountdownQuestion()) {
+  return Boolean(
+    !appState.listeningReviewMode &&
+      question &&
+      String(appState.listeningCountdownQuestionId) === String(question.id) &&
+      Number.isFinite(Number(appState.listeningAnswerDeadline)) &&
+      Number(appState.listeningAnswerDeadline) > 0,
+  );
+}
+
+function cancelListeningAnswerCountdown({ keepAdvanceKey = false } = {}) {
+  if (listeningCountdownTimeout) clearTimeout(listeningCountdownTimeout);
+  if (listeningCountdownZeroFrame) cancelAnimationFrame(listeningCountdownZeroFrame);
+  if (listeningCountdownZeroTimeout) clearTimeout(listeningCountdownZeroTimeout);
+  listeningCountdownTimeout = null;
+  listeningCountdownZeroFrame = 0;
+  listeningCountdownZeroTimeout = null;
+  listeningAnswerDeadline = 0;
+  if (!keepAdvanceKey) listeningCountdownAdvanceKey = "";
+  listeningCountdownZeroHandoffKey = "";
+  appState.listeningAnswerDeadline = 0;
+  appState.listeningCountdownQuestionId = null;
+}
+
+function updateListeningAnswerCountdownDisplay() {
+  const question = getListeningCountdownQuestion();
+  if (!isListeningAnswerCountdownActive(question)) return false;
+  listeningAnswerDeadline = Number(appState.listeningAnswerDeadline);
+  const remaining = Math.max(0, Math.ceil((listeningAnswerDeadline - Date.now()) / 1000));
+  if (remaining !== appState.listeningAnswerRemaining) {
+    appState.listeningAnswerRemaining = remaining;
+    saveState();
+  }
+  return true;
+}
+
+function scheduleListeningAnswerCountdown(questionId, deadline) {
+  if (listeningCountdownTimeout) clearTimeout(listeningCountdownTimeout);
+  const delay = Math.max(0, deadline - Date.now());
+  listeningCountdownTimeout = setTimeout(() => finishListeningAnswerCountdownAtZero(questionId, deadline), delay);
+}
+
+function finishListeningAnswerCountdownAtZero(questionId, deadline) {
+  const question = getListeningCountdownQuestion();
+  const handoffKey = `${questionId}:${deadline}`;
+  if (
+    listeningCountdownZeroHandoffKey === handoffKey ||
+    appState.listeningReviewMode ||
+    listeningPlaybackPhase !== "answer" ||
+    !question ||
+    String(question.id) !== String(questionId) ||
+    String(appState.listeningCountdownQuestionId) !== String(questionId) ||
+    Number(appState.listeningAnswerDeadline) !== Number(deadline)
+  ) {
+    return;
+  }
+  if (Date.now() < deadline) {
+    scheduleListeningAnswerCountdown(questionId, deadline);
+    return;
+  }
+
+  listeningCountdownZeroHandoffKey = handoffKey;
+  appState.listeningAnswerRemaining = 0;
+  saveState();
+  updateListeningPlaybackUi();
+  const advanceAfterZeroPaint = () => {
+    if (listeningCountdownZeroHandoffKey !== handoffKey) return;
+    listeningCountdownZeroFrame = 0;
+    if (listeningCountdownZeroTimeout) clearTimeout(listeningCountdownZeroTimeout);
+    listeningCountdownZeroTimeout = null;
+    advanceListeningAfterCountdown(questionId, deadline);
+  };
+  const queueAdvanceAfterZeroPaint = () => {
+    if (listeningCountdownZeroHandoffKey !== handoffKey) return;
+    listeningCountdownZeroFrame = requestAnimationFrame(advanceAfterZeroPaint);
+  };
+  listeningCountdownZeroFrame = requestAnimationFrame(queueAdvanceAfterZeroPaint);
+  listeningCountdownZeroTimeout = setTimeout(advanceAfterZeroPaint, 120);
+}
+
+function advanceListeningAfterCountdown(questionId, deadline) {
+  const question = getListeningCountdownQuestion();
+  const advanceKey = `${questionId}:${deadline}`;
+  if (
+    listeningCountdownAdvanceKey === advanceKey ||
+    appState.listeningReviewMode ||
+    listeningPlaybackPhase !== "answer" ||
+    !question ||
+    String(question.id) !== String(questionId) ||
+    String(appState.listeningCountdownQuestionId) !== String(questionId) ||
+    Number(appState.listeningAnswerDeadline) !== Number(deadline)
+  ) {
+    return;
+  }
+
+  listeningCountdownAdvanceKey = advanceKey;
+  cancelListeningAnswerCountdown({ keepAdvanceKey: true });
+  appState.listeningAnswerRemaining = 0;
+  if (appState.listeningIndex >= listeningQuestions.length - 1) {
+    if (isGrade2ContinuousExam) {
+      transitionToGrade2Module("reading");
+      return;
+    }
+    appState.modal = "complete";
+  } else {
+    const currentSection = getGrade2ListeningSectionKey(listeningQuestions[appState.listeningIndex]);
+    const nextSection = getGrade2ListeningSectionKey(listeningQuestions[appState.listeningIndex + 1]);
+    if (currentSection === "part1" && nextSection === "part2") {
+      delete appState.listeningIntroducedSections.part2;
+    }
+    appState.listeningIndex += 1;
+    appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
+  }
+  saveState();
+  render();
+}
+
+function startListeningAnswerCountdown(question = getListeningCountdownQuestion()) {
+  if (!question || appState.listeningReviewMode) return;
+  if (isListeningAnswerCountdownActive(question)) return;
+  cancelListeningAnswerCountdown();
   listeningPlaybackPhase = "answer";
   appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
   listeningAnswerDeadline = Date.now() + LISTENING_ANSWER_SECONDS * 1000;
+  appState.listeningAnswerDeadline = listeningAnswerDeadline;
+  appState.listeningCountdownQuestionId = question.id;
+  scheduleListeningAnswerCountdown(question.id, listeningAnswerDeadline);
 }
 
 function ensureListeningPlaybackState() {
   const question = listeningQuestions[appState.listeningIndex];
   if (!question || listeningPlaybackQuestionId === question.id) return;
-  stopListeningPlayback();
+  const resumingCountdown = isListeningAnswerCountdownActive(question);
+  stopListeningPlayback({ preserveCountdown: resumingCountdown });
   listeningPlaybackQuestionId = question.id;
   if (appState.listeningReviewMode) {
     listeningPlaybackPhase = "review";
     appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
+  } else if (resumingCountdown) {
+    listeningPlaybackPhase = "answer";
+    updateListeningAnswerCountdownDisplay();
+    scheduleListeningAnswerCountdown(question.id, Number(appState.listeningAnswerDeadline));
   } else if (hasPlayedListeningQuestion(question.id)) {
     listeningPlaybackPhase = "review-answer";
     appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
@@ -2064,7 +2212,8 @@ function ensureListeningPlaybackState() {
     listeningPlaybackPhase = "blocked";
     appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
   } else {
-    startListeningAnswerCountdown();
+    listeningPlaybackPhase = "answer";
+    appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
   }
 }
 
@@ -2073,7 +2222,8 @@ function updateListeningPlaybackUi() {
   const hasPlayback = Boolean(question?.audioFile || question?.script);
   const usesBrowserVoice = Boolean(question?.script && !question?.audioFile);
   const isReviewPhase = appState.listeningReviewMode || ["review", "review-answer"].includes(listeningPlaybackPhase);
-  const isAnswerPhase = !hasPlayback || listeningPlaybackPhase === "answer" || isReviewPhase;
+  const isCountdownPhase = listeningPlaybackPhase === "answer" && isListeningAnswerCountdownActive(question);
+  const isAnswerPhase = isCountdownPhase || isReviewPhase;
   const status = app.querySelector("[data-listening-audio-status] span");
   const playButton = app.querySelector('[data-action="listen-play"]');
   const answerTime = app.querySelector(".answer-time");
@@ -2102,17 +2252,20 @@ function updateListeningPlaybackUi() {
             : "音声を再生しています。";
   }
   if (playButton) playButton.hidden = !hasPlayback || (!isReviewPhase && !["blocked", "error", "instruction-error"].includes(listeningPlaybackPhase));
-  if (answerTime) answerTime.classList.toggle("waiting", !isAnswerPhase);
+  if (answerTime) {
+    answerTime.classList.toggle("waiting", !isAnswerPhase);
+    answerTime.classList.toggle("is-countdown", isCountdownPhase);
+  }
   const audioPhaseLabel = listeningPlaybackPhase === "instruction"
     ? "試験説明"
     : ["blocked", "error", "instruction-error"].includes(listeningPlaybackPhase)
       ? "音声再生待ち"
       : "音声再生中";
-  if (phaseLabel) phaseLabel.textContent = isReviewPhase ? "復習中" : isAnswerPhase ? "解答時間" : audioPhaseLabel;
-  if (timer) timer.textContent = isReviewPhase ? "--" : isAnswerPhase ? appState.listeningAnswerRemaining : "--";
-  if (timerUnit) timerUnit.textContent = isReviewPhase ? "" : isAnswerPhase ? "秒" : "";
+  if (phaseLabel) phaseLabel.textContent = isReviewPhase ? "復習中" : isCountdownPhase ? "次の問題まで" : audioPhaseLabel;
+  if (timer) timer.textContent = isCountdownPhase ? appState.listeningAnswerRemaining : "--";
+  if (timerUnit) timerUnit.textContent = isCountdownPhase ? "秒" : "";
   if (timerBar) {
-    const percent = isAnswerPhase ? Math.max(0, Math.min(100, (appState.listeningAnswerRemaining / LISTENING_ANSWER_SECONDS) * 100)) : 100;
+    const percent = isCountdownPhase ? Math.max(0, Math.min(100, (appState.listeningAnswerRemaining / LISTENING_ANSWER_SECONDS) * 100)) : 100;
     timerBar.style.width = `${percent}%`;
   }
 }
@@ -2144,6 +2297,7 @@ async function playListeningAudio({ force = false, skipInstruction = false } = {
           ? `Question. ${question.questionText}`
           : "";
     const utterance = new SpeechSynthesisUtterance(`${spokenScript} ${spokenQuestion}`.trim());
+    const playbackToken = ++listeningPlaybackToken;
     listeningSpeechUtterance = utterance;
     utterance.lang = "en-US";
     utterance.rate = 0.9;
@@ -2152,7 +2306,7 @@ async function playListeningAudio({ force = false, skipInstruction = false } = {
     utterance.addEventListener(
       "end",
       () => {
-        if (listeningPlaybackQuestionId !== question.id || listeningSpeechUtterance !== utterance) return;
+        if (listeningPlaybackQuestionId !== question.id || listeningSpeechUtterance !== utterance || listeningPlaybackToken !== playbackToken) return;
         listeningSpeechUtterance = null;
         if (appState.listeningReviewMode) {
           listeningPlaybackPhase = "review";
@@ -2167,7 +2321,7 @@ async function playListeningAudio({ force = false, skipInstruction = false } = {
     utterance.addEventListener(
       "error",
       () => {
-        if (listeningPlaybackQuestionId !== question.id || listeningSpeechUtterance !== utterance) return;
+        if (listeningPlaybackQuestionId !== question.id || listeningSpeechUtterance !== utterance || listeningPlaybackToken !== playbackToken) return;
         listeningSpeechUtterance = null;
         listeningPlaybackPhase = "error";
         updateListeningPlaybackUi();
@@ -2185,6 +2339,8 @@ async function playListeningAudio({ force = false, skipInstruction = false } = {
   const audio = listeningAudioElement || app.querySelector("[data-listening-audio]");
   if (!audio) return;
   listeningAudioElement = audio;
+  const playbackToken = ++listeningPlaybackToken;
+  listeningAudioPlaybackToken = playbackToken;
   listeningPlaybackPhase = "audio";
   audio.volume = getListeningAudioVolume(question);
   updateListeningPlaybackUi();
@@ -2193,6 +2349,7 @@ async function playListeningAudio({ force = false, skipInstruction = false } = {
     listeningPlaybackStarts += 1;
     await audio.play();
   } catch {
+    if (listeningAudioElement !== audio || listeningPlaybackQuestionId !== question.id || listeningAudioPlaybackToken !== playbackToken || listeningPlaybackToken !== playbackToken) return;
     listeningPlaybackPhase = "blocked";
     updateListeningPlaybackUi();
   }
@@ -2210,13 +2367,13 @@ function mountListeningAudio() {
     const questionId = question.id;
     listeningAudioElement = audio;
     audio.addEventListener("playing", () => {
-      if (listeningPlaybackQuestionId !== questionId) return;
+      if (listeningPlaybackQuestionId !== questionId || listeningAudioElement !== audio || listeningAudioPlaybackToken !== listeningPlaybackToken) return;
       markListeningQuestionPlayed(questionId);
       listeningPlaybackPhase = "audio";
       updateListeningPlaybackUi();
     });
     audio.addEventListener("ended", () => {
-      if (listeningPlaybackQuestionId !== questionId) return;
+      if (listeningPlaybackQuestionId !== questionId || listeningAudioElement !== audio || listeningAudioPlaybackToken !== listeningPlaybackToken) return;
       if (appState.listeningReviewMode) {
         listeningPlaybackPhase = "review";
       } else {
@@ -2226,7 +2383,7 @@ function mountListeningAudio() {
       updateListeningPlaybackUi();
     });
     audio.addEventListener("error", () => {
-      if (listeningPlaybackQuestionId !== questionId) return;
+      if (listeningPlaybackQuestionId !== questionId || listeningAudioElement !== audio || listeningAudioPlaybackToken !== listeningPlaybackToken) return;
       listeningPlaybackPhase = "error";
       updateListeningPlaybackUi();
     });
@@ -2241,7 +2398,8 @@ function renderListening() {
   const isRealLifeQuestion = question.part === "Part 3" && Boolean(question.situation);
   const isReviewPhase = appState.listeningReviewMode || ["review", "review-answer"].includes(listeningPlaybackPhase);
   const canNavigateListening = appState.listeningReviewMode || isGrade2DeveloperMode;
-  const isAnswerPhase = !hasPlayback || listeningPlaybackPhase === "answer" || isReviewPhase;
+  const isCountdownPhase = listeningPlaybackPhase === "answer" && isListeningAnswerCountdownActive(question);
+  const isAnswerPhase = isCountdownPhase || isReviewPhase;
   const audioStatusText = !hasPlayback
     ? "音声・台本が設定されていません。"
     : listeningPlaybackPhase === "instruction"
@@ -2297,11 +2455,11 @@ function renderListening() {
           ${renderReview(`l-${question.id}`, "目印をつける")}
         </div>
           ${canNavigateListening ? `<button class="nav-button next" data-action="listen-next">${appState.listeningIndex === listeningQuestions.length - 1 ? "リスニング終了 ▼" : "次の問題へ ▼"}</button>` : ""}
-        <div class="answer-time ${isAnswerPhase ? "" : "waiting"}">
-          <span data-listening-phase-label>${isAnswerPhase ? "解答時間" : listeningPlaybackPhase === "instruction" ? "試験説明" : ["blocked", "error", "instruction-error"].includes(listeningPlaybackPhase) ? "音声再生待ち" : "音声再生中"}</span>
+        <div class="answer-time ${isAnswerPhase ? "" : "waiting"} ${isCountdownPhase ? "is-countdown" : ""}">
+          <span data-listening-phase-label>${isReviewPhase ? "復習中" : isCountdownPhase ? "次の問題まで" : listeningPlaybackPhase === "instruction" ? "試験説明" : ["blocked", "error", "instruction-error"].includes(listeningPlaybackPhase) ? "音声再生待ち" : "音声再生中"}</span>
           <div class="answer-time-meter">
-            <div class="answer-time-track" aria-hidden="true"><span data-listening-answer-bar style="width: ${isAnswerPhase ? Math.max(0, Math.min(100, (appState.listeningAnswerRemaining / LISTENING_ANSWER_SECONDS) * 100)) : 100}%"></span></div>
-            <div class="answer-time-box"><span data-listening-timer>${isAnswerPhase ? appState.listeningAnswerRemaining : "--"}</span><span data-listening-timer-unit>${isAnswerPhase ? "秒" : ""}</span></div>
+            <div class="answer-time-track" aria-hidden="true"><span data-listening-answer-bar style="width: ${isCountdownPhase ? Math.max(0, Math.min(100, (appState.listeningAnswerRemaining / LISTENING_ANSWER_SECONDS) * 100)) : 100}%"></span></div>
+            <div class="answer-time-box"><span data-listening-timer>${isCountdownPhase ? appState.listeningAnswerRemaining : "--"}</span><span data-listening-timer-unit>${isCountdownPhase ? "秒" : ""}</span></div>
           </div>
         </div>
       </main>
@@ -5498,6 +5656,11 @@ function normalizeState(state) {
   state.speakingStep = Math.min(Math.max(Number(state.speakingStep) || 0, 0), speakingSteps.length - 1);
   state.writtenRemaining = clampSeconds(state.writtenRemaining, WRITTEN_EXAM_SECONDS);
   state.listeningAnswerRemaining = clampSeconds(state.listeningAnswerRemaining, LISTENING_ANSWER_SECONDS);
+  state.listeningAnswerDeadline = Number.isFinite(Number(state.listeningAnswerDeadline)) && Number(state.listeningAnswerDeadline) > 0 ? Number(state.listeningAnswerDeadline) : 0;
+  state.listeningCountdownQuestionId = state.listeningAnswerDeadline && state.listeningCountdownQuestionId !== null && state.listeningCountdownQuestionId !== undefined
+    ? state.listeningCountdownQuestionId
+    : null;
+  if (!state.listeningCountdownQuestionId) state.listeningAnswerDeadline = 0;
   state.speakingRemaining = clampSeconds(state.speakingRemaining, getSpeakingStepSeconds(state.speakingStep));
   if (!state.writingChecks || typeof state.writingChecks !== "object") state.writingChecks = {};
   if (!state.speakingRecordings || typeof state.speakingRecordings !== "object") state.speakingRecordings = {};
@@ -5630,46 +5793,11 @@ function tickTimers() {
   if (appState.module === "listening") {
     if (appState.listeningReviewMode || ["review", "review-answer"].includes(listeningPlaybackPhase)) return;
     const question = listeningQuestions[appState.listeningIndex];
-    if ((question?.audioFile || question?.script) && (listeningPlaybackQuestionId !== question.id || listeningPlaybackPhase !== "answer")) {
-      return;
-    }
-    if (!listeningAnswerDeadline) {
-      listeningAnswerDeadline = Date.now() + appState.listeningAnswerRemaining * 1000;
-    }
-    const remaining = Math.max(0, Math.ceil((listeningAnswerDeadline - Date.now()) / 1000));
-    if (remaining !== appState.listeningAnswerRemaining) {
-      appState.listeningAnswerRemaining = remaining;
-      updateTimerText("[data-listening-timer]", appState.listeningAnswerRemaining);
-      const timerBar = app.querySelector("[data-listening-answer-bar]");
-      if (timerBar) {
-        const percent = Math.max(0, Math.min(100, (appState.listeningAnswerRemaining / LISTENING_ANSWER_SECONDS) * 100));
-        timerBar.style.width = `${percent}%`;
-      }
-      saveState();
-    }
-    if (appState.listeningAnswerRemaining > 0) {
-      return;
-    }
-
+    if (!isListeningAnswerCountdownActive(question) || listeningPlaybackPhase !== "answer") return;
+    updateListeningAnswerCountdownDisplay();
+    updateListeningPlaybackUi();
     if (appState.listeningAnswerRemaining <= 0) {
-      listeningAnswerDeadline = 0;
-      if (appState.listeningIndex >= listeningQuestions.length - 1) {
-        if (isGrade2ContinuousExam) {
-          transitionToGrade2Module("reading");
-          return;
-        }
-        appState.modal = "complete";
-      } else {
-        const currentSection = getGrade2ListeningSectionKey(listeningQuestions[appState.listeningIndex]);
-        const nextSection = getGrade2ListeningSectionKey(listeningQuestions[appState.listeningIndex + 1]);
-        if (currentSection === "part1" && nextSection === "part2") {
-          delete appState.listeningIntroducedSections.part2;
-        }
-        appState.listeningIndex += 1;
-        appState.listeningAnswerRemaining = LISTENING_ANSWER_SECONDS;
-      }
-      saveState();
-      render();
+      finishListeningAnswerCountdownAtZero(question.id, Number(appState.listeningAnswerDeadline));
     }
     return;
   }

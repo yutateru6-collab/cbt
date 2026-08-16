@@ -51,6 +51,48 @@ test("listening exam and review modes use separate replay rules", () => {
   assert.ok(appSource.includes("playListeningAudio({ force: appState.listeningReviewMode })"));
 });
 
+test("listening countdown starts after question audio ends, stays visible, and advances once", () => {
+  assert.match(appSource, /utterance\.addEventListener\(\s*"end",[\s\S]*?startListeningAnswerCountdown\(\);/);
+  assert.match(appSource, /audio\.addEventListener\("ended",[\s\S]*?startListeningAnswerCountdown\(\);/);
+  assert.match(appSource, /function startListeningAnswerCountdown\(question = getListeningCountdownQuestion\(\)\)/);
+  assert.match(appSource, /listeningCountdownQuestionId = question\.id/);
+  assert.match(appSource, /setTimeout\(\(\) => finishListeningAnswerCountdownAtZero\(questionId, deadline\), delay\)/);
+  assert.match(appSource, /function finishListeningAnswerCountdownAtZero\(questionId, deadline\)/);
+  const zeroHandoff = appSource.slice(appSource.indexOf("function finishListeningAnswerCountdownAtZero"), appSource.indexOf("\nfunction advanceListeningAfterCountdown"));
+  assert.match(zeroHandoff, /listeningCountdownZeroHandoffKey = handoffKey;[\s\S]*?appState\.listeningAnswerRemaining = 0;[\s\S]*?updateListeningPlaybackUi\(\);/);
+  assert.match(zeroHandoff, /const queueAdvanceAfterZeroPaint = \(\) => \{[\s\S]*?requestAnimationFrame\(advanceAfterZeroPaint\);/);
+  assert.match(zeroHandoff, /listeningCountdownZeroFrame = requestAnimationFrame\(queueAdvanceAfterZeroPaint\);/);
+  assert.match(zeroHandoff, /setTimeout\(advanceAfterZeroPaint, 120\)/);
+  assert.match(appSource, /function advanceListeningAfterCountdown\(questionId, deadline\)/);
+  assert.match(appSource, /listeningCountdownAdvanceKey === advanceKey/);
+  assert.match(appSource, /String\(appState\.listeningCountdownQuestionId\) !== String\(questionId\)/);
+  assert.match(appSource, /"次の問題まで"/);
+  assert.match(appSource, /data-listening-answer-bar/);
+  assert.match(styleSource, /\.answer-time\.is-countdown\s*\{/);
+  assert.match(styleSource, /padding: 14px 12px calc\(132px \+ env\(safe-area-inset-bottom\)\);/);
+});
+
+test("stale listening play rejections cannot overwrite a newer playback phase", () => {
+  const instructionPlay = appSource.match(/await instructionAudio\.play\(\);[\s\S]*?return true;/)?.[0] || "";
+  assert.match(instructionPlay, /listeningInstructionAudioElement !== instructionAudio/);
+  assert.match(instructionPlay, /listeningPlaybackQuestionId !== question\.id/);
+  assert.match(instructionPlay, /listeningPlaybackToken !== playbackToken/);
+  const questionPlay = appSource.match(/await audio\.play\(\);[\s\S]*?\n\}/)?.[0] || "";
+  assert.match(questionPlay, /listeningAudioElement !== audio/);
+  assert.match(questionPlay, /listeningPlaybackQuestionId !== question\.id/);
+  assert.match(questionPlay, /listeningAudioPlaybackToken !== playbackToken/);
+  assert.match(questionPlay, /listeningPlaybackToken !== playbackToken/);
+});
+
+test("listening countdown resumes by deadline without replaying audio and excludes review mode", () => {
+  assert.match(appSource, /stopListeningPlayback\(\{ preserveCountdown: true \}\);/);
+  assert.match(appSource, /const resumingCountdown = isListeningAnswerCountdownActive\(question\);/);
+  assert.match(appSource, /else if \(resumingCountdown\) \{[\s\S]*?listeningPlaybackPhase = "answer";/);
+  assert.match(appSource, /if \(!question \|\| appState\.listeningReviewMode\) return;/);
+  assert.match(appSource, /if \(appState\.listeningReviewMode \|\| \["review", "review-answer"\]\.includes\(listeningPlaybackPhase\)\) return;/);
+  assert.match(appSource, /hasPlayedListeningQuestion\(question\.id\)[\s\S]*?listeningPlaybackPhase = "review-answer"/);
+});
+
 test("listening answer panel separates both parts into two-column sections", () => {
   assert.match(appSource, /label: "第1部", questions: indexedQuestions\.slice\(0, 15\)/);
   assert.match(appSource, /label: "第2部", questions: indexedQuestions\.slice\(15, 30\)/);
@@ -64,12 +106,12 @@ test("Part 2 instruction is forced at the No.15 to No.16 boundary", () => {
   assert.ok(appSource.includes('part2: `${GRADE2_SPEAKING_AUDIO_BASE}/instructions/listening-part2-ja.wav`'));
 });
 
-test("exam assets and both service workers share the v72 mobile developer cache release", () => {
-  assert.match(examSource, /styles\.css\?v=grade2-reading-writing-listening-v72-mobile-dev/);
-  assert.match(examSource, /app\.js\?v=grade2-reading-writing-listening-v72-mobile-dev/);
-  assert.match(examSource, /sw-set02-v2\.js\?v=grade2-reading-writing-listening-v72-mobile-dev/);
-  assert.match(serviceWorkerSource, /cbt-grade2-app-shell-v72-mobile-dev/);
-  assert.match(examServiceWorkerSource, /cbt-grade2-app-shell-v72-mobile-dev/);
+test("exam assets and both service workers share the v73 mobile developer cache release", () => {
+  assert.match(examSource, /styles\.css\?v=grade2-reading-writing-listening-v73-mobile-dev/);
+  assert.match(examSource, /app\.js\?v=grade2-reading-writing-listening-v73-mobile-dev/);
+  assert.match(examSource, /sw-set02-v2\.js\?v=grade2-reading-writing-listening-v73-mobile-dev/);
+  assert.match(serviceWorkerSource, /cbt-grade2-app-shell-v73-mobile-dev/);
+  assert.match(examServiceWorkerSource, /cbt-grade2-app-shell-v73-mobile-dev/);
 });
 
 test("Grade 2 developer mobile controls stay inside the viewport with touch-sized targets", () => {
