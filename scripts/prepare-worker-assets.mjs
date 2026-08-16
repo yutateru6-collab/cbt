@@ -57,7 +57,6 @@ const assetFiles = [
   "grade2-speaking-picture-story-set-05-v3.png",
   "lp-exam-room.png",
   "lp-home-practice.png",
-  "lp-juku-classroom.png",
   "lp-listening.png",
   "lp-parent-plan.png",
   "lp-product-rehearsal-illustration.png",
@@ -72,8 +71,7 @@ const assetFiles = [
 ];
 
 const nestedFiles = [
-  "output/pdf/eiken-grade2-final-check-writing-template.pdf",
-  "assets/audio/grade2/set-01/listening/part1/No05.wav"
+  "output/pdf/eiken-grade2-final-check-writing-template.pdf"
 ];
 
 await rm(outDir, { recursive: true, force: true });
