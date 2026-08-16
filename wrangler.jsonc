@@ -16,5 +16,15 @@
     "binding": "ASSETS",
     "not_found_handling": "single-page-application"
   },
+  "r2_buckets": [
+    {
+      "binding": "MIMILISTEN_AUDIO",
+      "bucket_name": "mimilisten-audio"
+    },
+    {
+      "binding": "CBT_PROJECT_ARCHIVE",
+      "bucket_name": "cbt-project-archive"
+    }
+  ],
   "compatibility_flags": ["nodejs_compat"]
 }
