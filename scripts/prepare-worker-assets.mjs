@@ -72,7 +72,10 @@ const assetFiles = [
 ];
 
 const nestedFiles = [
-  "output/pdf/eiken-grade2-final-check-writing-template.pdf"
+  "output/pdf/eiken-grade2-final-check-writing-template.pdf",
+  "tools/listening-player/index.html",
+  "tools/listening-player/player.css",
+  "tools/listening-player/player.js"
 ];
 
 await rm(outDir, { recursive: true, force: true });
