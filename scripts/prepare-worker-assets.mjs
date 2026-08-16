@@ -24,6 +24,7 @@ const rootFiles = [
   "grade2-vocab-sets.js",
   "grade2-speaking-sets.js",
   "grade2-listening-part2-sets.js",
+  "grade2-listening-set01-audio-fixes.js",
   "grade2-premium-bonus.js",
   "privacy.html",
   "support.html",
