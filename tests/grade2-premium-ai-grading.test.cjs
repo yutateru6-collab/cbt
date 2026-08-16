@@ -200,17 +200,17 @@ test("11. existing JSON validation still accepts valid values and rejects mismat
   assert.equal(scoring.validateGptScorePayload(invalid, "set-01").ok, false);
 });
 
-test("12. speaking and normal-flow contracts plus matching v71 caches remain present", () => {
+test("12. speaking and normal-flow contracts plus matching v72 mobile developer caches remain present", () => {
   for (const id of ["read-aloud", "no-1", "no-2", "no-3", "no-4"]) assert.match(appSource, new RegExp(`"${id}"`));
   assert.match(appSource, /スピーキング単体のAI振り返り用プロンプトをコピー/);
   assert.match(appSource, /最終的なWriting・Speaking採点JSONは、4技能終了後の結果画面から作成します/);
   assert.match(appSource, /そのままリスニングへ進む（本番形式）/);
   const swCache = swSource.match(/const CACHE_NAME = "([^"]+)"/u)?.[1];
   const swSet02Cache = swSet02Source.match(/const CACHE_NAME = "([^"]+)"/u)?.[1];
-  assert.equal(swCache, "cbt-grade2-app-shell-v71-ai-grading");
+  assert.equal(swCache, "cbt-grade2-app-shell-v72-mobile-dev");
   assert.equal(swSet02Cache, swCache);
-  assert.match(examHtml, /app\.js\?v=grade2-reading-writing-listening-v71-ai-grading/);
-  assert.match(examHtml, /sw-set02-v2\.js\?v=grade2-reading-writing-listening-v71-ai-grading/);
+  assert.match(examHtml, /app\.js\?v=grade2-reading-writing-listening-v72-mobile-dev/);
+  assert.match(examHtml, /sw-set02-v2\.js\?v=grade2-reading-writing-listening-v72-mobile-dev/);
   assert.match(bonusHtml, /bonus\.css\?v=grade2-premium-v71-ai-grading/);
   assert.match(bonusHtml, /grade2-premium-bonus\.js\?v=grade2-three-premium-v71-ai-grading/);
   assert.match(bonusCss, /prefers-reduced-motion/);

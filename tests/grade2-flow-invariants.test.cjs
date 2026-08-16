@@ -64,12 +64,31 @@ test("Part 2 instruction is forced at the No.15 to No.16 boundary", () => {
   assert.ok(appSource.includes('part2: `${GRADE2_SPEAKING_AUDIO_BASE}/instructions/listening-part2-ja.wav`'));
 });
 
-test("exam assets and both service workers share the v71 AI grading cache release", () => {
-  assert.match(examSource, /styles\.css\?v=grade2-reading-writing-listening-v71-ai-grading/);
-  assert.match(examSource, /app\.js\?v=grade2-reading-writing-listening-v71-ai-grading/);
-  assert.match(examSource, /sw-set02-v2\.js\?v=grade2-reading-writing-listening-v71-ai-grading/);
-  assert.match(serviceWorkerSource, /cbt-grade2-app-shell-v71-ai-grading/);
-  assert.match(examServiceWorkerSource, /cbt-grade2-app-shell-v71-ai-grading/);
+test("exam assets and both service workers share the v72 mobile developer cache release", () => {
+  assert.match(examSource, /styles\.css\?v=grade2-reading-writing-listening-v72-mobile-dev/);
+  assert.match(examSource, /app\.js\?v=grade2-reading-writing-listening-v72-mobile-dev/);
+  assert.match(examSource, /sw-set02-v2\.js\?v=grade2-reading-writing-listening-v72-mobile-dev/);
+  assert.match(serviceWorkerSource, /cbt-grade2-app-shell-v72-mobile-dev/);
+  assert.match(examServiceWorkerSource, /cbt-grade2-app-shell-v72-mobile-dev/);
+});
+
+test("Grade 2 developer mobile controls stay inside the viewport with touch-sized targets", () => {
+  const mobileDeveloperStyles = styleSource.slice(styleSource.lastIndexOf("@media (max-width: 767px)"));
+  assert.match(appSource, /class="developer-toolbar-label">回次<\/span>/);
+  assert.match(appSource, /class="developer-toolbar-label">技能<\/span>/);
+  assert.match(appSource, /data-action="dev-result"/);
+  assert.match(appSource, /data-action="speaking-dev-skip-checks"/);
+  assert.match(mobileDeveloperStyles, /body\.grade2-developer-mode\s*\{[\s\S]*?overflow-x: hidden;/);
+  assert.match(mobileDeveloperStyles, /body\.grade2-developer-mode \.module-picker\s*\{[\s\S]*?grid-template-columns: repeat\(3, minmax\(0, 1fr\)\);[\s\S]*?overflow: visible;/);
+  assert.match(mobileDeveloperStyles, /body\.grade2-developer-mode \.module-picker \.font-size-control\s*\{[\s\S]*?min-height: 44px;/);
+  assert.match(mobileDeveloperStyles, /body\.grade2-developer-mode \.developer-toolbar-row\s*\{[\s\S]*?grid-template-columns: repeat\(2, minmax\(0, 1fr\)\);/);
+  assert.match(mobileDeveloperStyles, /body\.grade2-developer-mode \.developer-toolbar-row\.developer-set-row\s*\{[\s\S]*?grid-template-columns: repeat\(3, minmax\(0, 1fr\)\);/);
+  assert.match(mobileDeveloperStyles, /body\.grade2-developer-mode \.developer-toolbar-row:not\(\.developer-set-row\) \[data-action="dev-result"\]\s*\{[\s\S]*?grid-column: 1 \/ -1;/);
+  assert.match(mobileDeveloperStyles, /body\.grade2-developer-mode \.developer-toolbar button,[\s\S]*?min-height: 44px;[\s\S]*?font-size: 16px;/);
+  assert.match(mobileDeveloperStyles, /body\.grade2-developer-mode \.developer-location-picker select\s*\{[\s\S]*?max-width: 100%;/);
+  assert.match(mobileDeveloperStyles, /body\.grade2-developer-mode \.speaking-dev-actions\s*\{[\s\S]*?grid-template-columns: repeat\(2, minmax\(0, 1fr\)\);/);
+  assert.match(mobileDeveloperStyles, /body\.grade2-developer-mode \.speaking-dev-actions \[data-action="speaking-dev-skip-checks"\]\s*\{[\s\S]*?grid-column: 1 \/ -1;/);
+  assert.match(mobileDeveloperStyles, /body\.grade2-developer-mode \.speaking-dev-actions button\s*\{[\s\S]*?min-height: 44px;/);
 });
 
 test("font size keeps level 1 unchanged and expands through level 6", () => {

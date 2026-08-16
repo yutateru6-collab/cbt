@@ -1208,11 +1208,13 @@ function renderDeveloperToolbar() {
       </div>
       ${appState.module === "listening" && appState.started ? `<div class="developer-listening-status">Listening: ${escapeHtml(listeningPlaybackPhase)} / 再生開始 ${listeningPlaybackStarts}回</div>` : ""}
       <div class="developer-toolbar-row developer-set-row" role="group" aria-label="回次">
+        <span class="developer-toolbar-label">回次</span>
         ${["set-01", "set-02", "set-03"]
           .map((setKey, index) => `<button data-dev-set="${setKey}" class="${selectedSet.key === setKey ? "active" : ""}">第${index + 1}回</button>`)
           .join("")}
       </div>
       <div class="developer-toolbar-row" role="group" aria-label="技能">
+        <span class="developer-toolbar-label">技能</span>
         ${moduleOrder
           .map((moduleKey) => `<button data-dev-module="${moduleKey}" class="${appState.modal !== "complete" && appState.module === moduleKey ? "active" : ""}">${escapeHtml(modules[moduleKey].label)}</button>`)
           .join("")}

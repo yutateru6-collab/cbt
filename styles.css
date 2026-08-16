@@ -4185,6 +4185,10 @@ body.grade2-developer-mode .grade2-speaking-panel {
   gap: 7px;
 }
 
+.developer-toolbar-label {
+  display: none;
+}
+
 .developer-toolbar-head {
   justify-content: space-between;
 }
@@ -4829,5 +4833,166 @@ body.grade2-developer-mode .grade2-speaking-panel {
 
   .result-review-actions > * {
     width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  body.grade2-developer-mode {
+    min-width: 0;
+    overflow-x: hidden;
+  }
+
+  body.grade2-developer-mode .app-shell {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  body.grade2-developer-mode .module-picker {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 6px;
+    overflow: visible;
+    padding: 8px 10px;
+  }
+
+  body.grade2-developer-mode .module-picker > * {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+  }
+
+  body.grade2-developer-mode .module-picker .exam-flow-step,
+  body.grade2-developer-mode .module-picker .module-tab,
+  body.grade2-developer-mode .module-picker .font-size-control {
+    min-width: 0;
+    min-height: 44px;
+    height: auto;
+    padding: 8px 6px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  body.grade2-developer-mode .module-picker .exam-flow-step {
+    justify-content: center;
+  }
+
+  body.grade2-developer-mode .module-picker .font-size-control {
+    gap: 4px;
+  }
+
+  body.grade2-developer-mode .developer-toolbar {
+    width: calc(100% - 16px);
+    max-width: 100%;
+    min-width: 0;
+    margin: 8px auto;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  body.grade2-developer-mode .developer-toolbar-head {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  body.grade2-developer-mode .developer-toolbar-head > div,
+  body.grade2-developer-mode .developer-toolbar-row,
+  body.grade2-developer-mode .developer-location-picker {
+    min-width: 0;
+  }
+
+  body.grade2-developer-mode .developer-toolbar-head button {
+    width: 100%;
+  }
+
+  body.grade2-developer-mode .developer-toolbar-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  body.grade2-developer-mode .developer-toolbar-row.developer-set-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  body.grade2-developer-mode .developer-toolbar-label {
+    display: block;
+    grid-column: 1 / -1;
+    color: #9a3412;
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  body.grade2-developer-mode .developer-toolbar button,
+  body.grade2-developer-mode .developer-location-picker select {
+    width: 100%;
+    min-width: 0;
+    min-height: 44px;
+    padding: 8px 6px;
+    font-size: 16px;
+    line-height: 1.25;
+    white-space: normal;
+  }
+
+  body.grade2-developer-mode .developer-toolbar-row:not(.developer-set-row) [data-action="dev-result"] {
+    grid-column: 1 / -1;
+  }
+
+  body.grade2-developer-mode .developer-location-picker {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+    width: 100%;
+  }
+
+  body.grade2-developer-mode .developer-location-picker select {
+    max-width: 100%;
+  }
+
+  body.grade2-developer-mode .developer-listening-status {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  body.grade2-developer-mode .speaking-dev-tools {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    gap: 10px;
+    min-width: 0;
+    padding: 10px;
+  }
+
+  body.grade2-developer-mode .speaking-dev-tools > div:first-child {
+    display: grid;
+    gap: 2px;
+    min-width: 0;
+    width: 100%;
+  }
+
+  body.grade2-developer-mode .speaking-dev-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    min-width: 0;
+    width: 100%;
+  }
+
+  body.grade2-developer-mode .speaking-dev-actions button {
+    width: 100%;
+    min-width: 0;
+    min-height: 44px;
+    padding: 8px 10px;
+    font-size: 16px;
+    line-height: 1.25;
+    white-space: normal;
+  }
+
+  body.grade2-developer-mode .speaking-dev-actions [data-action="speaking-dev-skip-checks"] {
+    grid-column: 1 / -1;
   }
 }
