@@ -46,8 +46,10 @@
     return generation === persistentAudioGeneration && listeningPlaybackQuestionId === questionId;
   }
 
-  stopListeningPlayback = function stopListeningPlaybackWithPersistentAudio() {
+  stopListeningPlayback = function stopListeningPlaybackWithPersistentAudio({ preserveCountdown = false } = {}) {
+    const keepCountdown = preserveCountdown && isListeningAnswerCountdownActive();
     ++persistentAudioGeneration;
+    listeningPlaybackToken += 1;
     persistentListeningAudio.pause();
     persistentListeningAudio.onplaying = null;
     persistentListeningAudio.onended = null;
@@ -63,9 +65,12 @@
     listeningInstructionAudioElement = null;
     listeningAudioElement = persistentListeningAudio;
     listeningSpeechUtterance = null;
-    listeningPlaybackQuestionId = null;
-    listeningPlaybackPhase = "idle";
-    listeningAnswerDeadline = 0;
+    listeningAudioPlaybackToken = 0;
+    if (!keepCountdown) {
+      cancelListeningAnswerCountdown();
+      listeningPlaybackQuestionId = null;
+      listeningPlaybackPhase = "idle";
+    }
   };
 
   playGrade2ListeningInstruction = async function playGrade2ListeningInstructionWithPersistentAudio(question) {
@@ -88,6 +93,7 @@
 
     persistentListeningAudio.onended = () => {
       if (!isCurrentPersistentPlayback(generation, questionId)) return;
+      persistentListeningAudio.onended = null;
       listeningInstructionAudioElement = null;
       appState.listeningIntroducedSections[sectionKey] = true;
       listeningPlaybackPhase = question.audioFile ? "audio" : question.script ? "blocked" : "answer";
@@ -98,6 +104,7 @@
 
     persistentListeningAudio.onerror = () => {
       if (!isCurrentPersistentPlayback(generation, questionId)) return;
+      persistentListeningAudio.onerror = null;
       listeningInstructionAudioElement = null;
       listeningPlaybackPhase = "instruction-error";
       updateListeningPlaybackUi();
@@ -155,10 +162,11 @@
 
     persistentListeningAudio.onended = () => {
       if (!isCurrentPersistentPlayback(generation, questionId)) return;
+      persistentListeningAudio.onended = null;
       if (appState.listeningReviewMode) {
         listeningPlaybackPhase = "review";
       } else {
-        startListeningAnswerCountdown();
+        startListeningAnswerCountdown(question);
       }
       saveState();
       updateListeningPlaybackUi();
@@ -166,6 +174,7 @@
 
     persistentListeningAudio.onerror = () => {
       if (!isCurrentPersistentPlayback(generation, questionId)) return;
+      persistentListeningAudio.onerror = null;
       listeningPlaybackPhase = "error";
       updateListeningPlaybackUi();
     };
