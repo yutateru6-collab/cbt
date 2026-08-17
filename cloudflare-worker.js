@@ -1,12 +1,24 @@
 import {
   GRADE2_LISTENING_FIX_RELEASE,
+  GRADE2_LISTENING_QUESTION_GAP_RELEASE,
   GRADE2_LISTENING_SOURCE_RELEASE,
   fixGrade2Set01ListeningWav,
+  fixGrade2Set01QuestionGapWav,
 } from "./listening-audio-fix.js";
 
-const FIXED_AUDIO_ROUTE_PREFIX = `/audio-r2/grade2/releases/${GRADE2_LISTENING_FIX_RELEASE}/`;
 const R2_KEY_PREFIX = "scbt/grade2/releases";
-const SET01_FIX_PATH = /^set-01\/listening\/part1\/No(05|06|07|08|09)\.wav$/;
+const LISTENING_CORRECTIONS = Object.freeze([
+  Object.freeze({
+    release: GRADE2_LISTENING_QUESTION_GAP_RELEASE,
+    pathPattern: /^set-01\/listening\/part1\/No(01|02|03|04|05)\.wav$/,
+    transform: fixGrade2Set01QuestionGapWav,
+  }),
+  Object.freeze({
+    release: GRADE2_LISTENING_FIX_RELEASE,
+    pathPattern: /^set-01\/listening\/part1\/No(05|06|07|08|09)\.wav$/,
+    transform: fixGrade2Set01ListeningWav,
+  }),
+]);
 
 function rangeNotSatisfiable(headers, size) {
   headers.set("Accept-Ranges", "bytes");
@@ -79,31 +91,37 @@ function respondWithAudioBuffer(request, buffer, extraHeaders = {}) {
 }
 
 function getFixedListeningRequest(pathname) {
-  if (!pathname.startsWith(FIXED_AUDIO_ROUTE_PREFIX)) return null;
-  const relativePath = pathname.slice(FIXED_AUDIO_ROUTE_PREFIX.length);
-  const match = SET01_FIX_PATH.exec(relativePath);
-  if (!match) return { error: "Unsupported listening correction path." };
-  return {
-    relativePath,
-    questionId: Number(match[1]),
-    sourceKey: `${R2_KEY_PREFIX}/${GRADE2_LISTENING_SOURCE_RELEASE}/${relativePath}`,
-    targetKey: `${R2_KEY_PREFIX}/${GRADE2_LISTENING_FIX_RELEASE}/${relativePath}`,
-  };
+  for (const correction of LISTENING_CORRECTIONS) {
+    const routePrefix = `/audio-r2/grade2/releases/${correction.release}/`;
+    if (!pathname.startsWith(routePrefix)) continue;
+    const relativePath = pathname.slice(routePrefix.length);
+    const match = correction.pathPattern.exec(relativePath);
+    if (!match) return { error: "Unsupported listening correction path." };
+    return {
+      release: correction.release,
+      relativePath,
+      questionId: Number(match[1]),
+      transform: correction.transform,
+      sourceKey: `${R2_KEY_PREFIX}/${GRADE2_LISTENING_SOURCE_RELEASE}/${relativePath}`,
+      targetKey: `${R2_KEY_PREFIX}/${correction.release}/${relativePath}`,
+    };
+  }
+  return null;
 }
 
-async function backupCorrectedAudioIfNeeded(env, targetKey, buffer, questionId, fixName) {
+async function backupCorrectedAudioIfNeeded(env, info, buffer, fixName) {
   if (!env.CBT_PROJECT_ARCHIVE) throw new Error("CBT_PROJECT_ARCHIVE R2 binding is unavailable");
-  const existing = await env.CBT_PROJECT_ARCHIVE.head(targetKey);
+  const existing = await env.CBT_PROJECT_ARCHIVE.head(info.targetKey);
   if (existing) return;
-  await env.CBT_PROJECT_ARCHIVE.put(targetKey, buffer, {
+  await env.CBT_PROJECT_ARCHIVE.put(info.targetKey, buffer, {
     httpMetadata: {
       contentType: "audio/wav",
       cacheControl: "public, max-age=31536000, immutable",
     },
     customMetadata: {
       sourceRelease: GRADE2_LISTENING_SOURCE_RELEASE,
-      fixRelease: GRADE2_LISTENING_FIX_RELEASE,
-      questionId: String(questionId),
+      fixRelease: info.release,
+      questionId: String(info.questionId),
       fix: fixName,
     },
   });
@@ -118,9 +136,8 @@ async function loadOrCreateCorrectedListeningAudio(env, info) {
     const buffer = await targetObject.arrayBuffer();
     await backupCorrectedAudioIfNeeded(
       env,
-      info.targetKey,
+      info,
       buffer,
-      info.questionId,
       targetObject.customMetadata?.fix || "verified-existing",
     );
     return { buffer, etag: targetObject.httpEtag || "" };
@@ -129,9 +146,9 @@ async function loadOrCreateCorrectedListeningAudio(env, info) {
   const sourceObject = await env.MIMILISTEN_AUDIO.get(info.sourceKey);
   if (!sourceObject) throw new Error(`Source listening audio not found: ${info.sourceKey}`);
   const sourceBuffer = await sourceObject.arrayBuffer();
-  const fixed = fixGrade2Set01ListeningWav(sourceBuffer, info.questionId);
-  if (info.questionId === 9 && !fixed.changed) {
-    throw new Error("No.9 intro pause was not confidently detected; refusing to publish an unchanged replacement");
+  const fixed = info.transform(sourceBuffer, info.questionId);
+  if (!fixed.changed) {
+    throw new Error(`Listening correction made no verified change for No.${info.questionId}`);
   }
 
   const httpMetadata = {
@@ -140,7 +157,7 @@ async function loadOrCreateCorrectedListeningAudio(env, info) {
   };
   const customMetadata = {
     sourceRelease: GRADE2_LISTENING_SOURCE_RELEASE,
-    fixRelease: GRADE2_LISTENING_FIX_RELEASE,
+    fixRelease: info.release,
     questionId: String(info.questionId),
     fix: fixed.fix,
   };
