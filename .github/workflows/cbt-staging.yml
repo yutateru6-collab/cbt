@@ -127,34 +127,70 @@ jobs:
           base='https://cbt-staging.itisnowornever271.workers.dev'
           stamp="${GITHUB_SHA:0:12}"
 
-          curl -fsSL --retry 5 --retry-delay 2 --connect-timeout 10 --max-time 45 \
-            -H 'Cache-Control: no-cache' \
-            "$base/build-info.json?verify=$stamp" \
-            -o /tmp/build-info.json
+          build_ready=0
+          for attempt in {1..12}; do
+            if curl -fsSL --connect-timeout 10 --max-time 45 \
+              -H 'Cache-Control: no-cache' \
+              "$base/build-info.json?verify=$stamp&attempt=$attempt" \
+              -o /tmp/build-info.json; then
+              if node -e '
+                const fs = require("node:fs");
+                const info = JSON.parse(fs.readFileSync("/tmp/build-info.json", "utf8"));
+                process.exit(info.commit === process.env.CBT_BUILD_SHA && info.ref === process.env.CBT_BUILD_REF && info.environment === process.env.CBT_DEPLOY_ENV ? 0 : 1);
+              '; then
+                build_ready=1
+                break
+              fi
+            fi
+            echo "Waiting for staging build metadata propagation ($attempt/12)..."
+            sleep 2
+          done
+          test "$build_ready" = '1'
 
           node - <<'NODE'
           const fs = require("node:fs");
           const info = JSON.parse(fs.readFileSync("/tmp/build-info.json", "utf8"));
-          if (info.commit !== process.env.CBT_BUILD_SHA) throw new Error(`commit mismatch: ${info.commit}`);
-          if (info.ref !== process.env.CBT_BUILD_REF) throw new Error(`ref mismatch: ${info.ref}`);
-          if (info.environment !== process.env.CBT_DEPLOY_ENV) throw new Error(`environment mismatch: ${info.environment}`);
           console.log("build-info verified", info);
           NODE
 
           for file in exam.html app.js grade2-listening-part2-sets.js grade2-listening-set01-audio-fixes.js; do
-            curl -fsSL --retry 5 --retry-delay 2 --connect-timeout 10 --max-time 45 \
-              -H 'Cache-Control: no-cache' \
-              "$base/$file?verify=$stamp" \
-              -o "/tmp/prod-${file//\//_}"
-            test "$(sha256sum "$file" | awk '{print $1}')" = "$(sha256sum "/tmp/prod-${file//\//_}" | awk '{print $1}')"
+            local_sha="$(sha256sum "$file" | awk '{print $1}')"
+            matched=0
+            for attempt in {1..12}; do
+              if curl -fsSL --connect-timeout 10 --max-time 45 \
+                -H 'Cache-Control: no-cache' \
+                "$base/$file?verify=$stamp&attempt=$attempt" \
+                -o "/tmp/prod-${file//\//_}"; then
+                prod_sha="$(sha256sum "/tmp/prod-${file//\//_}" | awk '{print $1}')"
+                if [ "$local_sha" = "$prod_sha" ]; then
+                  matched=1
+                  break
+                fi
+              fi
+              echo "Waiting for $file propagation ($attempt/12)..."
+              sleep 2
+            done
+            test "$matched" = '1'
           done
 
           if [ -f tools/listening-player/index.html ]; then
-            curl -fsSL --retry 5 --retry-delay 2 --connect-timeout 10 --max-time 45 \
-              -H 'Cache-Control: no-cache' \
-              "$base/tools/listening-player/index.html?verify=$stamp" \
-              -o /tmp/prod-listening-player.html
-            test "$(sha256sum tools/listening-player/index.html | awk '{print $1}')" = "$(sha256sum /tmp/prod-listening-player.html | awk '{print $1}')"
+            local_sha="$(sha256sum tools/listening-player/index.html | awk '{print $1}')"
+            matched=0
+            for attempt in {1..12}; do
+              if curl -fsSL --connect-timeout 10 --max-time 45 \
+                -H 'Cache-Control: no-cache' \
+                "$base/tools/listening-player/index.html?verify=$stamp&attempt=$attempt" \
+                -o /tmp/prod-listening-player.html; then
+                prod_sha="$(sha256sum /tmp/prod-listening-player.html | awk '{print $1}')"
+                if [ "$local_sha" = "$prod_sha" ]; then
+                  matched=1
+                  break
+                fi
+              fi
+              echo "Waiting for Listening Player propagation ($attempt/12)..."
+              sleep 2
+            done
+            test "$matched" = '1'
           fi
 
           node scripts/verify-cloudflare-listening-audio.mjs "$base"
