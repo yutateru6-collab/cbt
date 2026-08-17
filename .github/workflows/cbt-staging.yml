@@ -75,6 +75,36 @@ jobs:
       - name: Audit actual Set 01-03 listening pauses
         run: node scripts/inspect-grade2-three-set-pauses.mjs
 
+      - name: Transcript diagnostic for only six confirmed duplicate items
+        shell: bash
+        run: |
+          set -euo pipefail
+          out='/tmp/cbt-six-duplicate-diagnostic'
+          transcripts='/tmp/cbt-six-whisper'
+          node scripts/diagnose-set01-duplicate-question-tails.mjs --output-dir="$out"
+          python3 -m pip install --quiet --disable-pip-version-check openai-whisper
+          mkdir -p "$transcripts"
+          for wav in "$out"/*.wav; do
+            whisper "$wav" \
+              --model tiny.en \
+              --language English \
+              --task transcribe \
+              --output_format json \
+              --output_dir "$transcripts" \
+              --fp16 False \
+              --verbose False
+          done
+          python3 - <<'PY'
+          import glob, json, os
+          for filename in sorted(glob.glob('/tmp/cbt-six-whisper/*.json')):
+              print('WHISPER_FILE', os.path.basename(filename))
+              data = json.load(open(filename, encoding='utf-8'))
+              for seg in data.get('segments', []):
+                  print(f"WHISPER_SEGMENT {seg['start']:.3f}-{seg['end']:.3f} {seg['text'].strip()}")
+          PY
+          echo 'TRANSCRIPT_DIAGNOSTIC_STOP: six files were transcribed; refusing to deploy until exact rear-duplicate boundaries are reviewed.' >&2
+          exit 2
+
       - name: Preflight real listening corrections
         run: node scripts/verify-cloudflare-listening-audio.mjs --expected-only
 
