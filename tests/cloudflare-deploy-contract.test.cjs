@@ -45,6 +45,18 @@ test("Worker build emits verifiable build metadata", () => {
   assert.match(prepare, /CBT_DEPLOY_ENV/);
 });
 
+test("Worker bundle contains the complete canonical explanation pipeline", () => {
+  for (const file of [
+    "grade2-legacy-explanation-cleanup.js",
+    "grade2-set-01-explanations.js",
+    "grade2-skill-explanations.js",
+    "grade2-explanation-sync.js",
+    "grade2-canonical-explanations.js",
+  ]) {
+    assert.ok(prepare.includes(`\"${file}\"`), `${file} must be copied into worker-dist`);
+  }
+});
+
 test("audio verifier supports fail-closed real-master preflight", () => {
   assert.match(verifier, /--expected-only/);
   assert.match(verifier, /GRADE2_LISTENING_INTRO_GAP_RELEASE/);
