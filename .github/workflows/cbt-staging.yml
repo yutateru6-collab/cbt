@@ -65,6 +65,7 @@ jobs:
           node --check scripts/inspect-grade2-three-set-pauses.mjs
           node scripts/remove-grade2-legacy-listening-explanations.mjs --check
           node tests/grade2-listening-audio-fix.test.cjs
+          node tests/grade2-listening-three-set-audio-fix.test.cjs
           node --test tests/grade2-listening-player.test.cjs
           node --test tests/grade2-listening-r2-source.test.cjs
           node --test tests/cloudflare-deploy-contract.test.cjs
