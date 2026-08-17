@@ -7,6 +7,7 @@
     "set-02": "第2回",
     "set-03": "第3回",
   };
+  const APP_ROOT_URL = new URL("../../", window.location.href);
 
   const allSets = Array.isArray(window.scbtGrade2VocabSets) ? window.scbtGrade2VocabSets : [];
   const setMap = new Map(
@@ -25,11 +26,20 @@
   const scriptText = document.getElementById("script-text");
   const questionText = document.getElementById("question-text");
   const choiceList = document.getElementById("choice-list");
+  const answerText = document.getElementById("answer-text");
+  const explanationText = document.getElementById("explanation-text");
   const playbackRate = document.getElementById("playback-rate");
   const continuousPlay = document.getElementById("continuous-play");
   const status = document.getElementById("player-status");
 
-  if (!audio || !setTabs || !questionList || SET_KEYS.some((key) => !setMap.get(key)?.listeningQuestions?.length)) {
+  if (
+    !audio ||
+    !setTabs ||
+    !questionList ||
+    !answerText ||
+    !explanationText ||
+    SET_KEYS.some((key) => !setMap.get(key)?.listeningQuestions?.length)
+  ) {
     document.body.innerHTML = '<main class="fatal-message"><strong>Listening Playerを読み込めませんでした。</strong><br>第1〜3回のリスニングデータを確認してください。</main>';
     return;
   }
@@ -61,13 +71,27 @@
     status.textContent = message;
   }
 
-  function isSameAudioSource(url) {
-    if (!audio.src) return false;
+  function resolveAudioUrl(value) {
+    const source = String(value || "").trim();
+    if (!source) return "";
     try {
-      return new URL(audio.src, window.location.href).href === new URL(url, window.location.href).href;
+      if (/^(?:https?:|blob:|data:)/i.test(source)) {
+        return new URL(source, window.location.href).href;
+      }
+      if (source.startsWith("/")) {
+        return new URL(source, window.location.origin).href;
+      }
+      const appRelative = source.startsWith("./") ? source.slice(2) : source;
+      return new URL(appRelative, APP_ROOT_URL).href;
     } catch {
-      return false;
+      return "";
     }
+  }
+
+  function isSameAudioSource(url) {
+    const resolved = resolveAudioUrl(url);
+    if (!resolved || !audio.src) return false;
+    return audio.src === resolved;
   }
 
   function updatePlayButtons() {
@@ -105,6 +129,14 @@
     const question = getQuestion();
     const setLabel = SET_LABELS[state.setKey];
     const partLabel = getPartLabel(question);
+    const choices = Array.isArray(question.choices) ? question.choices : [];
+    const correctNumber = Number(question.correct);
+    const correctIndex = correctNumber - 1;
+    const hasValidAnswer =
+      Number.isInteger(correctNumber) &&
+      correctNumber >= 1 &&
+      correctNumber <= choices.length &&
+      String(choices[correctIndex] || "").trim().length > 0;
 
     currentSet.textContent = setLabel;
     currentPart.textContent = partLabel;
@@ -112,7 +144,15 @@
     mobileCurrent.textContent = `No.${question.id}`;
     scriptText.textContent = formatScript(question.script);
     questionText.textContent = question.questionText || question.text || "";
-    choiceList.innerHTML = (question.choices || []).map((choice) => `<li>${escapeHtml(choice)}</li>`).join("");
+    choiceList.innerHTML = choices.map((choice, index) => {
+      const isCorrect = hasValidAnswer && index === correctIndex;
+      return `<li class="${isCorrect ? "correct-choice" : ""}"><span>${escapeHtml(choice)}</span>${isCorrect ? '<span class="correct-badge">正解</span>' : ""}</li>`;
+    }).join("");
+    answerText.textContent = hasValidAnswer
+      ? `${correctNumber}. ${choices[correctIndex]}`
+      : "解答データがありません。";
+    explanationText.textContent =
+      String(question.explanation || "").trim() || "解説データがありません。";
   }
 
   function escapeHtml(value) {
@@ -138,21 +178,26 @@
 
   function loadCurrentQuestion({ autoplay = false } = {}) {
     const question = getQuestion();
-    if (!question?.audioFile) {
+    renderSetTabs();
+    renderQuestionList();
+    renderContent();
+
+    const audioUrl = resolveAudioUrl(question?.audioFile);
+    if (!audioUrl) {
+      audio.pause();
+      audio.removeAttribute("src");
+      audio.load();
+      updatePlayButtons();
       setStatus("この問題には音源が設定されていません。");
       return;
     }
 
-    if (!isSameAudioSource(question.audioFile)) {
+    if (!isSameAudioSource(audioUrl)) {
       audio.pause();
-      audio.src = question.audioFile;
+      audio.src = audioUrl;
       audio.load();
     }
     audio.playbackRate = Number(playbackRate.value) || 1;
-
-    renderSetTabs();
-    renderQuestionList();
-    renderContent();
     updatePlayButtons();
 
     if (autoplay) {
