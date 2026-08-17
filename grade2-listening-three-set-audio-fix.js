@@ -2,6 +2,8 @@ export const GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE =
   "20260817-grade2-sets01-03-listening-pauses-1s-v1";
 export const GRADE2_LISTENING_SET01_DUPLICATE_QUESTION_FIX_RELEASE =
   "20260817-set01-listening-duplicate-question-fix-v1";
+export const GRADE2_LISTENING_SET01_DUPLICATE_QUESTION_FIX_V2_RELEASE =
+  "20260817-set01-listening-duplicate-question-fix-v2";
 
 const PCM_SILENCE_THRESHOLD = 350;
 const TARGET_ONE_SECOND = 1.0;
@@ -20,16 +22,41 @@ const MIN_QUESTION_WORD_SECONDS = 0.20;
 const MAX_QUESTION_WORD_SECONDS = 1.20;
 const MIN_QUESTION_TEXT_REMAINDER_SECONDS = 1.20;
 
-// Exact trim frames in the already-generated 1s / 1s / 0.8s Set 01 output.
-// These six items were user-confirmed to contain a redundant second Question
-// sequence. Trimming here preserves every byte before the duplicate tail.
-const SET01_DUPLICATE_QUESTION_TRIM_FRAME = Object.freeze({
+// Historical v1 boundaries are retained only so old immutable URLs keep the
+// exact behavior they already had. The active app no longer points at v1.
+const SET01_DUPLICATE_QUESTION_V1_TRIM_FRAME = Object.freeze({
   6: 683562,
   7: 586204,
   8: 628990,
   10: 558814,
   12: 628191,
   14: 615387,
+});
+
+// V2 was measured from the already-generated 1s / 1s / 0.8s WAVs after
+// transcript + PCM review. Each frame is at the end of the first complete
+// wanted final question sequence and before the redundant rear copy.
+// No.6 has no material silent separator, so its boundary is the exact start
+// of the second spoken "Question" cue. The other five end at the first
+// post-question silence before the rear duplicate sequence.
+const SET01_DUPLICATE_QUESTION_V2_TRIM_FRAME = Object.freeze({
+  6: 707562,
+  7: 702988,
+  8: 748632,
+  10: 769265,
+  12: 741045,
+  14: 721151,
+});
+
+// Exact frame counts of the normal 1s / 1s / 0.8s inputs used for V2.
+// Refuse to trim if a different WAV is supplied.
+const SET01_DUPLICATE_QUESTION_V2_INPUT_FRAMES = Object.freeze({
+  6: 791087,
+  7: 884055,
+  8: 864858,
+  10: 873824,
+  12: 848780,
+  14: 827740,
 });
 
 function readFourCc(view, offset) {
@@ -308,7 +335,7 @@ export function fixGrade2ThreeSetOneSecondPausesWav(buffer, questionId) {
 
 export function fixGrade2Set01DuplicateQuestionFromOneSecondWav(buffer, questionId) {
   const id = Number(questionId);
-  const trimFrame = SET01_DUPLICATE_QUESTION_TRIM_FRAME[id];
+  const trimFrame = SET01_DUPLICATE_QUESTION_V1_TRIM_FRAME[id];
   if (!Number.isInteger(trimFrame)) {
     throw new Error(`Unsupported Set 01 duplicate-question fix question: ${questionId}`);
   }
@@ -323,8 +350,53 @@ export function fixGrade2Set01DuplicateQuestionFromOneSecondWav(buffer, question
   return {
     buffer: truncateAtFrame(buffer, trimFrame),
     changed: true,
-    fix: "remove-user-confirmed-duplicate-question-tail",
+    fix: "remove-user-confirmed-duplicate-question-tail-v1",
     trimFrame,
+    removedFrames,
+  };
+}
+
+export function fixGrade2Set01DuplicateQuestionV2FromOneSecondWav(buffer, questionId) {
+  const id = Number(questionId);
+  const trimFrame = SET01_DUPLICATE_QUESTION_V2_TRIM_FRAME[id];
+  const expectedInputFrames = SET01_DUPLICATE_QUESTION_V2_INPUT_FRAMES[id];
+  if (!Number.isInteger(trimFrame) || !Number.isInteger(expectedInputFrames)) {
+    throw new Error(`Unsupported Set 01 duplicate-question V2 question: ${questionId}`);
+  }
+
+  const parsed = parsePcmWav(buffer);
+  const totalFrames = Math.floor(parsed.data.dataSize / parsed.format.blockAlign);
+  if (totalFrames !== expectedInputFrames) {
+    throw new Error(
+      `Unexpected V2 source frame count for No.${id}: ${totalFrames}/${expectedInputFrames}`,
+    );
+  }
+
+  // For No.7/8/10/12/14 the verified cut is the beginning of the silence
+  // immediately after the first complete question sentence. No.6 is the one
+  // exception: its two copies touch, so the verified cut is the second cue's
+  // first frame.
+  if (id === 6) {
+    const voiceWindow = Math.round(parsed.format.sampleRate * 0.05);
+    if (!hasVoice(parsed, trimFrame - voiceWindow, trimFrame) || !hasVoice(parsed, trimFrame, trimFrame + voiceWindow)) {
+      throw new Error("No.6 V2 boundary no longer matches the verified touching duplicate cues");
+    }
+  } else {
+    const silenceProofEnd = trimFrame + Math.round(parsed.format.sampleRate * 0.10);
+    assertSilentFrameRange(parsed, trimFrame, silenceProofEnd);
+  }
+
+  const removedFrames = totalFrames - trimFrame;
+  if (removedFrames < parsed.format.sampleRate) {
+    throw new Error(`V2 duplicate tail is unexpectedly short for No.${id}: ${removedFrames} frames`);
+  }
+
+  return {
+    buffer: truncateAtFrame(buffer, trimFrame),
+    changed: true,
+    fix: "remove-verified-rear-duplicate-question-tail-v2",
+    trimFrame,
+    sourceFrames: totalFrames,
     removedFrames,
   };
 }
