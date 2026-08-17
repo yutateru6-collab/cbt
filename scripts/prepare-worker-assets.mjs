@@ -1,4 +1,4 @@
-import { cp, mkdir, rm } from "node:fs/promises";
+import { cp, mkdir, rm, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -95,3 +95,10 @@ for (const file of nestedFiles) {
   await mkdir(dirname(destination), { recursive: true });
   await cp(join(root, file), destination);
 }
+
+const buildInfo = {
+  commit: process.env.CBT_BUILD_SHA || "local",
+  ref: process.env.CBT_BUILD_REF || "local",
+  environment: process.env.CBT_DEPLOY_ENV || "local",
+};
+await writeFile(join(outDir, "build-info.json"), `${JSON.stringify(buildInfo, null, 2)}\n`, "utf8");

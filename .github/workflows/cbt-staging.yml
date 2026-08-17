@@ -1,0 +1,155 @@
+name: Deploy CBT staging
+
+on:
+  push:
+    branches:
+      - "agent/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cbt-staging
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+
+    steps:
+      - name: Check out branch commit
+        uses: actions/checkout@v4
+
+      - name: Verify exact branch commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Use Account ID when configured
+        shell: bash
+        env:
+          OPTIONAL_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -n "${OPTIONAL_ACCOUNT_ID:-}" ]; then
+            echo "CLOUDFLARE_ACCOUNT_ID=$OPTIONAL_ACCOUNT_ID" >> "$GITHUB_ENV"
+          fi
+
+      - name: Validate staging deployment contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check cloudflare-worker.js
+          node --check listening-audio-fix.js
+          node --check scripts/prepare-worker-assets.mjs
+          node --check scripts/verify-cloudflare-listening-audio.mjs
+          node tests/grade2-listening-audio-fix.test.cjs
+          node --test tests/grade2-listening-player.test.cjs
+          node --test tests/grade2-listening-r2-source.test.cjs
+          node --test tests/cloudflare-deploy-contract.test.cjs
+
+      - name: Ensure isolated staging R2 buckets
+        shell: bash
+        run: |
+          set -euo pipefail
+          for bucket in mimilisten-audio-staging cbt-project-archive-staging; do
+            if npx wrangler r2 bucket info "$bucket" --json >/dev/null 2>&1; then
+              echo "R2 bucket exists: $bucket"
+            else
+              echo "Creating R2 bucket: $bucket"
+              npx wrangler r2 bucket create "$bucket"
+            fi
+          done
+
+      - name: Seed immutable listening masters into staging R2
+        shell: bash
+        run: |
+          set -euo pipefail
+          source_release='20260815-grade2-listening-pauses-v2'
+          source_base="https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/$source_release/set-01/listening/part1"
+          mkdir -p /tmp/cbt-staging-listening
+          for n in {1..9}; do
+            id="$(printf '%02d' "$n")"
+            file="/tmp/cbt-staging-listening/No${id}.wav"
+            key="scbt/grade2/releases/$source_release/set-01/listening/part1/No${id}.wav"
+            curl -fsSL --retry 3 --connect-timeout 10 --max-time 60 \
+              -H 'Cache-Control: no-cache' \
+              "$source_base/No${id}.wav" \
+              -o "$file"
+            npx wrangler r2 object put "mimilisten-audio-staging/$key" \
+              --file "$file" \
+              --content-type audio/wav \
+              --cache-control 'public, max-age=31536000, immutable' \
+              --remote
+          done
+
+      - name: Validate staging bundle
+        env:
+          CBT_BUILD_SHA: ${{ github.sha }}
+          CBT_BUILD_REF: ${{ github.ref_name }}
+          CBT_DEPLOY_ENV: staging
+        run: npx wrangler deploy --dry-run --env staging --config wrangler.jsonc
+
+      - name: Deploy cbt-staging
+        env:
+          CBT_BUILD_SHA: ${{ github.sha }}
+          CBT_BUILD_REF: ${{ github.ref_name }}
+          CBT_DEPLOY_ENV: staging
+        run: npx wrangler deploy --env staging --config wrangler.jsonc
+
+      - name: Verify staging deployment
+        shell: bash
+        env:
+          CBT_BUILD_SHA: ${{ github.sha }}
+          CBT_BUILD_REF: ${{ github.ref_name }}
+          CBT_DEPLOY_ENV: staging
+        run: |
+          set -euo pipefail
+          base='https://cbt-staging.itisnowornever271.workers.dev'
+          stamp="${GITHUB_SHA:0:12}"
+
+          curl -fsSL --retry 5 --retry-delay 2 --connect-timeout 10 --max-time 45 \
+            -H 'Cache-Control: no-cache' \
+            "$base/build-info.json?verify=$stamp" \
+            -o /tmp/build-info.json
+
+          node - <<'NODE'
+          const fs = require("node:fs");
+          const info = JSON.parse(fs.readFileSync("/tmp/build-info.json", "utf8"));
+          if (info.commit !== process.env.CBT_BUILD_SHA) throw new Error(`commit mismatch: ${info.commit}`);
+          if (info.ref !== process.env.CBT_BUILD_REF) throw new Error(`ref mismatch: ${info.ref}`);
+          if (info.environment !== process.env.CBT_DEPLOY_ENV) throw new Error(`environment mismatch: ${info.environment}`);
+          console.log("build-info verified", info);
+          NODE
+
+          for file in exam.html app.js grade2-listening-part2-sets.js grade2-listening-set01-audio-fixes.js; do
+            curl -fsSL --retry 5 --retry-delay 2 --connect-timeout 10 --max-time 45 \
+              -H 'Cache-Control: no-cache' \
+              "$base/$file?verify=$stamp" \
+              -o "/tmp/prod-${file//\//_}"
+            test "$(sha256sum "$file" | awk '{print $1}')" = "$(sha256sum "/tmp/prod-${file//\//_}" | awk '{print $1}')"
+          done
+
+          if [ -f tools/listening-player/index.html ]; then
+            curl -fsSL --retry 5 --retry-delay 2 --connect-timeout 10 --max-time 45 \
+              -H 'Cache-Control: no-cache' \
+              "$base/tools/listening-player/index.html?verify=$stamp" \
+              -o /tmp/prod-listening-player.html
+            test "$(sha256sum tools/listening-player/index.html | awk '{print $1}')" = "$(sha256sum /tmp/prod-listening-player.html | awk '{print $1}')"
+          fi
+
+          node scripts/verify-cloudflare-listening-audio.mjs "$base"
+
+          echo "STAGING_URL=$base/"

@@ -26,5 +26,24 @@
       "bucket_name": "cbt-project-archive"
     }
   ],
+  "env": {
+    "staging": {
+      "workers_dev": true,
+      "preview_urls": true,
+      "vars": {
+        "CBT_ENVIRONMENT": "staging"
+      },
+      "r2_buckets": [
+        {
+          "binding": "MIMILISTEN_AUDIO",
+          "bucket_name": "mimilisten-audio-staging"
+        },
+        {
+          "binding": "CBT_PROJECT_ARCHIVE",
+          "bucket_name": "cbt-project-archive-staging"
+        }
+      ]
+    }
+  },
   "compatibility_flags": ["nodejs_compat"]
 }
