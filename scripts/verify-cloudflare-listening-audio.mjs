@@ -1,10 +1,10 @@
 import { createHash } from "node:crypto";
 import {
   GRADE2_LISTENING_FIX_RELEASE,
-  GRADE2_LISTENING_INTRO_GAP_RELEASE,
+  GRADE2_LISTENING_ONE_SECOND_PAUSES_RELEASE,
   GRADE2_LISTENING_SOURCE_RELEASE,
-  fixGrade2Set01IntroAndQuestionGapWav,
   fixGrade2Set01ListeningWav,
+  fixGrade2Set01OneSecondPausesWav,
 } from "../listening-audio-fix.js";
 
 const args = process.argv.slice(2);
@@ -51,8 +51,8 @@ for (let id = 1; id <= 9; id += 1) {
   const correction =
     id <= 5
       ? {
-          release: GRADE2_LISTENING_INTRO_GAP_RELEASE,
-          fixed: fixGrade2Set01IntroAndQuestionGapWav(source.buffer, id),
+          release: GRADE2_LISTENING_ONE_SECOND_PAUSES_RELEASE,
+          fixed: fixGrade2Set01OneSecondPausesWav(source.buffer, id),
         }
       : {
           release: GRADE2_LISTENING_FIX_RELEASE,
@@ -64,26 +64,31 @@ for (let id = 1; id <= 9; id += 1) {
   }
 
   if (id <= 5) {
-    if (correction.fixed.targetIntroGapFrames !== 19200) {
+    if (correction.fixed.targetIntroGapFrames !== 24000) {
       throw new Error(
-        `Set 01 No.${number} intro gap target is not exactly 19,200 frames: ${correction.fixed.targetIntroGapFrames}`,
+        `Set 01 No.${number} intro gap target is not exactly 24,000 frames: ${correction.fixed.targetIntroGapFrames}`,
+      );
+    }
+    if (correction.fixed.targetBodyQuestionGapFrames !== 24000) {
+      throw new Error(
+        `Set 01 No.${number} body->Question gap target is not exactly 24,000 frames: ${correction.fixed.targetBodyQuestionGapFrames}`,
       );
     }
     if (correction.fixed.targetQuestionGapFrames !== 19200) {
       throw new Error(
-        `Set 01 No.${number} Question gap target is not exactly 19,200 frames: ${correction.fixed.targetQuestionGapFrames}`,
+        `Set 01 No.${number} Question->text gap target is not exactly 19,200 frames: ${correction.fixed.targetQuestionGapFrames}`,
       );
     }
   }
 
   const expectedSha = sha256(correction.fixed.buffer);
   const expectedBytes = correction.fixed.buffer.byteLength;
-  const introNote = id <= 5
-    ? ` intro=${correction.fixed.targetIntroGapFrames}/0.800s originalIntro=${correction.fixed.originalIntroGapFrames}`
+  const pauseNote = id <= 5
+    ? ` intro=${correction.fixed.targetIntroGapFrames}/1.000s bodyQuestion=${correction.fixed.targetBodyQuestionGapFrames}/1.000s questionText=${correction.fixed.targetQuestionGapFrames}/0.800s originalIntro=${correction.fixed.originalIntroGapFrames}`
     : "";
 
   if (expectedOnly) {
-    console.log(`No.${number} expected=${expectedSha} bytes=${expectedBytes}${introNote}`);
+    console.log(`No.${number} expected=${expectedSha} bytes=${expectedBytes}${pauseNote}`);
     continue;
   }
 
@@ -99,7 +104,7 @@ for (let id = 1; id <= 9; id += 1) {
   const actualBytes = actual.buffer.byteLength;
 
   console.log(
-    `No.${number} expected=${expectedSha} actual=${actualSha} bytes=${actualBytes}${introNote}`,
+    `No.${number} expected=${expectedSha} actual=${actualSha} bytes=${actualBytes}${pauseNote}`,
   );
 
   if (actualBytes !== expectedBytes || actualSha !== expectedSha) {

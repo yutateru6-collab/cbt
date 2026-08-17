@@ -202,10 +202,10 @@ test("Listening Player keeps the latest shared production audio overrides", () =
   const { sets } = loadCanonicalGrade2Data();
   for (const id of [1, 2, 3, 4, 5]) {
     const question = sets["set-01"].listeningQuestions.find((item) => Number(item.id) === id);
-    assert.equal(question.audioRelease, "20260817-set01-listening-q1-q5-intro08-v1");
+    assert.equal(question.audioRelease, "20260817-set01-listening-q1-q5-intro-bodyq-1s-v1");
     assert.match(
       question.audioFile,
-      /^\.\/audio-r2\/grade2\/releases\/20260817-set01-listening-q1-q5-intro08-v1\//,
+      /^\.\/audio-r2\/grade2\/releases\/20260817-set01-listening-q1-q5-intro-bodyq-1s-v1\//,
     );
   }
   for (const id of [6, 7, 8, 9]) {
