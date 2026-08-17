@@ -277,6 +277,46 @@ h1 {
   line-height: 1.55;
 }
 
+.choice-list li.correct-choice {
+  border-color: #9dc9a9;
+  background: #f2f8f4;
+  font-weight: 800;
+}
+
+.correct-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #dff1e4;
+  color: #245b35;
+  font-size: 12px;
+  font-weight: 900;
+  vertical-align: middle;
+}
+
+.answer-block {
+  background: #fbfcfd;
+}
+
+.answer-text,
+.explanation-text {
+  margin: 0;
+  line-height: 1.8;
+}
+
+.answer-text {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.explanation-text {
+  font-size: 16px;
+  white-space: pre-wrap;
+}
+
 .mobile-dock {
   display: none;
 }
@@ -330,6 +370,14 @@ h1 {
   .question-text {
     font-size: 16px;
     line-height: 1.8;
+  }
+
+  .answer-text {
+    font-size: 17px;
+  }
+
+  .explanation-text {
+    font-size: 15px;
   }
 
   .mobile-dock {
