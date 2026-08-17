@@ -2,11 +2,13 @@ import fs from "node:fs";
 import { createHash } from "node:crypto";
 import { GRADE2_LISTENING_SOURCE_RELEASE } from "../listening-audio-fix.js";
 import {
-  GRADE2_LISTENING_SET01_DUPLICATE_QUESTION_FIX_V2_RELEASE,
   GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE,
-  fixGrade2Set01DuplicateQuestionV2FromOneSecondWav,
   fixGrade2ThreeSetOneSecondPausesWav,
 } from "../grade2-listening-three-set-audio-fix.js";
+import {
+  GRADE2_LISTENING_SET01_DUPLICATE_QUESTION_FIX_V2_RELEASE,
+  fixGrade2Set01DuplicateQuestionV2FromOneSecondWav,
+} from "../grade2-listening-set01-duplicate-v2-fix.js";
 
 const args = process.argv.slice(2);
 const expectedOnly = args.includes("--expected-only");
