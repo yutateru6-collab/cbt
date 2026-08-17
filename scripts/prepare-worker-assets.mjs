@@ -28,6 +28,7 @@ const rootFiles = [
   "grade2-skill-explanations.js",
   "grade2-explanation-sync.js",
   "grade2-canonical-explanations.js",
+  "grade2-explanation-provenance-dev.js",
   "grade2-premium-bonus.js",
   "privacy.html",
   "support.html",
