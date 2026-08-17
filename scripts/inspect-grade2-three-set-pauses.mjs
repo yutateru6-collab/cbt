@@ -269,3 +269,7 @@ if (structuralMismatch.length) {
   console.error("STRUCTURAL_MISMATCH_IDS", structuralMismatch.map((row) => row.id).join(","));
 }
 if (ambiguous.length || structuralMismatch.length) process.exitCode = 2;
+
+// Strictly diagnose only the six user-confirmed duplicate-question items.
+// This must prove exact duplicated audio before any v2 trim is implemented.
+await import("./diagnose-set01-duplicate-question-tails.mjs");
