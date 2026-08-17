@@ -42,7 +42,9 @@ test("Worker build emits verifiable build metadata", () => {
 
 test("audio verifier supports fail-closed real-master preflight", () => {
   assert.match(verifier, /--expected-only/);
-  assert.match(verifier, /GRADE2_LISTENING_QUESTION_GAP_RELEASE/);
+  assert.match(verifier, /GRADE2_LISTENING_INTRO_GAP_RELEASE/);
+  assert.match(verifier, /fixGrade2Set01IntroAndQuestionGapWav/);
+  assert.match(verifier, /targetIntroGapFrames !== 19200/);
   assert.match(verifier, /GRADE2_LISTENING_FIX_RELEASE/);
 });
 
