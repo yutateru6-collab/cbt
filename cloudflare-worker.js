@@ -11,13 +11,22 @@ import {
 } from "./listening-audio-fix.js";
 import {
   GRADE2_LISTENING_SET01_DUPLICATE_QUESTION_FIX_RELEASE,
+  GRADE2_LISTENING_SET01_DUPLICATE_QUESTION_FIX_V2_RELEASE,
   GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE,
   fixGrade2Set01DuplicateQuestionFromOneSecondWav,
+  fixGrade2Set01DuplicateQuestionV2FromOneSecondWav,
   fixGrade2ThreeSetOneSecondPausesWav,
 } from "./grade2-listening-three-set-audio-fix.js";
 
 const R2_KEY_PREFIX = "scbt/grade2/releases";
 const LISTENING_CORRECTIONS = Object.freeze([
+  Object.freeze({
+    release: GRADE2_LISTENING_SET01_DUPLICATE_QUESTION_FIX_V2_RELEASE,
+    sourceRelease: GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE,
+    pathPattern: /^set-01\/listening\/part1\/No(06|07|08|10|12|14)\.wav$/,
+    transform: fixGrade2Set01DuplicateQuestionV2FromOneSecondWav,
+    precomputedOnly: true,
+  }),
   Object.freeze({
     release: GRADE2_LISTENING_SET01_DUPLICATE_QUESTION_FIX_RELEASE,
     sourceRelease: GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE,
