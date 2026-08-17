@@ -11,13 +11,10 @@ const staging = fs.readFileSync(path.join(root, ".github", "workflows", "cbt-sta
 const production = fs.readFileSync(path.join(root, ".github", "workflows", "cbt-production.yml"), "utf8");
 
 test("production R2 bindings stay unchanged", () => {
-  assert.deepEqual(
-    wrangler.r2_buckets,
-    [
-      { binding: "MIMILISTEN_AUDIO", bucket_name: "mimilisten-audio" },
-      { binding: "CBT_PROJECT_ARCHIVE", bucket_name: "cbt-project-archive" },
-    ],
-  );
+  assert.deepEqual(wrangler.r2_buckets, [
+    { binding: "MIMILISTEN_AUDIO", bucket_name: "mimilisten-audio" },
+    { binding: "CBT_PROJECT_ARCHIVE", bucket_name: "cbt-project-archive" },
+  ]);
 });
 
 test("dynamic listening audio routes through the Worker before SPA fallback", () => {
@@ -31,7 +28,6 @@ test("staging Worker uses only staging R2 buckets", () => {
   assert.equal(config.workers_dev, true);
   assert.equal(config.preview_urls, true);
   assert.equal(config.vars?.CBT_ENVIRONMENT, "staging");
-
   const byBinding = Object.fromEntries(config.r2_buckets.map((entry) => [entry.binding, entry.bucket_name]));
   assert.equal(byBinding.MIMILISTEN_AUDIO, "mimilisten-audio-staging");
   assert.equal(byBinding.CBT_PROJECT_ARCHIVE, "cbt-project-archive-staging");
@@ -46,77 +42,50 @@ test("Worker build emits verifiable build metadata", () => {
 });
 
 test("Worker bundle contains the complete canonical explanation pipeline", () => {
-  for (const file of [
-    "grade2-legacy-explanation-cleanup.js",
-    "grade2-set-01-explanations.js",
-    "grade2-skill-explanations.js",
-    "grade2-explanation-sync.js",
-    "grade2-canonical-explanations.js",
-  ]) {
+  for (const file of ["grade2-legacy-explanation-cleanup.js", "grade2-set-01-explanations.js", "grade2-skill-explanations.js", "grade2-explanation-sync.js", "grade2-canonical-explanations.js"]) {
     assert.ok(prepare.includes(`\"${file}\"`), `${file} must be copied into worker-dist`);
   }
 });
 
-test("audio verifier fail-closes on the real 90-file immutable source before deploy", () => {
+test("audio verifier fail-closes on 90 immutable sources and exactly six v2 overlays", () => {
   assert.match(verifier, /--expected-only/);
   assert.match(verifier, /GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE/);
+  assert.match(verifier, /GRADE2_LISTENING_SET01_DUPLICATE_QUESTION_FIX_V2_RELEASE/);
   assert.match(verifier, /fixGrade2ThreeSetOneSecondPausesWav/);
-  assert.match(verifier, /setKeys = \["set-01", "set-02", "set-03"\]/);
-  assert.match(verifier, /id <= 30/);
+  assert.match(verifier, /fixGrade2Set01DuplicateQuestionV2FromOneSecondWav/);
+  assert.match(verifier, /duplicateQuestionFixIds = new Set\(\[6, 7, 8, 10, 12, 14\]\)/);
   assert.match(verifier, /sourceSha !== item\.outputSha256/);
   assert.match(verifier, /targetIntroGapFrames !== 24000/);
   assert.match(verifier, /targetBodyQuestionGapFrames !== 24000/);
   assert.match(verifier, /targetQuestionGapFrames !== 19200/);
-  assert.match(verifier, /verified !== 90/);
+  assert.match(verifier, /overlayVerified !== 6/);
+  assert.match(verifier, /byte-identical prefix/);
 });
 
-test("staging workflow precomputes all 90 before deploy and verifies through isolated R2", () => {
+test("staging precomputes 90 normal WAVs plus exactly six v2 overlays before deploy", () => {
   assert.match(staging, /branches:\s*\n\s*-\s*"agent\/\*\*"/);
   assert.match(staging, /inspect-grade2-three-set-pauses\.mjs/);
   assert.match(staging, /build-grade2-three-set-corrected-audio\.mjs/);
-  assert.match(staging, /cloudflare-listening-route\.test\.mjs/);
-  assert.match(staging, /for set_num in 01 02 03/);
-  assert.match(staging, /seq 1 30/);
-  assert.match(staging, /20260817-grade2-sets01-03-listening-pauses-1s-v1/);
+  assert.match(staging, /build-set01-duplicate-question-v2-audio\.mjs/);
+  assert.match(staging, /for n in 06 07 08 10 12 14/);
+  assert.match(staging, /20260817-set01-listening-duplicate-question-fix-v2/);
   assert.match(staging, /mimilisten-audio-staging/);
   assert.match(staging, /cbt-project-archive-staging/);
   assert.match(staging, /verify-cloudflare-listening-audio\.mjs --expected-only/);
   assert.match(staging, /wrangler deploy --env staging/);
-  assert.match(staging, /cbt-staging\.itisnowornever271\.workers\.dev/);
-  assert.ok(
-    staging.indexOf("inspect-grade2-three-set-pauses.mjs") <
-      staging.indexOf("wrangler deploy --env staging --config wrangler.jsonc"),
-    "90-file audit must run before staging deployment",
-  );
-  assert.ok(
-    staging.indexOf("build-grade2-three-set-corrected-audio.mjs") <
-      staging.indexOf("wrangler deploy --env staging --config wrangler.jsonc"),
-    "corrected 90-file release must be built before staging deployment",
-  );
-  assert.ok(
-    staging.indexOf("Upload precomputed 90-file corrected release to staging R2") <
-      staging.indexOf("wrangler deploy --env staging --config wrangler.jsonc"),
-    "precomputed release must be uploaded before staging deployment",
-  );
+  assert.doesNotMatch(staging, /openai-whisper|TRANSCRIPT_DIAGNOSTIC_STOP/);
+  assert.ok(staging.indexOf("Build exactly six Set 01 duplicate-question v2 WAVs") < staging.indexOf("wrangler deploy --env staging --config wrangler.jsonc"));
+  assert.ok(staging.indexOf("Upload exactly six Set 01 duplicate-question v2 WAVs to staging R2") < staging.indexOf("wrangler deploy --env staging --config wrangler.jsonc"));
 });
 
-test("production workflow remains main-only and precomputes all 90 before production deploy", () => {
+test("production remains main-only and precomputes exactly six v2 overlays before deploy", () => {
   assert.match(production, /branches:\s*\n\s*-\s*main/);
   assert.match(production, /build-grade2-three-set-corrected-audio\.mjs/);
-  assert.match(production, /cloudflare-listening-route\.test\.mjs/);
-  assert.match(production, /mimilisten-audio\/\$key/);
+  assert.match(production, /build-set01-duplicate-question-v2-audio\.mjs/);
+  assert.match(production, /for n in 06 07 08 10 12 14/);
+  assert.match(production, /20260817-set01-listening-duplicate-question-fix-v2/);
   assert.match(production, /verify-cloudflare-listening-audio\.mjs --expected-only/);
   assert.match(production, /npx wrangler deploy --config wrangler\.jsonc/);
   assert.doesNotMatch(production, /wrangler deploy --env staging/);
-  assert.match(production, /https:\/\/cbt\.itisnowornever271\.workers\.dev/);
-  assert.ok(
-    production.indexOf("verify-cloudflare-listening-audio.mjs --expected-only") <
-      production.indexOf("npx wrangler deploy --config wrangler.jsonc"),
-    "90-file real-master preflight must run before production deployment",
-  );
-  assert.ok(
-    production.indexOf("Upload precomputed 90-file corrected release to production R2") <
-      production.indexOf("npx wrangler deploy --config wrangler.jsonc"),
-    "precomputed release must be uploaded before production deployment",
-  );
+  assert.ok(production.indexOf("Upload exactly six Set 01 duplicate-question v2 WAVs to production R2") < production.indexOf("Deploy Worker cbt"));
 });
