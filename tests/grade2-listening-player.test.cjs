@@ -61,7 +61,7 @@ test("Listening Player stays isolated from the CBT runtime", () => {
 
 test("Listening Player consumes shared production question data and resolves app-root audio overrides", () => {
   assert.match(player, /window\.scbtGrade2VocabSets/);
-  assert.match(player, /question\.audioFile/);
+  assert.match(player, /question\?\.audioFile/);
   assert.match(
     player,
     /const APP_ROOT_URL = new URL\("\.\.\/\.\.\/", window\.location\.href\);/,
