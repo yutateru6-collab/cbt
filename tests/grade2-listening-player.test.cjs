@@ -37,10 +37,7 @@ function loadCanonicalGrade2Data() {
   const rawExplanation = rawSet01Question1.explanation;
 
   vm.runInContext(cleanupSource, context, { filename: "grade2-legacy-explanation-cleanup.js" });
-  const cleanedSet01Question1 = context.window.scbtGrade2VocabSets
-    .find((set) => set.key === "set-01")
-    .listeningQuestions.find((question) => Number(question.id) === 1);
-  const explanationAfterCleanup = cleanedSet01Question1.explanation;
+  const removedByCleanup = context.window.GRADE2_LEGACY_LISTENING_EXPLANATIONS_REMOVED.removed;
 
   vm.runInContext(set01ExplanationSource, context, { filename: "grade2-set-01-explanations.js" });
   vm.runInContext(skillExplanationSource, context, { filename: "grade2-skill-explanations.js" });
@@ -55,7 +52,7 @@ function loadCanonicalGrade2Data() {
     context,
     sets,
     rawExplanation,
-    explanationAfterCleanup,
+    removedByCleanup,
   };
 }
 
@@ -77,12 +74,12 @@ test("Listening Player stays isolated from app.js but loads the full canonical e
   assert.ok(
     html.indexOf("../../grade2-listening-part2-sets.js") <
       html.indexOf("../../grade2-legacy-explanation-cleanup.js"),
-    "legacy cleanup must run after baseline listening data",
+    "defensive cleanup must run after baseline listening data",
   );
   assert.ok(
     html.indexOf("../../grade2-legacy-explanation-cleanup.js") <
       html.indexOf("../../grade2-set-01-explanations.js"),
-    "legacy cleanup must run before detailed explanations are rebuilt",
+    "defensive cleanup must run before detailed explanations are rebuilt",
   );
   assert.ok(
     html.indexOf("../../grade2-explanation-sync.js") <
@@ -122,15 +119,11 @@ test("CBT exam resolves canonical explanations before exam-data consumes Grade 2
   );
 });
 
-test("legacy raw Listening explanations are deleted before canonical explanations are rebuilt", () => {
-  const { context, rawExplanation, explanationAfterCleanup } = loadCanonicalGrade2Data();
-  assert.match(
-    rawExplanation,
-    /正答は3です。対話の内容と最後の質問を聞き取り/,
-    "fixture must prove the old weak explanation existed in raw input",
-  );
-  assert.equal(explanationAfterCleanup, undefined);
-  assert.equal(context.window.GRADE2_LEGACY_LISTENING_EXPLANATIONS_REMOVED.removed, 180);
+test("raw Grade 2 Listening source contains zero legacy explanation fields", () => {
+  assert.doesNotMatch(listeningSource, /^\s*"explanation":/m);
+  const { rawExplanation, removedByCleanup } = loadCanonicalGrade2Data();
+  assert.equal(rawExplanation, undefined);
+  assert.equal(removedByCleanup, 0, "clean repository baseline should need no runtime removals");
 });
 
 test("all 305 paid Reading and Listening questions resolve to canonical explanations", () => {
@@ -183,12 +176,12 @@ test("paid Listening explanations always contain evidence and distractor analysi
   }
 });
 
-test("Set 01 No.1 uses the detailed canonical explanation, not the old raw text", () => {
+test("Set 01 No.1 uses the detailed canonical explanation rebuilt from the approved source", () => {
   const { sets, rawExplanation } = loadCanonicalGrade2Data();
   const question = sets["set-01"].listeningQuestions.find((item) => Number(item.id) === 1);
+  assert.equal(rawExplanation, undefined);
   assert.equal(question.questionKey, "grade2:set-01:listening:01");
   assert.equal(question.explanationSource, "grade2-set-01-explanations.js");
-  assert.notEqual(question.canonicalExplanation, rawExplanation);
   assert.match(question.canonicalExplanation, /Could you upload it from the media room\?/);
   assert.match(question.canonicalExplanation, /【誤答分析】/);
   assert.match(question.canonicalExplanation, /interview section doesn't need any more changes/);
