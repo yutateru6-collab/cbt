@@ -26,6 +26,8 @@ const manifest = JSON.parse(
 const manifestById = new Map(manifest.items.map((item) => [item.id, item]));
 const setKeys = ["set-01", "set-02", "set-03"];
 const duplicateQuestionFixIds = new Set([6, 7, 8, 10, 12, 14]);
+const DEPLOY_FETCH_ATTEMPTS = 12;
+const DEPLOY_FETCH_RETRY_MS = 2000;
 
 function sha256(buffer) {
   return createHash("sha256").update(Buffer.from(buffer)).digest("hex");
@@ -44,6 +46,10 @@ function pcmData(buffer) {
   throw new Error("WAV data chunk missing");
 }
 
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 async function fetchArrayBuffer(url) {
   const response = await fetch(url, {
     headers: { "Cache-Control": "no-cache", Pragma: "no-cache" },
@@ -51,6 +57,51 @@ async function fetchArrayBuffer(url) {
   });
   if (!response.ok) throw new Error(`HTTP ${response.status} for ${url}`);
   return { buffer: await response.arrayBuffer(), contentType: response.headers.get("content-type") || "" };
+}
+
+async function fetchVerifiedDeploymentAudio(url, expectedBytes, expectedSha, manifestId) {
+  let lastObservation = "no response";
+  for (let attempt = 1; attempt <= DEPLOY_FETCH_ATTEMPTS; attempt += 1) {
+    const attemptUrl = `${url}&attempt=${attempt}`;
+    try {
+      const response = await fetch(attemptUrl, {
+        headers: { "Cache-Control": "no-cache", Pragma: "no-cache" },
+        cache: "no-store",
+      });
+      const contentType = response.headers.get("content-type") || "";
+      const status = response.status;
+      if (!response.ok) {
+        lastObservation = `HTTP ${status}, content-type=${contentType || "(missing)"}`;
+      } else {
+        const buffer = await response.arrayBuffer();
+        const actualBytes = buffer.byteLength;
+        const actualSha = sha256(buffer);
+        const isAudio = contentType.toLowerCase().startsWith("audio/");
+        if (isAudio && actualBytes === expectedBytes && actualSha === expectedSha) {
+          return { buffer, contentType, actualBytes, actualSha, attempt };
+        }
+        lastObservation = [
+          `HTTP ${status}`,
+          `content-type=${contentType || "(missing)"}`,
+          `bytes=${actualBytes}/${expectedBytes}`,
+          `sha256=${actualSha}/${expectedSha}`,
+        ].join(", ");
+      }
+    } catch (error) {
+      lastObservation = error instanceof Error ? error.message : String(error);
+    }
+
+    if (attempt < DEPLOY_FETCH_ATTEMPTS) {
+      console.log(
+        `Waiting for deployed listening audio ${manifestId} (${attempt}/${DEPLOY_FETCH_ATTEMPTS}): ${lastObservation}`,
+      );
+      await sleep(DEPLOY_FETCH_RETRY_MS);
+    }
+  }
+
+  throw new Error(
+    `Cloudflare audio did not converge for ${manifestId} after ${DEPLOY_FETCH_ATTEMPTS} attempts. Last observation: ${lastObservation}; url=${url}`,
+  );
 }
 
 let verified = 0;
@@ -103,16 +154,10 @@ for (const setKey of setKeys) {
     }
 
     const actualUrl = `${publicBase}/audio-r2/grade2/releases/${release}/${setKey}/listening/${part}/No${number}.wav?verify=${encodeURIComponent(process.env.CBT_BUILD_SHA || Date.now())}`;
-    const actual = await fetchArrayBuffer(actualUrl);
-    if (!actual.contentType.toLowerCase().startsWith("audio/")) {
-      throw new Error(`Unexpected content type for ${manifestId}: ${actual.contentType}`);
-    }
-    const actualSha = sha256(actual.buffer);
-    const actualBytes = actual.buffer.byteLength;
-    console.log(`${manifestId} expected=${expectedSha} actual=${actualSha} bytes=${actualBytes} release=${release} ${pauseNote}`);
-    if (actualBytes !== expectedBytes || actualSha !== expectedSha) {
-      throw new Error(`Cloudflare audio mismatch for ${manifestId}: expected ${expectedBytes}/${expectedSha}, got ${actualBytes}/${actualSha}`);
-    }
+    const actual = await fetchVerifiedDeploymentAudio(actualUrl, expectedBytes, expectedSha, manifestId);
+    console.log(
+      `${manifestId} expected=${expectedSha} actual=${actual.actualSha} bytes=${actual.actualBytes} release=${release} ${pauseNote} fetchAttempt=${actual.attempt}`,
+    );
     verified += 1;
   }
 }
