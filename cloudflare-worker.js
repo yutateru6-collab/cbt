@@ -1,13 +1,20 @@
 import {
   GRADE2_LISTENING_FIX_RELEASE,
+  GRADE2_LISTENING_INTRO_GAP_RELEASE,
   GRADE2_LISTENING_QUESTION_GAP_RELEASE,
   GRADE2_LISTENING_SOURCE_RELEASE,
+  fixGrade2Set01IntroAndQuestionGapWav,
   fixGrade2Set01ListeningWav,
   fixGrade2Set01QuestionGapWav,
 } from "./listening-audio-fix.js";
 
 const R2_KEY_PREFIX = "scbt/grade2/releases";
 const LISTENING_CORRECTIONS = Object.freeze([
+  Object.freeze({
+    release: GRADE2_LISTENING_INTRO_GAP_RELEASE,
+    pathPattern: /^set-01\/listening\/part1\/No(01|02|03|04|05)\.wav$/,
+    transform: fixGrade2Set01IntroAndQuestionGapWav,
+  }),
   Object.freeze({
     release: GRADE2_LISTENING_QUESTION_GAP_RELEASE,
     pathPattern: /^set-01\/listening\/part1\/No(01|02|03|04|05)\.wav$/,
