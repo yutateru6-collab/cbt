@@ -1,5 +1,7 @@
 (() => {
   const threeSetPausesRelease = "20260817-grade2-sets01-03-listening-pauses-1s-v1";
+  const duplicateQuestionFixRelease = "20260817-set01-listening-duplicate-question-fix-v1";
+  const duplicateQuestionFixIds = new Set([6, 7, 8, 10, 12, 14]);
   const productionSetKeys = new Set(["set-01", "set-02", "set-03"]);
   const sets = Array.isArray(window.scbtGrade2VocabSets) ? window.scbtGrade2VocabSets : [];
 
@@ -13,8 +15,10 @@
       if (!Number.isInteger(id) || !validPart) return;
 
       const number = String(id).padStart(2, "0");
-      question.audioFile = `./audio-r2/grade2/releases/${threeSetPausesRelease}/${set.key}/listening/${partFolder}/No${number}.wav`;
-      question.audioRelease = threeSetPausesRelease;
+      const useDuplicateFix = set.key === "set-01" && partFolder === "part1" && duplicateQuestionFixIds.has(id);
+      const release = useDuplicateFix ? duplicateQuestionFixRelease : threeSetPausesRelease;
+      question.audioFile = `./audio-r2/grade2/releases/${release}/${set.key}/listening/${partFolder}/No${number}.wav`;
+      question.audioRelease = release;
     });
   });
 })();

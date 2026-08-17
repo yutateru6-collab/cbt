@@ -10,12 +10,20 @@ import {
   fixGrade2Set01QuestionGapWav,
 } from "./listening-audio-fix.js";
 import {
+  GRADE2_LISTENING_SET01_DUPLICATE_QUESTION_FIX_RELEASE,
   GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE,
+  fixGrade2Set01DuplicateQuestionFromOneSecondWav,
   fixGrade2ThreeSetOneSecondPausesWav,
 } from "./grade2-listening-three-set-audio-fix.js";
 
 const R2_KEY_PREFIX = "scbt/grade2/releases";
 const LISTENING_CORRECTIONS = Object.freeze([
+  Object.freeze({
+    release: GRADE2_LISTENING_SET01_DUPLICATE_QUESTION_FIX_RELEASE,
+    sourceRelease: GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE,
+    pathPattern: /^set-01\/listening\/part1\/No(06|07|08|10|12|14)\.wav$/,
+    transform: fixGrade2Set01DuplicateQuestionFromOneSecondWav,
+  }),
   Object.freeze({
     release: GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE,
     pathPattern: /^(?:set-01|set-02|set-03)\/listening\/part1\/No(0[1-9]|1[0-5])\.wav$/,
@@ -129,13 +137,15 @@ function getFixedListeningRequest(pathname) {
     const relativePath = pathname.slice(routePrefix.length);
     const match = correction.pathPattern.exec(relativePath);
     if (!match) continue;
+    const sourceRelease = correction.sourceRelease || GRADE2_LISTENING_SOURCE_RELEASE;
     return {
       release: correction.release,
+      sourceRelease,
       relativePath,
       questionId: Number(match[1]),
       transform: correction.transform,
       precomputedOnly: correction.precomputedOnly === true,
-      sourceKey: `${R2_KEY_PREFIX}/${GRADE2_LISTENING_SOURCE_RELEASE}/${relativePath}`,
+      sourceKey: `${R2_KEY_PREFIX}/${sourceRelease}/${relativePath}`,
       targetKey: `${R2_KEY_PREFIX}/${correction.release}/${relativePath}`,
     };
   }
@@ -152,7 +162,7 @@ async function backupCorrectedAudioIfNeeded(env, info, buffer, fixName) {
       cacheControl: "public, max-age=31536000, immutable",
     },
     customMetadata: {
-      sourceRelease: GRADE2_LISTENING_SOURCE_RELEASE,
+      sourceRelease: info.sourceRelease,
       fixRelease: info.release,
       questionId: String(info.questionId),
       fix: fixName,
@@ -193,7 +203,7 @@ async function loadOrCreateCorrectedListeningAudio(env, info) {
     cacheControl: "public, max-age=31536000, immutable",
   };
   const customMetadata = {
-    sourceRelease: GRADE2_LISTENING_SOURCE_RELEASE,
+    sourceRelease: info.sourceRelease,
     fixRelease: info.release,
     questionId: String(info.questionId),
     fix: fixed.fix,

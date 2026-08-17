@@ -1,5 +1,7 @@
 export const GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE =
   "20260817-grade2-sets01-03-listening-pauses-1s-v1";
+export const GRADE2_LISTENING_SET01_DUPLICATE_QUESTION_FIX_RELEASE =
+  "20260817-set01-listening-duplicate-question-fix-v1";
 
 const PCM_SILENCE_THRESHOLD = 350;
 const TARGET_ONE_SECOND = 1.0;
@@ -17,6 +19,18 @@ const INTRO_SCAN_SECONDS = 8;
 const MIN_QUESTION_WORD_SECONDS = 0.20;
 const MAX_QUESTION_WORD_SECONDS = 1.20;
 const MIN_QUESTION_TEXT_REMAINDER_SECONDS = 1.20;
+
+// Exact trim frames in the already-generated 1s / 1s / 0.8s Set 01 output.
+// These six items were user-confirmed to contain a redundant second Question
+// sequence. Trimming here preserves every byte before the duplicate tail.
+const SET01_DUPLICATE_QUESTION_TRIM_FRAME = Object.freeze({
+  6: 683562,
+  7: 586204,
+  8: 628990,
+  10: 558814,
+  12: 628191,
+  14: 615387,
+});
 
 function readFourCc(view, offset) {
   return String.fromCharCode(
@@ -85,6 +99,17 @@ function rewriteWavData(buffer, replacementData) {
   view.setUint32(4, nextLength - 8, true);
   view.setUint32(data.sizeOffset, replacementData.byteLength, true);
   return output.buffer;
+}
+
+function truncateAtFrame(buffer, endFrame) {
+  const parsed = parsePcmWav(buffer);
+  const totalFrames = Math.floor(parsed.data.dataSize / parsed.format.blockAlign);
+  if (!Number.isInteger(endFrame) || endFrame <= 0 || endFrame >= totalFrames) {
+    throw new Error(`Invalid duplicate-question trim frame: ${endFrame}/${totalFrames}`);
+  }
+  const dataBytes = endFrame * parsed.format.blockAlign;
+  const sourceData = new Uint8Array(buffer, parsed.data.dataOffset, dataBytes);
+  return rewriteWavData(buffer, sourceData);
 }
 
 function isSilentSample(parsed, frame) {
@@ -278,5 +303,28 @@ export function fixGrade2ThreeSetOneSecondPausesWav(buffer, questionId) {
     originalQuestionGapFrames: questionTextFixed.originalFrames,
     targetQuestionGapFrames: questionTextFixed.targetFrames,
     questionGapDeltaFrames: questionTextFixed.deltaFrames,
+  };
+}
+
+export function fixGrade2Set01DuplicateQuestionFromOneSecondWav(buffer, questionId) {
+  const id = Number(questionId);
+  const trimFrame = SET01_DUPLICATE_QUESTION_TRIM_FRAME[id];
+  if (!Number.isInteger(trimFrame)) {
+    throw new Error(`Unsupported Set 01 duplicate-question fix question: ${questionId}`);
+  }
+
+  const parsed = parsePcmWav(buffer);
+  const totalFrames = Math.floor(parsed.data.dataSize / parsed.format.blockAlign);
+  const removedFrames = totalFrames - trimFrame;
+  if (removedFrames < parsed.format.sampleRate) {
+    throw new Error(`Duplicate-question tail is unexpectedly short for No.${id}: ${removedFrames} frames`);
+  }
+
+  return {
+    buffer: truncateAtFrame(buffer, trimFrame),
+    changed: true,
+    fix: "remove-user-confirmed-duplicate-question-tail",
+    trimFrame,
+    removedFrames,
   };
 }

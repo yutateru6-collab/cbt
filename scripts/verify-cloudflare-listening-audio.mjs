@@ -2,7 +2,9 @@ import fs from "node:fs";
 import { createHash } from "node:crypto";
 import { GRADE2_LISTENING_SOURCE_RELEASE } from "../listening-audio-fix.js";
 import {
+  GRADE2_LISTENING_SET01_DUPLICATE_QUESTION_FIX_RELEASE,
   GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE,
+  fixGrade2Set01DuplicateQuestionFromOneSecondWav,
   fixGrade2ThreeSetOneSecondPausesWav,
 } from "../grade2-listening-three-set-audio-fix.js";
 
@@ -28,6 +30,7 @@ const manifest = JSON.parse(
 );
 const manifestById = new Map(manifest.items.map((item) => [item.id, item]));
 const setKeys = ["set-01", "set-02", "set-03"];
+const duplicateQuestionFixIds = new Set([6, 7, 8, 10, 12, 14]);
 
 function sha256(buffer) {
   return createHash("sha256").update(Buffer.from(buffer)).digest("hex");
@@ -85,21 +88,31 @@ for (const setKey of setKeys) {
       throw new Error(`${manifestId}: Question->text target is not exactly 19,200 frames`);
     }
 
-    const expectedSha = sha256(fixed.buffer);
-    const expectedBytes = fixed.buffer.byteLength;
+    let expectedBuffer = fixed.buffer;
+    let release = GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE;
+    let extraNote = "";
+    if (setKey === "set-01" && part === "part1" && duplicateQuestionFixIds.has(id)) {
+      const duplicateFixed = fixGrade2Set01DuplicateQuestionFromOneSecondWav(fixed.buffer, id);
+      expectedBuffer = duplicateFixed.buffer;
+      release = GRADE2_LISTENING_SET01_DUPLICATE_QUESTION_FIX_RELEASE;
+      extraNote = ` duplicateTrim=${duplicateFixed.trimFrame} removed=${duplicateFixed.removedFrames}`;
+    }
+
+    const expectedSha = sha256(expectedBuffer);
+    const expectedBytes = expectedBuffer.byteLength;
     const pauseNote =
       `intro=${fixed.targetIntroGapFrames}/1.000s ` +
       `bodyQuestion=${fixed.targetBodyQuestionGapFrames}/1.000s ` +
-      `questionText=${fixed.targetQuestionGapFrames}/0.800s`;
+      `questionText=${fixed.targetQuestionGapFrames}/0.800s${extraNote}`;
 
     if (expectedOnly) {
-      console.log(`${manifestId} expected=${expectedSha} bytes=${expectedBytes} ${pauseNote}`);
+      console.log(`${manifestId} expected=${expectedSha} bytes=${expectedBytes} release=${release} ${pauseNote}`);
       verified += 1;
       continue;
     }
 
     const actualUrl =
-      `${publicBase}/audio-r2/grade2/releases/${GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE}/` +
+      `${publicBase}/audio-r2/grade2/releases/${release}/` +
       `${setKey}/listening/${part}/No${number}.wav` +
       `?verify=${encodeURIComponent(process.env.CBT_BUILD_SHA || Date.now())}`;
     const actual = await fetchArrayBuffer(actualUrl);
@@ -110,7 +123,7 @@ for (const setKey of setKeys) {
     const actualSha = sha256(actual.buffer);
     const actualBytes = actual.buffer.byteLength;
     console.log(
-      `${manifestId} expected=${expectedSha} actual=${actualSha} bytes=${actualBytes} ${pauseNote}`,
+      `${manifestId} expected=${expectedSha} actual=${actualSha} bytes=${actualBytes} release=${release} ${pauseNote}`,
     );
 
     if (actualBytes !== expectedBytes || actualSha !== expectedSha) {
@@ -125,7 +138,7 @@ for (const setKey of setKeys) {
 
 if (verified !== 90) throw new Error(`Expected 90 verified listening WAVs, got ${verified}`);
 if (expectedOnly) {
-  console.log("Verified all 90 real Set 01-03 baseline masters can be transformed safely");
+  console.log("Verified all 90 real Set 01-03 baseline masters and the six Set 01 duplicate-question overlays");
 } else {
-  console.log(`Verified all 90 corrected Set 01-03 listening WAVs against ${publicBase}`);
+  console.log(`Verified all 90 effective Set 01-03 listening WAVs against ${publicBase}`);
 }

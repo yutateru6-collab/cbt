@@ -54,13 +54,19 @@ function makeValidSource() {
 
 (async () => {
   const {
+    GRADE2_LISTENING_SET01_DUPLICATE_QUESTION_FIX_RELEASE,
     GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE,
+    fixGrade2Set01DuplicateQuestionFromOneSecondWav,
     fixGrade2ThreeSetOneSecondPausesWav,
   } = await loadModule();
 
   assert.equal(
     GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE,
     "20260817-grade2-sets01-03-listening-pauses-1s-v1",
+  );
+  assert.equal(
+    GRADE2_LISTENING_SET01_DUPLICATE_QUESTION_FIX_RELEASE,
+    "20260817-set01-listening-duplicate-question-fix-v1",
   );
 
   const { source, totalFrames, intro, bodyQuestion, questionText } = makeValidSource();
@@ -106,6 +112,38 @@ function makeValidSource() {
     "question text and tail must remain byte-identical",
   );
 
+  const duplicateSamples = new Int16Array(760000);
+  for (let frame = 0; frame < duplicateSamples.length; frame += 1) {
+    duplicateSamples[frame] = 900 + (frame % 31);
+  }
+  const duplicateSource = makeMonoPcmWav(duplicateSamples);
+  const duplicateFixed = fixGrade2Set01DuplicateQuestionFromOneSecondWav(
+    duplicateSource.buffer.slice(
+      duplicateSource.byteOffset,
+      duplicateSource.byteOffset + duplicateSource.byteLength,
+    ),
+    6,
+  );
+  const duplicateOutput = Buffer.from(duplicateFixed.buffer);
+  assert.equal(duplicateFixed.fix, "remove-user-confirmed-duplicate-question-tail");
+  assert.equal(duplicateFixed.trimFrame, 683562);
+  assert.equal(duplicateOutput.readUInt32LE(40) / 2, 683562);
+  assert.deepEqual(
+    data(duplicateOutput),
+    data(duplicateSource).subarray(0, 683562 * 2),
+    "duplicate fix must preserve the entire accepted prefix byte-for-byte",
+  );
+  assert.throws(
+    () => fixGrade2Set01DuplicateQuestionFromOneSecondWav(
+      duplicateSource.buffer.slice(
+        duplicateSource.byteOffset,
+        duplicateSource.byteOffset + duplicateSource.byteLength,
+      ),
+      9,
+    ),
+    /Unsupported Set 01 duplicate-question fix question/,
+  );
+
   const ambiguousIntro = new Int16Array(300000);
   ambiguousIntro.fill(1200);
   ambiguousIntro.fill(0, 12000, 20000);
@@ -135,7 +173,7 @@ function makeValidSource() {
     /exact normalized body -> Question -> text signature, found 0/,
   );
 
-  console.log("grade2 three-set audited pause transform tests passed");
+  console.log("grade2 three-set audited pause and targeted duplicate-tail tests passed");
 })().catch((error) => {
   console.error(error);
   process.exitCode = 1;

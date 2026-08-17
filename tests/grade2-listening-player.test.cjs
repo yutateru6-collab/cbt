@@ -23,6 +23,8 @@ const canonicalSource = fs.readFileSync(path.join(root, "grade2-canonical-explan
 const productionSetKeys = ["set-01", "set-02", "set-03"];
 const allPaidSetKeys = ["set-01", "set-02", "set-03", "set-04", "set-05"];
 const THREE_SET_RELEASE = "20260817-grade2-sets01-03-listening-pauses-1s-v1";
+const DUPLICATE_FIX_RELEASE = "20260817-set01-listening-duplicate-question-fix-v1";
+const DUPLICATE_FIX_IDS = new Set([6, 7, 8, 10, 12, 14]);
 
 function loadCanonicalGrade2Data() {
   const context = { window: {}, Set };
@@ -165,9 +167,10 @@ test("Listening Player consumes canonical sets and canonicalExplanation only", (
   assert.match(player, /question\.explanationHash/);
 });
 
-test("all 90 production Listening questions use the unified three-set pause release", () => {
+test("only the six confirmed Set 01 items use the duplicate-question overlay release", () => {
   const { sets } = loadCanonicalGrade2Data();
   let total = 0;
+  let overlayCount = 0;
   for (const setKey of productionSetKeys) {
     const questions = sets[setKey].listeningQuestions;
     assert.equal(questions.length, 30);
@@ -175,16 +178,20 @@ test("all 90 production Listening questions use the unified three-set pause rele
       const id = Number(question.id);
       const part = id <= 15 ? "part1" : "part2";
       const number = String(id).padStart(2, "0");
-      assert.equal(question.audioRelease, THREE_SET_RELEASE, `${setKey} No.${id} release`);
+      const useOverlay = setKey === "set-01" && part === "part1" && DUPLICATE_FIX_IDS.has(id);
+      const expectedRelease = useOverlay ? DUPLICATE_FIX_RELEASE : THREE_SET_RELEASE;
+      assert.equal(question.audioRelease, expectedRelease, `${setKey} No.${id} release`);
       assert.equal(
         question.audioFile,
-        `./audio-r2/grade2/releases/${THREE_SET_RELEASE}/${setKey}/listening/${part}/No${number}.wav`,
+        `./audio-r2/grade2/releases/${expectedRelease}/${setKey}/listening/${part}/No${number}.wav`,
         `${setKey} No.${id} audioFile`,
       );
+      if (useOverlay) overlayCount += 1;
       total += 1;
     }
   }
   assert.equal(total, 90);
+  assert.equal(overlayCount, 6);
 });
 
 test("all 90 Listening Player questions use the same canonical registry entries", () => {
