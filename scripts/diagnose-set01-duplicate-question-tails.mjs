@@ -5,8 +5,6 @@ import { fixGrade2ThreeSetOneSecondPausesWav } from "../grade2-listening-three-s
 
 const TARGET_IDS = Object.freeze([6, 7, 8, 10, 12, 14]);
 const SAMPLE_RATE = 24000;
-const QUESTION_TEXT_SIGNATURE_FRAMES = Math.round(SAMPLE_RATE * 1.0);
-const MIN_FIRST_QUESTION_TEXT_FRAMES = Math.round(SAMPLE_RATE * 1.2);
 const SILENCE_THRESHOLD = 350;
 const sourceRoot =
   `https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/${GRADE2_LISTENING_SOURCE_RELEASE}/set-01/listening/part1`;
@@ -58,62 +56,77 @@ function parsePcmWav(buffer) {
   }
   return {
     bytes,
-    dataOffset,
-    dataSize,
     totalFrames: dataSize / 2,
     pcm: bytes.subarray(dataOffset, dataOffset + dataSize),
   };
 }
 
-function frameBytes(parsed, startFrame, endFrame) {
-  return parsed.pcm.subarray(startFrame * 2, endFrame * 2);
+function sample(parsed, frame) {
+  return parsed.pcm.readInt16LE(frame * 2);
 }
 
-function findAlignedOccurrences(haystack, needle, fromByte) {
-  const matches = [];
-  let cursor = Math.max(0, fromByte);
-  while (cursor <= haystack.length - needle.length) {
-    const found = haystack.indexOf(needle, cursor);
-    if (found < 0) break;
-    if (found % 2 === 0) matches.push(found / 2);
-    cursor = found + 2;
-  }
-  return matches;
+function isSilent(parsed, frame) {
+  return Math.abs(sample(parsed, frame)) <= SILENCE_THRESHOLD;
 }
 
-function commonPrefixFrames(parsed, firstStart, secondStart) {
-  const max = Math.min(secondStart - firstStart, parsed.totalFrames - secondStart);
-  let frames = 0;
-  while (frames < max) {
-    const a = parsed.pcm.readInt16LE((firstStart + frames) * 2);
-    const b = parsed.pcm.readInt16LE((secondStart + frames) * 2);
-    if (a !== b) break;
-    frames += 1;
-  }
-  return frames;
-}
-
-function hasVoice(parsed, startFrame, endFrame) {
-  for (let frame = Math.max(0, startFrame); frame < Math.min(parsed.totalFrames, endFrame); frame += 1) {
-    if (Math.abs(parsed.pcm.readInt16LE(frame * 2)) > SILENCE_THRESHOLD) return true;
-  }
-  return false;
-}
-
-function findSilenceRuns(parsed, startFrame, endFrame, minFrames = Math.round(SAMPLE_RATE * 0.08)) {
+function findSilenceRuns(parsed, startFrame, endFrame, minSeconds) {
+  const minFrames = Math.round(SAMPLE_RATE * minSeconds);
+  const start = Math.max(0, startFrame);
+  const end = Math.min(parsed.totalFrames, endFrame);
   const runs = [];
-  let start = -1;
-  for (let frame = Math.max(0, startFrame); frame < Math.min(parsed.totalFrames, endFrame); frame += 1) {
-    const silent = Math.abs(parsed.pcm.readInt16LE(frame * 2)) <= SILENCE_THRESHOLD;
-    if (silent) {
-      if (start < 0) start = frame;
-    } else if (start >= 0) {
-      if (frame - start >= minFrames) runs.push([start, frame]);
-      start = -1;
+  let silenceStart = -1;
+  for (let frame = start; frame < end; frame += 1) {
+    if (isSilent(parsed, frame)) {
+      if (silenceStart < 0) silenceStart = frame;
+    } else if (silenceStart >= 0) {
+      if (frame - silenceStart >= minFrames) runs.push([silenceStart, frame]);
+      silenceStart = -1;
     }
   }
-  if (start >= 0 && endFrame - start >= minFrames) runs.push([start, Math.min(parsed.totalFrames, endFrame)]);
+  if (silenceStart >= 0 && end - silenceStart >= minFrames) runs.push([silenceStart, end]);
   return runs;
+}
+
+function makeVoiceSegments(startFrame, endFrame, silenceRuns) {
+  const segments = [];
+  let cursor = startFrame;
+  for (const [silenceStart, silenceEnd] of silenceRuns) {
+    if (silenceStart > cursor) segments.push([cursor, silenceStart]);
+    cursor = Math.max(cursor, silenceEnd);
+  }
+  if (cursor < endFrame) segments.push([cursor, endFrame]);
+  return segments.filter(([start, end]) => end - start >= Math.round(SAMPLE_RATE * 0.08));
+}
+
+function summarizeRange([start, end]) {
+  return {
+    start,
+    end,
+    frames: end - start,
+    seconds: Number(((end - start) / SAMPLE_RATE).toFixed(6)),
+    startSeconds: Number((start / SAMPLE_RATE).toFixed(6)),
+    endSeconds: Number((end / SAMPLE_RATE).toFixed(6)),
+  };
+}
+
+function rms(parsed, startFrame, endFrame) {
+  let sum = 0;
+  let count = 0;
+  for (let frame = startFrame; frame < endFrame; frame += 1) {
+    const value = sample(parsed, frame);
+    sum += value * value;
+    count += 1;
+  }
+  return count ? Math.sqrt(sum / count) : 0;
+}
+
+function envelope(parsed, startFrame, endFrame, bucketFrames = 240) {
+  const values = [];
+  for (let start = startFrame; start < endFrame; start += bucketFrames) {
+    values.push(rms(parsed, start, Math.min(endFrame, start + bucketFrames)));
+  }
+  const max = Math.max(1, ...values);
+  return values.map((value) => Number((value / max).toFixed(3)));
 }
 
 async function fetchSource(id) {
@@ -127,88 +140,46 @@ async function fetchSource(id) {
   return response.arrayBuffer();
 }
 
-const failures = [];
 for (const id of TARGET_IDS) {
   const manifestId = `set-01/part1/No${String(id).padStart(2, "0")}`;
-  try {
-    const item = manifestById.get(manifestId);
-    if (!item) throw new Error(`Manifest entry missing: ${manifestId}`);
-    const source = await fetchSource(id);
-    if (sha256(source) !== item.outputSha256 || source.byteLength !== item.outputBytes) {
-      throw new Error(`${manifestId}: immutable baseline mismatch`);
-    }
-
-    const fixed = fixGrade2ThreeSetOneSecondPausesWav(source, id);
-    const parsed = parsePcmWav(fixed.buffer);
-    const introDelta = fixed.introGapDeltaFrames;
-    const bodyDelta = fixed.bodyQuestionGapDeltaFrames;
-    const firstQuestionStart = fixed.bodyQuestionGapStartFrame + introDelta + fixed.targetBodyQuestionGapFrames;
-    const firstQuestionEnd = fixed.questionGapStartFrame + introDelta + bodyDelta;
-    const firstQuestionTextStart =
-      fixed.questionGapStartFrame + introDelta + bodyDelta + fixed.targetQuestionGapFrames;
-
-    if (!(firstQuestionStart < firstQuestionEnd && firstQuestionEnd < firstQuestionTextStart)) {
-      throw new Error(`${manifestId}: invalid first Question structure`);
-    }
-
-    const questionTextSignature = frameBytes(
-      parsed,
-      firstQuestionTextStart,
-      firstQuestionTextStart + QUESTION_TEXT_SIGNATURE_FRAMES,
-    );
-    const secondTextMatches = findAlignedOccurrences(
-      parsed.pcm,
-      questionTextSignature,
-      (firstQuestionTextStart + MIN_FIRST_QUESTION_TEXT_FRAMES) * 2,
-    );
-    if (secondTextMatches.length !== 1) {
-      throw new Error(`${manifestId}: expected exactly one exact duplicate question-text match, found ${secondTextMatches.length}: ${secondTextMatches.join(",")}`);
-    }
-    const secondQuestionTextStart = secondTextMatches[0];
-    const duplicateCommonPrefixFrames = commonPrefixFrames(parsed, firstQuestionTextStart, secondQuestionTextStart);
-    if (duplicateCommonPrefixFrames < QUESTION_TEXT_SIGNATURE_FRAMES) {
-      throw new Error(`${manifestId}: duplicated question-text common prefix is shorter than proof signature`);
-    }
-
-    const questionWord = frameBytes(parsed, firstQuestionStart, firstQuestionEnd);
-    const exactQuestionWordMatches = findAlignedOccurrences(
-      parsed.pcm,
-      questionWord,
-      (firstQuestionTextStart + MIN_FIRST_QUESTION_TEXT_FRAMES) * 2,
-    );
-
-    const firstDuplicateEnd = firstQuestionTextStart + duplicateCommonPrefixFrames;
-    const gapRuns = findSilenceRuns(parsed, firstDuplicateEnd, secondQuestionTextStart);
-    const voiceBetweenCopies = hasVoice(parsed, firstDuplicateEnd, secondQuestionTextStart);
-
-    console.log(JSON.stringify({
-      id: manifestId,
-      totalFrames: parsed.totalFrames,
-      firstQuestionStart,
-      firstQuestionEnd,
-      firstQuestionTextStart,
-      secondQuestionTextStart,
-      duplicateCommonPrefixFrames,
-      duplicateCommonPrefixSeconds: Number((duplicateCommonPrefixFrames / SAMPLE_RATE).toFixed(6)),
-      exactQuestionWordMatches,
-      voiceBetweenCopies,
-      gapRuns: gapRuns.map(([start, end]) => ({
-        start,
-        end,
-        frames: end - start,
-        seconds: Number(((end - start) / SAMPLE_RATE).toFixed(6)),
-      })),
-      candidateTrimAtSecondText: secondQuestionTextStart,
-      proof: "exact 1.0s question-text PCM signature repeated once; common prefix expanded exactly",
-    }));
-  } catch (error) {
-    failures.push(`${manifestId}: ${error instanceof Error ? error.message : String(error)}`);
+  const item = manifestById.get(manifestId);
+  if (!item) throw new Error(`Manifest entry missing: ${manifestId}`);
+  const source = await fetchSource(id);
+  if (sha256(source) !== item.outputSha256 || source.byteLength !== item.outputBytes) {
+    throw new Error(`${manifestId}: immutable baseline mismatch`);
   }
+
+  const fixed = fixGrade2ThreeSetOneSecondPausesWav(source, id);
+  const parsed = parsePcmWav(fixed.buffer);
+  const introDelta = fixed.introGapDeltaFrames;
+  const bodyDelta = fixed.bodyQuestionGapDeltaFrames;
+  const firstQuestionStart = fixed.bodyQuestionGapStartFrame + introDelta + fixed.targetBodyQuestionGapFrames;
+  const firstQuestionEnd = fixed.questionGapStartFrame + introDelta + bodyDelta;
+  const firstQuestionTextStart =
+    fixed.questionGapStartFrame + introDelta + bodyDelta + fixed.targetQuestionGapFrames;
+
+  const tailStart = firstQuestionTextStart;
+  const silence50 = findSilenceRuns(parsed, tailStart, parsed.totalFrames, 0.05);
+  const silence100 = findSilenceRuns(parsed, tailStart, parsed.totalFrames, 0.10);
+  const voiceBy100 = makeVoiceSegments(tailStart, parsed.totalFrames, silence100);
+
+  console.log(JSON.stringify({
+    id: manifestId,
+    totalFrames: parsed.totalFrames,
+    totalSeconds: Number((parsed.totalFrames / SAMPLE_RATE).toFixed(6)),
+    firstQuestionStart,
+    firstQuestionEnd,
+    firstQuestionTextStart,
+    tailFrames: parsed.totalFrames - tailStart,
+    tailSeconds: Number(((parsed.totalFrames - tailStart) / SAMPLE_RATE).toFixed(6)),
+    silenceRuns50ms: silence50.map(summarizeRange),
+    silenceRuns100ms: silence100.map(summarizeRange),
+    voiceSegments100ms: voiceBy100.map((range) => ({
+      ...summarizeRange(range),
+      envelope10ms: envelope(parsed, range[0], range[1]),
+    })),
+  }));
 }
 
-if (failures.length) {
-  for (const failure of failures) console.error(`DUPLICATE_DIAGNOSTIC_FAILURE ${failure}`);
-  process.exitCode = 2;
-} else {
-  console.log(`DUPLICATE_DIAGNOSTIC_OK count=${TARGET_IDS.length}`);
-}
+console.error("DUPLICATE_DIAGNOSTIC_ONLY_STOP: no audio or routing changes were made; inspect six tail structures before implementing v2");
+process.exitCode = 2;
