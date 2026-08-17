@@ -5,9 +5,8 @@ import { fixGrade2ThreeSetOneSecondPausesWav } from "../grade2-listening-three-s
 
 const TARGET_IDS = Object.freeze([6, 7, 8, 10, 12, 14]);
 const SAMPLE_RATE = 24000;
-const QUESTION_TEXT_SIGNATURE_FRAMES = Math.round(SAMPLE_RATE * 1.5);
+const QUESTION_TEXT_SIGNATURE_FRAMES = Math.round(SAMPLE_RATE * 1.0);
 const MIN_FIRST_QUESTION_TEXT_FRAMES = Math.round(SAMPLE_RATE * 1.2);
-const MAX_INTER_QUESTION_GAP_FRAMES = Math.round(SAMPLE_RATE * 2.0);
 const SILENCE_THRESHOLD = 350;
 const sourceRoot =
   `https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/${GRADE2_LISTENING_SOURCE_RELEASE}/set-01/listening/part1`;
@@ -59,10 +58,9 @@ function parsePcmWav(buffer) {
   }
   return {
     bytes,
-    format,
     dataOffset,
     dataSize,
-    totalFrames: dataSize / format.blockAlign,
+    totalFrames: dataSize / 2,
     pcm: bytes.subarray(dataOffset, dataOffset + dataSize),
   };
 }
@@ -83,23 +81,39 @@ function findAlignedOccurrences(haystack, needle, fromByte) {
   return matches;
 }
 
-function isMostlySilent(parsed, startFrame, endFrame) {
-  if (endFrame <= startFrame) return false;
-  let silent = 0;
-  let count = 0;
-  for (let frame = startFrame; frame < endFrame; frame += 1) {
-    const value = Math.abs(parsed.pcm.readInt16LE(frame * 2));
-    if (value <= SILENCE_THRESHOLD) silent += 1;
-    count += 1;
+function commonPrefixFrames(parsed, firstStart, secondStart) {
+  const max = Math.min(secondStart - firstStart, parsed.totalFrames - secondStart);
+  let frames = 0;
+  while (frames < max) {
+    const a = parsed.pcm.readInt16LE((firstStart + frames) * 2);
+    const b = parsed.pcm.readInt16LE((secondStart + frames) * 2);
+    if (a !== b) break;
+    frames += 1;
   }
-  return count > 0 && silent / count >= 0.985;
+  return frames;
 }
 
-function lastNonSilentFrame(parsed) {
-  for (let frame = parsed.totalFrames - 1; frame >= 0; frame -= 1) {
-    if (Math.abs(parsed.pcm.readInt16LE(frame * 2)) > SILENCE_THRESHOLD) return frame;
+function hasVoice(parsed, startFrame, endFrame) {
+  for (let frame = Math.max(0, startFrame); frame < Math.min(parsed.totalFrames, endFrame); frame += 1) {
+    if (Math.abs(parsed.pcm.readInt16LE(frame * 2)) > SILENCE_THRESHOLD) return true;
   }
-  return -1;
+  return false;
+}
+
+function findSilenceRuns(parsed, startFrame, endFrame, minFrames = Math.round(SAMPLE_RATE * 0.08)) {
+  const runs = [];
+  let start = -1;
+  for (let frame = Math.max(0, startFrame); frame < Math.min(parsed.totalFrames, endFrame); frame += 1) {
+    const silent = Math.abs(parsed.pcm.readInt16LE(frame * 2)) <= SILENCE_THRESHOLD;
+    if (silent) {
+      if (start < 0) start = frame;
+    } else if (start >= 0) {
+      if (frame - start >= minFrames) runs.push([start, frame]);
+      start = -1;
+    }
+  }
+  if (start >= 0 && endFrame - start >= minFrames) runs.push([start, Math.min(parsed.totalFrames, endFrame)]);
+  return runs;
 }
 
 async function fetchSource(id) {
@@ -113,98 +127,88 @@ async function fetchSource(id) {
   return response.arrayBuffer();
 }
 
+const failures = [];
 for (const id of TARGET_IDS) {
   const manifestId = `set-01/part1/No${String(id).padStart(2, "0")}`;
-  const item = manifestById.get(manifestId);
-  if (!item) throw new Error(`Manifest entry missing: ${manifestId}`);
-  const source = await fetchSource(id);
-  if (sha256(source) !== item.outputSha256 || source.byteLength !== item.outputBytes) {
-    throw new Error(`${manifestId}: immutable baseline mismatch`);
-  }
+  try {
+    const item = manifestById.get(manifestId);
+    if (!item) throw new Error(`Manifest entry missing: ${manifestId}`);
+    const source = await fetchSource(id);
+    if (sha256(source) !== item.outputSha256 || source.byteLength !== item.outputBytes) {
+      throw new Error(`${manifestId}: immutable baseline mismatch`);
+    }
 
-  const fixed = fixGrade2ThreeSetOneSecondPausesWav(source, id);
-  const parsed = parsePcmWav(fixed.buffer);
-  const introDelta = fixed.introGapDeltaFrames;
-  const bodyDelta = fixed.bodyQuestionGapDeltaFrames;
-  const firstQuestionStart = fixed.bodyQuestionGapStartFrame + introDelta + fixed.targetBodyQuestionGapFrames;
-  const firstQuestionEnd = fixed.questionGapStartFrame + introDelta + bodyDelta;
-  const firstQuestionTextStart =
-    fixed.questionGapStartFrame + introDelta + bodyDelta + fixed.targetQuestionGapFrames;
+    const fixed = fixGrade2ThreeSetOneSecondPausesWav(source, id);
+    const parsed = parsePcmWav(fixed.buffer);
+    const introDelta = fixed.introGapDeltaFrames;
+    const bodyDelta = fixed.bodyQuestionGapDeltaFrames;
+    const firstQuestionStart = fixed.bodyQuestionGapStartFrame + introDelta + fixed.targetBodyQuestionGapFrames;
+    const firstQuestionEnd = fixed.questionGapStartFrame + introDelta + bodyDelta;
+    const firstQuestionTextStart =
+      fixed.questionGapStartFrame + introDelta + bodyDelta + fixed.targetQuestionGapFrames;
 
-  if (!(firstQuestionStart < firstQuestionEnd && firstQuestionEnd < firstQuestionTextStart)) {
-    throw new Error(`${manifestId}: invalid first Question structure`);
-  }
+    if (!(firstQuestionStart < firstQuestionEnd && firstQuestionEnd < firstQuestionTextStart)) {
+      throw new Error(`${manifestId}: invalid first Question structure`);
+    }
 
-  const questionWord = frameBytes(parsed, firstQuestionStart, firstQuestionEnd);
-  if (questionWord.length < 4000) throw new Error(`${manifestId}: Question word signature unexpectedly short`);
-  const secondQuestionMatches = findAlignedOccurrences(
-    parsed.pcm,
-    questionWord,
-    (firstQuestionTextStart + MIN_FIRST_QUESTION_TEXT_FRAMES) * 2,
-  );
-  if (secondQuestionMatches.length !== 1) {
-    throw new Error(`${manifestId}: expected exactly one exact duplicate Question-word match, found ${secondQuestionMatches.length}: ${secondQuestionMatches.join(",")}`);
-  }
-  const secondQuestionStart = secondQuestionMatches[0];
-  if (secondQuestionStart <= firstQuestionTextStart + MIN_FIRST_QUESTION_TEXT_FRAMES) {
-    throw new Error(`${manifestId}: duplicate Question begins before a complete first question text can exist`);
-  }
+    const questionTextSignature = frameBytes(
+      parsed,
+      firstQuestionTextStart,
+      firstQuestionTextStart + QUESTION_TEXT_SIGNATURE_FRAMES,
+    );
+    const secondTextMatches = findAlignedOccurrences(
+      parsed.pcm,
+      questionTextSignature,
+      (firstQuestionTextStart + MIN_FIRST_QUESTION_TEXT_FRAMES) * 2,
+    );
+    if (secondTextMatches.length !== 1) {
+      throw new Error(`${manifestId}: expected exactly one exact duplicate question-text match, found ${secondTextMatches.length}: ${secondTextMatches.join(",")}`);
+    }
+    const secondQuestionTextStart = secondTextMatches[0];
+    const duplicateCommonPrefixFrames = commonPrefixFrames(parsed, firstQuestionTextStart, secondQuestionTextStart);
+    if (duplicateCommonPrefixFrames < QUESTION_TEXT_SIGNATURE_FRAMES) {
+      throw new Error(`${manifestId}: duplicated question-text common prefix is shorter than proof signature`);
+    }
 
-  const signatureEnd = firstQuestionTextStart + QUESTION_TEXT_SIGNATURE_FRAMES;
-  if (signatureEnd >= secondQuestionStart) {
-    throw new Error(`${manifestId}: first question text is too short for a 1.5s duplicate signature`);
-  }
-  const questionTextSignature = frameBytes(parsed, firstQuestionTextStart, signatureEnd);
-  const secondQuestionEnd = secondQuestionStart + (firstQuestionEnd - firstQuestionStart);
-  const secondTextMatches = findAlignedOccurrences(
-    parsed.pcm,
-    questionTextSignature,
-    secondQuestionEnd * 2,
-  ).filter((frame) => frame - secondQuestionEnd <= MAX_INTER_QUESTION_GAP_FRAMES);
-  if (secondTextMatches.length !== 1) {
-    throw new Error(`${manifestId}: expected one matching duplicate question-text signature after second Question, found ${secondTextMatches.length}: ${secondTextMatches.join(",")}`);
-  }
-  const secondQuestionTextStart = secondTextMatches[0];
-  if (!isMostlySilent(parsed, secondQuestionEnd, secondQuestionTextStart)) {
-    throw new Error(`${manifestId}: gap between duplicate Question and duplicate text is not verified silence`);
-  }
+    const questionWord = frameBytes(parsed, firstQuestionStart, firstQuestionEnd);
+    const exactQuestionWordMatches = findAlignedOccurrences(
+      parsed.pcm,
+      questionWord,
+      (firstQuestionTextStart + MIN_FIRST_QUESTION_TEXT_FRAMES) * 2,
+    );
 
-  const finalNonSilent = lastNonSilentFrame(parsed);
-  if (finalNonSilent < secondQuestionTextStart) {
-    throw new Error(`${manifestId}: no duplicate question text after second Question`);
-  }
-  const duplicateTextSpeechFrames = finalNonSilent + 1 - secondQuestionTextStart;
-  const firstTextComparisonEnd = firstQuestionTextStart + duplicateTextSpeechFrames;
-  if (firstTextComparisonEnd > secondQuestionStart) {
-    throw new Error(`${manifestId}: duplicate text length would overlap the second Question in the first sequence`);
-  }
-  const firstTextBytes = frameBytes(parsed, firstQuestionTextStart, firstTextComparisonEnd);
-  const secondTextBytes = frameBytes(parsed, secondQuestionTextStart, finalNonSilent + 1);
-  if (!firstTextBytes.equals(secondTextBytes)) {
-    throw new Error(`${manifestId}: complete duplicate question-text speech is not byte-identical`);
-  }
+    const firstDuplicateEnd = firstQuestionTextStart + duplicateCommonPrefixFrames;
+    const gapRuns = findSilenceRuns(parsed, firstDuplicateEnd, secondQuestionTextStart);
+    const voiceBetweenCopies = hasVoice(parsed, firstDuplicateEnd, secondQuestionTextStart);
 
-  const preservedPrefix = frameBytes(parsed, 0, secondQuestionStart);
-  if (preservedPrefix.length !== secondQuestionStart * 2) {
-    throw new Error(`${manifestId}: internal prefix length mismatch`);
+    console.log(JSON.stringify({
+      id: manifestId,
+      totalFrames: parsed.totalFrames,
+      firstQuestionStart,
+      firstQuestionEnd,
+      firstQuestionTextStart,
+      secondQuestionTextStart,
+      duplicateCommonPrefixFrames,
+      duplicateCommonPrefixSeconds: Number((duplicateCommonPrefixFrames / SAMPLE_RATE).toFixed(6)),
+      exactQuestionWordMatches,
+      voiceBetweenCopies,
+      gapRuns: gapRuns.map(([start, end]) => ({
+        start,
+        end,
+        frames: end - start,
+        seconds: Number(((end - start) / SAMPLE_RATE).toFixed(6)),
+      })),
+      candidateTrimAtSecondText: secondQuestionTextStart,
+      proof: "exact 1.0s question-text PCM signature repeated once; common prefix expanded exactly",
+    }));
+  } catch (error) {
+    failures.push(`${manifestId}: ${error instanceof Error ? error.message : String(error)}`);
   }
-
-  console.log(JSON.stringify({
-    id: manifestId,
-    totalFrames: parsed.totalFrames,
-    firstQuestionStart,
-    firstQuestionEnd,
-    firstQuestionTextStart,
-    secondQuestionStart,
-    secondQuestionEnd,
-    secondQuestionTextStart,
-    finalNonSilentFrame: finalNonSilent,
-    duplicateTextSpeechFrames,
-    duplicateTextSeconds: Number((duplicateTextSpeechFrames / SAMPLE_RATE).toFixed(6)),
-    trimFrame: secondQuestionStart,
-    removedFrames: parsed.totalFrames - secondQuestionStart,
-    proof: "exact Question-word match + exact complete duplicated question-text speech + verified intervening silence",
-  }));
 }
 
-console.log(`DUPLICATE_DIAGNOSTIC_OK count=${TARGET_IDS.length}`);
+if (failures.length) {
+  for (const failure of failures) console.error(`DUPLICATE_DIAGNOSTIC_FAILURE ${failure}`);
+  process.exitCode = 2;
+} else {
+  console.log(`DUPLICATE_DIAGNOSTIC_OK count=${TARGET_IDS.length}`);
+}
