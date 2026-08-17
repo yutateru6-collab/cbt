@@ -1,10 +1,10 @@
 import { createHash } from "node:crypto";
 import {
   GRADE2_LISTENING_FIX_RELEASE,
-  GRADE2_LISTENING_QUESTION_GAP_RELEASE,
+  GRADE2_LISTENING_INTRO_GAP_RELEASE,
   GRADE2_LISTENING_SOURCE_RELEASE,
+  fixGrade2Set01IntroAndQuestionGapWav,
   fixGrade2Set01ListeningWav,
-  fixGrade2Set01QuestionGapWav,
 } from "../listening-audio-fix.js";
 
 const args = process.argv.slice(2);
@@ -51,8 +51,8 @@ for (let id = 1; id <= 9; id += 1) {
   const correction =
     id <= 5
       ? {
-          release: GRADE2_LISTENING_QUESTION_GAP_RELEASE,
-          fixed: fixGrade2Set01QuestionGapWav(source.buffer, id),
+          release: GRADE2_LISTENING_INTRO_GAP_RELEASE,
+          fixed: fixGrade2Set01IntroAndQuestionGapWav(source.buffer, id),
         }
       : {
           release: GRADE2_LISTENING_FIX_RELEASE,
@@ -63,11 +63,27 @@ for (let id = 1; id <= 9; id += 1) {
     throw new Error(`Expected a verified correction for Set 01 No.${number}`);
   }
 
+  if (id <= 5) {
+    if (correction.fixed.targetIntroGapFrames !== 19200) {
+      throw new Error(
+        `Set 01 No.${number} intro gap target is not exactly 19,200 frames: ${correction.fixed.targetIntroGapFrames}`,
+      );
+    }
+    if (correction.fixed.targetQuestionGapFrames !== 19200) {
+      throw new Error(
+        `Set 01 No.${number} Question gap target is not exactly 19,200 frames: ${correction.fixed.targetQuestionGapFrames}`,
+      );
+    }
+  }
+
   const expectedSha = sha256(correction.fixed.buffer);
   const expectedBytes = correction.fixed.buffer.byteLength;
+  const introNote = id <= 5
+    ? ` intro=${correction.fixed.targetIntroGapFrames}/0.800s originalIntro=${correction.fixed.originalIntroGapFrames}`
+    : "";
 
   if (expectedOnly) {
-    console.log(`No.${number} expected=${expectedSha} bytes=${expectedBytes}`);
+    console.log(`No.${number} expected=${expectedSha} bytes=${expectedBytes}${introNote}`);
     continue;
   }
 
@@ -83,7 +99,7 @@ for (let id = 1; id <= 9; id += 1) {
   const actualBytes = actual.buffer.byteLength;
 
   console.log(
-    `No.${number} expected=${expectedSha} actual=${actualSha} bytes=${actualBytes}`,
+    `No.${number} expected=${expectedSha} actual=${actualSha} bytes=${actualBytes}${introNote}`,
   );
 
   if (actualBytes !== expectedBytes || actualSha !== expectedSha) {
