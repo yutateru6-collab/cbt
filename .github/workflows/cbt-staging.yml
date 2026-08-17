@@ -60,11 +60,15 @@ jobs:
           node --check scripts/prepare-worker-assets.mjs
           node --check scripts/remove-grade2-legacy-listening-explanations.mjs
           node --check scripts/verify-cloudflare-listening-audio.mjs
+          node --check scripts/inspect-set01-intro-gaps.mjs
           node scripts/remove-grade2-legacy-listening-explanations.mjs --check
           node tests/grade2-listening-audio-fix.test.cjs
           node --test tests/grade2-listening-player.test.cjs
           node --test tests/grade2-listening-r2-source.test.cjs
           node --test tests/cloudflare-deploy-contract.test.cjs
+
+      - name: Inspect actual Set 01 No.1-No.5 intro gaps
+        run: node scripts/inspect-set01-intro-gaps.mjs
 
       - name: Preflight real listening corrections
         run: node scripts/verify-cloudflare-listening-audio.mjs --expected-only
