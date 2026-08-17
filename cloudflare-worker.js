@@ -1,15 +1,55 @@
 import {
   GRADE2_LISTENING_FIX_RELEASE,
   GRADE2_LISTENING_INTRO_GAP_RELEASE,
+  GRADE2_LISTENING_ONE_SECOND_PAUSES_RELEASE,
   GRADE2_LISTENING_QUESTION_GAP_RELEASE,
   GRADE2_LISTENING_SOURCE_RELEASE,
   fixGrade2Set01IntroAndQuestionGapWav,
   fixGrade2Set01ListeningWav,
+  fixGrade2Set01OneSecondPausesWav,
   fixGrade2Set01QuestionGapWav,
 } from "./listening-audio-fix.js";
+import {
+  GRADE2_LISTENING_SET01_DUPLICATE_QUESTION_FIX_RELEASE,
+  GRADE2_LISTENING_SET01_DUPLICATE_QUESTION_FIX_V2_RELEASE,
+  GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE,
+  fixGrade2Set01DuplicateQuestionFromOneSecondWav,
+  fixGrade2Set01DuplicateQuestionV2FromOneSecondWav,
+  fixGrade2ThreeSetOneSecondPausesWav,
+} from "./grade2-listening-three-set-audio-fix.js";
 
 const R2_KEY_PREFIX = "scbt/grade2/releases";
 const LISTENING_CORRECTIONS = Object.freeze([
+  Object.freeze({
+    release: GRADE2_LISTENING_SET01_DUPLICATE_QUESTION_FIX_V2_RELEASE,
+    sourceRelease: GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE,
+    pathPattern: /^set-01\/listening\/part1\/No(06|07|08|10|12|14)\.wav$/,
+    transform: fixGrade2Set01DuplicateQuestionV2FromOneSecondWav,
+    precomputedOnly: true,
+  }),
+  Object.freeze({
+    release: GRADE2_LISTENING_SET01_DUPLICATE_QUESTION_FIX_RELEASE,
+    sourceRelease: GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE,
+    pathPattern: /^set-01\/listening\/part1\/No(06|07|08|10|12|14)\.wav$/,
+    transform: fixGrade2Set01DuplicateQuestionFromOneSecondWav,
+  }),
+  Object.freeze({
+    release: GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE,
+    pathPattern: /^(?:set-01|set-02|set-03)\/listening\/part1\/No(0[1-9]|1[0-5])\.wav$/,
+    transform: fixGrade2ThreeSetOneSecondPausesWav,
+    precomputedOnly: true,
+  }),
+  Object.freeze({
+    release: GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE,
+    pathPattern: /^(?:set-01|set-02|set-03)\/listening\/part2\/No(1[6-9]|2[0-9]|30)\.wav$/,
+    transform: fixGrade2ThreeSetOneSecondPausesWav,
+    precomputedOnly: true,
+  }),
+  Object.freeze({
+    release: GRADE2_LISTENING_ONE_SECOND_PAUSES_RELEASE,
+    pathPattern: /^set-01\/listening\/part1\/No(01|02|03|04|05)\.wav$/,
+    transform: fixGrade2Set01OneSecondPausesWav,
+  }),
   Object.freeze({
     release: GRADE2_LISTENING_INTRO_GAP_RELEASE,
     pathPattern: /^set-01\/listening\/part1\/No(01|02|03|04|05)\.wav$/,
@@ -98,22 +138,27 @@ function respondWithAudioBuffer(request, buffer, extraHeaders = {}) {
 }
 
 function getFixedListeningRequest(pathname) {
+  let matchedRelease = false;
   for (const correction of LISTENING_CORRECTIONS) {
     const routePrefix = `/audio-r2/grade2/releases/${correction.release}/`;
     if (!pathname.startsWith(routePrefix)) continue;
+    matchedRelease = true;
     const relativePath = pathname.slice(routePrefix.length);
     const match = correction.pathPattern.exec(relativePath);
-    if (!match) return { error: "Unsupported listening correction path." };
+    if (!match) continue;
+    const sourceRelease = correction.sourceRelease || GRADE2_LISTENING_SOURCE_RELEASE;
     return {
       release: correction.release,
+      sourceRelease,
       relativePath,
       questionId: Number(match[1]),
       transform: correction.transform,
-      sourceKey: `${R2_KEY_PREFIX}/${GRADE2_LISTENING_SOURCE_RELEASE}/${relativePath}`,
+      precomputedOnly: correction.precomputedOnly === true,
+      sourceKey: `${R2_KEY_PREFIX}/${sourceRelease}/${relativePath}`,
       targetKey: `${R2_KEY_PREFIX}/${correction.release}/${relativePath}`,
     };
   }
-  return null;
+  return matchedRelease ? { error: "Unsupported listening correction path." } : null;
 }
 
 async function backupCorrectedAudioIfNeeded(env, info, buffer, fixName) {
@@ -126,7 +171,7 @@ async function backupCorrectedAudioIfNeeded(env, info, buffer, fixName) {
       cacheControl: "public, max-age=31536000, immutable",
     },
     customMetadata: {
-      sourceRelease: GRADE2_LISTENING_SOURCE_RELEASE,
+      sourceRelease: info.sourceRelease,
       fixRelease: info.release,
       questionId: String(info.questionId),
       fix: fixName,
@@ -150,6 +195,10 @@ async function loadOrCreateCorrectedListeningAudio(env, info) {
     return { buffer, etag: targetObject.httpEtag || "" };
   }
 
+  if (info.precomputedOnly) {
+    throw new Error(`Precomputed listening audio not found: ${info.targetKey}`);
+  }
+
   const sourceObject = await env.MIMILISTEN_AUDIO.get(info.sourceKey);
   if (!sourceObject) throw new Error(`Source listening audio not found: ${info.sourceKey}`);
   const sourceBuffer = await sourceObject.arrayBuffer();
@@ -163,7 +212,7 @@ async function loadOrCreateCorrectedListeningAudio(env, info) {
     cacheControl: "public, max-age=31536000, immutable",
   };
   const customMetadata = {
-    sourceRelease: GRADE2_LISTENING_SOURCE_RELEASE,
+    sourceRelease: info.sourceRelease,
     fixRelease: info.release,
     questionId: String(info.questionId),
     fix: fixed.fix,

@@ -1,4 +1,4 @@
-const CACHE_NAME = "cbt-grade2-app-shell-v77-canonical-explanations";
+const CACHE_NAME = "cbt-grade2-app-shell-v78-set01-duplicate-question-fix";
 const APP_SHELL = [
   "/",
   "/index.html",

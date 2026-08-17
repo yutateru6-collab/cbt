@@ -2,12 +2,15 @@ export const GRADE2_LISTENING_SOURCE_RELEASE = "20260815-grade2-listening-pauses
 export const GRADE2_LISTENING_FIX_RELEASE = "20260817-set01-listening-q5-q9-fix-v1";
 export const GRADE2_LISTENING_QUESTION_GAP_RELEASE = "20260817-set01-listening-q1-q5-question-gap-v1";
 export const GRADE2_LISTENING_INTRO_GAP_RELEASE = "20260817-set01-listening-q1-q5-intro08-v1";
+export const GRADE2_LISTENING_ONE_SECOND_PAUSES_RELEASE = "20260817-set01-listening-q1-q5-intro-bodyq-1s-v1";
 
 const PCM_SILENCE_THRESHOLD = 350;
 const INTRO_TARGET_SILENCE_SECONDS = 0.8;
 const INTRO_LONG_SILENCE_SECONDS = 1.4;
 const INTRO_SEARCH_SECONDS = 8;
 const QUESTION_TEXT_TARGET_SILENCE_SECONDS = 0.8;
+const ONE_SECOND_TARGET_SILENCE_SECONDS = 1.0;
+const NORMALIZED_BODY_QUESTION_SILENCE_SECONDS = 0.8;
 const NORMALIZED_QUESTION_TEXT_SILENCE_SECONDS = 0.6;
 const MIN_SILENCE_SECONDS = 0.15;
 const MIN_BODY_QUESTION_GAP_SECONDS = 0.35;
@@ -34,6 +37,16 @@ const SET01_PART1_NORMALIZED_QUESTION_TEXT_GAP = Object.freeze({
   3: Object.freeze([718758, 733158]),
   4: Object.freeze([676356, 690756]),
   5: Object.freeze([681985, 696385]),
+});
+
+// Exact body-end -> spoken "Question" gaps in the active normalized 20260815 masters.
+// All are 0.8 seconds (19,200 frames at 24 kHz) before the new 1.0-second correction.
+const SET01_PART1_NORMALIZED_BODY_QUESTION_GAP = Object.freeze({
+  1: Object.freeze([744255, 763455]),
+  2: Object.freeze([706650, 725850]),
+  3: Object.freeze([686671, 705871]),
+  4: Object.freeze([644300, 663500]),
+  5: Object.freeze([649753, 668953]),
 });
 
 // Verified No.X -> body silence ranges measured from the real R2
@@ -405,5 +418,81 @@ export function fixGrade2Set01IntroAndQuestionGapWav(buffer, questionId) {
     originalQuestionGapFrames: questionFixed.originalFrames,
     targetQuestionGapFrames: questionFixed.targetFrames,
     questionGapDeltaFrames: questionFixed.deltaFrames,
+  };
+}
+
+export function fixGrade2Set01OneSecondPausesWav(buffer, questionId) {
+  const id = Number(questionId);
+  if (id < 1 || id > 5) {
+    throw new Error(`Unsupported Grade 2 set-01 1-second pause fix question: ${questionId}`);
+  }
+
+  const introRange = SET01_PART1_VERIFIED_INTRO_GAP[id];
+  const bodyQuestionRange = SET01_PART1_NORMALIZED_BODY_QUESTION_GAP[id];
+  const questionTextRange = SET01_PART1_NORMALIZED_QUESTION_TEXT_GAP[id];
+  if (!introRange || !bodyQuestionRange || !questionTextRange) {
+    throw new Error(`Missing verified Set 01 pause ranges for No.${id}`);
+  }
+
+  const parsed = parsePcmWav(buffer);
+  if (parsed.format.sampleRate !== 24000) {
+    throw new Error(`Expected 24 kHz Set 01 master for No.${id}, got ${parsed.format.sampleRate}`);
+  }
+
+  const expectedBodyQuestionFrames = Math.round(
+    parsed.format.sampleRate * NORMALIZED_BODY_QUESTION_SILENCE_SECONDS,
+  );
+  if (bodyQuestionRange[1] - bodyQuestionRange[0] !== expectedBodyQuestionFrames) {
+    throw new Error(
+      `Unexpected verified body->Question gap size for No.${id}: ${bodyQuestionRange[1] - bodyQuestionRange[0]}/${expectedBodyQuestionFrames}`,
+    );
+  }
+
+  const expectedQuestionTextFrames = Math.round(
+    parsed.format.sampleRate * NORMALIZED_QUESTION_TEXT_SILENCE_SECONDS,
+  );
+  if (questionTextRange[1] - questionTextRange[0] !== expectedQuestionTextFrames) {
+    throw new Error(
+      `Unexpected verified Question->text gap size for No.${id}: ${questionTextRange[1] - questionTextRange[0]}/${expectedQuestionTextFrames}`,
+    );
+  }
+
+  // Apply edits from latest to earliest. That keeps all verified frame ranges
+  // anchored to the immutable baseline while preserving every speech byte.
+  const questionTextFixed = replaceSilenceAtFrames(
+    buffer,
+    questionTextRange[0],
+    questionTextRange[1],
+    QUESTION_TEXT_TARGET_SILENCE_SECONDS,
+  );
+  const bodyQuestionFixed = replaceSilenceAtFrames(
+    questionTextFixed.buffer,
+    bodyQuestionRange[0],
+    bodyQuestionRange[1],
+    ONE_SECOND_TARGET_SILENCE_SECONDS,
+  );
+  const introFixed = replaceSilenceAtFrames(
+    bodyQuestionFixed.buffer,
+    introRange[0],
+    introRange[1],
+    ONE_SECOND_TARGET_SILENCE_SECONDS,
+  );
+
+  return {
+    buffer: introFixed.buffer,
+    changed: questionTextFixed.changed || bodyQuestionFixed.changed || introFixed.changed,
+    fix: "set-intro-and-body-question-gaps-1.0s-keep-question-text-gap-0.8s",
+    introGapStartFrame: introFixed.startFrame,
+    originalIntroGapFrames: introFixed.originalFrames,
+    targetIntroGapFrames: introFixed.targetFrames,
+    introGapDeltaFrames: introFixed.deltaFrames,
+    bodyQuestionGapStartFrame: bodyQuestionFixed.startFrame,
+    originalBodyQuestionGapFrames: bodyQuestionFixed.originalFrames,
+    targetBodyQuestionGapFrames: bodyQuestionFixed.targetFrames,
+    bodyQuestionGapDeltaFrames: bodyQuestionFixed.deltaFrames,
+    questionGapStartFrame: questionTextFixed.startFrame,
+    originalQuestionGapFrames: questionTextFixed.originalFrames,
+    targetQuestionGapFrames: questionTextFixed.targetFrames,
+    questionGapDeltaFrames: questionTextFixed.deltaFrames,
   };
 }
