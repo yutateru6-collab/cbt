@@ -14,12 +14,10 @@ const INTRO_START_MAX_SECONDS = 1.8;
 const INTRO_END_MAX_SECONDS = 6.0;
 const VOICE_WINDOW_SECONDS = 0.5;
 const SCAN_SECONDS = 8;
-const MIN_BODY_QUESTION_GAP_SECONDS = 0.35;
-const MAX_BODY_QUESTION_GAP_SECONDS = 2.0;
+const NORMALIZED_BODY_QUESTION_FRAMES = 19200;
+const NORMALIZED_QUESTION_TEXT_FRAMES = 14400;
 const MIN_QUESTION_WORD_SECONDS = 0.20;
 const MAX_QUESTION_WORD_SECONDS = 1.20;
-const MIN_QUESTION_TEXT_GAP_SECONDS = 0.35;
-const MAX_QUESTION_TEXT_GAP_SECONDS = 1.20;
 const MIN_QUESTION_TEXT_REMAINDER_SECONDS = 1.20;
 
 function readFourCc(view, offset) {
@@ -137,7 +135,7 @@ function introCandidates(parsed, runs) {
   });
 }
 
-function findQuestionGapPairByStructure(parsed) {
+function findQuestionGapPairByExactNormalizedSignature(parsed) {
   const totalFrames = Math.floor(parsed.data.dataSize / parsed.format.blockAlign);
   const searchStart = Math.floor(totalFrames / 2);
   const runs = findSilenceRuns(parsed, searchStart, totalFrames, MIN_STRUCTURAL_SILENCE_SECONDS);
@@ -146,18 +144,16 @@ function findQuestionGapPairByStructure(parsed) {
   for (let index = 0; index < runs.length - 1; index += 1) {
     const bodyQuestionGap = runs[index];
     const questionTextGap = runs[index + 1];
-    const bodyGapSeconds = (bodyQuestionGap[1] - bodyQuestionGap[0]) / parsed.format.sampleRate;
+    const bodyFrames = bodyQuestionGap[1] - bodyQuestionGap[0];
+    const questionTextFrames = questionTextGap[1] - questionTextGap[0];
     const questionWordSeconds = (questionTextGap[0] - bodyQuestionGap[1]) / parsed.format.sampleRate;
-    const questionTextGapSeconds = (questionTextGap[1] - questionTextGap[0]) / parsed.format.sampleRate;
     const questionTextRemainderSeconds = (totalFrames - questionTextGap[1]) / parsed.format.sampleRate;
 
     if (
-      bodyGapSeconds >= MIN_BODY_QUESTION_GAP_SECONDS &&
-      bodyGapSeconds <= MAX_BODY_QUESTION_GAP_SECONDS &&
+      bodyFrames === NORMALIZED_BODY_QUESTION_FRAMES &&
+      questionTextFrames === NORMALIZED_QUESTION_TEXT_FRAMES &&
       questionWordSeconds >= MIN_QUESTION_WORD_SECONDS &&
       questionWordSeconds <= MAX_QUESTION_WORD_SECONDS &&
-      questionTextGapSeconds >= MIN_QUESTION_TEXT_GAP_SECONDS &&
-      questionTextGapSeconds <= MAX_QUESTION_TEXT_GAP_SECONDS &&
       questionTextRemainderSeconds >= MIN_QUESTION_TEXT_REMAINDER_SECONDS
     ) {
       matches.push({ bodyQuestionGap, questionTextGap });
@@ -165,7 +161,7 @@ function findQuestionGapPairByStructure(parsed) {
   }
 
   if (matches.length !== 1) {
-    throw new Error(`Expected exactly one body -> Question -> text structure, found ${matches.length}`);
+    throw new Error(`Expected exactly one exact normalized body -> Question -> text signature, found ${matches.length}`);
   }
   return matches[0];
 }
@@ -218,10 +214,10 @@ for (const setKey of SET_KEYS) {
     if (!Array.isArray(bodyQuestionGap) || !Array.isArray(questionTextGap)) {
       throw new Error(`Normalized pause boundaries missing for ${manifestId}`);
     }
-    if (bodyQuestionGap[1] - bodyQuestionGap[0] !== 19200) {
+    if (bodyQuestionGap[1] - bodyQuestionGap[0] !== NORMALIZED_BODY_QUESTION_FRAMES) {
       throw new Error(`${manifestId}: body->Question is not normalized to 19,200 frames`);
     }
-    if (questionTextGap[1] - questionTextGap[0] !== 14400) {
+    if (questionTextGap[1] - questionTextGap[0] !== NORMALIZED_QUESTION_TEXT_FRAMES) {
       throw new Error(`${manifestId}: Question->text is not normalized to 14,400 frames`);
     }
 
@@ -242,7 +238,7 @@ for (const setKey of SET_KEYS) {
 
     const runs = findEarlySilenceRuns(parsed);
     const candidates = introCandidates(parsed, runs);
-    const structural = findQuestionGapPairByStructure(parsed);
+    const structural = findQuestionGapPairByExactNormalizedSignature(parsed);
     const row = {
       id: manifestId,
       sha256: actualSha,
@@ -255,9 +251,6 @@ for (const setKey of SET_KEYS) {
       structuralMatchesManifest:
         sameRange(structural.bodyQuestionGap, bodyQuestionGap) &&
         sameRange(structural.questionTextGap, questionTextGap),
-      earlySilenceRuns: runs
-        .filter(([start]) => start <= parsed.format.sampleRate * 4)
-        .map((range) => formatRun(parsed.format.sampleRate, range)),
     };
     audit.push(row);
     console.log(JSON.stringify(row));
