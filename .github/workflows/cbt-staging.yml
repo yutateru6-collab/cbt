@@ -86,16 +86,14 @@ jobs:
           sudo apt-get install -y -qq ffmpeg
           python3 -m pip install --quiet --disable-pip-version-check openai-whisper
           mkdir -p "$transcripts"
-          for wav in "$out"/*.wav; do
-            whisper "$wav" \
-              --model tiny.en \
-              --language English \
-              --task transcribe \
-              --output_format json \
-              --output_dir "$transcripts" \
-              --fp16 False \
-              --verbose False
-          done
+          whisper "$out"/*.wav \
+            --model tiny.en \
+            --language English \
+            --task transcribe \
+            --output_format json \
+            --output_dir "$transcripts" \
+            --fp16 False \
+            --verbose False
           python3 - <<'PY'
           import glob, json, os
           for filename in sorted(glob.glob('/tmp/cbt-six-whisper/*.json')):
