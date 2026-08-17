@@ -8,8 +8,10 @@
     "set-03": "第3回",
   };
   const APP_ROOT_URL = new URL("../../", window.location.href);
+  const devMode = new URLSearchParams(window.location.search).get("dev") === "1";
+  const canonical = window.Grade2CanonicalContent || null;
 
-  const allSets = Array.isArray(window.scbtGrade2VocabSets) ? window.scbtGrade2VocabSets : [];
+  const allSets = canonical?.ready && Array.isArray(canonical.sets) ? canonical.sets : [];
   const setMap = new Map(
     allSets
       .filter((set) => SET_KEYS.includes(set.key))
@@ -33,6 +35,7 @@
   const status = document.getElementById("player-status");
 
   if (
+    !canonical?.ready ||
     !audio ||
     !setTabs ||
     !questionList ||
@@ -40,7 +43,10 @@
     !explanationText ||
     SET_KEYS.some((key) => !setMap.get(key)?.listeningQuestions?.length)
   ) {
-    document.body.innerHTML = '<main class="fatal-message"><strong>Listening Playerを読み込めませんでした。</strong><br>第1〜3回のリスニングデータを確認してください。</main>';
+    const detail = canonical?.issues?.length
+      ? `<br><small>${canonical.issues.map((issue) => escapeHtml(issue.questionKey || issue.reason)).join(" / ")}</small>`
+      : "";
+    document.body.innerHTML = `<main class="fatal-message"><strong>Listening Playerを安全に読み込めませんでした。</strong><br>canonical解説データを確認してください。${detail}</main>`;
     return;
   }
 
@@ -69,6 +75,11 @@
 
   function setStatus(message) {
     status.textContent = message;
+  }
+
+  function getDevMetadata(question) {
+    if (!devMode || !question) return "";
+    return ` / ${question.questionKey || "keyなし"} / ${question.explanationSource || "sourceなし"} / ${question.explanationHash || "hashなし"}`;
   }
 
   function resolveAudioUrl(value) {
@@ -151,8 +162,12 @@
     answerText.textContent = hasValidAnswer
       ? `${correctNumber}. ${choices[correctIndex]}`
       : "解答データがありません。";
-    explanationText.textContent =
-      String(question.explanation || "").trim() || "解説データがありません。";
+
+    const canonicalExplanation = String(question.canonicalExplanation || "").trim();
+    explanationText.textContent = canonicalExplanation || "canonical解説データがありません。";
+    explanationText.title = devMode
+      ? `${question.questionKey || ""} | ${question.explanationSource || ""} | ${question.explanationHash || ""}`
+      : "";
   }
 
   function escapeHtml(value) {
@@ -169,7 +184,8 @@
     audio.playbackRate = Number(playbackRate.value) || 1;
     try {
       await audio.play();
-      setStatus(`${SET_LABELS[state.setKey]} No.${getQuestion().id} を再生中です。`);
+      const question = getQuestion();
+      setStatus(`${SET_LABELS[state.setKey]} No.${question.id} を再生中です。${getDevMetadata(question)}`);
     } catch {
       setStatus("再生が開始できませんでした。再生ボタンをもう一度タップしてください。");
     }
@@ -188,7 +204,7 @@
       audio.removeAttribute("src");
       audio.load();
       updatePlayButtons();
-      setStatus("この問題には音源が設定されていません。");
+      setStatus(`この問題には音源が設定されていません。${getDevMetadata(question)}`);
       return;
     }
 
@@ -203,7 +219,7 @@
     if (autoplay) {
       void startPlayback();
     } else {
-      setStatus(`${SET_LABELS[state.setKey]} No.${question.id} を選択しています。`);
+      setStatus(`${SET_LABELS[state.setKey]} No.${question.id} を選択しています。${getDevMetadata(question)}`);
     }
   }
 
@@ -293,7 +309,8 @@
     if (continuousPlay.checked) {
       goNext({ fromContinuous: true });
     } else {
-      setStatus(`${SET_LABELS[state.setKey]} No.${getQuestion().id} の再生が終わりました。`);
+      const question = getQuestion();
+      setStatus(`${SET_LABELS[state.setKey]} No.${question.id} の再生が終わりました。${getDevMetadata(question)}`);
     }
   });
   audio.addEventListener("error", () => {
