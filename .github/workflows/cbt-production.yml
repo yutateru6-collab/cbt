@@ -53,6 +53,8 @@ jobs:
           set -euo pipefail
           node --check cloudflare-worker.js
           node --check listening-audio-fix.js
+          node --check grade2-legacy-explanation-cleanup.js
+          node --check grade2-canonical-explanations.js
           node --check scripts/prepare-worker-assets.mjs
           node --check scripts/verify-cloudflare-listening-audio.mjs
           node tests/grade2-listening-audio-fix.test.cjs
@@ -106,7 +108,16 @@ jobs:
           console.log("build-info verified", info);
           NODE
 
-          for file in exam.html app.js grade2-listening-part2-sets.js grade2-listening-set01-audio-fixes.js; do
+          for file in \
+            exam.html \
+            app.js \
+            grade2-listening-part2-sets.js \
+            grade2-listening-set01-audio-fixes.js \
+            grade2-legacy-explanation-cleanup.js \
+            grade2-set-01-explanations.js \
+            grade2-skill-explanations.js \
+            grade2-explanation-sync.js \
+            grade2-canonical-explanations.js; do
             curl -fsSL --retry 5 --retry-delay 2 --connect-timeout 10 --max-time 45 \
               -H 'Cache-Control: no-cache' \
               "$base/$file?verify=$stamp" \
@@ -115,11 +126,16 @@ jobs:
           done
 
           if [ -f tools/listening-player/index.html ]; then
-            curl -fsSL --retry 5 --retry-delay 2 --connect-timeout 10 --max-time 45 \
-              -H 'Cache-Control: no-cache' \
-              "$base/tools/listening-player/index.html?verify=$stamp" \
-              -o /tmp/prod-listening-player.html
-            test "$(sha256sum tools/listening-player/index.html | awk '{print $1}')" = "$(sha256sum /tmp/prod-listening-player.html | awk '{print $1}')"
+            for file in \
+              tools/listening-player/index.html \
+              tools/listening-player/player.js \
+              tools/listening-player/player.css; do
+              curl -fsSL --retry 5 --retry-delay 2 --connect-timeout 10 --max-time 45 \
+                -H 'Cache-Control: no-cache' \
+                "$base/$file?verify=$stamp" \
+                -o "/tmp/prod-${file//\//_}"
+              test "$(sha256sum "$file" | awk '{print $1}')" = "$(sha256sum "/tmp/prod-${file//\//_}" | awk '{print $1}')"
+            done
           fi
 
           node scripts/verify-cloudflare-listening-audio.mjs "$base"
