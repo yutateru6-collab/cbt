@@ -63,9 +63,11 @@ jobs:
           node --check scripts/verify-cloudflare-listening-audio.mjs
           node --check scripts/inspect-set01-intro-gaps.mjs
           node --check scripts/inspect-grade2-three-set-pauses.mjs
+          node --check scripts/build-grade2-three-set-corrected-audio.mjs
           node scripts/remove-grade2-legacy-listening-explanations.mjs --check
           node tests/grade2-listening-audio-fix.test.cjs
           node tests/grade2-listening-three-set-audio-fix.test.cjs
+          node tests/cloudflare-listening-route.test.mjs
           node --test tests/grade2-listening-player.test.cjs
           node --test tests/grade2-listening-r2-source.test.cjs
           node --test tests/cloudflare-deploy-contract.test.cjs
@@ -75,6 +77,11 @@ jobs:
 
       - name: Preflight real listening corrections
         run: node scripts/verify-cloudflare-listening-audio.mjs --expected-only
+
+      - name: Build precomputed 90-file corrected release
+        env:
+          CBT_BUILD_SHA: ${{ github.sha }}
+        run: node scripts/build-grade2-three-set-corrected-audio.mjs --output-dir=/tmp/cbt-three-set-corrected
 
       - name: Ensure isolated staging R2 buckets
         shell: bash
@@ -89,24 +96,41 @@ jobs:
             fi
           done
 
-      - name: Seed all 90 immutable listening masters into staging R2
+      - name: Seed legacy Set 01 sources into staging R2
         shell: bash
         run: |
           set -euo pipefail
           source_release='20260815-grade2-listening-pauses-v2'
-          source_root="https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/$source_release"
-          mkdir -p /tmp/cbt-staging-listening
+          source_base="https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/$source_release/set-01/listening/part1"
+          mkdir -p /tmp/cbt-staging-legacy-listening
+          for n in $(seq 1 9); do
+            id="$(printf '%02d' "$n")"
+            file="/tmp/cbt-staging-legacy-listening/No${id}.wav"
+            key="scbt/grade2/releases/$source_release/set-01/listening/part1/No${id}.wav"
+            curl -fsSL --retry 3 --connect-timeout 10 --max-time 60 \
+              -H 'Cache-Control: no-cache' \
+              "$source_base/No${id}.wav" \
+              -o "$file"
+            npx wrangler r2 object put "mimilisten-audio-staging/$key" \
+              --file "$file" \
+              --content-type audio/wav \
+              --cache-control 'public, max-age=31536000, immutable' \
+              --remote
+          done
+
+      - name: Upload precomputed 90-file corrected release to staging R2
+        shell: bash
+        run: |
+          set -euo pipefail
+          release='20260817-grade2-sets01-03-listening-pauses-1s-v1'
           for set_num in 01 02 03; do
             set_key="set-$set_num"
             for n in $(seq 1 30); do
               id="$(printf '%02d' "$n")"
               if [ "$n" -le 15 ]; then part='part1'; else part='part2'; fi
-              file="/tmp/cbt-staging-listening/${set_key}-${part}-No${id}.wav"
-              key="scbt/grade2/releases/$source_release/$set_key/listening/$part/No${id}.wav"
-              curl -fsSL --retry 3 --connect-timeout 10 --max-time 60 \
-                -H 'Cache-Control: no-cache' \
-                "$source_root/$set_key/listening/$part/No${id}.wav" \
-                -o "$file"
+              file="/tmp/cbt-three-set-corrected/$set_key/listening/$part/No${id}.wav"
+              key="scbt/grade2/releases/$release/$set_key/listening/$part/No${id}.wav"
+              test -f "$file"
               npx wrangler r2 object put "mimilisten-audio-staging/$key" \
                 --file "$file" \
                 --content-type audio/wav \
