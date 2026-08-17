@@ -82,6 +82,8 @@ jobs:
           out='/tmp/cbt-six-duplicate-diagnostic'
           transcripts='/tmp/cbt-six-whisper'
           node scripts/diagnose-set01-duplicate-question-tails.mjs --output-dir="$out"
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
           python3 -m pip install --quiet --disable-pip-version-check openai-whisper
           mkdir -p "$transcripts"
           for wav in "$out"/*.wav; do
