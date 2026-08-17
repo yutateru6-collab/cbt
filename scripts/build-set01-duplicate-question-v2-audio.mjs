@@ -3,11 +3,11 @@ import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { createHash } from "node:crypto";
 import { GRADE2_LISTENING_SOURCE_RELEASE } from "../listening-audio-fix.js";
+import { fixGrade2ThreeSetOneSecondPausesWav } from "../grade2-listening-three-set-audio-fix.js";
 import {
   GRADE2_LISTENING_SET01_DUPLICATE_QUESTION_FIX_V2_RELEASE,
   fixGrade2Set01DuplicateQuestionV2FromOneSecondWav,
-  fixGrade2ThreeSetOneSecondPausesWav,
-} from "../grade2-listening-three-set-audio-fix.js";
+} from "../grade2-listening-set01-duplicate-v2-fix.js";
 
 const TARGET_IDS = Object.freeze([6, 7, 8, 10, 12, 14]);
 const outputArg = process.argv.find((arg) => arg.startsWith("--output-dir="));
