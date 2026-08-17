@@ -1,4 +1,4 @@
-const CACHE_NAME = "cbt-grade2-app-shell-v76-listening-q1-q5-question-gap";
+const CACHE_NAME = "cbt-grade2-app-shell-v77-canonical-explanations";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -17,6 +17,9 @@ const APP_SHELL = [
   "/grade2-speaking-sets.js",
   "/grade2-listening-part2-sets.js",
   "/grade2-listening-set01-audio-fixes.js",
+  "/grade2-legacy-explanation-cleanup.js",
+  "/grade2-explanation-sync.js",
+  "/grade2-canonical-explanations.js",
   "/manifest.webmanifest",
   "/assets/app-icon.svg",
   "/assets/grade2-speaking-examiner-photo.png",
