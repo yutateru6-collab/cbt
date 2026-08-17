@@ -20,6 +20,7 @@ const APP_SHELL = [
   "/grade2-skill-explanations.js",
   "/grade2-explanation-sync.js",
   "/grade2-canonical-explanations.js",
+  "/grade2-explanation-provenance-dev.js",
   "/manifest.webmanifest",
   "/assets/app-icon.svg",
   "/assets/grade2-speaking-picture-story-02.png",
