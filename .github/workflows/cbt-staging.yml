@@ -53,6 +53,7 @@ jobs:
           set -euo pipefail
           node --check cloudflare-worker.js
           node --check listening-audio-fix.js
+          node --check grade2-listening-three-set-audio-fix.js
           node --check grade2-legacy-explanation-cleanup.js
           node --check grade2-canonical-explanations.js
           node --check grade2-explanation-provenance-dev.js
@@ -87,26 +88,30 @@ jobs:
             fi
           done
 
-      - name: Seed immutable listening masters into staging R2
+      - name: Seed all 90 immutable listening masters into staging R2
         shell: bash
         run: |
           set -euo pipefail
           source_release='20260815-grade2-listening-pauses-v2'
-          source_base="https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/$source_release/set-01/listening/part1"
+          source_root="https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/$source_release"
           mkdir -p /tmp/cbt-staging-listening
-          for n in {1..9}; do
-            id="$(printf '%02d' "$n")"
-            file="/tmp/cbt-staging-listening/No${id}.wav"
-            key="scbt/grade2/releases/$source_release/set-01/listening/part1/No${id}.wav"
-            curl -fsSL --retry 3 --connect-timeout 10 --max-time 60 \
-              -H 'Cache-Control: no-cache' \
-              "$source_base/No${id}.wav" \
-              -o "$file"
-            npx wrangler r2 object put "mimilisten-audio-staging/$key" \
-              --file "$file" \
-              --content-type audio/wav \
-              --cache-control 'public, max-age=31536000, immutable' \
-              --remote
+          for set_num in 01 02 03; do
+            set_key="set-$set_num"
+            for n in $(seq 1 30); do
+              id="$(printf '%02d' "$n")"
+              if [ "$n" -le 15 ]; then part='part1'; else part='part2'; fi
+              file="/tmp/cbt-staging-listening/${set_key}-${part}-No${id}.wav"
+              key="scbt/grade2/releases/$source_release/$set_key/listening/$part/No${id}.wav"
+              curl -fsSL --retry 3 --connect-timeout 10 --max-time 60 \
+                -H 'Cache-Control: no-cache' \
+                "$source_root/$set_key/listening/$part/No${id}.wav" \
+                -o "$file"
+              npx wrangler r2 object put "mimilisten-audio-staging/$key" \
+                --file "$file" \
+                --content-type audio/wav \
+                --cache-control 'public, max-age=31536000, immutable' \
+                --remote
+            done
           done
 
       - name: Validate staging bundle
