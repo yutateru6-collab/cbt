@@ -55,8 +55,12 @@ jobs:
           node --check listening-audio-fix.js
           node --check grade2-legacy-explanation-cleanup.js
           node --check grade2-canonical-explanations.js
+          node --check grade2-explanation-provenance-dev.js
+          node --check tools/listening-player/player.js
           node --check scripts/prepare-worker-assets.mjs
+          node --check scripts/remove-grade2-legacy-listening-explanations.mjs
           node --check scripts/verify-cloudflare-listening-audio.mjs
+          node scripts/remove-grade2-legacy-listening-explanations.mjs --check
           node tests/grade2-listening-audio-fix.test.cjs
           if [ -f tests/grade2-listening-player.test.cjs ]; then
             node --test tests/grade2-listening-player.test.cjs
@@ -117,7 +121,8 @@ jobs:
             grade2-set-01-explanations.js \
             grade2-skill-explanations.js \
             grade2-explanation-sync.js \
-            grade2-canonical-explanations.js; do
+            grade2-canonical-explanations.js \
+            grade2-explanation-provenance-dev.js; do
             curl -fsSL --retry 5 --retry-delay 2 --connect-timeout 10 --max-time 45 \
               -H 'Cache-Control: no-cache' \
               "$base/$file?verify=$stamp" \
