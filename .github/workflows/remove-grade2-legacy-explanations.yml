@@ -1,0 +1,39 @@
+name: Remove Grade 2 legacy explanations
+
+on:
+  push:
+    branches:
+      - agent/canonical-explanations-20260817
+    paths:
+      - scripts/remove-grade2-legacy-listening-explanations.mjs
+      - .github/workflows/remove-grade2-legacy-explanations.yml
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out migration branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/canonical-explanations-20260817
+          fetch-depth: 0
+
+      - name: Remove guarded legacy explanation fields
+        run: node scripts/remove-grade2-legacy-listening-explanations.mjs
+
+      - name: Commit migration when needed
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- grade2-listening-part2-sets.js; then
+            echo "No legacy explanation fields remain."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add grade2-listening-part2-sets.js
+          git commit -m "Remove legacy Grade 2 Listening explanations"
+          git push origin HEAD:agent/canonical-explanations-20260817
