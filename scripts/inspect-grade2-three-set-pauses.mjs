@@ -7,12 +7,20 @@ const MANIFEST_PATH = "audio-generation/20260815-grade2-listening-pauses-v2/norm
 const SET_KEYS = ["set-01", "set-02", "set-03"];
 const SILENCE_THRESHOLD = 350;
 const MIN_REPORTED_SILENCE_SECONDS = 0.08;
+const MIN_STRUCTURAL_SILENCE_SECONDS = 0.15;
 const MIN_INTRO_CANDIDATE_SECONDS = 0.25;
 const INTRO_START_MIN_SECONDS = 0.35;
-const INTRO_START_MAX_SECONDS = 3.5;
+const INTRO_START_MAX_SECONDS = 1.8;
 const INTRO_END_MAX_SECONDS = 6.0;
 const VOICE_WINDOW_SECONDS = 0.5;
 const SCAN_SECONDS = 8;
+const MIN_BODY_QUESTION_GAP_SECONDS = 0.35;
+const MAX_BODY_QUESTION_GAP_SECONDS = 2.0;
+const MIN_QUESTION_WORD_SECONDS = 0.20;
+const MAX_QUESTION_WORD_SECONDS = 1.20;
+const MIN_QUESTION_TEXT_GAP_SECONDS = 0.35;
+const MAX_QUESTION_TEXT_GAP_SECONDS = 1.20;
+const MIN_QUESTION_TEXT_REMAINDER_SECONDS = 1.20;
 
 function readFourCc(view, offset) {
   return String.fromCharCode(
@@ -88,23 +96,30 @@ function assertSilentRange(parsed, range, label) {
   }
 }
 
-function findSilenceRuns(parsed) {
+function findSilenceRuns(parsed, startFrame, endFrame, minimumSeconds) {
   const totalFrames = Math.floor(parsed.data.dataSize / parsed.format.blockAlign);
-  const endFrame = Math.min(totalFrames, Math.round(parsed.format.sampleRate * SCAN_SECONDS));
-  const minimumFrames = Math.round(parsed.format.sampleRate * MIN_REPORTED_SILENCE_SECONDS);
+  const start = Math.max(0, Math.min(totalFrames, startFrame));
+  const end = Math.max(start, Math.min(totalFrames, endFrame));
+  const minimumFrames = Math.round(parsed.format.sampleRate * minimumSeconds);
   const runs = [];
-  let start = -1;
+  let silenceStart = -1;
 
-  for (let frame = 0; frame < endFrame; frame += 1) {
+  for (let frame = start; frame < end; frame += 1) {
     if (isSilentSample(parsed, frame)) {
-      if (start < 0) start = frame;
-    } else if (start >= 0) {
-      if (frame - start >= minimumFrames) runs.push([start, frame]);
-      start = -1;
+      if (silenceStart < 0) silenceStart = frame;
+    } else if (silenceStart >= 0) {
+      if (frame - silenceStart >= minimumFrames) runs.push([silenceStart, frame]);
+      silenceStart = -1;
     }
   }
-  if (start >= 0 && endFrame - start >= minimumFrames) runs.push([start, endFrame]);
+  if (silenceStart >= 0 && end - silenceStart >= minimumFrames) runs.push([silenceStart, end]);
   return runs;
+}
+
+function findEarlySilenceRuns(parsed) {
+  const totalFrames = Math.floor(parsed.data.dataSize / parsed.format.blockAlign);
+  const endFrame = Math.min(totalFrames, Math.round(parsed.format.sampleRate * SCAN_SECONDS));
+  return findSilenceRuns(parsed, 0, endFrame, MIN_REPORTED_SILENCE_SECONDS);
 }
 
 function introCandidates(parsed, runs) {
@@ -120,6 +135,43 @@ function introCandidates(parsed, runs) {
     if (start < startMin || start > startMax || end > endMax) return false;
     return hasVoice(parsed, start - voiceWindow, start) && hasVoice(parsed, end, end + voiceWindow);
   });
+}
+
+function findQuestionGapPairByStructure(parsed) {
+  const totalFrames = Math.floor(parsed.data.dataSize / parsed.format.blockAlign);
+  const searchStart = Math.floor(totalFrames / 2);
+  const runs = findSilenceRuns(parsed, searchStart, totalFrames, MIN_STRUCTURAL_SILENCE_SECONDS);
+  const matches = [];
+
+  for (let index = 0; index < runs.length - 1; index += 1) {
+    const bodyQuestionGap = runs[index];
+    const questionTextGap = runs[index + 1];
+    const bodyGapSeconds = (bodyQuestionGap[1] - bodyQuestionGap[0]) / parsed.format.sampleRate;
+    const questionWordSeconds = (questionTextGap[0] - bodyQuestionGap[1]) / parsed.format.sampleRate;
+    const questionTextGapSeconds = (questionTextGap[1] - questionTextGap[0]) / parsed.format.sampleRate;
+    const questionTextRemainderSeconds = (totalFrames - questionTextGap[1]) / parsed.format.sampleRate;
+
+    if (
+      bodyGapSeconds >= MIN_BODY_QUESTION_GAP_SECONDS &&
+      bodyGapSeconds <= MAX_BODY_QUESTION_GAP_SECONDS &&
+      questionWordSeconds >= MIN_QUESTION_WORD_SECONDS &&
+      questionWordSeconds <= MAX_QUESTION_WORD_SECONDS &&
+      questionTextGapSeconds >= MIN_QUESTION_TEXT_GAP_SECONDS &&
+      questionTextGapSeconds <= MAX_QUESTION_TEXT_GAP_SECONDS &&
+      questionTextRemainderSeconds >= MIN_QUESTION_TEXT_REMAINDER_SECONDS
+    ) {
+      matches.push({ bodyQuestionGap, questionTextGap });
+    }
+  }
+
+  if (matches.length !== 1) {
+    throw new Error(`Expected exactly one body -> Question -> text structure, found ${matches.length}`);
+  }
+  return matches[0];
+}
+
+function sameRange(a, b) {
+  return a?.[0] === b?.[0] && a?.[1] === b?.[1];
 }
 
 function sha256(buffer) {
@@ -188,15 +240,21 @@ for (const setKey of SET_KEYS) {
     assertSilentRange(parsed, bodyQuestionGap, `${manifestId} body->Question`);
     assertSilentRange(parsed, questionTextGap, `${manifestId} Question->text`);
 
-    const runs = findSilenceRuns(parsed);
+    const runs = findEarlySilenceRuns(parsed);
     const candidates = introCandidates(parsed, runs);
+    const structural = findQuestionGapPairByStructure(parsed);
     const row = {
       id: manifestId,
       sha256: actualSha,
       bytes: buffer.byteLength,
-      bodyQuestionGap: formatRun(parsed.format.sampleRate, bodyQuestionGap),
-      questionTextGap: formatRun(parsed.format.sampleRate, questionTextGap),
       introCandidates: candidates.map((range) => formatRun(parsed.format.sampleRate, range)),
+      manifestBodyQuestionGap: formatRun(parsed.format.sampleRate, bodyQuestionGap),
+      manifestQuestionTextGap: formatRun(parsed.format.sampleRate, questionTextGap),
+      structuralBodyQuestionGap: formatRun(parsed.format.sampleRate, structural.bodyQuestionGap),
+      structuralQuestionTextGap: formatRun(parsed.format.sampleRate, structural.questionTextGap),
+      structuralMatchesManifest:
+        sameRange(structural.bodyQuestionGap, bodyQuestionGap) &&
+        sameRange(structural.questionTextGap, questionTextGap),
       earlySilenceRuns: runs
         .filter(([start]) => start <= parsed.format.sampleRate * 4)
         .map((range) => formatRun(parsed.format.sampleRate, range)),
@@ -207,8 +265,14 @@ for (const setKey of SET_KEYS) {
 }
 
 const ambiguous = audit.filter((row) => row.introCandidates.length !== 1);
-console.log(`AUDIT_SUMMARY total=${audit.length} uniqueIntro=${audit.length - ambiguous.length} ambiguous=${ambiguous.length}`);
+const structuralMismatch = audit.filter((row) => !row.structuralMatchesManifest);
+console.log(
+  `AUDIT_SUMMARY total=${audit.length} uniqueIntro=${audit.length - ambiguous.length} ambiguous=${ambiguous.length} structuralExact=${audit.length - structuralMismatch.length} structuralMismatch=${structuralMismatch.length}`,
+);
 if (ambiguous.length) {
   console.error("AMBIGUOUS_INTRO_IDS", ambiguous.map((row) => row.id).join(","));
-  process.exitCode = 2;
 }
+if (structuralMismatch.length) {
+  console.error("STRUCTURAL_MISMATCH_IDS", structuralMismatch.map((row) => row.id).join(","));
+}
+if (ambiguous.length || structuralMismatch.length) process.exitCode = 2;
