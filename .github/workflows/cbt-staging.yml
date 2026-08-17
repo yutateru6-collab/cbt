@@ -64,6 +64,7 @@ jobs:
           node --check scripts/inspect-set01-intro-gaps.mjs
           node --check scripts/inspect-grade2-three-set-pauses.mjs
           node --check scripts/build-grade2-three-set-corrected-audio.mjs
+          node --check scripts/build-set01-duplicate-question-v2-audio.mjs
           node scripts/remove-grade2-legacy-listening-explanations.mjs --check
           node tests/grade2-listening-audio-fix.test.cjs
           node tests/grade2-listening-three-set-audio-fix.test.cjs
@@ -75,36 +76,6 @@ jobs:
       - name: Audit actual Set 01-03 listening pauses
         run: node scripts/inspect-grade2-three-set-pauses.mjs
 
-      - name: Transcript diagnostic for only six confirmed duplicate items
-        shell: bash
-        run: |
-          set -euo pipefail
-          out='/tmp/cbt-six-duplicate-diagnostic'
-          transcripts='/tmp/cbt-six-whisper'
-          node scripts/diagnose-set01-duplicate-question-tails.mjs --output-dir="$out"
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq ffmpeg
-          python3 -m pip install --quiet --disable-pip-version-check openai-whisper
-          mkdir -p "$transcripts"
-          whisper "$out"/*.wav \
-            --model tiny.en \
-            --language English \
-            --task transcribe \
-            --output_format json \
-            --output_dir "$transcripts" \
-            --fp16 False \
-            --verbose False
-          python3 - <<'PY'
-          import glob, json, os
-          for filename in sorted(glob.glob('/tmp/cbt-six-whisper/*.json')):
-              print('WHISPER_FILE', os.path.basename(filename))
-              data = json.load(open(filename, encoding='utf-8'))
-              for seg in data.get('segments', []):
-                  print(f"WHISPER_SEGMENT {seg['start']:.3f}-{seg['end']:.3f} {seg['text'].strip()}")
-          PY
-          echo 'TRANSCRIPT_DIAGNOSTIC_STOP: six files were transcribed; refusing to deploy until exact rear-duplicate boundaries are reviewed.' >&2
-          exit 2
-
       - name: Preflight real listening corrections
         run: node scripts/verify-cloudflare-listening-audio.mjs --expected-only
 
@@ -112,6 +83,11 @@ jobs:
         env:
           CBT_BUILD_SHA: ${{ github.sha }}
         run: node scripts/build-grade2-three-set-corrected-audio.mjs --output-dir=/tmp/cbt-three-set-corrected
+
+      - name: Build exactly six Set 01 duplicate-question v2 WAVs
+        env:
+          CBT_BUILD_SHA: ${{ github.sha }}
+        run: node scripts/build-set01-duplicate-question-v2-audio.mjs --output-dir=/tmp/cbt-set01-duplicate-v2
 
       - name: Ensure isolated staging R2 buckets
         shell: bash
@@ -167,6 +143,22 @@ jobs:
                 --cache-control 'public, max-age=31536000, immutable' \
                 --remote
             done
+          done
+
+      - name: Upload exactly six Set 01 duplicate-question v2 WAVs to staging R2
+        shell: bash
+        run: |
+          set -euo pipefail
+          release='20260817-set01-listening-duplicate-question-fix-v2'
+          for n in 06 07 08 10 12 14; do
+            file="/tmp/cbt-set01-duplicate-v2/set-01/listening/part1/No${n}.wav"
+            key="scbt/grade2/releases/$release/set-01/listening/part1/No${n}.wav"
+            test -f "$file"
+            npx wrangler r2 object put "mimilisten-audio-staging/$key" \
+              --file "$file" \
+              --content-type audio/wav \
+              --cache-control 'public, max-age=31536000, immutable' \
+              --remote
           done
 
       - name: Validate staging bundle
@@ -276,5 +268,4 @@ jobs:
           fi
 
           node scripts/verify-cloudflare-listening-audio.mjs "$base"
-
           echo "STAGING_URL=$base/"
