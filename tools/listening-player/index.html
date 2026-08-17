@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Listening Player | 英検2級</title>
+    <link rel="stylesheet" href="./player.css?v=grade2-listening-player-answers-v2" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="app-header">
+        <p class="eyebrow">英検2級・第1〜3回</p>
+        <h1>Listening Player</h1>
+        <p class="lead">音声を聞きながら、台本・設問・選択肢・解答・解説をシンプルに確認できます。</p>
+      </header>
+
+      <nav id="set-tabs" class="set-tabs" aria-label="回次を選択"></nav>
+
+      <main class="workspace">
+        <section class="player-panel" aria-labelledby="current-title">
+          <div class="now-playing">
+            <div>
+              <span id="current-set" class="now-set">第1回</span>
+              <span id="current-part" class="now-part">第1部</span>
+            </div>
+            <strong id="current-title" class="now-number">No.1</strong>
+          </div>
+
+          <audio id="player-audio" class="audio-element" preload="metadata" controls playsinline></audio>
+
+          <div class="transport" aria-label="再生操作">
+            <button type="button" data-action="previous" aria-label="前の問題">前へ</button>
+            <button type="button" data-action="back-10" aria-label="10秒戻る">−10秒</button>
+            <button type="button" class="primary" data-action="toggle-play" aria-label="再生または一時停止">再生</button>
+            <button type="button" data-action="forward-10" aria-label="10秒進む">+10秒</button>
+            <button type="button" data-action="next" aria-label="次の問題">次へ</button>
+          </div>
+
+          <div class="player-options">
+            <label>
+              <span>速度</span>
+              <select id="playback-rate" aria-label="再生速度">
+                <option value="0.75">0.75×</option>
+                <option value="1" selected>1.0×</option>
+                <option value="1.25">1.25×</option>
+                <option value="1.5">1.5×</option>
+              </select>
+            </label>
+            <label class="continuous-option">
+              <input id="continuous-play" type="checkbox" />
+              <span>連続再生</span>
+            </label>
+          </div>
+
+          <p id="player-status" class="player-status" aria-live="polite">No.1を選択しています。</p>
+
+          <div id="question-list" class="question-list" aria-label="問題一覧"></div>
+        </section>
+
+        <section class="content-panel" aria-label="リスニング内容">
+          <article class="content-block">
+            <h2>台本</h2>
+            <p id="script-text" class="script-text"></p>
+          </article>
+
+          <article class="content-block question-block">
+            <h2>設問</h2>
+            <p id="question-text" class="question-text"></p>
+          </article>
+
+          <article class="content-block">
+            <h2>選択肢</h2>
+            <ol id="choice-list" class="choice-list"></ol>
+          </article>
+
+          <article class="content-block answer-block">
+            <h2>解答</h2>
+            <p id="answer-text" class="answer-text"></p>
+          </article>
+
+          <article class="content-block explanation-block">
+            <h2>解説</h2>
+            <p id="explanation-text" class="explanation-text"></p>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <div class="mobile-dock" aria-label="スマホ用固定プレイヤー">
+      <span id="mobile-current" class="mobile-current">No.1</span>
+      <button type="button" data-action="previous" aria-label="前の問題">◀</button>
+      <button type="button" data-action="back-10" aria-label="10秒戻る">−10</button>
+      <button type="button" class="mobile-play" data-action="toggle-play" aria-label="再生または一時停止">再生</button>
+      <button type="button" data-action="forward-10" aria-label="10秒進む">+10</button>
+      <button type="button" data-action="next" aria-label="次の問題">▶</button>
+    </div>
+
+    <script src="../../grade2-vocab-sets.js?v=grade2-set3-fireflies-q23-20260804-v1"></script>
+    <script src="../../grade2-speaking-sets.js?v=grade2-gemini-speaking-v1"></script>
+    <script src="../../grade2-listening-part2-sets.js?v=grade2-set01-no05-pause-fix-v1"></script>
+    <script src="../../grade2-listening-set01-audio-fixes.js?v=grade2-set01-listening-q1-q5-intro08-v1"></script>
+    <script src="../../grade2-legacy-explanation-cleanup.js?v=grade2-canonical-explanations-20260817-v1"></script>
+    <script src="../../grade2-set-01-explanations.js?v=grade2-worker-assets-v3"></script>
+    <script src="../../grade2-skill-explanations.js?v=grade2-worker-assets-v3"></script>
+    <script src="../../grade2-explanation-sync.js?v=grade2-explanation-sync-20260817-v1"></script>
+    <script src="../../grade2-canonical-explanations.js?v=grade2-canonical-explanations-20260817-v1"></script>
+    <script src="./player.js?v=grade2-listening-player-canonical-v1"></script>
+  </body>
+</html>

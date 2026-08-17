@@ -1,4 +1,4 @@
-import { cp, mkdir, rm } from "node:fs/promises";
+import { cp, mkdir, rm, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -19,12 +19,16 @@ const rootFiles = [
   "grade2-listening-persistent-audio.js",
   "exam-data.js",
   "grade2-set-01.js",
-  "grade2-set-01-explanations.js",
-  "grade2-skill-explanations.js",
   "grade2-vocab-sets.js",
   "grade2-speaking-sets.js",
   "grade2-listening-part2-sets.js",
   "grade2-listening-set01-audio-fixes.js",
+  "grade2-legacy-explanation-cleanup.js",
+  "grade2-set-01-explanations.js",
+  "grade2-skill-explanations.js",
+  "grade2-explanation-sync.js",
+  "grade2-canonical-explanations.js",
+  "grade2-explanation-provenance-dev.js",
   "grade2-premium-bonus.js",
   "privacy.html",
   "support.html",
@@ -74,7 +78,9 @@ const assetFiles = [
 
 const nestedFiles = [
   "output/pdf/eiken-grade2-final-check-writing-template.pdf",
-  "assets/audio/grade2/set-01/listening/part1/No05.wav"
+  "tools/listening-player/index.html",
+  "tools/listening-player/player.css",
+  "tools/listening-player/player.js"
 ];
 
 await rm(outDir, { recursive: true, force: true });
@@ -93,3 +99,10 @@ for (const file of nestedFiles) {
   await mkdir(dirname(destination), { recursive: true });
   await cp(join(root, file), destination);
 }
+
+const buildInfo = {
+  commit: process.env.CBT_BUILD_SHA || "local",
+  ref: process.env.CBT_BUILD_REF || "local",
+  environment: process.env.CBT_DEPLOY_ENV || "local",
+};
+await writeFile(join(outDir, "build-info.json"), `${JSON.stringify(buildInfo, null, 2)}\n`, "utf8");

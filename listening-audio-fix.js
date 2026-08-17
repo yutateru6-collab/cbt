@@ -1,6 +1,7 @@
 export const GRADE2_LISTENING_SOURCE_RELEASE = "20260815-grade2-listening-pauses-v2";
 export const GRADE2_LISTENING_FIX_RELEASE = "20260817-set01-listening-q5-q9-fix-v1";
 export const GRADE2_LISTENING_QUESTION_GAP_RELEASE = "20260817-set01-listening-q1-q5-question-gap-v1";
+export const GRADE2_LISTENING_INTRO_GAP_RELEASE = "20260817-set01-listening-q1-q5-intro08-v1";
 
 const PCM_SILENCE_THRESHOLD = 350;
 const INTRO_TARGET_SILENCE_SECONDS = 0.8;
@@ -17,9 +18,7 @@ const MIN_QUESTION_TEXT_GAP_SECONDS = 0.35;
 const MAX_QUESTION_TEXT_GAP_SECONDS = 1.20;
 const MIN_QUESTION_TEXT_REMAINDER_SECONDS = 1.20;
 
-// Verified frame positions from the active 24 kHz mono PCM masters.
-// At each boundary, the first (wanted) question has finished. Everything
-// after it is the redundant second question sequence reported for No.5-No.8.
+// Historical correction boundaries retained for the existing q5-q9 release.
 const SET01_PART1_FIRST_QUESTION_END_FRAME = Object.freeze({
   5: 649753,
   6: 674704,
@@ -27,14 +26,25 @@ const SET01_PART1_FIRST_QUESTION_END_FRAME = Object.freeze({
   8: 634271,
 });
 
-// Exact 0.6-second Question -> question-text gaps in the active normalized
-// Set 01 Part 1 masters. These are output-frame positions from the verified
-// 20260815 normalization manifest and are intentionally scoped to No.1-No.4.
+// Exact Question -> question-text gaps in the active normalized 20260815 masters.
+// All are 0.6 seconds (14,400 frames at 24 kHz) before the targeted 0.8-second correction.
 const SET01_PART1_NORMALIZED_QUESTION_TEXT_GAP = Object.freeze({
   1: Object.freeze([774867, 789267]),
   2: Object.freeze([737776, 752176]),
   3: Object.freeze([718758, 733158]),
   4: Object.freeze([676356, 690756]),
+  5: Object.freeze([681985, 696385]),
+});
+
+// Verified No.X -> body silence ranges measured from the real R2
+// 20260815-grade2-listening-pauses-v2 masters on 2026-08-17.
+// These are the first substantial pauses immediately after the spoken item number.
+const SET01_PART1_VERIFIED_INTRO_GAP = Object.freeze({
+  1: Object.freeze([23244, 76991]),
+  2: Object.freeze([24456, 57408]),
+  3: Object.freeze([25462, 46564]),
+  4: Object.freeze([26972, 55976]),
+  5: Object.freeze([16835, 31831]),
 });
 
 function readFourCc(view, offset) {
@@ -151,8 +161,6 @@ function replaceSilenceAtFrames(buffer, startFrame, endFrame, targetSeconds) {
   const afterOffset = endFrame * frameWidth;
   const replacement = new Uint8Array(beforeBytes + targetFrames * frameWidth + (sourceData.byteLength - afterOffset));
   replacement.set(sourceData.subarray(0, beforeBytes), 0);
-  // The replacement gap is intentionally zero-filled. Speech bytes before and
-  // after the verified silence are copied byte-for-byte.
   replacement.set(sourceData.subarray(afterOffset), beforeBytes + targetFrames * frameWidth);
   return {
     buffer: rewriteWavData(buffer, replacement),
@@ -267,7 +275,6 @@ function shortenOpeningSilence(buffer) {
   const sourceData = new Uint8Array(buffer, parsed.data.dataOffset, parsed.data.dataSize);
   const replacement = new Uint8Array(beforeBytes + targetFrames * frameWidth + (sourceData.byteLength - afterOffset));
   replacement.set(sourceData.subarray(0, beforeBytes), 0);
-  // The target gap remains zero-filled.
   replacement.set(sourceData.subarray(afterOffset), beforeBytes + targetFrames * frameWidth);
   return {
     buffer: rewriteWavData(buffer, replacement),
@@ -305,9 +312,6 @@ export function fixGrade2Set01QuestionGapWav(buffer, questionId) {
   }
 
   if (id === 5) {
-    // Preserve the already-approved duplicate-question removal first. Then
-    // identify the Question -> question-text gap only inside that wanted
-    // first-question prefix, so the removed duplicate cannot be selected.
     const duplicateFixed = fixGrade2Set01ListeningWav(buffer, 5);
     const questionTextGap = findQuestionTextGapByStructure(duplicateFixed.buffer);
     const gapFixed = replaceSilenceAtFrames(
@@ -348,5 +352,58 @@ export function fixGrade2Set01QuestionGapWav(buffer, questionId) {
     originalQuestionGapFrames: gapFixed.originalFrames,
     targetQuestionGapFrames: gapFixed.targetFrames,
     addedQuestionGapFrames: gapFixed.deltaFrames,
+  };
+}
+
+export function fixGrade2Set01IntroAndQuestionGapWav(buffer, questionId) {
+  const id = Number(questionId);
+  if (id < 1 || id > 5) {
+    throw new Error(`Unsupported Grade 2 set-01 intro-gap fix question: ${questionId}`);
+  }
+
+  const introRange = SET01_PART1_VERIFIED_INTRO_GAP[id];
+  const questionRange = SET01_PART1_NORMALIZED_QUESTION_TEXT_GAP[id];
+  if (!introRange || !questionRange) {
+    throw new Error(`Missing verified Set 01 gap ranges for No.${id}`);
+  }
+
+  const parsed = parsePcmWav(buffer);
+  if (parsed.format.sampleRate !== 24000) {
+    throw new Error(`Expected 24 kHz Set 01 master for No.${id}, got ${parsed.format.sampleRate}`);
+  }
+  const expectedQuestionFrames = Math.round(parsed.format.sampleRate * NORMALIZED_QUESTION_TEXT_SILENCE_SECONDS);
+  if (questionRange[1] - questionRange[0] !== expectedQuestionFrames) {
+    throw new Error(
+      `Unexpected verified question-gap size for No.${id}: ${questionRange[1] - questionRange[0]}/${expectedQuestionFrames}`,
+    );
+  }
+
+  // Apply the later Question -> question-text edit first so the verified intro
+  // frame positions remain exactly those measured from the immutable baseline.
+  const questionFixed = replaceSilenceAtFrames(
+    buffer,
+    questionRange[0],
+    questionRange[1],
+    QUESTION_TEXT_TARGET_SILENCE_SECONDS,
+  );
+  const introFixed = replaceSilenceAtFrames(
+    questionFixed.buffer,
+    introRange[0],
+    introRange[1],
+    INTRO_TARGET_SILENCE_SECONDS,
+  );
+
+  return {
+    buffer: introFixed.buffer,
+    changed: questionFixed.changed || introFixed.changed,
+    fix: "set-intro-and-question-gaps-0.8s",
+    introGapStartFrame: introFixed.startFrame,
+    originalIntroGapFrames: introFixed.originalFrames,
+    targetIntroGapFrames: introFixed.targetFrames,
+    introGapDeltaFrames: introFixed.deltaFrames,
+    questionGapStartFrame: questionFixed.startFrame,
+    originalQuestionGapFrames: questionFixed.originalFrames,
+    targetQuestionGapFrames: questionFixed.targetFrames,
+    questionGapDeltaFrames: questionFixed.deltaFrames,
   };
 }

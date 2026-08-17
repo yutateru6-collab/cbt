@@ -1,3 +1,9 @@
+// LEGACY ONLY: this generator describes the historical 20260724-simba32 release.
+// It must never overwrite or masquerade as the current production-audio index.
+// Current Grade 2 listening production audio is documented in
+// audio-generation/PRODUCTION_AUDIO.md and verified by
+// audio-generation/20260815-grade2-listening-pauses-v2/r2-verification.json.
+
 import { createHash } from "node:crypto";
 import { readdir, readFile, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
@@ -10,7 +16,7 @@ const releasePrefix = "scbt/grade2/releases/20260724-simba32";
 const outputPath = path.join(
   projectRoot,
   "audio-generation",
-  "cloudflare-r2-production-audio-manifest.json",
+  "cloudflare-r2-production-audio-manifest-20260724-legacy.json",
 );
 
 const sourceGroups = [
@@ -68,6 +74,7 @@ for (const group of sourceGroups) {
 const manifest = {
   generatedAt: new Date().toISOString(),
   release: "20260724-simba32",
+  status: "legacy",
   bucket,
   publicBaseUrl,
   cacheControl: "public, max-age=31536000, immutable",
@@ -77,4 +84,4 @@ const manifest = {
 };
 
 await writeFile(outputPath, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
-console.log(`Wrote ${objects.length} objects to ${outputPath}`);
+console.log(`Wrote ${objects.length} LEGACY objects to ${outputPath}`);

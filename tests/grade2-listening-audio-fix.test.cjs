@@ -41,24 +41,41 @@ function wavData(buffer) {
   return buffer.subarray(44);
 }
 
+function readSample(buffer, frame) {
+  return buffer.readInt16LE(44 + frame * 2);
+}
+
 async function main() {
   const {
     GRADE2_LISTENING_FIX_RELEASE,
     GRADE2_LISTENING_QUESTION_GAP_RELEASE,
+    GRADE2_LISTENING_INTRO_GAP_RELEASE,
     fixGrade2Set01ListeningWav,
     fixGrade2Set01QuestionGapWav,
+    fixGrade2Set01IntroAndQuestionGapWav,
   } = await loadAudioFixModule();
 
   assert.equal(GRADE2_LISTENING_FIX_RELEASE, "20260817-set01-listening-q5-q9-fix-v1");
   assert.equal(GRADE2_LISTENING_QUESTION_GAP_RELEASE, "20260817-set01-listening-q1-q5-question-gap-v1");
+  assert.equal(GRADE2_LISTENING_INTRO_GAP_RELEASE, "20260817-set01-listening-q1-q5-intro08-v1");
 
   const verifiedQuestionGaps = {
     1: [774867, 789267],
     2: [737776, 752176],
     3: [718758, 733158],
     4: [676356, 690756],
+    5: [681985, 696385],
   };
-  for (const [idText, range] of Object.entries(verifiedQuestionGaps)) {
+  const verifiedIntroGaps = {
+    1: [23244, 76991],
+    2: [24456, 57408],
+    3: [25462, 46564],
+    4: [26972, 55976],
+    5: [16835, 31831],
+  };
+
+  // Existing Question-gap release remains backward-compatible for No.1-No.4.
+  for (const [idText, range] of Object.entries(verifiedQuestionGaps).filter(([id]) => Number(id) <= 4)) {
     const id = Number(idText);
     const totalFrames = range[1] + 36000;
     const samples = new Int16Array(totalFrames);
@@ -84,6 +101,48 @@ async function main() {
     );
   }
 
+  // New active release: real measured No.X -> body gaps and Question -> text gaps
+  // are both exactly 19,200 frames = 0.800 seconds at 24 kHz for No.1-No.5.
+  for (const id of [1, 2, 3, 4, 5]) {
+    const introRange = verifiedIntroGaps[id];
+    const questionRange = verifiedQuestionGaps[id];
+    const totalFrames = questionRange[1] + 36000;
+    const samples = new Int16Array(totalFrames);
+    samples.fill(1200);
+    samples.fill(0, introRange[0], introRange[1]);
+    samples.fill(0, questionRange[0], questionRange[1]);
+    const source = makeMonoPcmWav(samples);
+    const fixed = fixGrade2Set01IntroAndQuestionGapWav(
+      source.buffer.slice(source.byteOffset, source.byteOffset + source.byteLength),
+      id,
+    );
+    const output = Buffer.from(fixed.buffer);
+    const introOriginal = introRange[1] - introRange[0];
+    const introDelta = 19200 - introOriginal;
+    const questionFinalStart = questionRange[0] + introDelta;
+    const expectedFrames = totalFrames + 4800 + introDelta;
+
+    assert.equal(fixed.fix, "set-intro-and-question-gaps-0.8s");
+    assert.equal(fixed.originalIntroGapFrames, introOriginal);
+    assert.equal(fixed.targetIntroGapFrames, 19200, `No.${id} intro gap must be exactly 0.800s`);
+    assert.equal(fixed.originalQuestionGapFrames, 14400);
+    assert.equal(fixed.targetQuestionGapFrames, 19200, `No.${id} Question gap must be exactly 0.800s`);
+    assert.equal(readFrameCount(output), expectedFrames);
+
+    assert.equal(readSample(output, introRange[0] - 1), 1200);
+    for (let frame = introRange[0]; frame < introRange[0] + 19200; frame += 1) {
+      assert.equal(readSample(output, frame), 0, `No.${id} intro target must be zero-filled at frame ${frame}`);
+    }
+    assert.equal(readSample(output, introRange[0] + 19200), 1200);
+
+    assert.equal(readSample(output, questionFinalStart - 1), 1200);
+    for (let frame = questionFinalStart; frame < questionFinalStart + 19200; frame += 1) {
+      assert.equal(readSample(output, frame), 0, `No.${id} Question target must be zero-filled at frame ${frame}`);
+    }
+    assert.equal(readSample(output, questionFinalStart + 19200), 1200);
+  }
+
+  // Keep the historical q5-q9 transform test isolated for backward compatibility.
   const q5Frames = 700000;
   const q5Samples = new Int16Array(q5Frames);
   q5Samples.fill(1200);
@@ -153,7 +212,7 @@ async function main() {
   };
   vm.runInNewContext(overrideSource, sandbox, { filename: "grade2-listening-set01-audio-fixes.js" });
   for (const id of [1, 2, 3, 4, 5]) {
-    assert.match(questions[id - 1].audioFile, /20260817-set01-listening-q1-q5-question-gap-v1/);
+    assert.match(questions[id - 1].audioFile, /20260817-set01-listening-q1-q5-intro08-v1/);
     assert.match(questions[id - 1].audioFile, new RegExp(`No0${id}\\.wav$`));
   }
   for (const id of [6, 7, 8, 9]) {
@@ -166,7 +225,7 @@ async function main() {
   const examHtml = fs.readFileSync(path.join(root, "exam.html"), "utf8");
   assert.ok(examHtml.indexOf("grade2-listening-part2-sets.js") < examHtml.indexOf("grade2-listening-set01-audio-fixes.js"));
   assert.ok(examHtml.indexOf("grade2-listening-set01-audio-fixes.js") < examHtml.indexOf("exam-data.js"));
-  assert.match(examHtml, /grade2-set01-listening-q1-q5-question-gap-v1/);
+  assert.match(examHtml, /grade2-set01-listening-q1-q5-intro08-v1/);
 
   const wrangler = fs.readFileSync(path.join(root, "wrangler.jsonc"), "utf8");
   assert.match(wrangler, /"binding"\s*:\s*"MIMILISTEN_AUDIO"/);
@@ -175,18 +234,19 @@ async function main() {
   assert.match(wrangler, /"bucket_name"\s*:\s*"cbt-project-archive"/);
 
   const workerSource = fs.readFileSync(path.join(root, "cloudflare-worker.js"), "utf8");
-  assert.match(workerSource, /GRADE2_LISTENING_QUESTION_GAP_RELEASE/);
+  assert.match(workerSource, /GRADE2_LISTENING_INTRO_GAP_RELEASE/);
+  assert.match(workerSource, /fixGrade2Set01IntroAndQuestionGapWav/);
   assert.match(workerSource, /No\(01\|02\|03\|04\|05\)/);
   assert.match(workerSource, /No\(05\|06\|07\|08\|09\)/);
 
   for (const swFile of ["sw.js", "sw-set02-v2.js"]) {
     const sw = fs.readFileSync(path.join(root, swFile), "utf8");
-    assert.match(sw, /cbt-grade2-app-shell-v76-listening-q1-q5-question-gap/);
+    assert.match(sw, /cbt-grade2-app-shell-v77-canonical-explanations/);
     assert.match(sw, /grade2-listening-set01-audio-fixes\.js/);
     assert.match(sw, /url\.pathname\.startsWith\("\/audio-r2\/"\)/);
   }
 
-  console.log("grade2 listening targeted question-gap tests passed");
+  console.log("grade2 listening targeted intro/question-gap tests passed");
 }
 
 main().catch((error) => {

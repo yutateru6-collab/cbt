@@ -1,0 +1,184 @@
+name: Deploy CBT production
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cbt-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+
+    steps:
+      - name: Check out main commit
+        uses: actions/checkout@v4
+
+      - name: Verify exact main commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Use Account ID when configured
+        shell: bash
+        env:
+          OPTIONAL_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -n "${OPTIONAL_ACCOUNT_ID:-}" ]; then
+            echo "CLOUDFLARE_ACCOUNT_ID=$OPTIONAL_ACCOUNT_ID" >> "$GITHUB_ENV"
+          fi
+
+      - name: Validate production deployment contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check cloudflare-worker.js
+          node --check listening-audio-fix.js
+          node --check grade2-legacy-explanation-cleanup.js
+          node --check grade2-canonical-explanations.js
+          node --check grade2-explanation-provenance-dev.js
+          node --check tools/listening-player/player.js
+          node --check scripts/prepare-worker-assets.mjs
+          node --check scripts/remove-grade2-legacy-listening-explanations.mjs
+          node --check scripts/verify-cloudflare-listening-audio.mjs
+          node scripts/remove-grade2-legacy-listening-explanations.mjs --check
+          node tests/grade2-listening-audio-fix.test.cjs
+          if [ -f tests/grade2-listening-player.test.cjs ]; then
+            node --test tests/grade2-listening-player.test.cjs
+          fi
+          if [ -f tests/grade2-listening-r2-source.test.cjs ]; then
+            node --test tests/grade2-listening-r2-source.test.cjs
+          fi
+          node --test tests/cloudflare-deploy-contract.test.cjs
+
+      - name: Preflight real listening corrections
+        run: node scripts/verify-cloudflare-listening-audio.mjs --expected-only
+
+      - name: Validate production bundle
+        env:
+          CBT_BUILD_SHA: ${{ github.sha }}
+          CBT_BUILD_REF: ${{ github.ref_name }}
+          CBT_DEPLOY_ENV: production
+        run: npx wrangler deploy --dry-run --config wrangler.jsonc
+
+      - name: Deploy Worker cbt
+        env:
+          CBT_BUILD_SHA: ${{ github.sha }}
+          CBT_BUILD_REF: ${{ github.ref_name }}
+          CBT_DEPLOY_ENV: production
+        run: npx wrangler deploy --config wrangler.jsonc
+
+      - name: Verify production deployment
+        shell: bash
+        env:
+          CBT_BUILD_SHA: ${{ github.sha }}
+          CBT_BUILD_REF: ${{ github.ref_name }}
+          CBT_DEPLOY_ENV: production
+        run: |
+          set -euo pipefail
+          base='https://cbt.itisnowornever271.workers.dev'
+          stamp="${GITHUB_SHA:0:12}"
+
+          build_ready=0
+          for attempt in {1..12}; do
+            if curl -fsSL --connect-timeout 10 --max-time 45 \
+              -H 'Cache-Control: no-cache' \
+              "$base/build-info.json?verify=$stamp&attempt=$attempt" \
+              -o /tmp/build-info.json; then
+              if node -e '
+                const fs = require("node:fs");
+                const info = JSON.parse(fs.readFileSync("/tmp/build-info.json", "utf8"));
+                process.exit(info.commit === process.env.CBT_BUILD_SHA && info.ref === process.env.CBT_BUILD_REF && info.environment === process.env.CBT_DEPLOY_ENV ? 0 : 1);
+              '; then
+                build_ready=1
+                break
+              fi
+            fi
+            echo "Waiting for production build metadata propagation ($attempt/12)..."
+            sleep 2
+          done
+          test "$build_ready" = '1'
+
+          node - <<'NODE'
+          const fs = require("node:fs");
+          const info = JSON.parse(fs.readFileSync("/tmp/build-info.json", "utf8"));
+          console.log("build-info verified", info);
+          NODE
+
+          for file in \
+            exam.html \
+            app.js \
+            grade2-listening-part2-sets.js \
+            grade2-listening-set01-audio-fixes.js \
+            grade2-legacy-explanation-cleanup.js \
+            grade2-set-01-explanations.js \
+            grade2-skill-explanations.js \
+            grade2-explanation-sync.js \
+            grade2-canonical-explanations.js \
+            grade2-explanation-provenance-dev.js; do
+            local_sha="$(sha256sum "$file" | awk '{print $1}')"
+            matched=0
+            for attempt in {1..12}; do
+              if curl -fsSL --connect-timeout 10 --max-time 45 \
+                -H 'Cache-Control: no-cache' \
+                "$base/$file?verify=$stamp&attempt=$attempt" \
+                -o "/tmp/prod-${file//\//_}"; then
+                prod_sha="$(sha256sum "/tmp/prod-${file//\//_}" | awk '{print $1}')"
+                if [ "$local_sha" = "$prod_sha" ]; then
+                  matched=1
+                  break
+                fi
+              fi
+              echo "Waiting for $file propagation ($attempt/12)..."
+              sleep 2
+            done
+            test "$matched" = '1'
+          done
+
+          if [ -f tools/listening-player/index.html ]; then
+            for file in \
+              tools/listening-player/index.html \
+              tools/listening-player/player.js \
+              tools/listening-player/player.css; do
+              local_sha="$(sha256sum "$file" | awk '{print $1}')"
+              matched=0
+              for attempt in {1..12}; do
+                if curl -fsSL --connect-timeout 10 --max-time 45 \
+                  -H 'Cache-Control: no-cache' \
+                  "$base/$file?verify=$stamp&attempt=$attempt" \
+                  -o "/tmp/prod-${file//\//_}"; then
+                  prod_sha="$(sha256sum "/tmp/prod-${file//\//_}" | awk '{print $1}')"
+                  if [ "$local_sha" = "$prod_sha" ]; then
+                    matched=1
+                    break
+                  fi
+                fi
+                echo "Waiting for $file propagation ($attempt/12)..."
+                sleep 2
+              done
+              test "$matched" = '1'
+            done
+          fi
+
+          node scripts/verify-cloudflare-listening-audio.mjs "$base"
+
+          echo "PRODUCTION_URL=$base/"
