@@ -20,11 +20,13 @@ const LISTENING_CORRECTIONS = Object.freeze([
     release: GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE,
     pathPattern: /^(?:set-01|set-02|set-03)\/listening\/part1\/No(0[1-9]|1[0-5])\.wav$/,
     transform: fixGrade2ThreeSetOneSecondPausesWav,
+    precomputedOnly: true,
   }),
   Object.freeze({
     release: GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE,
     pathPattern: /^(?:set-01|set-02|set-03)\/listening\/part2\/No(1[6-9]|2[0-9]|30)\.wav$/,
     transform: fixGrade2ThreeSetOneSecondPausesWav,
+    precomputedOnly: true,
   }),
   Object.freeze({
     release: GRADE2_LISTENING_ONE_SECOND_PAUSES_RELEASE,
@@ -132,6 +134,7 @@ function getFixedListeningRequest(pathname) {
       relativePath,
       questionId: Number(match[1]),
       transform: correction.transform,
+      precomputedOnly: correction.precomputedOnly === true,
       sourceKey: `${R2_KEY_PREFIX}/${GRADE2_LISTENING_SOURCE_RELEASE}/${relativePath}`,
       targetKey: `${R2_KEY_PREFIX}/${correction.release}/${relativePath}`,
     };
@@ -171,6 +174,10 @@ async function loadOrCreateCorrectedListeningAudio(env, info) {
       targetObject.customMetadata?.fix || "verified-existing",
     );
     return { buffer, etag: targetObject.httpEtag || "" };
+  }
+
+  if (info.precomputedOnly) {
+    throw new Error(`Precomputed listening audio not found: ${info.targetKey}`);
   }
 
   const sourceObject = await env.MIMILISTEN_AUDIO.get(info.sourceKey);
