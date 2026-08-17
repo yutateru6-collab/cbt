@@ -31,7 +31,6 @@
           "Repair the library printer."
         ],
         "correct": 2,
-        "explanation": "正答は2です。対話の内容と最後の質問を聞き取り、選択肢「Print one page at his house.」に当たる内容を選びます。"
       },
       {
         "id": 2,
@@ -50,7 +49,6 @@
           "It will be ready at six."
         ],
         "correct": 4,
-        "explanation": "正答は4です。対話の内容と最後の質問を聞き取り、選択肢「It will be ready at six.」に当たる内容を選びます。"
       },
       {
         "id": 3,
@@ -69,7 +67,6 @@
           "He wants to try a new chicken recipe."
         ],
         "correct": 1,
-        "explanation": "正答は1です。対話の内容と最後の質問を聞き取り、選択肢「His grandmother does not like spicy food.」に当たる内容を選びます。"
       },
       {
         "id": 4,
@@ -88,7 +85,6 @@
           "Move her afternoon meeting."
         ],
         "correct": 3,
-        "explanation": "正答は3です。対話の内容と最後の質問を聞き取り、選択肢「Check some figures for the man.」に当たる内容を選びます。"
       },
       {
         "id": 5,
@@ -107,7 +103,6 @@
           "The platform for the Green Line"
         ],
         "correct": 2,
-        "explanation": "正答は2です。対話の内容と最後の質問を聞き取り、選択肢「Central Station at the end of the route」に当たる内容を選びます。"
       },
       {
         "id": 6,
@@ -126,7 +121,6 @@
           "A small television from home"
         ],
         "correct": 1,
-        "explanation": "正答は1です。対話の内容と最後の質問を聞き取り、選択肢「A large blanket for sitting」に当たる内容を選びます。"
       },
       {
         "id": 7,
@@ -145,7 +139,6 @@
           "It must be returned that day."
         ],
         "correct": 4,
-        "explanation": "正答は4です。対話の内容と最後の質問を聞き取り、選択肢「It must be returned that day.」に当たる内容を選びます。"
       },
       {
         "id": 8,
@@ -164,7 +157,6 @@
           "A menu showing the desserts"
         ],
         "correct": 3,
-        "explanation": "正答は3です。対話の内容と最後の質問を聞き取り、選択肢「A serving of vegetable pasta」に当たる内容を選びます。"
       },
       {
         "id": 9,
@@ -183,7 +175,6 @@
           "To report a problem with the doctor."
         ],
         "correct": 1,
-        "explanation": "正答は1です。対話の内容と最後の質問を聞き取り、選択肢「To change his appointment time.」に当たる内容を選びます。"
       },
       {
         "id": 10,
@@ -202,7 +193,6 @@
           "Collect the filled trash bags."
         ],
         "correct": 4,
-        "explanation": "正答は4です。対話の内容と最後の質問を聞き取り、選択肢「Collect the filled trash bags.」に当たる内容を選びます。"
       },
       {
         "id": 11,
@@ -221,7 +211,6 @@
           "On the day before"
         ],
         "correct": 2,
-        "explanation": "正答は2です。対話の内容と最後の質問を聞き取り、選択肢「On the following Tuesday」に当たる内容を選びます。"
       },
       {
         "id": 12,
@@ -240,7 +229,6 @@
           "By taking the morning train"
         ],
         "correct": 3,
-        "explanation": "正答は3です。対話の内容と最後の質問を聞き取り、選択肢「On the overnight airport bus」に当たる内容を選びます。"
       },
       {
         "id": 13,
@@ -259,7 +247,6 @@
           "The two examples at the end"
         ],
         "correct": 4,
-        "explanation": "正答は4です。対話の内容と最後の質問を聞き取り、選択肢「The two examples at the end」に当たる内容を選びます。"
       },
       {
         "id": 14,
@@ -278,7 +265,6 @@
           "She has to ask someone else for help."
         ],
         "correct": 2,
-        "explanation": "正答は2です。対話の内容と最後の質問を聞き取り、選択肢「She has an international video meeting.」に当たる内容を選びます。"
       },
       {
         "id": 15,
@@ -297,7 +283,6 @@
           "The store had already contacted him."
         ],
         "correct": 1,
-        "explanation": "正答は1です。対話の内容と最後の質問を聞き取り、選択肢「It arrived earlier than expected.」に当たる内容を選びます。"
       },
       {
         "id": 16,
@@ -316,7 +301,6 @@
           "Giving shorter explanations about the bridge."
         ],
         "correct": 3,
-        "explanation": "正答は3です。設問は「What helped Nina explain the bridge’s history better?」について尋ねており、本文では「Reviewing a timeline before each shift.」に当たる内容が説明されています。"
       },
       {
         "id": 17,
@@ -335,7 +319,6 @@
           "Equipment for activities on Court Two."
         ],
         "correct": 1,
-        "explanation": "正答は1です。設問は「What should visitors bring to the sports center?」について尋ねており、本文では「A lock for the temporary locker.」に当たる内容が説明されています。"
       },
       {
         "id": 18,
@@ -354,7 +337,6 @@
           "The chocolate might have come into contact with nuts."
         ],
         "correct": 4,
-        "explanation": "正答は4です。設問は「Why did Leo replace the chocolate decorations?」について尋ねており、本文では「The chocolate might have come into contact with nuts.」に当たる内容が説明されています。"
       },
       {
         "id": 19,
@@ -373,7 +355,6 @@
           "They remain closed while insects are feeding."
         ],
         "correct": 2,
-        "explanation": "正答は2です。設問は「What makes many night-opening flowers easy to find?」について尋ねており、本文では「They are pale and have a strong smell.」に当たる内容が説明されています。"
       },
       {
         "id": 20,
@@ -392,7 +373,6 @@
           "Cancel the weekend trip by train."
         ],
         "correct": 1,
-        "explanation": "正答は1です。設問は「What did Maya finally decide to do?」について尋ねており、本文では「Take fewer clothes and wash one outfit.」に当たる内容が説明されています。"
       },
       {
         "id": 21,
@@ -411,7 +391,6 @@
           "They will be offered to people waiting in the store."
         ],
         "correct": 4,
-        "explanation": "正答は4です。設問は「What will happen to uncollected workshop tickets?」について尋ねており、本文では「They will be offered to people waiting in the store.」に当たる内容が説明されています。"
       },
       {
         "id": 22,
@@ -430,7 +409,6 @@
           "By moving the tool shed beside the garden."
         ],
         "correct": 2,
-        "explanation": "正答は2です。設問は「How did Omar reduce the garden’s tap-water use?」について尋ねており、本文では「By collecting roof water for the flowers.」に当たる内容が説明されています。"
       },
       {
         "id": 23,
@@ -449,7 +427,6 @@
           "She hoped to design ordinary objects for games."
         ],
         "correct": 3,
-        "explanation": "正答は3です。設問は「Why did Elena apply for the internship?」について尋ねており、本文では「She became interested in professional sound production.」に当たる内容が説明されています。"
       },
       {
         "id": 24,
@@ -468,7 +445,6 @@
           "It will stop at the north end of the station."
         ],
         "correct": 2,
-        "explanation": "正答は2です。設問は「What change has been made to the train?」について尋ねており、本文では「It will leave from a different platform.」に当たる内容が説明されています。"
       },
       {
         "id": 25,
@@ -487,7 +463,6 @@
           "Earplugs that allowed him to hear the baby."
         ],
         "correct": 1,
-        "explanation": "正答は1です。設問は「What made Daniel’s room quieter?」について尋ねており、本文では「A bookshelf and thick curtains.」に当たる内容が説明されています。"
       },
       {
         "id": 26,
@@ -506,7 +481,6 @@
           "It adds extra heat to the drink."
         ],
         "correct": 3,
-        "explanation": "正答は3です。設問は「Why can a thermos keep drinks hot or cold?」について尋ねており、本文では「It reduces the movement of heat.」に当たる内容が説明されています。"
       },
       {
         "id": 27,
@@ -525,7 +499,6 @@
           "The shoes were no longer available online."
         ],
         "correct": 3,
-        "explanation": "正答は3です。設問は「Why did Priya keep the hiking shoes?」について尋ねており、本文では「A replacement would arrive after her trip began.」に当たる内容が説明されています。"
       },
       {
         "id": 28,
@@ -544,7 +517,6 @@
           "Collect the dessert using his order information."
         ],
         "correct": 4,
-        "explanation": "正答は4です。設問は「What did Marcus ask his sister to do?」について尋ねており、本文では「Collect the dessert using his order information.」に当たる内容が説明されています。"
       },
       {
         "id": 29,
@@ -563,7 +535,6 @@
           "In the computer room."
         ],
         "correct": 2,
-        "explanation": "正答は2です。設問は「Where have the library’s study tables been moved?」について尋ねており、本文では「In the downstairs meeting room.」に当たる内容が説明されています。"
       },
       {
         "id": 30,
@@ -582,7 +553,6 @@
           "Asking a technician to transfer every file."
         ],
         "correct": 1,
-        "explanation": "正答は1です。設問は「What new habit has Hana adopted?」について尋ねており、本文では「Keeping and checking two copies of her photos.」に当たる内容が説明されています。"
       }
     ]
   },
@@ -607,7 +577,6 @@
           "Choose a new title for the show."
         ],
         "correct": 3,
-        "explanation": "正答は3です。対話の内容と最後の質問を聞き取り、選択肢「Upload the recording from the media room.」に当たる内容を選びます。"
       },
       {
         "id": 2,
@@ -626,7 +595,6 @@
           "It requires another registration."
         ],
         "correct": 1,
-        "explanation": "正答は1です。対話の内容と最後の質問を聞き取り、選択肢「It will be held on Thursday.」に当たる内容を選びます。"
       },
       {
         "id": 3,
@@ -645,7 +613,6 @@
           "She must meet a repair worker."
         ],
         "correct": 4,
-        "explanation": "正答は4です。対話の内容と最後の質問を聞き取り、選択肢「She must meet a repair worker.」に当たる内容を選びます。"
       },
       {
         "id": 4,
@@ -664,7 +631,6 @@
           "Repair the office printer."
         ],
         "correct": 2,
-        "explanation": "正答は2です。対話の内容と最後の質問を聞き取り、選択肢「Print the shipping labels.」に当たる内容を選びます。"
       },
       {
         "id": 5,
@@ -683,7 +649,6 @@
           "The police station near the train line"
         ],
         "correct": 3,
-        "explanation": "正答は3です。対話の内容と最後の質問を聞き取り、選択肢「The service office downstairs」に当たる内容を選びます。"
       },
       {
         "id": 6,
@@ -702,7 +667,6 @@
           "A detailed weather report"
         ],
         "correct": 1,
-        "explanation": "正答は1です。対話の内容と最後の質問を聞き取り、選択肢「A small camping stove」に当たる内容を選びます。"
       },
       {
         "id": 7,
@@ -721,7 +685,6 @@
           "At a pharmacy near the station"
         ],
         "correct": 1,
-        "explanation": "正答は1です。対話の内容と最後の質問を聞き取り、選択肢「At the pharmacy inside West Mall」に当たる内容を選びます。"
       },
       {
         "id": 8,
@@ -740,7 +703,6 @@
           "Another bowl of shrimp soup"
         ],
         "correct": 2,
-        "explanation": "正答は2です。対話の内容と最後の質問を聞き取り、選択肢「The mushroom soup」に当たる内容を選びます。"
       },
       {
         "id": 9,
@@ -759,7 +721,6 @@
           "To change the time of his appointment"
         ],
         "correct": 4,
-        "explanation": "正答は4です。対話の内容と最後の質問を聞き取り、選択肢「To change the time of his appointment」に当たる内容を選びます。"
       },
       {
         "id": 10,
@@ -778,7 +739,6 @@
           "Repair the garden cart."
         ],
         "correct": 3,
-        "explanation": "正答は3です。対話の内容と最後の質問を聞き取り、選択肢「Move bags of soil.」に当たる内容を選びます。"
       },
       {
         "id": 11,
@@ -797,7 +757,6 @@
           "At the end of the month"
         ],
         "correct": 2,
-        "explanation": "正答は2です。対話の内容と最後の質問を聞き取り、選択肢「Next Wednesday」に当たる内容を選びます。"
       },
       {
         "id": 12,
@@ -816,7 +775,6 @@
           "By walking from the hotel"
         ],
         "correct": 1,
-        "explanation": "正答は1です。対話の内容と最後の質問を聞き取り、選択肢「On the hotel shuttle」に当たる内容を選びます。"
       },
       {
         "id": 13,
@@ -835,7 +793,6 @@
           "The speech introduction"
         ],
         "correct": 3,
-        "explanation": "正答は3です。対話の内容と最後の質問を聞き取り、選択肢「The detailed hotel description」に当たる内容を選びます。"
       },
       {
         "id": 14,
@@ -854,7 +811,6 @@
           "He is meeting Carlos at home."
         ],
         "correct": 2,
-        "explanation": "正答は2です。対話の内容と最後の質問を聞き取り、選択肢「He is expecting a delivery.」に当たる内容を選びます。"
       },
       {
         "id": 15,
@@ -873,7 +829,6 @@
           "It came back earlier than expected."
         ],
         "correct": 4,
-        "explanation": "正答は4です。対話の内容と最後の質問を聞き取り、選択肢「It came back earlier than expected.」に当たる内容を選びます。"
       },
       {
         "id": 16,
@@ -892,7 +847,6 @@
           "To prepare tasks before each meeting"
         ],
         "correct": 2,
-        "explanation": "Ninaはすべてを書こうとしている間に、会議の後半の情報を聞き逃していました。そこで、決定事項と作業だけを分けて書く方法に変えました。"
       },
       {
         "id": 17,
@@ -911,7 +865,6 @@
           "Receive discounts at the café and gift shop"
         ],
         "correct": 3,
-        "explanation": "午前のプラネタリウムのチケットは、午後のどの上映にも使用できます。プラネタリウムは午後1時まで閉まっています。"
       },
       {
         "id": 18,
@@ -930,7 +883,6 @@
           "He carried the plants to work daily."
         ],
         "correct": 1,
-        "explanation": "工事で日光が遮られたため、Omarは職場近くの小さな区画を借りました。室内への移動は検討しただけで、実行していません。"
       },
       {
         "id": 19,
@@ -949,7 +901,6 @@
           "By taking a free bus from Central Station"
         ],
         "correct": 4,
-        "explanation": "Lake Street駅には列車が停車しないため、Central Stationで降り、北口の外から無料バスを利用します。"
       },
       {
         "id": 20,
@@ -968,7 +919,6 @@
           "The slower group met at a better time."
         ],
         "correct": 2,
-        "explanation": "Elenaは速く走る前に呼吸法を改善したかったため、より遅いグループへ移りました。"
       },
       {
         "id": 21,
@@ -987,7 +937,6 @@
           "It may make birds’ feathers grow faster."
         ],
         "correct": 1,
-        "explanation": "アリが出す化学物質によって、鳥の体にいる小さな虫が取り除かれる可能性があります。ただし、それが唯一の目的とは断定されていません。"
       },
       {
         "id": 22,
@@ -1006,7 +955,6 @@
           "It cost less than the powerful model."
         ],
         "correct": 3,
-        "explanation": "Marcusは毎日キャンパス内を持ち運ぶため、性能の高い重い機種ではなく、軽い機種を選びました。"
       },
       {
         "id": 23,
@@ -1025,7 +973,6 @@
           "Their own paper or canvas"
         ],
         "correct": 4,
-        "explanation": "絵の具と筆は学校が用意しますが、紙またはキャンバスは生徒自身が持参する必要があります。"
       },
       {
         "id": 24,
@@ -1044,7 +991,6 @@
           "The manager opening another entrance"
         ],
         "correct": 1,
-        "explanation": "Priyaは最初レストランを疑いましたが、実際の原因は夜明け前に建物のそばへ来る配送トラックでした。"
       },
       {
         "id": 25,
@@ -1063,7 +1009,6 @@
           "It will be open to people without tickets."
         ],
         "correct": 2,
-        "explanation": "大雨が予想されるため、会場が屋外の広場から屋内のコミュニティーホールへ変更されました。開始時刻は変わりません。"
       },
       {
         "id": 26,
@@ -1082,7 +1027,6 @@
           "He walks whenever concentration becomes difficult."
         ],
         "correct": 3,
-        "explanation": "Danielは50分ごとに鳴るキッチンタイマーを使い、休憩の時間を思い出すようにしています。"
       },
       {
         "id": 27,
@@ -1101,7 +1045,6 @@
           "Labeled store jars with proof of purchase"
         ],
         "correct": 4,
-        "explanation": "ポイントを得るには、その店の商品が入っていた清潔な瓶で、店のラベルが残っており、購入時のレシートも提示する必要があります。"
       },
       {
         "id": 28,
@@ -1120,7 +1063,6 @@
           "By researching festivals at the library"
         ],
         "correct": 2,
-        "explanation": "祖父への対面インタビューは延期されましたが、祖父が送った音声メッセージを発表に利用しました。"
       },
       {
         "id": 29,
@@ -1139,7 +1081,6 @@
           "To prevent the paths from breaking down"
         ],
         "correct": 1,
-        "explanation": "ウッドチップには、雨の後に地面が泥だらけになるのを防ぐ働きがあります。また、木の根を守る効果も説明されています。"
       },
       {
         "id": 30,
@@ -1158,7 +1099,6 @@
           "He was permitted to work with the dogs."
         ],
         "correct": 4,
-        "explanation": "Theoは2回の研修を終えた後、犬の世話をすることを許可されました。食事の準備も現在引き続き行っています。"
       }
     ]
   },
@@ -1183,7 +1123,6 @@
           "Look for the goggles in her locker."
         ],
         "correct": 2,
-        "explanation": "正答は2です。対話の内容と最後の質問を聞き取り、選択肢「Return the goggles before third period.」に当たる内容を選びます。"
       },
       {
         "id": 2,
@@ -1202,7 +1141,6 @@
           "It can be prepared as a box."
         ],
         "correct": 4,
-        "explanation": "正答は4です。対話の内容と最後の質問を聞き取り、選択肢「It can be prepared as a box.」に当たる内容を選びます。"
       },
       {
         "id": 3,
@@ -1221,7 +1159,6 @@
           "The man forgot to order the cake."
         ],
         "correct": 1,
-        "explanation": "正答は1です。対話の内容と最後の質問を聞き取り、選択肢「No one can receive the delivery in time.」に当たる内容を選びます。"
       },
       {
         "id": 4,
@@ -1240,7 +1177,6 @@
           "Call the client before lunch."
         ],
         "correct": 3,
-        "explanation": "正答は3です。対話の内容と最後の質問を聞き取り、選択肢「Bring a cable and connect the laptop.」に当たる内容を選びます。"
       },
       {
         "id": 5,
@@ -1259,7 +1195,6 @@
           "Gate Twelve"
         ],
         "correct": 2,
-        "explanation": "正答は2です。対話の内容と最後の質問を聞き取り、選択肢「Gate Eighteen」に当たる内容を選びます。"
       },
       {
         "id": 6,
@@ -1278,7 +1213,6 @@
           "Sandwiches for everyone"
         ],
         "correct": 1,
-        "explanation": "正答は1です。対話の内容と最後の質問を聞き取り、選択肢「A beach umbrella」に当たる内容を選びます。"
       },
       {
         "id": 7,
@@ -1297,7 +1231,6 @@
           "It must be returned before five."
         ],
         "correct": 4,
-        "explanation": "正答は4です。対話の内容と最後の質問を聞き取り、選択肢「It must be returned before five.」に当たる内容を選びます。"
       },
       {
         "id": 8,
@@ -1316,7 +1249,6 @@
           "A sweet coffee in the same cup"
         ],
         "correct": 3,
-        "explanation": "正答は3です。対話の内容と最後の質問を聞き取り、選択肢「Another iced coffee with oat milk」に当たる内容を選びます。"
       },
       {
         "id": 9,
@@ -1335,7 +1267,6 @@
           "She needs another package for the medicine."
         ],
         "correct": 1,
-        "explanation": "正答は1です。対話の内容と最後の質問を聞き取り、選択肢「Her cat needs to be seen sooner.」に当たる内容を選びます。"
       },
       {
         "id": 10,
@@ -1354,7 +1285,6 @@
           "Transport the books to storage."
         ],
         "correct": 4,
-        "explanation": "正答は4です。対話の内容と最後の質問を聞き取り、選択肢「Transport the books to storage.」に当たる内容を選びます。"
       },
       {
         "id": 11,
@@ -1373,7 +1303,6 @@
           "From a delivery service"
         ],
         "correct": 2,
-        "explanation": "正答は2です。対話の内容と最後の質問を聞き取り、選択肢「At the East Street store」に当たる内容を選びます。"
       },
       {
         "id": 12,
@@ -1392,7 +1321,6 @@
           "By the later train"
         ],
         "correct": 3,
-        "explanation": "正答は3です。対話の内容と最後の質問を聞き取り、選択肢「On the early ferry」に当たる内容を選びます。"
       },
       {
         "id": 13,
@@ -1411,7 +1339,6 @@
           "Two of the interview clips"
         ],
         "correct": 4,
-        "explanation": "正答は4です。対話の内容と最後の質問を聞き取り、選択肢「Two of the interview clips」に当たる内容を選びます。"
       },
       {
         "id": 14,
@@ -1430,7 +1357,6 @@
           "She has a Saturday program."
         ],
         "correct": 1,
-        "explanation": "正答は1です。対話の内容と最後の質問を聞き取り、選択肢「She is leading a children's activity.」に当たる内容を選びます。"
       },
       {
         "id": 15,
@@ -1449,7 +1375,6 @@
           "The wrong model was sent."
         ],
         "correct": 2,
-        "explanation": "正答は2です。対話の内容と最後の質問を聞き取り、選択肢「The headphones arrived earlier than expected.」に当たる内容を選びます。"
       },
       {
         "id": 16,
@@ -1468,7 +1393,6 @@
           "Asking another student to photograph the game"
         ],
         "correct": 3,
-        "explanation": "選手の動きが速く、写真がぼやけていたため、Leoはカメラの設定を速くしました。その結果、鮮明な写真を撮れるようになりました。"
       },
       {
         "id": 17,
@@ -1487,7 +1411,6 @@
           "Arrive before ten in the morning"
         ],
         "correct": 1,
-        "explanation": "ツアーは無料ですが、参加するには案内所でチケットを受け取る必要があります。電話予約はできません。"
       },
       {
         "id": 18,
@@ -1506,7 +1429,6 @@
           "Put her desk against a different wall"
         ],
         "correct": 4,
-        "explanation": "日光で画面が見にくかったため、Sofiaは最終的に机を別の壁際へ移しました。厚いカーテンは検討しただけです。"
       },
       {
         "id": 19,
@@ -1525,7 +1447,6 @@
           "Dry fruit is easier to prepare."
         ],
         "correct": 2,
-        "explanation": "洗った後の水分によって、保存中にカビが生えやすくなる場合があります。そのため、食べる直前まで洗わないほうがよいと説明されています。"
       },
       {
         "id": 20,
@@ -1544,7 +1465,6 @@
           "All the concert tickets had sold out."
         ],
         "correct": 1,
-        "explanation": "高いチケットを買うことは可能でしたが、貯金のほとんどを使うことになるため、Graceは参加しませんでした。"
       },
       {
         "id": 21,
@@ -1563,7 +1483,6 @@
           "In the room where lights are installed"
         ],
         "correct": 3,
-        "explanation": "2階の学習スペースは閉鎖されますが、1階の会議室に追加の机が用意されます。"
       },
       {
         "id": 22,
@@ -1582,7 +1501,6 @@
           "The weather was hotter than usual."
         ],
         "correct": 2,
-        "explanation": "ガレージの古い冷蔵庫のドアが正しく閉まらず、冷蔵庫が動き続けていたことが、電気代上昇の原因でした。"
       },
       {
         "id": 23,
@@ -1601,7 +1519,6 @@
           "She changed to the Sunday afternoon shift."
         ],
         "correct": 4,
-        "explanation": "金曜夜の研修に出られなかったため、Mayaは土曜午前ではなく日曜午後の担当に変更しました。"
       },
       {
         "id": 24,
@@ -1620,7 +1537,6 @@
           "Five different used novels"
         ],
         "correct": 3,
-        "explanation": "店は現金ではなく、状態や人気に応じた店内クレジットを渡します。Oliviaはそのクレジットを辞書の購入に使いました。"
       },
       {
         "id": 25,
@@ -1639,7 +1555,6 @@
           "Get off before reaching Central Park"
         ],
         "correct": 1,
-        "explanation": "Park Gate停留所は一時的に使えないため、乗客は郵便局前の停留所を利用する必要があります。"
       },
       {
         "id": 26,
@@ -1658,7 +1573,6 @@
           "Eat early at the Italian restaurant"
         ],
         "correct": 4,
-        "explanation": "妹が魚介類を食べられないため、家族はイタリア料理店へ行き、混雑前の早い時間に食事をすることにしました。"
       },
       {
         "id": 27,
@@ -1677,7 +1591,6 @@
           "They grow well in any available space."
         ],
         "correct": 3,
-        "explanation": "木は日光を遮り、葉から水分を出すことで、周囲の空気を涼しくすることがあります。"
       },
       {
         "id": 28,
@@ -1696,7 +1609,6 @@
           "She used cards containing key words."
         ],
         "correct": 4,
-        "explanation": "Hannahは全文を書いたメモではなく、キーワードだけを書いたカードを使いました。その結果、聴衆を見る回数を増やせました。"
       },
       {
         "id": 29,
@@ -1715,7 +1627,6 @@
           "Beside the third-floor elevator"
         ],
         "correct": 1,
-        "explanation": "メインダイニングルームが塗装中のため、朝食は会議室で提供されます。時間の変更はありません。"
       },
       {
         "id": 30,
@@ -1734,7 +1645,6 @@
           "His kitchen has more cooking equipment."
         ],
         "correct": 1,
-        "explanation": "材料が少なく、フライパン一つで作れる料理を選ぶことで、準備と後片付けの時間が短くなりました。"
       }
     ]
   },
@@ -1759,7 +1669,6 @@
           "Print the music at the library."
         ],
         "correct": 4,
-        "explanation": "正答は4です。対話の内容と最後の質問を聞き取り、選択肢「Print the music at the library.」に当たる内容を選びます。"
       },
       {
         "id": 2,
@@ -1778,7 +1687,6 @@
           "It will be used for a class at twelve thirty."
         ],
         "correct": 2,
-        "explanation": "正答は2です。対話の内容と最後の質問を聞き取り、選択肢「It is closed because of a broken pipe.」に当たる内容を選びます。"
       },
       {
         "id": 3,
@@ -1797,7 +1705,6 @@
           "His college class ends late."
         ],
         "correct": 3,
-        "explanation": "正答は3です。対話の内容と最後の質問を聞き取り、選択肢「His sister is no longer available.」に当たる内容を選びます。"
       },
       {
         "id": 4,
@@ -1816,7 +1723,6 @@
           "Replace the updated file."
         ],
         "correct": 1,
-        "explanation": "正答は1です。対話の内容と最後の質問を聞き取り、選択肢「Redesign a chart for the meeting.」に当たる内容を選びます。"
       },
       {
         "id": 5,
@@ -1835,7 +1741,6 @@
           "The terminal office"
         ],
         "correct": 4,
-        "explanation": "正答は4です。対話の内容と最後の質問を聞き取り、選択肢「The terminal office」に当たる内容を選びます。"
       },
       {
         "id": 6,
@@ -1854,7 +1759,6 @@
           "Another sleeping bag"
         ],
         "correct": 3,
-        "explanation": "正答は3です。対話の内容と最後の質問を聞き取り、選択肢「A flashlight with extra batteries」に当たる内容を選びます。"
       },
       {
         "id": 7,
@@ -1873,7 +1777,6 @@
           "He should visit the clinic at six."
         ],
         "correct": 2,
-        "explanation": "正答は2です。対話の内容と最後の質問を聞き取り、選択肢「The doctor wants to speak with him.」に当たる内容を選びます。"
       },
       {
         "id": 8,
@@ -1892,7 +1795,6 @@
           "Strawberries for the party"
         ],
         "correct": 1,
-        "explanation": "正答は1です。対話の内容と最後の質問を聞き取り、選択肢「The chocolate cake she ordered」に当たる内容を選びます。"
       },
       {
         "id": 9,
@@ -1911,7 +1813,6 @@
           "To request a cheaper towing service"
         ],
         "correct": 3,
-        "explanation": "正答は3です。対話の内容と最後の質問を聞き取り、選択肢「To report a new problem with his car」に当たる内容を選びます。"
       },
       {
         "id": 10,
@@ -1930,7 +1831,6 @@
           "Load full containers onto the truck."
         ],
         "correct": 4,
-        "explanation": "正答は4です。対話の内容と最後の質問を聞き取り、選択肢「Load full containers onto the truck.」に当たる内容を選びます。"
       },
       {
         "id": 11,
@@ -1949,7 +1849,6 @@
           "Next week"
         ],
         "correct": 1,
-        "explanation": "正答は1です。対話の内容と最後の質問を聞き取り、選択肢「Tomorrow morning」に当たる内容を選びます。"
       },
       {
         "id": 12,
@@ -1968,7 +1867,6 @@
           "By river boat"
         ],
         "correct": 2,
-        "explanation": "正答は2です。対話の内容と最後の質問を聞き取り、選択肢「By bicycle」に当たる内容を選びます。"
       },
       {
         "id": 13,
@@ -1987,7 +1885,6 @@
           "Two student opinions"
         ],
         "correct": 4,
-        "explanation": "正答は4です。対話の内容と最後の質問を聞き取り、選択肢「Two student opinions」に当たる内容を選びます。"
       },
       {
         "id": 14,
@@ -2006,7 +1903,6 @@
           "His regular shift starts tonight."
         ],
         "correct": 3,
-        "explanation": "正答は3です。対話の内容と最後の質問を聞き取り、選択肢「An electrician is inspecting his fire alarm.」に当たる内容を選びます。"
       },
       {
         "id": 15,
@@ -2025,7 +1921,6 @@
           "The label showed the wrong product."
         ],
         "correct": 2,
-        "explanation": "正答は2です。対話の内容と最後の質問を聞き取り、選択肢「It arrived much sooner than expected.」に当たる内容を選びます。"
       },
       {
         "id": 16,
@@ -2044,7 +1939,6 @@
           "She asked the repair shop to work overnight."
         ],
         "correct": 2,
-        "explanation": "正答は2です。設問は「How did Nadia prepare for Friday’s concert?」について尋ねており、本文では「She borrowed a flute from a former teacher.」に当たる内容が説明されています。"
       },
       {
         "id": 17,
@@ -2063,7 +1957,6 @@
           "Speak to staff at the ticket desk."
         ],
         "correct": 4,
-        "explanation": "正答は4です。設問は「What should guests do after missing their entry period?」について尋ねており、本文では「Speak to staff at the ticket desk.」に当たる内容が説明されています。"
       },
       {
         "id": 18,
@@ -2082,7 +1975,6 @@
           "His grandmother refused to appear in a video."
         ],
         "correct": 1,
-        "explanation": "正答は1です。設問は「Why did Ethan change the form of his project?」について尋ねており、本文では「His grandmother’s story became the main focus.」に当たる内容が説明されています。"
       },
       {
         "id": 19,
@@ -2101,7 +1993,6 @@
           "To separate steel sections from concrete ones."
         ],
         "correct": 3,
-        "explanation": "正答は3です。設問は「Why do long bridges contain small gaps?」について尋ねており、本文では「To let bridge sections move as temperatures change.」に当たる内容が説明されています。"
       },
       {
         "id": 20,
@@ -2120,7 +2011,6 @@
           "A narrower freestanding bookcase."
         ],
         "correct": 4,
-        "explanation": "正答は4です。設問は「What did Lila finally choose for her office?」について尋ねており、本文では「A narrower freestanding bookcase.」に当たる内容が説明されています。"
       },
       {
         "id": 21,
@@ -2139,7 +2029,6 @@
           "Beside the road-construction office."
         ],
         "correct": 1,
-        "explanation": "正答は1です。設問は「Where should Route 18 passengers board temporarily?」について尋ねており、本文では「Outside the post office.」に当たる内容が説明されています。"
       },
       {
         "id": 22,
@@ -2158,7 +2047,6 @@
           "Drive the organizers around the course."
         ],
         "correct": 3,
-        "explanation": "正答は3です。設問は「What did Arturo ask the organizers to let him do?」について尋ねており、本文では「Help runners at a water station.」に当たる内容が説明されています。"
       },
       {
         "id": 23,
@@ -2177,7 +2065,6 @@
           "The leader corrected fewer language mistakes."
         ],
         "correct": 2,
-        "explanation": "正答は2です。設問は「What helped more club members begin speaking?」について尋ねており、本文では「Objects gave them clear ideas for stories.」に当たる内容が説明されています。"
       },
       {
         "id": 24,
@@ -2196,7 +2083,6 @@
           "The lake after noon on Sunday."
         ],
         "correct": 1,
-        "explanation": "正答は1です。設問は「What area will regular park visitors be unable to use?」について尋ねており、本文では「The picnic area beside the lake.」に当たる内容が説明されています。"
       },
       {
         "id": 25,
@@ -2215,7 +2101,6 @@
           "The company’s official business name."
         ],
         "correct": 4,
-        "explanation": "正答は4です。設問は「What information did Noah correct on the invoice?」について尋ねており、本文では「The company’s official business name.」に当たる内容が説明されています。"
       },
       {
         "id": 26,
@@ -2234,7 +2119,6 @@
           "It lowers the temperature of plant material."
         ],
         "correct": 2,
-        "explanation": "正答は2です。設問は「Why can turning compost help it break down?」について尋ねており、本文では「It adds air needed by small organisms.」に当たる内容が説明されています。"
       },
       {
         "id": 27,
@@ -2253,7 +2137,6 @@
           "It ends closer to her workplace."
         ],
         "correct": 3,
-        "explanation": "正答は3です。設問は「Why does Sophie use the riverside route?」について尋ねており、本文では「It feels safer and quieter.」に当たる内容が説明されています。"
       },
       {
         "id": 28,
@@ -2272,7 +2155,6 @@
           "They followed directions printed from an email."
         ],
         "correct": 4,
-        "explanation": "正答は4です。設問は「How did Ravi’s family find the campground?」について尋ねており、本文では「They followed directions printed from an email.」に当たる内容が説明されています。"
       },
       {
         "id": 29,
@@ -2291,7 +2173,6 @@
           "Borrow a phone from cafeteria staff."
         ],
         "correct": 2,
-        "explanation": "正答は2です。設問は「How can cash-only students pay at the food counters?」について尋ねており、本文では「Buy a prepaid card at student services.」に当たる内容が説明されています。"
       },
       {
         "id": 30,
@@ -2310,7 +2191,6 @@
           "She collected her repaired jacket early."
         ],
         "correct": 1,
-        "explanation": "正答は1です。設問は「What did Isabel do for the graduation ceremony?」について尋ねており、本文では「She borrowed a jacket from her cousin.」に当たる内容が説明されています。"
       }
     ]
   },
@@ -2335,7 +2215,6 @@
           "Move the exhibition to another hall."
         ],
         "correct": 1,
-        "explanation": "正答は1です。対話の内容と最後の質問を聞き取り、選択肢「Meet her at the storage room.」に当たる内容を選びます。"
       },
       {
         "id": 2,
@@ -2354,7 +2233,6 @@
           "It cannot be paid for in cash."
         ],
         "correct": 3,
-        "explanation": "正答は3です。対話の内容と最後の質問を聞き取り、選択肢「The same card can be used again.」に当たる内容を選びます。"
       },
       {
         "id": 3,
@@ -2373,7 +2251,6 @@
           "To pick up a prepared salad"
         ],
         "correct": 2,
-        "explanation": "正答は2です。対話の内容と最後の質問を聞き取り、選択肢「To get tomatoes for dinner」に当たる内容を選びます。"
       },
       {
         "id": 4,
@@ -2392,7 +2269,6 @@
           "Call the hotel about the reservation."
         ],
         "correct": 4,
-        "explanation": "正答は4です。対話の内容と最後の質問を聞き取り、選択肢「Call the hotel about the reservation.」に当たる内容を選びます。"
       },
       {
         "id": 5,
@@ -2411,7 +2287,6 @@
           "At his doctor's office"
         ],
         "correct": 1,
-        "explanation": "正答は1です。対話の内容と最後の質問を聞き取り、選択肢「At the imaging desk」に当たる内容を選びます。"
       },
       {
         "id": 6,
@@ -2430,7 +2305,6 @@
           "Extra bags for snacks"
         ],
         "correct": 2,
-        "explanation": "正答は2です。対話の内容と最後の質問を聞き取り、選択肢「A small bicycle pump」に当たる内容を選びます。"
       },
       {
         "id": 7,
@@ -2449,7 +2323,6 @@
           "It can be moved to tomorrow morning."
         ],
         "correct": 4,
-        "explanation": "正答は4です。対話の内容と最後の質問を聞き取り、選択肢「It can be moved to tomorrow morning.」に当たる内容を選びます。"
       },
       {
         "id": 8,
@@ -2468,7 +2341,6 @@
           "A menu with different lunches"
         ],
         "correct": 3,
-        "explanation": "正答は3です。対話の内容と最後の質問を聞き取り、選択肢「The steamed vegetables」に当たる内容を選びます。"
       },
       {
         "id": 9,
@@ -2487,7 +2359,6 @@
           "To discuss a parent meeting"
         ],
         "correct": 2,
-        "explanation": "正答は2です。対話の内容と最後の質問を聞き取り、選択肢「To change the time of her lesson」に当たる内容を選びます。"
       },
       {
         "id": 10,
@@ -2506,7 +2377,6 @@
           "Prepare new survey sheets."
         ],
         "correct": 1,
-        "explanation": "正答は1です。対話の内容と最後の質問を聞き取り、選択肢「Survey the wooded trail.」に当たる内容を選びます。"
       },
       {
         "id": 11,
@@ -2525,7 +2395,6 @@
           "Friday morning"
         ],
         "correct": 4,
-        "explanation": "正答は4です。対話の内容と最後の質問を聞き取り、選択肢「Friday morning」に当たる内容を選びます。"
       },
       {
         "id": 12,
@@ -2544,7 +2413,6 @@
           "By walking from the airport"
         ],
         "correct": 3,
-        "explanation": "正答は3です。対話の内容と最後の質問を聞き取り、選択肢「On the express train」に当たる内容を選びます。"
       },
       {
         "id": 13,
@@ -2563,7 +2431,6 @@
           "The podcast's music introduction"
         ],
         "correct": 1,
-        "explanation": "正答は1です。対話の内容と最後の質問を聞き取り、選択肢「The story about the team name」に当たる内容を選びます。"
       },
       {
         "id": 14,
@@ -2582,7 +2449,6 @@
           "She has an international presentation."
         ],
         "correct": 4,
-        "explanation": "正答は4です。対話の内容と最後の質問を聞き取り、選択肢「She has an international presentation.」に当たる内容を選びます。"
       },
       {
         "id": 15,
@@ -2601,7 +2467,6 @@
           "It was delivered on a workday."
         ],
         "correct": 2,
-        "explanation": "正答は2です。対話の内容と最後の質問を聞き取り、選択肢「It was mailed unusually early.」に当たる内容を選びます。"
       },
       {
         "id": 16,
@@ -2620,7 +2485,6 @@
           "Digital images shown with a projector."
         ],
         "correct": 4,
-        "explanation": "正答は4です。設問は「What did the drama club use for its backgrounds?」について尋ねており、本文では「Digital images shown with a projector.」に当たる内容が説明されています。"
       },
       {
         "id": 17,
@@ -2639,7 +2503,6 @@
           "Photography classes should be held outdoors."
         ],
         "correct": 2,
-        "explanation": "正答は2です。高価な機材よりも、光や影を注意深く観察することが良い写真につながるとKeikoは学びました。"
       },
       {
         "id": 18,
@@ -2658,7 +2521,6 @@
           "She removed the dates from all packages."
         ],
         "correct": 3,
-        "explanation": "正答は3です。設問は「How did Camila correct the package labels?」について尋ねており、本文では「She covered the wrong date with a correct sticker.」に当たる内容が説明されています。"
       },
       {
         "id": 19,
@@ -2677,7 +2539,6 @@
           "A private race will use the pool in the morning."
         ],
         "correct": 1,
-        "explanation": "正答は1です。職員が緊急時の手順を練習するため、土曜日は通常より1時間遅く開館します。"
       },
       {
         "id": 20,
@@ -2696,7 +2557,6 @@
           "Stay near the mountain’s visitor center."
         ],
         "correct": 2,
-        "explanation": "正答は2です。設問は「What did Jonas and his friends decide to do?」について尋ねており、本文では「Take a shorter trail early in the morning.」に当たる内容が説明されています。"
       },
       {
         "id": 21,
@@ -2715,7 +2575,6 @@
           "Describe the item and provide contact information."
         ],
         "correct": 4,
-        "explanation": "正答は4です。設問は「What must all visitors do to claim a found item?」について尋ねており、本文では「Describe the item and provide contact information.」に当たる内容が説明されています。"
       },
       {
         "id": 22,
@@ -2734,7 +2593,6 @@
           "He used a smooth pole with a guard."
         ],
         "correct": 4,
-        "explanation": "正答は4です。設問は「How did Jordan prevent squirrels from reaching the seeds?」について尋ねており、本文では「He used a smooth pole with a guard.」に当たる内容が説明されています。"
       },
       {
         "id": 23,
@@ -2753,7 +2611,6 @@
           "She displayed only one section at the fair."
         ],
         "correct": 3,
-        "explanation": "正答は3です。設問は「How did Rosa transport her large poster?」について尋ねており、本文では「She folded it into three connected panels.」に当たる内容が説明されています。"
       },
       {
         "id": 24,
@@ -2772,7 +2629,6 @@
           "Attach destination tags before boarding."
         ],
         "correct": 4,
-        "explanation": "正答は4です。設問は「What must passengers do with large bags?」について尋ねており、本文では「Attach destination tags before boarding.」に当たる内容が説明されています。"
       },
       {
         "id": 25,
@@ -2791,7 +2647,6 @@
           "Bread provided for the main dish."
         ],
         "correct": 1,
-        "explanation": "正答は1です。設問は「What did Felicia use instead of chicken?」について尋ねており、本文では「Mushrooms from another recipe.」に当たる内容が説明されています。"
       },
       {
         "id": 26,
@@ -2810,7 +2665,6 @@
           "He could use English while concentrating on another activity."
         ],
         "correct": 4,
-        "explanation": "正答は4です。料理に集中しながら英語を使えたため、Leoは間違いをあまり気にせず会話を練習できました。"
       },
       {
         "id": 27,
@@ -2829,7 +2683,6 @@
           "A message sent by the hotel staff."
         ],
         "correct": 2,
-        "explanation": "正答は2です。設問は「What allowed Taro to enter the museum?」について尋ねており、本文では「A picture of the ticket’s QR code.」に当たる内容が説明されています。"
       },
       {
         "id": 28,
@@ -2848,7 +2701,6 @@
           "Choose a different product for fundraising."
         ],
         "correct": 3,
-        "explanation": "正答は3です。設問は「What will the gardening club do next year?」について尋ねており、本文では「Collect orders and payments before printing.」に当たる内容が説明されています。"
       },
       {
         "id": 29,
@@ -2867,7 +2719,6 @@
           "A film shown at a later time."
         ],
         "correct": 1,
-        "explanation": "正答は1です。設問は「What will replace today’s live chemistry show?」について尋ねており、本文では「A documentary about space exploration.」に当たる内容が説明されています。"
       },
       {
         "id": 30,
@@ -2886,7 +2737,6 @@
           "She stopped after checking the first box."
         ],
         "correct": 2,
-        "explanation": "正答は2です。設問は「What did Mei do after discovering the missing notes?」について尋ねており、本文では「She rescanned pages that had writing on both sides.」に当たる内容が説明されています。"
       }
     ]
   },
@@ -2911,7 +2761,6 @@
           "Finish the newspaper page alone."
         ],
         "correct": 3,
-        "explanation": "正答は3です。対話の内容と最後の質問を聞き取り、選択肢「Upload the original photo file.」に当たる内容を選びます。"
       },
       {
         "id": 2,
@@ -2930,7 +2779,6 @@
           "It will meet in the art studio."
         ],
         "correct": 4,
-        "explanation": "正答は4です。対話の内容と最後の質問を聞き取り、選択肢「It will meet in the art studio.」に当たる内容を選びます。"
       },
       {
         "id": 3,
@@ -2949,7 +2797,6 @@
           "She needs to take her car for repairs."
         ],
         "correct": 1,
-        "explanation": "正答は1です。対話の内容と最後の質問を聞き取り、選択肢「Her uncle cannot drive her grandfather.」に当たる内容を選びます。"
       },
       {
         "id": 4,
@@ -2968,7 +2815,6 @@
           "Enter receipts on paper forms."
         ],
         "correct": 2,
-        "explanation": "正答は2です。対話の内容と最後の質問を聞き取り、選択肢「Scan the receipts for the report.」に当たる内容を選びます。"
       },
       {
         "id": 5,
@@ -2987,7 +2833,6 @@
           "The baggage office"
         ],
         "correct": 4,
-        "explanation": "正答は4です。対話の内容と最後の質問を聞き取り、選択肢「The baggage office」に当たる内容を選びます。"
       },
       {
         "id": 6,
@@ -3006,7 +2851,6 @@
           "A notebook for Naomi"
         ],
         "correct": 3,
-        "explanation": "正答は3です。対話の内容と最後の質問を聞き取り、選択肢「An extra pair of binoculars」に当たる内容を選びます。"
       },
       {
         "id": 7,
@@ -3025,7 +2869,6 @@
           "Show her appointment card to a doctor."
         ],
         "correct": 1,
-        "explanation": "正答は1です。対話の内容と最後の質問を聞き取り、選択肢「Wait in the waiting area for fifteen minutes.」に当たる内容を選びます。"
       },
       {
         "id": 8,
@@ -3044,7 +2887,6 @@
           "Another plate of almond sauce"
         ],
         "correct": 2,
-        "explanation": "正答は2です。対話の内容と最後の質問を聞き取り、選択肢「A nut-free serving on a clean plate」に当たる内容を選びます。"
       },
       {
         "id": 9,
@@ -3063,7 +2905,6 @@
           "To ask when a worker will arrive"
         ],
         "correct": 3,
-        "explanation": "正答は3です。対話の内容と最後の質問を聞き取り、選択肢「To get help with his key card」に当たる内容を選びます。"
       },
       {
         "id": 10,
@@ -3082,7 +2923,6 @@
           "Repair damaged cans."
         ],
         "correct": 1,
-        "explanation": "正答は1です。対話の内容と最後の質問を聞き取り、選択肢「Sort the cans by type.」に当たる内容を選びます。"
       },
       {
         "id": 11,
@@ -3101,7 +2941,6 @@
           "Saturday afternoon"
         ],
         "correct": 4,
-        "explanation": "正答は4です。対話の内容と最後の質問を聞き取り、選択肢「Saturday afternoon」に当たる内容を選びます。"
       },
       {
         "id": 12,
@@ -3120,7 +2959,6 @@
           "On foot from the station"
         ],
         "correct": 2,
-        "explanation": "正答は2です。対話の内容と最後の質問を聞き取り、選択肢「On the guesthouse shuttle」に当たる内容を選びます。"
       },
       {
         "id": 13,
@@ -3139,7 +2977,6 @@
           "The teacher's assignment instructions"
         ],
         "correct": 1,
-        "explanation": "正答は1です。対話の内容と最後の質問を聞き取り、選択肢「The summary of the final chapter」に当たる内容を選びます。"
       },
       {
         "id": 14,
@@ -3158,7 +2995,6 @@
           "She is attending another safety session."
         ],
         "correct": 3,
-        "explanation": "正答は3です。対話の内容と最後の質問を聞き取り、選択肢「She is interviewing job applicants.」に当たる内容を選びます。"
       },
       {
         "id": 15,
@@ -3177,7 +3013,6 @@
           "A guitar case was included for free."
         ],
         "correct": 4,
-        "explanation": "正答は4です。対話の内容と最後の質問を聞き取り、選択肢「A guitar case was included for free.」に当たる内容を選びます。"
       },
       {
         "id": 16,
@@ -3196,7 +3031,6 @@
           "Dried paint on the rails"
         ],
         "correct": 4,
-        "explanation": "線路上で乾いた塗料が電気の流れを妨げていました。電池を交換しても改善せず、線路を掃除すると元の速度に戻りました。"
       },
       {
         "id": 17,
@@ -3215,7 +3049,6 @@
           "Enter without a gate card"
         ],
         "correct": 2,
-        "explanation": "予約済みで午後6時以降に到着する利用者は、事務所横の遅着者用チェックインボックスを使います。"
       },
       {
         "id": 18,
@@ -3234,7 +3067,6 @@
           "He linked to a reduced-quality copy."
         ],
         "correct": 1,
-        "explanation": "動画をメールに添付できなかったため、元の高画質ファイルを保存場所へアップロードし、そのリンクを送りました。"
       },
       {
         "id": 19,
@@ -3253,7 +3085,6 @@
           "It works best at extremely low temperatures."
         ],
         "correct": 3,
-        "explanation": "塩は水が凍る温度を下げるため、気温が通常の氷点より少し低くても、氷の一部が溶けることがあります。"
       },
       {
         "id": 20,
@@ -3272,7 +3103,6 @@
           "She brought candles without safe containers."
         ],
         "correct": 1,
-        "explanation": "ガラス瓶が届かなかったため、手元にある金属缶を使い、販売するろうそくの数を減らしました。"
       },
       {
         "id": 21,
@@ -3291,7 +3121,6 @@
           "It will start one hour earlier."
         ],
         "correct": 4,
-        "explanation": "講演開始時刻が午後7時から午後6時へ変更され、1時間早くなりました。"
       },
       {
         "id": 22,
@@ -3310,7 +3139,6 @@
           "She carried all the books onto the plane."
         ],
         "correct": 2,
-        "explanation": "追加料金より郵送費のほうが安かったため、重さの原因となっていた本を数冊、空港から別送しました。"
       },
       {
         "id": 23,
@@ -3329,7 +3157,6 @@
           "Attaching labels after the sale"
         ],
         "correct": 3,
-        "explanation": "強い接着剤だけでは改善せず、袋の表面に付いた細かいほこりを拭き取ったことで、ラベルがはがれなくなりました。"
       },
       {
         "id": 24,
@@ -3348,7 +3175,6 @@
           "Clean indoor shoes"
         ],
         "correct": 4,
-        "explanation": "参加者が持参する必要があるのは、清潔な室内用の靴です。飲料水は会場で用意されます。"
       },
       {
         "id": 25,
@@ -3367,7 +3193,6 @@
           "The colors of nearby surfaces"
         ],
         "correct": 1,
-        "explanation": "音が戻ってくる時間と方向から、コウモリは周囲の物体の位置を判断します。"
       },
       {
         "id": 26,
@@ -3386,7 +3211,6 @@
           "Sell the watch's rare parts"
         ],
         "correct": 3,
-        "explanation": "完全修復は高額だったため、時計が再び動くための基本的な修理だけを行い、表面の傷は残しました。"
       },
       {
         "id": 27,
@@ -3405,7 +3229,6 @@
           "She changed the costume completely."
         ],
         "correct": 2,
-        "explanation": "マントを短くせず、俳優が持ち上げられる隠し輪を内側に縫い付けました。"
       },
       {
         "id": 28,
@@ -3424,7 +3247,6 @@
           "Use an electric bicycle"
         ],
         "correct": 1,
-        "explanation": "自転車を載せる利用者は、遅くとも乗船日の前日までに窓口で予約する必要があります。"
       },
       {
         "id": 29,
@@ -3443,7 +3265,6 @@
           "Cooked meat scraps"
         ],
         "correct": 4,
-        "explanation": "コンポスト設備が処理できない調理済みの肉が混入していたことが、強い臭いの原因でした。"
       },
       {
         "id": 30,
@@ -3462,7 +3283,6 @@
           "He used the opening dates only."
         ],
         "correct": 2,
-        "explanation": "建築図面や開業日だけでは日常の様子が分からなかったため、元チケット販売員から当時の客や行事について聞きました。"
       }
     ]
   }

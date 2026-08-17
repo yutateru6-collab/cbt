@@ -181,7 +181,7 @@ async function main() {
 
   for (const swFile of ["sw.js", "sw-set02-v2.js"]) {
     const sw = fs.readFileSync(path.join(root, swFile), "utf8");
-    assert.match(sw, /cbt-grade2-app-shell-v76-listening-q1-q5-question-gap/);
+    assert.match(sw, /cbt-grade2-app-shell-v77-canonical-explanations/);
     assert.match(sw, /grade2-listening-set01-audio-fixes\.js/);
     assert.match(sw, /url\.pathname\.startsWith\("\/audio-r2\/"\)/);
   }
