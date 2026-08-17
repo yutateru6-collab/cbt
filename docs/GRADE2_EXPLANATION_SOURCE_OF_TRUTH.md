@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Grade 2 content is assembled from several JavaScript files. Raw question files may contain legacy `explanation` values that are not suitable for learner-facing display. Consumers must not decide independently which explanation is newest or correct.
+Grade 2 content is assembled from several JavaScript files. Consumers must not decide independently which explanation is newest or correct.
 
 The canonical explanation pipeline is the only supported source for learner-facing explanations.
 
@@ -23,7 +23,7 @@ The canonical explanation pipeline is the only supported source for learner-faci
 
 ## Consumer rule
 
-Do not use raw `question.explanation` from `grade2-listening-part2-sets.js` or any other raw question source as an independent source of truth.
+Raw question-source files are authoring inputs, not an independent explanation source of truth.
 
 Use:
 
@@ -37,13 +37,15 @@ Example key:
 
 `grade2:set-01:listening:01`
 
-## Legacy listening explanations
+## Legacy Listening explanations
 
-Raw Listening `explanation` values are legacy input. `grade2-legacy-explanation-cleanup.js` deletes those values at runtime before detailed explanations are rebuilt.
+The 180 old generic Listening `explanation` fields have been physically removed from `grade2-listening-part2-sets.js`.
 
-This is deliberate: a missing canonical explanation must never silently fall back to an old generic explanation.
+The raw Listening source now contains the question material only: script, prompt, choices, correct answer, audio metadata, and related fields. Detailed explanations are rebuilt by the approved explanation layers and then frozen by the canonical resolver.
 
-After all consumers have migrated and repository-wide checks confirm there are no remaining direct dependencies on the raw Listening explanations, those legacy source fields can be physically removed from the raw data file in a separate cleanup change.
+`grade2-legacy-explanation-cleanup.js` remains intentionally as defense in depth. In the clean repository baseline it removes 0 fields. If an old cached/imported raw dataset containing legacy explanations is ever combined with the new app shell, the cleanup layer removes those values before detailed explanations are rebuilt.
+
+The repository test contract requires the raw Listening source to contain zero `explanation` fields, so the old generic explanations cannot silently be reintroduced in a future change.
 
 ## Fail-closed behavior
 
@@ -76,6 +78,6 @@ A deployment must fail validation if these assets are missing.
 
 ## Derived applications
 
-The main CBT and `tools/listening-player/` must consume the same canonical snapshot. New mini apps or exports should do the same instead of reading raw question files and assuming their `explanation` field is final.
+The main CBT and `tools/listening-player/` must consume the same canonical snapshot. New mini apps or exports must do the same instead of reading raw question files and assuming they contain a final explanation.
 
 When comparing two applications, matching `questionKey` + `explanationHash` means they are displaying the same canonical explanation version.
