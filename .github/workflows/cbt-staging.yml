@@ -60,6 +60,9 @@ jobs:
           node --test tests/grade2-listening-r2-source.test.cjs
           node --test tests/cloudflare-deploy-contract.test.cjs
 
+      - name: Preflight real listening corrections
+        run: node scripts/verify-cloudflare-listening-audio.mjs --expected-only
+
       - name: Ensure isolated staging R2 buckets
         shell: bash
         run: |
