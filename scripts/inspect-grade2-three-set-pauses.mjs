@@ -67,31 +67,21 @@ function parsePcmWav(buffer) {
 }
 
 function isSilentSample(parsed, frame) {
-  return Math.abs(
-    parsed.view.getInt16(parsed.data.dataOffset + frame * parsed.format.blockAlign, true),
-  ) <= SILENCE_THRESHOLD;
+  return Math.abs(parsed.view.getInt16(parsed.data.dataOffset + frame * parsed.format.blockAlign, true)) <= SILENCE_THRESHOLD;
 }
 
 function hasVoice(parsed, startFrame, endFrame) {
   const totalFrames = Math.floor(parsed.data.dataSize / parsed.format.blockAlign);
   const start = Math.max(0, Math.min(totalFrames, startFrame));
   const end = Math.max(start, Math.min(totalFrames, endFrame));
-  for (let frame = start; frame < end; frame += 1) {
-    if (!isSilentSample(parsed, frame)) return true;
-  }
+  for (let frame = start; frame < end; frame += 1) if (!isSilentSample(parsed, frame)) return true;
   return false;
 }
 
 function assertSilentRange(parsed, range, label) {
   const [start, end] = range;
-  if (!Number.isInteger(start) || !Number.isInteger(end) || start < 0 || start >= end) {
-    throw new Error(`${label}: invalid range ${JSON.stringify(range)}`);
-  }
-  for (let frame = start; frame < end; frame += 1) {
-    if (!isSilentSample(parsed, frame)) {
-      throw new Error(`${label}: expected silence at frame ${frame}`);
-    }
-  }
+  if (!Number.isInteger(start) || !Number.isInteger(end) || start < 0 || start >= end) throw new Error(`${label}: invalid range ${JSON.stringify(range)}`);
+  for (let frame = start; frame < end; frame += 1) if (!isSilentSample(parsed, frame)) throw new Error(`${label}: expected silence at frame ${frame}`);
 }
 
 function findSilenceRuns(parsed, startFrame, endFrame, minimumSeconds) {
@@ -101,7 +91,6 @@ function findSilenceRuns(parsed, startFrame, endFrame, minimumSeconds) {
   const minimumFrames = Math.round(parsed.format.sampleRate * minimumSeconds);
   const runs = [];
   let silenceStart = -1;
-
   for (let frame = start; frame < end; frame += 1) {
     if (isSilentSample(parsed, frame)) {
       if (silenceStart < 0) silenceStart = frame;
@@ -116,8 +105,7 @@ function findSilenceRuns(parsed, startFrame, endFrame, minimumSeconds) {
 
 function findEarlySilenceRuns(parsed) {
   const totalFrames = Math.floor(parsed.data.dataSize / parsed.format.blockAlign);
-  const endFrame = Math.min(totalFrames, Math.round(parsed.format.sampleRate * SCAN_SECONDS));
-  return findSilenceRuns(parsed, 0, endFrame, MIN_REPORTED_SILENCE_SECONDS);
+  return findSilenceRuns(parsed, 0, Math.min(totalFrames, Math.round(parsed.format.sampleRate * SCAN_SECONDS)), MIN_REPORTED_SILENCE_SECONDS);
 }
 
 function introCandidates(parsed, runs) {
@@ -127,7 +115,6 @@ function introCandidates(parsed, runs) {
   const startMax = Math.round(rate * INTRO_START_MAX_SECONDS);
   const endMax = Math.round(rate * INTRO_END_MAX_SECONDS);
   const voiceWindow = Math.round(rate * VOICE_WINDOW_SECONDS);
-
   return runs.filter(([start, end]) => {
     if (end - start < minFrames) return false;
     if (start < startMin || start > startMax || end > endMax) return false;
@@ -137,10 +124,8 @@ function introCandidates(parsed, runs) {
 
 function findQuestionGapPairByExactNormalizedSignature(parsed) {
   const totalFrames = Math.floor(parsed.data.dataSize / parsed.format.blockAlign);
-  const searchStart = Math.floor(totalFrames / 2);
-  const runs = findSilenceRuns(parsed, searchStart, totalFrames, MIN_STRUCTURAL_SILENCE_SECONDS);
+  const runs = findSilenceRuns(parsed, Math.floor(totalFrames / 2), totalFrames, MIN_STRUCTURAL_SILENCE_SECONDS);
   const matches = [];
-
   for (let index = 0; index < runs.length - 1; index += 1) {
     const bodyQuestionGap = runs[index];
     const questionTextGap = runs[index + 1];
@@ -148,48 +133,25 @@ function findQuestionGapPairByExactNormalizedSignature(parsed) {
     const questionTextFrames = questionTextGap[1] - questionTextGap[0];
     const questionWordSeconds = (questionTextGap[0] - bodyQuestionGap[1]) / parsed.format.sampleRate;
     const questionTextRemainderSeconds = (totalFrames - questionTextGap[1]) / parsed.format.sampleRate;
-
     if (
       bodyFrames === NORMALIZED_BODY_QUESTION_FRAMES &&
       questionTextFrames === NORMALIZED_QUESTION_TEXT_FRAMES &&
       questionWordSeconds >= MIN_QUESTION_WORD_SECONDS &&
       questionWordSeconds <= MAX_QUESTION_WORD_SECONDS &&
       questionTextRemainderSeconds >= MIN_QUESTION_TEXT_REMAINDER_SECONDS
-    ) {
-      matches.push({ bodyQuestionGap, questionTextGap });
-    }
+    ) matches.push({ bodyQuestionGap, questionTextGap });
   }
-
-  if (matches.length !== 1) {
-    throw new Error(`Expected exactly one exact normalized body -> Question -> text signature, found ${matches.length}`);
-  }
+  if (matches.length !== 1) throw new Error(`Expected exactly one exact normalized body -> Question -> text signature, found ${matches.length}`);
   return matches[0];
 }
 
-function sameRange(a, b) {
-  return a?.[0] === b?.[0] && a?.[1] === b?.[1];
-}
-
-function sha256(buffer) {
-  return createHash("sha256").update(Buffer.from(buffer)).digest("hex");
-}
-
+function sameRange(a, b) { return a?.[0] === b?.[0] && a?.[1] === b?.[1]; }
+function sha256(buffer) { return createHash("sha256").update(Buffer.from(buffer)).digest("hex"); }
 function formatRun(rate, [start, end]) {
-  return {
-    start,
-    end,
-    frames: end - start,
-    seconds: Number(((end - start) / rate).toFixed(6)),
-    startSeconds: Number((start / rate).toFixed(6)),
-    endSeconds: Number((end / rate).toFixed(6)),
-  };
+  return { start, end, frames: end - start, seconds: Number(((end - start) / rate).toFixed(6)), startSeconds: Number((start / rate).toFixed(6)), endSeconds: Number((end / rate).toFixed(6)) };
 }
-
 async function fetchArrayBuffer(url) {
-  const response = await fetch(`${url}?inspect=${Date.now()}-${Math.random()}`, {
-    cache: "no-store",
-    headers: { "Cache-Control": "no-cache", Pragma: "no-cache" },
-  });
+  const response = await fetch(`${url}?inspect=${Date.now()}-${Math.random()}`, { cache: "no-store", headers: { "Cache-Control": "no-cache", Pragma: "no-cache" } });
   if (!response.ok) throw new Error(`HTTP ${response.status} for ${url}`);
   return response.arrayBuffer();
 }
@@ -197,7 +159,6 @@ async function fetchArrayBuffer(url) {
 const manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, "utf8"));
 const byId = new Map(manifest.items.map((item) => [item.id, item]));
 const audit = [];
-
 for (const setKey of SET_KEYS) {
   for (let id = 1; id <= 30; id += 1) {
     const part = id <= 15 ? "part1" : "part2";
@@ -205,39 +166,22 @@ for (const setKey of SET_KEYS) {
     const manifestId = `${setKey}/${part}/No${number}`;
     const item = byId.get(manifestId);
     if (!item) throw new Error(`Normalization manifest entry missing: ${manifestId}`);
-    if (item.status !== "normalized" || item.sampleRate !== 24000 || item.channels !== 1) {
-      throw new Error(`Unexpected manifest metadata for ${manifestId}`);
-    }
-
+    if (item.status !== "normalized" || item.sampleRate !== 24000 || item.channels !== 1) throw new Error(`Unexpected manifest metadata for ${manifestId}`);
     const bodyQuestionGap = item.normalizedBoundaries?.bodyQuestionGap;
     const questionTextGap = item.normalizedBoundaries?.questionTextGap;
-    if (!Array.isArray(bodyQuestionGap) || !Array.isArray(questionTextGap)) {
-      throw new Error(`Normalized pause boundaries missing for ${manifestId}`);
-    }
-    if (bodyQuestionGap[1] - bodyQuestionGap[0] !== NORMALIZED_BODY_QUESTION_FRAMES) {
-      throw new Error(`${manifestId}: body->Question is not normalized to 19,200 frames`);
-    }
-    if (questionTextGap[1] - questionTextGap[0] !== NORMALIZED_QUESTION_TEXT_FRAMES) {
-      throw new Error(`${manifestId}: Question->text is not normalized to 14,400 frames`);
-    }
-
+    if (!Array.isArray(bodyQuestionGap) || !Array.isArray(questionTextGap)) throw new Error(`Normalized pause boundaries missing for ${manifestId}`);
+    if (bodyQuestionGap[1] - bodyQuestionGap[0] !== NORMALIZED_BODY_QUESTION_FRAMES) throw new Error(`${manifestId}: body->Question is not normalized to 19,200 frames`);
+    if (questionTextGap[1] - questionTextGap[0] !== NORMALIZED_QUESTION_TEXT_FRAMES) throw new Error(`${manifestId}: Question->text is not normalized to 14,400 frames`);
     const sourceUrl = `${SOURCE_ROOT}/${setKey}/listening/${part}/No${number}.wav`;
     const buffer = await fetchArrayBuffer(sourceUrl);
     const parsed = parsePcmWav(buffer);
     if (parsed.format.sampleRate !== 24000) throw new Error(`${manifestId}: WAV sample rate is ${parsed.format.sampleRate}`);
     const actualSha = sha256(buffer);
-    if (actualSha !== item.outputSha256) {
-      throw new Error(`${manifestId}: source SHA mismatch ${actualSha} != ${item.outputSha256}`);
-    }
-    if (buffer.byteLength !== item.outputBytes) {
-      throw new Error(`${manifestId}: source byte count mismatch ${buffer.byteLength} != ${item.outputBytes}`);
-    }
-
+    if (actualSha !== item.outputSha256) throw new Error(`${manifestId}: source SHA mismatch ${actualSha} != ${item.outputSha256}`);
+    if (buffer.byteLength !== item.outputBytes) throw new Error(`${manifestId}: source byte count mismatch ${buffer.byteLength} != ${item.outputBytes}`);
     assertSilentRange(parsed, bodyQuestionGap, `${manifestId} body->Question`);
     assertSilentRange(parsed, questionTextGap, `${manifestId} Question->text`);
-
-    const runs = findEarlySilenceRuns(parsed);
-    const candidates = introCandidates(parsed, runs);
+    const candidates = introCandidates(parsed, findEarlySilenceRuns(parsed));
     const structural = findQuestionGapPairByExactNormalizedSignature(parsed);
     const row = {
       id: manifestId,
@@ -248,28 +192,15 @@ for (const setKey of SET_KEYS) {
       manifestQuestionTextGap: formatRun(parsed.format.sampleRate, questionTextGap),
       structuralBodyQuestionGap: formatRun(parsed.format.sampleRate, structural.bodyQuestionGap),
       structuralQuestionTextGap: formatRun(parsed.format.sampleRate, structural.questionTextGap),
-      structuralMatchesManifest:
-        sameRange(structural.bodyQuestionGap, bodyQuestionGap) &&
-        sameRange(structural.questionTextGap, questionTextGap),
+      structuralMatchesManifest: sameRange(structural.bodyQuestionGap, bodyQuestionGap) && sameRange(structural.questionTextGap, questionTextGap),
     };
     audit.push(row);
     console.log(JSON.stringify(row));
   }
 }
-
 const ambiguous = audit.filter((row) => row.introCandidates.length !== 1);
 const structuralMismatch = audit.filter((row) => !row.structuralMatchesManifest);
-console.log(
-  `AUDIT_SUMMARY total=${audit.length} uniqueIntro=${audit.length - ambiguous.length} ambiguous=${ambiguous.length} structuralExact=${audit.length - structuralMismatch.length} structuralMismatch=${structuralMismatch.length}`,
-);
-if (ambiguous.length) {
-  console.error("AMBIGUOUS_INTRO_IDS", ambiguous.map((row) => row.id).join(","));
-}
-if (structuralMismatch.length) {
-  console.error("STRUCTURAL_MISMATCH_IDS", structuralMismatch.map((row) => row.id).join(","));
-}
+console.log(`AUDIT_SUMMARY total=${audit.length} uniqueIntro=${audit.length - ambiguous.length} ambiguous=${ambiguous.length} structuralExact=${audit.length - structuralMismatch.length} structuralMismatch=${structuralMismatch.length}`);
+if (ambiguous.length) console.error("AMBIGUOUS_INTRO_IDS", ambiguous.map((row) => row.id).join(","));
+if (structuralMismatch.length) console.error("STRUCTURAL_MISMATCH_IDS", structuralMismatch.map((row) => row.id).join(","));
 if (ambiguous.length || structuralMismatch.length) process.exitCode = 2;
-
-// Strictly diagnose only the six user-confirmed duplicate-question items.
-// This must prove exact duplicated audio before any v2 trim is implemented.
-await import("./diagnose-set01-duplicate-question-tails.mjs");
