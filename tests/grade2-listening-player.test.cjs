@@ -40,6 +40,7 @@ function loadCanonicalGrade2Data() {
   const cleanedSet01Question1 = context.window.scbtGrade2VocabSets
     .find((set) => set.key === "set-01")
     .listeningQuestions.find((question) => Number(question.id) === 1);
+  const explanationAfterCleanup = cleanedSet01Question1.explanation;
 
   vm.runInContext(set01ExplanationSource, context, { filename: "grade2-set-01-explanations.js" });
   vm.runInContext(skillExplanationSource, context, { filename: "grade2-skill-explanations.js" });
@@ -54,7 +55,7 @@ function loadCanonicalGrade2Data() {
     context,
     sets,
     rawExplanation,
-    explanationAfterCleanup: cleanedSet01Question1.explanation,
+    explanationAfterCleanup,
   };
 }
 
@@ -250,7 +251,7 @@ test("Worker build and service worker publish/cache every explanation pipeline a
     "grade2-canonical-explanations.js",
   ]) {
     assert.ok(worker.includes(`\"${file}\"`), `worker-dist must include ${file}`);
-    assert.ok(serviceWorker.includes(`/\${file}`) || serviceWorker.includes(`/${file}`), `service worker must cache ${file}`);
+    assert.ok(serviceWorker.includes(`/${file}`), `service worker must cache ${file}`);
   }
   assert.match(serviceWorker, /cbt-grade2-app-shell-v77-canonical-explanations/);
   assert.match(worker, /tools\/listening-player\/index\.html/);
