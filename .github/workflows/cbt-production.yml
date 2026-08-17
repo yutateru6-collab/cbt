@@ -53,6 +53,7 @@ jobs:
           set -euo pipefail
           node --check cloudflare-worker.js
           node --check listening-audio-fix.js
+          node --check grade2-listening-three-set-audio-fix.js
           node --check grade2-legacy-explanation-cleanup.js
           node --check grade2-canonical-explanations.js
           node --check grade2-explanation-provenance-dev.js
@@ -62,6 +63,7 @@ jobs:
           node --check scripts/verify-cloudflare-listening-audio.mjs
           node scripts/remove-grade2-legacy-listening-explanations.mjs --check
           node tests/grade2-listening-audio-fix.test.cjs
+          node tests/grade2-listening-three-set-audio-fix.test.cjs
           if [ -f tests/grade2-listening-player.test.cjs ]; then
             node --test tests/grade2-listening-player.test.cjs
           fi
