@@ -64,6 +64,9 @@ jobs:
           fi
           node --test tests/cloudflare-deploy-contract.test.cjs
 
+      - name: Preflight real listening corrections
+        run: node scripts/verify-cloudflare-listening-audio.mjs --expected-only
+
       - name: Validate production bundle
         env:
           CBT_BUILD_SHA: ${{ github.sha }}
