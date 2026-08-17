@@ -61,9 +61,11 @@ jobs:
           node --check scripts/prepare-worker-assets.mjs
           node --check scripts/remove-grade2-legacy-listening-explanations.mjs
           node --check scripts/verify-cloudflare-listening-audio.mjs
+          node --check scripts/build-grade2-three-set-corrected-audio.mjs
           node scripts/remove-grade2-legacy-listening-explanations.mjs --check
           node tests/grade2-listening-audio-fix.test.cjs
           node tests/grade2-listening-three-set-audio-fix.test.cjs
+          node tests/cloudflare-listening-route.test.mjs
           if [ -f tests/grade2-listening-player.test.cjs ]; then
             node --test tests/grade2-listening-player.test.cjs
           fi
@@ -75,12 +77,38 @@ jobs:
       - name: Preflight real listening corrections
         run: node scripts/verify-cloudflare-listening-audio.mjs --expected-only
 
+      - name: Build precomputed 90-file corrected release
+        env:
+          CBT_BUILD_SHA: ${{ github.sha }}
+        run: node scripts/build-grade2-three-set-corrected-audio.mjs --output-dir=/tmp/cbt-three-set-corrected
+
       - name: Validate production bundle
         env:
           CBT_BUILD_SHA: ${{ github.sha }}
           CBT_BUILD_REF: ${{ github.ref_name }}
           CBT_DEPLOY_ENV: production
         run: npx wrangler deploy --dry-run --config wrangler.jsonc
+
+      - name: Upload precomputed 90-file corrected release to production R2
+        shell: bash
+        run: |
+          set -euo pipefail
+          release='20260817-grade2-sets01-03-listening-pauses-1s-v1'
+          for set_num in 01 02 03; do
+            set_key="set-$set_num"
+            for n in $(seq 1 30); do
+              id="$(printf '%02d' "$n")"
+              if [ "$n" -le 15 ]; then part='part1'; else part='part2'; fi
+              file="/tmp/cbt-three-set-corrected/$set_key/listening/$part/No${id}.wav"
+              key="scbt/grade2/releases/$release/$set_key/listening/$part/No${id}.wav"
+              test -f "$file"
+              npx wrangler r2 object put "mimilisten-audio/$key" \
+                --file "$file" \
+                --content-type audio/wav \
+                --cache-control 'public, max-age=31536000, immutable' \
+                --remote
+            done
+          done
 
       - name: Deploy Worker cbt
         env:
