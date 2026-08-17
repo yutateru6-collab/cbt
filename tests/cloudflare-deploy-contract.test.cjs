@@ -54,8 +54,9 @@ test("Worker bundle contains the complete canonical explanation pipeline", () =>
 
 test("audio verifier supports fail-closed real-master preflight", () => {
   assert.match(verifier, /--expected-only/);
-  assert.match(verifier, /GRADE2_LISTENING_QUESTION_GAP_RELEASE/);
+  assert.match(verifier, /GRADE2_LISTENING_INTRO_GAP_RELEASE/);
   assert.match(verifier, /GRADE2_LISTENING_FIX_RELEASE/);
+  assert.match(verifier, /fixGrade2Set01IntroAndQuestionGapWav/);
 });
 
 test("staging workflow deploys agent branches only to cbt-staging and seeds isolated R2", () => {
