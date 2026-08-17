@@ -1,11 +1,10 @@
+import fs from "node:fs";
 import { createHash } from "node:crypto";
+import { GRADE2_LISTENING_SOURCE_RELEASE } from "../listening-audio-fix.js";
 import {
-  GRADE2_LISTENING_FIX_RELEASE,
-  GRADE2_LISTENING_ONE_SECOND_PAUSES_RELEASE,
-  GRADE2_LISTENING_SOURCE_RELEASE,
-  fixGrade2Set01ListeningWav,
-  fixGrade2Set01OneSecondPausesWav,
-} from "../listening-audio-fix.js";
+  GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE,
+  fixGrade2ThreeSetOneSecondPausesWav,
+} from "../grade2-listening-three-set-audio-fix.js";
 
 const args = process.argv.slice(2);
 const expectedOnly = args.includes("--expected-only");
@@ -19,8 +18,16 @@ if (!expectedOnly && !publicBase) {
   );
 }
 
-const sourceBase =
-  `https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/${GRADE2_LISTENING_SOURCE_RELEASE}/set-01/listening/part1`;
+const sourceRoot =
+  `https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/${GRADE2_LISTENING_SOURCE_RELEASE}`;
+const manifest = JSON.parse(
+  fs.readFileSync(
+    new URL("../audio-generation/20260815-grade2-listening-pauses-v2/normalization-manifest.json", import.meta.url),
+    "utf8",
+  ),
+);
+const manifestById = new Map(manifest.items.map((item) => [item.id, item]));
+const setKeys = ["set-01", "set-02", "set-03"];
 
 function sha256(buffer) {
   return createHash("sha256").update(Buffer.from(buffer)).digest("hex");
@@ -43,80 +50,82 @@ async function fetchArrayBuffer(url) {
   };
 }
 
-for (let id = 1; id <= 9; id += 1) {
-  const number = String(id).padStart(2, "0");
-  const sourceUrl = `${sourceBase}/No${number}.wav`;
-  const source = await fetchArrayBuffer(sourceUrl);
+let verified = 0;
+for (const setKey of setKeys) {
+  for (let id = 1; id <= 30; id += 1) {
+    const part = id <= 15 ? "part1" : "part2";
+    const number = String(id).padStart(2, "0");
+    const manifestId = `${setKey}/${part}/No${number}`;
+    const item = manifestById.get(manifestId);
+    if (!item) throw new Error(`Normalization manifest entry missing: ${manifestId}`);
 
-  const correction =
-    id <= 5
-      ? {
-          release: GRADE2_LISTENING_ONE_SECOND_PAUSES_RELEASE,
-          fixed: fixGrade2Set01OneSecondPausesWav(source.buffer, id),
-        }
-      : {
-          release: GRADE2_LISTENING_FIX_RELEASE,
-          fixed: fixGrade2Set01ListeningWav(source.buffer, id),
-        };
-
-  if (!correction.fixed.changed) {
-    throw new Error(`Expected a verified correction for Set 01 No.${number}`);
-  }
-
-  if (id <= 5) {
-    if (correction.fixed.targetIntroGapFrames !== 24000) {
+    const sourceUrl =
+      `${sourceRoot}/${setKey}/listening/${part}/No${number}.wav` +
+      `?verify-source=${encodeURIComponent(process.env.CBT_BUILD_SHA || Date.now())}`;
+    const source = await fetchArrayBuffer(sourceUrl);
+    const sourceSha = sha256(source.buffer);
+    if (sourceSha !== item.outputSha256 || source.buffer.byteLength !== item.outputBytes) {
       throw new Error(
-        `Set 01 No.${number} intro gap target is not exactly 24,000 frames: ${correction.fixed.targetIntroGapFrames}`,
+        `Immutable source mismatch for ${manifestId}: expected ${item.outputBytes}/${item.outputSha256}, ` +
+          `got ${source.buffer.byteLength}/${sourceSha}`,
       );
     }
-    if (correction.fixed.targetBodyQuestionGapFrames !== 24000) {
-      throw new Error(
-        `Set 01 No.${number} body->Question gap target is not exactly 24,000 frames: ${correction.fixed.targetBodyQuestionGapFrames}`,
-      );
+
+    const fixed = fixGrade2ThreeSetOneSecondPausesWav(source.buffer, id);
+    if (!fixed.changed) {
+      throw new Error(`Expected a verified correction for ${manifestId}`);
     }
-    if (correction.fixed.targetQuestionGapFrames !== 19200) {
-      throw new Error(
-        `Set 01 No.${number} Question->text gap target is not exactly 19,200 frames: ${correction.fixed.targetQuestionGapFrames}`,
-      );
+    if (fixed.targetIntroGapFrames !== 24000) {
+      throw new Error(`${manifestId}: intro target is not exactly 24,000 frames`);
     }
-  }
+    if (fixed.targetBodyQuestionGapFrames !== 24000) {
+      throw new Error(`${manifestId}: body->Question target is not exactly 24,000 frames`);
+    }
+    if (fixed.targetQuestionGapFrames !== 19200) {
+      throw new Error(`${manifestId}: Question->text target is not exactly 19,200 frames`);
+    }
 
-  const expectedSha = sha256(correction.fixed.buffer);
-  const expectedBytes = correction.fixed.buffer.byteLength;
-  const pauseNote = id <= 5
-    ? ` intro=${correction.fixed.targetIntroGapFrames}/1.000s bodyQuestion=${correction.fixed.targetBodyQuestionGapFrames}/1.000s questionText=${correction.fixed.targetQuestionGapFrames}/0.800s originalIntro=${correction.fixed.originalIntroGapFrames}`
-    : "";
+    const expectedSha = sha256(fixed.buffer);
+    const expectedBytes = fixed.buffer.byteLength;
+    const pauseNote =
+      `intro=${fixed.targetIntroGapFrames}/1.000s ` +
+      `bodyQuestion=${fixed.targetBodyQuestionGapFrames}/1.000s ` +
+      `questionText=${fixed.targetQuestionGapFrames}/0.800s`;
 
-  if (expectedOnly) {
-    console.log(`No.${number} expected=${expectedSha} bytes=${expectedBytes}${pauseNote}`);
-    continue;
-  }
+    if (expectedOnly) {
+      console.log(`${manifestId} expected=${expectedSha} bytes=${expectedBytes} ${pauseNote}`);
+      verified += 1;
+      continue;
+    }
 
-  const actualUrl =
-    `${publicBase}/audio-r2/grade2/releases/${correction.release}/set-01/listening/part1/No${number}.wav` +
-    `?verify=${encodeURIComponent(process.env.CBT_BUILD_SHA || Date.now())}`;
-  const actual = await fetchArrayBuffer(actualUrl);
-  if (!actual.contentType.toLowerCase().startsWith("audio/")) {
-    throw new Error(`Unexpected content type for No.${number}: ${actual.contentType}`);
-  }
+    const actualUrl =
+      `${publicBase}/audio-r2/grade2/releases/${GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE}/` +
+      `${setKey}/listening/${part}/No${number}.wav` +
+      `?verify=${encodeURIComponent(process.env.CBT_BUILD_SHA || Date.now())}`;
+    const actual = await fetchArrayBuffer(actualUrl);
+    if (!actual.contentType.toLowerCase().startsWith("audio/")) {
+      throw new Error(`Unexpected content type for ${manifestId}: ${actual.contentType}`);
+    }
 
-  const actualSha = sha256(actual.buffer);
-  const actualBytes = actual.buffer.byteLength;
-
-  console.log(
-    `No.${number} expected=${expectedSha} actual=${actualSha} bytes=${actualBytes}${pauseNote}`,
-  );
-
-  if (actualBytes !== expectedBytes || actualSha !== expectedSha) {
-    throw new Error(
-      `Cloudflare audio mismatch for Set 01 No.${number}: ` +
-        `expected ${expectedBytes}/${expectedSha}, got ${actualBytes}/${actualSha}`,
+    const actualSha = sha256(actual.buffer);
+    const actualBytes = actual.buffer.byteLength;
+    console.log(
+      `${manifestId} expected=${expectedSha} actual=${actualSha} bytes=${actualBytes} ${pauseNote}`,
     );
+
+    if (actualBytes !== expectedBytes || actualSha !== expectedSha) {
+      throw new Error(
+        `Cloudflare audio mismatch for ${manifestId}: ` +
+          `expected ${expectedBytes}/${expectedSha}, got ${actualBytes}/${actualSha}`,
+      );
+    }
+    verified += 1;
   }
 }
 
+if (verified !== 90) throw new Error(`Expected 90 verified listening WAVs, got ${verified}`);
 if (expectedOnly) {
-  console.log("Verified real baseline masters can be transformed by the current correction code");
+  console.log("Verified all 90 real Set 01-03 baseline masters can be transformed safely");
 } else {
-  console.log(`Verified Set 01 corrected listening audio against ${publicBase}`);
+  console.log(`Verified all 90 corrected Set 01-03 listening WAVs against ${publicBase}`);
 }
