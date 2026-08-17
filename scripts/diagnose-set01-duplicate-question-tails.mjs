@@ -1,4 +1,6 @@
 import fs from "node:fs";
+import path from "node:path";
+import { mkdir, writeFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { GRADE2_LISTENING_SOURCE_RELEASE } from "../listening-audio-fix.js";
 import { fixGrade2ThreeSetOneSecondPausesWav } from "../grade2-listening-three-set-audio-fix.js";
@@ -6,6 +8,8 @@ import { fixGrade2ThreeSetOneSecondPausesWav } from "../grade2-listening-three-s
 const TARGET_IDS = Object.freeze([6, 7, 8, 10, 12, 14]);
 const SAMPLE_RATE = 24000;
 const SILENCE_THRESHOLD = 350;
+const outputArg = process.argv.find((arg) => arg.startsWith("--output-dir="));
+const outputDir = outputArg ? path.resolve(outputArg.slice("--output-dir=".length)) : null;
 const sourceRoot =
   `https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/${GRADE2_LISTENING_SOURCE_RELEASE}/set-01/listening/part1`;
 const manifest = JSON.parse(
@@ -55,7 +59,6 @@ function parsePcmWav(buffer) {
     throw new Error(`Unexpected WAV format: ${JSON.stringify(format)}`);
   }
   return {
-    bytes,
     totalFrames: dataSize / 2,
     pcm: bytes.subarray(dataOffset, dataOffset + dataSize),
   };
@@ -87,17 +90,6 @@ function findSilenceRuns(parsed, startFrame, endFrame, minSeconds) {
   return runs;
 }
 
-function makeVoiceSegments(startFrame, endFrame, silenceRuns) {
-  const segments = [];
-  let cursor = startFrame;
-  for (const [silenceStart, silenceEnd] of silenceRuns) {
-    if (silenceStart > cursor) segments.push([cursor, silenceStart]);
-    cursor = Math.max(cursor, silenceEnd);
-  }
-  if (cursor < endFrame) segments.push([cursor, endFrame]);
-  return segments.filter(([start, end]) => end - start >= Math.round(SAMPLE_RATE * 0.08));
-}
-
 function summarizeRange([start, end]) {
   return {
     start,
@@ -107,26 +99,6 @@ function summarizeRange([start, end]) {
     startSeconds: Number((start / SAMPLE_RATE).toFixed(6)),
     endSeconds: Number((end / SAMPLE_RATE).toFixed(6)),
   };
-}
-
-function rms(parsed, startFrame, endFrame) {
-  let sum = 0;
-  let count = 0;
-  for (let frame = startFrame; frame < endFrame; frame += 1) {
-    const value = sample(parsed, frame);
-    sum += value * value;
-    count += 1;
-  }
-  return count ? Math.sqrt(sum / count) : 0;
-}
-
-function envelope(parsed, startFrame, endFrame, bucketFrames = 240) {
-  const values = [];
-  for (let start = startFrame; start < endFrame; start += bucketFrames) {
-    values.push(rms(parsed, start, Math.min(endFrame, start + bucketFrames)));
-  }
-  const max = Math.max(1, ...values);
-  return values.map((value) => Number((value / max).toFixed(3)));
 }
 
 async function fetchSource(id) {
@@ -140,8 +112,11 @@ async function fetchSource(id) {
   return response.arrayBuffer();
 }
 
+if (outputDir) await mkdir(outputDir, { recursive: true });
+
 for (const id of TARGET_IDS) {
-  const manifestId = `set-01/part1/No${String(id).padStart(2, "0")}`;
+  const number = String(id).padStart(2, "0");
+  const manifestId = `set-01/part1/No${number}`;
   const item = manifestById.get(manifestId);
   if (!item) throw new Error(`Manifest entry missing: ${manifestId}`);
   const source = await fetchSource(id);
@@ -158,10 +133,9 @@ for (const id of TARGET_IDS) {
   const firstQuestionTextStart =
     fixed.questionGapStartFrame + introDelta + bodyDelta + fixed.targetQuestionGapFrames;
 
-  const tailStart = firstQuestionTextStart;
-  const silence50 = findSilenceRuns(parsed, tailStart, parsed.totalFrames, 0.05);
-  const silence100 = findSilenceRuns(parsed, tailStart, parsed.totalFrames, 0.10);
-  const voiceBy100 = makeVoiceSegments(tailStart, parsed.totalFrames, silence100);
+  if (outputDir) {
+    await writeFile(path.join(outputDir, `No${number}-normal1s.wav`), Buffer.from(fixed.buffer));
+  }
 
   console.log(JSON.stringify({
     id: manifestId,
@@ -170,16 +144,11 @@ for (const id of TARGET_IDS) {
     firstQuestionStart,
     firstQuestionEnd,
     firstQuestionTextStart,
-    tailFrames: parsed.totalFrames - tailStart,
-    tailSeconds: Number(((parsed.totalFrames - tailStart) / SAMPLE_RATE).toFixed(6)),
-    silenceRuns50ms: silence50.map(summarizeRange),
-    silenceRuns100ms: silence100.map(summarizeRange),
-    voiceSegments100ms: voiceBy100.map((range) => ({
-      ...summarizeRange(range),
-      envelope10ms: envelope(parsed, range[0], range[1]),
-    })),
+    tailFrames: parsed.totalFrames - firstQuestionTextStart,
+    tailSeconds: Number(((parsed.totalFrames - firstQuestionTextStart) / SAMPLE_RATE).toFixed(6)),
+    silenceRuns100ms: findSilenceRuns(parsed, firstQuestionTextStart, parsed.totalFrames, 0.10).map(summarizeRange),
+    outputFile: outputDir ? path.join(outputDir, `No${number}-normal1s.wav`) : null,
   }));
 }
 
-console.error("DUPLICATE_DIAGNOSTIC_ONLY_STOP: no audio or routing changes were made; inspect six tail structures before implementing v2");
-process.exitCode = 2;
+console.log(`DUPLICATE_DIAGNOSTIC_READY count=${TARGET_IDS.length} outputDir=${outputDir || "none"}`);
