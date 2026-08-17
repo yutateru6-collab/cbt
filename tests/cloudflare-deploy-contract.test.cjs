@@ -57,31 +57,42 @@ test("Worker bundle contains the complete canonical explanation pipeline", () =>
   }
 });
 
-test("audio verifier supports fail-closed real-master preflight", () => {
+test("audio verifier fail-closes on the real 90-file immutable source before deploy", () => {
   assert.match(verifier, /--expected-only/);
-  assert.match(verifier, /GRADE2_LISTENING_ONE_SECOND_PAUSES_RELEASE/);
-  assert.match(verifier, /fixGrade2Set01OneSecondPausesWav/);
+  assert.match(verifier, /GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE/);
+  assert.match(verifier, /fixGrade2ThreeSetOneSecondPausesWav/);
+  assert.match(verifier, /setKeys = \["set-01", "set-02", "set-03"\]/);
+  assert.match(verifier, /id <= 30/);
+  assert.match(verifier, /sourceSha !== item\.outputSha256/);
   assert.match(verifier, /targetIntroGapFrames !== 24000/);
   assert.match(verifier, /targetBodyQuestionGapFrames !== 24000/);
   assert.match(verifier, /targetQuestionGapFrames !== 19200/);
-  assert.match(verifier, /GRADE2_LISTENING_FIX_RELEASE/);
+  assert.match(verifier, /verified !== 90/);
 });
 
-test("staging workflow deploys agent branches only to cbt-staging and seeds isolated R2", () => {
+test("staging workflow audits, seeds, deploys, and verifies all 90 through isolated R2", () => {
   assert.match(staging, /branches:\s*\n\s*-\s*"agent\/\*\*"/);
-  assert.match(staging, /wrangler deploy --env staging/);
-  assert.match(staging, /cbt-staging\.itisnowornever271\.workers\.dev/);
+  assert.match(staging, /inspect-grade2-three-set-pauses\.mjs/);
+  assert.match(staging, /for set_num in 01 02 03/);
+  assert.match(staging, /seq 1 30/);
   assert.match(staging, /mimilisten-audio-staging/);
   assert.match(staging, /cbt-project-archive-staging/);
   assert.match(staging, /verify-cloudflare-listening-audio\.mjs --expected-only/);
+  assert.match(staging, /wrangler deploy --env staging/);
+  assert.match(staging, /cbt-staging\.itisnowornever271\.workers\.dev/);
+  assert.ok(
+    staging.indexOf("inspect-grade2-three-set-pauses.mjs") <
+      staging.indexOf("wrangler deploy --env staging --config wrangler.jsonc"),
+    "90-file audit must run before staging deployment",
+  );
   assert.ok(
     staging.indexOf("verify-cloudflare-listening-audio.mjs --expected-only") <
       staging.indexOf("wrangler deploy --env staging --config wrangler.jsonc"),
-    "real-master preflight must run before staging deployment",
+    "90-file real-master preflight must run before staging deployment",
   );
 });
 
-test("production workflow deploys main only to the production Worker", () => {
+test("production workflow remains main-only and preflights all 90 before production deploy", () => {
   assert.match(production, /branches:\s*\n\s*-\s*main/);
   assert.match(production, /npx wrangler deploy --config wrangler\.jsonc/);
   assert.doesNotMatch(production, /wrangler deploy --env staging/);
@@ -90,6 +101,6 @@ test("production workflow deploys main only to the production Worker", () => {
   assert.ok(
     production.indexOf("verify-cloudflare-listening-audio.mjs --expected-only") <
       production.indexOf("npx wrangler deploy --config wrangler.jsonc"),
-    "real-master preflight must run before production deployment",
+    "90-file real-master preflight must run before production deployment",
   );
 });
