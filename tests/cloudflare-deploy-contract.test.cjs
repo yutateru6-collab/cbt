@@ -70,11 +70,14 @@ test("audio verifier fail-closes on the real 90-file immutable source before dep
   assert.match(verifier, /verified !== 90/);
 });
 
-test("staging workflow audits, seeds, deploys, and verifies all 90 through isolated R2", () => {
+test("staging workflow precomputes all 90 before deploy and verifies through isolated R2", () => {
   assert.match(staging, /branches:\s*\n\s*-\s*"agent\/\*\*"/);
   assert.match(staging, /inspect-grade2-three-set-pauses\.mjs/);
+  assert.match(staging, /build-grade2-three-set-corrected-audio\.mjs/);
+  assert.match(staging, /cloudflare-listening-route\.test\.mjs/);
   assert.match(staging, /for set_num in 01 02 03/);
   assert.match(staging, /seq 1 30/);
+  assert.match(staging, /20260817-grade2-sets01-03-listening-pauses-1s-v1/);
   assert.match(staging, /mimilisten-audio-staging/);
   assert.match(staging, /cbt-project-archive-staging/);
   assert.match(staging, /verify-cloudflare-listening-audio\.mjs --expected-only/);
@@ -86,21 +89,34 @@ test("staging workflow audits, seeds, deploys, and verifies all 90 through isola
     "90-file audit must run before staging deployment",
   );
   assert.ok(
-    staging.indexOf("verify-cloudflare-listening-audio.mjs --expected-only") <
+    staging.indexOf("build-grade2-three-set-corrected-audio.mjs") <
       staging.indexOf("wrangler deploy --env staging --config wrangler.jsonc"),
-    "90-file real-master preflight must run before staging deployment",
+    "corrected 90-file release must be built before staging deployment",
+  );
+  assert.ok(
+    staging.indexOf("Upload precomputed 90-file corrected release to staging R2") <
+      staging.indexOf("wrangler deploy --env staging --config wrangler.jsonc"),
+    "precomputed release must be uploaded before staging deployment",
   );
 });
 
-test("production workflow remains main-only and preflights all 90 before production deploy", () => {
+test("production workflow remains main-only and precomputes all 90 before production deploy", () => {
   assert.match(production, /branches:\s*\n\s*-\s*main/);
+  assert.match(production, /build-grade2-three-set-corrected-audio\.mjs/);
+  assert.match(production, /cloudflare-listening-route\.test\.mjs/);
+  assert.match(production, /mimilisten-audio\/\$key/);
+  assert.match(production, /verify-cloudflare-listening-audio\.mjs --expected-only/);
   assert.match(production, /npx wrangler deploy --config wrangler\.jsonc/);
   assert.doesNotMatch(production, /wrangler deploy --env staging/);
   assert.match(production, /https:\/\/cbt\.itisnowornever271\.workers\.dev/);
-  assert.match(production, /verify-cloudflare-listening-audio\.mjs --expected-only/);
   assert.ok(
     production.indexOf("verify-cloudflare-listening-audio.mjs --expected-only") <
       production.indexOf("npx wrangler deploy --config wrangler.jsonc"),
     "90-file real-master preflight must run before production deployment",
+  );
+  assert.ok(
+    production.indexOf("Upload precomputed 90-file corrected release to production R2") <
+      production.indexOf("npx wrangler deploy --config wrangler.jsonc"),
+    "precomputed release must be uploaded before production deployment",
   );
 });
