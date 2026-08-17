@@ -7,9 +7,16 @@ import {
   fixGrade2Set01QuestionGapWav,
 } from "../listening-audio-fix.js";
 
-const publicBase = String(process.argv[2] || process.env.CBT_PUBLIC_BASE_URL || "").replace(/\/+$/, "");
-if (!publicBase) {
-  throw new Error("Usage: node scripts/verify-cloudflare-listening-audio.mjs <worker-base-url>");
+const args = process.argv.slice(2);
+const expectedOnly = args.includes("--expected-only");
+const publicBase = String(
+  args.find((arg) => !arg.startsWith("--")) || process.env.CBT_PUBLIC_BASE_URL || "",
+).replace(/\/+$/, "");
+
+if (!expectedOnly && !publicBase) {
+  throw new Error(
+    "Usage: node scripts/verify-cloudflare-listening-audio.mjs <worker-base-url> | --expected-only",
+  );
 }
 
 const sourceBase =
@@ -56,6 +63,14 @@ for (let id = 1; id <= 9; id += 1) {
     throw new Error(`Expected a verified correction for Set 01 No.${number}`);
   }
 
+  const expectedSha = sha256(correction.fixed.buffer);
+  const expectedBytes = correction.fixed.buffer.byteLength;
+
+  if (expectedOnly) {
+    console.log(`No.${number} expected=${expectedSha} bytes=${expectedBytes}`);
+    continue;
+  }
+
   const actualUrl =
     `${publicBase}/audio-r2/grade2/releases/${correction.release}/set-01/listening/part1/No${number}.wav` +
     `?verify=${encodeURIComponent(process.env.CBT_BUILD_SHA || Date.now())}`;
@@ -64,9 +79,7 @@ for (let id = 1; id <= 9; id += 1) {
     throw new Error(`Unexpected content type for No.${number}: ${actual.contentType}`);
   }
 
-  const expectedSha = sha256(correction.fixed.buffer);
   const actualSha = sha256(actual.buffer);
-  const expectedBytes = correction.fixed.buffer.byteLength;
   const actualBytes = actual.buffer.byteLength;
 
   console.log(
@@ -81,4 +94,8 @@ for (let id = 1; id <= 9; id += 1) {
   }
 }
 
-console.log(`Verified Set 01 corrected listening audio against ${publicBase}`);
+if (expectedOnly) {
+  console.log("Verified real baseline masters can be transformed by the current correction code");
+} else {
+  console.log(`Verified Set 01 corrected listening audio against ${publicBase}`);
+}
