@@ -30,7 +30,7 @@ test("Grade 2 three-run production uses exactly 90 pauses-v2 R2 listening URLs",
     assert.ok(Array.isArray(questions), `${setKey} listeningQuestions must exist`);
     assert.equal(questions.length, 30, `${setKey} must contain 30 listening questions`);
     assert.deepEqual(
-      questions.map((question) => Number(question.id)),
+      Array.from(questions, (question) => Number(question.id)),
       Array.from({ length: 30 }, (_, index) => index + 1),
       `${setKey} must contain No.1 through No.30 in order`,
     );
