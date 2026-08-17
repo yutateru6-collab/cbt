@@ -23,7 +23,7 @@ const canonicalSource = fs.readFileSync(path.join(root, "grade2-canonical-explan
 const productionSetKeys = ["set-01", "set-02", "set-03"];
 const allPaidSetKeys = ["set-01", "set-02", "set-03", "set-04", "set-05"];
 const THREE_SET_RELEASE = "20260817-grade2-sets01-03-listening-pauses-1s-v1";
-const DUPLICATE_FIX_RELEASE = "20260817-set01-listening-duplicate-question-fix-v1";
+const DUPLICATE_FIX_RELEASE = "20260817-set01-listening-duplicate-question-fix-v2";
 const DUPLICATE_FIX_IDS = new Set([6, 7, 8, 10, 12, 14]);
 
 function loadCanonicalGrade2Data() {
@@ -46,9 +46,7 @@ function loadCanonicalGrade2Data() {
   vm.runInContext(explanationSyncSource, context, { filename: "grade2-explanation-sync.js" });
   vm.runInContext(canonicalSource, context, { filename: "grade2-canonical-explanations.js" });
 
-  const sets = Object.fromEntries(
-    context.window.Grade2CanonicalContent.sets.map((set) => [set.key, set]),
-  );
+  const sets = Object.fromEntries(context.window.Grade2CanonicalContent.sets.map((set) => [set.key, set]));
   return { context, sets, rawExplanation, removedByCleanup };
 }
 
@@ -63,35 +61,18 @@ test("Listening Player stays isolated from app.js but loads the full canonical e
     "../../grade2-skill-explanations.js",
     "../../grade2-explanation-sync.js",
     "../../grade2-canonical-explanations.js",
-  ]) {
-    assert.ok(html.includes(file), `Listening Player must load ${file}`);
-  }
+  ]) assert.ok(html.includes(file), `Listening Player must load ${file}`);
   assert.doesNotMatch(html, /(?:^|["'])\.\.\/\.\.\/app\.js/);
-  assert.ok(
-    html.indexOf("../../grade2-listening-part2-sets.js") <
-      html.indexOf("../../grade2-listening-set01-audio-fixes.js"),
-  );
-  assert.ok(
-    html.indexOf("../../grade2-listening-set01-audio-fixes.js") <
-      html.indexOf("../../grade2-legacy-explanation-cleanup.js"),
-  );
-  assert.ok(
-    html.indexOf("../../grade2-explanation-sync.js") <
-      html.indexOf("../../grade2-canonical-explanations.js"),
-  );
+  assert.ok(html.indexOf("../../grade2-listening-part2-sets.js") < html.indexOf("../../grade2-listening-set01-audio-fixes.js"));
+  assert.ok(html.indexOf("../../grade2-listening-set01-audio-fixes.js") < html.indexOf("../../grade2-legacy-explanation-cleanup.js"));
+  assert.ok(html.indexOf("../../grade2-explanation-sync.js") < html.indexOf("../../grade2-canonical-explanations.js"));
   assert.ok(html.indexOf("../../grade2-canonical-explanations.js") < html.indexOf("./player.js"));
   assert.equal((html.match(/<audio\b/g) || []).length, 1);
   assert.doesNotMatch(player, /new\s+Audio\s*\(/);
 });
 
 test("CBT exam resolves canonical explanations before exam-data consumes Grade 2 sets", () => {
-  for (const file of [
-    "./grade2-legacy-explanation-cleanup.js",
-    "./grade2-set-01-explanations.js",
-    "./grade2-skill-explanations.js",
-    "./grade2-explanation-sync.js",
-    "./grade2-canonical-explanations.js",
-  ]) {
+  for (const file of ["./grade2-legacy-explanation-cleanup.js", "./grade2-set-01-explanations.js", "./grade2-skill-explanations.js", "./grade2-explanation-sync.js", "./grade2-canonical-explanations.js"]) {
     assert.ok(examHtml.includes(file), `exam.html must load ${file}`);
   }
   assert.ok(examHtml.indexOf("./grade2-listening-part2-sets.js") < examHtml.indexOf("./grade2-listening-set01-audio-fixes.js"));
@@ -113,7 +94,6 @@ test("all 305 paid Reading and Listening questions resolve to canonical explanat
   assert.equal(canonical.ready, true, JSON.stringify(canonical.issues, null, 2));
   assert.equal(canonical.issues.length, 0);
   assert.equal(canonical.paidChoiceCount, 305);
-
   const seen = new Set();
   let total = 0;
   for (const setKey of allPaidSetKeys) {
@@ -167,7 +147,7 @@ test("Listening Player consumes canonical sets and canonicalExplanation only", (
   assert.match(player, /question\.explanationHash/);
 });
 
-test("only the six confirmed Set 01 items use the duplicate-question overlay release", () => {
+test("only the six confirmed Set 01 items use the duplicate-question v2 overlay release", () => {
   const { sets } = loadCanonicalGrade2Data();
   let total = 0;
   let overlayCount = 0;
@@ -181,11 +161,7 @@ test("only the six confirmed Set 01 items use the duplicate-question overlay rel
       const useOverlay = setKey === "set-01" && part === "part1" && DUPLICATE_FIX_IDS.has(id);
       const expectedRelease = useOverlay ? DUPLICATE_FIX_RELEASE : THREE_SET_RELEASE;
       assert.equal(question.audioRelease, expectedRelease, `${setKey} No.${id} release`);
-      assert.equal(
-        question.audioFile,
-        `./audio-r2/grade2/releases/${expectedRelease}/${setKey}/listening/${part}/No${number}.wav`,
-        `${setKey} No.${id} audioFile`,
-      );
+      assert.equal(question.audioFile, `./audio-r2/grade2/releases/${expectedRelease}/${setKey}/listening/${part}/No${number}.wav`, `${setKey} No.${id} audioFile`);
       if (useOverlay) overlayCount += 1;
       total += 1;
     }
@@ -212,13 +188,7 @@ test("all 90 Listening Player questions use the same canonical registry entries"
 });
 
 test("Worker build and service worker publish/cache every explanation pipeline asset", () => {
-  for (const file of [
-    "grade2-legacy-explanation-cleanup.js",
-    "grade2-set-01-explanations.js",
-    "grade2-skill-explanations.js",
-    "grade2-explanation-sync.js",
-    "grade2-canonical-explanations.js",
-  ]) {
+  for (const file of ["grade2-legacy-explanation-cleanup.js", "grade2-set-01-explanations.js", "grade2-skill-explanations.js", "grade2-explanation-sync.js", "grade2-canonical-explanations.js"]) {
     assert.ok(worker.includes(`\"${file}\"`), `worker-dist must include ${file}`);
     assert.ok(serviceWorker.includes(`/${file}`), `service worker must cache ${file}`);
   }
