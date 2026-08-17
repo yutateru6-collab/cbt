@@ -77,12 +77,12 @@ test("Listening Player consumes shared production question data and resolves app
     );
     assert.equal(
       question.audioRelease,
-      "20260817-set01-listening-q1-q5-question-gap-v1",
-      `Set 01 No.${id} must keep the latest Question-gap production correction`,
+      "20260817-set01-listening-q1-q5-intro08-v1",
+      `Set 01 No.${id} must use the active 0.8-second intro-gap correction`,
     );
     assert.match(
       question.audioFile,
-      /^\.\/audio-r2\/grade2\/releases\/20260817-set01-listening-q1-q5-question-gap-v1\//,
+      /^\.\/audio-r2\/grade2\/releases\/20260817-set01-listening-q1-q5-intro08-v1\//,
     );
   }
 
