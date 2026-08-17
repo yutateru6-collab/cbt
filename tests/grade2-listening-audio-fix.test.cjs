@@ -5,6 +5,8 @@ const vm = require("node:vm");
 
 const root = path.resolve(__dirname, "..");
 const THREE_SET_RELEASE = "20260817-grade2-sets01-03-listening-pauses-1s-v1";
+const DUPLICATE_FIX_RELEASE = "20260817-set01-listening-duplicate-question-fix-v1";
+const DUPLICATE_FIX_IDS = new Set([6, 7, 8, 10, 12, 14]);
 
 function makeMonoPcmWav(samples, sampleRate = 24000) {
   const dataBytes = samples.length * 2;
@@ -46,6 +48,7 @@ async function main() {
   assert.equal(legacy.GRADE2_LISTENING_INTRO_GAP_RELEASE, "20260817-set01-listening-q1-q5-intro08-v1");
   assert.equal(legacy.GRADE2_LISTENING_ONE_SECOND_PAUSES_RELEASE, "20260817-set01-listening-q1-q5-intro-bodyq-1s-v1");
   assert.equal(threeSet.GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE, THREE_SET_RELEASE);
+  assert.equal(threeSet.GRADE2_LISTENING_SET01_DUPLICATE_QUESTION_FIX_RELEASE, DUPLICATE_FIX_RELEASE);
 
   // Keep historical Set 01 release behavior covered for old immutable URLs.
   const q1QuestionGap = [774867, 789267];
@@ -103,7 +106,8 @@ async function main() {
   assert.equal(q9Fixed.fix, "shorten-no9-intro-pause");
   assert.equal(q9Fixed.removedFrames, 72000 - 19200);
 
-  // The shared override now changes exactly the 90 production Listening questions.
+  // The shared override changes the 90 production Listening questions, with
+  // only the six user-confirmed Set 01 duplicate items routed to the overlay.
   const overrideSource = fs.readFileSync(path.join(root, "grade2-listening-set01-audio-fixes.js"), "utf8");
   const makeQuestions = () => Array.from({ length: 30 }, (_, index) => ({
     id: index + 1,
@@ -121,27 +125,32 @@ async function main() {
   });
 
   let total = 0;
+  let overlayCount = 0;
   for (const set of sets.slice(0, 3)) {
     for (const question of set.listeningQuestions) {
       const id = Number(question.id);
       const part = id <= 15 ? "part1" : "part2";
       const number = String(id).padStart(2, "0");
-      assert.equal(question.audioRelease, THREE_SET_RELEASE);
+      const useOverlay = set.key === "set-01" && part === "part1" && DUPLICATE_FIX_IDS.has(id);
+      const expectedRelease = useOverlay ? DUPLICATE_FIX_RELEASE : THREE_SET_RELEASE;
+      assert.equal(question.audioRelease, expectedRelease);
       assert.equal(
         question.audioFile,
-        `./audio-r2/grade2/releases/${THREE_SET_RELEASE}/${set.key}/listening/${part}/No${number}.wav`,
+        `./audio-r2/grade2/releases/${expectedRelease}/${set.key}/listening/${part}/No${number}.wav`,
       );
+      if (useOverlay) overlayCount += 1;
       total += 1;
     }
   }
   assert.equal(total, 90);
+  assert.equal(overlayCount, 6);
   assert.equal(sets[3].listeningQuestions[0].audioFile, "old-1.wav");
   assert.equal(sets[3].listeningQuestions[0].audioRelease, undefined);
 
   const examHtml = fs.readFileSync(path.join(root, "exam.html"), "utf8");
   assert.ok(examHtml.indexOf("grade2-listening-part2-sets.js") < examHtml.indexOf("grade2-listening-set01-audio-fixes.js"));
   assert.ok(examHtml.indexOf("grade2-listening-set01-audio-fixes.js") < examHtml.indexOf("exam-data.js"));
-  assert.match(examHtml, /grade2-sets01-03-listening-pauses-1s-v1/);
+  assert.match(examHtml, /grade2-set01-duplicate-question-fix-v1/);
 
   const workerSource = fs.readFileSync(path.join(root, "cloudflare-worker.js"), "utf8");
   assert.match(workerSource, /GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE/);
@@ -151,6 +160,8 @@ async function main() {
   assert.match(workerSource, /part2/);
   assert.match(workerSource, /GRADE2_LISTENING_ONE_SECOND_PAUSES_RELEASE/);
   assert.match(workerSource, /GRADE2_LISTENING_FIX_RELEASE/);
+  assert.match(workerSource, /GRADE2_LISTENING_SET01_DUPLICATE_QUESTION_FIX_RELEASE/);
+  assert.match(workerSource, /sourceRelease: GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE/);
 
   const wrangler = fs.readFileSync(path.join(root, "wrangler.jsonc"), "utf8");
   assert.match(wrangler, /"binding"\s*:\s*"MIMILISTEN_AUDIO"/);
@@ -164,7 +175,7 @@ async function main() {
     assert.match(sw, /url\.pathname\.startsWith\("\/audio-r2\/"\)/);
   }
 
-  console.log("grade2 listening legacy and 90-question routing tests passed");
+  console.log("grade2 listening legacy and targeted duplicate routing tests passed");
 }
 
 main().catch((error) => {
