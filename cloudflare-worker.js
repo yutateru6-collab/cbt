@@ -119,12 +119,14 @@ function respondWithAudioBuffer(request, buffer, extraHeaders = {}) {
 }
 
 function getFixedListeningRequest(pathname) {
+  let matchedRelease = false;
   for (const correction of LISTENING_CORRECTIONS) {
     const routePrefix = `/audio-r2/grade2/releases/${correction.release}/`;
     if (!pathname.startsWith(routePrefix)) continue;
+    matchedRelease = true;
     const relativePath = pathname.slice(routePrefix.length);
     const match = correction.pathPattern.exec(relativePath);
-    if (!match) return { error: "Unsupported listening correction path." };
+    if (!match) continue;
     return {
       release: correction.release,
       relativePath,
@@ -134,7 +136,7 @@ function getFixedListeningRequest(pathname) {
       targetKey: `${R2_KEY_PREFIX}/${correction.release}/${relativePath}`,
     };
   }
-  return null;
+  return matchedRelease ? { error: "Unsupported listening correction path." } : null;
 }
 
 async function backupCorrectedAudioIfNeeded(env, info, buffer, fixName) {
