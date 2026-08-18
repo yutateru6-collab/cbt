@@ -7,92 +7,73 @@
     <meta name="referrer" content="no-referrer" />
     <meta
       name="description"
-      content="英検2級 S-CBT直前リハーサル購入者向けの8ページPDFと外部AI採点連携特典です。"
+      content="英検2級 S-CBT直前リハーサル購入者向けの8ページ直前確認PDFとWriting・Speaking AI採点特典です。"
     />
     <title>2級・購入者特典 | S-CBT直前リハーサル</title>
     <link rel="icon" href="./assets/app-icon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="./bonus.css?v=grade2-premium-v72-ai-grading" />
+    <link rel="stylesheet" href="./bonus.css?v=grade2-premium-v80-simple-benefits" />
   </head>
   <body>
     <main class="bonus-shell">
-      <a class="back-link" href="./exam.html?plan=three" data-exam-link>← 模試へ戻る</a>
+      <a class="back-link" href="./exam.html?plan=three" data-exam-link>← 3回プレミアムへ戻る</a>
 
       <div data-bonus-content hidden>
         <section class="bonus-hero" aria-labelledby="bonus-title">
-          <span class="eyebrow" data-plan-badge>英検2級｜購入者特典</span>
-          <p class="hero-kicker">LAST-MINUTE PRACTICE KIT</p>
-          <h1 id="bonus-title">直前の確認を、<br />二つの特典で仕上げる。</h1>
-          <p data-plan-description></p>
+          <span class="eyebrow">英検2級｜3回プレミアム購入特典</span>
+          <p class="hero-kicker">PREMIUM BENEFITS</p>
+          <h1 id="bonus-title">特典は、<br />この二つだけ。</h1>
+          <p>直前確認に使う8ページPDFと、模試終了後に使えるWriting・Speaking AI採点。迷わず使えるよう、特典を二つに絞りました。</p>
           <div class="hero-tags" aria-label="収録内容">
-            <span>8ページPDF</span>
-            <span>外部AI相談・採点</span>
+            <span>8ページ直前確認PDF</span>
+            <span>Writing・Speaking AI採点</span>
           </div>
         </section>
 
         <nav class="bonus-nav" aria-label="特典内の目次">
           <a href="#pdf">8ページPDF</a>
-          <a href="#ai-grading">外部AI相談・採点</a>
+          <a href="#ai-grading">AI採点</a>
         </nav>
 
-        <section class="bonus-section checklist-section" id="pdf" aria-labelledby="pdf-title">
+        <section class="bonus-section" id="pdf" aria-labelledby="pdf-title">
           <div class="section-heading">
-            <span>直前確認PDF</span>
+            <span>特典 1</span>
             <h2 id="pdf-title">本番前に、8ページだけ確認する。</h2>
-            <p>ライティング・スピーキングの型と、4技能の最終動作をまとめた既存PDFです。必要なときに保存して確認してください。</p>
+            <p>ライティング・スピーキングの型と、4技能の最終動作をまとめた直前確認PDFです。内容はこれまでの8ページ版をそのまま残しています。</p>
           </div>
-          <div class="checklist-sheet">
-            <div class="checklist-actions">
-              <a class="bonus-button primary" href="./output/pdf/eiken-grade2-final-check-writing-template.pdf" download>8ページPDFをダウンロード</a>
-            </div>
-          </div>
+          <a class="bonus-button primary" href="./output/pdf/eiken-grade2-final-check-writing-template.pdf" download>8ページPDFをダウンロード</a>
         </section>
 
-        <section class="bonus-section ai-grading-section" id="ai-grading" aria-labelledby="ai-grading-title">
+        <section class="bonus-section ai-section" id="ai-grading" aria-labelledby="ai-grading-title">
           <div class="section-heading">
-            <span>外部AI相談・採点</span>
-            <h2 id="ai-grading-title">普段使っているAIで、Writing・Speakingを相談・採点する。</h2>
-            <p>模試の結果画面で採点データをコピーし、Read AloudとNo.1〜4の5音声を保存します。利用するAIへ自分で貼り付け・アップロードし、返ってきたJSONを元のCBT結果画面へ戻してください。</p>
+            <span>特典 2</span>
+            <h2 id="ai-grading-title">Writing・Speakingを、普段使うAIで採点。</h2>
+            <p>AI採点の操作はこのページでは行いません。4技能を最後まで受けると、結果画面に採点専用の3ステップが表示されます。</p>
           </div>
-          <ol class="ai-grading-steps" aria-label="外部AI採点の手順">
-            <li><span>1</span><strong>採点データをコピー</strong><p>Writingの問題・答案と採点基準を結果画面からコピーします。</p></li>
-            <li><span>2</span><strong>5音声を保存</strong><p>Read AloudとNo.1〜4を、採点対象として保存します。</p></li>
-            <li><span>3</span><strong>普段使うAIで相談・採点</strong><p>データを貼り付け、5音声を自分でアップロードします。</p></li>
-            <li><span>4</span><strong>JSONをCBTへ戻す</strong><p>AIの回答末尾にあるJSONを、結果画面へ貼り付けます。</p></li>
-          </ol>
-          <div class="ai-grading-notice">
-            <p><strong>答案や録音は、このCBTアプリから外部AIへ自動送信されません。</strong></p>
-            <p>利用者自身が選んだAIへ手動で貼り付け・アップロードします。実名、学校名、その他の個人情報は入力しないでください。</p>
-            <p>採点は学習用の参考評価であり、英検の公式採点・公式CSE・公式合否ではありません。</p>
+
+          <div class="ai-flow-preview" aria-label="AI採点の流れ">
+            <article><span>1</span><div><strong>5音声を保存</strong><p>Read Aloud と No.1〜4を保存。</p></div></article>
+            <article><span>2</span><div><strong>AIで採点</strong><p>採点データをコピーし、ChatGPTなど普段使うAIへ。</p></div></article>
+            <article><span>3</span><div><strong>回答を戻す</strong><p>AIの回答全文を結果画面へ貼れば、採点結果を反映。</p></div></article>
           </div>
-          <button class="bonus-button primary" type="button" data-action="open-ai-provider-dialog">普段使っているAIを選ぶ</button>
+
+          <div class="ai-notice">
+            <strong>答案や録音は、このCBTから外部AIへ自動送信されません。</strong>
+            <p>利用者自身が選んだAIへ手動で渡します。実名・学校名などの個人情報は入力しないでください。採点は学習用の参考評価であり、英検の公式採点・公式CSE・公式合否ではありません。</p>
+          </div>
+
+          <a class="bonus-button primary" href="./exam.html?plan=three" data-exam-link>3回プレミアムへ戻る</a>
+          <p class="ai-section-note">※AI採点は4技能終了後の結果画面から利用できます。</p>
         </section>
       </div>
-
-      <dialog class="ai-grading-dialog" data-ai-grading-dialog aria-labelledby="ai-grading-dialog-title" aria-describedby="ai-grading-dialog-description">
-        <div class="ai-grading-dialog-head">
-          <div>
-            <span>外部AI採点</span>
-            <h2 id="ai-grading-dialog-title">普段使っているAIを選ぶ</h2>
-          </div>
-          <button class="ai-provider-dialog-close" type="button" data-action="close-ai-grading" aria-label="AI選択を閉じる">×</button>
-        </div>
-        <p id="ai-grading-dialog-description">コピーした採点データを貼り付け、Read AloudとNo.1〜4の5音声を追加してください。選択したAIは、このプレミアム特典ページと同じタブで開きます。</p>
-        <div class="ai-provider-list" aria-label="外部AIの選択肢">
-          <button type="button" data-action="open-external-ai" data-ai-provider="chatgpt"><span class="ai-provider-mark" aria-hidden="true">C</span><span><strong>ChatGPT</strong><small>公式Web版を開く</small></span></button>
-          <button type="button" data-action="open-external-ai" data-ai-provider="gemini"><span class="ai-provider-mark" aria-hidden="true">G</span><span><strong>Gemini</strong><small>公式Web版を開く</small></span></button>
-          <button type="button" data-action="open-external-ai" data-ai-provider="claude"><span class="ai-provider-mark" aria-hidden="true">C</span><span><strong>Claude</strong><small>公式Web版を開く</small></span></button>
-          <button type="button" data-action="open-external-ai" data-ai-provider="perplexity"><span class="ai-provider-mark" aria-hidden="true">P</span><span><strong>Perplexity</strong><small>公式Web版を開く</small></span></button>
-        </div>
-        <p class="ai-grading-dialog-note">音声ファイルを直接解析できるかどうかは、サービス、モデル、プラン、ファイル形式によって異なります。音声を確認できないAIには、発音・流暢さの点数を推測させないでください。</p>
-      </dialog>
 
       <section class="locked-card" data-bonus-locked>
         <span class="eyebrow">購入者特典</span>
         <h1>購入プランから特典を開いてください。</h1>
-        <p>3回プレミアムには、8ページPDFと外部AI相談・採点ランチャーを収録します。</p>
+        <p>3回プレミアムには、8ページ直前確認PDFとWriting・Speaking AI採点を収録しています。</p>
         <a class="bonus-button primary" href="./">プランを見る</a>
       </section>
     </main>
+
     <footer class="bonus-footer">
       <nav aria-label="販売・利用に関する案内">
         <a href="./tokusho.html">特定商取引法に基づく表記</a>
@@ -102,6 +83,7 @@
       </nav>
       <p>運営: Memora Apps　<a href="mailto:info@memora-apps.com">info@memora-apps.com</a></p>
     </footer>
-    <script src="./grade2-premium-bonus.js?v=grade2-three-premium-v72-ai-grading"></script>
+
+    <script src="./grade2-premium-bonus.js?v=grade2-premium-v80-simple-benefits"></script>
   </body>
 </html>
