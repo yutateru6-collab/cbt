@@ -1,6 +1,5 @@
 import fs from "node:fs";
 import crypto from "node:crypto";
-import { setTimeout as delay } from "node:timers/promises";
 
 const API = "https://api.cloudflare.com/client/v4";
 const TOKEN = process.env.CLOUDFLARE_API_TOKEN || "";
@@ -10,6 +9,9 @@ const WORKER_URL = "https://tg-lesson-memo.itisnowornever271.workers.dev";
 const RESULT_PATH = "cloudflare-deploy-result.json";
 const original = fs.readFileSync("cloudflare-inspect/worker-current.js", "utf8");
 const patched = fs.readFileSync("cloudflare-patch/worker-patched.js", "utf8");
+const baselineSettings = JSON.parse(
+  fs.readFileSync("cloudflare-inspect/settings-safe.json", "utf8")
+);
 
 const result = {
   worker: WORKER_NAME,
@@ -18,6 +20,8 @@ const result = {
   mode: null,
   rolledBack: false,
   sourceSha256: sha(patched),
+  settingsVerified: false,
+  runtimeCheck: null,
   health: null,
   error: null,
   verifiedAt: null
@@ -34,7 +38,7 @@ function saveResult() {
 
 function safeError(error) {
   const text = error instanceof Error ? error.message : String(error);
-  return text.replaceAll(TOKEN, "[REDACTED]").slice(0, 2000);
+  return TOKEN ? text.replaceAll(TOKEN, "[REDACTED]").slice(0, 2000) : text.slice(0, 2000);
 }
 
 async function apiFetch(path, options = {}) {
@@ -57,6 +61,28 @@ async function jsonOrThrow(response, label) {
   return data;
 }
 
+function normalizeSafeSettings(value) {
+  const settings = value?.result || value || {};
+  const allow = [
+    "name", "type", "namespace_id", "namespace", "database_id", "database_name",
+    "bucket_name", "service", "environment", "class_name", "script_name",
+    "queue_name", "index_name", "id"
+  ];
+  const bindings = Array.isArray(settings.bindings)
+    ? settings.bindings.map((binding) => Object.fromEntries(
+        allow.filter((key) => binding?.[key] !== undefined).map((key) => [key, binding[key]])
+      )).sort((a, b) => `${a.name || ""}:${a.type || ""}`.localeCompare(`${b.name || ""}:${b.type || ""}`))
+    : [];
+  return {
+    compatibility_date: settings.compatibility_date || null,
+    compatibility_flags: settings.compatibility_flags || [],
+    main_module: settings.main_module || null,
+    usage_model: settings.usage_model || null,
+    placement: settings.placement || null,
+    bindings
+  };
+}
+
 async function locateAccount() {
   if (!TOKEN) throw new Error("CLOUDFLARE_API_TOKEN is missing");
   const candidates = [];
@@ -65,15 +91,19 @@ async function locateAccount() {
   } else {
     const response = await apiFetch("/accounts?per_page=50");
     const data = await jsonOrThrow(response, "list accounts");
-    for (const account of data.result || []) {
-      if (account?.id) candidates.push(account.id);
-    }
+    for (const account of data.result || []) if (account?.id) candidates.push(account.id);
   }
   for (const accountId of candidates) {
     const response = await apiFetch(`/accounts/${accountId}/workers/scripts/${WORKER_NAME}/settings`);
     if (response.ok) return accountId;
   }
   throw new Error(`Worker ${WORKER_NAME} was not found in accessible accounts`);
+}
+
+async function getSafeSettings(accountId) {
+  const response = await apiFetch(`/accounts/${accountId}/workers/scripts/${WORKER_NAME}/settings`);
+  const data = await jsonOrThrow(response, "get Worker settings");
+  return normalizeSafeSettings(data);
 }
 
 function extractIndexJs(buffer, contentType) {
@@ -117,30 +147,46 @@ async function updateContent(accountId, source) {
   return jsonOrThrow(response, "update Worker content");
 }
 
-async function verifyHealth() {
-  let lastError = "health endpoint did not return the feature flag";
-  for (let attempt = 0; attempt < 15; attempt += 1) {
+async function inspectRuntime() {
+  const response = await fetch(`${WORKER_URL}/api/health`, {
+    cache: "no-store",
+    redirect: "follow"
+  });
+  const contentType = response.headers.get("content-type") || "";
+  const text = await response.text();
+  if (contentType.includes("application/json")) {
+    let data;
     try {
-      const response = await fetch(`${WORKER_URL}/api/health`, { cache: "no-store" });
-      const data = await response.json();
-      result.health = data;
-      if (response.ok && data?.ok === true && data?.studentProfiles === true) return;
-      lastError = `health ${response.status}: ${JSON.stringify(data).slice(0, 500)}`;
-    } catch (error) {
-      lastError = safeError(error);
+      data = JSON.parse(text);
+    } catch {
+      throw new Error("health endpoint returned malformed JSON");
     }
-    await delay(2000);
+    result.health = data;
+    if (!response.ok || data?.ok !== true || data?.studentProfiles !== true) {
+      throw new Error(`health endpoint did not expose studentProfiles=true: ${JSON.stringify(data).slice(0, 500)}`);
+    }
+    result.runtimeCheck = "health-json";
+    return;
   }
-  throw new Error(lastError);
+  if (contentType.includes("text/html") || /^\s*<!doctype html/i.test(text)) {
+    result.runtimeCheck = "cloudflare-access-protected";
+    result.health = {
+      protected: true,
+      status: response.status,
+      contentType
+    };
+    return;
+  }
+  throw new Error(`unexpected health response: ${response.status} ${contentType}`);
 }
 
 async function rollback(accountId) {
-  try {
-    await updateContent(accountId, original);
-    result.rolledBack = true;
-  } catch (error) {
-    throw new Error(`rollback failed after deployment verification error: ${safeError(error)}`);
+  await updateContent(accountId, original);
+  const restored = await downloadWorkerSource(accountId);
+  if (sha(restored) !== sha(original)) {
+    throw new Error("rollback source verification failed");
   }
+  result.rolledBack = true;
 }
 
 let accountId = null;
@@ -149,12 +195,18 @@ try {
   result.stage = "locate-account";
   accountId = await locateAccount();
 
+  result.stage = "verify-baseline-settings";
+  const beforeSettings = await getSafeSettings(accountId);
+  const normalizedBaseline = normalizeSafeSettings(baselineSettings);
+  if (JSON.stringify(beforeSettings) !== JSON.stringify(normalizedBaseline)) {
+    throw new Error("Worker settings changed after the inspection snapshot; refusing deployment");
+  }
+
   result.stage = "compare-live-source";
   const live = await downloadWorkerSource(accountId);
   const liveSha = sha(live);
   const originalSha = sha(original);
   const patchedSha = sha(patched);
-
   if (liveSha === patchedSha) {
     result.mode = "already-present";
   } else if (liveSha === originalSha) {
@@ -166,17 +218,24 @@ try {
     throw new Error(`Production source changed unexpectedly (${liveSha}); refusing to overwrite it`);
   }
 
-  result.stage = "verify-health";
-  await verifyHealth();
-
   result.stage = "verify-source";
   const deployed = await downloadWorkerSource(accountId);
   if (sha(deployed) !== patchedSha) {
     throw new Error("Deployed Worker source hash does not match the validated patch");
   }
-  if (!deployed.includes("CREATE TABLE IF NOT EXISTS student_profiles")) {
-    throw new Error("Deployed Worker is missing student_profiles schema code");
+  if (!deployed.includes("CREATE TABLE IF NOT EXISTS student_profiles") || !deployed.includes("studentProfiles: true")) {
+    throw new Error("Deployed Worker is missing student profile feature markers");
   }
+
+  result.stage = "verify-settings-unchanged";
+  const afterSettings = await getSafeSettings(accountId);
+  if (JSON.stringify(afterSettings) !== JSON.stringify(beforeSettings)) {
+    throw new Error("Worker bindings/settings changed during content-only deployment");
+  }
+  result.settingsVerified = true;
+
+  result.stage = "inspect-runtime-access";
+  await inspectRuntime();
 
   result.stage = "verified";
   result.verified = true;
@@ -189,7 +248,7 @@ try {
       result.stage = "rollback";
       await rollback(accountId);
     } catch (rollbackError) {
-      result.error += `; ${safeError(rollbackError)}`;
+      result.error += `; rollback: ${safeError(rollbackError)}`;
     }
   }
   result.stage = result.rolledBack ? "rolled-back" : result.stage;
