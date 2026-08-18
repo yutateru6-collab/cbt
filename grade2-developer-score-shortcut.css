@@ -1,0 +1,45 @@
+.developer-score-shortcut {
+  position: fixed;
+  top: calc(12px + env(safe-area-inset-top));
+  right: 12px;
+  z-index: 12000;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.46);
+  border-radius: 999px;
+  color: #fff;
+  background: #c85328;
+  box-shadow: 0 10px 24px rgba(39, 55, 67, 0.24);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+}
+
+.developer-score-shortcut:hover,
+.developer-score-shortcut:focus-visible {
+  background: #a9401f;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(200, 83, 40, 0.24), 0 10px 24px rgba(39, 55, 67, 0.24);
+}
+
+.developer-score-shortcut:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 520px) {
+  .developer-score-shortcut {
+    top: calc(8px + env(safe-area-inset-top));
+    right: 8px;
+    min-height: 40px;
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .developer-score-shortcut:active {
+    transform: none;
+  }
+}
