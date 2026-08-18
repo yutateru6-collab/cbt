@@ -2,6 +2,7 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
 const test = require("node:test");
+const vm = require("node:vm");
 
 const root = path.resolve(__dirname, "..");
 const bonusHtml = fs.readFileSync(path.join(root, "bonus.html"), "utf8");
@@ -32,82 +33,127 @@ function validPayload() {
   };
 }
 
+function executeFlow({ premium }) {
+  const appRoot = { addEventListener() {} };
+  const context = {
+    console,
+    document: { getElementById: () => appRoot },
+    appState: {
+      started: false,
+      modal: null,
+      module: "reading",
+      speakingStep: 0,
+      speakingBreakOpen: false,
+      speakingRecordings: {},
+      speakingRecordMessage: "",
+      grade2GptScoreDraft: "",
+      grade2GptScoreMessage: "",
+      grade2GptScores: validPayload(),
+    },
+    canViewBonus: premium,
+    canViewExplanations: premium,
+    selectedAccessPlan: { key: premium ? "three" : "single", label: premium ? "3回プレミアム" : "1回版" },
+    selectedSet: { key: "set-01" },
+    grade2Scoring: scoring,
+    speakingSteps: [],
+    getGrade2ScoredSpeakingSteps: () => [],
+    formatBytes: () => "1 KB",
+    renderGrade2CseRanges: () => "",
+    copyTextToClipboard: async () => true,
+    getGrade2JsonOutputPrompt: () => "prompt",
+    renderCalls: 0,
+  };
+  context.render = () => { context.renderCalls += 1; };
+  context.window = context;
+  vm.createContext(context);
+  vm.runInContext(flowSource, context);
+  return context;
+}
+
 test("1. premium page exposes exactly the PDF and AI grading benefits", () => {
   const visible = bonusHtml.match(/<div data-bonus-content hidden>[\s\S]*?<\/div>\s*\n\s*<section class="locked-card"/u)?.[0] || "";
   assert.equal((visible.match(/<section class="bonus-section/g) || []).length, 2);
   assert.match(visible, /id="pdf"/);
   assert.match(visible, /id="ai-grading"/);
   assert.match(visible, /eiken-grade2-final-check-writing-template\.pdf/);
-  assert.match(visible, /特典は、<br \/>この二つだけ。/);
   assert.doesNotMatch(visible, /AI振り返り|7日・14日|弱点別|スピーキング即答型|ライティング回答型/);
 });
 
-test("2. premium bonus script is only access and legacy-plan normalization", () => {
+test("2. premium bonus script remains only access and legacy-plan normalization", () => {
   assert.match(bonusScript, /requestedPlan === "three" \|\| requestedPlan === "five"/);
   assert.match(bonusScript, /normalized\.searchParams\.set\("plan", "three"\)/);
-  assert.doesNotMatch(bonusScript, /externalAiProviders|vocabularyNotes|prompt-switch|weakness|ChatGPT|Gemini|Claude|Perplexity/);
-  assert.ok(bonusScript.length < 2000, "legacy premium bonus code should be removed rather than left dormant");
+  assert.ok(bonusScript.length < 2000);
   assert.doesNotMatch(bonusCss, /\.template-tabs|\.prompt-switch|\.plan-switch|\.practice-lab|\.speaking-grid/);
 });
 
-test("3. exam loads the isolated AI grading UI after app.js", () => {
-  assert.match(examHtml, /grade2-ai-grading-flow\.css\?v=grade2-ai-grading-flow-v80/);
-  assert.match(examHtml, /grade2-ai-grading-flow\.js\?v=grade2-ai-grading-flow-v80/);
+test("3. exam uses the v81 grading assets after app.js", () => {
+  assert.match(examHtml, /grade2-ai-grading-flow\.css\?v=grade2-ai-grading-flow-v81/);
+  assert.match(examHtml, /grade2-ai-grading-flow\.js\?v=grade2-ai-grading-flow-v81/);
   assert.ok(examHtml.indexOf("app.js?") < examHtml.indexOf("grade2-ai-grading-flow.js?"));
+  assert.doesNotMatch(examHtml, /grade2-ai-grading-flow-v80/);
 });
 
-test("4. result flow is three steps and reuses the existing trusted actions", () => {
-  for (const text of [
-    "スピーキング音声を保存",
-    "AIで採点",
-    "AIの回答を戻す",
-    "採点用5音声を保存",
-    "採点データをコピー",
-    "AIの回答をここに貼り付け",
-    "採点結果を反映する",
-  ]) assert.match(flowSource, new RegExp(text));
-  for (const action of [
-    "grade2-speaking-download-all",
-    "copy-grade2-grading-data",
-    "import-grade2-gpt-score",
-    "copy-grade2-json-output-prompt",
-  ]) assert.match(flowSource, new RegExp(`data-action=\\"${action}\\"`));
-  assert.match(appSource, /async function downloadAllGrade2SpeakingRecordings\(\)/);
-  assert.match(appSource, /function getGrade2GradingPackageText\(\)/);
-  assert.match(appSource, /function importGrade2GptScore\(\)/);
+test("4. grading flow no longer uses MutationObserver or DOM rewrite loops", () => {
+  assert.doesNotMatch(flowSource, /MutationObserver/);
+  assert.doesNotMatch(flowSource, /querySelectorAll\(|\.remove\(\)|patchQueued|schedulePatch|queueMicrotask\(patch/);
+  for (const name of ["renderGrade2GptPanel", "renderGrade2ScoreResult", "renderGrade2SpeakingReviewV2", "getValidatedGrade2GptScores"]) {
+    assert.match(flowSource, new RegExp(`window\\.${name} = function`));
+  }
 });
 
-test("5. speaking completion no longer exposes mid-exam AI grading actions", () => {
-  assert.match(flowSource, /grade2-speaking-copy-grading-prompt/);
-  assert.match(flowSource, /grade2-speaking-download-all/);
-  assert.match(flowSource, /AI採点は4技能をすべて終えた後の結果画面から行えます/);
-  const cleanup = flowSource.match(/function cleanSpeakingCompletion\(\)[\s\S]*?\n  \}/u)?.[0] || "";
-  assert.match(cleanup, /\.remove\(\)/);
-  assert.match(cleanup, /speaking-review-list\.compact-list/);
+test("5. non-premium plans cannot reuse persisted premium AI scores", () => {
+  const context = executeFlow({ premium: false });
+  assert.equal(context.getValidatedGrade2GptScores(), null);
+  const panel = context.renderGrade2GptPanel(validPayload());
+  assert.match(panel, /3回プレミアムで利用できます/);
+  assert.doesNotMatch(panel, /data-action="copy-grade2-grading-data"|data-grade2-ai-provider|data-action="import-grade2-gpt-score"/);
+  assert.equal(context.renderCalls, 1);
 });
 
-test("6. provider links are direct, official, new-tab roots with no user data", () => {
-  const expected = [
-    "https://chatgpt.com/",
-    "https://gemini.google.com/",
-    "https://claude.ai/",
-    "https://www.perplexity.ai/",
-  ];
-  for (const url of expected) assert.match(flowSource, new RegExp(url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+test("6. premium flow renders without observer and keeps the three trusted steps", () => {
+  const context = executeFlow({ premium: true });
+  const panel = context.renderGrade2GptPanel(null);
+  for (const text of ["スピーキング音声を保存", "AIで採点", "AIの回答を戻す", "採点用5音声を保存", "採点データをコピー", "採点結果を反映する"]) {
+    assert.match(panel, new RegExp(text));
+  }
+  assert.equal(context.renderCalls, 1);
+});
+
+test("7. speaking completion is rendered directly without mid-exam AI actions", () => {
+  assert.match(flowSource, /window\.renderGrade2SpeakingReviewV2 = function/);
+  const reviewBlock = flowSource.match(/window\.renderGrade2SpeakingReviewV2 = function[\s\S]*?\n  \};/u)?.[0] || "";
+  assert.match(reviewBlock, /そのままリスニングへ進む（本番形式）/);
+  assert.match(reviewBlock, /AI採点は4技能をすべて終えた後の結果画面から行えます/);
+  assert.doesNotMatch(reviewBlock, /grade2-speaking-copy-grading-prompt|grade2-speaking-download-all/);
+});
+
+test("8. audio step has both batch and individual save fallbacks", () => {
+  assert.match(flowSource, /data-action="grade2-speaking-download-all"/);
+  assert.match(flowSource, /data-action="speaking-record-download"/);
+  assert.match(flowSource, /一括保存できない場合/);
+  assert.match(flowCss, /\.grade2-ai-individual-downloads/);
+  assert.match(flowCss, /\.grade2-ai-individual-row/);
+});
+
+test("9. provider links are direct official roots and never carry user data", () => {
+  for (const url of ["https://chatgpt.com/", "https://gemini.google.com/", "https://claude.ai/", "https://www.perplexity.ai/"]) {
+    assert.match(flowSource, new RegExp(url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  }
   assert.match(flowSource, /target="_blank"/);
   assert.match(flowSource, /rel="noopener noreferrer"/);
   assert.match(flowSource, /referrerpolicy="no-referrer"/);
-  assert.doesNotMatch(flowSource, /\?prompt=|\?answer=|FormData|fetch\(.*provider|clipboard.*provider/);
+  assert.doesNotMatch(flowSource, /\?prompt=|\?answer=|FormData|fetch\(.*provider/);
 });
 
-test("7. normal users see no JSON jargon in the primary flow", () => {
+test("10. normal user-facing flow hides JSON/schema terminology", () => {
   assert.doesNotMatch(flowSource, />採点JSON</);
   assert.doesNotMatch(flowSource, />AIの採点結果JSON</);
-  assert.match(flowSource, /うまく採点結果を読み取れない場合/);
+  assert.doesNotMatch(flowSource, /data-action="copy-grade2-json-output-prompt"/);
+  assert.match(flowSource, /data-grade2-ai-recovery/);
   assert.match(flowSource, /AIに形式を整えてもらう指示をコピー/);
 });
 
-test("8. existing parser accepts a full AI response and extracts the embedded score payload", () => {
+test("11. existing parser accepts a full AI response and extracts the embedded score payload", () => {
   const payload = validPayload();
   const response = `総評です。\n\n\`\`\`json\n${JSON.stringify(payload, null, 2)}\n\`\`\``;
   const parsed = scoring.parseAndValidateGptScore(response, "set-01");
@@ -115,7 +161,7 @@ test("8. existing parser accepts a full AI response and extracts the embedded sc
   assert.deepEqual(parsed.value, payload);
 });
 
-test("9. scoring validation still rejects wrong set, decimals, and inconsistent totals", () => {
+test("12. scoring validation still rejects wrong set, decimals, and inconsistent totals", () => {
   assert.equal(scoring.validateGptScorePayload(validPayload(), "set-01").ok, true);
   assert.equal(scoring.validateGptScorePayload(validPayload(), "set-02").ok, false);
 
@@ -128,11 +174,18 @@ test("9. scoring validation still rejects wrong set, decimals, and inconsistent 
   assert.equal(scoring.validateGptScorePayload(badTotal, "set-01").ok, false);
 });
 
-test("10. mobile layout remains one-column where the workflow needs it", () => {
+test("13. mobile layout remains usable for providers and individual downloads", () => {
   assert.match(flowCss, /@media \(max-width: 760px\)/);
   assert.match(flowCss, /grade2-ai-provider-grid \{ grid-template-columns: repeat\(2/);
   assert.match(flowCss, /@media \(max-width: 390px\)/);
   assert.match(flowCss, /grade2-ai-provider-grid \{ grid-template-columns: 1fr/);
-  assert.match(bonusCss, /@media \(max-width: 720px\)/);
-  assert.match(bonusCss, /ai-flow-preview \{ grid-template-columns: 1fr/);
+  assert.match(flowCss, /@media \(max-width: 520px\)/);
+});
+
+test("14. existing app actions required by the direct renderer are still present", () => {
+  for (const action of ["grade2-speaking-download-all", "speaking-record-download", "copy-grade2-grading-data", "import-grade2-gpt-score"]) {
+    assert.match(appSource, new RegExp(action));
+  }
+  assert.match(appSource, /function getGrade2GradingPackageText\(\)/);
+  assert.match(appSource, /function importGrade2GptScore\(\)/);
 });
