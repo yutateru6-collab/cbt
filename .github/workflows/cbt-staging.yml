@@ -1,54 +1,206 @@
-name: Validate tg-lesson-memo student profile patch
+name: Deploy tg-lesson-memo student profiles
 
 on:
   push:
     branches:
-      - "agent/**"
+      - "agent/tg-lesson-memo-cloudflare-inspect"
+    paths:
+      - .github/workflows/cbt-staging.yml
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
-  group: tg-lesson-memo-patch-validation
-  cancel-in-progress: true
+  group: tg-lesson-memo-student-profile-deploy
+  cancel-in-progress: false
 
 jobs:
-  validate:
+  deploy:
     runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      OPTIONAL_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      WORKER_NAME: tg-lesson-memo
+      WORKER_URL: https://tg-lesson-memo.itisnowornever271.workers.dev
+
     steps:
-      - name: Check out validation branch
+      - name: Check out deployment branch
         uses: actions/checkout@v4
 
-      - name: Validate browser client syntax
-        run: node --check cloudflare-patch/student-info.js
-
-      - name: Build patched Worker from exact production snapshot
-        run: node cloudflare-patch/patch-worker.mjs
-
-      - name: Validate patched Worker syntax and invariants
+      - name: Validate patch before touching production
         shell: bash
         run: |
           set -euo pipefail
+          test -n "${CLOUDFLARE_API_TOKEN:-}"
+          node --check cloudflare-patch/student-info.js
+          node cloudflare-patch/patch-worker.mjs
           node --check cloudflare-patch/worker-patched.js
-          grep -q 'function authenticate' cloudflare-patch/worker-patched.js
-          grep -q 'env.ASSETS.fetch' cloudflare-patch/worker-patched.js
+          grep -q 'studentProfiles: true' cloudflare-patch/worker-patched.js
           grep -q 'CREATE TABLE IF NOT EXISTS student_profiles' cloudflare-patch/worker-patched.js
-          grep -q 'pathname === "/api/student-profiles"' cloudflare-patch/worker-patched.js
-          grep -q 'pathname === "/student-info"' cloudflare-patch/worker-patched.js
-          grep -q 'assertSameOriginMutation(request)' cloudflare-patch/worker-patched.js
-          test "$(wc -c < cloudflare-patch/worker-patched.js)" -gt "$(wc -c < cloudflare-inspect/worker-current.js)"
+          grep -q 'env.ASSETS.fetch' cloudflare-patch/worker-patched.js
+          grep -q 'function authenticate' cloudflare-patch/worker-patched.js
 
-      - name: Store validated patch on temporary branch
+      - name: Locate current production Worker
         shell: bash
         run: |
           set -euo pipefail
-          git config user.name 'tg-lesson-memo-validator'
-          git config user.email 'actions@users.noreply.github.com'
-          git add cloudflare-patch/worker-patched.js
-          if git diff --cached --quiet; then
-            echo 'Validated Worker output unchanged.'
-            exit 0
+          api='https://api.cloudflare.com/client/v4'
+          auth="Authorization: Bearer $CLOUDFLARE_API_TOKEN"
+          if [ -n "${OPTIONAL_ACCOUNT_ID:-}" ]; then
+            printf '%s\n' "$OPTIONAL_ACCOUNT_ID" > /tmp/account-candidates.txt
+          else
+            curl -fsSL "$api/accounts?per_page=50" -H "$auth" -o /tmp/accounts.json
+            node - <<'NODE'
+          const fs = require('node:fs');
+          const data = JSON.parse(fs.readFileSync('/tmp/accounts.json', 'utf8'));
+          if (!data.success || !Array.isArray(data.result) || data.result.length === 0) {
+            throw new Error('Cloudflare account list is empty or unavailable');
+          }
+          fs.writeFileSync('/tmp/account-candidates.txt', data.result.map((x) => x.id).join('\n') + '\n');
+          NODE
           fi
-          git commit -m 'Store validated tg-lesson-memo patch [skip ci]'
-          git push origin "HEAD:$GITHUB_REF_NAME"
+          found=''
+          while IFS= read -r account_id; do
+            [ -n "$account_id" ] || continue
+            code="$(curl -sS -o /tmp/settings-candidate.json -w '%{http_code}' \
+              "$api/accounts/$account_id/workers/scripts/$WORKER_NAME/settings" \
+              -H "$auth")"
+            if [ "$code" = '200' ]; then
+              found="$account_id"
+              break
+            fi
+          done < /tmp/account-candidates.txt
+          if [ -z "$found" ]; then
+            echo "Could not locate Worker $WORKER_NAME" >&2
+            exit 1
+          fi
+          printf '%s\n' "$found" > /tmp/tg-account-id.txt
+
+      - name: Refuse deployment if production changed after snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          api='https://api.cloudflare.com/client/v4'
+          account_id="$(cat /tmp/tg-account-id.txt)"
+          curl -fsSL \
+            "$api/accounts/$account_id/workers/scripts/$WORKER_NAME" \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            -o /tmp/current-worker.bin
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const crypto = require('node:crypto');
+          function extract(file) {
+            const text = fs.readFileSync(file).toString('utf8');
+            const firstBreak = text.indexOf('\r\n');
+            if (firstBreak < 4 || !text.startsWith('--')) throw new Error('Unexpected Worker multipart payload');
+            const boundary = text.slice(2, firstBreak);
+            for (const part of text.split(`--${boundary}`)) {
+              if (!/Content-Disposition:\s*form-data;\s*name="index\.js"/i.test(part)) continue;
+              const headerEnd = part.indexOf('\r\n\r\n');
+              if (headerEnd < 0) throw new Error('Malformed index.js part');
+              let body = part.slice(headerEnd + 4);
+              if (body.endsWith('\r\n')) body = body.slice(0, -2);
+              return body;
+            }
+            throw new Error('index.js was not found');
+          }
+          const live = extract('/tmp/current-worker.bin');
+          const snapshot = fs.readFileSync('cloudflare-inspect/worker-current.js', 'utf8');
+          const sha = (text) => crypto.createHash('sha256').update(text).digest('hex');
+          if (sha(live) !== sha(snapshot)) {
+            throw new Error('Production Worker changed after inspection. Refusing to overwrite newer code.');
+          }
+          fs.writeFileSync('/tmp/rollback-worker.js', live);
+          console.log(`Production snapshot verified: ${sha(live)}`);
+          NODE
+
+      - name: Update Worker content only
+        shell: bash
+        run: |
+          set -euo pipefail
+          api='https://api.cloudflare.com/client/v4'
+          account_id="$(cat /tmp/tg-account-id.txt)"
+          curl -fsSL \
+            -X PUT \
+            "$api/accounts/$account_id/workers/scripts/$WORKER_NAME/content" \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            -F 'metadata={"main_module":"index.js"};type=application/json' \
+            -F 'index.js=@cloudflare-patch/worker-patched.js;type=application/javascript+module;filename=index.js' \
+            -o /tmp/update-response.json
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const data = JSON.parse(fs.readFileSync('/tmp/update-response.json', 'utf8'));
+          if (data.success !== true) {
+            throw new Error(`Cloudflare content update failed: ${JSON.stringify(data.errors || data)}`);
+          }
+          console.log('Cloudflare accepted the Worker content update.');
+          NODE
+
+      - name: Verify deployed source and health, rollback on failure
+        shell: bash
+        run: |
+          set -euo pipefail
+          api='https://api.cloudflare.com/client/v4'
+          account_id="$(cat /tmp/tg-account-id.txt)"
+
+          rollback() {
+            echo 'Verification failed. Restoring the exact pre-deploy Worker source.' >&2
+            curl -fsSL \
+              -X PUT \
+              "$api/accounts/$account_id/workers/scripts/$WORKER_NAME/content" \
+              -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+              -F 'metadata={"main_module":"index.js"};type=application/json' \
+              -F 'index.js=@/tmp/rollback-worker.js;type=application/javascript+module;filename=index.js' \
+              -o /tmp/rollback-response.json
+            node - <<'NODE'
+          const fs = require('node:fs');
+          const data = JSON.parse(fs.readFileSync('/tmp/rollback-response.json', 'utf8'));
+          if (data.success !== true) throw new Error(`Rollback failed: ${JSON.stringify(data.errors || data)}`);
+          console.log('Rollback accepted by Cloudflare.');
+          NODE
+          }
+
+          verified='false'
+          for attempt in $(seq 1 12); do
+            if curl -fsSL "$WORKER_URL/api/health" -o /tmp/health.json; then
+              if node - <<'NODE'
+          const fs = require('node:fs');
+          const data = JSON.parse(fs.readFileSync('/tmp/health.json', 'utf8'));
+          if (data.ok !== true || data.studentProfiles !== true) process.exit(1);
+          NODE
+              then
+                verified='true'
+                break
+              fi
+            fi
+            sleep 2
+          done
+
+          if [ "$verified" != 'true' ]; then
+            rollback
+            exit 1
+          fi
+
+          curl -fsSL \
+            "$api/accounts/$account_id/workers/scripts/$WORKER_NAME" \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            -o /tmp/deployed-worker.bin
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const text = fs.readFileSync('/tmp/deployed-worker.bin').toString('utf8');
+          const firstBreak = text.indexOf('\r\n');
+          const boundary = text.slice(2, firstBreak);
+          let source = '';
+          for (const part of text.split(`--${boundary}`)) {
+            if (!/Content-Disposition:\s*form-data;\s*name="index\.js"/i.test(part)) continue;
+            const headerEnd = part.indexOf('\r\n\r\n');
+            source = part.slice(headerEnd + 4).replace(/\r\n$/, '');
+          }
+          if (!source.includes('studentProfiles: true') || !source.includes('CREATE TABLE IF NOT EXISTS student_profiles')) {
+            process.exit(1);
+          }
+          console.log('Deployed source contains the student profile feature.');
+          NODE
+
+          echo 'Student profile Worker deployment verified.'
