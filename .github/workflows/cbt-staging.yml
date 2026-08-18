@@ -121,6 +121,37 @@ jobs:
           fs.writeFileSync('cloudflare-inspect/settings-safe.json', JSON.stringify(safe, null, 2));
           NODE
 
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const raw = fs.readFileSync('/tmp/tg-worker-inspect/worker-download.bin');
+          const text = raw.toString('utf8');
+          const firstBreak = text.indexOf('\r\n');
+          if (firstBreak < 4 || !text.startsWith('--')) {
+            throw new Error('Worker download is not the expected multipart payload');
+          }
+          const boundary = text.slice(2, firstBreak);
+          const parts = text.split(`--${boundary}`);
+          let source = null;
+          const partNames = [];
+          for (const part of parts) {
+            const match = /Content-Disposition:\s*form-data;\s*name="([^"]+)"/i.exec(part);
+            if (!match) continue;
+            const name = match[1];
+            partNames.push(name);
+            if (name !== 'index.js') continue;
+            const headerEnd = part.indexOf('\r\n\r\n');
+            if (headerEnd < 0) throw new Error('index.js multipart headers are malformed');
+            let body = part.slice(headerEnd + 4);
+            if (body.endsWith('\r\n')) body = body.slice(0, -2);
+            source = body;
+          }
+          if (source === null || source.length < 1000) {
+            throw new Error('Could not extract index.js from Worker download');
+          }
+          fs.writeFileSync('cloudflare-inspect/worker-current.js', source);
+          fs.writeFileSync('cloudflare-inspect/part-names.json', JSON.stringify(partNames, null, 2));
+          NODE
+
           base64 -w0 /tmp/tg-worker-inspect/worker-download.bin > cloudflare-inspect/worker-download.b64
           base64 -w0 /tmp/tg-worker-inspect/content-v2.bin > cloudflare-inspect/content-v2.b64
 
@@ -128,9 +159,10 @@ jobs:
           const fs = require('node:fs');
           const crypto = require('node:crypto');
           const result = {};
-          for (const name of ['worker-download.b64', 'content-v2.b64']) {
-            const b64 = fs.readFileSync(`cloudflare-inspect/${name}`, 'utf8');
-            const data = Buffer.from(b64, 'base64');
+          for (const name of ['worker-download.b64', 'content-v2.b64', 'worker-current.js']) {
+            const data = name.endsWith('.b64')
+              ? Buffer.from(fs.readFileSync(`cloudflare-inspect/${name}`, 'utf8'), 'base64')
+              : fs.readFileSync(`cloudflare-inspect/${name}`);
             result[name] = {
               bytes: data.length,
               sha256: crypto.createHash('sha256').update(data).digest('hex')
