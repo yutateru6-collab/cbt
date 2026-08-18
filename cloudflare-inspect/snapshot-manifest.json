@@ -1,11 +1,11 @@
 {
   "worker-download.b64": {
     "bytes": 69731,
-    "sha256": "42fb44f1e2b61b0bb66a7339a93c2ec2181c11b19bed1db96007ece9734ce33c"
+    "sha256": "933f5086310a4e9a9c1a1e376a6509527fcbf0b42fe17ecdd8dde53e7820a7de"
   },
   "content-v2.b64": {
     "bytes": 69797,
-    "sha256": "bbb8526e67b1fc8953de315eac94cd0458a7a101da615a3f0c321e400daa63cd"
+    "sha256": "86182d4eae424f534972da122644064cc96582e4759b9b7ccd40db79afd01bfb"
   },
   "worker-current.js": {
     "bytes": 69548,
