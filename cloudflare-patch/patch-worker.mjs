@@ -72,12 +72,36 @@ const fetchReplacement = [
 ].join('\n');
 replaceOnce(fetchAnchor, fetchReplacement, "student info page routes");
 
+const healthAnchor = [
+  '      if (request.method === "GET" && pathname === "/api/health") {',
+  '        response = jsonResponse({',
+  '          ok: true,',
+  '          appId: APP_ID,',
+  '          version: env.APP_VERSION,',
+  '          privacyMode: "family-name-only-v1"',
+  '        });',
+  ''
+].join('\n');
+const healthReplacement = [
+  '      if (request.method === "GET" && pathname === "/api/health") {',
+  '        response = jsonResponse({',
+  '          ok: true,',
+  '          appId: APP_ID,',
+  '          version: env.APP_VERSION,',
+  '          privacyMode: "family-name-only-v1",',
+  '          studentProfiles: true',
+  '        });',
+  ''
+].join('\n');
+replaceOnce(healthAnchor, healthReplacement, "health feature flag");
+
 const requiredMarkers = [
   'function authenticate',
   'env.ASSETS.fetch',
   'CREATE TABLE IF NOT EXISTS student_profiles',
   'pathname === "/api/student-profiles"',
   'pathname === "/student-info"',
+  'studentProfiles: true',
   'assertSameOriginMutation(request)',
   'family-name-only-v1'
 ];
