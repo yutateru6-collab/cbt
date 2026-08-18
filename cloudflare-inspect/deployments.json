@@ -1,0 +1,173 @@
+{
+  "result": {
+    "deployments": [
+      {
+        "id": "f034b995-c9d1-414e-ad8d-e2aa29689f73",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "itisnowornever271@gmail.com",
+        "annotations": {
+          "workers/message": "TG Lesson Memo 2.3.0: 20-second autosave and lesson deletion",
+          "workers/triggered_by": "deployment"
+        },
+        "versions": [
+          {
+            "version_id": "187a650b-18da-454b-b11c-513678059cc5",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-08-14T15:36:32.789683Z"
+      },
+      {
+        "id": "4a224ba4-14d1-4299-8cc4-a29f86b1c2c9",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "itisnowornever271@gmail.com",
+        "annotations": {
+          "workers/message": "TG lesson memo PWA 2.2.0",
+          "workers/triggered_by": "deployment"
+        },
+        "versions": [
+          {
+            "version_id": "e6ae7c90-cd3c-4dc0-93c3-24e055e19dfc",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-08-13T17:34:21.530666Z"
+      },
+      {
+        "id": "f506c971-a392-4c74-af93-f35a262295e5",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "itisnowornever271@gmail.com",
+        "annotations": {
+          "workers/message": "TG lesson memo PWA 2.1.0",
+          "workers/triggered_by": "deployment"
+        },
+        "versions": [
+          {
+            "version_id": "90434244-9649-4264-9f4b-d71ac7c0e139",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-08-13T16:43:54.410846Z"
+      },
+      {
+        "id": "709600ed-2075-4c55-be3b-112250df6674",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "itisnowornever271@gmail.com",
+        "annotations": {
+          "workers/triggered_by": "deployment"
+        },
+        "versions": [
+          {
+            "version_id": "4247859b-6d5b-4c96-be90-15fb1ba88971",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-08-13T13:09:13.287397Z"
+      },
+      {
+        "id": "bf6c85f1-8ef5-4560-bce5-75125bd42240",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "itisnowornever271@gmail.com",
+        "annotations": {
+          "workers/triggered_by": "deployment"
+        },
+        "versions": [
+          {
+            "version_id": "76444341-9dcb-461b-bbcb-9d19e4d0f20b",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-08-13T13:01:48.478517Z"
+      },
+      {
+        "id": "e9ae19f0-268c-41a7-8047-5fdcfaf98875",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "itisnowornever271@gmail.com",
+        "annotations": {
+          "workers/triggered_by": "secret"
+        },
+        "versions": [
+          {
+            "version_id": "a75f2d18-d983-431a-b3b9-16d58f502d73",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-08-13T13:01:17.880394Z"
+      },
+      {
+        "id": "3b231242-d816-4ef0-ab45-aa3903ed9d08",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "itisnowornever271@gmail.com",
+        "annotations": {
+          "workers/triggered_by": "deployment"
+        },
+        "versions": [
+          {
+            "version_id": "a5c09e82-6146-4bba-8d99-7ad5d59d8ed5",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-08-13T12:59:07.74383Z"
+      },
+      {
+        "id": "8af29320-e349-430a-b16e-51e4cb2c8f6f",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "itisnowornever271@gmail.com",
+        "annotations": {
+          "workers/triggered_by": "secret"
+        },
+        "versions": [
+          {
+            "version_id": "462bdd5b-d441-4c61-b79c-cf166471fa1f",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-08-13T12:58:03.804704Z"
+      },
+      {
+        "id": "969159ed-23f6-444d-b75a-8315799d0c1c",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "itisnowornever271@gmail.com",
+        "annotations": {
+          "workers/triggered_by": "secret"
+        },
+        "versions": [
+          {
+            "version_id": "54bbbff3-f7fd-41a9-85ec-4ec5f2a3244c",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-08-13T12:57:58.142117Z"
+      },
+      {
+        "id": "9676b815-b3fa-4d8c-8936-b370a1beb5d6",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "itisnowornever271@gmail.com",
+        "annotations": {
+          "workers/message": "Automatic deployment on upload.",
+          "workers/triggered_by": "upload"
+        },
+        "versions": [
+          {
+            "version_id": "679ad08b-710f-4ecc-aa82-ccb01885cbd2",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-08-13T12:17:00.215743Z"
+      }
+    ]
+  },
+  "success": true,
+  "errors": [],
+  "messages": []
+}

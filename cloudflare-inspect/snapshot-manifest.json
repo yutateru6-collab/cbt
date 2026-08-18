@@ -1,0 +1,10 @@
+{
+  "worker-download.b64": {
+    "bytes": 69731,
+    "sha256": "98c2ccd95221ef6421248d126fbcf264912fbe0598a9f8e4daee4b34a80f612f"
+  },
+  "content-v2.b64": {
+    "bytes": 69797,
+    "sha256": "0fc51ce2dabc7e1ede89c20a2ba2fd788fbcc04648394c62ae2bece0a036d648"
+  }
+}
