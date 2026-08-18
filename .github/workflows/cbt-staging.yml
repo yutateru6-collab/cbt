@@ -1,4 +1,4 @@
-name: Deploy tg-lesson-memo student profiles
+name: Verify and deploy tg-lesson-memo student profiles
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: tg-lesson-memo-student-profile-deploy
@@ -25,10 +25,9 @@ jobs:
       WORKER_URL: https://tg-lesson-memo.itisnowornever271.workers.dev
 
     steps:
-      - name: Check out deployment branch
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Validate patch before touching production
+      - name: Build and validate patched Worker
         shell: bash
         run: |
           set -euo pipefail
@@ -41,7 +40,7 @@ jobs:
           grep -q 'env.ASSETS.fetch' cloudflare-patch/worker-patched.js
           grep -q 'function authenticate' cloudflare-patch/worker-patched.js
 
-      - name: Locate current production Worker
+      - name: Locate Worker account
         shell: bash
         run: |
           set -euo pipefail
@@ -55,7 +54,7 @@ jobs:
           const fs = require('node:fs');
           const data = JSON.parse(fs.readFileSync('/tmp/accounts.json', 'utf8'));
           if (!data.success || !Array.isArray(data.result) || data.result.length === 0) {
-            throw new Error('Cloudflare account list is empty or unavailable');
+            throw new Error('Cloudflare account list unavailable');
           }
           fs.writeFileSync('/tmp/account-candidates.txt', data.result.map((x) => x.id).join('\n') + '\n');
           NODE
@@ -63,35 +62,27 @@ jobs:
           found=''
           while IFS= read -r account_id; do
             [ -n "$account_id" ] || continue
-            code="$(curl -sS -o /tmp/settings-candidate.json -w '%{http_code}' \
-              "$api/accounts/$account_id/workers/scripts/$WORKER_NAME/settings" \
-              -H "$auth")"
-            if [ "$code" = '200' ]; then
-              found="$account_id"
-              break
-            fi
+            code="$(curl -sS -o /tmp/settings.json -w '%{http_code}' \
+              "$api/accounts/$account_id/workers/scripts/$WORKER_NAME/settings" -H "$auth")"
+            if [ "$code" = '200' ]; then found="$account_id"; break; fi
           done < /tmp/account-candidates.txt
-          if [ -z "$found" ]; then
-            echo "Could not locate Worker $WORKER_NAME" >&2
-            exit 1
-          fi
+          test -n "$found"
           printf '%s\n' "$found" > /tmp/tg-account-id.txt
 
-      - name: Refuse deployment if production changed after snapshot
+      - name: Compare live source and deploy only when safe
         shell: bash
         run: |
           set -euo pipefail
           api='https://api.cloudflare.com/client/v4'
           account_id="$(cat /tmp/tg-account-id.txt)"
-          curl -fsSL \
-            "$api/accounts/$account_id/workers/scripts/$WORKER_NAME" \
-            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
-            -o /tmp/current-worker.bin
+          curl -fsSL "$api/accounts/$account_id/workers/scripts/$WORKER_NAME" \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" -o /tmp/live-worker.bin
+
           node - <<'NODE'
           const fs = require('node:fs');
           const crypto = require('node:crypto');
-          function extract(file) {
-            const text = fs.readFileSync(file).toString('utf8');
+          function extract(path) {
+            const text = fs.readFileSync(path).toString('utf8');
             const firstBreak = text.indexOf('\r\n');
             if (firstBreak < 4 || !text.startsWith('--')) throw new Error('Unexpected Worker multipart payload');
             const boundary = text.slice(2, firstBreak);
@@ -99,108 +90,111 @@ jobs:
               if (!/Content-Disposition:\s*form-data;\s*name="index\.js"/i.test(part)) continue;
               const headerEnd = part.indexOf('\r\n\r\n');
               if (headerEnd < 0) throw new Error('Malformed index.js part');
-              let body = part.slice(headerEnd + 4);
-              if (body.endsWith('\r\n')) body = body.slice(0, -2);
-              return body;
+              return part.slice(headerEnd + 4).replace(/\r\n$/, '');
             }
-            throw new Error('index.js was not found');
+            throw new Error('index.js missing');
           }
-          const live = extract('/tmp/current-worker.bin');
-          const snapshot = fs.readFileSync('cloudflare-inspect/worker-current.js', 'utf8');
-          const sha = (text) => crypto.createHash('sha256').update(text).digest('hex');
-          if (sha(live) !== sha(snapshot)) {
-            throw new Error('Production Worker changed after inspection. Refusing to overwrite newer code.');
+          const live = extract('/tmp/live-worker.bin');
+          const original = fs.readFileSync('cloudflare-inspect/worker-current.js', 'utf8');
+          const patched = fs.readFileSync('cloudflare-patch/worker-patched.js', 'utf8');
+          const sha = (value) => crypto.createHash('sha256').update(value).digest('hex');
+          const liveSha = sha(live), originalSha = sha(original), patchedSha = sha(patched);
+          fs.writeFileSync('/tmp/rollback-worker.js', original);
+          fs.writeFileSync('/tmp/patched-sha.txt', patchedSha + '\n');
+          if (liveSha === patchedSha) {
+            fs.writeFileSync('/tmp/deploy-mode.txt', 'already-present\n');
+          } else if (liveSha === originalSha) {
+            fs.writeFileSync('/tmp/deploy-mode.txt', 'upload\n');
+          } else {
+            throw new Error(`Production changed unexpectedly: ${liveSha}`);
           }
-          fs.writeFileSync('/tmp/rollback-worker.js', live);
-          console.log(`Production snapshot verified: ${sha(live)}`);
           NODE
 
-      - name: Update Worker content only
-        shell: bash
-        run: |
-          set -euo pipefail
-          api='https://api.cloudflare.com/client/v4'
-          account_id="$(cat /tmp/tg-account-id.txt)"
-          curl -fsSL \
-            -X PUT \
-            "$api/accounts/$account_id/workers/scripts/$WORKER_NAME/content" \
-            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
-            -F 'metadata={"main_module":"index.js"};type=application/json' \
-            -F 'index.js=@cloudflare-patch/worker-patched.js;type=application/javascript+module;filename=index.js' \
-            -o /tmp/update-response.json
-          node - <<'NODE'
+          mode="$(cat /tmp/deploy-mode.txt)"
+          if [ "$mode" = 'upload' ]; then
+            curl -fsSL -X PUT \
+              "$api/accounts/$account_id/workers/scripts/$WORKER_NAME/content" \
+              -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+              -F 'metadata={"main_module":"index.js"};type=application/json' \
+              -F 'index.js=@cloudflare-patch/worker-patched.js;type=application/javascript+module;filename=index.js' \
+              -o /tmp/update-response.json
+            node - <<'NODE'
           const fs = require('node:fs');
           const data = JSON.parse(fs.readFileSync('/tmp/update-response.json', 'utf8'));
-          if (data.success !== true) {
-            throw new Error(`Cloudflare content update failed: ${JSON.stringify(data.errors || data)}`);
-          }
-          console.log('Cloudflare accepted the Worker content update.');
+          if (data.success !== true) throw new Error(JSON.stringify(data.errors || data));
           NODE
+          fi
 
-      - name: Verify deployed source and health, rollback on failure
+      - name: Verify health and deployed source
         shell: bash
         run: |
           set -euo pipefail
           api='https://api.cloudflare.com/client/v4'
           account_id="$(cat /tmp/tg-account-id.txt)"
-
           rollback() {
-            echo 'Verification failed. Restoring the exact pre-deploy Worker source.' >&2
-            curl -fsSL \
-              -X PUT \
+            curl -fsSL -X PUT \
               "$api/accounts/$account_id/workers/scripts/$WORKER_NAME/content" \
               -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
               -F 'metadata={"main_module":"index.js"};type=application/json' \
               -F 'index.js=@/tmp/rollback-worker.js;type=application/javascript+module;filename=index.js' \
               -o /tmp/rollback-response.json
-            node - <<'NODE'
-          const fs = require('node:fs');
-          const data = JSON.parse(fs.readFileSync('/tmp/rollback-response.json', 'utf8'));
-          if (data.success !== true) throw new Error(`Rollback failed: ${JSON.stringify(data.errors || data)}`);
-          console.log('Rollback accepted by Cloudflare.');
-          NODE
           }
 
           verified='false'
-          for attempt in $(seq 1 12); do
-            if curl -fsSL "$WORKER_URL/api/health" -o /tmp/health.json; then
+          for attempt in $(seq 1 15); do
+            if curl -fsSL "$WORKER_URL/api/health" -o /tmp/health.json 2>/dev/null; then
               if node - <<'NODE'
           const fs = require('node:fs');
           const data = JSON.parse(fs.readFileSync('/tmp/health.json', 'utf8'));
           if (data.ok !== true || data.studentProfiles !== true) process.exit(1);
           NODE
-              then
-                verified='true'
-                break
-              fi
+              then verified='true'; break; fi
             fi
             sleep 2
           done
+          if [ "$verified" != 'true' ]; then rollback; exit 1; fi
 
-          if [ "$verified" != 'true' ]; then
-            rollback
-            exit 1
-          fi
-
-          curl -fsSL \
-            "$api/accounts/$account_id/workers/scripts/$WORKER_NAME" \
-            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
-            -o /tmp/deployed-worker.bin
+          curl -fsSL "$api/accounts/$account_id/workers/scripts/$WORKER_NAME" \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" -o /tmp/deployed-worker.bin
           node - <<'NODE'
           const fs = require('node:fs');
-          const text = fs.readFileSync('/tmp/deployed-worker.bin').toString('utf8');
-          const firstBreak = text.indexOf('\r\n');
-          const boundary = text.slice(2, firstBreak);
-          let source = '';
-          for (const part of text.split(`--${boundary}`)) {
-            if (!/Content-Disposition:\s*form-data;\s*name="index\.js"/i.test(part)) continue;
-            const headerEnd = part.indexOf('\r\n\r\n');
-            source = part.slice(headerEnd + 4).replace(/\r\n$/, '');
+          const crypto = require('node:crypto');
+          function extract(path) {
+            const text = fs.readFileSync(path).toString('utf8');
+            const firstBreak = text.indexOf('\r\n');
+            const boundary = text.slice(2, firstBreak);
+            for (const part of text.split(`--${boundary}`)) {
+              if (!/Content-Disposition:\s*form-data;\s*name="index\.js"/i.test(part)) continue;
+              const headerEnd = part.indexOf('\r\n\r\n');
+              return part.slice(headerEnd + 4).replace(/\r\n$/, '');
+            }
+            throw new Error('index.js missing');
           }
-          if (!source.includes('studentProfiles: true') || !source.includes('CREATE TABLE IF NOT EXISTS student_profiles')) {
-            process.exit(1);
-          }
-          console.log('Deployed source contains the student profile feature.');
+          const source = extract('/tmp/deployed-worker.bin');
+          const sha = crypto.createHash('sha256').update(source).digest('hex');
+          const expected = fs.readFileSync('/tmp/patched-sha.txt', 'utf8').trim();
+          if (sha !== expected || !source.includes('CREATE TABLE IF NOT EXISTS student_profiles')) process.exit(1);
           NODE
 
-          echo 'Student profile Worker deployment verified.'
+      - name: Record verified deployment
+        shell: bash
+        run: |
+          set -euo pipefail
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const health = JSON.parse(fs.readFileSync('/tmp/health.json', 'utf8'));
+          const result = {
+            worker: 'tg-lesson-memo',
+            verified: true,
+            mode: fs.readFileSync('/tmp/deploy-mode.txt', 'utf8').trim(),
+            sourceSha256: fs.readFileSync('/tmp/patched-sha.txt', 'utf8').trim(),
+            health,
+            verifiedAt: new Date().toISOString()
+          };
+          fs.writeFileSync('cloudflare-deploy-result.json', JSON.stringify(result, null, 2) + '\n');
+          NODE
+          git config user.name 'tg-lesson-memo-deployer'
+          git config user.email 'actions@users.noreply.github.com'
+          git add cloudflare-deploy-result.json
+          git commit -m 'Record verified tg-lesson-memo deployment [skip ci]'
+          git push origin "HEAD:$GITHUB_REF_NAME"
