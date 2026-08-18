@@ -57,6 +57,8 @@ jobs:
           node --check grade2-legacy-explanation-cleanup.js
           node --check grade2-canonical-explanations.js
           node --check grade2-explanation-provenance-dev.js
+          node --check grade2-premium-bonus.js
+          node --check grade2-ai-grading-flow.js
           node --check tools/listening-player/player.js
           node --check scripts/prepare-worker-assets.mjs
           node --check scripts/remove-grade2-legacy-listening-explanations.mjs
@@ -73,6 +75,7 @@ jobs:
           if [ -f tests/grade2-listening-r2-source.test.cjs ]; then
             node --test tests/grade2-listening-r2-source.test.cjs
           fi
+          node --test tests/grade2-premium-ai-grading.test.cjs
           node --test tests/cloudflare-deploy-contract.test.cjs
 
       - name: Preflight real listening corrections
@@ -177,6 +180,12 @@ jobs:
           NODE
 
           for file in \
+            app-config-grade2.js \
+            bonus.html \
+            bonus.css \
+            grade2-premium-bonus.js \
+            grade2-ai-grading-flow.js \
+            grade2-ai-grading-flow.css \
             exam.html \
             app.js \
             grade2-listening-part2-sets.js \
