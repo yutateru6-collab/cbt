@@ -12,6 +12,7 @@ const flowSource = fs.readFileSync(path.join(root, "grade2-ai-grading-flow.js"),
 const flowCss = fs.readFileSync(path.join(root, "grade2-ai-grading-flow.css"), "utf8");
 const developerShortcutSource = fs.readFileSync(path.join(root, "grade2-developer-score-shortcut.js"), "utf8");
 const developerShortcutCss = fs.readFileSync(path.join(root, "grade2-developer-score-shortcut.css"), "utf8");
+const prepareWorkerAssetsSource = fs.readFileSync(path.join(root, "scripts/prepare-worker-assets.mjs"), "utf8");
 const appSource = fs.readFileSync(path.join(root, "app.js"), "utf8");
 const examHtml = fs.readFileSync(path.join(root, "exam.html"), "utf8");
 const scoring = require(path.join(root, "grade2-scoring.js"));
@@ -254,4 +255,15 @@ test("15. developer mode always gets a fixed score-screen shortcut and normal mo
   const normal = executeDeveloperShortcut({ dev: false });
   assert.equal(normal.createCount, 0);
   assert.equal(normal.appended, null);
+});
+
+test("16. worker build ships both grading UI and developer shortcut assets", () => {
+  for (const file of [
+    "grade2-ai-grading-flow.js",
+    "grade2-ai-grading-flow.css",
+    "grade2-developer-score-shortcut.js",
+    "grade2-developer-score-shortcut.css",
+  ]) {
+    assert.match(prepareWorkerAssetsSource, new RegExp(`"${file.replaceAll(".", "\\.")}"`));
+  }
 });
