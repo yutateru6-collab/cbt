@@ -1,0 +1,11 @@
+{
+  "worker": "tg-lesson-memo",
+  "verified": false,
+  "stage": "rolled-back",
+  "mode": "upload",
+  "rolledBack": true,
+  "sourceSha256": "43f31dda13a3850368bc1c956448697785fff562b4ebabf09adb98afd8d9e249",
+  "health": null,
+  "error": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+  "verifiedAt": "2026-08-18T04:18:44.095Z"
+}
