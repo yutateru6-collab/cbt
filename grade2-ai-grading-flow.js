@@ -40,6 +40,22 @@
     ).join("");
   }
 
+  function normalizeGradingMessageText(value) {
+    return String(value || "")
+      .replaceAll("採点JSON", "採点結果")
+      .replaceAll("JSON", "採点データ")
+      .replace("GPTの回答から有効な採点データを見つけられませんでした。", "AIの回答から採点結果を読み取れませんでした。");
+  }
+
+  function normalizeRecoveryButtonCopy() {
+    const button = app.querySelector('[data-action="copy-grade2-json-output-prompt"]');
+    if (!button) return;
+    const text = button.textContent || "";
+    if (text.includes("JSON再出力")) {
+      button.textContent = text.replace("JSON再出力の指示", "AIに形式を整えてもらう指示");
+    }
+  }
+
   function cleanSpeakingCompletion() {
     const frame = app.querySelector(".grade2-speaking-flow");
     if (!frame || !frame.querySelector(".speaking-section-complete")) return;
@@ -89,7 +105,10 @@
     const imported = Boolean(panel.querySelector(".gpt-imported-badge"));
     const previousDraft = panel.querySelector("[data-grade2-gpt-score-draft]")?.value || "";
     const previousMessage = panel.querySelector(".grading-message");
-    const previousMessageHtml = previousMessage ? previousMessage.outerHTML : "";
+    const previousMessageText = previousMessage ? normalizeGradingMessageText(previousMessage.textContent) : "";
+    const previousMessageHtml = previousMessageText
+      ? `<div class="${escapeHtml(previousMessage.className)}">${escapeHtml(previousMessageText)}</div>`
+      : "";
 
     panel.classList.add("grade2-ai-flow-card");
 
@@ -170,6 +189,7 @@
     cleanSpeakingCompletion();
     patchAccessPlanLink();
     patchPendingScoreCopy();
+    normalizeRecoveryButtonCopy();
     patchGradingPanel();
   }
 
