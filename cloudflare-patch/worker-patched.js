@@ -1755,30 +1755,6 @@ async function listStudentProfiles(env) {
 async function loadStudentProfile(env, id) {
   return env.DB.prepare(STUDENT_PROFILE_SELECT + " WHERE s.id = ?1").bind(id).first();
 }
-function studentProfileAuditStatement(env, actor, requestId, studentId, oldRevision, newRevision, timestamp) {
-  return env.DB.prepare(
-    `INSERT INTO audit_events (
-      occurred_at, request_id, actor_hash, actor_type, action,
-      entity_type, entity_id, old_revision, new_revision, metadata_json
-    )
-    SELECT ?1, ?2, ?3, ?4, 'student-profile.update', 'student-profile', ?5, ?6, ?7, '{}'
-    WHERE EXISTS (
-      SELECT 1 FROM student_profiles
-      WHERE student_id = ?5 AND revision = ?7 AND last_mutation_id = ?2
-    )`
-  ).bind(timestamp, requestId, actor.hash, actor.kind, studentId, oldRevision, newRevision);
-}
-function studentProfileAppStateStatement(env, timestamp, studentId, newRevision, requestId) {
-  return env.DB.prepare(
-    `UPDATE app_state
-      SET revision = revision + 1, updated_at = ?1
-      WHERE singleton = 1
-        AND EXISTS (
-          SELECT 1 FROM student_profiles
-          WHERE student_id = ?2 AND revision = ?3 AND last_mutation_id = ?4
-        )`
-  ).bind(timestamp, studentId, newRevision, requestId);
-}
 async function updateStudentProfile(env, actor, idValue, input) {
   const id = requireId(idValue, "studentId");
   await ensureStudentProfileSchema(env);
@@ -1805,7 +1781,6 @@ async function updateStudentProfile(env, actor, idValue, input) {
     );
   }
   const timestamp = nowIso();
-  const nextRevision = currentRevision + 1;
   const p = input.profile;
   const mutation = env.DB.prepare(
     `INSERT INTO student_profiles (
@@ -1847,12 +1822,8 @@ async function updateStudentProfile(env, actor, idValue, input) {
     timestamp,
     currentRevision
   );
-  const batch = await env.DB.batch([
-    mutation,
-    studentProfileAuditStatement(env, actor, input.requestId, id, currentRevision, nextRevision, timestamp),
-    studentProfileAppStateStatement(env, timestamp, id, nextRevision, input.requestId)
-  ]);
-  if ((batch[0]?.meta.changes ?? 0) !== 1) {
+  const result = await mutation.run();
+  if ((result?.meta.changes ?? 0) !== 1) {
     const current = await loadStudentProfile(env, id);
     if (current?.profile_last_mutation_id === input.requestId) {
       return mapStudentProfile(current);
