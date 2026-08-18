@@ -10,6 +10,8 @@ const bonusCss = fs.readFileSync(path.join(root, "bonus.css"), "utf8");
 const bonusScript = fs.readFileSync(path.join(root, "grade2-premium-bonus.js"), "utf8");
 const flowSource = fs.readFileSync(path.join(root, "grade2-ai-grading-flow.js"), "utf8");
 const flowCss = fs.readFileSync(path.join(root, "grade2-ai-grading-flow.css"), "utf8");
+const developerShortcutSource = fs.readFileSync(path.join(root, "grade2-developer-score-shortcut.js"), "utf8");
+const developerShortcutCss = fs.readFileSync(path.join(root, "grade2-developer-score-shortcut.css"), "utf8");
 const appSource = fs.readFileSync(path.join(root, "app.js"), "utf8");
 const examHtml = fs.readFileSync(path.join(root, "exam.html"), "utf8");
 const scoring = require(path.join(root, "grade2-scoring.js"));
@@ -70,6 +72,48 @@ function executeFlow({ premium }) {
   return context;
 }
 
+function executeDeveloperShortcut({ dev }) {
+  let appended = null;
+  let clickHandler = null;
+  let movedTo = null;
+  let createCount = 0;
+  const button = {
+    type: "",
+    className: "",
+    dataset: {},
+    textContent: "",
+    setAttribute() {},
+    addEventListener(type, handler) {
+      if (type === "click") clickHandler = handler;
+    },
+  };
+  const context = {
+    URLSearchParams,
+    window: {
+      APP_CONFIG: { mode: "grade2-product", grade: "grade2" },
+      location: { search: dev ? "?dev=1" : "" },
+      moveToDeveloperLocation(value) { movedTo = value; },
+    },
+    document: {
+      querySelector: () => null,
+      createElement: () => {
+        createCount += 1;
+        return button;
+      },
+      body: { appendChild(node) { appended = node; } },
+    },
+  };
+  vm.createContext(context);
+  vm.runInContext(developerShortcutSource, context);
+  return {
+    appended,
+    button,
+    createCount,
+    click() { clickHandler?.(); },
+    movedTo: () => movedTo,
+  };
+}
+
 test("1. premium page exposes exactly the PDF and AI grading benefits", () => {
   const visible = bonusHtml.match(/<div data-bonus-content hidden>[\s\S]*?<\/div>\s*\n\s*<section class="locked-card"/u)?.[0] || "";
   assert.equal((visible.match(/<section class="bonus-section/g) || []).length, 2);
@@ -86,10 +130,12 @@ test("2. premium bonus script remains only access and legacy-plan normalization"
   assert.doesNotMatch(bonusCss, /\.template-tabs|\.prompt-switch|\.plan-switch|\.practice-lab|\.speaking-grid/);
 });
 
-test("3. exam uses the v81 grading assets after app.js", () => {
+test("3. exam uses v81 grading assets and the dedicated developer shortcut after app.js", () => {
   assert.match(examHtml, /grade2-ai-grading-flow\.css\?v=grade2-ai-grading-flow-v81/);
   assert.match(examHtml, /grade2-ai-grading-flow\.js\?v=grade2-ai-grading-flow-v81/);
-  assert.ok(examHtml.indexOf("app.js?") < examHtml.indexOf("grade2-ai-grading-flow.js?"));
+  assert.match(examHtml, /grade2-developer-score-shortcut\.css\?v=grade2-dev-score-shortcut-v1/);
+  assert.match(examHtml, /grade2-developer-score-shortcut\.js\?v=grade2-dev-score-shortcut-v1/);
+  assert.ok(examHtml.indexOf("app.js?") < examHtml.indexOf("grade2-developer-score-shortcut.js?"));
   assert.doesNotMatch(examHtml, /grade2-ai-grading-flow-v80/);
 });
 
@@ -188,4 +234,24 @@ test("14. existing app actions required by the direct renderer are still present
   }
   assert.match(appSource, /function getGrade2GradingPackageText\(\)/);
   assert.match(appSource, /function importGrade2GptScore\(\)/);
+});
+
+test("15. developer mode always gets a fixed score-screen shortcut and normal mode does not", () => {
+  assert.match(developerShortcutSource, /params\.get\("dev"\) === "1"/);
+  assert.match(developerShortcutSource, /window\.moveToDeveloperLocation\("result"\)/);
+  assert.doesNotMatch(developerShortcutSource, /MutationObserver/);
+  assert.match(developerShortcutCss, /position:\s*fixed/);
+  assert.match(developerShortcutCss, /z-index:\s*12000/);
+  assert.match(developerShortcutCss, /safe-area-inset-top/);
+
+  const developer = executeDeveloperShortcut({ dev: true });
+  assert.equal(developer.createCount, 1);
+  assert.equal(developer.appended, developer.button);
+  assert.equal(developer.button.textContent, "採点画面を見る");
+  developer.click();
+  assert.equal(developer.movedTo(), "result");
+
+  const normal = executeDeveloperShortcut({ dev: false });
+  assert.equal(normal.createCount, 0);
+  assert.equal(normal.appended, null);
 });
