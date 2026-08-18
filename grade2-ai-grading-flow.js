@@ -52,7 +52,7 @@
   function renderAudioPreparation() {
     const scoredSteps = getGrade2ScoredSpeakingSteps();
     const missing = scoredSteps.filter(({ index }) => !appState.speakingRecordings[index]);
-    const allReady = missing.length === 0;
+    const allReady = scoredSteps.length === 5 && missing.length === 0;
 
     return `
       <div class="grade2-ai-audio-status ${allReady ? "is-ready" : "is-missing"}">
@@ -185,7 +185,7 @@
     }
 
     const messageText = normalizeGradingMessage(appState.grade2GptScoreMessage);
-    const messageClass = gptScores && messageText ? "success" : "error";
+    const messageClass = messageText.startsWith("採点結果を反映しました") ? "success" : "error";
     return `
       <section class="grade2-gpt-panel grade2-ai-flow-card" aria-label="Writing・Speaking AI採点">
         <div class="grade2-ai-flow-head">
