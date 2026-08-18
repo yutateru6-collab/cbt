@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>TG 生徒情報</title>
+    <link rel="stylesheet" href="/student-info.css">
+    <script src="/student-info.js" defer></script>
+  </head>
+  <body>
+    <main class="student-app">
+      <header class="student-header">
+        <div>
+          <p class="eyebrow">授業前に10秒で確認</p>
+          <h1>生徒情報</h1>
+        </div>
+        <span id="cloud-badge" class="cloud-badge" data-state="online">クラウド正本</span>
+      </header>
+
+      <section id="student-list-view">
+        <label class="search-box" for="student-search">
+          <span aria-hidden="true">⌕</span>
+          <input id="student-search" type="search" autocomplete="off" placeholder="名字・ふりがなで検索">
+        </label>
+        <p class="list-help">授業メモに登録済みの生徒から選びます。クラウドには現在の運用どおり名字だけを保持します。</p>
+        <p id="status-message" class="status-message" role="status" aria-live="polite"></p>
+        <div id="student-list" class="student-list" aria-label="生徒一覧"></div>
+        <section id="empty-list" class="empty-state" hidden>
+          <strong>表示できる生徒がいません</strong>
+          <p>授業メモの予定を同期すると、登録済みの生徒がここへ表示されます。</p>
+        </section>
+      </section>
+
+      <section id="student-detail-view" hidden>
+        <div class="detail-toolbar">
+          <button id="back-button" class="back-button" type="button">‹ 生徒一覧</button>
+          <button id="edit-button" class="edit-button" type="button">編集</button>
+        </div>
+
+        <header class="profile-header">
+          <h2 id="student-name"></h2>
+          <p id="student-furigana" class="furigana"></p>
+          <p id="updated-at" class="updated-at"></p>
+        </header>
+
+        <section class="quick-summary" aria-label="すぐ確認する情報">
+          <article class="summary-card summary-primary">
+            <span>第一志望</span>
+            <strong id="summary-first-choice">未登録</strong>
+          </article>
+          <article class="summary-card">
+            <span>受験方式</span>
+            <strong id="summary-admission-type">未登録</strong>
+          </article>
+          <article class="summary-card">
+            <span>現在地</span>
+            <strong id="summary-current-status">未登録</strong>
+          </article>
+          <article class="summary-card summary-focus">
+            <span>今の課題</span>
+            <strong id="summary-current-challenge">未登録</strong>
+          </article>
+          <article class="summary-card summary-next">
+            <span>次にやること</span>
+            <strong id="summary-next-action">未登録</strong>
+          </article>
+        </section>
+
+        <section id="profile-display" class="profile-display">
+          <section class="one-line-summary">
+            <span>ひとこと要約</span>
+            <p id="display-summary">未登録</p>
+          </section>
+
+          <details open>
+            <summary>進路・志望校</summary>
+            <dl>
+              <div><dt>学年・学校</dt><dd id="display-school-grade">未登録</dd></div>
+              <div><dt>第一志望</dt><dd id="display-first-choice">未登録</dd></div>
+              <div><dt>その他の志望校</dt><dd id="display-other-choices">未登録</dd></div>
+              <div><dt>受験方式</dt><dd id="display-admission-type">未登録</dd></div>
+            </dl>
+          </details>
+
+          <details>
+            <summary>現在地・成績</summary>
+            <dl>
+              <div><dt>現在の状況</dt><dd id="display-current-status">未登録</dd></div>
+              <div><dt>成績・資格</dt><dd id="display-academic-status">未登録</dd></div>
+            </dl>
+          </details>
+
+          <details>
+            <summary>指導方針</summary>
+            <dl>
+              <div><dt>現在の課題</dt><dd id="display-current-challenge">未登録</dd></div>
+              <div><dt>現在の指導方針</dt><dd id="display-teaching-policy">未登録</dd></div>
+              <div><dt>次にやること</dt><dd id="display-next-action">未登録</dd></div>
+            </dl>
+          </details>
+
+          <details>
+            <summary>詳細メモ</summary>
+            <p id="display-free-memo" class="long-text">未登録</p>
+          </details>
+        </section>
+
+        <form id="profile-editor" class="profile-editor" hidden>
+          <div class="field-group full-width priority-field">
+            <label for="field-summary">ひとこと要約</label>
+            <textarea id="field-summary" name="summary" rows="2" maxlength="500" placeholder="例：産医大推薦。推薦過去問＋志望理由書を並行。"></textarea>
+          </div>
+          <div class="field-group">
+            <label for="field-school-grade">学年・学校</label>
+            <input id="field-school-grade" name="schoolGrade" type="text" maxlength="120" placeholder="例：高3・○○高校">
+          </div>
+          <div class="field-group">
+            <label for="field-first-choice">第一志望</label>
+            <input id="field-first-choice" name="firstChoice" type="text" maxlength="240" placeholder="例：産業医科大学 医学部">
+          </div>
+          <div class="field-group full-width">
+            <label for="field-other-choices">その他の志望校</label>
+            <textarea id="field-other-choices" name="otherChoices" rows="2" maxlength="800"></textarea>
+          </div>
+          <div class="field-group">
+            <label for="field-admission-type">受験方式</label>
+            <input id="field-admission-type" name="admissionType" type="text" maxlength="240" placeholder="例：学校推薦型選抜">
+          </div>
+          <div class="field-group full-width">
+            <label for="field-current-status">現在の状況</label>
+            <textarea id="field-current-status" name="currentStatus" rows="3" maxlength="1200" placeholder="例：推薦受験決定。英検2級合格。"></textarea>
+          </div>
+          <div class="field-group full-width">
+            <label for="field-academic-status">成績・資格</label>
+            <textarea id="field-academic-status" name="academicStatus" rows="3" maxlength="1200" placeholder="例：共テ R66 / L61、英検2級"></textarea>
+          </div>
+          <div class="field-group full-width focus-field">
+            <label for="field-current-challenge">現在の課題</label>
+            <textarea id="field-current-challenge" name="currentChallenge" rows="3" maxlength="1200"></textarea>
+          </div>
+          <div class="field-group full-width">
+            <label for="field-teaching-policy">現在の指導方針</label>
+            <textarea id="field-teaching-policy" name="teachingPolicy" rows="3" maxlength="1600"></textarea>
+          </div>
+          <div class="field-group full-width next-field">
+            <label for="field-next-action">次にやること</label>
+            <textarea id="field-next-action" name="nextAction" rows="3" maxlength="1200"></textarea>
+          </div>
+          <div class="field-group full-width">
+            <label for="field-free-memo">詳細メモ</label>
+            <textarea id="field-free-memo" name="freeMemo" rows="7" maxlength="5000"></textarea>
+          </div>
+          <p id="save-message" class="save-message" aria-live="polite"></p>
+          <div class="editor-actions">
+            <button id="cancel-edit-button" class="secondary-button" type="button">キャンセル</button>
+            <button id="save-profile-button" class="primary-button" type="submit">クラウドに保存</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
