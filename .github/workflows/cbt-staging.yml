@@ -1,4 +1,4 @@
-name: Deploy CBT staging
+name: Inspect tg-lesson-memo through CBT staging bridge
 
 on:
   push:
@@ -7,265 +7,144 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
-  group: cbt-staging
+  group: tg-lesson-memo-inspection
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  inspect:
     runs-on: ubuntu-latest
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      OPTIONAL_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      WORKER_NAME: tg-lesson-memo
 
     steps:
-      - name: Check out branch commit
+      - name: Check out inspection branch
         uses: actions/checkout@v4
 
-      - name: Verify exact branch commit
+      - name: Verify Cloudflare credential
         shell: bash
         run: |
           set -euo pipefail
-          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test -n "${CLOUDFLARE_API_TOKEN:-}"
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Use Account ID when configured
+      - name: Download current Worker and safe settings
         shell: bash
-        env:
-          OPTIONAL_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
+          set -euo pipefail
+          rm -rf cloudflare-inspect /tmp/tg-worker-inspect
+          mkdir -p cloudflare-inspect /tmp/tg-worker-inspect
+          api='https://api.cloudflare.com/client/v4'
+          auth="Authorization: Bearer $CLOUDFLARE_API_TOKEN"
+
           if [ -n "${OPTIONAL_ACCOUNT_ID:-}" ]; then
-            echo "CLOUDFLARE_ACCOUNT_ID=$OPTIONAL_ACCOUNT_ID" >> "$GITHUB_ENV"
+            printf '%s\n' "$OPTIONAL_ACCOUNT_ID" > /tmp/account-candidates.txt
+          else
+            curl -fsSL "$api/accounts?per_page=50" -H "$auth" -o /tmp/accounts.json
+            node - <<'NODE'
+          const fs = require('node:fs');
+          const data = JSON.parse(fs.readFileSync('/tmp/accounts.json', 'utf8'));
+          if (!data.success || !Array.isArray(data.result) || data.result.length === 0) {
+            throw new Error('Cloudflare account list is empty or unavailable');
+          }
+          fs.writeFileSync('/tmp/account-candidates.txt', data.result.map((x) => x.id).join('\n') + '\n');
+          NODE
           fi
 
-      - name: Validate staging deployment contract
-        shell: bash
-        run: |
-          set -euo pipefail
-          node --check cloudflare-worker.js
-          node --check listening-audio-fix.js
-          node --check grade2-listening-three-set-audio-fix.js
-          node --check grade2-legacy-explanation-cleanup.js
-          node --check grade2-canonical-explanations.js
-          node --check grade2-explanation-provenance-dev.js
-          node --check tools/listening-player/player.js
-          node --check scripts/prepare-worker-assets.mjs
-          node --check scripts/remove-grade2-legacy-listening-explanations.mjs
-          node --check scripts/verify-cloudflare-listening-audio.mjs
-          node --check scripts/inspect-set01-intro-gaps.mjs
-          node --check scripts/inspect-grade2-three-set-pauses.mjs
-          node --check scripts/build-grade2-three-set-corrected-audio.mjs
-          node --check scripts/build-set01-duplicate-question-v2-audio.mjs
-          node scripts/remove-grade2-legacy-listening-explanations.mjs --check
-          node tests/grade2-listening-audio-fix.test.cjs
-          node tests/grade2-listening-three-set-audio-fix.test.cjs
-          node tests/cloudflare-listening-route.test.mjs
-          node --test tests/grade2-listening-player.test.cjs
-          node --test tests/grade2-listening-r2-source.test.cjs
-          node --test tests/cloudflare-deploy-contract.test.cjs
-
-      - name: Audit actual Set 01-03 listening pauses
-        run: node scripts/inspect-grade2-three-set-pauses.mjs
-
-      - name: Preflight real listening corrections
-        run: node scripts/verify-cloudflare-listening-audio.mjs --expected-only
-
-      - name: Build precomputed 90-file corrected release
-        env:
-          CBT_BUILD_SHA: ${{ github.sha }}
-        run: node scripts/build-grade2-three-set-corrected-audio.mjs --output-dir=/tmp/cbt-three-set-corrected
-
-      - name: Build exactly six Set 01 duplicate-question v2 WAVs
-        env:
-          CBT_BUILD_SHA: ${{ github.sha }}
-        run: node scripts/build-set01-duplicate-question-v2-audio.mjs --output-dir=/tmp/cbt-set01-duplicate-v2
-
-      - name: Ensure isolated staging R2 buckets
-        shell: bash
-        run: |
-          set -euo pipefail
-          for bucket in mimilisten-audio-staging cbt-project-archive-staging; do
-            if npx wrangler r2 bucket info "$bucket" --json >/dev/null 2>&1; then
-              echo "R2 bucket exists: $bucket"
-            else
-              echo "Creating R2 bucket: $bucket"
-              npx wrangler r2 bucket create "$bucket"
+          found=''
+          while IFS= read -r account_id; do
+            [ -n "$account_id" ] || continue
+            code="$(curl -sS -o /tmp/settings-candidate.json -w '%{http_code}' \
+              "$api/accounts/$account_id/workers/scripts/$WORKER_NAME/settings" \
+              -H "$auth")"
+            if [ "$code" = '200' ]; then
+              found="$account_id"
+              cp /tmp/settings-candidate.json /tmp/tg-worker-inspect/settings-raw.json
+              break
             fi
-          done
+          done < /tmp/account-candidates.txt
 
-      - name: Seed legacy Set 01 sources into staging R2
-        shell: bash
-        run: |
-          set -euo pipefail
-          source_release='20260815-grade2-listening-pauses-v2'
-          source_base="https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/$source_release/set-01/listening/part1"
-          mkdir -p /tmp/cbt-staging-legacy-listening
-          for n in $(seq 1 9); do
-            id="$(printf '%02d' "$n")"
-            file="/tmp/cbt-staging-legacy-listening/No${id}.wav"
-            key="scbt/grade2/releases/$source_release/set-01/listening/part1/No${id}.wav"
-            curl -fsSL --retry 3 --connect-timeout 10 --max-time 60 \
-              -H 'Cache-Control: no-cache' \
-              "$source_base/No${id}.wav" \
-              -o "$file"
-            npx wrangler r2 object put "mimilisten-audio-staging/$key" \
-              --file "$file" \
-              --content-type audio/wav \
-              --cache-control 'public, max-age=31536000, immutable' \
-              --remote
-          done
+          if [ -z "$found" ]; then
+            echo "Could not locate Worker $WORKER_NAME in accessible accounts" >&2
+            exit 1
+          fi
 
-      - name: Upload precomputed 90-file corrected release to staging R2
-        shell: bash
-        run: |
-          set -euo pipefail
-          release='20260817-grade2-sets01-03-listening-pauses-1s-v1'
-          for set_num in 01 02 03; do
-            set_key="set-$set_num"
-            for n in $(seq 1 30); do
-              id="$(printf '%02d' "$n")"
-              if [ "$n" -le 15 ]; then part='part1'; else part='part2'; fi
-              file="/tmp/cbt-three-set-corrected/$set_key/listening/$part/No${id}.wav"
-              key="scbt/grade2/releases/$release/$set_key/listening/$part/No${id}.wav"
-              test -f "$file"
-              npx wrangler r2 object put "mimilisten-audio-staging/$key" \
-                --file "$file" \
-                --content-type audio/wav \
-                --cache-control 'public, max-age=31536000, immutable' \
-                --remote
-            done
-          done
+          printf '%s\n' "$found" > cloudflare-inspect/account-id.txt
 
-      - name: Upload exactly six Set 01 duplicate-question v2 WAVs to staging R2
-        shell: bash
-        run: |
-          set -euo pipefail
-          release='20260817-set01-listening-duplicate-question-fix-v2'
-          for n in 06 07 08 10 12 14; do
-            file="/tmp/cbt-set01-duplicate-v2/set-01/listening/part1/No${n}.wav"
-            key="scbt/grade2/releases/$release/set-01/listening/part1/No${n}.wav"
-            test -f "$file"
-            npx wrangler r2 object put "mimilisten-audio-staging/$key" \
-              --file "$file" \
-              --content-type audio/wav \
-              --cache-control 'public, max-age=31536000, immutable' \
-              --remote
-          done
+          curl -fsSL \
+            "$api/accounts/$found/workers/scripts/$WORKER_NAME/content/v2" \
+            -H "$auth" \
+            -D cloudflare-inspect/content-headers.txt \
+            -o /tmp/tg-worker-inspect/content-v2.bin
 
-      - name: Validate staging bundle
-        env:
-          CBT_BUILD_SHA: ${{ github.sha }}
-          CBT_BUILD_REF: ${{ github.ref_name }}
-          CBT_DEPLOY_ENV: staging
-        run: npx wrangler deploy --dry-run --env staging --config wrangler.jsonc
+          curl -fsSL \
+            "$api/accounts/$found/workers/scripts/$WORKER_NAME" \
+            -H "$auth" \
+            -D cloudflare-inspect/download-headers.txt \
+            -o /tmp/tg-worker-inspect/worker-download.bin
 
-      - name: Deploy cbt-staging
-        env:
-          CBT_BUILD_SHA: ${{ github.sha }}
-          CBT_BUILD_REF: ${{ github.ref_name }}
-          CBT_DEPLOY_ENV: staging
-        run: npx wrangler deploy --env staging --config wrangler.jsonc
+          curl -fsSL \
+            "$api/accounts/$found/workers/scripts/$WORKER_NAME/deployments" \
+            -H "$auth" \
+            -o cloudflare-inspect/deployments.json
 
-      - name: Verify staging deployment
-        shell: bash
-        env:
-          CBT_BUILD_SHA: ${{ github.sha }}
-          CBT_BUILD_REF: ${{ github.ref_name }}
-          CBT_DEPLOY_ENV: staging
-        run: |
-          set -euo pipefail
-          base='https://cbt-staging.itisnowornever271.workers.dev'
-          stamp="${GITHUB_SHA:0:12}"
-
-          build_ready=0
-          for attempt in {1..12}; do
-            if curl -fsSL --connect-timeout 10 --max-time 45 \
-              -H 'Cache-Control: no-cache' \
-              "$base/build-info.json?verify=$stamp&attempt=$attempt" \
-              -o /tmp/build-info.json; then
-              if node -e '
-                const fs = require("node:fs");
-                const info = JSON.parse(fs.readFileSync("/tmp/build-info.json", "utf8"));
-                process.exit(info.commit === process.env.CBT_BUILD_SHA && info.ref === process.env.CBT_BUILD_REF && info.environment === process.env.CBT_DEPLOY_ENV ? 0 : 1);
-              '; then
-                build_ready=1
-                break
-              fi
-            fi
-            echo "Waiting for staging build metadata propagation ($attempt/12)..."
-            sleep 2
-          done
-          test "$build_ready" = '1'
+          curl -fsSL \
+            "$api/accounts/$found/workers/scripts/$WORKER_NAME/script-settings" \
+            -H "$auth" \
+            -o cloudflare-inspect/script-settings.json || true
 
           node - <<'NODE'
-          const fs = require("node:fs");
-          const info = JSON.parse(fs.readFileSync("/tmp/build-info.json", "utf8"));
-          console.log("build-info verified", info);
+          const fs = require('node:fs');
+          const source = JSON.parse(fs.readFileSync('/tmp/tg-worker-inspect/settings-raw.json', 'utf8'));
+          const settings = source.result || source;
+          const allow = [
+            'name','type','namespace_id','namespace','database_id','database_name',
+            'bucket_name','service','environment','class_name','script_name',
+            'queue_name','index_name','id'
+          ];
+          const bindings = Array.isArray(settings.bindings)
+            ? settings.bindings.map((binding) => Object.fromEntries(
+                allow.filter((key) => binding[key] !== undefined).map((key) => [key, binding[key]])
+              ))
+            : [];
+          const safe = {
+            compatibility_date: settings.compatibility_date || null,
+            compatibility_flags: settings.compatibility_flags || [],
+            main_module: settings.main_module || null,
+            usage_model: settings.usage_model || null,
+            placement: settings.placement || null,
+            bindings
+          };
+          fs.writeFileSync('cloudflare-inspect/settings-safe.json', JSON.stringify(safe, null, 2));
           NODE
 
-          for file in \
-            exam.html \
-            app.js \
-            grade2-listening-part2-sets.js \
-            grade2-listening-set01-audio-fixes.js \
-            grade2-legacy-explanation-cleanup.js \
-            grade2-set-01-explanations.js \
-            grade2-skill-explanations.js \
-            grade2-explanation-sync.js \
-            grade2-canonical-explanations.js \
-            grade2-explanation-provenance-dev.js; do
-            local_sha="$(sha256sum "$file" | awk '{print $1}')"
-            matched=0
-            for attempt in {1..12}; do
-              if curl -fsSL --connect-timeout 10 --max-time 45 \
-                -H 'Cache-Control: no-cache' \
-                "$base/$file?verify=$stamp&attempt=$attempt" \
-                -o "/tmp/prod-${file//\//_}"; then
-                prod_sha="$(sha256sum "/tmp/prod-${file//\//_}" | awk '{print $1}')"
-                if [ "$local_sha" = "$prod_sha" ]; then
-                  matched=1
-                  break
-                fi
-              fi
-              echo "Waiting for $file propagation ($attempt/12)..."
-              sleep 2
-            done
-            test "$matched" = '1'
-          done
+          base64 -w0 /tmp/tg-worker-inspect/worker-download.bin > cloudflare-inspect/worker-download.b64
+          base64 -w0 /tmp/tg-worker-inspect/content-v2.bin > cloudflare-inspect/content-v2.b64
 
-          if [ -f tools/listening-player/index.html ]; then
-            for file in \
-              tools/listening-player/index.html \
-              tools/listening-player/player.js \
-              tools/listening-player/player.css; do
-              local_sha="$(sha256sum "$file" | awk '{print $1}')"
-              matched=0
-              for attempt in {1..12}; do
-                if curl -fsSL --connect-timeout 10 --max-time 45 \
-                  -H 'Cache-Control: no-cache' \
-                  "$base/$file?verify=$stamp&attempt=$attempt" \
-                  -o "/tmp/prod-${file//\//_}"; then
-                  prod_sha="$(sha256sum "/tmp/prod-${file//\//_}" | awk '{print $1}')"
-                  if [ "$local_sha" = "$prod_sha" ]; then
-                    matched=1
-                    break
-                  fi
-                fi
-                echo "Waiting for $file propagation ($attempt/12)..."
-                sleep 2
-              done
-              test "$matched" = '1'
-            done
-          fi
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const crypto = require('node:crypto');
+          const result = {};
+          for (const name of ['worker-download.b64', 'content-v2.b64']) {
+            const b64 = fs.readFileSync(`cloudflare-inspect/${name}`, 'utf8');
+            const data = Buffer.from(b64, 'base64');
+            result[name] = {
+              bytes: data.length,
+              sha256: crypto.createHash('sha256').update(data).digest('hex')
+            };
+          }
+          fs.writeFileSync('cloudflare-inspect/snapshot-manifest.json', JSON.stringify(result, null, 2));
+          NODE
 
-          node scripts/verify-cloudflare-listening-audio.mjs "$base"
-          echo "STAGING_URL=$base/"
+      - name: Commit inspection snapshot to temporary branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'tg-lesson-memo-inspector'
+          git config user.email 'actions@users.noreply.github.com'
+          git add cloudflare-inspect
+          git commit -m 'Store tg-lesson-memo inspection snapshot [skip ci]'
+          git push origin "HEAD:$GITHUB_REF_NAME"
