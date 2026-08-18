@@ -1944,7 +1944,8 @@ var index_default = {
           ok: true,
           appId: APP_ID,
           version: env.APP_VERSION,
-          privacyMode: "family-name-only-v1"
+          privacyMode: "family-name-only-v1",
+          studentProfiles: true
         });
       } else {
         const actor = await authenticate(
