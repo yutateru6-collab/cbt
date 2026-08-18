@@ -1,0 +1,47 @@
+name: Inspect tg-lesson-memo Worker
+
+on:
+  push:
+    branches:
+      - agent/inspect-tg-lesson-memo-worker
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    steps:
+      - name: Resolve Cloudflare account
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "${CLOUDFLARE_API_TOKEN:-}"
+          curl -fsSL https://api.cloudflare.com/client/v4/accounts \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            -H 'Accept: application/json' \
+            -o /tmp/accounts.json
+          account_id="$(jq -r '.result[0].id // empty' /tmp/accounts.json)"
+          test -n "$account_id"
+          echo "CLOUDFLARE_ACCOUNT_ID=$account_id" >> "$GITHUB_ENV"
+
+      - name: Download current tg-lesson-memo Worker
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSL \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/scripts/tg-lesson-memo/content/v2" \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            -o /tmp/tg-lesson-memo-worker.bin
+          test -s /tmp/tg-lesson-memo-worker.bin
+          file /tmp/tg-lesson-memo-worker.bin
+          wc -c /tmp/tg-lesson-memo-worker.bin
+
+      - name: Upload Worker source snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: tg-lesson-memo-worker-source
+          path: /tmp/tg-lesson-memo-worker.bin
+          retention-days: 1
