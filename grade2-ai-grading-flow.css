@@ -97,6 +97,42 @@
   line-height: 1.7;
 }
 .grade2-ai-primary { min-height: 46px; }
+.grade2-ai-primary:disabled { cursor: not-allowed; opacity: .55; }
+
+.grade2-ai-audio-status {
+  display: grid;
+  gap: 3px;
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  border: 1px solid #d6e2e8;
+  border-radius: 12px;
+  font-size: 12px;
+  line-height: 1.55;
+}
+.grade2-ai-audio-status strong { color: #29485b; }
+.grade2-ai-audio-status span { color: #647580; }
+.grade2-ai-audio-status.is-ready { border-color: #c9dfd2; background: #f2faf5; }
+.grade2-ai-audio-status.is-missing { border-color: #ecd9b5; background: #fff9ef; }
+
+.grade2-ai-individual-downloads {
+  display: grid;
+  gap: 7px;
+  margin-top: 9px;
+}
+.grade2-ai-individual-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 1px solid #e0e7eb;
+  border-radius: 10px;
+  background: #fff;
+}
+.grade2-ai-individual-row > span:first-child { display: grid; gap: 1px; min-width: 0; }
+.grade2-ai-individual-row strong { color: #355064; font-size: 12px; }
+.grade2-ai-individual-row small { color: #7a8790; font-size: 11px; }
+.grade2-ai-missing-record { color: #9a6833; font-size: 11px; font-weight: 850; }
 
 .grade2-ai-provider-grid {
   display: grid;
@@ -219,6 +255,10 @@
   .grade2-ai-provider-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .grade2-ai-provider { min-height: 54px; padding: 8px 9px; }
   .grade2-ai-response-input textarea { min-height: 170px; font-size: 13px; }
+}
+
+@media (max-width: 520px) {
+  .grade2-ai-individual-row { align-items: flex-start; }
 }
 
 @media (max-width: 390px) {
