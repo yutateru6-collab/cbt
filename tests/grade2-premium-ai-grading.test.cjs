@@ -7,23 +7,13 @@ const root = path.resolve(__dirname, "..");
 const bonusHtml = fs.readFileSync(path.join(root, "bonus.html"), "utf8");
 const bonusCss = fs.readFileSync(path.join(root, "bonus.css"), "utf8");
 const bonusScript = fs.readFileSync(path.join(root, "grade2-premium-bonus.js"), "utf8");
+const flowSource = fs.readFileSync(path.join(root, "grade2-ai-grading-flow.js"), "utf8");
+const flowCss = fs.readFileSync(path.join(root, "grade2-ai-grading-flow.css"), "utf8");
 const appSource = fs.readFileSync(path.join(root, "app.js"), "utf8");
 const examHtml = fs.readFileSync(path.join(root, "exam.html"), "utf8");
-const swSource = fs.readFileSync(path.join(root, "sw.js"), "utf8");
-const swSet02Source = fs.readFileSync(path.join(root, "sw-set02-v2.js"), "utf8");
 const scoring = require(path.join(root, "grade2-scoring.js"));
 
-function providerEntries() {
-  const providerBlock = bonusScript.match(/const externalAiProviders = Object\.freeze\(\[[\s\S]*?\n  \]\);/u)?.[0] || "";
-  return [...providerBlock.matchAll(/Object\.freeze\(\{\s*id:\s*"([^"]+)"[\s\S]*?label:\s*"([^"]+)"[\s\S]*?href:\s*"([^"]+)"[\s\S]*?description:\s*"([^"]+)"/gu)].map((match) => ({
-    id: match[1],
-    label: match[2],
-    href: match[3],
-    description: match[4],
-  }));
-}
-
-function validPayload(overrides = {}) {
+function validPayload() {
   return {
     schema: scoring.GPT_SCHEMA,
     setKey: "set-01",
@@ -39,185 +29,110 @@ function validPayload(overrides = {}) {
       vocabularyAndGrammar: 3,
       total: 11,
     },
-    ...overrides,
   };
 }
 
-test("1. premium page visibly offers only the PDF and external-AI grading benefits", () => {
-  const visibleBenefits = bonusHtml.match(/<div data-bonus-content hidden>[\s\S]*?<\/div>\s*\n\s*<dialog/u)?.[0] || "";
-  assert.equal((visibleBenefits.match(/<section class="bonus-section/g) || []).length, 2);
-  assert.match(visibleBenefits, /id="pdf"/);
-  assert.match(visibleBenefits, /href="\.\/output\/pdf\/eiken-grade2-final-check-writing-template\.pdf"/);
-  assert.match(bonusHtml, /id="ai-grading"/);
-  assert.match(bonusHtml, /href="#ai-grading">外部AI相談・採点<\/a>/);
-  for (const text of ["採点データをコピー", "5音声を保存", "普段使うAIで相談・採点", "JSONをCBTへ戻す"]) assert.match(bonusHtml, new RegExp(text));
-  assert.doesNotMatch(visibleBenefits, /id="(?:writing|speaking|ai-review|plan|weakness|checklist)"/);
+test("1. premium page exposes exactly the PDF and AI grading benefits", () => {
+  const visible = bonusHtml.match(/<div data-bonus-content hidden>[\s\S]*?<\/div>\s*\n\s*<section class="locked-card"/u)?.[0] || "";
+  assert.equal((visible.match(/<section class="bonus-section/g) || []).length, 2);
+  assert.match(visible, /id="pdf"/);
+  assert.match(visible, /id="ai-grading"/);
+  assert.match(visible, /eiken-grade2-final-check-writing-template\.pdf/);
+  assert.match(visible, /特典は、<br \/>この二つだけ。/);
+  assert.doesNotMatch(visible, /AI振り返り|7日・14日|弱点別|スピーキング即答型|ライティング回答型/);
+});
+
+test("2. premium bonus script is only access and legacy-plan normalization", () => {
+  assert.match(bonusScript, /requestedPlan === "three" \|\| requestedPlan === "five"/);
+  assert.match(bonusScript, /normalized\.searchParams\.set\("plan", "three"\)/);
+  assert.doesNotMatch(bonusScript, /externalAiProviders|vocabularyNotes|prompt-switch|weakness|ChatGPT|Gemini|Claude|Perplexity/);
+  assert.ok(bonusScript.length < 2000, "legacy premium bonus code should be removed rather than left dormant");
+  assert.doesNotMatch(bonusCss, /\.template-tabs|\.prompt-switch|\.plan-switch|\.practice-lab|\.speaking-grid/);
+});
+
+test("3. exam loads the isolated AI grading UI after app.js", () => {
+  assert.match(examHtml, /grade2-ai-grading-flow\.css\?v=grade2-ai-grading-flow-v80/);
+  assert.match(examHtml, /grade2-ai-grading-flow\.js\?v=grade2-ai-grading-flow-v80/);
+  assert.ok(examHtml.indexOf("app.js?") < examHtml.indexOf("grade2-ai-grading-flow.js?"));
+});
+
+test("4. result flow is three steps and reuses the existing trusted actions", () => {
   for (const text of [
-    "答案や録音は、このCBTアプリから外部AIへ自動送信されません。",
-    "実名、学校名、その他の個人情報は入力しないでください。",
-    "採点は学習用の参考評価であり、英検の公式採点・公式CSE・公式合否ではありません。",
-  ]) assert.match(bonusHtml, new RegExp(text));
+    "スピーキング音声を保存",
+    "AIで採点",
+    "AIの回答を戻す",
+    "採点用5音声を保存",
+    "採点データをコピー",
+    "AIの回答をここに貼り付け",
+    "採点結果を反映する",
+  ]) assert.match(flowSource, new RegExp(text));
+  for (const action of [
+    "grade2-speaking-download-all",
+    "copy-grade2-grading-data",
+    "import-grade2-gpt-score",
+    "copy-grade2-json-output-prompt",
+  ]) assert.match(flowSource, new RegExp(`data-action=\\"${action}\\"`));
+  assert.match(appSource, /async function downloadAllGrade2SpeakingRecordings\(\)/);
+  assert.match(appSource, /function getGrade2GradingPackageText\(\)/);
+  assert.match(appSource, /function importGrade2GptScore\(\)/);
 });
 
-test("2. chooser dialog exposes the required actions and accessible names", () => {
-  assert.match(bonusHtml, /data-action="open-ai-provider-dialog"/);
-  assert.match(bonusHtml, /<dialog[^>]+aria-labelledby="ai-grading-dialog-title"[^>]+aria-describedby="ai-grading-dialog-description"/);
-  assert.match(bonusHtml, /id="ai-grading-dialog-title">普段使っているAIを選ぶ/);
-  assert.match(bonusHtml, /id="ai-grading-dialog-description">[^<]*コピーした採点データを貼り付け/);
-  assert.match(bonusHtml, /data-action="close-ai-grading"/);
-  assert.match(bonusScript, /addEventListener\("cancel"/);
-  assert.match(bonusScript, /event\.target === event\.currentTarget/);
-  assert.match(bonusScript, /event\.key === "Escape"/);
-  assert.match(bonusScript, /aiGradingTrigger/);
-  assert.match(bonusScript, /ai-grading-dialog-open/);
-  assert.doesNotMatch(bonusScript, /is-fallback-open/);
-  const outsideClickGuard = bonusScript.indexOf("aiGradingDialogOpen &&");
-  const providerDialogAction = bonusScript.indexOf('if (action === "open-ai-provider-dialog"');
-  assert.ok(outsideClickGuard >= 0 && outsideClickGuard < providerDialogAction, "outside-click guard must run before the open action");
-  assert.match(bonusScript, /!event\.target\.closest\("\[data-action='open-ai-provider-dialog'\], \[data-action='open-ai-grading'\]"\)/);
-  assert.doesNotMatch(bonusScript, /document\.addEventListener\("click", \(event\) => \{\s*if \(aiGradingDialogOpen/);
-  assert.match(bonusScript, /function trapAiGradingDialogFocus\(event\)/);
-  assert.match(bonusScript, /event\.key !== "Tab"/);
-  assert.match(bonusScript, /if \(!dialog\?\.open\) return;/);
-  assert.match(bonusScript, /trapAiGradingDialogFocus\(event\)/);
-  const trapFunction = bonusScript.match(/function trapAiGradingDialogFocus\(event\) \{[\s\S]*?\n  \}\n\n  function countWords/u)?.[0] || "";
-  assert.ok(trapFunction, "native and fallback focus trap function must be present");
-  assert.doesNotMatch(trapFunction, /ai-grading-dialog-fallback-open/);
-  assert.match(bonusScript, /event\.shiftKey/);
-  assert.match(bonusScript, /last\.focus\(\)/);
-  assert.match(bonusScript, /first\.focus\(\)/);
+test("5. speaking completion no longer exposes mid-exam AI grading actions", () => {
+  assert.match(flowSource, /grade2-speaking-copy-grading-prompt/);
+  assert.match(flowSource, /grade2-speaking-download-all/);
+  assert.match(flowSource, /AI採点は4技能をすべて終えた後の結果画面から行えます/);
+  const cleanup = flowSource.match(/function cleanSpeakingCompletion\(\)[\s\S]*?\n  \}/u)?.[0] || "";
+  assert.match(cleanup, /\.remove\(\)/);
+  assert.match(cleanup, /speaking-review-list\.compact-list/);
 });
 
-test("3. exactly four frozen providers have the required shape and unique ids", () => {
-  assert.match(bonusScript, /const externalAiProviders = Object\.freeze\(\[/);
-  const providers = providerEntries();
-  assert.equal(providers.length, 4);
-  assert.deepEqual(providers.map((provider) => provider.id), ["chatgpt", "gemini", "claude", "perplexity"]);
-  assert.equal(new Set(providers.map((provider) => provider.label)).size, 4);
-  assert.ok(providers.every((provider) => provider.description));
-  assert.equal((bonusScript.match(/Object\.freeze\(\{\s*id:/gu) || []).length, 4);
+test("6. provider links are direct, official, new-tab roots with no user data", () => {
+  const expected = [
+    "https://chatgpt.com/",
+    "https://gemini.google.com/",
+    "https://claude.ai/",
+    "https://www.perplexity.ai/",
+  ];
+  for (const url of expected) assert.match(flowSource, new RegExp(url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  assert.match(flowSource, /target="_blank"/);
+  assert.match(flowSource, /rel="noopener noreferrer"/);
+  assert.match(flowSource, /referrerpolicy="no-referrer"/);
+  assert.doesNotMatch(flowSource, /\?prompt=|\?answer=|FormData|fetch\(.*provider|clipboard.*provider/);
 });
 
-test("4. provider URLs are HTTPS roots inside the official host allowlist", () => {
-  const providers = providerEntries();
-  const allowlist = {
-    chatgpt: ["chatgpt.com"],
-    gemini: ["gemini.google.com"],
-    claude: ["claude.ai"],
-    perplexity: ["perplexity.ai", "www.perplexity.ai"],
-  };
-  for (const provider of providers) {
-    const url = new URL(provider.href);
-    assert.equal(url.protocol, "https:");
-    assert.ok(allowlist[provider.id].includes(url.hostname));
-    assert.equal(url.pathname, "/");
-    assert.equal(url.search, "");
-    assert.equal(url.hash, "");
-  }
-  assert.match(bonusScript, /OFFICIAL_AI_PROVIDER_HOSTS/);
-  assert.match(bonusScript, /url\.protocol === "https:"/);
-  assert.match(bonusScript, /!url\.search/);
-  assert.match(bonusScript, /!url\.hash/);
+test("7. normal users see no JSON jargon in the primary flow", () => {
+  assert.doesNotMatch(flowSource, />採点JSON</);
+  assert.doesNotMatch(flowSource, />AIの採点結果JSON</);
+  assert.match(flowSource, /うまく採点結果を読み取れない場合/);
+  assert.match(flowSource, /AIに形式を整えてもらう指示をコピー/);
 });
 
-test("5. provider navigation cannot carry answer, prompt, audio, setKey, query, hash, or data URLs", () => {
-  const providers = providerEntries();
-  for (const provider of providers) {
-    assert.doesNotMatch(provider.href, /\?|#|data:/iu);
-    assert.doesNotMatch(provider.href, /answer|prompt|audio|setKey/iu);
-  }
-  const openExternalAi = bonusScript.match(/function openExternalAi\([\s\S]*?\n  \}/u)?.[0] || "";
-  assert.doesNotMatch(openExternalAi, /clipboard|FormData|fetch\(/u);
-  assert.doesNotMatch(openExternalAi, /window\.open/);
-  assert.match(openExternalAi, /window\.location\.assign\(selectedProvider\.href\)/);
+test("8. existing parser accepts a full AI response and extracts the embedded score payload", () => {
+  const payload = validPayload();
+  const response = `総評です。\n\n\`\`\`json\n${JSON.stringify(payload, null, 2)}\n\`\`\``;
+  const parsed = scoring.parseAndValidateGptScore(response, "set-01");
+  assert.equal(parsed.ok, true);
+  assert.deepEqual(parsed.value, payload);
 });
 
-test("6. result-to-bonus links use a new tab and preserve the result tab", () => {
-  assert.match(appSource, /href="\$\{GRADE2_EXTERNAL_AI_GRADING_URL\}" target="_blank" rel="noopener noreferrer"/);
-  assert.match(appSource, /GRADE2_EXTERNAL_AI_GRADING_URL = "\.\/bonus\.html\?plan=three#ai-grading"/);
-  const panelStart = appSource.indexOf("function renderGrade2GptPanel");
-  const panelEnd = appSource.indexOf("\nfunction renderReviewBoard", panelStart);
-  const panelSource = appSource.slice(panelStart, panelEnd);
-  assert.match(panelSource, /const dedicatedAiAction = GRADE2_GRADING_GPT_URL/);
-  assert.match(panelSource, /\$\{dedicatedAiAction\}/);
-  assert.ok(panelSource.indexOf("const dedicatedAiAction") < panelSource.indexOf("const premiumActions"), "dedicated link must be outside the premium action gate");
-  assert.match(panelSource, /canViewBonus \? "専用採点AIは未設定です。下の外部AI選択をご利用ください。" : "専用採点AIは現在設定されていません。"/);
-  assert.match(appSource, /target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">専用採点AIを開く/);
-});
-
-test("7. general-AI grading prompt is self-contained and rejects official-score claims", () => {
-  assert.doesNotMatch(appSource, /完成Instructionsに従って/);
-  for (const text of [
-    "英検2級S-CBT対策",
-    "英検の公式採点・公式CSE・公式合否ではありません",
-    "CSE点や合否をAI自身が生成してはいけません",
-    "模範解答は完全一致を求める正解ではなく、比較用",
-    "必要な答案・音声が不足している場合",
-    "発音・流暢さを文字起こしだけから推測しないでください",
-  ]) assert.match(appSource, new RegExp(text));
-  assert.match(appSource, /Writingは要約と英作文を別々に採点/);
-  assert.match(appSource, /Speakingは、taskResponse/);
-});
-
-test("8. speaking package preserves source indexes, filenames, and No.2 story data", () => {
-  assert.match(appSource, /function getGrade2ScoredSpeakingSteps\(\)/);
-  assert.match(appSource, /getGrade2ScoredSpeakingSteps\(\)\.map\(\(\{ step, index: stepIndex \}, order\) =>/);
-  assert.match(appSource, /expectedRecordingFileName: buildSpeakingRecordingFileName\(stepIndex/);
-  assert.match(appSource, /recordingPresent: Boolean\(recording\)/);
-  for (const field of ["order", "stepIndex", "id", "label", "prompt", "passage", "pictureStory", "modelAnswerForComparison"]) assert.match(appSource, new RegExp(`${field}[,:]`));
-  for (const field of ["imageAlt", "openingSentence", "firstSpeech", "firstTimeLabel", "secondTimeLabel"]) assert.match(appSource, new RegExp(field));
-  for (const text of [
-    "アップロードされた各音声をexpectedRecordingFileNameと照合してください",
-    "対応を判断できない音声を別問題の回答として採点しないでください",
-    "不足・重複・不明なファイルがある場合は、その事実を先に示してください",
-  ]) assert.match(appSource, new RegExp(text));
-});
-
-test("9. JSON-only re-output prompt has the fixed schema, ranges, template, and action", () => {
-  assert.match(appSource, /function getGrade2JsonOutputPrompt\(\)/);
-  assert.match(appSource, /data-action="copy-grade2-json-output-prompt"/);
-  assert.match(appSource, /GRADE2_JSON_OUTPUT_PROMPT_TEMPLATE/);
-  assert.match(appSource, /split\("\{\{SET_KEY\}\}"\)\.join\(selectedSet\.key\)/);
-  for (const text of [
-    "scbt-grade2-gpt-score-v1",
-    "Writing各課題のtotalは4観点の算術合計で、0〜16",
-    "writing.totalは要約と英作文の合計で、0〜32",
-    "speaking.totalは4観点の算術合計で、0〜20",
-    "小数、文字列、分数、単位、コメントを入れないでください",
-    "下の0は形式見本",
-    "点数を推測せず、不足を説明してJSONを出さない",
-    "JSONコードブロックを1つだけ",
-  ]) assert.match(appSource, new RegExp(text));
-});
-
-test("10. prompt schema remains identical to the scoring schema", () => {
-  assert.equal(scoring.GPT_SCHEMA, "scbt-grade2-gpt-score-v1");
-  assert.match(appSource, /schema: "scbt-grade2-gpt-score-v1"/);
-  assert.match(appSource, /"schema": "scbt-grade2-gpt-score-v1"/);
-});
-
-test("11. existing JSON validation still accepts valid values and rejects mismatch, decimals, and bad totals", () => {
+test("9. scoring validation still rejects wrong set, decimals, and inconsistent totals", () => {
   assert.equal(scoring.validateGptScorePayload(validPayload(), "set-01").ok, true);
   assert.equal(scoring.validateGptScorePayload(validPayload(), "set-02").ok, false);
-  const invalid = validPayload();
-  invalid.writing.summary.content = 4.5;
-  invalid.writing.essay.total = 10;
-  assert.equal(scoring.validateGptScorePayload(invalid, "set-01").ok, false);
+
+  const decimal = validPayload();
+  decimal.writing.summary.content = 2.5;
+  assert.equal(scoring.validateGptScorePayload(decimal, "set-01").ok, false);
+
+  const badTotal = validPayload();
+  badTotal.speaking.total = 20;
+  assert.equal(scoring.validateGptScorePayload(badTotal, "set-01").ok, false);
 });
 
-test("12. speaking and normal-flow contracts plus matching v73 mobile developer caches remain present", () => {
-  for (const id of ["read-aloud", "no-1", "no-2", "no-3", "no-4"]) assert.match(appSource, new RegExp(`"${id}"`));
-  assert.match(appSource, /スピーキング単体のAI振り返り用プロンプトをコピー/);
-  assert.match(appSource, /最終的なWriting・Speaking採点JSONは、4技能終了後の結果画面から作成します/);
-  assert.match(appSource, /そのままリスニングへ進む（本番形式）/);
-  const swCache = swSource.match(/const CACHE_NAME = "([^"]+)"/u)?.[1];
-  const swSet02Cache = swSet02Source.match(/const CACHE_NAME = "([^"]+)"/u)?.[1];
-  assert.equal(swCache, "cbt-grade2-app-shell-v73-mobile-dev");
-  assert.equal(swSet02Cache, swCache);
-  assert.match(examHtml, /app\.js\?v=grade2-reading-writing-listening-v73-mobile-dev/);
-  assert.match(examHtml, /sw-set02-v2\.js\?v=grade2-reading-writing-listening-v73-mobile-dev/);
-  assert.match(bonusHtml, /bonus\.css\?v=grade2-premium-v72-ai-grading/);
-  assert.match(bonusHtml, /grade2-premium-bonus\.js\?v=grade2-three-premium-v72-ai-grading/);
-  assert.match(bonusCss, /prefers-reduced-motion/);
-  assert.match(bonusCss, /safe-area-inset-bottom/);
+test("10. mobile layout remains one-column where the workflow needs it", () => {
+  assert.match(flowCss, /@media \(max-width: 760px\)/);
+  assert.match(flowCss, /grade2-ai-provider-grid \{ grid-template-columns: repeat\(2/);
+  assert.match(flowCss, /@media \(max-width: 390px\)/);
+  assert.match(flowCss, /grade2-ai-provider-grid \{ grid-template-columns: 1fr/);
+  assert.match(bonusCss, /@media \(max-width: 720px\)/);
+  assert.match(bonusCss, /ai-flow-preview \{ grid-template-columns: 1fr/);
 });
