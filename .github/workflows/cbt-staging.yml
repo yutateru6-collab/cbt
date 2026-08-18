@@ -1,4 +1,4 @@
-name: Verify tg-lesson-memo student profile deployment
+name: Verify tg-lesson-memo student profile deployment v2
 
 on:
   push:
