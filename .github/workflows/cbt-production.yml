@@ -51,6 +51,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          node --check purchaser-benefits-worker.js
+          node --check purchaser-benefits-access.js
           node --check cloudflare-worker.js
           node --check listening-audio-fix.js
           node --check grade2-listening-three-set-audio-fix.js
@@ -181,7 +183,6 @@ jobs:
 
           for file in \
             app-config-grade2.js \
-            bonus.html \
             bonus.css \
             grade2-premium-bonus.js \
             grade2-ai-grading-flow.js \
@@ -214,6 +215,21 @@ jobs:
             done
             test "$matched" = '1'
           done
+
+          bonus_status="$(curl -sS --connect-timeout 10 --max-time 45 \
+            -H 'Cache-Control: no-cache' \
+            -o /tmp/prod-bonus-locked.html \
+            -w '%{http_code}' \
+            "$base/bonus.html?purchase=three&verify=$stamp")"
+          test "$bonus_status" = '403'
+          grep -q '購入後のご案内から開いてください' /tmp/prod-bonus-locked.html
+
+          pdf_status="$(curl -sS --connect-timeout 10 --max-time 45 \
+            -H 'Cache-Control: no-cache' \
+            -o /dev/null \
+            -w '%{http_code}' \
+            "$base/output/pdf/eiken-grade2-final-check-writing-template.pdf?verify=$stamp")"
+          test "$pdf_status" = '303'
 
           if [ -f tools/listening-player/index.html ]; then
             for file in \
