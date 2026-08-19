@@ -78,21 +78,18 @@
       </details>`;
   }
 
-  window.getValidatedGrade2GptScores = function getValidatedGrade2GptScoresV81() {
+  window.getValidatedGrade2GptScores = function getValidatedGrade2GptScoresV82() {
     if (!canViewBonus || !grade2Scoring || !appState.grade2GptScores) return null;
     const validation = grade2Scoring.validateGptScorePayload(appState.grade2GptScores, selectedSet.key);
     return validation.ok ? validation.value : null;
   };
 
-  window.renderAccessPlanNotice = function renderAccessPlanNoticeV81() {
+  window.renderAccessPlanNotice = function renderAccessPlanNoticeV82() {
     const accessText = selectedAccessPlan.key === "sample"
       ? "スピーキングから始まり、4技能の主要な操作を少しずつ無料で確認できます。"
       : selectedAccessPlan.key === "three"
-        ? "第1〜3回の解説・スクリプト・模範解答と、3回プレミアム特典を確認できます。"
+        ? "第1〜3回の解説・スクリプト・模範解答と、Writing・Speaking AI採点を利用できます。"
         : "第1回を本番形式で解き、正答を確認できます。詳しい解説は3回プレミアムに含まれます。";
-    const bonusLink = canViewBonus
-      ? `<a class="access-plan-link" href="./bonus.html?plan=three" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">特典を開く（8ページPDF・Writing / Speaking AI採点）</a>`
-      : "";
     const developerLink = `<a class="developer-entry-link" href="./exam.html?plan=three&set=set-01&dev=1&module=speaking&speakingStep=0&start=1&fresh=1">開発者用確認</a>`;
 
     return `
@@ -102,12 +99,11 @@
           <strong>${escape(selectedAccessPlan.label)}</strong>
         </div>
         <p>${accessText}</p>
-        ${bonusLink}
         ${developerLink}
       </section>`;
   };
 
-  window.renderGrade2SpeakingReviewV2 = function renderGrade2SpeakingReviewV81() {
+  window.renderGrade2SpeakingReviewV2 = function renderGrade2SpeakingReviewV82() {
     const scoredSteps = getGrade2ScoredSpeakingSteps();
     const missingLabels = scoredSteps
       .filter(({ index }) => !appState.speakingRecordings[index])
@@ -142,11 +138,11 @@
       <p class="grade2-ai-deferred-note">AI採点は4技能をすべて終えた後の結果画面から行えます。ここでは操作せず、そのまま試験を続けてください。</p>`;
   };
 
-  window.renderGrade2SpeakingFeedbackBenefit = function renderGrade2SpeakingFeedbackBenefitV81() {
+  window.renderGrade2SpeakingFeedbackBenefit = function renderGrade2SpeakingFeedbackBenefitV82() {
     return "";
   };
 
-  window.renderGrade2ScoreResult = function renderGrade2ScoreResultV81(summary) {
+  window.renderGrade2ScoreResult = function renderGrade2ScoreResultV82(summary) {
     if (!grade2Scoring) {
       return `<p class="grading-message error">採点処理を読み込めませんでした。ページを再読み込みしてください。</p>`;
     }
@@ -173,12 +169,12 @@
       </div>`;
   };
 
-  window.renderGrade2GptPanel = function renderGrade2GptPanelV81(gptScores) {
+  window.renderGrade2GptPanel = function renderGrade2GptPanelV82(gptScores) {
     if (!canViewBonus) {
       return `
         <section class="grade2-gpt-panel grade2-ai-flow-card" aria-label="Writing・Speaking AI採点">
           <div class="grade2-ai-flow-head">
-            <div><span>3回プレミアム特典</span><h2>Writing・Speaking AI採点</h2></div>
+            <div><span>3回プレミアム機能</span><h2>Writing・Speaking AI採点</h2></div>
           </div>
           <p class="grade2-ai-flow-intro">WritingとSpeakingのAI採点は3回プレミアムで利用できます。</p>
         </section>`;
@@ -190,7 +186,7 @@
       <section class="grade2-gpt-panel grade2-ai-flow-card" aria-label="Writing・Speaking AI採点">
         <div class="grade2-ai-flow-head">
           <div>
-            <span>3回プレミアム特典</span>
+            <span>3回プレミアム機能</span>
             <h2>Writing・Speaking AI採点</h2>
           </div>
           <strong class="${gptScores ? "grade2-ai-status done" : "grade2-ai-status pending"}">${gptScores ? "採点結果反映済み" : "AI採点待ち"}</strong>
