@@ -23,6 +23,7 @@ const canonicalSource = fs.readFileSync(path.join(root, "grade2-canonical-explan
 const productionSetKeys = ["set-01", "set-02", "set-03"];
 const allPaidSetKeys = ["set-01", "set-02", "set-03", "set-04", "set-05"];
 const THREE_SET_RELEASE = "20260817-grade2-sets01-03-listening-pauses-1s-v1";
+const NO05_DUPLICATE_FIX_RELEASE = "20260820-set01-listening-no05-duplicate-question-fix-v1";
 const DUPLICATE_FIX_RELEASE = "20260817-set01-listening-duplicate-question-fix-v2";
 const DUPLICATE_FIX_IDS = new Set([6, 7, 8, 10, 12, 14]);
 
@@ -147,9 +148,10 @@ test("Listening Player consumes canonical sets and canonicalExplanation only", (
   assert.match(player, /question\.explanationHash/);
 });
 
-test("only the six confirmed Set 01 items use the duplicate-question v2 overlay release", () => {
+test("Set 01 No.5 alone uses its dedicated duplicate fix and the existing six V2 items stay unchanged", () => {
   const { sets } = loadCanonicalGrade2Data();
   let total = 0;
+  let no05OverlayCount = 0;
   let overlayCount = 0;
   for (const setKey of productionSetKeys) {
     const questions = sets[setKey].listeningQuestions;
@@ -158,15 +160,22 @@ test("only the six confirmed Set 01 items use the duplicate-question v2 overlay 
       const id = Number(question.id);
       const part = id <= 15 ? "part1" : "part2";
       const number = String(id).padStart(2, "0");
+      const useNo05Overlay = setKey === "set-01" && part === "part1" && id === 5;
       const useOverlay = setKey === "set-01" && part === "part1" && DUPLICATE_FIX_IDS.has(id);
-      const expectedRelease = useOverlay ? DUPLICATE_FIX_RELEASE : THREE_SET_RELEASE;
+      const expectedRelease = useNo05Overlay
+        ? NO05_DUPLICATE_FIX_RELEASE
+        : useOverlay
+          ? DUPLICATE_FIX_RELEASE
+          : THREE_SET_RELEASE;
       assert.equal(question.audioRelease, expectedRelease, `${setKey} No.${id} release`);
       assert.equal(question.audioFile, `./audio-r2/grade2/releases/${expectedRelease}/${setKey}/listening/${part}/No${number}.wav`, `${setKey} No.${id} audioFile`);
+      if (useNo05Overlay) no05OverlayCount += 1;
       if (useOverlay) overlayCount += 1;
       total += 1;
     }
   }
   assert.equal(total, 90);
+  assert.equal(no05OverlayCount, 1);
   assert.equal(overlayCount, 6);
 });
 
