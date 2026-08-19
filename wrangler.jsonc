@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "cbt",
-  "main": "./cloudflare-worker.js",
+  "main": "./purchaser-benefits-worker.js",
   "compatibility_date": "2026-07-12",
   "workers_dev": true,
   "preview_urls": true,
@@ -16,7 +16,9 @@
     "binding": "ASSETS",
     "not_found_handling": "single-page-application",
     "run_worker_first": [
-      "/audio-r2/*"
+      "/audio-r2/*",
+      "/bonus.html",
+      "/output/pdf/eiken-grade2-final-check-writing-template.pdf"
     ]
   },
   "r2_buckets": [
