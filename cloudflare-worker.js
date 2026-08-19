@@ -17,9 +17,19 @@ import {
   fixGrade2Set01DuplicateQuestionV2FromOneSecondWav,
   fixGrade2ThreeSetOneSecondPausesWav,
 } from "./grade2-listening-three-set-audio-fix.js";
+import {
+  GRADE2_LISTENING_SET01_NO05_DUPLICATE_FIX_RELEASE,
+  fixGrade2Set01No05DuplicateFromOneSecondWav,
+} from "./grade2-listening-set01-no05-duplicate-fix.js";
 
 const R2_KEY_PREFIX = "scbt/grade2/releases";
 const LISTENING_CORRECTIONS = Object.freeze([
+  Object.freeze({
+    release: GRADE2_LISTENING_SET01_NO05_DUPLICATE_FIX_RELEASE,
+    sourceRelease: GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE,
+    pathPattern: /^set-01\/listening\/part1\/No(05)\.wav$/,
+    transform: fixGrade2Set01No05DuplicateFromOneSecondWav,
+  }),
   Object.freeze({
     release: GRADE2_LISTENING_SET01_DUPLICATE_QUESTION_FIX_V2_RELEASE,
     sourceRelease: GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE,
