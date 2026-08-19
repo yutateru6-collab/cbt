@@ -1,4 +1,4 @@
-const CACHE_NAME = "cbt-grade2-app-shell-v78-set01-duplicate-question-fix";
+const CACHE_NAME = "cbt-grade2-app-shell-v80-purchaser-benefits-auth";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -68,7 +68,9 @@ self.addEventListener("fetch", (event) => {
     request.method !== "GET" ||
     url.origin !== self.location.origin ||
     url.pathname.startsWith("/assets/audio/") ||
-    url.pathname.startsWith("/audio-r2/")
+    url.pathname.startsWith("/audio-r2/") ||
+    url.pathname === "/bonus.html" ||
+    url.pathname === "/output/pdf/eiken-grade2-final-check-writing-template.pdf"
   ) return;
 
   if (request.mode === "navigate") {
