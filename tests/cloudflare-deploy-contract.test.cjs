@@ -17,8 +17,13 @@ test("production R2 bindings stay unchanged", () => {
   ]);
 });
 
-test("dynamic listening audio routes through the Worker before SPA fallback", () => {
-  assert.deepEqual(wrangler.assets?.run_worker_first, ["/audio-r2/*"]);
+test("dynamic listening and purchaser-benefit routes run through the Worker before SPA fallback", () => {
+  assert.equal(wrangler.main, "./purchaser-benefits-worker.js");
+  assert.deepEqual(wrangler.assets?.run_worker_first, [
+    "/audio-r2/*",
+    "/bonus.html",
+    "/output/pdf/eiken-grade2-final-check-writing-template.pdf",
+  ]);
   assert.equal(wrangler.assets?.not_found_handling, "single-page-application");
 });
 
