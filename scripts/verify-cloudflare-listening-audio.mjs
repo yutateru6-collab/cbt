@@ -9,6 +9,10 @@ import {
   GRADE2_LISTENING_SET01_DUPLICATE_QUESTION_FIX_V2_RELEASE,
   fixGrade2Set01DuplicateQuestionV2FromOneSecondWav,
 } from "../grade2-listening-set01-duplicate-v2-fix.js";
+import {
+  GRADE2_LISTENING_SET01_NO05_DUPLICATE_FIX_RELEASE,
+  fixGrade2Set01No05DuplicateFromOneSecondWav,
+} from "../grade2-listening-set01-no05-duplicate-fix.js";
 
 const args = process.argv.slice(2);
 const expectedOnly = args.includes("--expected-only");
@@ -105,6 +109,7 @@ async function fetchVerifiedDeploymentAudio(url, expectedBytes, expectedSha, man
 }
 
 let verified = 0;
+let no05OverlayVerified = 0;
 let overlayVerified = 0;
 for (const setKey of setKeys) {
   for (let id = 1; id <= 30; id += 1) {
@@ -130,7 +135,19 @@ for (const setKey of setKeys) {
     let expectedBuffer = normal.buffer;
     let release = GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE;
     let extraNote = "";
-    if (setKey === "set-01" && part === "part1" && duplicateQuestionFixIds.has(id)) {
+
+    if (setKey === "set-01" && part === "part1" && id === 5) {
+      const no05Fixed = fixGrade2Set01No05DuplicateFromOneSecondWav(normal.buffer, id);
+      const normalPcm = pcmData(normal.buffer);
+      const fixedPcm = pcmData(no05Fixed.buffer);
+      if (!fixedPcm.equals(normalPcm.subarray(0, no05Fixed.trimFrame * 2))) {
+        throw new Error(`${manifestId}: No.5 fix is not a byte-identical prefix of the accepted normal 1s WAV`);
+      }
+      expectedBuffer = no05Fixed.buffer;
+      release = GRADE2_LISTENING_SET01_NO05_DUPLICATE_FIX_RELEASE;
+      extraNote = ` no05DuplicateTrim=${no05Fixed.trimFrame} removed=${no05Fixed.removedFrames}`;
+      no05OverlayVerified += 1;
+    } else if (setKey === "set-01" && part === "part1" && duplicateQuestionFixIds.has(id)) {
       const duplicateFixed = fixGrade2Set01DuplicateQuestionV2FromOneSecondWav(normal.buffer, id);
       const normalPcm = pcmData(normal.buffer);
       const fixedPcm = pcmData(duplicateFixed.buffer);
@@ -163,9 +180,10 @@ for (const setKey of setKeys) {
 }
 
 if (verified !== 90) throw new Error(`Expected 90 verified listening WAVs, got ${verified}`);
+if (no05OverlayVerified !== 1) throw new Error(`Expected exactly one No.5 duplicate overlay, got ${no05OverlayVerified}`);
 if (overlayVerified !== 6) throw new Error(`Expected exactly 6 V2 duplicate overlays, got ${overlayVerified}`);
 if (expectedOnly) {
-  console.log("Verified all 90 real Set 01-03 baseline masters and exactly six byte-prefix Set 01 V2 overlays");
+  console.log("Verified all 90 real Set 01-03 baseline masters, exactly one No.5 overlay, and exactly six existing V2 overlays");
 } else {
-  console.log(`Verified all 90 effective Set 01-03 listening WAVs, including exactly six V2 overlays, against ${publicBase}`);
+  console.log(`Verified all 90 effective Set 01-03 listening WAVs, including the No.5-only overlay and exactly six existing V2 overlays, against ${publicBase}`);
 }
