@@ -115,25 +115,29 @@ function executeDeveloperShortcut({ dev }) {
   };
 }
 
-test("1. premium page exposes exactly the PDF and AI grading benefits", () => {
+test("1. premium page keeps AI grading in the exam and exposes the four purchaser benefits", () => {
   const visible = bonusHtml.match(/<div data-bonus-content hidden>[\s\S]*?<\/div>\s*\n\s*<section class="locked-card"/u)?.[0] || "";
   assert.equal((visible.match(/<section class="bonus-section/g) || []).length, 2);
   assert.match(visible, /id="pdf"/);
-  assert.match(visible, /id="ai-grading"/);
+  assert.match(visible, /id="seven-days"/);
+  assert.match(visible, /id="fourteen-days"/);
+  assert.match(visible, /id="weakness-route"/);
+  assert.doesNotMatch(visible, /id="ai-grading"/);
   assert.match(visible, /eiken-grade2-final-check-writing-template\.pdf/);
-  assert.doesNotMatch(visible, /AI振り返り|7日・14日|弱点別|スピーキング即答型|ライティング回答型/);
+  assert.match(visible, /AI採点は「購入者特典」ではなく、3回プレミアム本体/);
 });
 
-test("2. premium bonus script remains only access and legacy-plan normalization", () => {
+test("2. premium bonus script remains only access and exam-link normalization", () => {
   assert.match(bonusScript, /requestedPlan === "three" \|\| requestedPlan === "five"/);
-  assert.match(bonusScript, /normalized\.searchParams\.set\("plan", "three"\)/);
+  assert.match(bonusScript, /purchaseHint === "three"/);
+  assert.match(bonusScript, /link\.setAttribute\("href", "\.\/exam\.html\?plan=three"\)/);
   assert.ok(bonusScript.length < 2000);
   assert.doesNotMatch(bonusCss, /\.template-tabs|\.prompt-switch|\.plan-switch|\.practice-lab|\.speaking-grid/);
 });
 
-test("3. exam uses v81 grading assets and the dedicated developer shortcut after app.js", () => {
+test("3. exam uses the current grading assets and the dedicated developer shortcut after app.js", () => {
   assert.match(examHtml, /grade2-ai-grading-flow\.css\?v=grade2-ai-grading-flow-v81/);
-  assert.match(examHtml, /grade2-ai-grading-flow\.js\?v=grade2-ai-grading-flow-v81/);
+  assert.match(examHtml, /grade2-ai-grading-flow\.js\?v=grade2-ai-grading-flow-v82-purchaser-separation/);
   assert.match(examHtml, /grade2-developer-score-shortcut\.css\?v=grade2-dev-score-shortcut-v1/);
   assert.match(examHtml, /grade2-developer-score-shortcut\.js\?v=grade2-dev-score-shortcut-v1/);
   assert.ok(examHtml.indexOf("app.js?") < examHtml.indexOf("grade2-developer-score-shortcut.js?"));

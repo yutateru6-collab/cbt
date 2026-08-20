@@ -5,6 +5,7 @@ const vm = require("node:vm");
 
 const root = path.resolve(__dirname, "..");
 const THREE_SET_RELEASE = "20260817-grade2-sets01-03-listening-pauses-1s-v1";
+const NO05_FIX_RELEASE = "20260820-set01-listening-no05-duplicate-question-fix-v1";
 const DUPLICATE_FIX_RELEASE = "20260817-set01-listening-duplicate-question-fix-v2";
 const DUPLICATE_FIX_IDS = new Set([6, 7, 8, 10, 12, 14]);
 
@@ -103,20 +104,24 @@ async function main() {
 
   let total = 0;
   let overlayCount = 0;
+  let no05OverlayCount = 0;
   for (const set of sets.slice(0, 3)) {
     for (const question of set.listeningQuestions) {
       const id = Number(question.id);
       const part = id <= 15 ? "part1" : "part2";
       const number = String(id).padStart(2, "0");
+      const useNo05Overlay = set.key === "set-01" && part === "part1" && id === 5;
       const useOverlay = set.key === "set-01" && part === "part1" && DUPLICATE_FIX_IDS.has(id);
-      const expectedRelease = useOverlay ? DUPLICATE_FIX_RELEASE : THREE_SET_RELEASE;
+      const expectedRelease = useNo05Overlay ? NO05_FIX_RELEASE : useOverlay ? DUPLICATE_FIX_RELEASE : THREE_SET_RELEASE;
       assert.equal(question.audioRelease, expectedRelease);
       assert.equal(question.audioFile, `./audio-r2/grade2/releases/${expectedRelease}/${set.key}/listening/${part}/No${number}.wav`);
+      if (useNo05Overlay) no05OverlayCount += 1;
       if (useOverlay) overlayCount += 1;
       total += 1;
     }
   }
   assert.equal(total, 90);
+  assert.equal(no05OverlayCount, 1);
   assert.equal(overlayCount, 6);
   assert.equal(sets[3].listeningQuestions[0].audioFile, "old-1.wav");
   assert.equal(sets[3].listeningQuestions[0].audioRelease, undefined);
@@ -124,7 +129,7 @@ async function main() {
   const examHtml = fs.readFileSync(path.join(root, "exam.html"), "utf8");
   assert.ok(examHtml.indexOf("grade2-listening-part2-sets.js") < examHtml.indexOf("grade2-listening-set01-audio-fixes.js"));
   assert.ok(examHtml.indexOf("grade2-listening-set01-audio-fixes.js") < examHtml.indexOf("exam-data.js"));
-  assert.match(examHtml, /grade2-set01-duplicate-question-fix-v2/);
+  assert.match(examHtml, /grade2-set01-no05-duplicate-fix-v1/);
 
   const workerSource = fs.readFileSync(path.join(root, "cloudflare-worker.js"), "utf8");
   assert.match(workerSource, /GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE/);
@@ -141,7 +146,7 @@ async function main() {
     assert.match(sw, /url\.pathname\.startsWith\("\/audio-r2\/"\)/);
   }
 
-  console.log("grade2 listening legacy and exactly-six V2 routing tests passed");
+  console.log("grade2 listening legacy, No.5-only, and exactly-six V2 routing tests passed");
 }
 
 main().catch((error) => {
