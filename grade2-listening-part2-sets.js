@@ -9,6 +9,9 @@
     "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2";
   const testCompleteListeningAudioBase =
     "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-grade2-listening-pauses-v2";
+  const set03ListeningFixesAudioBase =
+    "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260821-set03-listening-fixes-v1";
+  const set03ListeningFixNumbers = new Set([11, 13, 15, 29]);
   const listeningPart2Sets = [
   {
     "key": "sample",
@@ -3308,6 +3311,9 @@
       const partFolder = question.part === "Part 1" ? "part1" : "part2";
       const number = String(question.id).padStart(2, "0");
       question.audioFile = `${testCompleteListeningAudioBase}/${setKey}/listening/${partFolder}/No${number}.wav`;
+      if (set03ListeningFixNumbers.has(question.id)) {
+        question.audioFile = `${set03ListeningFixesAudioBase}/${setKey}/listening/${partFolder}/No${number}.wav`;
+      }
     });
   });
 
