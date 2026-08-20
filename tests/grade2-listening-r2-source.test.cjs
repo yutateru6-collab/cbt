@@ -10,6 +10,9 @@ const workerSource = fs.readFileSync(path.join(root, "scripts", "prepare-worker-
 
 const ACTIVE_RELEASE = "20260815-grade2-listening-pauses-v2";
 const ACTIVE_BASE = `https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/${ACTIVE_RELEASE}`;
+const SET03_FIX_RELEASE = "20260821-set03-listening-fixes-v1";
+const SET03_FIX_BASE = `https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/${SET03_FIX_RELEASE}`;
+const set03FixNumbers = new Set([11, 13, 15, 29]);
 const productionSetKeys = ["set-01", "set-02", "set-03"];
 
 function loadListeningSets() {
@@ -21,9 +24,10 @@ function loadListeningSets() {
   return Object.fromEntries(window.scbtGrade2VocabSets.map((set) => [set.key, set]));
 }
 
-test("Grade 2 three-run production uses exactly 90 pauses-v2 R2 listening URLs", () => {
+test("Grade 2 three-run production uses 86 pauses-v2 URLs plus four corrected Set 3 URLs", () => {
   const sets = loadListeningSets();
   let total = 0;
+  let correctedTotal = 0;
 
   for (const setKey of productionSetKeys) {
     const questions = sets[setKey]?.listeningQuestions;
@@ -38,18 +42,22 @@ test("Grade 2 three-run production uses exactly 90 pauses-v2 R2 listening URLs",
     for (const question of questions) {
       const partFolder = question.part === "Part 1" ? "part1" : "part2";
       const number = String(question.id).padStart(2, "0");
-      const expectedUrl = `${ACTIVE_BASE}/${setKey}/listening/${partFolder}/No${number}.wav`;
+      const usesSet03Fix = setKey === "set-03" && set03FixNumbers.has(question.id);
+      const expectedBase = usesSet03Fix ? SET03_FIX_BASE : ACTIVE_BASE;
+      const expectedUrl = `${expectedBase}/${setKey}/listening/${partFolder}/No${number}.wav`;
       assert.equal(
         question.audioFile,
         expectedUrl,
-        `${setKey} No.${question.id} must use the active immutable R2 release`,
+        `${setKey} No.${question.id} must use its active immutable R2 release`,
       );
       assert.ok(!question.audioFile.includes("/assets/audio/"), `${setKey} No.${question.id} must not use local audio`);
+      if (usesSet03Fix) correctedTotal += 1;
       total += 1;
     }
   }
 
   assert.equal(total, 90);
+  assert.equal(correctedTotal, 4);
 });
 
 test("Worker package no longer ships the legacy local Set 1 No.5 WAV", () => {

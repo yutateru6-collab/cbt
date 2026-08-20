@@ -106,12 +106,12 @@ test("Part 2 instruction is forced at the No.15 to No.16 boundary", () => {
   assert.ok(appSource.includes('part2: `${GRADE2_SPEAKING_AUDIO_BASE}/instructions/listening-part2-ja.wav`'));
 });
 
-test("exam assets and both service workers share the v73 mobile developer cache release", () => {
+test("exam assets and both service workers use the current mobile and listening cache releases", () => {
   assert.match(examSource, /styles\.css\?v=grade2-reading-writing-listening-v73-mobile-dev/);
   assert.match(examSource, /app\.js\?v=grade2-reading-writing-listening-v73-mobile-dev/);
-  assert.match(examSource, /sw-set02-v2\.js\?v=grade2-reading-writing-listening-v73-mobile-dev/);
-  assert.match(serviceWorkerSource, /cbt-grade2-app-shell-v73-mobile-dev/);
-  assert.match(examServiceWorkerSource, /cbt-grade2-app-shell-v73-mobile-dev/);
+  assert.match(examSource, /sw-set02-v2\.js\?v=grade2-set03-listening-fixes-20260821-v1/);
+  assert.match(serviceWorkerSource, /cbt-grade2-app-shell-v81-set03-listening-fixes/);
+  assert.match(examServiceWorkerSource, /cbt-grade2-app-shell-v81-set03-listening-fixes/);
 });
 
 test("Grade 2 developer mobile controls stay inside the viewport with touch-sized targets", () => {
