@@ -109,9 +109,9 @@ test("Part 2 instruction is forced at the No.15 to No.16 boundary", () => {
 test("exam assets and both service workers use the current mobile and listening cache releases", () => {
   assert.match(examSource, /styles\.css\?v=grade2-reading-writing-listening-v73-mobile-dev/);
   assert.match(examSource, /app\.js\?v=grade2-reading-writing-listening-v73-mobile-dev/);
-  assert.match(examSource, /sw-set02-v2\.js\?v=grade2-set03-listening-fixes-20260821-v1/);
-  assert.match(serviceWorkerSource, /cbt-grade2-app-shell-v81-set03-listening-fixes/);
-  assert.match(examServiceWorkerSource, /cbt-grade2-app-shell-v81-set03-listening-fixes/);
+  assert.match(examSource, /sw-set02-v2\.js\?v=grade2-listening-targets-20260821-v2/);
+  assert.match(serviceWorkerSource, /cbt-grade2-app-shell-v82-listening-targets/);
+  assert.match(examServiceWorkerSource, /cbt-grade2-app-shell-v82-listening-targets/);
 });
 
 test("Grade 2 developer mobile controls stay inside the viewport with touch-sized targets", () => {
