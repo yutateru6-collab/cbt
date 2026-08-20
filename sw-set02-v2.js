@@ -1,4 +1,4 @@
-const CACHE_NAME = "cbt-grade2-app-shell-v80-purchaser-benefits-auth";
+const CACHE_NAME = "cbt-grade2-app-shell-v81-set03-listening-fixes";
 const APP_SHELL = [
   "/",
   "/index.html",
