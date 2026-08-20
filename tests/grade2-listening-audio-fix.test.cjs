@@ -4,10 +4,25 @@ const path = require("node:path");
 const vm = require("node:vm");
 
 const root = path.resolve(__dirname, "..");
+const IMMUTABLE_R2_RELEASE_BASE = "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases";
+const LISTENING_PAUSES_V2_RELEASE = "20260815-grade2-listening-pauses-v2";
+const SET03_LISTENING_FIXES_RELEASE = "20260821-set03-listening-fixes-v1";
 const THREE_SET_RELEASE = "20260817-grade2-sets01-03-listening-pauses-1s-v1";
 const NO05_FIX_RELEASE = "20260820-set01-listening-no05-duplicate-question-fix-v1";
 const DUPLICATE_FIX_RELEASE = "20260817-set01-listening-duplicate-question-fix-v2";
 const DUPLICATE_FIX_IDS = new Set([6, 7, 8, 10, 12, 14]);
+const LISTENING_PAUSES_V2_IDS_BY_SET = {
+  "set-01": new Set([22, 25, 26, 30]),
+  "set-02": new Set([25]),
+  "set-03": new Set([17]),
+};
+const SET03_LISTENING_FIX_IDS = new Set([11, 13, 15, 29]);
+
+function directReleaseFor(setKey, id) {
+  if (setKey === "set-03" && SET03_LISTENING_FIX_IDS.has(id)) return SET03_LISTENING_FIXES_RELEASE;
+  if (LISTENING_PAUSES_V2_IDS_BY_SET[setKey]?.has(id)) return LISTENING_PAUSES_V2_RELEASE;
+  return "";
+}
 
 function makeMonoPcmWav(samples, sampleRate = 24000) {
   const dataBytes = samples.length * 2;
@@ -105,22 +120,32 @@ async function main() {
   let total = 0;
   let overlayCount = 0;
   let no05OverlayCount = 0;
+  let pausesV2Count = 0;
+  let set03FixCount = 0;
   for (const set of sets.slice(0, 3)) {
     for (const question of set.listeningQuestions) {
       const id = Number(question.id);
       const part = id <= 15 ? "part1" : "part2";
       const number = String(id).padStart(2, "0");
+      const directRelease = directReleaseFor(set.key, id);
       const useNo05Overlay = set.key === "set-01" && part === "part1" && id === 5;
       const useOverlay = set.key === "set-01" && part === "part1" && DUPLICATE_FIX_IDS.has(id);
-      const expectedRelease = useNo05Overlay ? NO05_FIX_RELEASE : useOverlay ? DUPLICATE_FIX_RELEASE : THREE_SET_RELEASE;
+      const expectedRelease = directRelease || (useNo05Overlay ? NO05_FIX_RELEASE : useOverlay ? DUPLICATE_FIX_RELEASE : THREE_SET_RELEASE);
+      const expectedBase = directRelease
+        ? `${IMMUTABLE_R2_RELEASE_BASE}/${expectedRelease}`
+        : `./audio-r2/grade2/releases/${expectedRelease}`;
       assert.equal(question.audioRelease, expectedRelease);
-      assert.equal(question.audioFile, `./audio-r2/grade2/releases/${expectedRelease}/${set.key}/listening/${part}/No${number}.wav`);
+      assert.equal(question.audioFile, `${expectedBase}/${set.key}/listening/${part}/No${number}.wav`);
+      if (directRelease === LISTENING_PAUSES_V2_RELEASE) pausesV2Count += 1;
+      if (directRelease === SET03_LISTENING_FIXES_RELEASE) set03FixCount += 1;
       if (useNo05Overlay) no05OverlayCount += 1;
       if (useOverlay) overlayCount += 1;
       total += 1;
     }
   }
   assert.equal(total, 90);
+  assert.equal(pausesV2Count, 6);
+  assert.equal(set03FixCount, 4);
   assert.equal(no05OverlayCount, 1);
   assert.equal(overlayCount, 6);
   assert.equal(sets[3].listeningQuestions[0].audioFile, "old-1.wav");
@@ -129,7 +154,7 @@ async function main() {
   const examHtml = fs.readFileSync(path.join(root, "exam.html"), "utf8");
   assert.ok(examHtml.indexOf("grade2-listening-part2-sets.js") < examHtml.indexOf("grade2-listening-set01-audio-fixes.js"));
   assert.ok(examHtml.indexOf("grade2-listening-set01-audio-fixes.js") < examHtml.indexOf("exam-data.js"));
-  assert.match(examHtml, /grade2-set01-no05-duplicate-fix-v1/);
+  assert.match(examHtml, /grade2-listening-targets-20260821-v2/);
 
   const workerSource = fs.readFileSync(path.join(root, "cloudflare-worker.js"), "utf8");
   assert.match(workerSource, /GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE/);
@@ -146,7 +171,7 @@ async function main() {
     assert.match(sw, /url\.pathname\.startsWith\("\/audio-r2\/"\)/);
   }
 
-  console.log("grade2 listening legacy, No.5-only, and exactly-six V2 routing tests passed");
+  console.log("grade2 listening ten-target, No.5-only, and exactly-six V2 routing tests passed");
 }
 
 main().catch((error) => {

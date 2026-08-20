@@ -183,8 +183,8 @@ test("Grade 2 exam ships and precaches the persistent listening audio layer", ()
   assert.ok(prepareSource.includes('"grade2-listening-persistent-audio.js"'));
   assert.ok(swSource.includes('"/grade2-listening-persistent-audio.js"'));
   assert.ok(examSwSource.includes('"/grade2-listening-persistent-audio.js"'));
-  assert.match(swSource, /cbt-grade2-app-shell-v81-set03-listening-fixes/);
-  assert.match(examSwSource, /cbt-grade2-app-shell-v81-set03-listening-fixes/);
+  assert.match(swSource, /cbt-grade2-app-shell-v82-listening-targets/);
+  assert.match(examSwSource, /cbt-grade2-app-shell-v82-listening-targets/);
 });
 
 test("listening reuses one Audio element when advancing between questions", async () => {
