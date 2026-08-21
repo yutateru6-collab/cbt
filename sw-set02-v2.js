@@ -1,4 +1,4 @@
-const CACHE_NAME = "cbt-grade2-app-shell-v82-listening-targets";
+const CACHE_NAME = "cbt-grade2-app-shell-v83-result-tabs";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -8,6 +8,12 @@ const APP_SHELL = [
   "/app-config-grade2.js",
   "/grade2-scoring.js",
   "/app.js",
+  "/grade2-ai-grading-flow.js",
+  "/grade2-ai-grading-flow.css",
+  "/grade2-result-tabs.js",
+  "/grade2-result-tabs.css",
+  "/grade2-developer-score-shortcut.js",
+  "/grade2-developer-score-shortcut.css",
   "/grade2-listening-persistent-audio.js",
   "/exam-data.js",
   "/grade2-set-01.js",
