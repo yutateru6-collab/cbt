@@ -15,6 +15,10 @@ jobs:
       contents: read
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      SOURCE_RELEASE: 20260821-set03-listening-fixes-v1
+      TARGET_RELEASE: 20260821-set03-no11-travel-guide-gap-fix-v1
+      SOURCE_SHA256: 499b4e54501eccef9362d939297c5cd14c65d7d86de00b317d7e57116d0ac584
+      TARGET_SHA256: 6e16112bc5b4afa0cf30b694c99a1e19e1d2740dbe4f3372cd865619e8684296
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -25,50 +29,58 @@ jobs:
       - name: Download current production No11 WAV
         run: |
           set -euo pipefail
-          npx wrangler r2 object get \
-            'mimilisten-audio/scbt/grade2/releases/20260821-set03-listening-fixes-v1/set-03/listening/part1/No11.wav' \
-            --file /tmp/No11.wav \
-            --remote
-      - name: Pin exact zero run and candidate splice
+          key="scbt/grade2/releases/$SOURCE_RELEASE/set-03/listening/part1/No11.wav"
+          npx wrangler r2 object get "mimilisten-audio/$key" --file /tmp/No11.wav --remote
+          test "$(sha256sum /tmp/No11.wav | awk '{print $1}')" = "$SOURCE_SHA256"
+      - name: Remove only the inserted 0.800 second gap
         run: |
           python - <<'PY'
           import hashlib, struct, wave
-          path='/tmp/No11.wav'
-          with wave.open(path,'rb') as w:
+          src='/tmp/No11.wav'; out='/tmp/No11-fixed.wav'
+          EXPECTED_FRAMES=795978
+          GAP_START=740248
+          GAP_END=759448
+          GAP_FRAMES=19200
+          with wave.open(src,'rb') as w:
               params=w.getparams(); sr=w.getframerate(); ch=w.getnchannels(); sw=w.getsampwidth(); n=w.getnframes(); raw=w.readframes(n)
           assert (sr,ch,sw)==(24000,1,2), (sr,ch,sw)
+          assert n==EXPECTED_FRAMES, n
           samples=list(struct.unpack('<'+'h'*(len(raw)//2),raw))
-          print(f'META frames={len(samples)} duration={len(samples)/sr:.6f}s sha256={hashlib.sha256(open(path,"rb").read()).hexdigest()}')
-
-          runs=[]; start=None
-          for i,x in enumerate(samples):
-              if x==0 and start is None:
-                  start=i
-              elif x!=0 and start is not None:
-                  if i-start>=int(0.1*sr): runs.append((start,i,i-start))
-                  start=None
-          if start is not None and len(samples)-start>=int(0.1*sr): runs.append((start,len(samples),len(samples)-start))
-          print('ZERO_RUNS_LAST_8S')
-          for s,e,l in runs:
-              if e >= len(samples)-8*sr:
-                  print(f'  frames {s}..{e} len={l} seconds={l/sr:.6f} times={s/sr:.6f}..{e/sr:.6f}')
-
-          target=[r for r in runs if 30.7 <= r[0]/sr <= 31.0 and 31.5 <= r[1]/sr <= 31.8]
-          assert len(target)==1, target
-          s,e,l=target[0]
-          print(f'TARGET_ZERO_RUN start={s} end={e} frames={l} seconds={l/sr:.6f}')
-          print('PRE_SAMPLES', samples[s-24:s])
-          print('POST_SAMPLES', samples[e:e+24])
-
-          fixed=samples[:s]+samples[e:]
-          out='/tmp/No11-fixed.wav'
+          assert len(samples)==EXPECTED_FRAMES
+          assert all(x==0 for x in samples[GAP_START:GAP_END])
+          assert samples[GAP_START-1] != 0
+          assert samples[GAP_END] != 0
+          fixed=samples[:GAP_START]+samples[GAP_END:]
+          assert len(fixed)==EXPECTED_FRAMES-GAP_FRAMES
+          assert fixed[:GAP_START]==samples[:GAP_START]
+          assert fixed[GAP_START:]==samples[GAP_END:]
           with wave.open(out,'wb') as w:
               w.setparams(params)
               w.writeframes(struct.pack('<'+'h'*len(fixed),*fixed))
-          print(f'FIXED frames={len(fixed)} duration={len(fixed)/sr:.6f}s removed={l} sha256={hashlib.sha256(open(out,"rb").read()).hexdigest()}')
-
-          # Strict invariant: output is exactly original prefix + original suffix.
-          assert fixed[:s] == samples[:s]
-          assert fixed[s:] == samples[e:]
-          assert len(samples)-len(fixed) == l
+          sha=hashlib.sha256(open(out,'rb').read()).hexdigest()
+          print(f'No11 fixed: removed frames {GAP_START}..{GAP_END} ({GAP_FRAMES/24000:.3f}s), frames={len(fixed)}, duration={len(fixed)/24000:.6f}s, sha256={sha}')
+          assert sha=='6e16112bc5b4afa0cf30b694c99a1e19e1d2740dbe4f3372cd865619e8684296'
           PY
+      - name: Upload only the new No11 immutable object
+        run: |
+          set -euo pipefail
+          key="scbt/grade2/releases/$TARGET_RELEASE/set-03/listening/part1/No11.wav"
+          for bucket in mimilisten-audio cbt-project-archive; do
+            npx wrangler r2 object put "$bucket/$key" \
+              --file /tmp/No11-fixed.wav \
+              --content-type audio/wav \
+              --cache-control 'public, max-age=31536000, immutable' \
+              --remote
+          done
+      - name: Verify both R2 copies byte-for-byte
+        run: |
+          set -euo pipefail
+          key="scbt/grade2/releases/$TARGET_RELEASE/set-03/listening/part1/No11.wav"
+          for bucket in mimilisten-audio cbt-project-archive; do
+            file="/tmp/${bucket}.wav"
+            npx wrangler r2 object get "$bucket/$key" --file "$file" --remote
+            sha="$(sha256sum "$file" | awk '{print $1}')"
+            test "$sha" = "$TARGET_SHA256"
+            cmp -s /tmp/No11-fixed.wav "$file"
+            echo "$bucket verified sha256=$sha bytes=$(wc -c < "$file")"
+          done
