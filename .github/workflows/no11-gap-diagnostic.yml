@@ -1,0 +1,72 @@
+name: Diagnose Set 03 No11 gap
+
+on:
+  push:
+    branches:
+      - diagnostic-set03-no11-gap-20260821
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Download current production No11 WAV
+        run: |
+          set -euo pipefail
+          npx wrangler r2 object get \
+            'mimilisten-audio/scbt/grade2/releases/20260821-set03-listening-fixes-v1/set-03/listening/part1/No11.wav' \
+            --file /tmp/No11.wav \
+            --remote
+      - name: Inspect tail silence windows
+        run: |
+          python - <<'PY'
+          import math, struct, wave
+          path='/tmp/No11.wav'
+          with wave.open(path,'rb') as w:
+              sr=w.getframerate(); ch=w.getnchannels(); sw=w.getsampwidth(); n=w.getnframes(); raw=w.readframes(n)
+          assert (sr,ch,sw)==(24000,1,2), (sr,ch,sw)
+          samples=struct.unpack('<'+'h'*(len(raw)//2),raw)
+          dur=len(samples)/sr
+          print(f'META sr={sr} channels={ch} sampwidth={sw} frames={len(samples)} duration={dur:.6f}s')
+          win=240  # 10 ms
+          def dbfs(block):
+              if not block: return -120.0
+              ss=sum(x*x for x in block)/len(block)
+              if ss<=0: return -120.0
+              return 20*math.log10(math.sqrt(ss)/32768.0)
+          rms=[dbfs(samples[i:i+win]) for i in range(0,len(samples),win)]
+          tail_start=max(0.0,dur-12.0)
+          for threshold in (-35,-40,-45,-50):
+              spans=[]; start=None
+              for idx,val in enumerate(rms):
+                  t0=idx*win/sr
+                  quiet=val<threshold
+                  if quiet and start is None: start=t0
+                  if (not quiet) and start is not None:
+                      end=t0
+                      if end-start>=0.04 and end>=tail_start: spans.append((max(start,tail_start),end,end-start))
+                      start=None
+              if start is not None:
+                  end=dur
+                  if end-start>=0.04 and end>=tail_start: spans.append((max(start,tail_start),end,end-start))
+              print(f'THRESHOLD {threshold} dBFS tail_start={tail_start:.3f}s')
+              for s,e,d in spans:
+                  print(f'  quiet {s:.3f}..{e:.3f} len={d:.3f}s')
+          print('TAIL_10MS_DBFS')
+          start_idx=max(0,int((dur-6.0)*sr)//win)
+          for idx in range(start_idx,len(rms)):
+              t=idx*win/sr
+              print(f'{t:.3f}\t{rms[idx]:.1f}')
+          PY
+      - name: FFmpeg silence cross-check
+        run: |
+          ffmpeg -hide_banner -i /tmp/No11.wav -af silencedetect=noise=-40dB:d=0.04 -f null - 2>&1 | tail -n 120
