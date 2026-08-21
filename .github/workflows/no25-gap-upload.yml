@@ -1,0 +1,81 @@
+name: Upload Set 01 No25 gap-fixed WAV
+
+on:
+  push:
+    branches:
+      - agent/no25-upload-20260821
+
+permissions:
+  contents: read
+
+jobs:
+  upload:
+    runs-on: ubuntu-24.04
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      SOURCE_RELEASE: 20260815-grade2-listening-pauses-v2
+      TARGET_RELEASE: 20260821-set01-no25-time-tickets-gap-fix-v1
+      SOURCE_SHA256: 2d1fbb0820630d82b4f21792d4675f60df35fbefea13662d37929e1d8ebca4c5
+      TARGET_SHA256: 8f19b2f1e0b30065131ec54ea1e7d5bad207f39bede32fef7421c4a1e4182f67
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Download exact ZIP-matching No25 from production R2
+        run: |
+          set -euo pipefail
+          key="scbt/grade2/releases/$SOURCE_RELEASE/set-01/listening/part2/No25.wav"
+          npx wrangler r2 object get "mimilisten-audio/$key" --file /tmp/No25-source.wav --remote
+          test "$(sha256sum /tmp/No25-source.wav | awk '{print $1}')" = "$SOURCE_SHA256"
+      - name: Remove only verified 0.800 second zero gap
+        run: |
+          python - <<'PY'
+          import hashlib, struct, wave
+          src='/tmp/No25-source.wav'; out='/tmp/No25-fixed.wav'
+          GAP_START=427570
+          GAP_END=446770
+          EXPECTED_SOURCE_FRAMES=734461
+          with wave.open(src,'rb') as w:
+              assert (w.getframerate(),w.getnchannels(),w.getsampwidth(),w.getcomptype()) == (24000,1,2,'NONE')
+              n=w.getnframes(); raw=w.readframes(n)
+          assert n == EXPECTED_SOURCE_FRAMES, n
+          samples=struct.unpack('<'+'h'*(len(raw)//2),raw)
+          assert all(x == 0 for x in samples[GAP_START:GAP_END])
+          assert samples[GAP_START-1] != 0
+          assert samples[GAP_END] != 0
+          fixed=samples[:GAP_START]+samples[GAP_END:]
+          with wave.open(out,'wb') as w:
+              w.setnchannels(1); w.setsampwidth(2); w.setframerate(24000)
+              w.writeframes(struct.pack('<'+'h'*len(fixed),*fixed))
+          sha=hashlib.sha256(open(out,'rb').read()).hexdigest()
+          assert sha == '8f19b2f1e0b30065131ec54ea1e7d5bad207f39bede32fef7421c4a1e4182f67', sha
+          print(f'fixed frames={len(fixed)} duration={len(fixed)/24000:.6f}s sha256={sha}')
+          PY
+      - name: Upload only No25 to new immutable release
+        run: |
+          set -euo pipefail
+          key="scbt/grade2/releases/$TARGET_RELEASE/set-01/listening/part2/No25.wav"
+          for bucket in mimilisten-audio cbt-project-archive; do
+            npx wrangler r2 object put "$bucket/$key" \
+              --file /tmp/No25-fixed.wav \
+              --content-type audio/wav \
+              --cache-control 'public, max-age=31536000, immutable' \
+              --remote
+          done
+      - name: Verify production and backup copies
+        run: |
+          set -euo pipefail
+          key="scbt/grade2/releases/$TARGET_RELEASE/set-01/listening/part2/No25.wav"
+          for bucket in mimilisten-audio cbt-project-archive; do
+            out="/tmp/${bucket}-No25.wav"
+            npx wrangler r2 object get "$bucket/$key" --file "$out" --remote
+            test "$(sha256sum "$out" | awk '{print $1}')" = "$TARGET_SHA256"
+            cmp -s /tmp/No25-fixed.wav "$out"
+          done
+          url="https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/$key"
+          curl -fsSL --connect-timeout 10 --max-time 60 -D /tmp/headers.txt -o /tmp/public-No25.wav "$url"
+          test "$(sha256sum /tmp/public-No25.wav | awk '{print $1}')" = "$TARGET_SHA256"
+          grep -iEq '^content-type:[[:space:]]*audio/wav' /tmp/headers.txt
