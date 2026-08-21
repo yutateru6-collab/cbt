@@ -29,47 +29,46 @@ jobs:
             'mimilisten-audio/scbt/grade2/releases/20260821-set03-listening-fixes-v1/set-03/listening/part1/No11.wav' \
             --file /tmp/No11.wav \
             --remote
-      - name: Inspect tail silence windows
+      - name: Pin exact zero run and candidate splice
         run: |
           python - <<'PY'
-          import math, struct, wave
+          import hashlib, struct, wave
           path='/tmp/No11.wav'
           with wave.open(path,'rb') as w:
-              sr=w.getframerate(); ch=w.getnchannels(); sw=w.getsampwidth(); n=w.getnframes(); raw=w.readframes(n)
+              params=w.getparams(); sr=w.getframerate(); ch=w.getnchannels(); sw=w.getsampwidth(); n=w.getnframes(); raw=w.readframes(n)
           assert (sr,ch,sw)==(24000,1,2), (sr,ch,sw)
-          samples=struct.unpack('<'+'h'*(len(raw)//2),raw)
-          dur=len(samples)/sr
-          print(f'META sr={sr} channels={ch} sampwidth={sw} frames={len(samples)} duration={dur:.6f}s')
-          win=240
-          def dbfs(block):
-              if not block: return -120.0
-              ss=sum(x*x for x in block)/len(block)
-              if ss<=0: return -120.0
-              return 20*math.log10(math.sqrt(ss)/32768.0)
-          rms=[dbfs(samples[i:i+win]) for i in range(0,len(samples),win)]
-          tail_start=max(0.0,dur-12.0)
-          for threshold in (-35,-40,-45,-50):
-              spans=[]; start=None
-              for idx,val in enumerate(rms):
-                  t0=idx*win/sr
-                  quiet=val<threshold
-                  if quiet and start is None: start=t0
-                  if (not quiet) and start is not None:
-                      end=t0
-                      if end-start>=0.04 and end>=tail_start: spans.append((max(start,tail_start),end,end-start))
-                      start=None
-              if start is not None:
-                  end=dur
-                  if end-start>=0.04 and end>=tail_start: spans.append((max(start,tail_start),end,end-start))
-              print(f'THRESHOLD {threshold} dBFS tail_start={tail_start:.3f}s')
-              for s,e,d in spans:
-                  print(f'  quiet {s:.3f}..{e:.3f} len={d:.3f}s')
-          print('TAIL_10MS_DBFS')
-          start_idx=max(0,int((dur-6.0)*sr)//win)
-          for idx in range(start_idx,len(rms)):
-              t=idx*win/sr
-              print(f'{t:.3f}\t{rms[idx]:.1f}')
+          samples=list(struct.unpack('<'+'h'*(len(raw)//2),raw))
+          print(f'META frames={len(samples)} duration={len(samples)/sr:.6f}s sha256={hashlib.sha256(open(path,"rb").read()).hexdigest()}')
+
+          runs=[]; start=None
+          for i,x in enumerate(samples):
+              if x==0 and start is None:
+                  start=i
+              elif x!=0 and start is not None:
+                  if i-start>=int(0.1*sr): runs.append((start,i,i-start))
+                  start=None
+          if start is not None and len(samples)-start>=int(0.1*sr): runs.append((start,len(samples),len(samples)-start))
+          print('ZERO_RUNS_LAST_8S')
+          for s,e,l in runs:
+              if e >= len(samples)-8*sr:
+                  print(f'  frames {s}..{e} len={l} seconds={l/sr:.6f} times={s/sr:.6f}..{e/sr:.6f}')
+
+          target=[r for r in runs if 30.7 <= r[0]/sr <= 31.0 and 31.5 <= r[1]/sr <= 31.8]
+          assert len(target)==1, target
+          s,e,l=target[0]
+          print(f'TARGET_ZERO_RUN start={s} end={e} frames={l} seconds={l/sr:.6f}')
+          print('PRE_SAMPLES', samples[s-24:s])
+          print('POST_SAMPLES', samples[e:e+24])
+
+          fixed=samples[:s]+samples[e:]
+          out='/tmp/No11-fixed.wav'
+          with wave.open(out,'wb') as w:
+              w.setparams(params)
+              w.writeframes(struct.pack('<'+'h'*len(fixed),*fixed))
+          print(f'FIXED frames={len(fixed)} duration={len(fixed)/sr:.6f}s removed={l} sha256={hashlib.sha256(open(out,"rb").read()).hexdigest()}')
+
+          # Strict invariant: output is exactly original prefix + original suffix.
+          assert fixed[:s] == samples[:s]
+          assert fixed[s:] == samples[e:]
+          assert len(samples)-len(fixed) == l
           PY
-      - name: FFmpeg silence cross-check
-        run: |
-          ffmpeg -hide_banner -i /tmp/No11.wav -af silencedetect=noise=-40dB:d=0.04 -f null - 2>&1 | tail -n 120
