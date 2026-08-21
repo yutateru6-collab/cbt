@@ -14,97 +14,70 @@ jobs:
     permissions:
       contents: read
     env:
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      EXPECTED_MAIN: a09f021aad19cdb58f70a73fb449fc3c347b5264
       TARGET_RELEASE: 20260821-set03-no11-travel-guide-gap-fix-v1
       TARGET_SHA256: 6e16112bc5b4afa0cf30b694c99a1e19e1d2740dbe4f3372cd865619e8684296
+      BASE_URL: https://cbt.itisnowornever271.workers.dev
     steps:
-      - name: Check out final feature branch
+      - name: Check out merged main
         uses: actions/checkout@v4
         with:
-          ref: fix-set03-no11-travel-guide-gap-20260821
-          fetch-depth: 0
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - name: Verify exact five-file scope
+          ref: main
+          fetch-depth: 1
+      - name: Verify merged main commit
+        run: test "$(git rev-parse HEAD)" = "$EXPECTED_MAIN"
+      - name: Verify live production assets match merged main
         run: |
           set -euo pipefail
-          git fetch origin main
-          git diff --name-only origin/main...HEAD | sort > /tmp/actual-files.txt
-          cat > /tmp/expected-files.txt <<'EOF'
-          exam.html
-          grade2-listening-set01-audio-fixes.js
-          tests/grade2-listening-audio-fix.test.cjs
-          tests/grade2-listening-player.test.cjs
-          tools/listening-player/index.html
-          EOF
-          sort -o /tmp/expected-files.txt /tmp/expected-files.txt
-          echo 'Changed files:'
-          cat /tmp/actual-files.txt
-          diff -u /tmp/expected-files.txt /tmp/actual-files.txt
-          ! grep -Eq '^(app\.js|grade2-listening-part2-sets\.js|grade2-scoring\.js|exam-data\.js|cloudflare-worker\.js|sw\.js|sw-set02-v2\.js)$' /tmp/actual-files.txt
-      - name: Verify routing changes only Set 03 No11
+          for file in exam.html grade2-listening-set01-audio-fixes.js tools/listening-player/index.html; do
+            local_sha="$(sha256sum "$file" | awk '{print $1}')"
+            matched=0
+            for attempt in {1..12}; do
+              out="/tmp/live-${file//\//_}"
+              if curl -fsSL --connect-timeout 10 --max-time 45 \
+                -H 'Cache-Control: no-cache' \
+                "$BASE_URL/$file?verify=${EXPECTED_MAIN:0:12}&attempt=$attempt" \
+                -o "$out"; then
+                live_sha="$(sha256sum "$out" | awk '{print $1}')"
+                if [ "$live_sha" = "$local_sha" ]; then
+                  echo "$file live SHA matched $live_sha"
+                  matched=1
+                  break
+                fi
+                echo "$file not propagated yet local=$local_sha live=$live_sha attempt=$attempt"
+              fi
+              sleep 2
+            done
+            test "$matched" = 1
+          done
+      - name: Verify live routing resolves only the intended No11 release
         run: |
           set -euo pipefail
-          git show origin/main:grade2-listening-set01-audio-fixes.js > /tmp/main-routing.js
+          curl -fsSL --connect-timeout 10 --max-time 45 \
+            -H 'Cache-Control: no-cache' \
+            "$BASE_URL/grade2-listening-set01-audio-fixes.js?verify=${EXPECTED_MAIN:0:12}" \
+            -o /tmp/live-routing.js
           node - <<'NODE'
           const fs = require('node:fs');
           const vm = require('node:vm');
-          function makeSets() {
-            return ['set-01','set-02','set-03'].map((key) => ({
-              key,
-              listeningQuestions: Array.from({length: 30}, (_, i) => ({
-                id: i + 1,
-                part: i < 15 ? 'Part 1' : 'Part 2',
-                audioFile: `base-${key}-${i + 1}.wav`,
-              })),
-            }));
+          const sets = ['set-01','set-02','set-03'].map((key) => ({
+            key,
+            listeningQuestions: Array.from({length: 30}, (_, i) => ({
+              id: i + 1,
+              part: i < 15 ? 'Part 1' : 'Part 2',
+              audioFile: `base-${key}-${i + 1}.wav`,
+            })),
+          }));
+          vm.runInNewContext(fs.readFileSync('/tmp/live-routing.js','utf8'), { window: { scbtGrade2VocabSets: sets }, Set });
+          const by = (setKey, id) => sets.find(s => s.key === setKey).listeningQuestions.find(q => q.id === id);
+          if (by('set-03',11).audioRelease !== '20260821-set03-no11-travel-guide-gap-fix-v1') process.exit(1);
+          for (const id of [13,15,29]) if (by('set-03',id).audioRelease !== '20260821-set03-listening-fixes-v1') process.exit(1);
+          for (const [setKey,id] of [['set-01',22],['set-01',25],['set-01',26],['set-01',30],['set-02',25],['set-03',17]]) {
+            if (by(setKey,id).audioRelease !== '20260815-grade2-listening-pauses-v2') process.exit(1);
           }
-          function run(source) {
-            const sets = makeSets();
-            vm.runInNewContext(source, { window: { scbtGrade2VocabSets: sets }, Set });
-            return new Map(sets.flatMap((set) => set.listeningQuestions.map((q) => [
-              `${set.key}:${q.id}`,
-              { audioFile: q.audioFile, audioRelease: q.audioRelease },
-            ])));
-          }
-          const before = run(fs.readFileSync('/tmp/main-routing.js', 'utf8'));
-          const after = run(fs.readFileSync('grade2-listening-set01-audio-fixes.js', 'utf8'));
-          const changed = [];
-          for (const [key, oldValue] of before) {
-            const newValue = after.get(key);
-            if (oldValue.audioFile !== newValue.audioFile || oldValue.audioRelease !== newValue.audioRelease) {
-              changed.push({ key, oldValue, newValue });
-            }
-          }
-          console.log(JSON.stringify(changed, null, 2));
-          if (changed.length !== 1 || changed[0].key !== 'set-03:11') process.exit(1);
-          if (changed[0].newValue.audioRelease !== '20260821-set03-no11-travel-guide-gap-fix-v1') process.exit(1);
+          console.log('live routing verified: No11 new release; other nine approved routes unchanged');
           NODE
-      - name: Run relevant regression tests
-        run: |
-          set -euo pipefail
-          node --check grade2-listening-set01-audio-fixes.js
-          node tests/grade2-listening-audio-fix.test.cjs
-          node --test tests/grade2-listening-player.test.cjs
-          node --test tests/grade2-listening-r2-source.test.cjs
-          node --test tests/grade2-flow-invariants.test.cjs
-          node scripts/prepare-worker-assets.mjs
-          npx wrangler deploy --dry-run --config wrangler.jsonc
-      - name: Verify immutable No11 in both R2 buckets
-        run: |
-          set -euo pipefail
-          key="scbt/grade2/releases/$TARGET_RELEASE/set-03/listening/part1/No11.wav"
-          for bucket in mimilisten-audio cbt-project-archive; do
-            file="/tmp/${bucket}.wav"
-            npx wrangler r2 object get "$bucket/$key" --file "$file" --remote
-            sha="$(sha256sum "$file" | awk '{print $1}')"
-            test "$sha" = "$TARGET_SHA256"
-            echo "$bucket verified sha256=$sha bytes=$(wc -c < "$file")"
-          done
-      - name: Verify public No11 delivery
+      - name: Verify public No11 WAV
         run: |
           set -euo pipefail
           url="https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/$TARGET_RELEASE/set-03/listening/part1/No11.wav"
