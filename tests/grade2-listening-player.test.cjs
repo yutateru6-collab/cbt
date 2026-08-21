@@ -25,6 +25,7 @@ const allPaidSetKeys = ["set-01", "set-02", "set-03", "set-04", "set-05"];
 const IMMUTABLE_R2_RELEASE_BASE = "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases";
 const LISTENING_PAUSES_V2_RELEASE = "20260815-grade2-listening-pauses-v2";
 const SET03_LISTENING_FIXES_RELEASE = "20260821-set03-listening-fixes-v1";
+const SET03_NO11_GAP_FIX_RELEASE = "20260821-set03-no11-travel-guide-gap-fix-v1";
 const THREE_SET_RELEASE = "20260817-grade2-sets01-03-listening-pauses-1s-v1";
 const NO05_DUPLICATE_FIX_RELEASE = "20260820-set01-listening-no05-duplicate-question-fix-v1";
 const DUPLICATE_FIX_RELEASE = "20260817-set01-listening-duplicate-question-fix-v2";
@@ -34,9 +35,10 @@ const LISTENING_PAUSES_V2_IDS_BY_SET = {
   "set-02": new Set([25]),
   "set-03": new Set([17]),
 };
-const SET03_LISTENING_FIX_IDS = new Set([11, 13, 15, 29]);
+const SET03_LISTENING_FIX_IDS = new Set([13, 15, 29]);
 
 function directReleaseFor(setKey, id) {
+  if (setKey === "set-03" && id === 11) return SET03_NO11_GAP_FIX_RELEASE;
   if (setKey === "set-03" && SET03_LISTENING_FIX_IDS.has(id)) return SET03_LISTENING_FIXES_RELEASE;
   if (LISTENING_PAUSES_V2_IDS_BY_SET[setKey]?.has(id)) return LISTENING_PAUSES_V2_RELEASE;
   return "";
@@ -170,6 +172,7 @@ test("all ten approved revisions survive the legacy overlay while Set 01 fixes s
   let overlayCount = 0;
   let pausesV2Count = 0;
   let set03FixCount = 0;
+  let set03No11GapFixCount = 0;
   for (const setKey of productionSetKeys) {
     const questions = sets[setKey].listeningQuestions;
     assert.equal(questions.length, 30);
@@ -192,6 +195,7 @@ test("all ten approved revisions survive the legacy overlay while Set 01 fixes s
       assert.equal(question.audioFile, `${expectedBase}/${setKey}/listening/${part}/No${number}.wav`, `${setKey} No.${id} audioFile`);
       if (directRelease === LISTENING_PAUSES_V2_RELEASE) pausesV2Count += 1;
       if (directRelease === SET03_LISTENING_FIXES_RELEASE) set03FixCount += 1;
+      if (directRelease === SET03_NO11_GAP_FIX_RELEASE) set03No11GapFixCount += 1;
       if (useNo05Overlay) no05OverlayCount += 1;
       if (useOverlay) overlayCount += 1;
       total += 1;
@@ -199,9 +203,11 @@ test("all ten approved revisions survive the legacy overlay while Set 01 fixes s
   }
   assert.equal(total, 90);
   assert.equal(pausesV2Count, 6);
-  assert.equal(set03FixCount, 4);
+  assert.equal(set03FixCount, 3);
+  assert.equal(set03No11GapFixCount, 1);
   assert.equal(no05OverlayCount, 1);
   assert.equal(overlayCount, 6);
+  assert.match(html, /grade2-set03-no11-travel-guide-gap-20260821-v1/);
 });
 
 test("all 90 Listening Player questions use the same canonical registry entries", () => {
