@@ -2,13 +2,14 @@
   const immutableR2ReleaseBase =
     "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases";
   const listeningPausesV2Release = "20260815-grade2-listening-pauses-v2";
+  const set01No25TimeTicketsGapFixRelease = "20260821-set01-no25-time-tickets-gap-fix-v1";
   const set03ListeningFixesRelease = "20260821-set03-listening-fixes-v1";
   const threeSetPausesRelease = "20260817-grade2-sets01-03-listening-pauses-1s-v1";
   const no05DuplicateFixRelease = "20260820-set01-listening-no05-duplicate-question-fix-v1";
   const duplicateQuestionFixV2Release = "20260817-set01-listening-duplicate-question-fix-v2";
   const duplicateQuestionFixIds = new Set([6, 7, 8, 10, 12, 14]);
   const listeningPausesV2IdsBySet = {
-    "set-01": new Set([22, 25, 26, 30]),
+    "set-01": new Set([22, 26, 30]),
     "set-02": new Set([25]),
     "set-03": new Set([17]),
   };
@@ -26,11 +27,13 @@
       if (!Number.isInteger(id) || !validPart) return;
 
       const number = String(id).padStart(2, "0");
-      const directRelease = set.key === "set-03" && set03ListeningFixIds.has(id)
-        ? set03ListeningFixesRelease
-        : listeningPausesV2IdsBySet[set.key]?.has(id)
-          ? listeningPausesV2Release
-          : "";
+      const directRelease = set.key === "set-01" && id === 25
+        ? set01No25TimeTicketsGapFixRelease
+        : set.key === "set-03" && set03ListeningFixIds.has(id)
+          ? set03ListeningFixesRelease
+          : listeningPausesV2IdsBySet[set.key]?.has(id)
+            ? listeningPausesV2Release
+            : "";
       if (directRelease) {
         question.audioFile = `${immutableR2ReleaseBase}/${directRelease}/${set.key}/listening/${partFolder}/No${number}.wav`;
         question.audioRelease = directRelease;
