@@ -15,64 +15,85 @@ jobs:
       contents: read
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      SOURCE_RELEASE: 20260821-set03-listening-fixes-v1
       TARGET_RELEASE: 20260821-set03-no11-travel-guide-gap-fix-v1
-      SOURCE_SHA256: 499b4e54501eccef9362d939297c5cd14c65d7d86de00b317d7e57116d0ac584
       TARGET_SHA256: 6e16112bc5b4afa0cf30b694c99a1e19e1d2740dbe4f3372cd865619e8684296
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out final feature branch
+        uses: actions/checkout@v4
+        with:
+          ref: fix-set03-no11-travel-guide-gap-20260821
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
       - run: npm ci
-      - name: Download current production No11 WAV
+      - name: Verify exact five-file scope
         run: |
           set -euo pipefail
-          key="scbt/grade2/releases/$SOURCE_RELEASE/set-03/listening/part1/No11.wav"
-          npx wrangler r2 object get "mimilisten-audio/$key" --file /tmp/No11.wav --remote
-          test "$(sha256sum /tmp/No11.wav | awk '{print $1}')" = "$SOURCE_SHA256"
-      - name: Remove only the inserted 0.800 second gap
-        run: |
-          python - <<'PY'
-          import hashlib, struct, wave
-          src='/tmp/No11.wav'; out='/tmp/No11-fixed.wav'
-          EXPECTED_FRAMES=795978
-          GAP_START=740248
-          GAP_END=759448
-          GAP_FRAMES=19200
-          with wave.open(src,'rb') as w:
-              params=w.getparams(); sr=w.getframerate(); ch=w.getnchannels(); sw=w.getsampwidth(); n=w.getnframes(); raw=w.readframes(n)
-          assert (sr,ch,sw)==(24000,1,2), (sr,ch,sw)
-          assert n==EXPECTED_FRAMES, n
-          samples=list(struct.unpack('<'+'h'*(len(raw)//2),raw))
-          assert len(samples)==EXPECTED_FRAMES
-          assert all(x==0 for x in samples[GAP_START:GAP_END])
-          assert samples[GAP_START-1] != 0
-          assert samples[GAP_END] != 0
-          fixed=samples[:GAP_START]+samples[GAP_END:]
-          assert len(fixed)==EXPECTED_FRAMES-GAP_FRAMES
-          assert fixed[:GAP_START]==samples[:GAP_START]
-          assert fixed[GAP_START:]==samples[GAP_END:]
-          with wave.open(out,'wb') as w:
-              w.setparams(params)
-              w.writeframes(struct.pack('<'+'h'*len(fixed),*fixed))
-          sha=hashlib.sha256(open(out,'rb').read()).hexdigest()
-          print(f'No11 fixed: removed frames {GAP_START}..{GAP_END} ({GAP_FRAMES/24000:.3f}s), frames={len(fixed)}, duration={len(fixed)/24000:.6f}s, sha256={sha}')
-          assert sha=='6e16112bc5b4afa0cf30b694c99a1e19e1d2740dbe4f3372cd865619e8684296'
-          PY
-      - name: Upload only the new No11 immutable object
+          git fetch origin main
+          git diff --name-only origin/main...HEAD | sort > /tmp/actual-files.txt
+          cat > /tmp/expected-files.txt <<'EOF'
+          exam.html
+          grade2-listening-set01-audio-fixes.js
+          tests/grade2-listening-audio-fix.test.cjs
+          tests/grade2-listening-player.test.cjs
+          tools/listening-player/index.html
+          EOF
+          sort -o /tmp/expected-files.txt /tmp/expected-files.txt
+          echo 'Changed files:'
+          cat /tmp/actual-files.txt
+          diff -u /tmp/expected-files.txt /tmp/actual-files.txt
+          ! grep -Eq '^(app\.js|grade2-listening-part2-sets\.js|grade2-scoring\.js|exam-data\.js|cloudflare-worker\.js|sw\.js|sw-set02-v2\.js)$' /tmp/actual-files.txt
+      - name: Verify routing changes only Set 03 No11
         run: |
           set -euo pipefail
-          key="scbt/grade2/releases/$TARGET_RELEASE/set-03/listening/part1/No11.wav"
-          for bucket in mimilisten-audio cbt-project-archive; do
-            npx wrangler r2 object put "$bucket/$key" \
-              --file /tmp/No11-fixed.wav \
-              --content-type audio/wav \
-              --cache-control 'public, max-age=31536000, immutable' \
-              --remote
-          done
-      - name: Verify both R2 copies byte-for-byte
+          git show origin/main:grade2-listening-set01-audio-fixes.js > /tmp/main-routing.js
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const vm = require('node:vm');
+          function makeSets() {
+            return ['set-01','set-02','set-03'].map((key) => ({
+              key,
+              listeningQuestions: Array.from({length: 30}, (_, i) => ({
+                id: i + 1,
+                part: i < 15 ? 'Part 1' : 'Part 2',
+                audioFile: `base-${key}-${i + 1}.wav`,
+              })),
+            }));
+          }
+          function run(source) {
+            const sets = makeSets();
+            vm.runInNewContext(source, { window: { scbtGrade2VocabSets: sets }, Set });
+            return new Map(sets.flatMap((set) => set.listeningQuestions.map((q) => [
+              `${set.key}:${q.id}`,
+              { audioFile: q.audioFile, audioRelease: q.audioRelease },
+            ])));
+          }
+          const before = run(fs.readFileSync('/tmp/main-routing.js', 'utf8'));
+          const after = run(fs.readFileSync('grade2-listening-set01-audio-fixes.js', 'utf8'));
+          const changed = [];
+          for (const [key, oldValue] of before) {
+            const newValue = after.get(key);
+            if (oldValue.audioFile !== newValue.audioFile || oldValue.audioRelease !== newValue.audioRelease) {
+              changed.push({ key, oldValue, newValue });
+            }
+          }
+          console.log(JSON.stringify(changed, null, 2));
+          if (changed.length !== 1 || changed[0].key !== 'set-03:11') process.exit(1);
+          if (changed[0].newValue.audioRelease !== '20260821-set03-no11-travel-guide-gap-fix-v1') process.exit(1);
+          NODE
+      - name: Run relevant regression tests
+        run: |
+          set -euo pipefail
+          node --check grade2-listening-set01-audio-fixes.js
+          node tests/grade2-listening-audio-fix.test.cjs
+          node --test tests/grade2-listening-player.test.cjs
+          node --test tests/grade2-listening-r2-source.test.cjs
+          node --test tests/grade2-flow-invariants.test.cjs
+          node scripts/prepare-worker-assets.mjs
+          npx wrangler deploy --dry-run --config wrangler.jsonc
+      - name: Verify immutable No11 in both R2 buckets
         run: |
           set -euo pipefail
           key="scbt/grade2/releases/$TARGET_RELEASE/set-03/listening/part1/No11.wav"
@@ -81,6 +102,13 @@ jobs:
             npx wrangler r2 object get "$bucket/$key" --file "$file" --remote
             sha="$(sha256sum "$file" | awk '{print $1}')"
             test "$sha" = "$TARGET_SHA256"
-            cmp -s /tmp/No11-fixed.wav "$file"
             echo "$bucket verified sha256=$sha bytes=$(wc -c < "$file")"
           done
+      - name: Verify public No11 delivery
+        run: |
+          set -euo pipefail
+          url="https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/$TARGET_RELEASE/set-03/listening/part1/No11.wav"
+          curl -fsSL --connect-timeout 10 --max-time 45 -D /tmp/no11-headers.txt -o /tmp/no11-public.wav "$url"
+          test "$(sha256sum /tmp/no11-public.wav | awk '{print $1}')" = "$TARGET_SHA256"
+          grep -iEq '^content-type:[[:space:]]*audio/wav' /tmp/no11-headers.txt
+          echo "public No11 verified sha256=$TARGET_SHA256 bytes=$(wc -c < /tmp/no11-public.wav)"
