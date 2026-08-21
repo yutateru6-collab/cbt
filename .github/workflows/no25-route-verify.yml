@@ -1,0 +1,47 @@
+name: Verify Set 01 No25 routing only
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Verify focused routing tests and build
+        run: |
+          set -euo pipefail
+          node --check grade2-listening-set01-audio-fixes.js
+          node tests/grade2-listening-audio-fix.test.cjs
+          node --test tests/grade2-listening-player.test.cjs
+          node --test tests/grade2-listening-r2-source.test.cjs
+          node --test tests/grade2-flow-invariants.test.cjs
+          node scripts/prepare-worker-assets.mjs
+          npx wrangler deploy --dry-run --config wrangler.jsonc
+      - name: Assert only Set 01 No25 routing changed from main
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git show origin/main:grade2-listening-set01-audio-fixes.js > /tmp/before.js
+          node - <<'NODE'
+          const fs=require('node:fs'); const vm=require('node:vm');
+          function makeSets(){return ['set-01','set-02','set-03'].map(key=>({key,listeningQuestions:Array.from({length:30},(_,i)=>({id:i+1,part:i<15?'Part 1':'Part 2',audioFile:`base-${key}-${i+1}.wav`}))}));}
+          function run(source){const sets=makeSets();vm.runInNewContext(source,{window:{scbtGrade2VocabSets:sets},Set});return new Map(sets.flatMap(s=>s.listeningQuestions.map(q=>[`${s.key}:${q.id}`,{audioFile:q.audioFile,audioRelease:q.audioRelease}])));}
+          const before=run(fs.readFileSync('/tmp/before.js','utf8'));
+          const after=run(fs.readFileSync('grade2-listening-set01-audio-fixes.js','utf8'));
+          const changed=[];
+          for(const [key,a] of before){const b=after.get(key);if(a.audioFile!==b.audioFile||a.audioRelease!==b.audioRelease)changed.push({key,before:a,after:b});}
+          console.log(JSON.stringify(changed,null,2));
+          if(changed.length!==1||changed[0].key!=='set-01:25') process.exit(1);
+          if(changed[0].after.audioRelease!=='20260821-set01-no25-time-tickets-gap-fix-v1') process.exit(1);
+          NODE
