@@ -10,8 +10,11 @@ jobs:
     runs-on: ubuntu-24.04
     permissions:
       contents: read
+      issues: write
+      pull-requests: write
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      GH_TOKEN: ${{ github.token }}
       EXPECTED_MAIN: a09f021aad19cdb58f70a73fb449fc3c347b5264
       SOURCE_RELEASE: 20260815-grade2-listening-pauses-v2
     steps:
@@ -20,92 +23,77 @@ jobs:
         with:
           ref: main
           fetch-depth: 1
-      - name: Verify current main and routing
+      - name: Build read-only diagnostic report
         run: |
           set -euo pipefail
           test "$(git rev-parse HEAD)" = "$EXPECTED_MAIN"
-          node - <<'NODE'
-          const fs = require('node:fs');
-          const vm = require('node:vm');
-          const sets = ['set-01','set-02','set-03'].map((key) => ({
-            key,
-            listeningQuestions: Array.from({length:30},(_,i)=>({id:i+1,part:i<15?'Part 1':'Part 2',audioFile:`old-${key}-${i+1}.wav`})),
-          }));
-          vm.runInNewContext(fs.readFileSync('grade2-listening-set01-audio-fixes.js','utf8'), {window:{scbtGrade2VocabSets:sets},Set});
-          const q=sets[0].listeningQuestions.find(x=>x.id===25);
-          console.log('SET01_NO25_ROUTE', q.audioRelease, q.audioFile);
-          if (q.audioRelease !== '20260815-grade2-listening-pauses-v2') process.exit(1);
-          NODE
-      - name: Print canonical Set 01 No25 text
-        run: |
-          node - <<'NODE'
+          key="scbt/grade2/releases/$SOURCE_RELEASE/set-01/listening/part2/No25.wav"
+          npx wrangler r2 object get "mimilisten-audio/$key" --file /tmp/No25.wav --remote
+          node - <<'NODE' > /tmp/text.txt
           const fs=require('node:fs'); const vm=require('node:vm');
+          const sets=['set-01','set-02','set-03'].map(key=>({key,listeningQuestions:Array.from({length:30},(_,i)=>({id:i+1,part:i<15?'Part 1':'Part 2',audioFile:`old-${key}-${i+1}.wav`}))}));
+          vm.runInNewContext(fs.readFileSync('grade2-listening-set01-audio-fixes.js','utf8'),{window:{scbtGrade2VocabSets:sets},Set});
+          const routed=sets[0].listeningQuestions.find(q=>q.id===25);
+          if(routed.audioRelease!=='20260815-grade2-listening-pauses-v2') process.exit(1);
           const context={window:{}}; vm.createContext(context);
           vm.runInContext(fs.readFileSync('grade2-vocab-sets.js','utf8'),context);
           vm.runInContext(fs.readFileSync('grade2-speaking-sets.js','utf8'),context);
           vm.runInContext(fs.readFileSync('grade2-listening-part2-sets.js','utf8'),context);
-          const set=context.window.scbtGrade2VocabSets.find(s=>s.key==='set-01');
-          const q=set.listeningQuestions.find(q=>Number(q.id)===25);
-          if (!q) process.exit(1);
-          console.log('SCRIPT',q.script);
-          console.log('QUESTION',q.questionText);
+          const q=context.window.scbtGrade2VocabSets.find(s=>s.key==='set-01').listeningQuestions.find(q=>Number(q.id)===25);
+          console.log('Release:',routed.audioRelease);
+          console.log('Audio:',routed.audioFile);
+          console.log('Script:',q.script);
+          console.log('Question:',q.questionText);
           NODE
-      - name: Download current production No25 WAV
-        run: |
-          set -euo pipefail
-          key="scbt/grade2/releases/$SOURCE_RELEASE/set-01/listening/part2/No25.wav"
-          npx wrangler r2 object get "mimilisten-audio/$key" --file /tmp/No25.wav --remote
-          sha256sum /tmp/No25.wav
-      - name: Inspect silence near 18 seconds only
-        run: |
-          python - <<'PY'
+          python - <<'PY' > /tmp/audio.txt
           import math, struct, wave, hashlib
-          path='/tmp/No25.wav'
-          with wave.open(path,'rb') as w:
+          p='/tmp/No25.wav'
+          with wave.open(p,'rb') as w:
               sr=w.getframerate(); ch=w.getnchannels(); sw=w.getsampwidth(); n=w.getnframes(); raw=w.readframes(n)
-          assert (sr,ch,sw)==(24000,1,2), (sr,ch,sw)
-          samples=struct.unpack('<'+'h'*(len(raw)//2),raw)
-          print(f'META sr={sr} ch={ch} sw={sw} frames={n} duration={n/sr:.6f}s sha256={hashlib.sha256(open(path,"rb").read()).hexdigest()}')
-
-          # Read-only diagnostic: exact-zero runs of >=20 ms between 15s and 21s.
-          runs=[]; start=None
-          for i,x in enumerate(samples):
-              if x==0 and start is None: start=i
-              elif x!=0 and start is not None:
-                  if i-start >= int(0.02*sr): runs.append((start,i,i-start))
-                  start=None
-          if start is not None and len(samples)-start >= int(0.02*sr): runs.append((start,len(samples),len(samples)-start))
-          print('ZERO_RUNS_15_21')
-          for s,e,l in runs:
-              if e/sr >= 15 and s/sr <= 21:
-                  print(f'  frames={s}..{e} len={l} seconds={l/sr:.6f} times={s/sr:.6f}..{e/sr:.6f}')
-
+          assert (sr,ch,sw)==(24000,1,2)
+          s=struct.unpack('<'+'h'*(len(raw)//2),raw)
+          print(f'WAV: 24000Hz mono 16bit, frames={n}, duration={n/sr:.6f}s')
+          print('SHA256:',hashlib.sha256(open(p,'rb').read()).hexdigest())
+          runs=[]; st=None
+          for i,x in enumerate(s):
+              if x==0 and st is None: st=i
+              elif x!=0 and st is not None:
+                  if i-st>=int(.015*sr): runs.append((st,i,i-st))
+                  st=None
+          if st is not None and len(s)-st>=int(.015*sr): runs.append((st,len(s),len(s)-st))
+          print('Exact-zero runs from 15s to 21s:')
+          for a,b,l in runs:
+              if b/sr>=15 and a/sr<=21:
+                  print(f'  {a/sr:.6f}..{b/sr:.6f} len={l/sr:.6f}s frames={a}..{b} ({l})')
           win=120
-          def dbfs(block):
-              if not block: return -120.0
-              ss=sum(x*x for x in block)/len(block)
-              if ss<=0: return -120.0
-              return 20*math.log10(math.sqrt(ss)/32768.0)
-          rms=[dbfs(samples[i:i+win]) for i in range(0,len(samples),win)]
-          for threshold in (-40,-50,-60):
+          def db(block):
+              m=sum(x*x for x in block)/len(block)
+              return -120 if m<=0 else 20*math.log10(math.sqrt(m)/32768)
+          rms=[db(s[i:i+win]) for i in range(0,len(s),win)]
+          for th in (-40,-50,-60):
               spans=[]; st=None
               for idx,v in enumerate(rms):
                   t=idx*win/sr
-                  if not (15 <= t <= 21.2):
-                      if st is not None:
-                          en=t
-                          if en-st>=0.02: spans.append((st,en,en-st))
-                          st=None
+                  if not (15<=t<=21.2):
                       continue
-                  quiet=v<threshold
-                  if quiet and st is None: st=t
-                  elif not quiet and st is not None:
-                      en=t
-                      if en-st>=0.02: spans.append((st,en,en-st))
+                  if v<th and st is None: st=t
+                  elif v>=th and st is not None:
+                      if t-st>=.015: spans.append((st,t,t-st))
                       st=None
               if st is not None:
-                  en=min(21.2,len(samples)/sr)
-                  if en-st>=0.02: spans.append((st,en,en-st))
-              print('QUIET',threshold)
-              for s,e,d in spans: print(f'  {s:.3f}..{e:.3f} len={d:.3f}s')
+                  en=min(21.2,len(s)/sr)
+                  if en-st>=.015: spans.append((st,en,en-st))
+              print(f'Quiet < {th} dBFS:')
+              for a,b,l in spans: print(f'  {a:.3f}..{b:.3f} len={l:.3f}s')
           PY
+          {
+            echo '## Set 01 No.25 read-only diagnostic'
+            echo
+            echo '```text'
+            cat /tmp/text.txt
+            cat /tmp/audio.txt
+            echo '```'
+            echo
+            echo 'No production code or R2 object was modified by this diagnostic.'
+          } > /tmp/report.md
+          gh pr comment 25 --repo "$GITHUB_REPOSITORY" --body-file /tmp/report.md
