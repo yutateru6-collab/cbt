@@ -1,12 +1,9 @@
-name: Diagnose Set 03 No11 gap
+name: Diagnose Set 01 No25 ticket gap
 
 on:
   push:
     branches:
       - diagnostic-set03-no11-gap-20260821
-  pull_request:
-    branches:
-      - main
 
 jobs:
   diagnose:
@@ -14,74 +11,102 @@ jobs:
     permissions:
       contents: read
     env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       EXPECTED_MAIN: a09f021aad19cdb58f70a73fb449fc3c347b5264
-      TARGET_RELEASE: 20260821-set03-no11-travel-guide-gap-fix-v1
-      TARGET_SHA256: 6e16112bc5b4afa0cf30b694c99a1e19e1d2740dbe4f3372cd865619e8684296
-      BASE_URL: https://cbt.itisnowornever271.workers.dev
+      SOURCE_RELEASE: 20260815-grade2-listening-pauses-v2
     steps:
-      - name: Check out merged main
+      - name: Check out current main
         uses: actions/checkout@v4
         with:
           ref: main
           fetch-depth: 1
-      - name: Verify merged main commit
-        run: test "$(git rev-parse HEAD)" = "$EXPECTED_MAIN"
-      - name: Verify live production assets match merged main
+      - name: Verify current main and routing
         run: |
           set -euo pipefail
-          for file in exam.html grade2-listening-set01-audio-fixes.js tools/listening-player/index.html; do
-            local_sha="$(sha256sum "$file" | awk '{print $1}')"
-            matched=0
-            for attempt in {1..12}; do
-              out="/tmp/live-${file//\//_}"
-              if curl -fsSL --connect-timeout 10 --max-time 45 \
-                -H 'Cache-Control: no-cache' \
-                "$BASE_URL/$file?verify=${EXPECTED_MAIN:0:12}&attempt=$attempt" \
-                -o "$out"; then
-                live_sha="$(sha256sum "$out" | awk '{print $1}')"
-                if [ "$live_sha" = "$local_sha" ]; then
-                  echo "$file live SHA matched $live_sha"
-                  matched=1
-                  break
-                fi
-                echo "$file not propagated yet local=$local_sha live=$live_sha attempt=$attempt"
-              fi
-              sleep 2
-            done
-            test "$matched" = 1
-          done
-      - name: Verify live routing resolves only the intended No11 release
-        run: |
-          set -euo pipefail
-          curl -fsSL --connect-timeout 10 --max-time 45 \
-            -H 'Cache-Control: no-cache' \
-            "$BASE_URL/grade2-listening-set01-audio-fixes.js?verify=${EXPECTED_MAIN:0:12}" \
-            -o /tmp/live-routing.js
+          test "$(git rev-parse HEAD)" = "$EXPECTED_MAIN"
           node - <<'NODE'
           const fs = require('node:fs');
           const vm = require('node:vm');
           const sets = ['set-01','set-02','set-03'].map((key) => ({
             key,
-            listeningQuestions: Array.from({length: 30}, (_, i) => ({
-              id: i + 1,
-              part: i < 15 ? 'Part 1' : 'Part 2',
-              audioFile: `base-${key}-${i + 1}.wav`,
-            })),
+            listeningQuestions: Array.from({length:30},(_,i)=>({id:i+1,part:i<15?'Part 1':'Part 2',audioFile:`old-${key}-${i+1}.wav`})),
           }));
-          vm.runInNewContext(fs.readFileSync('/tmp/live-routing.js','utf8'), { window: { scbtGrade2VocabSets: sets }, Set });
-          const by = (setKey, id) => sets.find(s => s.key === setKey).listeningQuestions.find(q => q.id === id);
-          if (by('set-03',11).audioRelease !== '20260821-set03-no11-travel-guide-gap-fix-v1') process.exit(1);
-          for (const id of [13,15,29]) if (by('set-03',id).audioRelease !== '20260821-set03-listening-fixes-v1') process.exit(1);
-          for (const [setKey,id] of [['set-01',22],['set-01',25],['set-01',26],['set-01',30],['set-02',25],['set-03',17]]) {
-            if (by(setKey,id).audioRelease !== '20260815-grade2-listening-pauses-v2') process.exit(1);
-          }
-          console.log('live routing verified: No11 new release; other nine approved routes unchanged');
+          vm.runInNewContext(fs.readFileSync('grade2-listening-set01-audio-fixes.js','utf8'), {window:{scbtGrade2VocabSets:sets},Set});
+          const q=sets[0].listeningQuestions.find(x=>x.id===25);
+          console.log('SET01_NO25_ROUTE', q.audioRelease, q.audioFile);
+          if (q.audioRelease !== '20260815-grade2-listening-pauses-v2') process.exit(1);
           NODE
-      - name: Verify public No11 WAV
+      - name: Print canonical Set 01 No25 text
+        run: |
+          node - <<'NODE'
+          const fs=require('node:fs'); const vm=require('node:vm');
+          const context={window:{}}; vm.createContext(context);
+          vm.runInContext(fs.readFileSync('grade2-vocab-sets.js','utf8'),context);
+          vm.runInContext(fs.readFileSync('grade2-speaking-sets.js','utf8'),context);
+          vm.runInContext(fs.readFileSync('grade2-listening-part2-sets.js','utf8'),context);
+          const set=context.window.scbtGrade2VocabSets.find(s=>s.key==='set-01');
+          const q=set.listeningQuestions.find(q=>Number(q.id)===25);
+          if (!q) process.exit(1);
+          console.log('SCRIPT',q.script);
+          console.log('QUESTION',q.questionText);
+          NODE
+      - name: Download current production No25 WAV
         run: |
           set -euo pipefail
-          url="https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/$TARGET_RELEASE/set-03/listening/part1/No11.wav"
-          curl -fsSL --connect-timeout 10 --max-time 45 -D /tmp/no11-headers.txt -o /tmp/no11-public.wav "$url"
-          test "$(sha256sum /tmp/no11-public.wav | awk '{print $1}')" = "$TARGET_SHA256"
-          grep -iEq '^content-type:[[:space:]]*audio/wav' /tmp/no11-headers.txt
-          echo "public No11 verified sha256=$TARGET_SHA256 bytes=$(wc -c < /tmp/no11-public.wav)"
+          key="scbt/grade2/releases/$SOURCE_RELEASE/set-01/listening/part2/No25.wav"
+          npx wrangler r2 object get "mimilisten-audio/$key" --file /tmp/No25.wav --remote
+          sha256sum /tmp/No25.wav
+      - name: Inspect silence near 18 seconds only
+        run: |
+          python - <<'PY'
+          import math, struct, wave, hashlib
+          path='/tmp/No25.wav'
+          with wave.open(path,'rb') as w:
+              sr=w.getframerate(); ch=w.getnchannels(); sw=w.getsampwidth(); n=w.getnframes(); raw=w.readframes(n)
+          assert (sr,ch,sw)==(24000,1,2), (sr,ch,sw)
+          samples=struct.unpack('<'+'h'*(len(raw)//2),raw)
+          print(f'META sr={sr} ch={ch} sw={sw} frames={n} duration={n/sr:.6f}s sha256={hashlib.sha256(open(path,"rb").read()).hexdigest()}')
+
+          # Exact-zero runs of >= 20 ms between 15s and 21s.
+          runs=[]; start=None
+          for i,x in enumerate(samples):
+              if x==0 and start is None: start=i
+              elif x!=0 and start is not None:
+                  if i-start >= int(0.02*sr): runs.append((start,i,i-start))
+                  start=None
+          if start is not None and len(samples)-start >= int(0.02*sr): runs.append((start,len(samples),len(samples)-start))
+          print('ZERO_RUNS_15_21')
+          for s,e,l in runs:
+              if e/sr >= 15 and s/sr <= 21:
+                  print(f'  frames={s}..{e} len={l} seconds={l/sr:.6f} times={s/sr:.6f}..{e/sr:.6f}')
+
+          # 5 ms RMS windows so quieter non-zero gaps are also visible.
+          win=120
+          def dbfs(block):
+              if not block: return -120.0
+              ss=sum(x*x for x in block)/len(block)
+              if ss<=0: return -120.0
+              return 20*math.log10(math.sqrt(ss)/32768.0)
+          rms=[dbfs(samples[i:i+win]) for i in range(0,len(samples),win)]
+          for threshold in (-40,-50,-60):
+              spans=[]; st=None
+              for idx,v in enumerate(rms):
+                  t=idx*win/sr
+                  if not (15 <= t <= 21.2):
+                      if st is not None:
+                          en=t
+                          if en-st>=0.02: spans.append((st,en,en-st))
+                          st=None
+                      continue
+                  quiet=v<threshold
+                  if quiet and st is None: st=t
+                  elif not quiet and st is not None:
+                      en=t
+                      if en-st>=0.02: spans.append((st,en,en-st))
+                      st=None
+              if st is not None:
+                  en=min(21.2,len(samples)/sr)
+                  if en-st>=0.02: spans.append((st,en,en-st))
+              print('QUIET',threshold)
+              for s,e,d in spans: print(f'  {s:.3f}..{e:.3f} len={d:.3f}s')
+          PY
