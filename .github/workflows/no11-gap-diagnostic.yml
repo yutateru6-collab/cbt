@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - diagnostic-set03-no11-gap-20260821
+  pull_request:
+    branches:
+      - main
 
 jobs:
   diagnose:
@@ -37,7 +40,7 @@ jobs:
           samples=struct.unpack('<'+'h'*(len(raw)//2),raw)
           dur=len(samples)/sr
           print(f'META sr={sr} channels={ch} sampwidth={sw} frames={len(samples)} duration={dur:.6f}s')
-          win=240  # 10 ms
+          win=240
           def dbfs(block):
               if not block: return -120.0
               ss=sum(x*x for x in block)/len(block)
