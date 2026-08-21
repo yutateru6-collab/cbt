@@ -67,7 +67,7 @@ jobs:
           samples=struct.unpack('<'+'h'*(len(raw)//2),raw)
           print(f'META sr={sr} ch={ch} sw={sw} frames={n} duration={n/sr:.6f}s sha256={hashlib.sha256(open(path,"rb").read()).hexdigest()}')
 
-          # Exact-zero runs of >= 20 ms between 15s and 21s.
+          # Read-only diagnostic: exact-zero runs of >=20 ms between 15s and 21s.
           runs=[]; start=None
           for i,x in enumerate(samples):
               if x==0 and start is None: start=i
@@ -80,7 +80,6 @@ jobs:
               if e/sr >= 15 and s/sr <= 21:
                   print(f'  frames={s}..{e} len={l} seconds={l/sr:.6f} times={s/sr:.6f}..{e/sr:.6f}')
 
-          # 5 ms RMS windows so quieter non-zero gaps are also visible.
           win=120
           def dbfs(block):
               if not block: return -120.0
