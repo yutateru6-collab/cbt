@@ -18,7 +18,7 @@ concurrency:
 jobs:
   browser-qa:
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 20
     env:
       QA_REPOSITORY: ${{ github.repository }}
       QA_EXPECTED_SHA: ${{ github.sha }}
@@ -67,37 +67,29 @@ jobs:
       - name: Install repository dependencies
         run: npm ci
 
-      - name: Select deployed target
-        id: target
-        shell: bash
-        run: |
-          set -euo pipefail
-          if [ "$GITHUB_REF_NAME" = "main" ]; then
-            target='production'
-            base='https://cbt.itisnowornever271.workers.dev'
-          else
-            target='staging'
-            base='https://cbt-staging.itisnowornever271.workers.dev'
-          fi
-          echo "QA_TARGET=$target" >> "$GITHUB_ENV"
-          echo "QA_BASE_URL=$base" >> "$GITHUB_ENV"
-          echo "target=$target" >> "$GITHUB_OUTPUT"
-          echo "base_url=$base" >> "$GITHUB_OUTPUT"
-          echo "QA target: $target"
-          echo "QA base URL: $base"
+      - name: Build exact commit assets for QA
+        env:
+          CBT_BUILD_SHA: ${{ github.sha }}
+          CBT_BUILD_REF: ${{ github.ref_name }}
+          CBT_DEPLOY_ENV: github-actions-qa
+        run: node scripts/prepare-worker-assets.mjs
 
-      - name: Wait for matching Cloudflare deployment
+      - name: Start exact commit QA site
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p qa-output
-          stamp="${GITHUB_SHA:0:12}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
-          ready=0
+          base='http://127.0.0.1:4173'
+          nohup python3 -m http.server 4173 \
+            --bind 127.0.0.1 \
+            --directory worker-dist \
+            > qa-output/local-server.log 2>&1 &
+          echo "$!" > qa-output/local-server.pid
 
-          for attempt in $(seq 1 120); do
-            if curl -fsSL --connect-timeout 10 --max-time 30 \
-              -H 'Cache-Control: no-cache' \
-              "$QA_BASE_URL/build-info.json?qa=$stamp&attempt=$attempt" \
+          ready=0
+          for attempt in $(seq 1 30); do
+            if curl -fsSL --connect-timeout 2 --max-time 5 \
+              "$base/build-info.json?qa=$GITHUB_RUN_ID&attempt=$attempt" \
               -o /tmp/qa-build-info.json; then
               if node -e '
                 const fs = require("node:fs");
@@ -108,39 +100,31 @@ jobs:
                 break
               fi
             fi
-            echo "Waiting for $QA_TARGET deployment of ${GITHUB_SHA:0:12} ($attempt/120)..."
-            sleep 10
+            sleep 1
           done
+          test "$ready" = '1'
 
-          if [ "$ready" = '1' ]; then
-            cp /tmp/qa-build-info.json qa-output/build-info.json
-            export QA_DEPLOYMENT_STATUS='ready'
-          else
-            export QA_DEPLOYMENT_STATUS='timeout'
-          fi
+          cp /tmp/qa-build-info.json qa-output/build-info.json
+          echo 'QA_TARGET=github-actions-local' >> "$GITHUB_ENV"
+          echo "QA_BASE_URL=$base" >> "$GITHUB_ENV"
 
           node - <<'NODE'
           const fs = require('node:fs');
-          let buildInfo = null;
-          try {
-            buildInfo = JSON.parse(fs.readFileSync('/tmp/qa-build-info.json', 'utf8'));
-          } catch {}
+          const buildInfo = JSON.parse(fs.readFileSync('/tmp/qa-build-info.json', 'utf8'));
           const output = {
             generatedAt: new Date().toISOString(),
-            status: process.env.QA_DEPLOYMENT_STATUS || 'unknown',
+            status: 'ready',
             repository: process.env.QA_REPOSITORY,
             commitSha: process.env.QA_EXPECTED_SHA,
             ref: process.env.GITHUB_REF_NAME,
-            target: process.env.QA_TARGET,
-            baseUrl: process.env.QA_BASE_URL,
+            target: 'github-actions-local',
+            baseUrl: 'http://127.0.0.1:4173',
             workflowRunId: process.env.QA_RUN_ID,
             workflowRunAttempt: process.env.QA_RUN_ATTEMPT,
             observedBuildInfo: buildInfo,
           };
           fs.writeFileSync('qa-output/deployment.json', `${JSON.stringify(output, null, 2)}\n`);
           NODE
-
-          test "$ready" = '1'
 
       - name: Install Playwright 1.62.1 browsers
         shell: bash
@@ -154,6 +138,14 @@ jobs:
         env:
           CI: 'true'
         run: npx playwright test --config=qa/playwright.config.cjs
+
+      - name: Stop local QA site
+        if: always()
+        shell: bash
+        run: |
+          if [ -f qa-output/local-server.pid ]; then
+            kill "$(cat qa-output/local-server.pid)" 2>/dev/null || true
+          fi
 
       - name: Build combined QA report
         if: always()
