@@ -20,14 +20,14 @@ const devices = [
     key: 'desktop-1440x900',
     label: 'PC 1440×900 / Chromium',
     cardWidth: 250,
-    bridgeWidth: 140,
+    bridgeWidth: 70,
     columns: 3,
   },
   {
     key: 'iphone-16-393x852',
     label: 'iPhone 16相当 393×852 @3x / WebKit',
     cardWidth: 180,
-    bridgeWidth: 90,
+    bridgeWidth: 45,
     columns: 3,
   },
 ];
@@ -128,12 +128,12 @@ async function renderSheet(browser, device, cards, options) {
       await renderSheet(browser, device, cards, {
         suffix: 'vision-bridge',
         cardWidth: device.bridgeWidth,
-        gap: 4,
-        padding: 4,
-        labelFont: 7,
+        gap: 2,
+        padding: 2,
+        labelFont: 5,
         titleFont: 0,
         showTitle: false,
-        quality: 10,
+        quality: 5,
       });
     }
   } finally {
