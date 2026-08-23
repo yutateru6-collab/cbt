@@ -1,0 +1,4510 @@
+{
+  "generatedAt": "2026-08-23T15:04:21.593Z",
+  "repository": "YutaTeru/cbt",
+  "commitSha": "150ff2233e41600224a2f94e73a5fd433b2f83d7",
+  "workflowRunId": "32647245330",
+  "target": "local-normal",
+  "baseUrl": "http://127.0.0.1:4174",
+  "device": "iphone-16-393x852",
+  "setKey": "set-01",
+  "actions": [
+    "Open normal paid CBT URL with no dev parameter.",
+    "Click the real Start button.",
+    "Complete Speaking with normal controls, synthetic QA microphone input, and accelerated timers only.",
+    "Continue to Listening and answer all 30 questions through normal auto-advance.",
+    "Traverse all 31 Reading questions and verify answer persistence with real Previous/Next controls.",
+    "Type both Writing answers and finish with the real confirmation modal.",
+    "Exercise all four result tabs, Listening direct replay/return, and Set 01 restart."
+  ],
+  "states": [
+    {
+      "name": "start",
+      "url": "http://127.0.0.1:4174/exam.html?plan=three&set=set-01&qa-normal=150ff2233e41600224a2f94e73a5fd433b2f83d7",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 1,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 852,
+          "clientWidth": 393,
+          "clientHeight": 852
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": [
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "3 リーディング",
+            "left": 298,
+            "right": 429,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "リーディング",
+            "left": 338,
+            "right": 417,
+            "width": 80
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "4 ライティング",
+            "left": 437,
+            "right": 569,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-index",
+            "text": "4",
+            "left": 449,
+            "right": 469,
+            "width": 20
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "ライティング",
+            "left": 477,
+            "right": 557,
+            "width": 80
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "font-size-control",
+            "text": "A＋ 1/6",
+            "left": 577,
+            "right": 671,
+            "width": 94
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-symbol",
+            "text": "A＋",
+            "left": 598,
+            "right": 627,
+            "width": 29
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-step",
+            "text": "1/6",
+            "left": 634,
+            "right": 650,
+            "width": 15
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "module-tab reset-tab",
+            "text": "進行リセット",
+            "left": 679,
+            "right": 791,
+            "width": 112
+          }
+        ],
+        "smallTargets": [
+          {
+            "tag": "button",
+            "text": "A＋ 1/6",
+            "width": 94,
+            "height": 34
+          },
+          {
+            "tag": "button",
+            "text": "進行リセット",
+            "width": 112,
+            "height": 34
+          },
+          {
+            "tag": "a",
+            "text": "特定商取引法に基づく表記",
+            "width": 144.8,
+            "height": 18.6
+          },
+          {
+            "tag": "a",
+            "text": "利用規約",
+            "width": 48,
+            "height": 18.6
+          },
+          {
+            "tag": "a",
+            "text": "プライバシーポリシー",
+            "width": 122.3,
+            "height": 18.6
+          },
+          {
+            "tag": "a",
+            "text": "返金・利用期限・対応PC・お問い合わせ",
+            "width": 221.8,
+            "height": 18.6
+          }
+        ],
+        "clippedText": []
+      },
+      "screenshotFiles": [
+        "screenshots/iphone-16-393x852-set-01-start-viewport.png",
+        "screenshots/iphone-16-393x852-set-01-start-ai-preview.jpg",
+        "screenshots/iphone-16-393x852-set-01-start-full.png"
+      ]
+    },
+    {
+      "name": "speaking-preflight",
+      "url": "http://127.0.0.1:4174/exam.html?plan=three&set=set-01&qa-normal=150ff2233e41600224a2f94e73a5fd433b2f83d7&module=speaking&start=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 1,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 1022,
+          "clientWidth": 393,
+          "clientHeight": 852
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": [
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "3 リーディング",
+            "left": 286,
+            "right": 417,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "リーディング",
+            "left": 326,
+            "right": 405,
+            "width": 80
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "4 ライティング",
+            "left": 425,
+            "right": 557,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-index",
+            "text": "4",
+            "left": 437,
+            "right": 457,
+            "width": 20
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "ライティング",
+            "left": 465,
+            "right": 545,
+            "width": 80
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "font-size-control",
+            "text": "A＋ 1/6",
+            "left": 565,
+            "right": 659,
+            "width": 94
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-symbol",
+            "text": "A＋",
+            "left": 586,
+            "right": 615,
+            "width": 29
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-step",
+            "text": "1/6",
+            "left": 622,
+            "right": 638,
+            "width": 15
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "module-tab reset-tab",
+            "text": "進行リセット",
+            "left": 667,
+            "right": 779,
+            "width": 112
+          }
+        ],
+        "smallTargets": [
+          {
+            "tag": "button",
+            "text": "A＋ 1/6",
+            "width": 94,
+            "height": 34
+          },
+          {
+            "tag": "button",
+            "text": "進行リセット",
+            "width": 112,
+            "height": 34
+          },
+          {
+            "tag": "input",
+            "text": "案内音声の音量",
+            "width": 279,
+            "height": 20
+          }
+        ],
+        "clippedText": []
+      },
+      "screenshotFiles": [
+        "screenshots/iphone-16-393x852-set-01-speaking-preflight-viewport.png",
+        "screenshots/iphone-16-393x852-set-01-speaking-preflight-ai-preview.jpg"
+      ]
+    },
+    {
+      "name": "speaking-microphone-check",
+      "url": "http://127.0.0.1:4174/exam.html?plan=three&set=set-01&qa-normal=150ff2233e41600224a2f94e73a5fd433b2f83d7&module=speaking&start=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 1,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 1182,
+          "clientWidth": 393,
+          "clientHeight": 852
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": [
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "3 リーディング",
+            "left": 286,
+            "right": 417,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "リーディング",
+            "left": 326,
+            "right": 405,
+            "width": 80
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "4 ライティング",
+            "left": 425,
+            "right": 557,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-index",
+            "text": "4",
+            "left": 437,
+            "right": 457,
+            "width": 20
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "ライティング",
+            "left": 465,
+            "right": 545,
+            "width": 80
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "font-size-control",
+            "text": "A＋ 1/6",
+            "left": 565,
+            "right": 659,
+            "width": 94
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-symbol",
+            "text": "A＋",
+            "left": 586,
+            "right": 615,
+            "width": 29
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-step",
+            "text": "1/6",
+            "left": 622,
+            "right": 638,
+            "width": 15
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "module-tab reset-tab",
+            "text": "進行リセット",
+            "left": 667,
+            "right": 779,
+            "width": 112
+          }
+        ],
+        "smallTargets": [
+          {
+            "tag": "button",
+            "text": "A＋ 1/6",
+            "width": 94,
+            "height": 34
+          },
+          {
+            "tag": "button",
+            "text": "進行リセット",
+            "width": 112,
+            "height": 34
+          },
+          {
+            "tag": "input",
+            "text": "案内音声の音量",
+            "width": 279,
+            "height": 20
+          },
+          {
+            "tag": "button",
+            "text": "マイクを確認",
+            "width": 343,
+            "height": 28
+          }
+        ],
+        "clippedText": []
+      },
+      "screenshotFiles": [
+        "screenshots/iphone-16-393x852-set-01-speaking-microphone-check-viewport.png",
+        "screenshots/iphone-16-393x852-set-01-speaking-microphone-check-ai-preview.jpg"
+      ]
+    },
+    {
+      "name": "speaking-test-playback",
+      "url": "http://127.0.0.1:4174/exam.html?plan=three&set=set-01&qa-normal=150ff2233e41600224a2f94e73a5fd433b2f83d7&module=speaking&start=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 1,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 1100,
+          "clientWidth": 393,
+          "clientHeight": 852
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": [
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "3 リーディング",
+            "left": 286,
+            "right": 417,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "リーディング",
+            "left": 326,
+            "right": 405,
+            "width": 80
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "4 ライティング",
+            "left": 425,
+            "right": 557,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-index",
+            "text": "4",
+            "left": 437,
+            "right": 457,
+            "width": 20
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "ライティング",
+            "left": 465,
+            "right": 545,
+            "width": 80
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "font-size-control",
+            "text": "A＋ 1/6",
+            "left": 565,
+            "right": 659,
+            "width": 94
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-symbol",
+            "text": "A＋",
+            "left": 586,
+            "right": 615,
+            "width": 29
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-step",
+            "text": "1/6",
+            "left": 622,
+            "right": 638,
+            "width": 15
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "module-tab reset-tab",
+            "text": "進行リセット",
+            "left": 667,
+            "right": 779,
+            "width": 112
+          }
+        ],
+        "smallTargets": [
+          {
+            "tag": "button",
+            "text": "A＋ 1/6",
+            "width": 94,
+            "height": 34
+          },
+          {
+            "tag": "button",
+            "text": "進行リセット",
+            "width": 112,
+            "height": 34
+          },
+          {
+            "tag": "input",
+            "text": "案内音声の音量",
+            "width": 279,
+            "height": 20
+          },
+          {
+            "tag": "button",
+            "text": "録音をやり直す",
+            "width": 343,
+            "height": 28
+          }
+        ],
+        "clippedText": []
+      },
+      "screenshotFiles": [
+        "screenshots/iphone-16-393x852-set-01-speaking-test-playback-viewport.png",
+        "screenshots/iphone-16-393x852-set-01-speaking-test-playback-ai-preview.jpg"
+      ]
+    },
+    {
+      "name": "speaking-ready",
+      "url": "http://127.0.0.1:4174/exam.html?plan=three&set=set-01&qa-normal=150ff2233e41600224a2f94e73a5fd433b2f83d7&module=speaking&start=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 1,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 899,
+          "clientWidth": 393,
+          "clientHeight": 852
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": [
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "3 リーディング",
+            "left": 286,
+            "right": 417,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "リーディング",
+            "left": 326,
+            "right": 405,
+            "width": 80
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "4 ライティング",
+            "left": 425,
+            "right": 557,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-index",
+            "text": "4",
+            "left": 437,
+            "right": 457,
+            "width": 20
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "ライティング",
+            "left": 465,
+            "right": 545,
+            "width": 80
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "font-size-control",
+            "text": "A＋ 1/6",
+            "left": 565,
+            "right": 659,
+            "width": 94
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-symbol",
+            "text": "A＋",
+            "left": 586,
+            "right": 615,
+            "width": 29
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-step",
+            "text": "1/6",
+            "left": 622,
+            "right": 638,
+            "width": 15
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "module-tab reset-tab",
+            "text": "進行リセット",
+            "left": 667,
+            "right": 779,
+            "width": 112
+          }
+        ],
+        "smallTargets": [
+          {
+            "tag": "button",
+            "text": "A＋ 1/6",
+            "width": 94,
+            "height": 34
+          },
+          {
+            "tag": "button",
+            "text": "進行リセット",
+            "width": 112,
+            "height": 34
+          },
+          {
+            "tag": "input",
+            "text": "案内音声の音量",
+            "width": 279,
+            "height": 20
+          }
+        ],
+        "clippedText": []
+      },
+      "screenshotFiles": [
+        "screenshots/iphone-16-393x852-set-01-speaking-ready-viewport.png",
+        "screenshots/iphone-16-393x852-set-01-speaking-ready-ai-preview.jpg"
+      ]
+    },
+    {
+      "name": "speaking-read-aloud",
+      "url": "http://127.0.0.1:4174/exam.html?plan=three&set=set-01&qa-normal=150ff2233e41600224a2f94e73a5fd433b2f83d7&module=speaking&start=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 1,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 1098,
+          "clientWidth": 393,
+          "clientHeight": 852
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": [
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "3 リーディング",
+            "left": 286,
+            "right": 417,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "リーディング",
+            "left": 326,
+            "right": 405,
+            "width": 80
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "4 ライティング",
+            "left": 425,
+            "right": 557,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-index",
+            "text": "4",
+            "left": 437,
+            "right": 457,
+            "width": 20
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "ライティング",
+            "left": 465,
+            "right": 545,
+            "width": 80
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "font-size-control",
+            "text": "A＋ 1/6",
+            "left": 565,
+            "right": 659,
+            "width": 94
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-symbol",
+            "text": "A＋",
+            "left": 586,
+            "right": 615,
+            "width": 29
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-step",
+            "text": "1/6",
+            "left": 622,
+            "right": 638,
+            "width": 15
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "module-tab reset-tab",
+            "text": "進行リセット",
+            "left": 667,
+            "right": 779,
+            "width": 112
+          }
+        ],
+        "smallTargets": [
+          {
+            "tag": "button",
+            "text": "A＋ 1/6",
+            "width": 94,
+            "height": 34
+          },
+          {
+            "tag": "button",
+            "text": "進行リセット",
+            "width": 112,
+            "height": 34
+          },
+          {
+            "tag": "input",
+            "text": "案内音声の音量",
+            "width": 279,
+            "height": 20
+          },
+          {
+            "tag": "button",
+            "text": "音声を開始する",
+            "width": 343,
+            "height": 28
+          }
+        ],
+        "clippedText": []
+      },
+      "screenshotFiles": [
+        "screenshots/iphone-16-393x852-set-01-speaking-read-aloud-viewport.png",
+        "screenshots/iphone-16-393x852-set-01-speaking-read-aloud-ai-preview.jpg"
+      ]
+    },
+    {
+      "name": "speaking-no-2",
+      "url": "http://127.0.0.1:4174/exam.html?plan=three&set=set-01&qa-normal=150ff2233e41600224a2f94e73a5fd433b2f83d7&module=speaking&start=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 1,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 1220,
+          "clientWidth": 393,
+          "clientHeight": 852
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": [
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "3 リーディング",
+            "left": 286,
+            "right": 417,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "リーディング",
+            "left": 326,
+            "right": 405,
+            "width": 80
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "4 ライティング",
+            "left": 425,
+            "right": 557,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-index",
+            "text": "4",
+            "left": 437,
+            "right": 457,
+            "width": 20
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "ライティング",
+            "left": 465,
+            "right": 545,
+            "width": 80
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "font-size-control",
+            "text": "A＋ 1/6",
+            "left": 565,
+            "right": 659,
+            "width": 94
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-symbol",
+            "text": "A＋",
+            "left": 586,
+            "right": 615,
+            "width": 29
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-step",
+            "text": "1/6",
+            "left": 622,
+            "right": 638,
+            "width": 15
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "module-tab reset-tab",
+            "text": "進行リセット",
+            "left": 667,
+            "right": 779,
+            "width": 112
+          }
+        ],
+        "smallTargets": [
+          {
+            "tag": "button",
+            "text": "A＋ 1/6",
+            "width": 94,
+            "height": 34
+          },
+          {
+            "tag": "button",
+            "text": "進行リセット",
+            "width": 112,
+            "height": 34
+          },
+          {
+            "tag": "input",
+            "text": "案内音声の音量",
+            "width": 279,
+            "height": 20
+          }
+        ],
+        "clippedText": []
+      },
+      "screenshotFiles": [
+        "screenshots/iphone-16-393x852-set-01-speaking-no-2-viewport.png",
+        "screenshots/iphone-16-393x852-set-01-speaking-no-2-ai-preview.jpg"
+      ]
+    },
+    {
+      "name": "speaking-no-4",
+      "url": "http://127.0.0.1:4174/exam.html?plan=three&set=set-01&qa-normal=150ff2233e41600224a2f94e73a5fd433b2f83d7&module=speaking&start=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 1,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 881,
+          "clientWidth": 393,
+          "clientHeight": 852
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": [
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "3 リーディング",
+            "left": 286,
+            "right": 417,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "リーディング",
+            "left": 326,
+            "right": 405,
+            "width": 80
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "4 ライティング",
+            "left": 425,
+            "right": 557,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-index",
+            "text": "4",
+            "left": 437,
+            "right": 457,
+            "width": 20
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "ライティング",
+            "left": 465,
+            "right": 545,
+            "width": 80
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "font-size-control",
+            "text": "A＋ 1/6",
+            "left": 565,
+            "right": 659,
+            "width": 94
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-symbol",
+            "text": "A＋",
+            "left": 586,
+            "right": 615,
+            "width": 29
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-step",
+            "text": "1/6",
+            "left": 622,
+            "right": 638,
+            "width": 15
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "module-tab reset-tab",
+            "text": "進行リセット",
+            "left": 667,
+            "right": 779,
+            "width": 112
+          }
+        ],
+        "smallTargets": [
+          {
+            "tag": "button",
+            "text": "A＋ 1/6",
+            "width": 94,
+            "height": 34
+          },
+          {
+            "tag": "button",
+            "text": "進行リセット",
+            "width": 112,
+            "height": 34
+          },
+          {
+            "tag": "input",
+            "text": "案内音声の音量",
+            "width": 279,
+            "height": 20
+          }
+        ],
+        "clippedText": []
+      },
+      "screenshotFiles": [
+        "screenshots/iphone-16-393x852-set-01-speaking-no-4-viewport.png",
+        "screenshots/iphone-16-393x852-set-01-speaking-no-4-ai-preview.jpg"
+      ]
+    },
+    {
+      "name": "speaking-complete",
+      "url": "http://127.0.0.1:4174/exam.html?plan=three&set=set-01&qa-normal=150ff2233e41600224a2f94e73a5fd433b2f83d7&module=speaking&start=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 1,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 1284,
+          "clientWidth": 393,
+          "clientHeight": 852
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": [
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "3 リーディング",
+            "left": 286,
+            "right": 417,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "リーディング",
+            "left": 326,
+            "right": 405,
+            "width": 80
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "4 ライティング",
+            "left": 425,
+            "right": 557,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-index",
+            "text": "4",
+            "left": 437,
+            "right": 457,
+            "width": 20
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "ライティング",
+            "left": 465,
+            "right": 545,
+            "width": 80
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "font-size-control",
+            "text": "A＋ 1/6",
+            "left": 565,
+            "right": 659,
+            "width": 94
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-symbol",
+            "text": "A＋",
+            "left": 586,
+            "right": 615,
+            "width": 29
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-step",
+            "text": "1/6",
+            "left": 622,
+            "right": 638,
+            "width": 15
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "module-tab reset-tab",
+            "text": "進行リセット",
+            "left": 667,
+            "right": 779,
+            "width": 112
+          }
+        ],
+        "smallTargets": [
+          {
+            "tag": "button",
+            "text": "A＋ 1/6",
+            "width": 94,
+            "height": 34
+          },
+          {
+            "tag": "button",
+            "text": "進行リセット",
+            "width": 112,
+            "height": 34
+          },
+          {
+            "tag": "input",
+            "text": "案内音声の音量",
+            "width": 279,
+            "height": 20
+          },
+          {
+            "tag": "button",
+            "text": "一旦休憩する（練習用・本番には休憩なし）",
+            "width": 343,
+            "height": 28
+          }
+        ],
+        "clippedText": []
+      },
+      "screenshotFiles": [
+        "screenshots/iphone-16-393x852-set-01-speaking-complete-viewport.png",
+        "screenshots/iphone-16-393x852-set-01-speaking-complete-ai-preview.jpg",
+        "screenshots/iphone-16-393x852-set-01-speaking-complete-full.png"
+      ]
+    },
+    {
+      "name": "listening-no-1",
+      "url": "http://127.0.0.1:4174/exam.html?plan=three&set=set-01&qa-normal=150ff2233e41600224a2f94e73a5fd433b2f83d7&module=listening&start=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 1,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 1653,
+          "clientWidth": 393,
+          "clientHeight": 852
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": [
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "3 リーディング",
+            "left": 286,
+            "right": 417,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "リーディング",
+            "left": 326,
+            "right": 405,
+            "width": 80
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "4 ライティング",
+            "left": 425,
+            "right": 557,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-index",
+            "text": "4",
+            "left": 437,
+            "right": 457,
+            "width": 20
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "ライティング",
+            "left": 465,
+            "right": 545,
+            "width": 80
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "font-size-control",
+            "text": "A＋ 1/6",
+            "left": 565,
+            "right": 659,
+            "width": 94
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-symbol",
+            "text": "A＋",
+            "left": 586,
+            "right": 615,
+            "width": 29
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-step",
+            "text": "1/6",
+            "left": 622,
+            "right": 638,
+            "width": 15
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "module-tab reset-tab",
+            "text": "進行リセット",
+            "left": 667,
+            "right": 779,
+            "width": 112
+          }
+        ],
+        "smallTargets": [
+          {
+            "tag": "button",
+            "text": "A＋ 1/6",
+            "width": 94,
+            "height": 34
+          },
+          {
+            "tag": "button",
+            "text": "進行リセット",
+            "width": 112,
+            "height": 34
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          }
+        ],
+        "clippedText": []
+      },
+      "screenshotFiles": [
+        "screenshots/iphone-16-393x852-set-01-listening-no-1-viewport.png",
+        "screenshots/iphone-16-393x852-set-01-listening-no-1-ai-preview.jpg"
+      ]
+    },
+    {
+      "name": "listening-no-16",
+      "url": "http://127.0.0.1:4174/exam.html?plan=three&set=set-01&qa-normal=150ff2233e41600224a2f94e73a5fd433b2f83d7&module=listening&start=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 1,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 1653,
+          "clientWidth": 393,
+          "clientHeight": 852
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": [
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "3 リーディング",
+            "left": 286,
+            "right": 417,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "リーディング",
+            "left": 326,
+            "right": 405,
+            "width": 80
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "4 ライティング",
+            "left": 425,
+            "right": 557,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-index",
+            "text": "4",
+            "left": 437,
+            "right": 457,
+            "width": 20
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "ライティング",
+            "left": 465,
+            "right": 545,
+            "width": 80
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "font-size-control",
+            "text": "A＋ 1/6",
+            "left": 565,
+            "right": 659,
+            "width": 94
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-symbol",
+            "text": "A＋",
+            "left": 586,
+            "right": 615,
+            "width": 29
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-step",
+            "text": "1/6",
+            "left": 622,
+            "right": 638,
+            "width": 15
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "module-tab reset-tab",
+            "text": "進行リセット",
+            "left": 667,
+            "right": 779,
+            "width": 112
+          }
+        ],
+        "smallTargets": [
+          {
+            "tag": "button",
+            "text": "A＋ 1/6",
+            "width": 94,
+            "height": 34
+          },
+          {
+            "tag": "button",
+            "text": "進行リセット",
+            "width": 112,
+            "height": 34
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          }
+        ],
+        "clippedText": []
+      },
+      "screenshotFiles": [
+        "screenshots/iphone-16-393x852-set-01-listening-no-16-viewport.png",
+        "screenshots/iphone-16-393x852-set-01-listening-no-16-ai-preview.jpg"
+      ]
+    },
+    {
+      "name": "listening-no-30",
+      "url": "http://127.0.0.1:4174/exam.html?plan=three&set=set-01&qa-normal=150ff2233e41600224a2f94e73a5fd433b2f83d7&module=listening&start=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 1,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 1653,
+          "clientWidth": 393,
+          "clientHeight": 852
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": [
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "3 リーディング",
+            "left": 286,
+            "right": 417,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "リーディング",
+            "left": 326,
+            "right": 405,
+            "width": 80
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "4 ライティング",
+            "left": 425,
+            "right": 557,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-index",
+            "text": "4",
+            "left": 437,
+            "right": 457,
+            "width": 20
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "ライティング",
+            "left": 465,
+            "right": 545,
+            "width": 80
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "font-size-control",
+            "text": "A＋ 1/6",
+            "left": 565,
+            "right": 659,
+            "width": 94
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-symbol",
+            "text": "A＋",
+            "left": 586,
+            "right": 615,
+            "width": 29
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-step",
+            "text": "1/6",
+            "left": 622,
+            "right": 638,
+            "width": 15
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "module-tab reset-tab",
+            "text": "進行リセット",
+            "left": 667,
+            "right": 779,
+            "width": 112
+          }
+        ],
+        "smallTargets": [
+          {
+            "tag": "button",
+            "text": "A＋ 1/6",
+            "width": 94,
+            "height": 34
+          },
+          {
+            "tag": "button",
+            "text": "進行リセット",
+            "width": 112,
+            "height": 34
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          }
+        ],
+        "clippedText": []
+      },
+      "screenshotFiles": [
+        "screenshots/iphone-16-393x852-set-01-listening-no-30-viewport.png",
+        "screenshots/iphone-16-393x852-set-01-listening-no-30-ai-preview.jpg"
+      ]
+    },
+    {
+      "name": "reading-first",
+      "url": "http://127.0.0.1:4174/exam.html?plan=three&set=set-01&qa-normal=150ff2233e41600224a2f94e73a5fd433b2f83d7&module=reading&start=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 1,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 1278,
+          "clientWidth": 393,
+          "clientHeight": 852
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": [
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-current",
+            "text": "3 リーディング",
+            "left": 286,
+            "right": 417,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "リーディング",
+            "left": 326,
+            "right": 405,
+            "width": 80
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "4 ライティング",
+            "left": 425,
+            "right": 557,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-index",
+            "text": "4",
+            "left": 437,
+            "right": 457,
+            "width": 20
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "ライティング",
+            "left": 465,
+            "right": 545,
+            "width": 80
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "font-size-control",
+            "text": "A＋ 1/6",
+            "left": 565,
+            "right": 659,
+            "width": 94
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-symbol",
+            "text": "A＋",
+            "left": 586,
+            "right": 615,
+            "width": 29
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-step",
+            "text": "1/6",
+            "left": 622,
+            "right": 638,
+            "width": 15
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "module-tab reset-tab",
+            "text": "進行リセット",
+            "left": 667,
+            "right": 779,
+            "width": 112
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "page-pill ",
+            "text": "Part 3A メール",
+            "left": 391,
+            "right": 509,
+            "width": 118
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "page-pill ",
+            "text": "Part 3B 長文",
+            "left": 515,
+            "right": 633,
+            "width": 118
+          }
+        ],
+        "smallTargets": [
+          {
+            "tag": "button",
+            "text": "A＋ 1/6",
+            "width": 94,
+            "height": 34
+          },
+          {
+            "tag": "button",
+            "text": "進行リセット",
+            "width": 112,
+            "height": 34
+          },
+          {
+            "tag": "button",
+            "text": "Part 1 語彙",
+            "width": 118,
+            "height": 24
+          },
+          {
+            "tag": "button",
+            "text": "Part 2A 文脈補充",
+            "width": 118,
+            "height": 24
+          },
+          {
+            "tag": "button",
+            "text": "Part 2B 文脈補充",
+            "width": 118,
+            "height": 24
+          },
+          {
+            "tag": "button",
+            "text": "Part 3A メール",
+            "width": 118,
+            "height": 24
+          },
+          {
+            "tag": "button",
+            "text": "Part 3B 長文",
+            "width": 118,
+            "height": 24
+          },
+          {
+            "tag": "button",
+            "text": "指示を表示",
+            "width": 88,
+            "height": 22
+          },
+          {
+            "tag": "button",
+            "text": "▲ 前の問題へ",
+            "width": 89.8,
+            "height": 24
+          },
+          {
+            "tag": "button",
+            "text": "1 permit",
+            "width": 309,
+            "height": 40
+          },
+          {
+            "tag": "button",
+            "text": "2 grant",
+            "width": 309,
+            "height": 40
+          },
+          {
+            "tag": "button",
+            "text": "3 receipt",
+            "width": 309,
+            "height": 40
+          },
+          {
+            "tag": "button",
+            "text": "4 survey",
+            "width": 309,
+            "height": 40
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "button",
+            "text": "1 weighed",
+            "width": 309,
+            "height": 40
+          },
+          {
+            "tag": "button",
+            "text": "2 labeled",
+            "width": 309,
+            "height": 40
+          },
+          {
+            "tag": "button",
+            "text": "3 sealed",
+            "width": 309,
+            "height": 40
+          },
+          {
+            "tag": "button",
+            "text": "4 inspected",
+            "width": 309,
+            "height": 40
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "button",
+            "text": "次の問題へ ▼",
+            "width": 373,
+            "height": 40
+          },
+          {
+            "tag": "button",
+            "text": "▶",
+            "width": 52,
+            "height": 28
+          }
+        ],
+        "clippedText": []
+      },
+      "screenshotFiles": [
+        "screenshots/iphone-16-393x852-set-01-reading-first-viewport.png",
+        "screenshots/iphone-16-393x852-set-01-reading-first-ai-preview.jpg"
+      ]
+    },
+    {
+      "name": "reading-email",
+      "url": "http://127.0.0.1:4174/exam.html?plan=three&set=set-01&qa-normal=150ff2233e41600224a2f94e73a5fd433b2f83d7&module=reading&start=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 1,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 2382,
+          "clientWidth": 393,
+          "clientHeight": 852
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": [
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-current",
+            "text": "3 リーディング",
+            "left": 286,
+            "right": 417,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "リーディング",
+            "left": 326,
+            "right": 405,
+            "width": 80
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "4 ライティング",
+            "left": 425,
+            "right": 557,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-index",
+            "text": "4",
+            "left": 437,
+            "right": 457,
+            "width": 20
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "ライティング",
+            "left": 465,
+            "right": 545,
+            "width": 80
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "font-size-control",
+            "text": "A＋ 1/6",
+            "left": 565,
+            "right": 659,
+            "width": 94
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-symbol",
+            "text": "A＋",
+            "left": 586,
+            "right": 615,
+            "width": 29
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-step",
+            "text": "1/6",
+            "left": 622,
+            "right": 638,
+            "width": 15
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "module-tab reset-tab",
+            "text": "進行リセット",
+            "left": 667,
+            "right": 779,
+            "width": 112
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "page-pill active",
+            "text": "Part 3A メール",
+            "left": 391,
+            "right": 509,
+            "width": 118
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "page-pill ",
+            "text": "Part 3B 長文",
+            "left": 515,
+            "right": 633,
+            "width": 118
+          }
+        ],
+        "smallTargets": [
+          {
+            "tag": "button",
+            "text": "A＋ 1/6",
+            "width": 94,
+            "height": 34
+          },
+          {
+            "tag": "button",
+            "text": "進行リセット",
+            "width": 112,
+            "height": 34
+          },
+          {
+            "tag": "button",
+            "text": "Part 1 語彙",
+            "width": 118,
+            "height": 24
+          },
+          {
+            "tag": "button",
+            "text": "Part 2A 文脈補充",
+            "width": 118,
+            "height": 24
+          },
+          {
+            "tag": "button",
+            "text": "Part 2B 文脈補充",
+            "width": 118,
+            "height": 24
+          },
+          {
+            "tag": "button",
+            "text": "Part 3A メール",
+            "width": 118,
+            "height": 24
+          },
+          {
+            "tag": "button",
+            "text": "Part 3B 長文",
+            "width": 118,
+            "height": 24
+          },
+          {
+            "tag": "button",
+            "text": "指示を表示",
+            "width": 88,
+            "height": 22
+          },
+          {
+            "tag": "button",
+            "text": "▲ 前の問題へ",
+            "width": 89.8,
+            "height": 24
+          },
+          {
+            "tag": "button",
+            "text": "赤ペン",
+            "width": 42,
+            "height": 28
+          },
+          {
+            "tag": "button",
+            "text": "マーカー",
+            "width": 42,
+            "height": 28
+          },
+          {
+            "tag": "button",
+            "text": "消しゴム",
+            "width": 42,
+            "height": 28
+          },
+          {
+            "tag": "button",
+            "text": "全体表示",
+            "width": 32,
+            "height": 28
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "button",
+            "text": "次の問題へ ▼",
+            "width": 373,
+            "height": 40
+          },
+          {
+            "tag": "button",
+            "text": "▶",
+            "width": 52,
+            "height": 28
+          }
+        ],
+        "clippedText": []
+      },
+      "screenshotFiles": [
+        "screenshots/iphone-16-393x852-set-01-reading-email-viewport.png",
+        "screenshots/iphone-16-393x852-set-01-reading-email-ai-preview.jpg"
+      ]
+    },
+    {
+      "name": "reading-long-3b",
+      "url": "http://127.0.0.1:4174/exam.html?plan=three&set=set-01&qa-normal=150ff2233e41600224a2f94e73a5fd433b2f83d7&module=reading&start=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 1,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 1502,
+          "clientWidth": 393,
+          "clientHeight": 852
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": [
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-current",
+            "text": "3 リーディング",
+            "left": 286,
+            "right": 417,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "リーディング",
+            "left": 326,
+            "right": 405,
+            "width": 80
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "4 ライティング",
+            "left": 425,
+            "right": 557,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-index",
+            "text": "4",
+            "left": 437,
+            "right": 457,
+            "width": 20
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "ライティング",
+            "left": 465,
+            "right": 545,
+            "width": 80
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "font-size-control",
+            "text": "A＋ 1/6",
+            "left": 565,
+            "right": 659,
+            "width": 94
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-symbol",
+            "text": "A＋",
+            "left": 586,
+            "right": 615,
+            "width": 29
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-step",
+            "text": "1/6",
+            "left": 622,
+            "right": 638,
+            "width": 15
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "module-tab reset-tab",
+            "text": "進行リセット",
+            "left": 667,
+            "right": 779,
+            "width": 112
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "page-pill ",
+            "text": "Part 3A メール",
+            "left": 391,
+            "right": 509,
+            "width": 118
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "page-pill active",
+            "text": "Part 3B 長文",
+            "left": 515,
+            "right": 633,
+            "width": 118
+          }
+        ],
+        "smallTargets": [
+          {
+            "tag": "button",
+            "text": "A＋ 1/6",
+            "width": 94,
+            "height": 34
+          },
+          {
+            "tag": "button",
+            "text": "進行リセット",
+            "width": 112,
+            "height": 34
+          },
+          {
+            "tag": "button",
+            "text": "Part 1 語彙",
+            "width": 118,
+            "height": 24
+          },
+          {
+            "tag": "button",
+            "text": "Part 2A 文脈補充",
+            "width": 118,
+            "height": 24
+          },
+          {
+            "tag": "button",
+            "text": "Part 2B 文脈補充",
+            "width": 118,
+            "height": 24
+          },
+          {
+            "tag": "button",
+            "text": "Part 3A メール",
+            "width": 118,
+            "height": 24
+          },
+          {
+            "tag": "button",
+            "text": "Part 3B 長文",
+            "width": 118,
+            "height": 24
+          },
+          {
+            "tag": "button",
+            "text": "指示を表示",
+            "width": 88,
+            "height": 22
+          },
+          {
+            "tag": "button",
+            "text": "▲ 前の問題へ",
+            "width": 89.8,
+            "height": 24
+          },
+          {
+            "tag": "button",
+            "text": "赤ペン",
+            "width": 42,
+            "height": 28
+          },
+          {
+            "tag": "button",
+            "text": "マーカー",
+            "width": 42,
+            "height": 28
+          },
+          {
+            "tag": "button",
+            "text": "消しゴム",
+            "width": 42,
+            "height": 28
+          },
+          {
+            "tag": "button",
+            "text": "全体表示",
+            "width": 32,
+            "height": 28
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "button",
+            "text": "次の問題へ ▼",
+            "width": 373,
+            "height": 40
+          },
+          {
+            "tag": "button",
+            "text": "▶",
+            "width": 52,
+            "height": 28
+          }
+        ],
+        "clippedText": []
+      },
+      "screenshotFiles": [
+        "screenshots/iphone-16-393x852-set-01-reading-long-3b-viewport.png",
+        "screenshots/iphone-16-393x852-set-01-reading-long-3b-ai-preview.jpg"
+      ]
+    },
+    {
+      "name": "writing-1-filled",
+      "url": "http://127.0.0.1:4174/exam.html?plan=three&set=set-01&qa-normal=150ff2233e41600224a2f94e73a5fd433b2f83d7&module=writing&start=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 1,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 1788,
+          "clientWidth": 393,
+          "clientHeight": 852
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": [
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-complete",
+            "text": "3 リーディング",
+            "left": 286,
+            "right": 417,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "リーディング",
+            "left": 326,
+            "right": 405,
+            "width": 80
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-current",
+            "text": "4 ライティング",
+            "left": 425,
+            "right": 557,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-index",
+            "text": "4",
+            "left": 437,
+            "right": 457,
+            "width": 20
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "ライティング",
+            "left": 465,
+            "right": 545,
+            "width": 80
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "font-size-control",
+            "text": "A＋ 1/6",
+            "left": 565,
+            "right": 659,
+            "width": 94
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-symbol",
+            "text": "A＋",
+            "left": 586,
+            "right": 615,
+            "width": 29
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-step",
+            "text": "1/6",
+            "left": 622,
+            "right": 638,
+            "width": 15
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "module-tab reset-tab",
+            "text": "進行リセット",
+            "left": 667,
+            "right": 779,
+            "width": 112
+          }
+        ],
+        "smallTargets": [
+          {
+            "tag": "button",
+            "text": "A＋ 1/6",
+            "width": 94,
+            "height": 34
+          },
+          {
+            "tag": "button",
+            "text": "進行リセット",
+            "width": 112,
+            "height": 34
+          },
+          {
+            "tag": "button",
+            "text": "32. 英文要約",
+            "width": 118,
+            "height": 24
+          },
+          {
+            "tag": "button",
+            "text": "33. 英作文",
+            "width": 118,
+            "height": 24
+          },
+          {
+            "tag": "button",
+            "text": "▲ 前の問題へ",
+            "width": 89.8,
+            "height": 24
+          },
+          {
+            "tag": "button",
+            "text": "赤ペン",
+            "width": 42,
+            "height": 28
+          },
+          {
+            "tag": "button",
+            "text": "マーカー",
+            "width": 42,
+            "height": 28
+          },
+          {
+            "tag": "button",
+            "text": "消しゴム",
+            "width": 42,
+            "height": 28
+          },
+          {
+            "tag": "button",
+            "text": "全体表示",
+            "width": 32,
+            "height": 28
+          },
+          {
+            "tag": "button",
+            "text": "全体参照",
+            "width": 78,
+            "height": 28
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "button",
+            "text": "次の問題へ ▼",
+            "width": 373,
+            "height": 40
+          },
+          {
+            "tag": "button",
+            "text": "▶",
+            "width": 52,
+            "height": 28
+          }
+        ],
+        "clippedText": []
+      },
+      "screenshotFiles": [
+        "screenshots/iphone-16-393x852-set-01-writing-1-filled-viewport.png",
+        "screenshots/iphone-16-393x852-set-01-writing-1-filled-ai-preview.jpg"
+      ]
+    },
+    {
+      "name": "writing-2-filled",
+      "url": "http://127.0.0.1:4174/exam.html?plan=three&set=set-01&qa-normal=150ff2233e41600224a2f94e73a5fd433b2f83d7&module=writing&start=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 1,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 1702,
+          "clientWidth": 393,
+          "clientHeight": 852
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": [
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-complete",
+            "text": "3 リーディング",
+            "left": 286,
+            "right": 417,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "リーディング",
+            "left": 326,
+            "right": 405,
+            "width": 80
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-current",
+            "text": "4 ライティング",
+            "left": 425,
+            "right": 557,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-index",
+            "text": "4",
+            "left": 437,
+            "right": 457,
+            "width": 20
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "ライティング",
+            "left": 465,
+            "right": 545,
+            "width": 80
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "font-size-control",
+            "text": "A＋ 1/6",
+            "left": 565,
+            "right": 659,
+            "width": 94
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-symbol",
+            "text": "A＋",
+            "left": 586,
+            "right": 615,
+            "width": 29
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-step",
+            "text": "1/6",
+            "left": 622,
+            "right": 638,
+            "width": 15
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "module-tab reset-tab",
+            "text": "進行リセット",
+            "left": 667,
+            "right": 779,
+            "width": 112
+          }
+        ],
+        "smallTargets": [
+          {
+            "tag": "button",
+            "text": "A＋ 1/6",
+            "width": 94,
+            "height": 34
+          },
+          {
+            "tag": "button",
+            "text": "進行リセット",
+            "width": 112,
+            "height": 34
+          },
+          {
+            "tag": "button",
+            "text": "32. 英文要約",
+            "width": 118,
+            "height": 24
+          },
+          {
+            "tag": "button",
+            "text": "33. 英作文",
+            "width": 118,
+            "height": 24
+          },
+          {
+            "tag": "button",
+            "text": "▲ 前の問題へ",
+            "width": 89.8,
+            "height": 24
+          },
+          {
+            "tag": "button",
+            "text": "赤ペン",
+            "width": 42,
+            "height": 28
+          },
+          {
+            "tag": "button",
+            "text": "マーカー",
+            "width": 42,
+            "height": 28
+          },
+          {
+            "tag": "button",
+            "text": "消しゴム",
+            "width": 42,
+            "height": 28
+          },
+          {
+            "tag": "button",
+            "text": "全体表示",
+            "width": 32,
+            "height": 28
+          },
+          {
+            "tag": "button",
+            "text": "全体参照",
+            "width": 78,
+            "height": 28
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "button",
+            "text": "結果へ ▼",
+            "width": 373,
+            "height": 40
+          },
+          {
+            "tag": "button",
+            "text": "▶",
+            "width": 52,
+            "height": 28
+          }
+        ],
+        "clippedText": []
+      },
+      "screenshotFiles": [
+        "screenshots/iphone-16-393x852-set-01-writing-2-filled-viewport.png",
+        "screenshots/iphone-16-393x852-set-01-writing-2-filled-ai-preview.jpg"
+      ]
+    },
+    {
+      "name": "finish-confirmation",
+      "url": "http://127.0.0.1:4174/exam.html?plan=three&set=set-01&qa-normal=150ff2233e41600224a2f94e73a5fd433b2f83d7&module=writing&start=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 1,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 1702,
+          "clientWidth": 393,
+          "clientHeight": 852
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": [
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-complete",
+            "text": "3 リーディング",
+            "left": 286,
+            "right": 417,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "リーディング",
+            "left": 326,
+            "right": 405,
+            "width": 80
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-current",
+            "text": "4 ライティング",
+            "left": 425,
+            "right": 557,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-index",
+            "text": "4",
+            "left": 437,
+            "right": 457,
+            "width": 20
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "ライティング",
+            "left": 465,
+            "right": 545,
+            "width": 80
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "font-size-control",
+            "text": "A＋ 1/6",
+            "left": 565,
+            "right": 659,
+            "width": 94
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-symbol",
+            "text": "A＋",
+            "left": 586,
+            "right": 615,
+            "width": 29
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-step",
+            "text": "1/6",
+            "left": 622,
+            "right": 638,
+            "width": 15
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "module-tab reset-tab",
+            "text": "進行リセット",
+            "left": 667,
+            "right": 779,
+            "width": 112
+          }
+        ],
+        "smallTargets": [
+          {
+            "tag": "button",
+            "text": "A＋ 1/6",
+            "width": 94,
+            "height": 34
+          },
+          {
+            "tag": "button",
+            "text": "進行リセット",
+            "width": 112,
+            "height": 34
+          },
+          {
+            "tag": "button",
+            "text": "32. 英文要約",
+            "width": 118,
+            "height": 24
+          },
+          {
+            "tag": "button",
+            "text": "33. 英作文",
+            "width": 118,
+            "height": 24
+          },
+          {
+            "tag": "button",
+            "text": "▲ 前の問題へ",
+            "width": 89.8,
+            "height": 24
+          },
+          {
+            "tag": "button",
+            "text": "赤ペン",
+            "width": 42,
+            "height": 28
+          },
+          {
+            "tag": "button",
+            "text": "マーカー",
+            "width": 42,
+            "height": 28
+          },
+          {
+            "tag": "button",
+            "text": "消しゴム",
+            "width": 42,
+            "height": 28
+          },
+          {
+            "tag": "button",
+            "text": "全体表示",
+            "width": 32,
+            "height": 28
+          },
+          {
+            "tag": "button",
+            "text": "全体参照",
+            "width": 78,
+            "height": 28
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "button",
+            "text": "結果へ ▼",
+            "width": 373,
+            "height": 40
+          },
+          {
+            "tag": "button",
+            "text": "▶",
+            "width": 52,
+            "height": 28
+          },
+          {
+            "tag": "button",
+            "text": "採点する",
+            "width": 78.8,
+            "height": 30
+          },
+          {
+            "tag": "button",
+            "text": "戻る",
+            "width": 76,
+            "height": 30
+          }
+        ],
+        "clippedText": []
+      },
+      "screenshotFiles": [
+        "screenshots/iphone-16-393x852-set-01-finish-confirmation-viewport.png",
+        "screenshots/iphone-16-393x852-set-01-finish-confirmation-ai-preview.jpg"
+      ]
+    },
+    {
+      "name": "result",
+      "url": "http://127.0.0.1:4174/exam.html?plan=three&set=set-01&qa-normal=150ff2233e41600224a2f94e73a5fd433b2f83d7&module=writing&start=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 1,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 12982,
+          "clientWidth": 393,
+          "clientHeight": 852
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": [],
+        "smallTargets": [
+          {
+            "tag": "button",
+            "text": "要復習 25",
+            "width": 162.5,
+            "height": 42
+          },
+          {
+            "tag": "button",
+            "text": "すべて 31",
+            "width": 162.5,
+            "height": 42
+          }
+        ],
+        "clippedText": []
+      },
+      "screenshotFiles": [
+        "screenshots/iphone-16-393x852-set-01-result-viewport.png",
+        "screenshots/iphone-16-393x852-set-01-result-ai-preview.jpg",
+        "screenshots/iphone-16-393x852-set-01-result-full.png"
+      ]
+    },
+    {
+      "name": "result-reading",
+      "url": "http://127.0.0.1:4174/exam.html?plan=three&set=set-01&qa-normal=150ff2233e41600224a2f94e73a5fd433b2f83d7&module=writing&start=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 1,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 12982,
+          "clientWidth": 393,
+          "clientHeight": 852
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": [],
+        "smallTargets": [
+          {
+            "tag": "button",
+            "text": "要復習 25",
+            "width": 162.5,
+            "height": 42
+          },
+          {
+            "tag": "button",
+            "text": "すべて 31",
+            "width": 162.5,
+            "height": 42
+          }
+        ],
+        "clippedText": []
+      },
+      "screenshotFiles": [
+        "screenshots/iphone-16-393x852-set-01-result-reading-viewport.png",
+        "screenshots/iphone-16-393x852-set-01-result-reading-ai-preview.jpg"
+      ]
+    },
+    {
+      "name": "result-listening",
+      "url": "http://127.0.0.1:4174/exam.html?plan=three&set=set-01&qa-normal=150ff2233e41600224a2f94e73a5fd433b2f83d7&module=writing&start=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 1,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 10601,
+          "clientWidth": 393,
+          "clientHeight": 852
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": [],
+        "smallTargets": [
+          {
+            "tag": "button",
+            "text": "要復習 22",
+            "width": 162.5,
+            "height": 42
+          },
+          {
+            "tag": "button",
+            "text": "すべて 30",
+            "width": 162.5,
+            "height": 42
+          },
+          {
+            "tag": "button",
+            "text": "▶ この問題を聞き直す",
+            "width": 141.6,
+            "height": 38
+          },
+          {
+            "tag": "button",
+            "text": "▶ この問題を聞き直す",
+            "width": 141.6,
+            "height": 38
+          },
+          {
+            "tag": "button",
+            "text": "▶ この問題を聞き直す",
+            "width": 141.6,
+            "height": 38
+          },
+          {
+            "tag": "button",
+            "text": "▶ この問題を聞き直す",
+            "width": 141.6,
+            "height": 38
+          },
+          {
+            "tag": "button",
+            "text": "▶ この問題を聞き直す",
+            "width": 141.6,
+            "height": 38
+          },
+          {
+            "tag": "button",
+            "text": "▶ この問題を聞き直す",
+            "width": 141.6,
+            "height": 38
+          },
+          {
+            "tag": "button",
+            "text": "▶ この問題を聞き直す",
+            "width": 141.6,
+            "height": 38
+          },
+          {
+            "tag": "button",
+            "text": "▶ この問題を聞き直す",
+            "width": 141.6,
+            "height": 38
+          },
+          {
+            "tag": "button",
+            "text": "▶ この問題を聞き直す",
+            "width": 141.6,
+            "height": 38
+          },
+          {
+            "tag": "button",
+            "text": "▶ この問題を聞き直す",
+            "width": 141.6,
+            "height": 38
+          },
+          {
+            "tag": "button",
+            "text": "▶ この問題を聞き直す",
+            "width": 141.6,
+            "height": 38
+          },
+          {
+            "tag": "button",
+            "text": "▶ この問題を聞き直す",
+            "width": 141.6,
+            "height": 38
+          },
+          {
+            "tag": "button",
+            "text": "▶ この問題を聞き直す",
+            "width": 141.6,
+            "height": 38
+          },
+          {
+            "tag": "button",
+            "text": "▶ この問題を聞き直す",
+            "width": 141.6,
+            "height": 38
+          },
+          {
+            "tag": "button",
+            "text": "▶ この問題を聞き直す",
+            "width": 141.6,
+            "height": 38
+          },
+          {
+            "tag": "button",
+            "text": "▶ この問題を聞き直す",
+            "width": 141.6,
+            "height": 38
+          },
+          {
+            "tag": "button",
+            "text": "▶ この問題を聞き直す",
+            "width": 141.6,
+            "height": 38
+          },
+          {
+            "tag": "button",
+            "text": "▶ この問題を聞き直す",
+            "width": 141.6,
+            "height": 38
+          },
+          {
+            "tag": "button",
+            "text": "▶ この問題を聞き直す",
+            "width": 141.6,
+            "height": 38
+          },
+          {
+            "tag": "button",
+            "text": "▶ この問題を聞き直す",
+            "width": 141.6,
+            "height": 38
+          },
+          {
+            "tag": "button",
+            "text": "▶ この問題を聞き直す",
+            "width": 141.6,
+            "height": 38
+          },
+          {
+            "tag": "button",
+            "text": "▶ この問題を聞き直す",
+            "width": 141.6,
+            "height": 38
+          }
+        ],
+        "clippedText": []
+      },
+      "screenshotFiles": [
+        "screenshots/iphone-16-393x852-set-01-result-listening-viewport.png",
+        "screenshots/iphone-16-393x852-set-01-result-listening-ai-preview.jpg",
+        "screenshots/iphone-16-393x852-set-01-result-listening-full.png"
+      ]
+    },
+    {
+      "name": "result-writing",
+      "url": "http://127.0.0.1:4174/exam.html?plan=three&set=set-01&qa-normal=150ff2233e41600224a2f94e73a5fd433b2f83d7&module=writing&start=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 1,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 1138,
+          "clientWidth": 393,
+          "clientHeight": 852
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": [],
+        "smallTargets": [],
+        "clippedText": []
+      },
+      "screenshotFiles": [
+        "screenshots/iphone-16-393x852-set-01-result-writing-viewport.png",
+        "screenshots/iphone-16-393x852-set-01-result-writing-ai-preview.jpg"
+      ]
+    },
+    {
+      "name": "result-speaking",
+      "url": "http://127.0.0.1:4174/exam.html?plan=three&set=set-01&qa-normal=150ff2233e41600224a2f94e73a5fd433b2f83d7&module=writing&start=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 1,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 1097,
+          "clientWidth": 393,
+          "clientHeight": 852
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": [],
+        "smallTargets": [
+          {
+            "tag": "button",
+            "text": "音声を保存",
+            "width": 94.4,
+            "height": 28
+          },
+          {
+            "tag": "button",
+            "text": "音声を保存",
+            "width": 94.4,
+            "height": 28
+          },
+          {
+            "tag": "button",
+            "text": "音声を保存",
+            "width": 94.4,
+            "height": 28
+          },
+          {
+            "tag": "button",
+            "text": "音声を保存",
+            "width": 94.4,
+            "height": 28
+          },
+          {
+            "tag": "button",
+            "text": "音声を保存",
+            "width": 94.4,
+            "height": 28
+          }
+        ],
+        "clippedText": []
+      },
+      "screenshotFiles": [
+        "screenshots/iphone-16-393x852-set-01-result-speaking-viewport.png",
+        "screenshots/iphone-16-393x852-set-01-result-speaking-ai-preview.jpg"
+      ]
+    },
+    {
+      "name": "listening-review",
+      "url": "http://127.0.0.1:4174/exam.html?plan=three&set=set-01&qa-normal=150ff2233e41600224a2f94e73a5fd433b2f83d7&module=listening&start=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 1,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 1709,
+          "clientWidth": 393,
+          "clientHeight": 852
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": [
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "3 リーディング",
+            "left": 286,
+            "right": 417,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "リーディング",
+            "left": 326,
+            "right": 405,
+            "width": 80
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "4 ライティング",
+            "left": 425,
+            "right": 557,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-index",
+            "text": "4",
+            "left": 437,
+            "right": 457,
+            "width": 20
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "ライティング",
+            "left": 465,
+            "right": 545,
+            "width": 80
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "font-size-control",
+            "text": "A＋ 1/6",
+            "left": 565,
+            "right": 659,
+            "width": 94
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-symbol",
+            "text": "A＋",
+            "left": 586,
+            "right": 615,
+            "width": 29
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-step",
+            "text": "1/6",
+            "left": 622,
+            "right": 638,
+            "width": 15
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "module-tab reset-tab",
+            "text": "進行リセット",
+            "left": 667,
+            "right": 779,
+            "width": 112
+          }
+        ],
+        "smallTargets": [
+          {
+            "tag": "button",
+            "text": "A＋ 1/6",
+            "width": 94,
+            "height": 34
+          },
+          {
+            "tag": "button",
+            "text": "進行リセット",
+            "width": 112,
+            "height": 34
+          },
+          {
+            "tag": "button",
+            "text": "▶ 音声を再生",
+            "width": 71.1,
+            "height": 42
+          },
+          {
+            "tag": "button",
+            "text": "▲ 前の問題へ",
+            "width": 89.8,
+            "height": 24
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "button",
+            "text": "次の問題へ ▼",
+            "width": 373,
+            "height": 40
+          },
+          {
+            "tag": "button",
+            "text": "No.1",
+            "width": 99.5,
+            "height": 14
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "button",
+            "text": "1",
+            "width": 34,
+            "height": 26
+          },
+          {
+            "tag": "button",
+            "text": "No.2",
+            "width": 99.5,
+            "height": 14
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "button",
+            "text": "1",
+            "width": 34,
+            "height": 26
+          },
+          {
+            "tag": "button",
+            "text": "No.3",
+            "width": 99.5,
+            "height": 14
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "button",
+            "text": "1",
+            "width": 34,
+            "height": 26
+          },
+          {
+            "tag": "button",
+            "text": "No.4",
+            "width": 99.5,
+            "height": 14
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "button",
+            "text": "1",
+            "width": 34,
+            "height": 26
+          },
+          {
+            "tag": "button",
+            "text": "No.5",
+            "width": 99.5,
+            "height": 14
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "button",
+            "text": "1",
+            "width": 34,
+            "height": 26
+          },
+          {
+            "tag": "button",
+            "text": "No.6",
+            "width": 99.5,
+            "height": 14
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "button",
+            "text": "1",
+            "width": 34,
+            "height": 26
+          },
+          {
+            "tag": "button",
+            "text": "No.7",
+            "width": 99.5,
+            "height": 14
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "button",
+            "text": "1",
+            "width": 34,
+            "height": 26
+          },
+          {
+            "tag": "button",
+            "text": "No.8",
+            "width": 99.5,
+            "height": 14
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "button",
+            "text": "1",
+            "width": 34,
+            "height": 26
+          }
+        ],
+        "clippedText": []
+      },
+      "screenshotFiles": [
+        "screenshots/iphone-16-393x852-set-01-listening-review-viewport.png",
+        "screenshots/iphone-16-393x852-set-01-listening-review-ai-preview.jpg"
+      ]
+    },
+    {
+      "name": "restart-clean",
+      "url": "http://127.0.0.1:4174/exam.html?plan=three&set=set-01&qa-normal=150ff2233e41600224a2f94e73a5fd433b2f83d7&module=speaking&start=0",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 1,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 852,
+          "clientWidth": 393,
+          "clientHeight": 852
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": [
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "3 リーディング",
+            "left": 298,
+            "right": 429,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "リーディング",
+            "left": 338,
+            "right": 417,
+            "width": 80
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "4 ライティング",
+            "left": 437,
+            "right": 569,
+            "width": 132
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-index",
+            "text": "4",
+            "left": 449,
+            "right": 469,
+            "width": 20
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "ライティング",
+            "left": 477,
+            "right": 557,
+            "width": 80
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "font-size-control",
+            "text": "A＋ 1/6",
+            "left": 577,
+            "right": 671,
+            "width": 94
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-symbol",
+            "text": "A＋",
+            "left": 598,
+            "right": 627,
+            "width": 29
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-step",
+            "text": "1/6",
+            "left": 634,
+            "right": 650,
+            "width": 15
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "module-tab reset-tab",
+            "text": "進行リセット",
+            "left": 679,
+            "right": 791,
+            "width": 112
+          }
+        ],
+        "smallTargets": [
+          {
+            "tag": "button",
+            "text": "A＋ 1/6",
+            "width": 94,
+            "height": 34
+          },
+          {
+            "tag": "button",
+            "text": "進行リセット",
+            "width": 112,
+            "height": 34
+          },
+          {
+            "tag": "a",
+            "text": "特定商取引法に基づく表記",
+            "width": 144.8,
+            "height": 18.6
+          },
+          {
+            "tag": "a",
+            "text": "利用規約",
+            "width": 48,
+            "height": 18.6
+          },
+          {
+            "tag": "a",
+            "text": "プライバシーポリシー",
+            "width": 122.3,
+            "height": 18.6
+          },
+          {
+            "tag": "a",
+            "text": "返金・利用期限・対応PC・お問い合わせ",
+            "width": 221.8,
+            "height": 18.6
+          }
+        ],
+        "clippedText": []
+      },
+      "screenshotFiles": [
+        "screenshots/iphone-16-393x852-set-01-restart-clean-viewport.png",
+        "screenshots/iphone-16-393x852-set-01-restart-clean-ai-preview.jpg"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "severity": "medium",
+      "category": "layout",
+      "state": "start",
+      "detail": "画面外にはみ出す要素を9件検出しました。"
+    },
+    {
+      "severity": "low",
+      "category": "touch-target",
+      "state": "start",
+      "detail": "44×44px未満の操作要素を6件検出しました。"
+    },
+    {
+      "severity": "medium",
+      "category": "layout",
+      "state": "speaking-preflight",
+      "detail": "画面外にはみ出す要素を9件検出しました。"
+    },
+    {
+      "severity": "low",
+      "category": "touch-target",
+      "state": "speaking-preflight",
+      "detail": "44×44px未満の操作要素を3件検出しました。"
+    },
+    {
+      "severity": "medium",
+      "category": "layout",
+      "state": "speaking-microphone-check",
+      "detail": "画面外にはみ出す要素を9件検出しました。"
+    },
+    {
+      "severity": "low",
+      "category": "touch-target",
+      "state": "speaking-microphone-check",
+      "detail": "44×44px未満の操作要素を4件検出しました。"
+    },
+    {
+      "severity": "medium",
+      "category": "layout",
+      "state": "speaking-test-playback",
+      "detail": "画面外にはみ出す要素を9件検出しました。"
+    },
+    {
+      "severity": "low",
+      "category": "touch-target",
+      "state": "speaking-test-playback",
+      "detail": "44×44px未満の操作要素を4件検出しました。"
+    },
+    {
+      "severity": "medium",
+      "category": "layout",
+      "state": "speaking-ready",
+      "detail": "画面外にはみ出す要素を9件検出しました。"
+    },
+    {
+      "severity": "low",
+      "category": "touch-target",
+      "state": "speaking-ready",
+      "detail": "44×44px未満の操作要素を3件検出しました。"
+    },
+    {
+      "severity": "medium",
+      "category": "layout",
+      "state": "speaking-read-aloud",
+      "detail": "画面外にはみ出す要素を9件検出しました。"
+    },
+    {
+      "severity": "low",
+      "category": "touch-target",
+      "state": "speaking-read-aloud",
+      "detail": "44×44px未満の操作要素を4件検出しました。"
+    },
+    {
+      "severity": "medium",
+      "category": "layout",
+      "state": "speaking-no-2",
+      "detail": "画面外にはみ出す要素を9件検出しました。"
+    },
+    {
+      "severity": "low",
+      "category": "touch-target",
+      "state": "speaking-no-2",
+      "detail": "44×44px未満の操作要素を3件検出しました。"
+    },
+    {
+      "severity": "medium",
+      "category": "layout",
+      "state": "speaking-no-4",
+      "detail": "画面外にはみ出す要素を9件検出しました。"
+    },
+    {
+      "severity": "low",
+      "category": "touch-target",
+      "state": "speaking-no-4",
+      "detail": "44×44px未満の操作要素を3件検出しました。"
+    },
+    {
+      "severity": "medium",
+      "category": "layout",
+      "state": "speaking-complete",
+      "detail": "画面外にはみ出す要素を9件検出しました。"
+    },
+    {
+      "severity": "low",
+      "category": "touch-target",
+      "state": "speaking-complete",
+      "detail": "44×44px未満の操作要素を4件検出しました。"
+    },
+    {
+      "severity": "medium",
+      "category": "layout",
+      "state": "listening-no-1",
+      "detail": "画面外にはみ出す要素を9件検出しました。"
+    },
+    {
+      "severity": "low",
+      "category": "touch-target",
+      "state": "listening-no-1",
+      "detail": "44×44px未満の操作要素を30件検出しました。"
+    },
+    {
+      "severity": "medium",
+      "category": "layout",
+      "state": "listening-no-16",
+      "detail": "画面外にはみ出す要素を9件検出しました。"
+    },
+    {
+      "severity": "low",
+      "category": "touch-target",
+      "state": "listening-no-16",
+      "detail": "44×44px未満の操作要素を30件検出しました。"
+    },
+    {
+      "severity": "medium",
+      "category": "layout",
+      "state": "listening-no-30",
+      "detail": "画面外にはみ出す要素を9件検出しました。"
+    },
+    {
+      "severity": "low",
+      "category": "touch-target",
+      "state": "listening-no-30",
+      "detail": "44×44px未満の操作要素を30件検出しました。"
+    },
+    {
+      "severity": "medium",
+      "category": "layout",
+      "state": "reading-first",
+      "detail": "画面外にはみ出す要素を11件検出しました。"
+    },
+    {
+      "severity": "low",
+      "category": "touch-target",
+      "state": "reading-first",
+      "detail": "44×44px未満の操作要素を21件検出しました。"
+    },
+    {
+      "severity": "medium",
+      "category": "layout",
+      "state": "reading-email",
+      "detail": "画面外にはみ出す要素を11件検出しました。"
+    },
+    {
+      "severity": "low",
+      "category": "touch-target",
+      "state": "reading-email",
+      "detail": "44×44px未満の操作要素を16件検出しました。"
+    },
+    {
+      "severity": "medium",
+      "category": "layout",
+      "state": "reading-long-3b",
+      "detail": "画面外にはみ出す要素を11件検出しました。"
+    },
+    {
+      "severity": "low",
+      "category": "touch-target",
+      "state": "reading-long-3b",
+      "detail": "44×44px未満の操作要素を16件検出しました。"
+    },
+    {
+      "severity": "medium",
+      "category": "layout",
+      "state": "writing-1-filled",
+      "detail": "画面外にはみ出す要素を9件検出しました。"
+    },
+    {
+      "severity": "low",
+      "category": "touch-target",
+      "state": "writing-1-filled",
+      "detail": "44×44px未満の操作要素を13件検出しました。"
+    },
+    {
+      "severity": "medium",
+      "category": "layout",
+      "state": "writing-2-filled",
+      "detail": "画面外にはみ出す要素を9件検出しました。"
+    },
+    {
+      "severity": "low",
+      "category": "touch-target",
+      "state": "writing-2-filled",
+      "detail": "44×44px未満の操作要素を13件検出しました。"
+    },
+    {
+      "severity": "medium",
+      "category": "layout",
+      "state": "finish-confirmation",
+      "detail": "画面外にはみ出す要素を9件検出しました。"
+    },
+    {
+      "severity": "low",
+      "category": "touch-target",
+      "state": "finish-confirmation",
+      "detail": "44×44px未満の操作要素を15件検出しました。"
+    },
+    {
+      "severity": "low",
+      "category": "touch-target",
+      "state": "result",
+      "detail": "44×44px未満の操作要素を2件検出しました。"
+    },
+    {
+      "severity": "low",
+      "category": "touch-target",
+      "state": "result-reading",
+      "detail": "44×44px未満の操作要素を2件検出しました。"
+    },
+    {
+      "severity": "low",
+      "category": "touch-target",
+      "state": "result-listening",
+      "detail": "44×44px未満の操作要素を24件検出しました。"
+    },
+    {
+      "severity": "low",
+      "category": "touch-target",
+      "state": "result-speaking",
+      "detail": "44×44px未満の操作要素を5件検出しました。"
+    },
+    {
+      "severity": "medium",
+      "category": "layout",
+      "state": "listening-review",
+      "detail": "画面外にはみ出す要素を9件検出しました。"
+    },
+    {
+      "severity": "low",
+      "category": "touch-target",
+      "state": "listening-review",
+      "detail": "44×44px未満の操作要素を30件検出しました。"
+    },
+    {
+      "severity": "medium",
+      "category": "layout",
+      "state": "restart-clean",
+      "detail": "画面外にはみ出す要素を9件検出しました。"
+    },
+    {
+      "severity": "low",
+      "category": "touch-target",
+      "state": "restart-clean",
+      "detail": "44×44px未満の操作要素を6件検出しました。"
+    }
+  ],
+  "audioProbes": [],
+  "consoleErrors": [],
+  "pageErrors": [],
+  "requestFailures": [
+    {
+      "url": "blob:http://127.0.0.1:4174/4978fab4-f4af-4121-a1c1-2f11e23be2e5",
+      "resourceType": "other",
+      "errorText": "Load request cancelled"
+    },
+    {
+      "url": "blob:http://127.0.0.1:4174/028b7bc9-efbf-424c-929f-2b3c3845a4b4",
+      "resourceType": "other",
+      "errorText": "Load request cancelled"
+    },
+    {
+      "url": "blob:http://127.0.0.1:4174/b409c97e-a1a7-46a6-8f56-f42d436c8d20",
+      "resourceType": "other",
+      "errorText": "Load request cancelled"
+    },
+    {
+      "url": "blob:http://127.0.0.1:4174/9c877777-3708-4a1a-a952-3e828d54e3b4",
+      "resourceType": "other",
+      "errorText": "Load request cancelled"
+    },
+    {
+      "url": "blob:http://127.0.0.1:4174/e7f5ca2f-cb66-44dc-b39d-5b0b8e37f782",
+      "resourceType": "other",
+      "errorText": "Load request cancelled"
+    },
+    {
+      "url": "blob:http://127.0.0.1:4174/8e17bf90-a604-4cc1-b0b1-622cc5a97411",
+      "resourceType": "other",
+      "errorText": "Load request cancelled"
+    }
+  ],
+  "screenshotFiles": [
+    "screenshots/iphone-16-393x852-set-01-start-viewport.png",
+    "screenshots/iphone-16-393x852-set-01-start-ai-preview.jpg",
+    "screenshots/iphone-16-393x852-set-01-start-full.png",
+    "screenshots/iphone-16-393x852-set-01-speaking-preflight-viewport.png",
+    "screenshots/iphone-16-393x852-set-01-speaking-preflight-ai-preview.jpg",
+    "screenshots/iphone-16-393x852-set-01-speaking-microphone-check-viewport.png",
+    "screenshots/iphone-16-393x852-set-01-speaking-microphone-check-ai-preview.jpg",
+    "screenshots/iphone-16-393x852-set-01-speaking-test-playback-viewport.png",
+    "screenshots/iphone-16-393x852-set-01-speaking-test-playback-ai-preview.jpg",
+    "screenshots/iphone-16-393x852-set-01-speaking-ready-viewport.png",
+    "screenshots/iphone-16-393x852-set-01-speaking-ready-ai-preview.jpg",
+    "screenshots/iphone-16-393x852-set-01-speaking-read-aloud-viewport.png",
+    "screenshots/iphone-16-393x852-set-01-speaking-read-aloud-ai-preview.jpg",
+    "screenshots/iphone-16-393x852-set-01-speaking-no-2-viewport.png",
+    "screenshots/iphone-16-393x852-set-01-speaking-no-2-ai-preview.jpg",
+    "screenshots/iphone-16-393x852-set-01-speaking-no-4-viewport.png",
+    "screenshots/iphone-16-393x852-set-01-speaking-no-4-ai-preview.jpg",
+    "screenshots/iphone-16-393x852-set-01-speaking-complete-viewport.png",
+    "screenshots/iphone-16-393x852-set-01-speaking-complete-ai-preview.jpg",
+    "screenshots/iphone-16-393x852-set-01-speaking-complete-full.png",
+    "screenshots/iphone-16-393x852-set-01-listening-no-1-viewport.png",
+    "screenshots/iphone-16-393x852-set-01-listening-no-1-ai-preview.jpg",
+    "screenshots/iphone-16-393x852-set-01-listening-no-16-viewport.png",
+    "screenshots/iphone-16-393x852-set-01-listening-no-16-ai-preview.jpg",
+    "screenshots/iphone-16-393x852-set-01-listening-no-30-viewport.png",
+    "screenshots/iphone-16-393x852-set-01-listening-no-30-ai-preview.jpg",
+    "screenshots/iphone-16-393x852-set-01-reading-first-viewport.png",
+    "screenshots/iphone-16-393x852-set-01-reading-first-ai-preview.jpg",
+    "screenshots/iphone-16-393x852-set-01-reading-email-viewport.png",
+    "screenshots/iphone-16-393x852-set-01-reading-email-ai-preview.jpg",
+    "screenshots/iphone-16-393x852-set-01-reading-long-3b-viewport.png",
+    "screenshots/iphone-16-393x852-set-01-reading-long-3b-ai-preview.jpg",
+    "screenshots/iphone-16-393x852-set-01-writing-1-filled-viewport.png",
+    "screenshots/iphone-16-393x852-set-01-writing-1-filled-ai-preview.jpg",
+    "screenshots/iphone-16-393x852-set-01-writing-2-filled-viewport.png",
+    "screenshots/iphone-16-393x852-set-01-writing-2-filled-ai-preview.jpg",
+    "screenshots/iphone-16-393x852-set-01-finish-confirmation-viewport.png",
+    "screenshots/iphone-16-393x852-set-01-finish-confirmation-ai-preview.jpg",
+    "screenshots/iphone-16-393x852-set-01-result-viewport.png",
+    "screenshots/iphone-16-393x852-set-01-result-ai-preview.jpg",
+    "screenshots/iphone-16-393x852-set-01-result-full.png",
+    "screenshots/iphone-16-393x852-set-01-result-reading-viewport.png",
+    "screenshots/iphone-16-393x852-set-01-result-reading-ai-preview.jpg",
+    "screenshots/iphone-16-393x852-set-01-result-listening-viewport.png",
+    "screenshots/iphone-16-393x852-set-01-result-listening-ai-preview.jpg",
+    "screenshots/iphone-16-393x852-set-01-result-listening-full.png",
+    "screenshots/iphone-16-393x852-set-01-result-writing-viewport.png",
+    "screenshots/iphone-16-393x852-set-01-result-writing-ai-preview.jpg",
+    "screenshots/iphone-16-393x852-set-01-result-speaking-viewport.png",
+    "screenshots/iphone-16-393x852-set-01-result-speaking-ai-preview.jpg",
+    "screenshots/iphone-16-393x852-set-01-listening-review-viewport.png",
+    "screenshots/iphone-16-393x852-set-01-listening-review-ai-preview.jpg",
+    "screenshots/iphone-16-393x852-set-01-restart-clean-viewport.png",
+    "screenshots/iphone-16-393x852-set-01-restart-clean-ai-preview.jpg"
+  ],
+  "testPassed": true,
+  "failure": null,
+  "speakingStages": [
+    "スピーキング開始案内",
+    "Warm-up",
+    "Warm-up 1",
+    "Warm-up 2",
+    "問題カード",
+    "音読",
+    "No. 1",
+    "No. 2 準備",
+    "No. 2",
+    "カード終了",
+    "No. 3",
+    "No. 4",
+    "スピーキング終了"
+  ],
+  "listeningQuestionIds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30
+  ],
+  "readingQuestionIds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "readingAnswerPersistenceChecked": true,
+  "actionableConsoleErrors": [],
+  "actionableRequestFailures": [],
+  "completedAt": "2026-08-23T15:04:53.544Z",
+  "currentUrl": "http://127.0.0.1:4174/exam.html?plan=three&set=set-01&qa-normal=150ff2233e41600224a2f94e73a5fd433b2f83d7&module=speaking&start=0",
+  "pageTitle": "2級 CBT形式4技能トレーニング"
+}
