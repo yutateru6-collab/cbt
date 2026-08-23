@@ -10,6 +10,7 @@ const rootFiles = [
   "exam.html",
   "bonus.html",
   "styles.css",
+  "grade2-normal-user-fixes.css",
   "lp.css",
   "bonus.css",
   "legal.css",
