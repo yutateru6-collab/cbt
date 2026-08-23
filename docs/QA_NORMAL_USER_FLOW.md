@@ -28,6 +28,8 @@ For each set it checks:
 7. result screen and Listening review open/close
 8. Set 01 restart back to a clean start screen
 
+For deterministic CI timing, browser media playback remains under the real app controls but the QA harness explicitly fires each media `ended` event before advancing the corresponding timer. This prevents accelerated clocks from consuming the following question's countdown and keeps each Listening question observable exactly once. Transient Speaking activation buttons are still exercised through their actual DOM click event, avoiding false failures caused only by the app's immediate re-render replacing the button between Playwright's visibility check and pointer dispatch.
+
 The production-triggered run also probes representative real Speaking and Listening audio URLs over HTTP.
 
 ## Evidence
@@ -45,6 +47,8 @@ Evidence includes:
 - build/deployment metadata
 
 The report records page errors, console errors, request failures, horizontal overflow, overflowing elements, clipped-text candidates, sub-44×44 touch targets, and any normal-screen developer-entry exposure.
+
+Even if one test case fails, the remaining device/set cases continue and partial failure evidence is preserved instead of being discarded.
 
 ## Triggers
 
