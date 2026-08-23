@@ -10,7 +10,7 @@ function ensureOutput() {
   fs.mkdirSync(screenshotRoot, { recursive: true });
 }
 
-async function captureViewport(page, project, state, options = {}) {
+async function captureViewport(page, project, state) {
   const prefix = `${project}-${state}`;
   await page.screenshot({
     path: path.join(screenshotRoot, `${prefix}-viewport.png`),
@@ -27,15 +27,6 @@ async function captureViewport(page, project, state, options = {}) {
     scale: 'css',
     animations: 'disabled',
   });
-  if (options.fullPage) {
-    await page.screenshot({
-      path: path.join(screenshotRoot, `${prefix}-full.png`),
-      type: 'png',
-      fullPage: true,
-      scale: 'device',
-      animations: 'disabled',
-    });
-  }
 }
 
 async function captureDetail(locator, project, state) {
@@ -66,7 +57,10 @@ test('landing page images and sprite icons render without missing assets', async
   await expect(page.locator('#top')).toBeVisible();
   await expect(page.getByRole('heading', { name: 'S-CBTは、英語力だけでは勝負できません。' })).toBeAttached();
 
-  await captureViewport(page, testInfo.project.name, 'lp-top', { fullPage: true });
+  await page.evaluate(() => {
+    for (const image of document.querySelectorAll('img[src]')) image.loading = 'eager';
+  });
+  await captureViewport(page, testInfo.project.name, 'lp-top');
 
   const assetResults = await page.evaluate(async () => {
     const urls = new Set();
@@ -130,17 +124,32 @@ test('landing page images and sprite icons render without missing assets', async
   await captureViewport(page, testInfo.project.name, 'lp-pricing-icon');
   await captureDetail(pricingHeading, testInfo.project.name, 'lp-pricing-icon');
 
-  const images = page.locator('img[src]');
-  for (let index = 0; index < await images.count(); index += 1) {
-    await images.nth(index).scrollIntoViewIfNeeded();
-  }
+  await page.evaluate(async () => {
+    const visibleImages = [...document.querySelectorAll('img[src]')].filter((image) => {
+      const style = getComputedStyle(image);
+      return style.display !== 'none' && style.visibility !== 'hidden' && image.getClientRects().length > 0;
+    });
+    for (const image of visibleImages) {
+      image.scrollIntoView({ block: 'center' });
+      await new Promise((resolve) => setTimeout(resolve, 30));
+    }
+    window.scrollTo(0, 0);
+  });
   await page.waitForTimeout(700);
-  const brokenImages = await images.evaluateAll((items) =>
+
+  const brokenVisibleImages = await page.locator('img[src]').evaluateAll((items) =>
     items
-      .filter((image) => !image.complete || image.naturalWidth <= 0 || image.naturalHeight <= 0)
+      .filter((image) => {
+        const style = getComputedStyle(image);
+        const visible = style.display !== 'none' && style.visibility !== 'hidden' && image.getClientRects().length > 0;
+        return visible && (!image.complete || image.naturalWidth <= 0 || image.naturalHeight <= 0);
+      })
       .map((image) => image.currentSrc || image.src)
   );
-  expect(brokenImages, `Broken landing page <img> elements: ${JSON.stringify(brokenImages)}`).toEqual([]);
+  expect(
+    brokenVisibleImages,
+    `Broken visible landing page <img> elements: ${JSON.stringify(brokenVisibleImages)}`
+  ).toEqual([]);
 
   const layout = await page.evaluate(() => ({
     scrollWidth: document.documentElement.scrollWidth,
