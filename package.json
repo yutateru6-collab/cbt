@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "postinstall": "node scripts/patch-normal-production-qa.mjs"
+  },
   "devDependencies": {
     "wrangler": "4.114.0"
   }
