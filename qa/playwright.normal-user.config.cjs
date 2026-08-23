@@ -3,7 +3,10 @@ const { defineConfig } = require('@playwright/test');
 
 module.exports = defineConfig({
   testDir: __dirname,
-  testMatch: 'normal-user-flow.e2e.spec.cjs',
+  testMatch: [
+    'normal-user-flow.e2e.spec.cjs',
+    'normal-user-controls.e2e.spec.cjs',
+  ],
   outputDir: path.resolve(process.cwd(), 'qa-normal-output', 'test-results'),
   timeout: 180_000,
   expect: { timeout: 15_000 },
