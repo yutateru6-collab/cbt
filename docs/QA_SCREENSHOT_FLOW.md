@@ -18,7 +18,7 @@ GitHubへ変更をpushしたあと、GitHub Actions内でそのcommitから `wor
 - `agent/**` へのpush
 - GitHub Actionsからの手動実行
 
-QA開始時にcommitへ `cbt-browser-qa` のpending statusを付け、Actions run URLを記録します。終了時にsuccess / failureへ更新します。これにより、AI側からcommit → QA run → Job / Step / Artifactへ追跡できます。
+QA開始時にcommitへ `cbt-browser-qa` のpending statusを付け、Actions run URLを記録します。終了時にsuccess / failureへ更新します。これにより、AI側からcommit → QA run → Job / Step → `qa-latest` へ追跡できます。
 
 ## exact commitの起動方法
 
@@ -38,6 +38,8 @@ QA用にアプリ本体の受験ロジックは変更しません。
 - 対象: GitHubのexact commit
 - 実行場所: GitHub Actions内ローカルHTTPサーバー
 - 目的: 実画面操作、レスポンシブ、スクリーンショット、Console/Page Error、横overflow
+
+ローカルHTTPサーバーにはCloudflare Workerの `/audio-r2/*` 経路が存在しません。そのため **`QA_TARGET=github-actions-local` のときだけ** Playwrightが `/audio-r2/*` を3秒の無音WAVで応答します。これはListening画面・再生UI・画面遷移をブラウザQAできるようにするためのテスト専用stubです。本物の音声ファイル内容やR2ルーティングの正常性を証明するものではありません。
 
 ### 既存 production / staging Workflow
 
@@ -93,6 +95,7 @@ QA用にアプリ本体の受験ロジックは変更しません。
 - console error
 - page error
 - request failure（診断情報）
+- ローカルQAでstubした `/audio-r2/*` リクエスト
 - 実行した操作
 - テスト成功 / 失敗
 
@@ -120,30 +123,31 @@ Request failureは記録しますが、Listeningから画面移動した際の�
 
 テスト途中で失敗した場合も `failure-evidence` スクリーンショットの保存を試みます。
 
-## 出力
+## 最新QAの保存
 
-GitHub Actions Artifact `cbt-browser-qa-<run id>-<attempt>` に `qa-output/` を保存します。
+GitHub Actions Artifactは容量上限の影響を受けるため、このリポジトリでは最新QAの一次保存先を **`qa-latest` 専用ブランチ** とします。
 
-主なファイル:
+WorkflowはQA終了時に orphan commit を作り、次だけを `qa-latest` へforce pushします。
 
+- `README.md`
 - `latest.json`
 - `report.json`
 - `deployment.json`
 - `build-info.json`
+- `local-server.log`
 - `report-parts/*.json`
 - `screenshots/*`
-- `playwright-report/*`
-- `test-results/*`（失敗時traceを含む場合あり）
-- `local-server.log`
 
-Artifact保持期間は7日です。まずQA自体の安定性を確認するための方式で、容量を無制限に増やしません。安定運用後に必要なら、信頼済みWorkflowだけが `qa-latest` 専用ブランチを最新結果へ置換する方式へ移行できます。`main` はforce pushしません。
+Playwright HTML reportやtraceなど大量の一時ファイルは `qa-latest` へ保存しません。
+
+`qa-latest` は毎回最新結果で置き換えます。**mainや通常の開発ブランチをforce pushすることはありません。**
 
 ## AI目視の手順
 
-1. commitの `cbt-browser-qa` statusからActions run IDを取得
+1. 対象commitの `cbt-browser-qa` statusからActions run IDを取得
 2. runのJob / Stepを確認
-3. Artifactから `report.json` を確認
-4. まず `*-ai-preview.jpg` を画像として開く
+3. `qa-latest/report.json` を確認
+4. まず `qa-latest/screenshots/*-ai-preview.jpg` を画像として開く
 5. 問題候補があれば `*-detail-crop.jpg` を開く
 6. 必要な場合だけ高解像度PNGを開く
 7. 文字切れ、重なり、見切れ、余白、固定UI被り、レスポンシブ崩れ等を評価
@@ -156,4 +160,5 @@ Artifact保持期間は7日です。まずQA自体の安定性を確認するた
 - QAではService Workerをブロックし、古いキャッシュによる不安定化を避けます。デプロイ資産一致は既存deploy Workflow側で別途確認します。
 - Speakingは受験前UIまでを確認します。本物のマイク音質はGitHub-hosted runnerでは確認しません。
 - Browser QAはCloudflare Workerそのものではなく、同じcommitから生成した `worker-dist` をHTTP配信して確認します。Cloudflare固有の経路は既存deploy Workflowの担当です。
-- スクリーンショットの視覚品質判定は、Artifact生成後にAIまたは人が実画像を開いて行います。
+- `/audio-r2/*` の無音stubはローカルBrowser QAだけで使います。本物のListening音源内容・タイミング・R2配信は別検査です。
+- スクリーンショットの視覚品質判定は、`qa-latest` の画像をAIまたは人が実画像として開いた後に行います。
