@@ -562,11 +562,32 @@ async function driveWriting(page, report) {
 
 async function inspectResultAndReview(page, report, { restart = false } = {}) {
   await captureState(page, report, 'result', { fullPage: true });
-  const listenReview = page.locator('[data-action="listen-review-open"]');
-  await expect(listenReview).toBeVisible();
-  await listenReview.click();
+
+  const skillTabs = page.locator('[data-grade2-result-tab]');
+  if (await skillTabs.count()) {
+    await expect(skillTabs).toHaveCount(4);
+    for (const skill of ['reading', 'listening', 'writing', 'speaking']) {
+      const tab = page.locator(`[data-grade2-result-tab="${skill}"]`);
+      await expect(tab).toBeVisible();
+      await tab.click();
+      await expect(tab).toHaveAttribute('aria-selected', 'true');
+      await expect(page.locator('.grade2-result-active-panel')).toBeVisible();
+      await captureState(page, report, `result-${skill}`);
+    }
+
+    const listeningTab = page.locator('[data-grade2-result-tab="listening"]');
+    await listeningTab.click();
+    const directReview = page.locator('[data-grade2-listening-review]').first();
+    await expect(directReview).toBeVisible();
+    await directReview.click();
+  } else {
+    const listenReview = page.locator('[data-action="listen-review-open"]');
+    await expect(listenReview).toBeVisible();
+    await listenReview.click();
+  }
+
+  await captureState(page, report, 'listening-review', { fullPage: true });
   await expect(page.locator('[data-action="listen-review-close"]')).toBeVisible();
-  await captureState(page, report, 'listening-review');
   await page.locator('[data-action="listen-review-close"]').click();
   await expect(page.locator('.result-screen')).toBeVisible();
 
