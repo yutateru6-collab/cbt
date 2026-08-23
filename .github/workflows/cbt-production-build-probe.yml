@@ -1,0 +1,48 @@
+name: Probe CBT production build
+
+on:
+  push:
+    branches:
+      - "agent/probe-production-build-**"
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch current production build-info
+        id: probe
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSL --connect-timeout 10 --max-time 45 \
+            -H 'Cache-Control: no-cache' \
+            "https://cbt.itisnowornever271.workers.dev/build-info.json?probe=$GITHUB_RUN_ID" \
+            -o /tmp/build-info.json
+          cat /tmp/build-info.json
+
+      - name: Publish probe status
+        if: always()
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if [ '${{ steps.probe.outcome }}' = success ]; then state=success; description='Production build probe completed'; else state=failure; description='Production build probe failed'; fi
+          payload="$(QA_STATUS_STATE="$state" QA_STATUS_DESCRIPTION="$description" node -e '
+            process.stdout.write(JSON.stringify({
+              state: process.env.QA_STATUS_STATE,
+              target_url: `https://github.com/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`,
+              description: process.env.QA_STATUS_DESCRIPTION,
+              context: "cbt-production-build-probe",
+            }));
+          ')"
+          curl -fsSL -X POST \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H 'Accept: application/vnd.github+json' \
+            -H 'X-GitHub-Api-Version: 2022-11-28' \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" \
+            -d "$payload"
