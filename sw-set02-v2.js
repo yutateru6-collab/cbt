@@ -1,9 +1,10 @@
-const CACHE_NAME = "cbt-grade2-app-shell-v83-result-tabs";
+const CACHE_NAME = "cbt-grade2-app-shell-v84-normal-user-mobile-fixes";
 const APP_SHELL = [
   "/",
   "/index.html",
   "/exam.html",
   "/styles.css",
+  "/grade2-normal-user-fixes.css",
   "/lp.css",
   "/app-config-grade2.js",
   "/grade2-scoring.js",
