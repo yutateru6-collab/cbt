@@ -1,0 +1,97 @@
+name: Apply normal result tabs QA fix
+
+on:
+  push:
+    branches:
+      - "agent/qa-normal-user-final-20260823"
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/qa-normal-user-final-20260823
+          fetch-depth: 0
+      - name: Update result-screen normal QA
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('qa/normal-user-flow.e2e.spec.cjs')
+          s = p.read_text()
+          old = '''async function inspectResultAndReview(page, report, { restart = false } = {}) {
+            await captureState(page, report, 'result', { fullPage: true });
+            const listenReview = page.locator('[data-action="listen-review-open"]');
+            await expect(listenReview).toBeVisible();
+            await listenReview.click();
+            await expect(page.locator('[data-action="listen-review-close"]')).toBeVisible();
+            await captureState(page, report, 'listening-review');
+            await page.locator('[data-action="listen-review-close"]').click();
+            await expect(page.locator('.result-screen')).toBeVisible();
+
+            if (restart) {
+              const restartButton = page.locator('[data-action="restart"]');
+              await expect(restartButton).toBeVisible();
+              await restartButton.click();
+              await expect(page.locator('button[data-action="start"]')).toBeVisible();
+              await captureState(page, report, 'restart-clean');
+            }
+          }'''
+          new = '''async function inspectResultAndReview(page, report, { restart = false } = {}) {
+            await captureState(page, report, 'result', { fullPage: true });
+
+            const skillTabs = page.locator('[data-grade2-result-tab]');
+            if (await skillTabs.count()) {
+              await expect(skillTabs).toHaveCount(4);
+              for (const skill of ['reading', 'listening', 'writing', 'speaking']) {
+                const tab = page.locator(`[data-grade2-result-tab="${skill}"]`);
+                await expect(tab).toBeVisible();
+                await tab.click();
+                await expect(tab).toHaveAttribute('aria-selected', 'true');
+                await expect(page.locator('.grade2-result-active-panel')).toBeVisible();
+                await captureState(page, report, `result-${skill}`);
+              }
+
+              const listeningTab = page.locator('[data-grade2-result-tab="listening"]');
+              await listeningTab.click();
+              const directReview = page.locator('[data-grade2-listening-review]').first();
+              await expect(directReview).toBeVisible();
+              await directReview.click();
+            } else {
+              const listenReview = page.locator('[data-action="listen-review-open"]');
+              await expect(listenReview).toBeVisible();
+              await listenReview.click();
+            }
+
+            await captureState(page, report, 'listening-review', { fullPage: true });
+            await expect(page.locator('[data-action="listen-review-close"]')).toBeVisible();
+            await page.locator('[data-action="listen-review-close"]').click();
+            await expect(page.locator('.result-screen')).toBeVisible();
+
+            if (restart) {
+              const restartButton = page.locator('[data-action="restart"]');
+              await expect(restartButton).toBeVisible();
+              await restartButton.click();
+              await expect(page.locator('button[data-action="start"]')).toBeVisible();
+              await captureState(page, report, 'restart-clean');
+            }
+          }'''
+          count = s.count(old)
+          if count != 1:
+              raise SystemExit(f'expected exactly one result-review function, found {count}')
+          p.write_text(s.replace(old, new, 1))
+          PY
+          node --check qa/normal-user-flow.e2e.spec.cjs
+          rm .github/workflows/_apply-normal-result-tabs-qa-fix.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add qa/normal-user-flow.e2e.spec.cjs .github/workflows/_apply-normal-result-tabs-qa-fix.yml
+          git diff --cached --check
+          git commit -m 'Cover four-skill result tabs in normal-user QA'
+          git push origin HEAD:agent/qa-normal-user-final-20260823
