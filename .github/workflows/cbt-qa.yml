@@ -153,6 +153,10 @@ jobs:
           QA_BROWSER_STEP_OUTCOME: ${{ steps.browser_qa.outcome }}
         run: node qa/merge-report.cjs
 
+      - name: Generate lightweight visual contact sheets
+        if: always()
+        run: node qa/make-contact-sheet.cjs
+
       - name: Save latest QA evidence to qa-latest branch
         if: always()
         shell: bash
@@ -176,6 +180,11 @@ jobs:
           if [ -d qa-output/screenshots ]; then
             mkdir -p "$evidence/screenshots"
             cp -a qa-output/screenshots/. "$evidence/screenshots/"
+          fi
+
+          if [ -d qa-output/contact-sheets ]; then
+            mkdir -p "$evidence/contact-sheets"
+            cp -a qa-output/contact-sheets/. "$evidence/contact-sheets/"
           fi
 
           cat > "$evidence/README.md" <<EOF
