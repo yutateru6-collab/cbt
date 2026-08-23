@@ -30,11 +30,11 @@ async function metrics(page) {
         width: Math.round(r.width * 10) / 10,
         height: Math.round(r.height * 10) / 10,
       });
-      if (smallTargets.length >= 30) break;
+      if (smallTargets.length >= 40) break;
     }
     const overflow = [];
     for (const el of document.querySelectorAll('body *')) {
-      if (overflow.length >= 20) break;
+      if (overflow.length >= 30) break;
       const cs = getComputedStyle(el);
       if (cs.display === 'none' || cs.visibility === 'hidden') continue;
       const r = el.getBoundingClientRect();
@@ -48,7 +48,7 @@ async function metrics(page) {
       viewportWidth: innerWidth, viewportHeight: innerHeight, deviceScaleFactor: devicePixelRatio,
       scrollWidth: root.scrollWidth, scrollHeight: root.scrollHeight, clientWidth: root.clientWidth, clientHeight: root.clientHeight,
       horizontalOverflow: root.scrollWidth > root.clientWidth + 1, overflow, smallTargets,
-      visibleButtons: [...document.querySelectorAll('button')].filter(b => { const r=b.getBoundingClientRect(); const cs=getComputedStyle(b); return r.width>0&&r.height>0&&cs.display!=='none'&&cs.visibility!=='hidden'; }).map(b => String(b.textContent||'').trim().replace(/\s+/g,' ')).filter(Boolean).slice(0,40),
+      visibleButtons: [...document.querySelectorAll('button')].filter(b => { const r=b.getBoundingClientRect(); const cs=getComputedStyle(b); return r.width>0&&r.height>0&&cs.display!=='none'&&cs.visibility!=='hidden'; }).map(b => String(b.textContent||'').trim().replace(/\s+/g,' ')).filter(Boolean).slice(0,50),
     };
   });
 }
@@ -59,7 +59,7 @@ async function capture(page, report, name, fullPage = false) {
   const jpg = path.join(screenshotRoot, `${prefix}-ai-preview.jpg`);
   fs.mkdirSync(screenshotRoot, { recursive: true });
   await page.screenshot({ path: png, type: 'png', fullPage: false, scale: 'device', animations: 'disabled' });
-  await page.screenshot({ path: jpg, type: 'jpeg', quality: 55, fullPage: false, scale: 'css', animations: 'disabled' });
+  await page.screenshot({ path: jpg, type: 'jpeg', quality: 60, fullPage: false, scale: 'css', animations: 'disabled' });
   const files = [rel(png), rel(jpg)];
   if (fullPage) {
     const fp = path.join(screenshotRoot, `${prefix}-full.png`);
@@ -83,6 +83,24 @@ async function answerVisibleReading(page) {
     const first = page.locator(`[data-action="written-answer"][data-question="${id}"]`).first();
     if (await first.isVisible().catch(() => false)) await first.click();
   }
+}
+
+async function shortenFinalListeningCountdown(page) {
+  await appEval(page, `
+    cancelListeningAnswerCountdown();
+    appState.module='listening';
+    appState.listeningIndex=listeningQuestions.length-1;
+    appState.listeningReviewMode=false;
+    render();
+    const q=listeningQuestions[appState.listeningIndex];
+    listeningPlaybackPhase='answer';
+    appState.listeningAnswerRemaining=1;
+    listeningAnswerDeadline=Date.now()+300;
+    appState.listeningAnswerDeadline=listeningAnswerDeadline;
+    appState.listeningCountdownQuestionId=q.id;
+    scheduleListeningAnswerCountdown(q.id,listeningAnswerDeadline);
+    updateListeningPlaybackUi();
+  `);
 }
 
 test('production normal-mode end-to-end QA without dev mode', async ({ page }, testInfo) => {
@@ -115,30 +133,32 @@ test('production normal-mode end-to-end QA without dev mode', async ({ page }, t
     await assertNormal(page);
     await capture(page, report, 'speaking-preflight');
 
-    report.actions.push('Render the normal speaking completion state without enabling developer mode, then use its real continue button.');
+    report.actions.push('Seed only the elapsed Speaking time, while keeping normal mode, then use the real normal continue button.');
     await appEval(page, `appState.module='speaking'; appState.speakingStep=speakingSteps.length-1; appState.speakingPhaseStatus='idle'; appState.speakingBreakOpen=false; render();`);
     await settle(page, 250);
     await assertNormal(page);
-    await expect(page.getByRole('button', { name: /そのままリスニングへ進む/ })).toBeVisible();
+    const continueListening = page.getByRole('button', { name: /そのままリスニングへ進む/ });
+    await expect(continueListening).toBeVisible();
     await capture(page, report, 'speaking-complete', true);
-    await page.getByRole('button', { name: /そのままリスニングへ進む/ }).click();
+    await continueListening.click();
     await expect(page.locator('.listen-frame')).toBeVisible({ timeout: 15000 });
     await assertNormal(page);
     await settle(page, 1800);
     await capture(page, report, 'listening-first');
 
-    report.actions.push('Verify a real production listening audio URL responds, if one was requested.');
-    const requestedAudio = report.responses.find(x => x.status >= 200 && x.status < 400);
-    if (!requestedAudio) report.notes.push('No listening audio response was observed during the short first-question window; deep navigation continues via normal-state acceleration.');
+    report.actions.push('Observe real production listening audio requests.');
+    if (!report.responses.some(x => x.status >= 200 && x.status < 400)) {
+      report.notes.push('No successful audio response was observed during the short first-question observation window.');
+    }
 
-    report.actions.push('Accelerate only the final 10-second listening answer countdown and verify automatic transition to Reading in normal mode.');
-    await appEval(page, `cancelListeningPlayback(); cancelListeningAnswerCountdown(); appState.module='listening'; appState.listeningIndex=listeningQuestions.length-1; appState.listeningReviewMode=false; render(); startListeningAnswerCountdown(listeningQuestions[appState.listeningIndex]); appState.listeningAnswerRemaining=1; updateListeningPlaybackUi();`);
-    await settle(page, 250);
+    report.actions.push('Shorten only the final normal Listening answer deadline and verify automatic transition to Reading.');
+    await shortenFinalListeningCountdown(page);
+    await settle(page, 100);
     await assertNormal(page);
     await capture(page, report, 'listening-last-countdown');
     const listenAnswer = page.locator('[data-action="listen-answer"]').first();
     if (await listenAnswer.isVisible().catch(() => false)) await listenAnswer.click();
-    await expect(page.locator('.reading-frame')).toBeVisible({ timeout: 5000 });
+    await expect(page.locator('.reading-frame')).toBeVisible({ timeout: 7000 });
     await assertNormal(page);
     await capture(page, report, 'reading-first');
 
@@ -157,22 +177,28 @@ test('production normal-mode end-to-end QA without dev mode', async ({ page }, t
       const next = page.locator('[data-action="reading-next"]');
       await expect(next).toBeVisible();
       await next.click();
-      await page.waitForTimeout(80);
+      await page.waitForTimeout(100);
     }
     report.readingScreensTraversed = readingScreens;
-    await expect(page.locator('.writing-frame')).toBeVisible();
+    await expect(page.locator('textarea.writing-textarea')).toBeVisible({ timeout: 7000 });
     await assertNormal(page);
     await capture(page, report, 'writing-first');
 
-    report.actions.push('Type realistic English answers into both Writing tasks and advance with the normal next buttons.');
+    report.actions.push('Type realistic English answers into both Writing tasks with the real next controls.');
     for (let i = 0; i < 2; i += 1) {
       const box = page.locator('textarea.writing-textarea').first();
       await expect(box).toBeVisible();
       await box.fill(writingSample + (i ? ' This is my second response.' : ''));
       await capture(page, report, `writing-${i + 1}-filled`);
       await page.locator('[data-action="writing-next"]').click();
-      await page.waitForTimeout(150);
+      await page.waitForTimeout(180);
     }
+
+    report.actions.push('Confirm the normal finish modal and click the real scoring button.');
+    const scoreButton = page.locator('[data-action="complete-exam"]');
+    await expect(scoreButton).toBeVisible();
+    await capture(page, report, 'finish-confirm');
+    await scoreButton.click();
     await expect(page.locator('.result-screen')).toBeVisible({ timeout: 10000 });
     await assertNormal(page);
     await capture(page, report, 'result', true);
@@ -180,7 +206,7 @@ test('production normal-mode end-to-end QA without dev mode', async ({ page }, t
     report.actions.push('Smoke-check Set 02 and Set 03 normal start screens with no developer controls.');
     for (const setKey of ['set-02', 'set-03']) {
       await page.goto(`${PROD}/exam.html?plan=three&set=${setKey}&fresh=1&qa-normal=sets`, { waitUntil: 'domcontentloaded' });
-      await settle(page, 450);
+      await settle(page, 550);
       await assertNormal(page);
       await expect(page.locator('button[data-action="start"]').first()).toBeVisible();
       await capture(page, report, `${setKey}-normal-start`);
