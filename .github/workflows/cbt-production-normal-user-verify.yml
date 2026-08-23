@@ -1,0 +1,90 @@
+name: Verify CBT production normal-user
+
+on:
+  push:
+    branches:
+      - "agent/verify-production-**"
+
+permissions:
+  contents: read
+
+jobs:
+  production-normal-user-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      EXPECTED_PROD_SHA: 426422e3e4d55bb28fc869165b9e3bbdf703e950
+      QA_EXPECTED_SHA: 426422e3e4d55bb28fc869165b9e3bbdf703e950
+      QA_REPOSITORY: YutaTeru/cbt
+      QA_TARGET: production-normal
+      QA_BASE_URL: https://cbt.itisnowornever271.workers.dev
+
+    steps:
+      - name: Check out verification commit
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install repository dependencies
+        run: npm ci
+
+      - name: Wait for exact production commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          base="$QA_BASE_URL"
+          ready=0
+          for attempt in $(seq 1 120); do
+            if curl -fsSL --connect-timeout 10 --max-time 45 \
+              -H 'Cache-Control: no-cache' \
+              "$base/build-info.json?prodverify=$EXPECTED_PROD_SHA&attempt=$attempt" \
+              -o /tmp/prod-build-info.json; then
+              if node -e '
+                const fs = require("node:fs");
+                const info = JSON.parse(fs.readFileSync("/tmp/prod-build-info.json", "utf8"));
+                process.exit(info.commit === process.env.EXPECTED_PROD_SHA && info.ref === "main" && info.environment === "production" ? 0 : 1);
+              '; then
+                ready=1
+                break
+              fi
+            fi
+            echo "Waiting for production $EXPECTED_PROD_SHA ($attempt/120)..."
+            sleep 5
+          done
+          test "$ready" = '1'
+          cat /tmp/prod-build-info.json
+
+      - name: Verify deployed fix files exactly match main
+        shell: bash
+        run: |
+          set -euo pipefail
+          base="$QA_BASE_URL"
+          for file in exam.html grade2-normal-user-fixes.css; do
+            curl -fsSL --connect-timeout 10 --max-time 45 \
+              -H 'Cache-Control: no-cache' \
+              "$base/$file?prodverify=$EXPECTED_PROD_SHA" \
+              -o "/tmp/prod-${file}"
+            local_sha="$(sha256sum "$file" | awk '{print $1}')"
+            prod_sha="$(sha256sum "/tmp/prod-${file}" | awk '{print $1}')"
+            echo "$file local=$local_sha production=$prod_sha"
+            test "$local_sha" = "$prod_sha"
+          done
+          grep -q 'body:not(.grade2-developer-mode) .developer-entry-link' /tmp/prod-grade2-normal-user-fixes.css
+          grep -q 'listen-review-close' /tmp/prod-grade2-normal-user-fixes.css
+          grep -q 'max-width: calc(100vw - 24px)' /tmp/prod-grade2-normal-user-fixes.css
+
+      - name: Install Playwright browsers
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --no-save --package-lock=false @playwright/test@1.62.1
+          npx playwright install --with-deps chromium webkit
+
+      - name: Run live production normal-user QA
+        env:
+          CI: 'true'
+        run: npx playwright test --config=qa/playwright.normal-user.config.cjs
