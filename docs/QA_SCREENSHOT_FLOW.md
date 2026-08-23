@@ -4,7 +4,9 @@
 
 ## 目的
 
-GitHubへ変更をpushしたあと、Cloudflareへ同じcommitがデプロイされたことを確認してから、Playwrightで実際のCBT画面を操作し、PC・iPhone 16相当のスクリーンショットと機械検査結果を保存します。
+GitHubへ変更をpushしたあと、GitHub Actions内でそのcommitから `worker-dist` を生成し、ローカルHTTPサーバーで実際のCBT画面を起動します。その画面をPlaywrightで操作し、PC・iPhone 16相当のスクリーンショットと機械検査結果を保存します。
+
+これにより、Cloudflare stagingの重いR2音声アップロードを待たなくても「pushしたそのcommit」の画面を直接確認できます。Cloudflare本番・stagingへ正しいcommitが反映されたかどうかは、既存の `cbt-production.yml` / `cbt-staging.yml` が別途検証します。
 
 コードを読めたこと、Actionsが成功したこと、画像ファイルが存在することだけを「UI確認済み」とは扱いません。スクリーンショットのUI評価は、画像を実際にAIまたは人が開いて目視した後に行います。
 
@@ -12,11 +14,37 @@ GitHubへ変更をpushしたあと、Cloudflareへ同じcommitがデプロイさ
 
 `.github/workflows/cbt-qa.yml` は次で起動します。
 
-- `main` へのpush: production (`https://cbt.itisnowornever271.workers.dev`) を確認
-- `agent/**` へのpush: staging (`https://cbt-staging.itisnowornever271.workers.dev`) を確認
+- `main` へのpush
+- `agent/**` へのpush
 - GitHub Actionsからの手動実行
 
-QAは `/build-info.json` の `commit` が対象GitHub SHAと一致するまで待機します。このため、デプロイWorkflowとQA Workflowが同時に開始しても、古い画面を誤って検査しない設計です。
+QA開始時にcommitへ `cbt-browser-qa` のpending statusを付け、Actions run URLを記録します。終了時にsuccess / failureへ更新します。これにより、AI側からcommit → QA run → Job / Step / Artifactへ追跡できます。
+
+## exact commitの起動方法
+
+1. GitHub Actionsが対象commitをcheckout
+2. `npm ci`
+3. `scripts/prepare-worker-assets.mjs` で `worker-dist` を生成
+4. `worker-dist/build-info.json` のcommit SHAを検証
+5. `python3 -m http.server` で `127.0.0.1:4173` に起動
+6. Playwrightがその画面へアクセス
+
+QA用にアプリ本体の受験ロジックは変更しません。
+
+## Cloudflareとの役割分担
+
+### Browser QA
+
+- 対象: GitHubのexact commit
+- 実行場所: GitHub Actions内ローカルHTTPサーバー
+- 目的: 実画面操作、レスポンシブ、スクリーンショット、Console/Page Error、横overflow
+
+### 既存 production / staging Workflow
+
+- 対象: Cloudflare Worker / R2
+- 目的: build-infoのcommit一致、配信ファイルSHA一致、Workerデプロイ、R2音声、Cloudflare経路
+
+この2つを分けることで、UI確認のたびにR2音声90本以上のアップロード完了を待つ必要がありません。
 
 ## ブラウザと画面サイズ
 
@@ -64,11 +92,13 @@ QAは `/build-info.json` の `commit` が対象GitHub SHAと一致するまで�
 - 画面外にはみ出している可視要素候補
 - console error
 - page error
-- request failure
+- request failure（診断情報）
 - 実行した操作
 - テスト成功 / 失敗
 
-`document.documentElement.scrollWidth > clientWidth + 1` の場合は横overflowとしてQA失敗にします。
+`document.documentElement.scrollWidth > clientWidth + 1` の場合は横overflowとしてQA失敗にします。Console Error / Page Errorも失敗扱いです。
+
+Request failureは記録しますが、Listeningから画面移動した際の意図的な音声キャンセル等があるため、それ単独では合否条件にしません。
 
 ## スクリーンショット
 
@@ -99,21 +129,24 @@ GitHub Actions Artifact `cbt-browser-qa-<run id>-<attempt>` に `qa-output/` を
 - `latest.json`
 - `report.json`
 - `deployment.json`
+- `build-info.json`
 - `report-parts/*.json`
 - `screenshots/*`
 - `playwright-report/*`
 - `test-results/*`（失敗時traceを含む場合あり）
+- `local-server.log`
 
 Artifact保持期間は7日です。まずQA自体の安定性を確認するための方式で、容量を無制限に増やしません。安定運用後に必要なら、信頼済みWorkflowだけが `qa-latest` 専用ブランチを最新結果へ置換する方式へ移行できます。`main` はforce pushしません。
 
 ## AI目視の手順
 
-1. 最新Actions runを特定
-2. `report.json` を確認
-3. まず `*-ai-preview.jpg` を画像として開く
-4. 問題候補があれば `*-detail-crop.jpg` を開く
-5. 必要な場合だけ高解像度PNGを開く
-6. 文字切れ、重なり、見切れ、余白、固定UI被り、レスポンシブ崩れ等を評価
+1. commitの `cbt-browser-qa` statusからActions run IDを取得
+2. runのJob / Stepを確認
+3. Artifactから `report.json` を確認
+4. まず `*-ai-preview.jpg` を画像として開く
+5. 問題候補があれば `*-detail-crop.jpg` を開く
+6. 必要な場合だけ高解像度PNGを開く
+7. 文字切れ、重なり、見切れ、余白、固定UI被り、レスポンシブ崩れ等を評価
 
 画像のbase64やファイル名だけを取得した状態では「目視済み」と報告しません。
 
@@ -122,4 +155,5 @@ Artifact保持期間は7日です。まずQA自体の安定性を確認するた
 - iPhone 16はWebKitエミュレーションであり実機ではありません。
 - QAではService Workerをブロックし、古いキャッシュによる不安定化を避けます。デプロイ資産一致は既存deploy Workflow側で別途確認します。
 - Speakingは受験前UIまでを確認します。本物のマイク音質はGitHub-hosted runnerでは確認しません。
+- Browser QAはCloudflare Workerそのものではなく、同じcommitから生成した `worker-dist` をHTTP配信して確認します。Cloudflare固有の経路は既存deploy Workflowの担当です。
 - スクリーンショットの視覚品質判定は、Artifact生成後にAIまたは人が実画像を開いて行います。
