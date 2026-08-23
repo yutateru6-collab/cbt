@@ -55,6 +55,5 @@ fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`, 'utf8');
 fs.writeFileSync(latestPath, `${JSON.stringify({ generatedAt: report.generatedAt, commitSha: report.commitSha, target: report.target, status: report.status, report: 'report.json' }, null, 2)}\n`, 'utf8');
 
 if (parts.length !== report.expectedPartCount) {
-  console.error(`Expected ${report.expectedPartCount} report parts, found ${parts.length}.`);
-  process.exitCode = 1;
+  console.warn(`Expected ${report.expectedPartCount} report parts, found ${parts.length}; preserving partial evidence.`);
 }

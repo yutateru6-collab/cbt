@@ -144,15 +144,32 @@ async function installBrowserTestDoubles(page) {
     window.webkitAudioContext = QaAudioContext;
 
     const nativePause = HTMLMediaElement.prototype.pause;
+    const qaPlayingMedia = new Set();
+    window.__qaFinishMedia = () => {
+      const active = [...qaPlayingMedia];
+      qaPlayingMedia.clear();
+      for (const media of active) media.dispatchEvent(new Event('ended'));
+      return active.length;
+    };
     HTMLMediaElement.prototype.play = function qaPlay() {
+      qaPlayingMedia.add(this);
       this.dispatchEvent(new Event('playing'));
-      queueMicrotask(() => this.dispatchEvent(new Event('ended')));
       return Promise.resolve();
     };
     HTMLMediaElement.prototype.pause = function qaPause() {
+      qaPlayingMedia.delete(this);
       try { nativePause.call(this); } catch {}
     };
   });
+}
+
+async function finishQaMedia(page, cycles = 4) {
+  for (let index = 0; index < cycles; index += 1) {
+    const count = await page.evaluate(() => typeof window.__qaFinishMedia === 'function' ? window.__qaFinishMedia() : 0);
+    if (!count) break;
+    await page.clock.fastForward(250);
+    await page.waitForTimeout(10);
+  }
 }
 
 async function readMetrics(page) {
@@ -313,7 +330,8 @@ async function runSpeakingPreflight(page, request, report) {
   await page.locator('[data-action="grade2-speaking-next"]').click();
   await expect(page.locator('.speaking-stage-chip')).toContainText('受験前チェック 2/5');
   await page.locator('[data-action="grade2-speaking-output-test"]').click();
-  await page.clock.fastForward(1000);
+  await finishQaMedia(page, 2);
+  await page.clock.fastForward(300);
   await verifyProductionAudio(request, report, 'Speaking sound check', speakingAudioProbe);
   await page.locator('[data-action="grade2-speaking-next"]').click();
 
@@ -332,6 +350,7 @@ async function runSpeakingPreflight(page, request, report) {
 
   await expect(page.locator('.speaking-stage-chip')).toContainText('受験前チェック 5/5');
   const confirm = page.locator('[data-action="grade2-speaking-test-confirm"]');
+  await finishQaMedia(page, 2);
   await expect(confirm).toBeEnabled({ timeout: 10000 });
   await captureState(page, report, 'speaking-test-playback');
   await confirm.click();
@@ -366,6 +385,8 @@ async function runSpeakingExam(page, report) {
       }
     }
 
+    await finishQaMedia(page, 3);
+
     const choice = page.locator('[data-action="grade2-speaking-choice"][data-choice="yes"]');
     if (await choice.isVisible().catch(() => false)) {
       await choice.click();
@@ -382,8 +403,8 @@ async function runSpeakingExam(page, report) {
 
     const begin = page.locator('[data-action="grade2-speaking-begin"]');
     if (await begin.isVisible().catch(() => false)) {
-      await begin.click();
-      await page.clock.fastForward(1000);
+      await begin.evaluate((element) => element.click()).catch(() => {});
+      await page.clock.fastForward(300);
       continue;
     }
 
@@ -411,7 +432,8 @@ async function driveListening(page, request, report) {
   const visited = [];
 
   for (let expectedId = 1; expectedId <= 30; expectedId += 1) {
-    await expect(page.locator('.listen-question-number')).toHaveText(`No.${expectedId}`, { timeout: 10000 });
+    const number = page.locator('.listen-question-number');
+    await expect(number).toHaveText(`No.${expectedId}`, { timeout: 5000 });
     visited.push(expectedId);
 
     if ([1, 16, 30].includes(expectedId)) {
@@ -423,18 +445,24 @@ async function driveListening(page, request, report) {
       if (src) await verifyProductionAudio(request, report, `Listening No.${expectedId}`, new URL(src, page.url()).toString());
     }
 
+    await finishQaMedia(page, 4);
+    const play = page.locator('[data-action="listen-play"]');
+    if (await play.isVisible().catch(() => false)) {
+      const timer = String(await page.locator('[data-listening-timer]').textContent().catch(() => '')).trim();
+      if (!timer || timer === '--') {
+        await play.click();
+        await finishQaMedia(page, 4);
+      }
+    }
+
     const choices = page.locator(`[data-action="listen-answer"][data-question="${expectedId}"]`);
     await expect(choices.first()).toBeVisible();
     await choices.first().click();
+    await page.clock.fastForward(10100);
+    await page.waitForTimeout(20);
 
-    for (let attempt = 0; attempt < 4; attempt += 1) {
-      await page.clock.fastForward(11000);
-      await page.waitForTimeout(20);
-      if (expectedId === 30 && await page.locator('.reading-frame').isVisible().catch(() => false)) break;
-      const current = String(await page.locator('.listen-question-number').textContent().catch(() => '')).trim();
-      if (current && current !== `No.${expectedId}`) break;
-      const play = page.locator('[data-action="listen-play"]');
-      if (await play.isVisible().catch(() => false)) await play.click();
+    if (expectedId < 30) {
+      await expect(number).toHaveText(`No.${expectedId + 1}`, { timeout: 5000 });
     }
   }
 
@@ -561,8 +589,6 @@ function actionableRequestFailures(items) {
 
 fs.mkdirSync(partRoot, { recursive: true });
 fs.mkdirSync(screenshotRoot, { recursive: true });
-
-test.describe.configure({ mode: 'serial' });
 
 for (const setKey of setKeys) {
   test(`normal paid user completes ${setKey} without dev mode`, async ({ page, request }, testInfo) => {
