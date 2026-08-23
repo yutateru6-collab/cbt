@@ -8,11 +8,19 @@ const contactRoot = path.join(outputRoot, 'contact-sheets');
 
 const states = [
   ['normal-start', '通常開始'],
-  ['normal-speaking-preflight', 'Speaking確認'],
-  ['dev-reading-first', 'Reading'],
-  ['dev-writing-typed', 'Writing入力'],
-  ['dev-listening-first', 'Listening'],
-  ['dev-result', '結果'],
+  ['speaking-preflight', 'Speaking確認'],
+  ['speaking-complete', 'Speaking完了'],
+  ['listening-first', 'Listening開始'],
+  ['listening-last-countdown', 'Listening最終'],
+  ['reading-first', 'Reading開始'],
+  ['reading-email', 'Readingメール'],
+  ['writing-first', 'Writing開始'],
+  ['writing-1-filled', 'Writing 1入力'],
+  ['writing-2-filled', 'Writing 2入力'],
+  ['finish-confirm', '終了確認'],
+  ['result', '結果'],
+  ['set-02-normal-start', '第2回開始'],
+  ['set-03-normal-start', '第3回開始'],
 ];
 
 const devices = [
@@ -20,14 +28,14 @@ const devices = [
     key: 'desktop-1440x900',
     label: 'PC 1440×900 / Chromium',
     cardWidth: 250,
-    bridgeWidth: 70,
+    bridgeWidth: 110,
     columns: 3,
   },
   {
     key: 'iphone-16-393x852',
     label: 'iPhone 16相当 393×852 @3x / WebKit',
     cardWidth: 180,
-    bridgeWidth: 45,
+    bridgeWidth: 90,
     columns: 3,
   },
 ];
@@ -77,7 +85,7 @@ function makeHtml(device, cards, options) {
 }
 
 async function renderSheet(browser, device, cards, options) {
-  const page = await browser.newPage({ viewport: { width: 900, height: 1200 } });
+  const page = await browser.newPage({ viewport: { width: 1200, height: 1600 } });
   try {
     await page.setContent(makeHtml(device, cards, options), { waitUntil: 'load' });
     await page.locator('img').last().waitFor({ state: 'visible' });
@@ -112,35 +120,18 @@ async function renderSheet(browser, device, cards, options) {
         const fileName = `${device.key}-${state}-ai-preview.jpg`;
         const filePath = path.join(screenshotRoot, fileName);
         if (!fs.existsSync(filePath)) continue;
-        cards.push({
-          state,
-          label,
-          src: imageDataUrl(filePath),
-        });
+        cards.push({ state, label, src: imageDataUrl(filePath) });
       }
-
       if (cards.length === 0) continue;
 
       await renderSheet(browser, device, cards, {
-        suffix: 'contact-sheet',
-        cardWidth: device.cardWidth,
-        gap: 12,
-        padding: 16,
-        labelFont: 11,
-        titleFont: 18,
-        showTitle: true,
-        quality: 32,
+        suffix: 'contact-sheet', cardWidth: device.cardWidth, gap: 12, padding: 16,
+        labelFont: 11, titleFont: 18, showTitle: true, quality: 38,
       });
 
       await renderSheet(browser, device, cards, {
-        suffix: 'vision-bridge',
-        cardWidth: device.bridgeWidth,
-        gap: 2,
-        padding: 2,
-        labelFont: 5,
-        titleFont: 0,
-        showTitle: false,
-        quality: 5,
+        suffix: 'vision-bridge', cardWidth: device.bridgeWidth, gap: 3, padding: 3,
+        labelFont: 7, titleFont: 0, showTitle: false, quality: 18,
       });
     }
   } finally {
