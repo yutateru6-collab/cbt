@@ -1,4 +1,4 @@
-import { cp, mkdir, rm, writeFile } from "node:fs/promises";
+import { access, cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -90,6 +90,38 @@ const nestedFiles = [
   "tools/listening-player/player.js"
 ];
 
+async function validateLandingPageAssetContract() {
+  const referencedAssets = new Set();
+  for (const sourceFile of ["index.html", "lp.css"]) {
+    const source = await readFile(join(root, sourceFile), "utf8");
+    for (const match of source.matchAll(/\.\/assets\/([^\s\"')?#]+)/g)) {
+      referencedAssets.add(match[1]);
+    }
+  }
+
+  const bundledAssets = new Set(assetFiles);
+  const missingFromBundle = [];
+  const missingFromSource = [];
+
+  for (const asset of [...referencedAssets].sort()) {
+    try {
+      await access(join(root, "assets", asset));
+    } catch {
+      missingFromSource.push(asset);
+    }
+    if (!bundledAssets.has(asset)) missingFromBundle.push(asset);
+  }
+
+  if (missingFromSource.length || missingFromBundle.length) {
+    const details = [
+      missingFromSource.length ? `missing source assets: ${missingFromSource.join(", ")}` : "",
+      missingFromBundle.length ? `not copied to worker-dist: ${missingFromBundle.join(", ")}` : "",
+    ].filter(Boolean).join("; ");
+    throw new Error(`Landing page asset contract failed: ${details}`);
+  }
+}
+
+await validateLandingPageAssetContract();
 await rm(outDir, { recursive: true, force: true });
 await mkdir(join(outDir, "assets"), { recursive: true });
 
