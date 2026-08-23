@@ -12,6 +12,7 @@
     <link rel="icon" href="./assets/app-icon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="./styles.css?v=grade2-reading-writing-listening-v73-mobile-dev" />
     <link rel="stylesheet" href="./grade2-ai-grading-flow.css?v=grade2-ai-grading-flow-v81" />
+    <link rel="stylesheet" href="./grade2-result-tabs.css?v=grade2-result-tabs-v1" />
     <link rel="stylesheet" href="./grade2-developer-score-shortcut.css?v=grade2-dev-score-shortcut-v1" />
   </head>
   <body>
@@ -31,13 +32,14 @@
     <script src="./grade2-scoring.js?v=grade2-scoring-dev-v3"></script>
     <script src="./app.js?v=grade2-reading-writing-listening-v73-mobile-dev"></script>
     <script src="./grade2-ai-grading-flow.js?v=grade2-ai-grading-flow-v82-purchaser-separation"></script>
+    <script src="./grade2-result-tabs.js?v=grade2-result-tabs-v1"></script>
     <script src="./grade2-developer-score-shortcut.js?v=grade2-dev-score-shortcut-v1"></script>
     <script src="./grade2-explanation-provenance-dev.js?v=grade2-canonical-explanations-20260817-v1"></script>
     <script src="./grade2-listening-persistent-audio.js?v=grade2-ios-listening-v3"></script>
     <script>
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
-          navigator.serviceWorker.register("./sw-set02-v2.js?v=grade2-listening-targets-20260821-v2", { updateViaCache: "none" }).catch(() => {});
+          navigator.serviceWorker.register("./sw-set02-v2.js?v=grade2-result-tabs-v1", { updateViaCache: "none" }).catch(() => {});
         });
       }
     </script>

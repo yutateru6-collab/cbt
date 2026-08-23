@@ -2,6 +2,7 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
 const test = require("node:test");
+const vm = require("node:vm");
 
 const root = path.resolve(__dirname, "..");
 const wrangler = JSON.parse(fs.readFileSync(path.join(root, "wrangler.jsonc"), "utf8"));
@@ -9,6 +10,10 @@ const prepare = fs.readFileSync(path.join(root, "scripts", "prepare-worker-asset
 const verifier = fs.readFileSync(path.join(root, "scripts", "verify-cloudflare-listening-audio.mjs"), "utf8");
 const staging = fs.readFileSync(path.join(root, ".github", "workflows", "cbt-staging.yml"), "utf8");
 const production = fs.readFileSync(path.join(root, ".github", "workflows", "cbt-production.yml"), "utf8");
+const examHtml = fs.readFileSync(path.join(root, "exam.html"), "utf8");
+const serviceWorker = fs.readFileSync(path.join(root, "sw-set02-v2.js"), "utf8");
+const resultTabs = fs.readFileSync(path.join(root, "grade2-result-tabs.js"), "utf8");
+const resultTabsCss = fs.readFileSync(path.join(root, "grade2-result-tabs.css"), "utf8");
 
 test("production R2 bindings stay unchanged", () => {
   assert.deepEqual(wrangler.r2_buckets, [
@@ -50,6 +55,21 @@ test("Worker bundle contains the complete canonical explanation pipeline", () =>
   for (const file of ["grade2-legacy-explanation-cleanup.js", "grade2-set-01-explanations.js", "grade2-skill-explanations.js", "grade2-explanation-sync.js", "grade2-canonical-explanations.js"]) {
     assert.ok(prepare.includes(`\"${file}\"`), `${file} must be copied into worker-dist`);
   }
+});
+
+test("Worker bundle and app shell contain the tabbed result experience", () => {
+  assert.doesNotThrow(() => new vm.Script(resultTabs));
+  for (const file of ["grade2-result-tabs.js", "grade2-result-tabs.css"]) {
+    assert.ok(prepare.includes(`\"${file}\"`), `${file} must be copied into worker-dist`);
+    assert.ok(serviceWorker.includes(`\"/${file}\"`), `${file} must be cached in the app shell`);
+  }
+  assert.match(examHtml, /grade2-result-tabs\.css\?v=grade2-result-tabs-v1/);
+  assert.match(examHtml, /grade2-result-tabs\.js\?v=grade2-result-tabs-v1/);
+  assert.ok(examHtml.indexOf("grade2-ai-grading-flow.js?") < examHtml.indexOf("grade2-result-tabs.js?"));
+  assert.match(resultTabs, /data-grade2-result-tab/);
+  assert.match(resultTabs, /要復習/);
+  assert.match(resultTabsCss, /position:\s*sticky/);
+  assert.match(resultTabsCss, /@media \(max-width: 390px\)/);
 });
 
 test("audio verifier fail-closes on 90 immutable sources and exactly six v2 overlays", () => {
