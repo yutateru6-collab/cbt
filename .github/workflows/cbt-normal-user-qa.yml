@@ -204,15 +204,6 @@ jobs:
         if: always() && steps.merge_report.outcome == 'success'
         run: node qa/make-normal-user-contact-sheet.cjs
 
-      - name: Upload normal-user QA artifact
-        if: always() && steps.merge_report.outcome == 'success'
-        uses: actions/upload-artifact@v4
-        with:
-          name: cbt-normal-user-qa-${{ env.QA_EXPECTED_SHA }}
-          path: qa-normal-output
-          if-no-files-found: error
-          retention-days: 7
-
       - name: Save latest normal-user QA evidence
         if: always() && steps.merge_report.outcome == 'success'
         shell: bash
