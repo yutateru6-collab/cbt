@@ -81,11 +81,18 @@ async function renderSheet(browser, device, cards, options) {
   try {
     await page.setContent(makeHtml(device, cards, options), { waitUntil: 'load' });
     await page.locator('img').last().waitFor({ state: 'visible' });
+    const bodyBox = await page.locator('body').boundingBox();
+    if (!bodyBox) throw new Error(`Unable to measure ${device.key} ${options.suffix} contact sheet.`);
     await page.screenshot({
       path: path.join(contactRoot, `${device.key}-${options.suffix}.jpg`),
       type: 'jpeg',
       quality: options.quality,
-      fullPage: true,
+      clip: {
+        x: Math.max(0, bodyBox.x),
+        y: Math.max(0, bodyBox.y),
+        width: Math.ceil(bodyBox.width),
+        height: Math.ceil(bodyBox.height),
+      },
       scale: 'css',
       animations: 'disabled',
     });
