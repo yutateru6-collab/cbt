@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./grade2-ai-grading-flow.css?v=grade2-ai-grading-flow-v81" />
     <link rel="stylesheet" href="./grade2-result-tabs.css?v=grade2-result-tabs-v1" />
     <link rel="stylesheet" href="./grade2-developer-score-shortcut.css?v=grade2-dev-score-shortcut-v1" />
+    <link rel="stylesheet" href="./grade2-normal-user-fixes.css?v=grade2-normal-user-mobile-fixes-v1" />
   </head>
   <body>
     <main id="app" class="app-shell"></main>
@@ -39,7 +40,7 @@
     <script>
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
-          navigator.serviceWorker.register("./sw-set02-v2.js?v=grade2-result-tabs-v1", { updateViaCache: "none" }).catch(() => {});
+          navigator.serviceWorker.register("./sw-set02-v2.js?v=grade2-normal-user-mobile-fixes-v1", { updateViaCache: "none" }).catch(() => {});
         });
       }
     </script>
