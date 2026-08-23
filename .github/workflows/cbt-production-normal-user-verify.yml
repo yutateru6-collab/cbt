@@ -7,6 +7,11 @@ on:
 
 permissions:
   contents: read
+  statuses: write
+
+concurrency:
+  group: cbt-production-live-verifier
+  cancel-in-progress: true
 
 jobs:
   production-normal-user-qa:
@@ -23,6 +28,28 @@ jobs:
       - name: Check out verification commit
         uses: actions/checkout@v4
 
+      - name: Publish pending live QA status
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          payload="$(node -e '
+            const payload = {
+              state: "pending",
+              target_url: `https://github.com/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`,
+              description: "Live production normal-user QA is running",
+              context: "cbt-production-live-qa",
+            };
+            process.stdout.write(JSON.stringify(payload));
+          ')"
+          curl -fsSL -X POST \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H 'Accept: application/vnd.github+json' \
+            -H 'X-GitHub-Api-Version: 2022-11-28' \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" \
+            -d "$payload"
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -33,6 +60,7 @@ jobs:
         run: npm ci
 
       - name: Wait for exact production commit
+        id: build_info
         shell: bash
         run: |
           set -euo pipefail
@@ -59,6 +87,7 @@ jobs:
           cat /tmp/prod-build-info.json
 
       - name: Verify deployed fix files exactly match main
+        id: fix_files
         shell: bash
         run: |
           set -euo pipefail
@@ -78,6 +107,7 @@ jobs:
           grep -q 'max-width: calc(100vw - 24px)' /tmp/prod-grade2-normal-user-fixes.css
 
       - name: Install Playwright browsers
+        id: browsers
         shell: bash
         run: |
           set -euo pipefail
@@ -85,6 +115,41 @@ jobs:
           npx playwright install --with-deps chromium webkit
 
       - name: Run live production normal-user QA
+        id: live_qa
         env:
           CI: 'true'
         run: npx playwright test --config=qa/playwright.normal-user.config.cjs
+
+      - name: Publish final live QA status
+        if: always()
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BUILD_OUTCOME: ${{ steps.build_info.outcome }}
+          FILE_OUTCOME: ${{ steps.fix_files.outcome }}
+          BROWSER_OUTCOME: ${{ steps.browsers.outcome }}
+          LIVE_OUTCOME: ${{ steps.live_qa.outcome }}
+        run: |
+          set -euo pipefail
+          if [ "$BUILD_OUTCOME" = success ] && [ "$FILE_OUTCOME" = success ] && [ "$BROWSER_OUTCOME" = success ] && [ "$LIVE_OUTCOME" = success ]; then
+            state='success'
+            description='Live production normal-user QA passed'
+          else
+            state='failure'
+            description='Live production normal-user QA failed'
+          fi
+          payload="$(QA_STATUS_STATE="$state" QA_STATUS_DESCRIPTION="$description" node -e '
+            const payload = {
+              state: process.env.QA_STATUS_STATE,
+              target_url: `https://github.com/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`,
+              description: process.env.QA_STATUS_DESCRIPTION,
+              context: "cbt-production-live-qa",
+            };
+            process.stdout.write(JSON.stringify(payload));
+          ')"
+          curl -fsSL -X POST \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H 'Accept: application/vnd.github+json' \
+            -H 'X-GitHub-Api-Version: 2022-11-28' \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" \
+            -d "$payload"
