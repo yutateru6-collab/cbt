@@ -113,13 +113,20 @@ Request failureは記録しますが、Listeningから画面移動した際の�
 2. `*-ai-preview.jpg`
    - `scale: css`
    - quality 55
-   - AIの全体目視用
+   - AIの個別画面目視用
 3. `*-detail-crop.jpg`
    - 必要な主要領域のみ
    - `scale: device`
    - quality 65
 4. `*-full.png`
    - start / resultなど必要な状態のみ
+
+さらに `qa/make-contact-sheet.cjs` がPC用・iPhone用それぞれの主要6画面を1枚にまとめた軽量JPEGを生成します。
+
+- `contact-sheets/desktop-1440x900-contact-sheet.jpg`
+- `contact-sheets/iphone-16-393x852-contact-sheet.jpg`
+
+AIはまずcontact sheetで6画面をまとめて確認し、問題候補がある画面だけ個別preview → detail crop → 高解像度PNGの順で確認できます。
 
 テスト途中で失敗した場合も `failure-evidence` スクリーンショットの保存を試みます。
 
@@ -136,6 +143,7 @@ WorkflowはQA終了時に orphan commit を作り、次だけを `qa-latest` へ
 - `build-info.json`
 - `local-server.log`
 - `report-parts/*.json`
+- `contact-sheets/*.jpg`
 - `screenshots/*`
 
 Playwright HTML reportやtraceなど大量の一時ファイルは `qa-latest` へ保存しません。
@@ -147,10 +155,11 @@ Playwright HTML reportやtraceなど大量の一時ファイルは `qa-latest` �
 1. 対象commitの `cbt-browser-qa` statusからActions run IDを取得
 2. runのJob / Stepを確認
 3. `qa-latest/report.json` を確認
-4. まず `qa-latest/screenshots/*-ai-preview.jpg` を画像として開く
-5. 問題候補があれば `*-detail-crop.jpg` を開く
-6. 必要な場合だけ高解像度PNGを開く
-7. 文字切れ、重なり、見切れ、余白、固定UI被り、レスポンシブ崩れ等を評価
+4. `qa-latest/contact-sheets/` のPC/iPhone画像を実画像として開く
+5. 問題候補のある状態の `*-ai-preview.jpg` を開く
+6. さらに必要なら `*-detail-crop.jpg` を開く
+7. 1px級・細かい文字確認が必要な場合だけ高解像度PNGを開く
+8. 文字切れ、重なり、見切れ、余白、固定UI被り、レスポンシブ崩れ等を評価
 
 画像のbase64やファイル名だけを取得した状態では「目視済み」と報告しません。
 
