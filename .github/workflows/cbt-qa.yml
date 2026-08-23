@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   statuses: write
 
 concurrency:
@@ -153,15 +153,53 @@ jobs:
           QA_BROWSER_STEP_OUTCOME: ${{ steps.browser_qa.outcome }}
         run: node qa/merge-report.cjs
 
-      - name: Upload QA evidence
+      - name: Save latest QA evidence to qa-latest branch
         if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: cbt-browser-qa-${{ github.run_id }}-${{ github.run_attempt }}
-          path: qa-output/
-          if-no-files-found: warn
-          retention-days: 7
-          compression-level: 6
+        shell: bash
+        run: |
+          set -euo pipefail
+          evidence='/tmp/cbt-qa-latest'
+          rm -rf "$evidence"
+          mkdir -p "$evidence"
+
+          for file in latest.json report.json deployment.json build-info.json local-server.log; do
+            if [ -f "qa-output/$file" ]; then
+              cp "qa-output/$file" "$evidence/$file"
+            fi
+          done
+
+          if [ -d qa-output/report-parts ]; then
+            mkdir -p "$evidence/report-parts"
+            cp -a qa-output/report-parts/. "$evidence/report-parts/"
+          fi
+
+          if [ -d qa-output/screenshots ]; then
+            mkdir -p "$evidence/screenshots"
+            cp -a qa-output/screenshots/. "$evidence/screenshots/"
+          fi
+
+          cat > "$evidence/README.md" <<EOF
+          # Latest CBT Browser QA
+
+          This branch is generated automatically by GitHub Actions.
+
+          - Source commit: $GITHUB_SHA
+          - Source ref: $GITHUB_REF_NAME
+          - Workflow run: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+          - Generated at: $(date -u +'%Y-%m-%dT%H:%M:%SZ')
+
+          Only the latest QA evidence is retained on this branch. The branch may be force-updated; main is never force-pushed by this workflow.
+          EOF
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch --orphan qa-latest-work
+          git rm -rf . >/dev/null 2>&1 || true
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -a "$evidence"/. .
+          git add -A
+          git commit -m "QA latest for ${GITHUB_SHA:0:12}"
+          git push --force origin HEAD:qa-latest
 
       - name: Publish browser QA commit status
         if: always()
