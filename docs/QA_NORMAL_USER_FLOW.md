@@ -15,7 +15,9 @@ Normal user URL:
 The dedicated Playwright flow runs Set 01, Set 02, and Set 03 on both:
 
 - desktop Chromium: 1440 × 900, deviceScaleFactor 1
-- iPhone 16 equivalent WebKit: 393 × 852, deviceScaleFactor 3, touch enabled
+- iPhone 16 equivalent WebKit: 393 × 852 CSS viewport, touch enabled
+
+The iPhone project keeps the real 393 × 852 CSS layout viewport while using deviceScaleFactor 1 for QA evidence. This avoids Playwright's 32,767-pixel raster limit on very long result pages; the existing general CBT browser QA still captures the shorter iPhone states at deviceScaleFactor 3.
 
 For each set it checks:
 
@@ -25,8 +27,9 @@ For each set it checks:
 4. Listening No.1–30 in normal auto-advance order
 5. Reading No.1–31, including a back/forward answer-persistence check
 6. both Writing tasks with real text input and the normal finish-confirmation modal
-7. result screen and Listening review open/close
-8. Set 01 restart back to a clean start screen
+7. all four result tabs (Reading / Listening / Writing / Speaking)
+8. Listening direct replay from the result screen and return to results
+9. Set 01 restart back to a clean start screen
 
 For deterministic CI timing, browser media playback remains under the real app controls but the QA harness explicitly fires each media `ended` event before advancing the corresponding timer. This prevents accelerated clocks from consuming the following question's countdown and keeps each Listening question observable exactly once. Transient Speaking activation buttons are still exercised through their actual DOM click event, avoiding false failures caused only by the app's immediate re-render replacing the button between Playwright's visibility check and pointer dispatch.
 
@@ -34,13 +37,13 @@ The production-triggered run also probes representative real Speaking and Listen
 
 ## Evidence
 
-Normal-user QA writes only its latest evidence to the dedicated `qa-normal-latest` branch. It does not overwrite `qa-latest`.
+Normal-user QA writes only its latest evidence to the dedicated `qa-normal-latest` branch. It does not overwrite `qa-latest` and does not depend on GitHub Actions artifact storage quota.
 
 Evidence includes:
 
 - `report.json` and `latest.json`
 - per-device/per-set report parts
-- device-scale viewport PNG files
+- viewport PNG files
 - CSS-scale JPEG previews
 - full-page start/result screenshots
 - desktop and iPhone contact sheets
