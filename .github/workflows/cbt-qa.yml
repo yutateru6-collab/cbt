@@ -1,0 +1,241 @@
+name: CBT browser QA
+
+on:
+  push:
+    branches:
+      - main
+      - "agent/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  statuses: write
+
+concurrency:
+  group: cbt-browser-qa-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  browser-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      QA_REPOSITORY: ${{ github.repository }}
+      QA_EXPECTED_SHA: ${{ github.sha }}
+      QA_RUN_ID: ${{ github.run_id }}
+      QA_RUN_ATTEMPT: ${{ github.run_attempt }}
+
+    steps:
+      - name: Check out exact commit
+        uses: actions/checkout@v4
+
+      - name: Verify exact checked-out commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+
+      - name: Publish pending browser QA status
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          payload="$(node -e '
+            const payload = {
+              state: "pending",
+              target_url: `https://github.com/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`,
+              description: "CBT browser QA is running",
+              context: "cbt-browser-qa",
+            };
+            process.stdout.write(JSON.stringify(payload));
+          ')"
+          curl -fsSL \
+            -X POST \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H 'Accept: application/vnd.github+json' \
+            -H 'X-GitHub-Api-Version: 2022-11-28' \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" \
+            -d "$payload"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install repository dependencies
+        run: npm ci
+
+      - name: Build exact commit assets for QA
+        env:
+          CBT_BUILD_SHA: ${{ github.sha }}
+          CBT_BUILD_REF: ${{ github.ref_name }}
+          CBT_DEPLOY_ENV: github-actions-qa
+        run: node scripts/prepare-worker-assets.mjs
+
+      - name: Start exact commit QA site
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p qa-output
+          base='http://127.0.0.1:4173'
+          nohup python3 -m http.server 4173 \
+            --bind 127.0.0.1 \
+            --directory worker-dist \
+            > qa-output/local-server.log 2>&1 &
+          echo "$!" > qa-output/local-server.pid
+
+          ready=0
+          for attempt in $(seq 1 30); do
+            if curl -fsSL --connect-timeout 2 --max-time 5 \
+              "$base/build-info.json?qa=$GITHUB_RUN_ID&attempt=$attempt" \
+              -o /tmp/qa-build-info.json; then
+              if node -e '
+                const fs = require("node:fs");
+                const info = JSON.parse(fs.readFileSync("/tmp/qa-build-info.json", "utf8"));
+                process.exit(info.commit === process.env.QA_EXPECTED_SHA ? 0 : 1);
+              '; then
+                ready=1
+                break
+              fi
+            fi
+            sleep 1
+          done
+          test "$ready" = '1'
+
+          cp /tmp/qa-build-info.json qa-output/build-info.json
+          echo 'QA_TARGET=github-actions-local' >> "$GITHUB_ENV"
+          echo "QA_BASE_URL=$base" >> "$GITHUB_ENV"
+
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const buildInfo = JSON.parse(fs.readFileSync('/tmp/qa-build-info.json', 'utf8'));
+          const output = {
+            generatedAt: new Date().toISOString(),
+            status: 'ready',
+            repository: process.env.QA_REPOSITORY,
+            commitSha: process.env.QA_EXPECTED_SHA,
+            ref: process.env.GITHUB_REF_NAME,
+            target: 'github-actions-local',
+            baseUrl: 'http://127.0.0.1:4173',
+            workflowRunId: process.env.QA_RUN_ID,
+            workflowRunAttempt: process.env.QA_RUN_ATTEMPT,
+            observedBuildInfo: buildInfo,
+          };
+          fs.writeFileSync('qa-output/deployment.json', `${JSON.stringify(output, null, 2)}\n`);
+          NODE
+
+      - name: Install Playwright 1.62.1 browsers
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --no-save --package-lock=false @playwright/test@1.62.1
+          npx playwright install --with-deps chromium webkit
+
+      - name: Run CBT browser QA
+        id: browser_qa
+        env:
+          CI: 'true'
+        run: npx playwright test --config=qa/playwright.config.cjs
+
+      - name: Stop local QA site
+        if: always()
+        shell: bash
+        run: |
+          if [ -f qa-output/local-server.pid ]; then
+            kill "$(cat qa-output/local-server.pid)" 2>/dev/null || true
+          fi
+
+      - name: Build combined QA report
+        if: always()
+        env:
+          QA_BROWSER_STEP_OUTCOME: ${{ steps.browser_qa.outcome }}
+        run: node qa/merge-report.cjs
+
+      - name: Generate lightweight visual contact sheets
+        if: always()
+        run: node qa/make-contact-sheet.cjs
+
+      - name: Save latest QA evidence to qa-latest branch
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          evidence='/tmp/cbt-qa-latest'
+          rm -rf "$evidence"
+          mkdir -p "$evidence"
+
+          for file in latest.json report.json deployment.json build-info.json local-server.log; do
+            if [ -f "qa-output/$file" ]; then
+              cp "qa-output/$file" "$evidence/$file"
+            fi
+          done
+
+          if [ -d qa-output/report-parts ]; then
+            mkdir -p "$evidence/report-parts"
+            cp -a qa-output/report-parts/. "$evidence/report-parts/"
+          fi
+
+          if [ -d qa-output/screenshots ]; then
+            mkdir -p "$evidence/screenshots"
+            cp -a qa-output/screenshots/. "$evidence/screenshots/"
+          fi
+
+          if [ -d qa-output/contact-sheets ]; then
+            mkdir -p "$evidence/contact-sheets"
+            cp -a qa-output/contact-sheets/. "$evidence/contact-sheets/"
+          fi
+
+          cat > "$evidence/README.md" <<EOF
+          # Latest CBT Browser QA
+
+          This branch is generated automatically by GitHub Actions.
+
+          - Source commit: $GITHUB_SHA
+          - Source ref: $GITHUB_REF_NAME
+          - Workflow run: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+          - Generated at: $(date -u +'%Y-%m-%dT%H:%M:%SZ')
+
+          Only the latest QA evidence is retained on this branch. The branch may be force-updated; main is never force-pushed by this workflow.
+          EOF
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch --orphan qa-latest-work
+          git rm -rf . >/dev/null 2>&1 || true
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -a "$evidence"/. .
+          git add -A
+          git commit -m "QA latest for ${GITHUB_SHA:0:12}"
+          git push --force origin HEAD:qa-latest
+
+      - name: Publish browser QA commit status
+        if: always()
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          QA_JOB_STATUS: ${{ job.status }}
+        run: |
+          set -euo pipefail
+          case "$QA_JOB_STATUS" in
+            success) state='success'; description='CBT browser QA passed' ;;
+            cancelled) state='error'; description='CBT browser QA cancelled' ;;
+            *) state='failure'; description='CBT browser QA failed' ;;
+          esac
+          payload="$(QA_STATUS_STATE="$state" QA_STATUS_DESCRIPTION="$description" node -e '
+            const payload = {
+              state: process.env.QA_STATUS_STATE,
+              target_url: `https://github.com/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`,
+              description: process.env.QA_STATUS_DESCRIPTION,
+              context: "cbt-browser-qa",
+            };
+            process.stdout.write(JSON.stringify(payload));
+          ')"
+          curl -fsSL \
+            -X POST \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H 'Accept: application/vnd.github+json' \
+            -H 'X-GitHub-Api-Version: 2022-11-28' \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" \
+            -d "$payload"
