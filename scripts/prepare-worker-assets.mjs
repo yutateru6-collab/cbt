@@ -74,6 +74,7 @@ const assetFiles = [
   "lp-product-rehearsal-illustration.png",
   "lp-reading.png",
   "lp-result.png",
+  "lp-skill-icons-sheet.png",
   "lp-speaking.png",
   "lp-study-desk-sunlit.png",
   "lp-summer-rehearsal.png",
