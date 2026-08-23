@@ -7,6 +7,10 @@ const screenshotRoot = path.join(outputRoot, 'screenshots');
 const contactRoot = path.join(outputRoot, 'contact-sheets');
 
 const states = [
+  ['lp-top', 'LPトップ'],
+  ['lp-problem-icons', 'LP初見リスク'],
+  ['lp-showcase-icons', 'LP機能アイコン'],
+  ['lp-pricing-icon', 'LP料金'],
   ['normal-start', '通常開始'],
   ['normal-speaking-preflight', 'Speaking確認'],
   ['dev-reading-first', 'Reading'],

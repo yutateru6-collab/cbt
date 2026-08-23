@@ -3,7 +3,7 @@ const { defineConfig } = require('@playwright/test');
 
 module.exports = defineConfig({
   testDir: __dirname,
-  testMatch: 'cbt.e2e.spec.cjs',
+  testMatch: ['cbt.e2e.spec.cjs', 'lp.e2e.spec.cjs'],
   outputDir: path.resolve(process.cwd(), 'qa-output', 'test-results'),
   timeout: 120_000,
   expect: {

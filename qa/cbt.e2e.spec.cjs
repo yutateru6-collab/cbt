@@ -141,7 +141,7 @@ async function captureState(page, report, stateName, options = {}) {
       path: fullPng,
       type: 'png',
       fullPage: true,
-      scale: 'device',
+      scale: 'css',
       animations: 'disabled',
     });
     files.push(relativeToOutput(fullPng));
