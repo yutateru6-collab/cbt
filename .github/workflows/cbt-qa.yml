@@ -1,0 +1,148 @@
+name: CBT browser QA
+
+on:
+  push:
+    branches:
+      - main
+      - "agent/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cbt-browser-qa-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  browser-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      QA_REPOSITORY: ${{ github.repository }}
+      QA_EXPECTED_SHA: ${{ github.sha }}
+      QA_RUN_ID: ${{ github.run_id }}
+      QA_RUN_ATTEMPT: ${{ github.run_attempt }}
+
+    steps:
+      - name: Check out exact commit
+        uses: actions/checkout@v4
+
+      - name: Verify exact checked-out commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install repository dependencies
+        run: npm ci
+
+      - name: Select deployed target
+        id: target
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "$GITHUB_REF_NAME" = "main" ]; then
+            target='production'
+            base='https://cbt.itisnowornever271.workers.dev'
+          else
+            target='staging'
+            base='https://cbt-staging.itisnowornever271.workers.dev'
+          fi
+          echo "QA_TARGET=$target" >> "$GITHUB_ENV"
+          echo "QA_BASE_URL=$base" >> "$GITHUB_ENV"
+          echo "target=$target" >> "$GITHUB_OUTPUT"
+          echo "base_url=$base" >> "$GITHUB_OUTPUT"
+          echo "QA target: $target"
+          echo "QA base URL: $base"
+
+      - name: Wait for matching Cloudflare deployment
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p qa-output
+          stamp="${GITHUB_SHA:0:12}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          ready=0
+
+          for attempt in $(seq 1 120); do
+            if curl -fsSL --connect-timeout 10 --max-time 30 \
+              -H 'Cache-Control: no-cache' \
+              "$QA_BASE_URL/build-info.json?qa=$stamp&attempt=$attempt" \
+              -o /tmp/qa-build-info.json; then
+              if node -e '
+                const fs = require("node:fs");
+                const info = JSON.parse(fs.readFileSync("/tmp/qa-build-info.json", "utf8"));
+                process.exit(info.commit === process.env.QA_EXPECTED_SHA ? 0 : 1);
+              '; then
+                ready=1
+                break
+              fi
+            fi
+            echo "Waiting for $QA_TARGET deployment of ${GITHUB_SHA:0:12} ($attempt/120)..."
+            sleep 10
+          done
+
+          if [ "$ready" = '1' ]; then
+            cp /tmp/qa-build-info.json qa-output/build-info.json
+            export QA_DEPLOYMENT_STATUS='ready'
+          else
+            export QA_DEPLOYMENT_STATUS='timeout'
+          fi
+
+          node - <<'NODE'
+          const fs = require('node:fs');
+          let buildInfo = null;
+          try {
+            buildInfo = JSON.parse(fs.readFileSync('/tmp/qa-build-info.json', 'utf8'));
+          } catch {}
+          const output = {
+            generatedAt: new Date().toISOString(),
+            status: process.env.QA_DEPLOYMENT_STATUS || 'unknown',
+            repository: process.env.QA_REPOSITORY,
+            commitSha: process.env.QA_EXPECTED_SHA,
+            ref: process.env.GITHUB_REF_NAME,
+            target: process.env.QA_TARGET,
+            baseUrl: process.env.QA_BASE_URL,
+            workflowRunId: process.env.QA_RUN_ID,
+            workflowRunAttempt: process.env.QA_RUN_ATTEMPT,
+            observedBuildInfo: buildInfo,
+          };
+          fs.writeFileSync('qa-output/deployment.json', `${JSON.stringify(output, null, 2)}\n`);
+          NODE
+
+          test "$ready" = '1'
+
+      - name: Install Playwright 1.62.1 browsers
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --no-save --package-lock=false @playwright/test@1.62.1
+          npx playwright install --with-deps chromium webkit
+
+      - name: Run CBT browser QA
+        id: browser_qa
+        env:
+          CI: 'true'
+        run: npx playwright test --config=qa/playwright.config.cjs
+
+      - name: Build combined QA report
+        if: always()
+        env:
+          QA_BROWSER_STEP_OUTCOME: ${{ steps.browser_qa.outcome }}
+        run: node qa/merge-report.cjs
+
+      - name: Upload QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cbt-browser-qa-${{ github.run_id }}-${{ github.run_attempt }}
+          path: qa-output/
+          if-no-files-found: warn
+          retention-days: 7
+          compression-level: 6
