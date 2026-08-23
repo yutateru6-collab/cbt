@@ -10,6 +10,29 @@ const baseUrl = String(process.env.QA_BASE_URL || '').replace(/\/$/, '');
 const writingSample =
   'Many students use online tools to study English because they can practice at any time and quickly review difficult points. These tools are useful for repeated practice and can make study more convenient. However, students still need to think carefully about what they read and should not depend on automatic answers for everything.';
 
+function makeSilentWav({ seconds = 3, sampleRate = 16000 } = {}) {
+  const channels = 1;
+  const bitsPerSample = 16;
+  const bytesPerSample = bitsPerSample / 8;
+  const sampleCount = Math.max(1, Math.round(seconds * sampleRate));
+  const dataSize = sampleCount * channels * bytesPerSample;
+  const buffer = Buffer.alloc(44 + dataSize);
+  buffer.write('RIFF', 0, 'ascii');
+  buffer.writeUInt32LE(36 + dataSize, 4);
+  buffer.write('WAVE', 8, 'ascii');
+  buffer.write('fmt ', 12, 'ascii');
+  buffer.writeUInt32LE(16, 16);
+  buffer.writeUInt16LE(1, 20);
+  buffer.writeUInt16LE(channels, 22);
+  buffer.writeUInt32LE(sampleRate, 24);
+  buffer.writeUInt32LE(sampleRate * channels * bytesPerSample, 28);
+  buffer.writeUInt16LE(channels * bytesPerSample, 32);
+  buffer.writeUInt16LE(bitsPerSample, 34);
+  buffer.write('data', 36, 'ascii');
+  buffer.writeUInt32LE(dataSize, 40);
+  return buffer;
+}
+
 function ensureDirectories() {
   fs.mkdirSync(partRoot, { recursive: true });
   fs.mkdirSync(screenshotRoot, { recursive: true });
@@ -203,10 +226,24 @@ test('CBT critical browser flow and visual evidence', async ({ page }, testInfo)
     consoleErrors: [],
     pageErrors: [],
     requestFailures: [],
+    stubbedAudioRequests: [],
     screenshotFiles: [],
     testPassed: false,
     failure: null,
   };
+
+  if (process.env.QA_TARGET === 'github-actions-local') {
+    const silentWav = makeSilentWav();
+    await page.route('**/audio-r2/**', async (route) => {
+      report.stubbedAudioRequests.push(route.request().url());
+      await route.fulfill({
+        status: 200,
+        contentType: 'audio/wav',
+        headers: { 'Cache-Control': 'no-store' },
+        body: silentWav,
+      });
+    });
+  }
 
   page.on('console', (message) => {
     if (message.type() !== 'error') return;
