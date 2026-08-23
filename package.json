@@ -1,7 +1,4 @@
 {
-  "scripts": {
-    "postinstall": "node scripts/apply-grade2-reading-fixes.mjs"
-  },
   "devDependencies": {
     "wrangler": "4.114.0"
   }
