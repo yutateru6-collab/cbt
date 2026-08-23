@@ -136,15 +136,25 @@ async function captureState(page, report, stateName, options = {}) {
   files.push(relativeToOutput(previewJpeg));
 
   if (options.fullPage) {
-    const fullPng = path.join(screenshotRoot, `${prefix}-full.png`);
-    await page.screenshot({
-      path: fullPng,
-      type: 'png',
-      fullPage: true,
-      scale: 'device',
-      animations: 'disabled',
+    const fullPageSafe = await page.evaluate(() => {
+      const root = document.documentElement;
+      const body = document.body;
+      const cssHeight = Math.max(root.scrollHeight, body?.scrollHeight || 0);
+      const cssWidth = Math.max(root.scrollWidth, body?.scrollWidth || 0);
+      const scale = window.devicePixelRatio || 1;
+      return cssHeight * scale <= 32000 && cssWidth * scale <= 32000;
     });
-    files.push(relativeToOutput(fullPng));
+    if (fullPageSafe) {
+      const fullPng = path.join(screenshotRoot, `${prefix}-full.png`);
+      await page.screenshot({
+        path: fullPng,
+        type: 'png',
+        fullPage: true,
+        scale: 'device',
+        animations: 'disabled',
+      });
+      files.push(relativeToOutput(fullPng));
+    }
   }
 
   if (options.detailLocator) {
