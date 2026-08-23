@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
   statuses: write
 
 jobs:
@@ -22,7 +23,39 @@ jobs:
             -H 'Cache-Control: no-cache' \
             "https://cbt.itisnowornever271.workers.dev/build-info.json?probe=$GITHUB_RUN_ID" \
             -o /tmp/build-info.json
+          echo '=== production build-info ==='
           cat /tmp/build-info.json
+
+      - name: Inspect recent production workflow runs
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          curl -fsSL \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H 'Accept: application/vnd.github+json' \
+            -H 'X-GitHub-Api-Version: 2022-11-28' \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/workflows/cbt-production.yml/runs?branch=main&per_page=5" \
+            -o /tmp/production-runs.json
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const data = JSON.parse(fs.readFileSync('/tmp/production-runs.json', 'utf8'));
+          console.log('=== recent Deploy CBT production runs ===');
+          for (const run of data.workflow_runs || []) {
+            console.log(JSON.stringify({
+              id: run.id,
+              head_sha: run.head_sha,
+              event: run.event,
+              status: run.status,
+              conclusion: run.conclusion,
+              created_at: run.created_at,
+              updated_at: run.updated_at,
+              html_url: run.html_url,
+              run_attempt: run.run_attempt,
+            }));
+          }
+          NODE
 
       - name: Publish probe status
         if: always()
