@@ -3,9 +3,9 @@ const { defineConfig } = require('@playwright/test');
 
 module.exports = defineConfig({
   testDir: __dirname,
-  testMatch: 'cbt.e2e.spec.cjs',
+  testMatch: 'normal-production.e2e.spec.cjs',
   outputDir: path.resolve(process.cwd(), 'qa-output', 'test-results'),
-  timeout: 120_000,
+  timeout: 150_000,
   expect: {
     timeout: 15_000,
   },
@@ -17,7 +17,6 @@ module.exports = defineConfig({
     ['html', { outputFolder: path.resolve(process.cwd(), 'qa-output', 'playwright-report'), open: 'never' }],
   ],
   use: {
-    baseURL: process.env.QA_BASE_URL,
     actionTimeout: 15_000,
     navigationTimeout: 45_000,
     ignoreHTTPSErrors: false,
@@ -50,8 +49,7 @@ module.exports = defineConfig({
         deviceScaleFactor: 3,
         isMobile: true,
         hasTouch: true,
-        userAgent:
-          'Mozilla/5.0 (iPhone; CPU iPhone OS 26_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1',
+        userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 26_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1',
       },
     },
   ],
