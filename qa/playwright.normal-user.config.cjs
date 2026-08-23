@@ -44,7 +44,9 @@ module.exports = defineConfig({
         browserName: 'webkit',
         viewport: { width: 393, height: 852 },
         screen: { width: 393, height: 852 },
-        deviceScaleFactor: 3,
+        // Keep the real iPhone CSS viewport while avoiding Playwright's
+        // 32,767px raster limit on very long result-page evidence.
+        deviceScaleFactor: 1,
         isMobile: true,
         hasTouch: true,
         userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 26_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1',
