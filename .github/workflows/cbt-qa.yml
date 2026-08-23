@@ -161,7 +161,7 @@ jobs:
             cancelled) state='error'; description='CBT browser QA cancelled' ;;
             *) state='failure'; description='CBT browser QA failed' ;;
           esac
-          payload="$(node -e '
+          payload="$(QA_STATUS_STATE="$state" QA_STATUS_DESCRIPTION="$description" node -e '
             const payload = {
               state: process.env.QA_STATUS_STATE,
               target_url: `https://github.com/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`,
@@ -169,7 +169,7 @@ jobs:
               context: "cbt-browser-qa",
             };
             process.stdout.write(JSON.stringify(payload));
-          ' QA_STATUS_STATE="$state" QA_STATUS_DESCRIPTION="$description")"
+          ')"
           curl -fsSL \
             -X POST \
             -H "Authorization: Bearer $GH_TOKEN" \
