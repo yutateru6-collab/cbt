@@ -3,19 +3,14 @@ const { defineConfig } = require('@playwright/test');
 
 module.exports = defineConfig({
   testDir: __dirname,
-  testMatch: 'normal-production-v2.e2e.spec.cjs',
+  testMatch: 'normal-boundaries.e2e.spec.cjs',
   outputDir: path.resolve(process.cwd(), 'qa-output', 'test-results'),
   timeout: 150_000,
-  expect: {
-    timeout: 15_000,
-  },
+  expect: { timeout: 15_000 },
   fullyParallel: false,
   workers: 1,
   retries: process.env.CI ? 1 : 0,
-  reporter: [
-    ['line'],
-    ['html', { outputFolder: path.resolve(process.cwd(), 'qa-output', 'playwright-report'), open: 'never' }],
-  ],
+  reporter: [['line']],
   use: {
     actionTimeout: 15_000,
     navigationTimeout: 45_000,
