@@ -112,4 +112,26 @@ if (!bonus.includes('8ページ直前チェックPDF')) throw new Error('bonus P
 
 await writeFile('bonus.html', bonus);
 
-console.log('Product pricing and purchaser bonus copy aligned successfully.');
+let tokusho = await readFile('tokusho.html', 'utf8');
+tokusho = replaceExact(
+  tokusho,
+  '<li><strong>1回版</strong><span>980円（税込）</span></li>',
+  '<li><strong>1回版</strong><span>480円（税込）</span></li>',
+  'tokusho single price',
+);
+if (tokusho.includes('980円（税込）')) throw new Error('tokusho.html still contains legacy single price');
+await writeFile('tokusho.html', tokusho);
+
+let terms = await readFile('terms.html', 'utf8');
+terms = replaceExact(
+  terms,
+  '<li><strong>3回プレミアム</strong><span>PC模試 第1〜3回、全問解説・台本・模範解答、ライティング・スピーキング回答型、AI振り返り、学習プラン、弱点別復習ルート、直前チェックPDF</span></li>',
+  '<li><strong>3回プレミアム</strong><span>PC模試 第1〜3回、Reading・Listening全問の詳しい解説・Listening台本、Writing模範解答、Writing・Speaking AI採点、購入者限定8ページ直前チェックPDF</span></li>',
+  'terms premium content',
+);
+for (const legacy of ['学習プラン、弱点別復習ルート', '7日仕上げ', '14日仕上げ']) {
+  if (terms.includes(legacy)) throw new Error(`terms.html still contains removed bonus copy: ${legacy}`);
+}
+await writeFile('terms.html', terms);
+
+console.log('Product pricing, legal copy, and purchaser bonus aligned successfully.');
