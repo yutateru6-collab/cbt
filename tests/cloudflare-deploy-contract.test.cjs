@@ -14,6 +14,9 @@ const examHtml = fs.readFileSync(path.join(root, "exam.html"), "utf8");
 const serviceWorker = fs.readFileSync(path.join(root, "sw-set02-v2.js"), "utf8");
 const resultTabs = fs.readFileSync(path.join(root, "grade2-result-tabs.js"), "utf8");
 const resultTabsCss = fs.readFileSync(path.join(root, "grade2-result-tabs.css"), "utf8");
+const reviewRetry = fs.readFileSync(path.join(root, "grade2-review-retry.js"), "utf8");
+const reviewRetryCss = fs.readFileSync(path.join(root, "grade2-review-retry.css"), "utf8");
+const reviewResume = fs.readFileSync(path.join(root, "grade2-review-resume.js"), "utf8");
 
 test("production R2 bindings stay unchanged", () => {
   assert.deepEqual(wrangler.r2_buckets, [
@@ -70,6 +73,20 @@ test("Worker bundle and app shell contain the tabbed result experience", () => {
   assert.match(resultTabs, /要復習/);
   assert.match(resultTabsCss, /position:\s*sticky/);
   assert.match(resultTabsCss, /@media \(max-width: 390px\)/);
+});
+
+test("Worker bundle and app shell contain tablet review, retry, and result-resume assets", () => {
+  assert.doesNotThrow(() => new vm.Script(reviewRetry));
+  assert.doesNotThrow(() => new vm.Script(reviewResume));
+  for (const file of ["grade2-review-retry.js", "grade2-review-retry.css", "grade2-review-resume.js"]) {
+    assert.ok(prepare.includes(`\"${file}\"`), `${file} must be copied into worker-dist`);
+    assert.ok(serviceWorker.includes(`\"/${file}\"`), `${file} must be cached in the app shell`);
+    assert.ok(examHtml.includes(file), `${file} must be referenced by exam.html`);
+  }
+  assert.match(reviewRetry, /初回スコアに反映されません/);
+  assert.match(reviewRetry, /4技能を最初からもう一度受験/);
+  assert.match(reviewResume, /attempt-history-v1/);
+  assert.match(reviewRetryCss, /@media \(min-width: 768px\) and \(max-width: 1180px\)/);
 });
 
 test("audio verifier fail-closes on 90 immutable sources and exactly six v2 overlays", () => {

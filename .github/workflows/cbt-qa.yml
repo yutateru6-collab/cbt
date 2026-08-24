@@ -67,6 +67,16 @@ jobs:
       - name: Install repository dependencies
         run: npm ci
 
+      - name: Validate browser QA sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check grade2-review-retry.js
+          node --check qa/device-matrix.cjs
+          node --check qa/review-retry.e2e.spec.cjs
+          node --check qa/merge-report.cjs
+          node --check qa/make-contact-sheet.cjs
+
       - name: Build exact commit assets for QA
         env:
           CBT_BUILD_SHA: ${{ github.sha }}
@@ -157,6 +167,16 @@ jobs:
         if: always()
         run: node qa/make-contact-sheet.cjs
 
+      - name: Upload QA evidence artifact
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: cbt-qa-${{ github.sha }}
+          path: qa-output/
+          if-no-files-found: warn
+          retention-days: 7
+
       - name: Save latest QA evidence to qa-latest branch
         if: always()
         shell: bash
@@ -218,11 +238,25 @@ jobs:
           QA_JOB_STATUS: ${{ job.status }}
         run: |
           set -euo pipefail
-          case "$QA_JOB_STATUS" in
-            success) state='success'; description='CBT browser QA passed' ;;
-            cancelled) state='error'; description='CBT browser QA cancelled' ;;
-            *) state='failure'; description='CBT browser QA failed' ;;
-          esac
+          report_file='qa-output/report.json'
+          if [ -f /tmp/cbt-qa-latest/report.json ]; then
+            report_file='/tmp/cbt-qa-latest/report.json'
+          fi
+          report_status='unknown'
+          if [ -f "$report_file" ]; then
+            report_status="$(REPORT_FILE="$report_file" node -e 'const fs=require("node:fs"); try { process.stdout.write(JSON.parse(fs.readFileSync(process.env.REPORT_FILE,"utf8")).status || "unknown"); } catch { process.stdout.write("unknown"); }')"
+          fi
+
+          if [ "$report_status" = 'passed' ]; then
+            state='success'
+            description='CBT browser QA passed'
+          else
+            case "$QA_JOB_STATUS" in
+              cancelled) state='error'; description='CBT browser QA cancelled before a passing report' ;;
+              *) state='failure'; description='CBT browser QA failed' ;;
+            esac
+          fi
+
           payload="$(QA_STATUS_STATE="$state" QA_STATUS_DESCRIPTION="$description" node -e '
             const payload = {
               state: process.env.QA_STATUS_STATE,

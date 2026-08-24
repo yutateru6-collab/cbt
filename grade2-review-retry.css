@@ -1,0 +1,386 @@
+.grade2-retry-actions,
+.grade2-attempt-history-head,
+.grade2-inline-practice-head,
+.grade2-inline-practice-actions,
+.grade2-writing-practice-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.grade2-retry-actions {
+  flex-wrap: wrap;
+  margin: -4px 0 18px;
+  padding: 12px 14px;
+  border: 1px solid #d7dfe3;
+  border-radius: 14px;
+  background: #f6f9fa;
+}
+
+.grade2-retry-actions button,
+.grade2-retry-actions a,
+.grade2-attempt-history button,
+.grade2-inline-practice-open,
+.grade2-inline-practice-actions button,
+.grade2-writing-practice button {
+  min-height: 42px;
+  padding: 9px 14px;
+  border: 1px solid rgba(53, 103, 118, 0.35);
+  border-radius: 11px;
+  background: #e7f1f3;
+  color: #356776;
+  font: inherit;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.grade2-inline-practice-open {
+  margin-left: auto;
+  min-height: 38px;
+  padding: 7px 11px;
+  font-size: 0.76rem;
+}
+
+.grade2-inline-practice-open.writing {
+  margin-left: 0;
+}
+
+.grade2-inline-practice,
+.grade2-writing-practice,
+.grade2-attempt-history,
+.grade2-retry-ai-banner,
+.grade2-skill-break-card {
+  border: 1px solid #d7dfe3;
+  border-radius: 17px;
+  background: #fff;
+}
+
+.grade2-inline-practice {
+  margin-top: 14px;
+  padding: 16px;
+  background: #f7fafb;
+}
+
+.grade2-inline-practice-head {
+  align-items: flex-start;
+}
+
+.grade2-inline-practice-head > span,
+.grade2-writing-practice > div > span,
+.grade2-attempt-history > p,
+.grade2-review-audio-status {
+  color: #66747d;
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.grade2-inline-practice-choices {
+  display: grid;
+  gap: 8px;
+  margin: 14px 0;
+}
+
+.grade2-inline-practice-choices button {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 46px;
+  padding: 8px 12px;
+  border: 1px solid #cfd9de;
+  border-radius: 11px;
+  background: #fff;
+  color: #243039;
+  text-align: left;
+  cursor: pointer;
+}
+
+.grade2-inline-practice-choices button.selected {
+  border-color: #356776;
+  background: #e7f1f3;
+}
+
+.grade2-inline-practice-choices b {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: #edf1f3;
+}
+
+.grade2-inline-practice-result {
+  min-height: 24px;
+  margin-top: 10px;
+  font-weight: 800;
+}
+
+.grade2-result-review-card.is-inline-practicing > .grade2-result-answer-pair,
+.grade2-result-review-card.is-inline-practicing > .grade2-result-point,
+.grade2-result-review-card.is-inline-practicing > .grade2-result-details {
+  display: none;
+}
+
+.grade2-review-audio-status {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+.grade2-writing-practice {
+  margin-top: 16px;
+  padding: 16px;
+  background: #f7fafb;
+}
+
+.grade2-writing-practice > div:first-child {
+  display: grid;
+  gap: 3px;
+}
+
+.grade2-writing-practice textarea {
+  width: 100%;
+  min-height: 220px;
+  margin-top: 12px;
+  padding: 14px;
+  border: 1px solid #bcc8ce;
+  border-radius: 12px;
+  resize: vertical;
+  font: inherit;
+  line-height: 1.7;
+}
+
+.grade2-writing-practice-foot {
+  margin-top: 10px;
+}
+
+.grade2-attempt-history {
+  margin-top: 18px;
+  padding: 20px;
+}
+
+.grade2-attempt-history-head {
+  margin-bottom: 12px;
+}
+
+.grade2-attempt-history-head span {
+  color: #356776;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.grade2-attempt-history-head h2 {
+  margin: 2px 0 0;
+  font-size: 1.25rem;
+}
+
+.grade2-attempt-history-list {
+  display: grid;
+  gap: 8px;
+}
+
+.grade2-attempt-history-list > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 9px 12px;
+  border-radius: 12px;
+  background: #f3f6f7;
+}
+
+.grade2-attempt-history-list strong {
+  font-size: 1rem;
+}
+
+.grade2-attempt-history > p {
+  margin: 12px 0 0;
+}
+
+.grade2-retry-ai-banner {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 14px;
+  padding: 14px 16px;
+  border-color: #d4bd78;
+  background: #fff9e9;
+}
+
+.grade2-retry-ai-banner strong {
+  color: #765819;
+}
+
+.grade2-open-history {
+  margin-top: -12px;
+}
+
+.grade2-skill-break {
+  display: grid;
+  place-items: center;
+  min-height: 100svh;
+  padding: 24px;
+}
+
+.grade2-skill-break-card {
+  width: min(620px, 100%);
+  padding: 32px;
+  text-align: center;
+  box-shadow: 0 18px 48px rgba(36, 48, 57, 0.1);
+}
+
+.grade2-skill-break-card > span {
+  color: #356776;
+  font-weight: 800;
+}
+
+.grade2-skill-break-card h1 {
+  margin: 8px 0 10px;
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+}
+
+.grade2-skill-break-card p {
+  margin: 0 auto 22px;
+  color: #66747d;
+  line-height: 1.75;
+}
+
+/* Tablet is a supported target. Keep the desktop-style CBT structure but
+   remove brittle fixed widths around the 768-1180px range. */
+@media (min-width: 768px) and (max-width: 1180px) {
+  body {
+    min-width: 0;
+    overflow-x: hidden;
+  }
+
+  .app-shell {
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  .module-picker {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  .exam-flow-step,
+  .module-tab,
+  .font-size-control {
+    flex: 0 0 auto;
+  }
+
+  .page-strip {
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  .listen-frame {
+    min-width: 0;
+  }
+
+  .listen-main,
+  .listen-side,
+  .content-panel,
+  .scroll-panel,
+  .writing-layout > *,
+  .long-layout > * {
+    min-width: 0;
+  }
+
+  .grade2-result-shell {
+    width: min(100% - 24px, 1080px);
+  }
+
+  .grade2-result-hero {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .grade2-result-skill-tabs button {
+    padding-inline: 9px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+  .topbar {
+    grid-template-columns: 72px minmax(0, 1fr) minmax(180px, 210px);
+    padding-inline: 10px;
+  }
+
+  .exam-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .exam-frame {
+    padding-inline: 10px;
+  }
+
+  .reading-frame.drawer-open {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 42vw);
+  }
+
+  .listen-frame {
+    grid-template-columns: minmax(0, 1fr) minmax(250px, 34vw);
+    gap: 10px;
+    padding-inline: 10px;
+  }
+
+  .listen-main {
+    padding-inline: 12px;
+  }
+
+  .grade2-result-skill-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grade2-result-skill-tabs button {
+    min-height: 66px;
+  }
+
+  .grade2-result-answer-pair {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .grade2-retry-actions,
+  .grade2-attempt-history-head,
+  .grade2-inline-practice-head,
+  .grade2-inline-practice-actions,
+  .grade2-writing-practice-foot {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .grade2-retry-actions > *,
+  .grade2-attempt-history-head > button,
+  .grade2-inline-practice-actions > * {
+    width: 100%;
+  }
+
+  .grade2-attempt-history {
+    padding: 15px;
+  }
+
+  .grade2-attempt-history-list > div {
+    grid-template-columns: 1fr auto;
+  }
+
+  .grade2-attempt-history-list > div button {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .grade2-inline-practice-open {
+    width: 100%;
+    margin: 8px 0 0;
+  }
+}

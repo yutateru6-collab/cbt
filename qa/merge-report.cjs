@@ -1,5 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
+const { expectedDeviceNames } = require('./device-matrix.cjs');
 
 const outputRoot = path.resolve(process.cwd(), 'qa-output');
 const partRoot = path.join(outputRoot, 'report-parts');
@@ -28,6 +29,9 @@ const deployment = readJson(path.join(outputRoot, 'deployment.json'));
 const devices = readParts();
 const browserOutcome = process.env.QA_BROWSER_STEP_OUTCOME || 'unknown';
 const failedDevices = devices.filter((device) => device.testPassed !== true);
+const completedDeviceNames = new Set(devices.map((device) => device.device));
+const missingDevices = expectedDeviceNames.filter((name) => !completedDeviceNames.has(name));
+const unexpectedDevices = devices.map((device) => device.device).filter((name) => !expectedDeviceNames.includes(name));
 const overflowStates = devices.flatMap((device) =>
   (device.states || [])
     .filter((state) => state.metrics?.horizontalOverflow)
@@ -46,7 +50,8 @@ const requestFailures = devices.flatMap((device) =>
 const passed =
   deployment?.status === 'ready' &&
   browserOutcome === 'success' &&
-  devices.length === 2 &&
+  missingDevices.length === 0 &&
+  unexpectedDevices.length === 0 &&
   failedDevices.length === 0 &&
   overflowStates.length === 0 &&
   consoleErrors.length === 0 &&
@@ -64,15 +69,19 @@ const report = {
   browserStepOutcome: browserOutcome,
   status: passed ? 'passed' : 'failed',
   summary: {
-    expectedDeviceCount: 2,
+    expectedDeviceCount: expectedDeviceNames.length,
     completedDeviceCount: devices.length,
     failedDeviceCount: failedDevices.length,
+    missingDeviceCount: missingDevices.length,
+    unexpectedDeviceCount: unexpectedDevices.length,
     horizontalOverflowCount: overflowStates.length,
     consoleErrorCount: consoleErrors.length,
     pageErrorCount: pageErrors.length,
     requestFailureCount: requestFailures.length,
   },
   findings: {
+    missingDevices,
+    unexpectedDevices,
     horizontalOverflow: overflowStates,
     consoleErrors,
     pageErrors,
@@ -80,9 +89,9 @@ const report = {
   },
   devices,
   limitations: [
-    'The iPhone 16 project is a Playwright WebKit emulation at 393x852 CSS px and deviceScaleFactor 3; it is not a physical iPhone.',
-    'Service workers are blocked during browser QA to avoid stale-cache flakiness; deployment asset integrity is checked separately by the existing deploy workflows.',
-    'This first automated flow verifies the speaking preflight UI but does not validate real microphone audio quality.',
+    'Tablet and iPhone projects are Playwright browser/device emulations; final microphone, rotation, hardware keyboard, and audio checks still require physical-device smoke tests.',
+    'Service workers are blocked during browser QA to avoid stale-cache flakiness; deployment asset integrity is checked separately by the deploy workflows.',
+    'The browser flow verifies the speaking preflight UI but does not validate real microphone audio quality.',
     'Network request failures are recorded as diagnostics but are not by themselves a pass/fail condition because media cancellation during deliberate navigation can be expected.',
     'Screenshot files are evidence only until an AI or human actually opens and visually reviews the images.',
   ],
