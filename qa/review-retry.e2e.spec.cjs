@@ -75,6 +75,18 @@ test('skill retry entry points are present and Speaking remains premium', async 
   await expect(page.locator('.grade2-result-shell')).toHaveCount(0);
 });
 
+test('completed result and history are restored after reload', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'desktop-1440x900', 'Reload persistence only needs one browser project.');
+  if (!baseUrl) throw new Error('QA_BASE_URL is required.');
+
+  await page.goto(makeResultUrl(), { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('.grade2-result-shell')).toBeVisible();
+  await expect(page.locator('[data-attempt-history]')).toBeVisible();
+  await page.reload({ waitUntil: 'domcontentloaded' });
+  await expect(page.locator('.grade2-result-shell')).toBeVisible();
+  await expect(page.locator('[data-attempt-history]')).toBeVisible();
+});
+
 test('1-pack keeps normal retry tools but does not expose premium Speaking retry or benefit button', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== 'desktop-1440x900', 'Plan gating only needs one browser project.');
   if (!baseUrl) throw new Error('QA_BASE_URL is required.');
