@@ -1,4 +1,4 @@
-const CACHE_NAME = "cbt-grade2-app-shell-v85-tablet-review-retry";
+const CACHE_NAME = "cbt-grade2-app-shell-v86-progress-review";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -6,6 +6,7 @@ const APP_SHELL = [
   "/styles.css",
   "/grade2-normal-user-fixes.css",
   "/grade2-review-retry.css",
+  "/grade2-progress-review.css",
   "/lp.css",
   "/app-config-grade2.js",
   "/grade2-scoring.js",
@@ -16,6 +17,7 @@ const APP_SHELL = [
   "/grade2-result-tabs.css",
   "/grade2-review-retry.js",
   "/grade2-review-resume.js",
+  "/grade2-progress-review.js",
   "/grade2-developer-score-shortcut.js",
   "/grade2-developer-score-shortcut.css",
   "/grade2-listening-persistent-audio.js",

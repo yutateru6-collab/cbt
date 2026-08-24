@@ -1,88 +1,138 @@
 # CBT GitHub Actions Browser QA
 
-この文書は `YutaTeru/cbt` の自動ブラウザQA方式を定義します。
+この文書は `yutateru6-collab/cbt` の自動ブラウザQA方式を定義します。
 
 ## 目的
 
-GitHubへ変更をpushしたあと、GitHub Actions内でそのcommitから `worker-dist` を生成し、ローカルHTTPサーバーで実際のCBT画面を起動します。その画面をPlaywrightで操作し、PC・iPhone 16相当のスクリーンショットと機械検査結果を保存します。
+GitHubへ変更をpushしたあと、GitHub Actions内で対象commitから `worker-dist` を生成し、実際のCBT画面をPlaywrightで操作します。
 
-これにより、Cloudflare stagingの重いR2音声アップロードを待たなくても「pushしたそのcommit」の画面を直接確認できます。Cloudflare本番・stagingへ正しいcommitが反映されたかどうかは、既存の `cbt-production.yml` / `cbt-staging.yml` が別途検証します。
+通常のQAでは、スクリーンショットを大量保存しません。機械検査と実操作を優先し、**成功時はスクリーンショットを保存せず、失敗時だけPlaywrightの証拠スクリーンショット／traceを残す**方針です。
 
-コードを読めたこと、Actionsが成功したこと、画像ファイルが存在することだけを「UI確認済み」とは扱いません。スクリーンショットのUI評価は、画像を実際にAIまたは人が開いて目視した後に行います。
+また、Cloudflare本番デプロイ成功後には、別の軽量production smoke workflowが本番URLを実際に開き、主要画面とListening音源を確認します。
 
 ## 自動実行
 
-`.github/workflows/cbt-qa.yml` は次で起動します。
+### `.github/workflows/cbt-qa.yml`
 
 - `main` へのpush
 - `agent/**` へのpush
-- GitHub Actionsからの手動実行
+- 手動実行
 
-QA開始時にcommitへ `cbt-browser-qa` のpending statusを付け、Actions run URLを記録します。終了時にsuccess / failureへ更新します。これにより、AI側からcommit → QA run → Job / Step → `qa-latest` へ追跡できます。
+対象commitをcheckoutし、`worker-dist` をローカルHTTP配信してPlaywright QAを実行します。
 
-## exact commitの起動方法
+### `.github/workflows/cbt-production-smoke.yml`
 
-1. GitHub Actionsが対象commitをcheckout
-2. `npm ci`
-3. `scripts/prepare-worker-assets.mjs` で `worker-dist` を生成
-4. `worker-dist/build-info.json` のcommit SHAを検証
-5. `python3 -m http.server` で `127.0.0.1:4173` に起動
-6. Playwrightがその画面へアクセス
+`Deploy CBT production` が成功したあとだけ実行します。
 
-QA用にアプリ本体の受験ロジックは変更しません。
+- 本番 `build-info.json` のcommit一致
+- 本番開始画面
+- 実際の開始ボタン
+- Speaking受験前画面
+- Reading画面
+- Readingの「ここまで答え合わせ」導線
+- Listening画面
+- Listeningの「ここまで答え合わせ」導線
+- 実R2 Listening音声のHTTP取得
+- Console Error / Page Error
+- HTTP 4xx / 5xx
+- 横overflow
 
-## Cloudflareとの役割分担
+を軽量確認します。
 
-### Browser QA
+production smokeではスクリーンショットを保存しません。
 
-- 対象: GitHubのexact commit
-- 実行場所: GitHub Actions内ローカルHTTPサーバー
-- 目的: 実画面操作、レスポンシブ、スクリーンショット、Console/Page Error、横overflow
+## 通常Browser QAの端末
 
-ローカルHTTPサーバーにはCloudflare Workerの `/audio-r2/*` 経路が存在しません。そのため **`QA_TARGET=github-actions-local` のときだけ** Playwrightが `/audio-r2/*` を3秒の無音WAVで応答します。これはListening画面・再生UI・画面遷移をブラウザQAできるようにするためのテスト専用stubです。本物の音声ファイル内容やR2ルーティングの正常性を証明するものではありません。
+`qa/device-matrix.cjs` で次を確認します。
 
-### 既存 production / staging Workflow
+- Desktop Chromium 1440×900
+- Laptop Chromium 1366×768
+- iPad WebKit 820×1180
+- iPad landscape WebKit 1180×820
+- iPad境界 WebKit 768×1024
+- Android tablet Chromium 800×1280
+- iPhone 16相当 WebKit 393×852 / deviceScaleFactor 3
 
-- 対象: Cloudflare Worker / R2
-- 目的: build-infoのcommit一致、配信ファイルSHA一致、Workerデプロイ、R2音声、Cloudflare経路
+これらは実機ではなくPlaywrightエミュレーションです。
 
-この2つを分けることで、UI確認のたびにR2音声90本以上のアップロード完了を待つ必要がありません。
+## 通常QAの主要テスト
 
-## ブラウザと画面サイズ
+`qa/playwright.config.cjs` は次を通常実行します。
 
-### PC
+- `cbt-light.e2e.spec.cjs`
+- `lp-light.e2e.spec.cjs`
+- `review-retry.e2e.spec.cjs`
+- `progress-review.e2e.spec.cjs`
 
-- Browser: Chromium
-- CSS viewport: 1440 x 900
-- deviceScaleFactor: 1
+旧 `cbt.e2e.spec.cjs` / `lp.e2e.spec.cjs` はフル画像確認用の参考実装として残していますが、通常の自動QAでは実行しません。
 
-### iPhone 16相当
+### CBT lightweight flow
 
-- Browser: WebKit
-- CSS viewport: 393 x 852
-- deviceScaleFactor: 3
-- isMobile: true
-- hasTouch: true
-- 高解像度viewport PNG: 1179 x 2556px相当
+1. 通常の有料CBT開始画面を開く
+2. 実際の「開始」を押す
+3. Speaking受験前画面を確認
+4. 開発者ナビゲーションで深い画面へ移動
+5. Readingを確認
+6. Writingへ実際に英文を入力
+7. Listeningを確認
+8. 結果画面を確認
 
-これは実機ではなくPlaywrightエミュレーションです。
+深い画面へ素早く到達する部分だけ既存developer toolbarを使います。Readingのページ送りや途中答え合わせは別テストで実ユーザー操作を確認します。
 
-## 現在の操作フロー
+### Progress review flow
 
-1. 通常モードで `exam.html?plan=three` を開く
-2. 本物の開始ボタンを押す
-3. Speaking受験前チェック画面の表示を確認
-4. 既存の `?dev=1` 開発者モードを開く
-5. Reading最初の画面へ移動
-6. Writingへ移動し、英文をキー入力する
-7. Listening最初の画面へ移動
-8. 採点・解説画面へ移動
+`qa/progress-review.e2e.spec.cjs` は以下を確認します。
 
-深い画面への移動にはアプリに既に存在する開発者ツールを使用し、QA専用の本体ロジックは追加しません。
+- Reading中に「ここまで答え合わせ」が表示される
+- 回答済み／通過済み範囲だけ表示される
+- 未来の問題を表示しない
+- 答え合わせを開閉しても `appState.answers` を変更しない
+- 閉じた後に同じ受験位置へ戻る
+- Readingを実際の「次の問題へ」で最後まで進める
+- Reading終了休憩で「この技能を答え合わせ」が表示される
+- 技能確認後も休憩画面へ戻る
+- その後Writingへ正常に進める
+
+## HTTPエラー
+
+通常QAはConsole Error / Page Errorだけでなく、`page.on('response')` でHTTPレスポンスも監視します。
+
+`status >= 400` のレスポンスが出た場合はQA失敗です。
+
+これにより、JavaScript・CSS・画像等が404/500でもブラウザ自体は開いてしまうケースを検出します。
+
+Listening画面遷移時の意図的なrequest cancellation等は `requestfailed` として診断記録しますが、それだけでは失敗扱いにしません。
+
+## スクリーンショット方針
+
+### 通常成功時
+
+スクリーンショットを保存しません。
+
+これにより、
+
+- GitHub容量
+- qa-latest容量
+- 画像生成時間
+- AIが毎回大量画像を確認する負荷
+
+を抑えます。
+
+### 失敗時
+
+Playwright設定は `screenshot: only-on-failure` / `trace: retain-on-failure` です。
+
+失敗時のみ `qa-output/screenshots/` に証拠を残します。CBT lightweight flowでは追加で `*-failure-evidence.jpg` の保存も試みます。
+
+### UIを大きく変更した場合
+
+旧フルスクリーンショットQAを手動で対象指定して利用できます。通常pushでは回しません。
+
+「Actionsが成功した」ことと「人間またはAIが見た目を目視確認した」ことは別扱いです。視覚レビューが必要な変更では、必要な画面だけ個別に撮影・確認します。
 
 ## 機械検査
 
-各主要状態で次を保存します。
+主要状態で次をreportへ保存します。
 
 - current URL
 - page title
@@ -91,50 +141,21 @@ QA用にアプリ本体の受験ロジックは変更しません。
 - document scrollWidth / scrollHeight
 - document clientWidth / clientHeight
 - horizontalOverflow
-- 画面外にはみ出している可視要素候補
+- 画面外にはみ出す可視要素候補
 - console error
 - page error
-- request failure（診断情報）
-- ローカルQAでstubした `/audio-r2/*` リクエスト
+- HTTP 4xx / 5xx
+- request failure（診断）
 - 実行した操作
-- テスト成功 / 失敗
+- test passed / failed
 
-`document.documentElement.scrollWidth > clientWidth + 1` の場合は横overflowとしてQA失敗にします。Console Error / Page Errorも失敗扱いです。
+`document.documentElement.scrollWidth > clientWidth + 1` は横overflowとして失敗扱いです。
 
-Request failureは記録しますが、Listeningから画面移動した際の意図的な音声キャンセル等があるため、それ単独では合否条件にしません。
+## qa-latest
 
-## スクリーンショット
+通常QA終了時に、最新結果だけ `qa-latest` ブランチへ保存します。
 
-各主要状態で原則次を保存します。
-
-1. `*-viewport.png`
-   - `scale: device`
-   - 細部確認用の高解像度元画像
-2. `*-ai-preview.jpg`
-   - `scale: css`
-   - quality 55
-   - AIの個別画面目視用
-3. `*-detail-crop.jpg`
-   - 必要な主要領域のみ
-   - `scale: device`
-   - quality 65
-4. `*-full.png`
-   - start / resultなど必要な状態のみ
-
-さらに `qa/make-contact-sheet.cjs` がPC用・iPhone用それぞれの主要6画面を1枚にまとめた軽量JPEGを生成します。
-
-- `contact-sheets/desktop-1440x900-contact-sheet.jpg`
-- `contact-sheets/iphone-16-393x852-contact-sheet.jpg`
-
-AIはまずcontact sheetで6画面をまとめて確認し、問題候補がある画面だけ個別preview → detail crop → 高解像度PNGの順で確認できます。
-
-テスト途中で失敗した場合も `failure-evidence` スクリーンショットの保存を試みます。
-
-## 最新QAの保存
-
-GitHub Actions Artifactは容量上限の影響を受けるため、このリポジトリでは最新QAの一次保存先を **`qa-latest` 専用ブランチ** とします。
-
-WorkflowはQA終了時に orphan commit を作り、次だけを `qa-latest` へforce pushします。
+主な内容：
 
 - `README.md`
 - `latest.json`
@@ -143,31 +164,34 @@ WorkflowはQA終了時に orphan commit を作り、次だけを `qa-latest` へ
 - `build-info.json`
 - `local-server.log`
 - `report-parts/*.json`
-- `contact-sheets/*.jpg`
-- `screenshots/*`
+- `screenshots/`（失敗時だけ実質的に生成）
 
-Playwright HTML reportやtraceなど大量の一時ファイルは `qa-latest` へ保存しません。
+`qa-latest` はorphan commit + force pushで置き換えます。mainにはforce pushしません。
 
-`qa-latest` は毎回最新結果で置き換えます。**mainや通常の開発ブランチをforce pushすることはありません。**
+## Service Worker
 
-## AI目視の手順
+通常のローカルBrowser QAでは `serviceWorkers: block` とし、古いキャッシュによるテスト不安定化を避けます。
 
-1. 対象commitの `cbt-browser-qa` statusからActions run IDを取得
-2. runのJob / Stepを確認
-3. `qa-latest/report.json` を確認
-4. `qa-latest/contact-sheets/` のPC/iPhone画像を実画像として開く
-5. 問題候補のある状態の `*-ai-preview.jpg` を開く
-6. さらに必要なら `*-detail-crop.jpg` を開く
-7. 1px級・細かい文字確認が必要な場合だけ高解像度PNGを開く
-8. 文字切れ、重なり、見切れ、余白、固定UI被り、レスポンシブ崩れ等を評価
+一方、production smokeでは `serviceWorkers: allow` とし、本番で配信されたService Workerを含む経路を確認します。
 
-画像のbase64やファイル名だけを取得した状態では「目視済み」と報告しません。
+## Listening
+
+通常のローカルQAでは `/audio-r2/*` を3秒の無音WAVでstubし、画面遷移・UI・エラー検査を高速化します。
+
+本物のListening音源はproduction smokeで実R2 URLをHTTP取得し、
+
+- 200または206
+- Content-Typeがaudio/*
+- WAVヘッダーより十分大きい実データ
+
+を確認します。
+
+音声内容そのもの、音量の聴感、実機スピーカー品質は自動QAでは保証しません。
 
 ## 現在の制約
 
-- iPhone 16はWebKitエミュレーションであり実機ではありません。
-- QAではService Workerをブロックし、古いキャッシュによる不安定化を避けます。デプロイ資産一致は既存deploy Workflow側で別途確認します。
-- Speakingは受験前UIまでを確認します。本物のマイク音質はGitHub-hosted runnerでは確認しません。
-- Browser QAはCloudflare Workerそのものではなく、同じcommitから生成した `worker-dist` をHTTP配信して確認します。Cloudflare固有の経路は既存deploy Workflowの担当です。
-- `/audio-r2/*` の無音stubはローカルBrowser QAだけで使います。本物のListening音源内容・タイミング・R2配信は別検査です。
-- スクリーンショットの視覚品質判定は、`qa-latest` の画像をAIまたは人が実画像として開いた後に行います。
+- iPhone / iPadは実機ではありません。
+- production smokeのモバイル側は軽量化のためChromium 393×852エミュレーションです。Safari固有差分は通常QAのWebKit側で確認します。
+- Speakingの本物のマイク音質はGitHub-hosted runnerでは確認しません。
+- Writing / Speakingの外部AI採点品質そのものはブラウザQAの対象外です。
+- 視覚品質はスクリーンショットを実際に開いた場合だけ「目視確認済み」と扱います。

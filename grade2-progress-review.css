@@ -1,0 +1,257 @@
+.grade2-progress-review-entry {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 10px 0;
+  padding: 10px 12px;
+  border: 1px solid rgba(64, 74, 80, 0.16);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.grade2-progress-review-entry.is-completed {
+  margin: 14px 0 8px;
+  background: #f6f8f9;
+}
+
+.grade2-progress-review-entry small {
+  color: #667178;
+  font-size: 12px;
+}
+
+.grade2-progress-review-open {
+  min-height: 44px;
+  padding: 9px 16px;
+  border: 1px solid #59646a;
+  border-radius: 999px;
+  background: #fff;
+  color: #263238;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.grade2-progress-review-open:hover,
+.grade2-progress-review-open:focus-visible {
+  background: #eef2f3;
+  outline: 3px solid rgba(64, 74, 80, 0.18);
+  outline-offset: 2px;
+}
+
+.grade2-progress-review-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10050;
+  display: grid;
+  place-items: center;
+  padding: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+  background: rgba(18, 25, 29, 0.68);
+  overflow: auto;
+}
+
+.grade2-progress-review-dialog {
+  width: min(920px, 100%);
+  max-height: min(92dvh, 980px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+}
+
+.grade2-progress-review-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px 12px;
+  border-bottom: 1px solid #e5e9eb;
+}
+
+.grade2-progress-review-head span {
+  display: block;
+  margin-bottom: 3px;
+  color: #68747a;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.grade2-progress-review-head h2 {
+  margin: 0;
+  font-size: clamp(20px, 3vw, 28px);
+  line-height: 1.25;
+}
+
+.grade2-progress-review-close {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  border: 0;
+  border-radius: 999px;
+  background: #eef1f2;
+  color: #263238;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.grade2-progress-review-summary {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 12px 20px 6px;
+}
+
+.grade2-progress-review-summary span {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #f1f4f5;
+  font-size: 13px;
+}
+
+.grade2-progress-review-note {
+  margin: 0;
+  padding: 4px 20px 12px;
+  color: #59646a;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.grade2-progress-review-list {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: 2px 20px 18px;
+}
+
+.grade2-progress-review-card {
+  margin-top: 12px;
+  padding: 15px;
+  border: 1px solid #dfe5e7;
+  border-left-width: 5px;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.grade2-progress-review-card.is-correct { border-left-color: #2f7d4a; }
+.grade2-progress-review-card.is-wrong { border-left-color: #b64a45; }
+.grade2-progress-review-card.is-unanswered { border-left-color: #8b9398; }
+
+.grade2-progress-review-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.grade2-progress-review-card-head span {
+  color: #667178;
+  font-weight: 700;
+}
+
+.grade2-progress-review-card.is-correct .grade2-progress-review-card-head strong { color: #24683c; }
+.grade2-progress-review-card.is-wrong .grade2-progress-review-card-head strong { color: #9e3632; }
+
+.grade2-progress-review-question {
+  margin: 0 0 12px;
+  line-height: 1.7;
+}
+
+.grade2-progress-review-answers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+}
+
+.grade2-progress-review-answers > div {
+  min-width: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #f5f7f8;
+}
+
+.grade2-progress-review-answers dt {
+  margin-bottom: 4px;
+  color: #68747a;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.grade2-progress-review-answers dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+  line-height: 1.55;
+}
+
+.grade2-progress-review-details {
+  margin-top: 12px;
+  border-top: 1px solid #e5e9eb;
+  padding-top: 10px;
+}
+
+.grade2-progress-review-details summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.grade2-progress-review-script {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #f5f7f8;
+}
+
+.grade2-progress-review-script p { margin: 5px 0 0; line-height: 1.65; }
+
+.grade2-progress-review-empty {
+  padding: 30px 18px;
+  text-align: center;
+  color: #59646a;
+}
+
+.grade2-progress-review-empty p { margin: 6px 0 0; }
+
+.grade2-progress-review-foot {
+  flex: 0 0 auto;
+  padding: 12px 20px calc(12px + env(safe-area-inset-bottom));
+  border-top: 1px solid #e5e9eb;
+  background: #fff;
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  .grade2-progress-review-entry {
+    align-items: stretch;
+    flex-direction: column;
+    margin: 8px 0;
+  }
+
+  .grade2-progress-review-open { width: 100%; }
+
+  .grade2-progress-review-overlay {
+    place-items: end center;
+    padding: max(8px, env(safe-area-inset-top)) 0 0;
+  }
+
+  .grade2-progress-review-dialog {
+    width: 100%;
+    max-height: calc(100dvh - max(8px, env(safe-area-inset-top)));
+    border-radius: 18px 18px 0 0;
+  }
+
+  .grade2-progress-review-head,
+  .grade2-progress-review-summary,
+  .grade2-progress-review-note,
+  .grade2-progress-review-list,
+  .grade2-progress-review-foot {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .grade2-progress-review-answers { grid-template-columns: 1fr; }
+}

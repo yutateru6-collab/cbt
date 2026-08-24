@@ -4,8 +4,8 @@ const { projects } = require('./device-matrix.cjs');
 
 module.exports = defineConfig({
   testDir: __dirname,
-  testMatch: ['cbt.e2e.spec.cjs', 'lp.e2e.spec.cjs', 'review-retry.e2e.spec.cjs'],
-  outputDir: path.resolve(process.cwd(), 'qa-output', 'test-results'),
+  testMatch: ['cbt-light.e2e.spec.cjs', 'lp-light.e2e.spec.cjs', 'review-retry.e2e.spec.cjs', 'progress-review.e2e.spec.cjs'],
+  outputDir: path.resolve(process.cwd(), 'qa-output', 'screenshots'),
   timeout: 120_000,
   expect: {
     timeout: 15_000,
@@ -27,7 +27,7 @@ module.exports = defineConfig({
     colorScheme: 'light',
     serviceWorkers: 'block',
     trace: 'retain-on-failure',
-    screenshot: 'off',
+    screenshot: 'only-on-failure',
     video: 'off',
   },
   projects,
