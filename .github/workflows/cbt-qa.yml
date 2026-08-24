@@ -238,9 +238,13 @@ jobs:
           QA_JOB_STATUS: ${{ job.status }}
         run: |
           set -euo pipefail
+          report_file='qa-output/report.json'
+          if [ -f /tmp/cbt-qa-latest/report.json ]; then
+            report_file='/tmp/cbt-qa-latest/report.json'
+          fi
           report_status='unknown'
-          if [ -f qa-output/report.json ]; then
-            report_status="$(node -e 'const fs=require("node:fs"); try { process.stdout.write(JSON.parse(fs.readFileSync("qa-output/report.json","utf8")).status || "unknown"); } catch { process.stdout.write("unknown"); }')"
+          if [ -f "$report_file" ]; then
+            report_status="$(REPORT_FILE="$report_file" node -e 'const fs=require("node:fs"); try { process.stdout.write(JSON.parse(fs.readFileSync(process.env.REPORT_FILE,"utf8")).status || "unknown"); } catch { process.stdout.write("unknown"); }')"
           fi
 
           if [ "$report_status" = 'passed' ]; then
