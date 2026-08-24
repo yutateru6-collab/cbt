@@ -2,8 +2,16 @@ const { test, expect } = require('@playwright/test');
 
 const baseUrl = String(process.env.QA_BASE_URL || '').replace(/\/$/, '');
 
-function makeResultUrl() {
-  return `${baseUrl}/exam.html?plan=three&fresh=1&dev=1&start=1&module=reading&result=1&qa=${encodeURIComponent(process.env.QA_EXPECTED_SHA || 'local')}`;
+function makeResultUrl(plan = 'three') {
+  return `${baseUrl}/exam.html?plan=${plan}&fresh=1&dev=1&start=1&module=reading&result=1&qa=${encodeURIComponent(process.env.QA_EXPECTED_SHA || 'local')}`;
+}
+
+async function expectNoHorizontalOverflow(page) {
+  const metrics = await page.evaluate(() => ({
+    scrollWidth: document.documentElement.scrollWidth,
+    clientWidth: document.documentElement.clientWidth,
+  }));
+  expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.clientWidth + 1);
 }
 
 test('individual review never rewrites the displayed original score', async ({ page }) => {
@@ -65,4 +73,34 @@ test('skill retry entry points are present and Speaking remains premium', async 
   await page.locator('[data-skill-retry="reading"]').click();
   await expect(page.locator('.reading-frame')).toBeVisible();
   await expect(page.locator('.grade2-result-shell')).toHaveCount(0);
+});
+
+test('1-pack keeps normal retry tools but does not expose premium Speaking retry or benefit button', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'desktop-1440x900', 'Plan gating only needs one browser project.');
+  if (!baseUrl) throw new Error('QA_BASE_URL is required.');
+
+  await page.goto(makeResultUrl('single'), { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('[data-skill-retry="reading"]')).toBeVisible();
+  await page.locator('[data-grade2-result-tab="writing"]').click();
+  await expect(page.locator('[data-skill-retry="writing"]')).toBeVisible();
+  await page.locator('[data-grade2-result-tab="speaking"]').click();
+  await expect(page.locator('[data-skill-retry="speaking"]')).toHaveCount(0);
+  await expect(page.locator('.grade2-retry-actions')).toContainText('3回プレミアム');
+  await expect(page.locator('.grade2-retry-actions a[href*="bonus.html"]')).toHaveCount(0);
+});
+
+test('767 768 and 769px responsive boundary never creates horizontal overflow', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'desktop-1440x900', 'Boundary sweep runs once to keep QA fast.');
+  if (!baseUrl) throw new Error('QA_BASE_URL is required.');
+
+  for (const width of [767, 768, 769]) {
+    await page.setViewportSize({ width, height: 1024 });
+    await page.goto(`${baseUrl}/exam.html?plan=three&fresh=1&mode=normal&qa=boundary-${width}`, { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('#app')).toBeVisible();
+    await expectNoHorizontalOverflow(page);
+
+    await page.goto(makeResultUrl(), { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('.grade2-result-shell')).toBeVisible();
+    await expectNoHorizontalOverflow(page);
+  }
 });
