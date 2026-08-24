@@ -105,7 +105,25 @@ bonus = replaceRegex(
   'remove weakness route',
 );
 
-for (const legacy of ['7日仕上げ', '14日仕上げ', '弱点別復習ルート', 'BENEFIT 02', 'BENEFIT 03', 'BENEFIT 04']) {
+const boundaryNote = `        <section class="boundary-note" aria-label="3回プレミアム本体と購入者特典の区分">\n          <div>\n            <span>3回プレミアム本体</span>\n            <strong>模試3回・詳しい解説・Listening台本・Writing模範解答・Writing / Speaking AI採点・結果・復習</strong>\n          </div>\n          <div>\n            <span>購入者限定特典</span>\n            <strong>8ページ直前チェックPDF</strong>\n          </div>\n          <p>AI採点は「購入者特典」ではなく、3回プレミアム本体の結果画面から使う機能です。</p>\n        </section>\n`;
+
+bonus = replaceRegex(
+  bonus,
+  /        <section class="boundary-note"[\s\S]*?<\/section>\s*\n/,
+  boundaryNote,
+  'bonus boundary note',
+);
+
+const lockedCard = `      <section class="locked-card" data-bonus-locked>\n        <span class="eyebrow">3回プレミアム購入者限定</span>\n        <h1>購入完了後のご案内から開いてください。</h1>\n        <p>このページでは、購入者限定の8ページ直前チェックPDFをダウンロードできます。</p>\n        <a class="bonus-button primary" href="./">商品ページへ戻る</a>\n      </section>\n`;
+
+bonus = replaceRegex(
+  bonus,
+  /      <section class="locked-card" data-bonus-locked>[\s\S]*?<\/section>\s*\n/,
+  lockedCard,
+  'bonus locked card',
+);
+
+for (const legacy of ['7日仕上げ', '14日仕上げ', '7日プラン', '14日プラン', '7日・14日', '弱点別復習ルート', 'BENEFIT 02', 'BENEFIT 03', 'BENEFIT 04']) {
   if (bonus.includes(legacy)) throw new Error(`bonus.html still contains removed bonus copy: ${legacy}`);
 }
 if (!bonus.includes('8ページ直前チェックPDF')) throw new Error('bonus PDF benefit is missing');
