@@ -87,6 +87,7 @@
     const keys = {};
     if (typeof getGrade2ScoredSpeakingSteps !== "function") return keys;
     for (const { index } of getGrade2ScoredSpeakingSteps()) {
+      if (!appState.speakingRecordings?.[index]) continue;
       const record = await getSpeakingRecord(index).catch(() => null);
       if (!record?.blob) continue;
       const key = `${selectedGrade}:${selectedSet.key}:history:${prefix}:${index}`;
@@ -203,6 +204,7 @@
 
   function retryScore(entry, skill) {
     if (skill === "reading" || skill === "listening") return `${entry.correct}/${entry.total}`;
+    if (!canViewBonus) return "再挑戦保存済み";
     const maximum = skill === "writing" ? 32 : 20;
     return entry.aiScore ? `${entry.aiScore.total}/${maximum}` : "AI再採点待ち";
   }
@@ -544,6 +546,8 @@
 
   async function startFullRetry() {
     await ensureAttemptSnapshot();
+    await clearFixedSpeaking();
+    appState.speakingRecordings = {};
     try { sessionStorage.setItem(FULL_RETRY_FLAG, "1"); } catch {}
     resetState();
     render();
