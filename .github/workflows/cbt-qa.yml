@@ -169,6 +169,7 @@ jobs:
 
       - name: Upload QA evidence artifact
         if: always()
+        continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
           name: cbt-qa-${{ github.sha }}
