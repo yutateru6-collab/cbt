@@ -86,7 +86,7 @@ test("Worker bundle and app shell contain tablet review, retry, and result-resum
   assert.match(reviewRetry, /初回スコアに反映されません/);
   assert.match(reviewRetry, /4技能を最初からもう一度受験/);
   assert.match(reviewResume, /attempt-history-v1/);
-  assert.match(reviewRetryCss, /@media \(min-width: 768px\) and \(max-width: 1100px\)/);
+  assert.match(reviewRetryCss, /@media \(min-width: 768px\) and \(max-width: 1180px\)/);
 });
 
 test("audio verifier fail-closes on 90 immutable sources and exactly six v2 overlays", () => {
