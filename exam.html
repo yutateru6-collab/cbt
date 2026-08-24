@@ -36,6 +36,36 @@
     <script src="./grade2-ai-grading-flow.js?v=grade2-ai-grading-flow-v82-purchaser-separation"></script>
     <script src="./grade2-result-tabs.js?v=grade2-result-tabs-v1"></script>
     <script src="./grade2-review-retry.js?v=grade2-tablet-review-retry-v1"></script>
+    <script>
+      (() => {
+        const appRoot = document.getElementById("app");
+        if (!appRoot) return;
+        let scheduled = false;
+        const guardRetryActions = () => {
+          scheduled = false;
+          for (const pane of appRoot.querySelectorAll('.grade2-result-pane[aria-label="speaking"]')) {
+            const actions = [...pane.querySelectorAll(":scope > .grade2-retry-actions")];
+            if (!actions.length) continue;
+            const keep = actions[0];
+            actions.slice(1).forEach((item) => item.remove());
+            if (!keep.querySelector("[data-skill-retry]") && !keep.querySelector("[data-retry-actions-guard]")) {
+              const marker = document.createElement("span");
+              marker.hidden = true;
+              marker.dataset.skillRetry = "";
+              marker.dataset.retryActionsGuard = "1";
+              keep.appendChild(marker);
+            }
+          }
+        };
+        const scheduleGuard = () => {
+          if (scheduled) return;
+          scheduled = true;
+          queueMicrotask(guardRetryActions);
+        };
+        new MutationObserver(scheduleGuard).observe(appRoot, { childList: true, subtree: true });
+        scheduleGuard();
+      })();
+    </script>
     <script src="./grade2-review-resume.js?v=grade2-tablet-review-retry-v1"></script>
     <script src="./grade2-developer-score-shortcut.js?v=grade2-dev-score-shortcut-v1"></script>
     <script src="./grade2-explanation-provenance-dev.js?v=grade2-canonical-explanations-20260817-v1"></script>
