@@ -115,14 +115,12 @@ function executeDeveloperShortcut({ dev }) {
   };
 }
 
-test("1. premium page keeps AI grading in the exam and exposes the four purchaser benefits", () => {
+test("1. premium page keeps AI grading in the exam and exposes the single purchaser PDF benefit", () => {
   const visible = bonusHtml.match(/<div data-bonus-content hidden>[\s\S]*?<\/div>\s*\n\s*<section class="locked-card"/u)?.[0] || "";
-  assert.equal((visible.match(/<section class="bonus-section/g) || []).length, 2);
+  assert.equal((visible.match(/<section class="bonus-section/g) || []).length, 1);
   assert.match(visible, /id="pdf"/);
-  assert.match(visible, /id="seven-days"/);
-  assert.match(visible, /id="fourteen-days"/);
-  assert.match(visible, /id="weakness-route"/);
-  assert.doesNotMatch(visible, /id="ai-grading"/);
+  assert.doesNotMatch(visible, /id="seven-days"|id="fourteen-days"|id="weakness-route"|id="ai-grading"/);
+  assert.match(visible, /8ページ直前チェックPDF/);
   assert.match(visible, /eiken-grade2-final-check-writing-template\.pdf/);
   assert.match(visible, /AI採点は「購入者特典」ではなく、3回プレミアム本体/);
 });
