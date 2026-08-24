@@ -1,3 +1,4 @@
+// Temporary branch-only migration script; removed before merge.
 import { readFile, writeFile } from 'node:fs/promises';
 
 function replaceExact(source, from, to, label) {
