@@ -167,6 +167,15 @@ jobs:
         if: always()
         run: node qa/make-contact-sheet.cjs
 
+      - name: Upload QA evidence artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cbt-qa-${{ github.sha }}
+          path: qa-output/
+          if-no-files-found: warn
+          retention-days: 7
+
       - name: Save latest QA evidence to qa-latest branch
         if: always()
         shell: bash
