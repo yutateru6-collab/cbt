@@ -131,3 +131,20 @@ test("production remains main-only and precomputes exactly six v2 overlays befor
   assert.doesNotMatch(production, /wrangler deploy --env staging/);
   assert.ok(production.indexOf("Upload exactly six Set 01 duplicate-question v2 WAVs to production R2") < production.indexOf("Deploy Worker cbt"));
 });
+
+test("production verification hashes the tablet review and result assets", () => {
+  for (const file of [
+    "grade2-result-tabs.js",
+    "grade2-result-tabs.css",
+    "grade2-normal-user-fixes.css",
+    "grade2-review-retry.js",
+    "grade2-review-retry.css",
+    "grade2-review-resume.js",
+    "support.html",
+    "sw-set02-v2.js",
+  ]) {
+    assert.ok(production.includes(file), `${file} must be verified after production deploy`);
+  }
+  assert.match(production, /node --check grade2-review-retry\.js/);
+  assert.match(production, /node --check grade2-review-resume\.js/);
+});
