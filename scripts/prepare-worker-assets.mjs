@@ -22,6 +22,7 @@ const rootFiles = [
   "grade2-result-tabs.js",
   "grade2-result-tabs.css",
   "grade2-review-retry.js",
+  "grade2-review-resume.js",
   "grade2-review-retry.css",
   "grade2-developer-score-shortcut.js",
   "grade2-developer-score-shortcut.css",
