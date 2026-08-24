@@ -1,8 +1,6 @@
 # Tablet / review-retry implementation QA — 2026-08-24
 
-Final implementation branch before merge: `agent/tablet-review-retry-20260824`
-
-Final QA candidate: `aaa1e3db88a4d4661b0b762a08b9172cfbc8f5d7`
+Implementation branch before merge: `agent/tablet-review-retry-20260824`
 
 ## Implemented
 
@@ -19,14 +17,15 @@ Final QA candidate: `aaa1e3db88a4d4661b0b762a08b9172cfbc8f5d7`
 - GitHub Actions device matrix expanded to PC, laptop, iPad portrait/landscape/768 boundary, Android tablet and iPhone.
 - 767/768/769 px breakpoint sweep.
 
-## Final browser QA
+## Browser QA acceptance rule
 
-GitHub Actions run: `32699505818`
+The merge candidate is accepted only when the latest branch SHA reports `cbt-browser-qa: success` and the generated `qa-latest/report.json` reports:
 
-- custom status: success
 - expected devices: 7
 - completed devices: 7
 - failed devices: 0
+- missing devices: 0
+- unexpected devices: 0
 - horizontal overflow: 0
 - console errors: 0
 - page errors: 0
