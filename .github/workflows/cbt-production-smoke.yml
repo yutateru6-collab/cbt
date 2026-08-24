@@ -1,0 +1,53 @@
+name: CBT production smoke
+
+on:
+  workflow_run:
+    workflows:
+      - Deploy CBT production
+    types:
+      - completed
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cbt-production-smoke
+  cancel-in-progress: true
+
+jobs:
+  smoke:
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      QA_BASE_URL: https://cbt.itisnowornever271.workers.dev
+      QA_EXPECTED_SHA: ${{ github.event.workflow_run.head_sha }}
+
+    steps:
+      - name: Check out deployed commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install repository dependencies
+        run: npm ci
+
+      - name: Validate smoke-test sources
+        run: |
+          node --check grade2-progress-review.js
+          node --check qa/production-smoke.e2e.spec.cjs
+          node --check qa/production-smoke.config.cjs
+
+      - name: Install lightweight Chromium runtime
+        run: |
+          npm install --no-save --package-lock=false @playwright/test@1.62.1
+          npx playwright install --with-deps chromium
+
+      - name: Run production smoke test
+        run: npx playwright test --config=qa/production-smoke.config.cjs
