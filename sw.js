@@ -1,29 +1,41 @@
-const CACHE_NAME = "cbt-grade2-app-shell-v82-listening-targets";
+const CACHE_NAME = "cbt-grade2-app-shell-v87-public-entry-safety";
 const APP_SHELL = [
   "/",
   "/index.html",
   "/exam.html",
   "/styles.css",
+  "/grade2-normal-user-fixes.css",
+  "/grade2-review-retry.css",
+  "/grade2-progress-review.css",
   "/lp.css",
   "/app-config-grade2.js",
   "/grade2-scoring.js",
   "/app.js",
+  "/grade2-ai-grading-flow.js",
+  "/grade2-ai-grading-flow.css",
+  "/grade2-result-tabs.js",
+  "/grade2-result-tabs.css",
+  "/grade2-review-retry.js",
+  "/grade2-review-resume.js",
+  "/grade2-progress-review.js",
+  "/grade2-developer-score-shortcut.js",
+  "/grade2-developer-score-shortcut.css",
   "/grade2-listening-persistent-audio.js",
   "/exam-data.js",
   "/grade2-set-01.js",
-  "/grade2-set-01-explanations.js",
-  "/grade2-skill-explanations.js",
   "/grade2-vocab-sets.js",
   "/grade2-speaking-sets.js",
   "/grade2-listening-part2-sets.js",
   "/grade2-listening-set01-audio-fixes.js",
   "/grade2-legacy-explanation-cleanup.js",
+  "/grade2-set-01-explanations.js",
+  "/grade2-skill-explanations.js",
   "/grade2-explanation-sync.js",
   "/grade2-canonical-explanations.js",
   "/grade2-explanation-provenance-dev.js",
   "/manifest.webmanifest",
   "/assets/app-icon.svg",
-  "/assets/grade2-speaking-examiner-photo.png",
+  "/assets/grade2-speaking-picture-story-02.png",
   "/assets/grade2-speaking-picture-story-02-anime.png",
   "/assets/grade2-speaking-picture-story-sample-anime.png",
   "/assets/grade2-speaking-picture-story-set-02-anime.png",
@@ -74,6 +86,13 @@ self.addEventListener("fetch", (event) => {
   ) return;
 
   if (request.mode === "navigate") {
+    const isPublicSampleExam =
+      url.pathname !== "/exam.html" || String(url.searchParams.get("plan") || "").toLowerCase() === "sample";
+    if (!isPublicSampleExam) {
+      event.respondWith(fetch(request));
+      return;
+    }
+
     event.respondWith(
       fetch(request)
         .then((response) => {

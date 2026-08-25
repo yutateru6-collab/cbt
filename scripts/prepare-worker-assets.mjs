@@ -96,6 +96,24 @@ const nestedFiles = [
   "tools/listening-player/player.js"
 ];
 
+const PUBLIC_LP_REPLACEMENTS = Object.freeze([
+  Object.freeze({
+    from: '<a class="button secondary" href="./exam.html?plan=single">1回版の内容を見る</a>',
+    to: '<span class="disabled-button" aria-disabled="true">販売準備中</span>',
+    label: "single paid CTA",
+  }),
+  Object.freeze({
+    from: '<a class="button primary" href="./exam.html?plan=three">3回プレミアムの内容を見る</a>',
+    to: '<span class="disabled-button" aria-disabled="true">販売準備中</span>',
+    label: "three-pack paid CTA",
+  }),
+  Object.freeze({
+    from: '              <a class="developer-entry-link" href="./exam.html?plan=three&set=set-01&dev=1&module=speaking&speakingStep=0&start=1&fresh=1">開発者用確認</a>\n',
+    to: "",
+    label: "public developer entry",
+  }),
+]);
+
 async function validateLandingPageAssetContract() {
   const referencedAssets = new Set();
   for (const sourceFile of ["index.html", "lp.css"]) {
@@ -127,6 +145,28 @@ async function validateLandingPageAssetContract() {
   }
 }
 
+async function preparePublicLandingPage() {
+  const landingPath = join(outDir, "index.html");
+  let html = await readFile(landingPath, "utf8");
+
+  for (const replacement of PUBLIC_LP_REPLACEMENTS) {
+    const occurrences = html.split(replacement.from).length - 1;
+    if (occurrences !== 1) {
+      throw new Error(`Public landing page transform expected exactly one ${replacement.label}; found ${occurrences}.`);
+    }
+    html = html.replace(replacement.from, replacement.to);
+  }
+
+  if (/exam\.html\?plan=(?:single|three)/.test(html)) {
+    throw new Error("Public landing page still exposes a paid exam URL after transformation.");
+  }
+  if (/developer-entry-link/.test(html)) {
+    throw new Error("Public landing page still exposes a developer entry link after transformation.");
+  }
+
+  await writeFile(landingPath, html, "utf8");
+}
+
 await validateLandingPageAssetContract();
 await rm(outDir, { recursive: true, force: true });
 await mkdir(join(outDir, "assets"), { recursive: true });
@@ -144,6 +184,8 @@ for (const file of nestedFiles) {
   await mkdir(dirname(destination), { recursive: true });
   await cp(join(root, file), destination);
 }
+
+await preparePublicLandingPage();
 
 const buildInfo = {
   commit: process.env.CBT_BUILD_SHA || "local",
