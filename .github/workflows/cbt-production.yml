@@ -225,7 +225,38 @@ jobs:
           console.log("build-info verified", info);
           NODE
 
+          verify_asset() {
+            file="$1"
+            local_path="worker-dist/$file"
+            test -f "$local_path"
+            local_sha="$(sha256sum "$local_path" | awk '{print $1}')"
+            matched=0
+            for attempt in {1..12}; do
+              if [ "$file" = "exam.html" ]; then
+                verify_url="$base/$file?plan=sample&verify=$stamp&attempt=$attempt"
+              else
+                verify_url="$base/$file?verify=$stamp&attempt=$attempt"
+              fi
+              if curl -fsSL --connect-timeout 10 --max-time 45 \
+                -H 'Cache-Control: no-cache' \
+                "$verify_url" \
+                -o "/tmp/prod-${file//\//_}"; then
+                prod_sha="$(sha256sum "/tmp/prod-${file//\//_}" | awk '{print $1}')"
+                if [ "$local_sha" = "$prod_sha" ]; then
+                  matched=1
+                  break
+                fi
+              fi
+              echo "Waiting for $file propagation ($attempt/12)..."
+              sleep 2
+            done
+            test "$matched" = '1'
+          }
+
           for file in \
+            index.html \
+            manifest.webmanifest \
+            sw.js \
             app-config-grade2.js \
             bonus.css \
             grade2-premium-bonus.js \
@@ -239,7 +270,6 @@ jobs:
             grade2-review-resume.js \
             exam.html \
             support.html \
-            sw-set02-v2.js \
             app.js \
             grade2-listening-part2-sets.js \
             grade2-listening-set01-audio-fixes.js \
@@ -249,23 +279,40 @@ jobs:
             grade2-explanation-sync.js \
             grade2-canonical-explanations.js \
             grade2-explanation-provenance-dev.js; do
-            local_sha="$(sha256sum "$file" | awk '{print $1}')"
-            matched=0
-            for attempt in {1..12}; do
-              if curl -fsSL --connect-timeout 10 --max-time 45 \
-                -H 'Cache-Control: no-cache' \
-                "$base/$file?verify=$stamp&attempt=$attempt" \
-                -o "/tmp/prod-${file//\//_}"; then
-                prod_sha="$(sha256sum "/tmp/prod-${file//\//_}" | awk '{print $1}')"
-                if [ "$local_sha" = "$prod_sha" ]; then
-                  matched=1
-                  break
-                fi
-              fi
-              echo "Waiting for $file propagation ($attempt/12)..."
-              sleep 2
-            done
-            test "$matched" = '1'
+            verify_asset "$file"
+          done
+
+          grep -q '販売準備中' /tmp/prod-index.html
+          if grep -Eq 'exam\.html\?plan=(single|three)|developer-entry-link' /tmp/prod-index.html; then
+            echo 'Public LP unexpectedly exposes a paid or developer exam entry.' >&2
+            exit 1
+          fi
+          node - <<'NODE'
+          const fs = require("node:fs");
+          const manifest = JSON.parse(fs.readFileSync("/tmp/prod-manifest.webmanifest", "utf8"));
+          if (manifest.start_url !== "/exam.html?plan=sample&demo=1&fresh=1") {
+            throw new Error(`Unexpected production start_url: ${manifest.start_url}`);
+          }
+          NODE
+
+          for plan in single three; do
+            headers="/tmp/prod-exam-${plan}-headers.txt"
+            status="$(curl -sS --connect-timeout 10 --max-time 45 \
+              -H 'Cache-Control: no-cache' \
+              -D "$headers" \
+              -o /dev/null \
+              -w '%{http_code}' \
+              "$base/exam.html?plan=$plan&verify=$stamp")"
+            test "$status" = '303'
+            node - "$headers" "$base/#pricing" <<'NODE'
+          const fs = require("node:fs");
+          const [headersPath, expected] = process.argv.slice(2);
+          const headers = fs.readFileSync(headersPath, "utf8");
+          const match = /^location:\s*(.+)$/im.exec(headers);
+          if (!match) throw new Error("Missing paid exam redirect Location header.");
+          const actual = new URL(match[1].trim(), expected).href;
+          if (actual !== expected) throw new Error(`Unexpected paid exam redirect: ${actual}`);
+          NODE
           done
 
           bonus_status="$(curl -sS --connect-timeout 10 --max-time 45 \
@@ -283,28 +330,12 @@ jobs:
             "$base/output/pdf/eiken-grade2-final-check-writing-template.pdf?verify=$stamp")"
           test "$pdf_status" = '303'
 
-          if [ -f tools/listening-player/index.html ]; then
+          if [ -f worker-dist/tools/listening-player/index.html ]; then
             for file in \
               tools/listening-player/index.html \
               tools/listening-player/player.js \
               tools/listening-player/player.css; do
-              local_sha="$(sha256sum "$file" | awk '{print $1}')"
-              matched=0
-              for attempt in {1..12}; do
-                if curl -fsSL --connect-timeout 10 --max-time 45 \
-                  -H 'Cache-Control: no-cache' \
-                  "$base/$file?verify=$stamp&attempt=$attempt" \
-                  -o "/tmp/prod-${file//\//_}"; then
-                  prod_sha="$(sha256sum "/tmp/prod-${file//\//_}" | awk '{print $1}')"
-                  if [ "$local_sha" = "$prod_sha" ]; then
-                    matched=1
-                    break
-                  fi
-                fi
-                echo "Waiting for $file propagation ($attempt/12)..."
-                sleep 2
-              done
-              test "$matched" = '1'
+              verify_asset "$file"
             done
           fi
 

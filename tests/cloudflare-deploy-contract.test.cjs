@@ -161,8 +161,11 @@ test("production remains main-only and precomputes exactly six v2 overlays befor
   assert.ok(production.indexOf("Upload exactly six Set 01 duplicate-question v2 WAVs to production R2") < production.indexOf("Deploy Worker cbt"));
 });
 
-test("production verification hashes the tablet review and result assets", () => {
+test("production verification compares deployed bundle assets and enforces the public exam gate", () => {
   for (const file of [
+    "index.html",
+    "manifest.webmanifest",
+    "sw.js",
     "grade2-result-tabs.js",
     "grade2-result-tabs.css",
     "grade2-normal-user-fixes.css",
@@ -170,10 +173,16 @@ test("production verification hashes the tablet review and result assets", () =>
     "grade2-review-retry.css",
     "grade2-review-resume.js",
     "support.html",
-    "sw-set02-v2.js",
   ]) {
     assert.ok(production.includes(file), `${file} must be verified after production deploy`);
   }
+  assert.match(production, /local_path="worker-dist\/\$file"/);
+  assert.match(production, /exam\.html" \]; then[\s\S]*plan=sample/);
+  assert.match(production, /for plan in single three/);
+  assert.match(production, /test "\$status" = '303'/);
+  assert.match(production, /prod-index\.html/);
+  assert.match(production, /Unexpected production start_url/);
+  assert.doesNotMatch(production, /\bsw-set02-v2\.js \\\n/);
   assert.match(production, /node --check grade2-review-retry\.js/);
   assert.match(production, /node --check grade2-review-resume\.js/);
 });
