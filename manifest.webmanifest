@@ -3,7 +3,7 @@
   "name": "2級 CBT形式4技能トレーニング",
   "short_name": "2級CBT練習",
   "description": "2級のPC・タブレット受験を中心に設計したCBT形式4技能トレーニングです。",
-  "start_url": "/exam.html?set=sample",
+  "start_url": "/exam.html?plan=sample&demo=1&fresh=1",
   "scope": "/",
   "display": "standalone",
   "orientation": "any",
