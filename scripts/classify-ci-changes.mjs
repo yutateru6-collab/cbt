@@ -16,16 +16,16 @@ const PRODUCTION_SMOKE_FILES = new Set([
 ]);
 
 const FULL_QA_FILES = new Set([
-  ".github/workflows/cbt-qa.yml",
   "qa/device-matrix.cjs",
   "qa/playwright.config.cjs",
   "qa/merge-report.cjs",
   "qa/make-contact-sheet.cjs",
-  "scripts/classify-ci-changes.mjs",
   "scripts/prepare-worker-assets.mjs",
 ]);
 
 const REPRESENTATIVE_FILES = new Set([
+  ".github/workflows/cbt-qa.yml",
+  "scripts/classify-ci-changes.mjs",
   "app-config-grade2.js",
   "app.js",
   "exam-data.js",
