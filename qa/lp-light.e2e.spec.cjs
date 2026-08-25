@@ -6,6 +6,13 @@ function isSameOriginNavigableHref(href) {
   return Boolean(href) && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:') && !/^https?:\/\//i.test(href);
 }
 
+function expectSampleExamUrl(urlString) {
+  const url = new URL(urlString);
+  expect(['/exam', '/exam.html']).toContain(url.pathname);
+  expect(url.searchParams.get('plan')).toBe('sample');
+  expect(url.searchParams.get('demo')).toBe('1');
+}
+
 test('landing page lightweight asset, layout, and public-entry QA', async ({ page, request }) => {
   if (!baseUrl) throw new Error('QA_BASE_URL is required.');
 
@@ -124,8 +131,7 @@ test('free sample CTA opens only the sample experience', async ({ page }) => {
   const sampleCta = page.getByRole('link', { name: '無料サンプルを試す' });
   await expect(sampleCta).toBeVisible();
   await sampleCta.click();
-  await expect(page).toHaveURL(/\/exam\.html\?.*plan=sample/);
-  expect(new URL(page.url()).searchParams.get('plan')).toBe('sample');
   await expect(page.locator('#app')).toBeVisible();
+  expectSampleExamUrl(page.url());
   await expect(page.locator('button[data-action="start"]').first()).toBeVisible();
 });

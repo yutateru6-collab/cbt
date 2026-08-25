@@ -3,6 +3,13 @@ const { test, expect } = require('@playwright/test');
 const baseUrl = String(process.env.QA_BASE_URL || 'https://cbt.itisnowornever271.workers.dev').replace(/\/$/, '');
 const expectedSha = String(process.env.QA_EXPECTED_SHA || '').trim();
 
+function expectSampleExamUrl(urlString) {
+  const url = new URL(urlString);
+  expect(['/exam', '/exam.html']).toContain(url.pathname);
+  expect(url.searchParams.get('plan')).toBe('sample');
+  expect(url.searchParams.get('demo')).toBe('1');
+}
+
 async function expectPaidExamRedirect(request, plan) {
   const response = await request.get(`${baseUrl}/exam.html?plan=${encodeURIComponent(plan)}&production-smoke=1`, {
     maxRedirects: 0,
@@ -51,8 +58,8 @@ test('deployed production exposes only the free sample and serves real Listening
   const sampleCta = page.getByRole('link', { name: '無料サンプルを試す' });
   await expect(sampleCta).toBeVisible();
   await sampleCta.click();
-  await expect(page).toHaveURL(/\/exam\.html\?.*plan=sample/);
   await expect(page.locator('#app')).toBeVisible();
+  expectSampleExamUrl(page.url());
   const start = page.locator('button[data-action="start"]').first();
   await expect(start).toBeVisible();
   await start.click();
