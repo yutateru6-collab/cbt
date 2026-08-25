@@ -8,8 +8,10 @@ const root = path.resolve(__dirname, "..");
 const wrangler = JSON.parse(fs.readFileSync(path.join(root, "wrangler.jsonc"), "utf8"));
 const prepare = fs.readFileSync(path.join(root, "scripts", "prepare-worker-assets.mjs"), "utf8");
 const verifier = fs.readFileSync(path.join(root, "scripts", "verify-cloudflare-listening-audio.mjs"), "utf8");
+const browserQa = fs.readFileSync(path.join(root, ".github", "workflows", "cbt-qa.yml"), "utf8");
 const staging = fs.readFileSync(path.join(root, ".github", "workflows", "cbt-staging.yml"), "utf8");
 const production = fs.readFileSync(path.join(root, ".github", "workflows", "cbt-production.yml"), "utf8");
+const productionSmoke = fs.readFileSync(path.join(root, ".github", "workflows", "cbt-production-smoke.yml"), "utf8");
 const examHtml = fs.readFileSync(path.join(root, "exam.html"), "utf8");
 const serviceWorker = fs.readFileSync(path.join(root, "sw.js"), "utf8");
 const purchaserWorker = fs.readFileSync(path.join(root, "purchaser-benefits-worker.js"), "utf8");
@@ -64,6 +66,38 @@ test("Worker build emits verifiable build metadata", () => {
   assert.match(prepare, /CBT_BUILD_SHA/);
   assert.match(prepare, /CBT_BUILD_REF/);
   assert.match(prepare, /CBT_DEPLOY_ENV/);
+});
+
+test("documentation is not shipped as a Worker runtime asset", () => {
+  assert.doesNotMatch(prepare, /"README\.md"/);
+});
+
+test("browser QA is path-filtered on agent branches and reusable by production", () => {
+  assert.match(browserQa, /branches:\s*\n\s*-\s*"agent\/\*\*"/);
+  assert.doesNotMatch(browserQa, /branches:\s*[\s\S]*?-\s*main[\s\S]*?paths:/);
+  assert.match(browserQa, /workflow_call:/);
+  assert.match(browserQa, /scripts\/classify-ci-changes\.mjs/);
+  assert.match(browserQa, /--project=desktop-1440x900/);
+  assert.match(browserQa, /--project=ipad-820x1180/);
+  assert.match(browserQa, /--project=iphone-16-393x852/);
+});
+
+test("deployment workflows use positive path allowlists", () => {
+  const stagingPush = staging.match(/push:[\s\S]*?workflow_dispatch:/)?.[0] || "";
+  const productionPush = production.match(/push:[\s\S]*?workflow_dispatch:/)?.[0] || "";
+  assert.match(stagingPush, /paths:[\s\S]*?purchaser-benefits-worker\.js/);
+  assert.match(stagingPush, /audio-generation\/\*\*/);
+  assert.doesNotMatch(stagingPush, /exam\.html/);
+  assert.match(productionPush, /paths:[\s\S]*?exam\.html/);
+  assert.doesNotMatch(productionPush, /qa\/\*\*/);
+});
+
+test("production deploy waits for reusable browser QA and smoke stays success-gated", () => {
+  assert.match(production, /browser-qa:\s*\n\s*uses:\s*\.\/\.github\/workflows\/cbt-qa\.yml/);
+  assert.match(production, /deploy:\s*\n\s*needs:\s*browser-qa/);
+  assert.match(productionSmoke, /workflow_run:[\s\S]*?workflows:\s*\n\s*-\s*"?Deploy CBT production"?/);
+  assert.match(productionSmoke, /github\.event\.workflow_run\.conclusion == 'success'/);
+  assert.match(productionSmoke, /github\.event\.workflow_run\.head_branch == 'main'/);
 });
 
 test("public Worker bundle strips paid LP entry links and developer entry", () => {
