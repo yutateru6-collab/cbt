@@ -80,6 +80,13 @@ test("browser QA is path-filtered on agent branches and reusable by production",
   assert.match(browserQa, /--project=desktop-1440x900/);
   assert.match(browserQa, /--project=ipad-820x1180/);
   assert.match(browserQa, /--project=iphone-16-393x852/);
+  const targetedBlock = browserQa.match(/targeted\)[\s\S]*?;;/)?.[0] || "";
+  assert.match(targetedBlock, /--project=desktop-1440x900/);
+  assert.match(targetedBlock, /--project=ipad-820x1180/);
+  assert.match(targetedBlock, /--project=iphone-16-393x852/);
+  assert.match(targetedBlock, /"\$\{specs\[@\]\}"/);
+  assert.match(browserQa, /git rev-parse "\$GITHUB_SHA\^"/);
+  assert.match(browserQa, /LOCAL_SCOPE" = 'representative' \] \|\| \[ "\$LOCAL_SCOPE" = 'targeted'/);
 });
 
 test("deployment workflows use positive path allowlists", () => {

@@ -131,9 +131,19 @@ jobs:
             process.stdout.write(String(event.before || ""));
           ')"
 
-          if [ -z "$before" ] || [[ "$before" =~ ^0+$ ]]; then
+          if [ -z "$before" ]; then
             node scripts/classify-ci-changes.mjs --force=full
             exit 0
+          fi
+
+          if [[ "$before" =~ ^0+$ ]]; then
+            if git cat-file -e "$GITHUB_SHA^" 2>/dev/null; then
+              before="$(git rev-parse "$GITHUB_SHA^")"
+              echo "New branch detected; comparing against first parent: $before"
+            else
+              node scripts/classify-ci-changes.mjs --force=full
+              exit 0
+            fi
           fi
 
           if ! git cat-file -e "$before^{commit}" 2>/dev/null; then
@@ -244,9 +254,15 @@ jobs:
               npx playwright test --config=qa/playwright.config.cjs --project=desktop-1440x900 --project=ipad-820x1180 --project=iphone-16-393x852
               ;;
             targeted)
+              # Test-only changes cover one representative desktop, tablet, and mobile project.
               IFS=',' read -r -a specs <<< "$LOCAL_SPECS"
               test "${#specs[@]}" -gt 0
-              npx playwright test --config=qa/playwright.config.cjs "${specs[@]}"
+              npx playwright test \
+                --config=qa/playwright.config.cjs \
+                --project=desktop-1440x900 \
+                --project=ipad-820x1180 \
+                --project=iphone-16-393x852 \
+                "${specs[@]}"
               ;;
             *)
               echo "Unexpected local QA scope: $LOCAL_SCOPE" >&2
@@ -278,7 +294,7 @@ jobs:
           LOCAL_SCOPE: ${{ steps.changes.outputs.local_scope }}
         run: |
           set -euo pipefail
-          if [ "$LOCAL_SCOPE" = 'representative' ]; then
+          if [ "$LOCAL_SCOPE" = 'representative' ] || [ "$LOCAL_SCOPE" = 'targeted' ]; then
             export QA_EXPECTED_DEVICES='desktop-1440x900,ipad-820x1180,iphone-16-393x852'
           fi
           node qa/merge-report.cjs

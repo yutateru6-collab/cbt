@@ -45,6 +45,15 @@ test("layout, responsive, Service Worker, build, and QA-matrix changes keep full
   }
 });
 
+test("QA workflow and classifier edits use the representative three-device safety net", () => {
+  for (const file of [
+    ".github/workflows/cbt-qa.yml",
+    "scripts/classify-ci-changes.mjs",
+  ]) {
+    assert.equal(classify([file]).localScope, "representative", file);
+  }
+});
+
 test("static tests and deployment workflow edits do not start browsers by themselves", () => {
   for (const file of [
     "tests/cloudflare-deploy-contract.test.cjs",
