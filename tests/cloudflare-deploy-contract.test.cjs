@@ -11,7 +11,8 @@ const verifier = fs.readFileSync(path.join(root, "scripts", "verify-cloudflare-l
 const staging = fs.readFileSync(path.join(root, ".github", "workflows", "cbt-staging.yml"), "utf8");
 const production = fs.readFileSync(path.join(root, ".github", "workflows", "cbt-production.yml"), "utf8");
 const examHtml = fs.readFileSync(path.join(root, "exam.html"), "utf8");
-const serviceWorker = fs.readFileSync(path.join(root, "sw-set02-v2.js"), "utf8");
+const serviceWorker = fs.readFileSync(path.join(root, "sw.js"), "utf8");
+const purchaserWorker = fs.readFileSync(path.join(root, "purchaser-benefits-worker.js"), "utf8");
 const resultTabs = fs.readFileSync(path.join(root, "grade2-result-tabs.js"), "utf8");
 const resultTabsCss = fs.readFileSync(path.join(root, "grade2-result-tabs.css"), "utf8");
 const reviewRetry = fs.readFileSync(path.join(root, "grade2-review-retry.js"), "utf8");
@@ -25,14 +26,25 @@ test("production R2 bindings stay unchanged", () => {
   ]);
 });
 
-test("dynamic listening and purchaser-benefit routes run through the Worker before SPA fallback", () => {
+test("dynamic listening, public exam gate, and purchaser-benefit routes run through the Worker before SPA fallback", () => {
   assert.equal(wrangler.main, "./purchaser-benefits-worker.js");
   assert.deepEqual(wrangler.assets?.run_worker_first, [
     "/audio-r2/*",
+    "/exam.html",
     "/bonus.html",
     "/output/pdf/eiken-grade2-final-check-writing-template.pdf",
   ]);
   assert.equal(wrangler.assets?.not_found_handling, "single-page-application");
+});
+
+test("public exam gate allows only the sample plan outside staging", () => {
+  assert.match(purchaserWorker, /const EXAM_PATH = "\/exam\.html"/);
+  assert.match(purchaserWorker, /const PUBLIC_SAMPLE_PLAN = "sample"/);
+  assert.match(purchaserWorker, /CBT_ENVIRONMENT/);
+  assert.match(purchaserWorker, /isStagingEnvironment\(env\)/);
+  assert.match(purchaserWorker, /plan === PUBLIC_SAMPLE_PLAN/);
+  assert.match(purchaserWorker, /status:\s*303/);
+  assert.match(purchaserWorker, /destination\.hash = "pricing"/);
 });
 
 test("staging Worker uses only staging R2 buckets", () => {
@@ -54,10 +66,27 @@ test("Worker build emits verifiable build metadata", () => {
   assert.match(prepare, /CBT_DEPLOY_ENV/);
 });
 
+test("public Worker bundle strips paid LP entry links and developer entry", () => {
+  assert.match(prepare, /single paid CTA/);
+  assert.match(prepare, /three-pack paid CTA/);
+  assert.match(prepare, /public developer entry/);
+  assert.match(prepare, /Public landing page still exposes a paid exam URL/);
+  assert.match(prepare, /Public landing page still exposes a developer entry link/);
+  assert.match(prepare, /販売準備中/);
+});
+
 test("Worker bundle contains the complete canonical explanation pipeline", () => {
   for (const file of ["grade2-legacy-explanation-cleanup.js", "grade2-set-01-explanations.js", "grade2-skill-explanations.js", "grade2-explanation-sync.js", "grade2-canonical-explanations.js"]) {
     assert.ok(prepare.includes(`\"${file}\"`), `${file} must be copied into worker-dist`);
   }
+});
+
+test("LP and exam share one current service worker", () => {
+  assert.match(examHtml, /serviceWorker\.register\("\.\/sw\.js\?v=grade2-public-entry-safety-v1"/);
+  assert.doesNotMatch(examHtml, /serviceWorker\.register\("\.\/sw-set02-v2\.js/);
+  assert.match(serviceWorker, /cbt-grade2-app-shell-v87-public-entry-safety/);
+  assert.match(serviceWorker, /url\.pathname !== "\/exam\.html"/);
+  assert.match(serviceWorker, /url\.searchParams\.get\("plan"\)/);
 });
 
 test("Worker bundle and app shell contain the tabbed result experience", () => {
