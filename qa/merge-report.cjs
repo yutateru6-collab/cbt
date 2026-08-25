@@ -2,6 +2,12 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { expectedDeviceNames } = require('./device-matrix.cjs');
 
+const selectedDeviceNames = String(process.env.QA_EXPECTED_DEVICES || '')
+  .split(',')
+  .map((name) => name.trim())
+  .filter(Boolean);
+const requiredDeviceNames = selectedDeviceNames.length ? selectedDeviceNames : expectedDeviceNames;
+
 const outputRoot = path.resolve(process.cwd(), 'qa-output');
 const partRoot = path.join(outputRoot, 'report-parts');
 
@@ -25,8 +31,8 @@ const devices = readParts();
 const browserOutcome = process.env.QA_BROWSER_STEP_OUTCOME || 'unknown';
 const failedDevices = devices.filter((device) => device.testPassed !== true);
 const completedDeviceNames = new Set(devices.map((device) => device.device));
-const missingDevices = expectedDeviceNames.filter((name) => !completedDeviceNames.has(name));
-const unexpectedDevices = devices.map((device) => device.device).filter((name) => !expectedDeviceNames.includes(name));
+const missingDevices = requiredDeviceNames.filter((name) => !completedDeviceNames.has(name));
+const unexpectedDevices = devices.map((device) => device.device).filter((name) => !requiredDeviceNames.includes(name));
 const overflowStates = devices.flatMap((device) =>
   (device.states || []).filter((state) => state.metrics?.horizontalOverflow).map((state) => ({ device: device.device, state: state.name })),
 );
@@ -66,7 +72,7 @@ const report = {
   browserStepOutcome: browserOutcome,
   status: passed ? 'passed' : 'failed',
   summary: {
-    expectedDeviceCount: expectedDeviceNames.length,
+    expectedDeviceCount: requiredDeviceNames.length,
     completedDeviceCount: devices.length,
     failedDeviceCount: failedDevices.length,
     missingDeviceCount: missingDevices.length,

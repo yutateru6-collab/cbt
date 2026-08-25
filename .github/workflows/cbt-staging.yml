@@ -4,6 +4,31 @@ on:
   push:
     branches:
       - "agent/**"
+    paths:
+      - ".github/workflows/cbt-staging.yml"
+      - "wrangler.jsonc"
+      - "package.json"
+      - "package-lock.json"
+      - "purchaser-benefits-worker.js"
+      - "purchaser-benefits-access.js"
+      - "cloudflare-worker.js"
+      - "scripts/prepare-worker-assets.mjs"
+      - "listening-audio-fix.js"
+      - "grade2-listening-*.js"
+      - "scripts/build-grade2-three-set-corrected-audio.mjs"
+      - "scripts/build-set01-duplicate-question-v2-audio.mjs"
+      - "scripts/verify-cloudflare-listening-audio.mjs"
+      - "scripts/inspect-grade2-three-set-pauses.mjs"
+      - "scripts/inspect-set01-intro-gaps.mjs"
+      - "audio-generation/**"
+      - "assets/audio/**"
+      - "audio/**"
+      - "**/*.wav"
+      - "**/*.mp3"
+      - "**/*.m4a"
+      - "**/*.aac"
+      - "**/*.ogg"
+      - "**/*.flac"
   workflow_dispatch:
 
 permissions:

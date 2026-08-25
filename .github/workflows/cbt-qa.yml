@@ -3,9 +3,51 @@ name: CBT browser QA
 on:
   push:
     branches:
-      - main
       - "agent/**"
+    paths:
+      - ".github/workflows/cbt-qa.yml"
+      - ".github/workflows/cbt-staging.yml"
+      - ".github/workflows/cbt-production.yml"
+      - ".github/workflows/cbt-production-smoke.yml"
+      - "qa/**"
+      - "tests/**"
+      - "scripts/classify-ci-changes.mjs"
+      - "scripts/prepare-worker-assets.mjs"
+      - "scripts/detect-listening-audio-change.mjs"
+      - "scripts/build-grade2-three-set-corrected-audio.mjs"
+      - "scripts/build-set01-duplicate-question-v2-audio.mjs"
+      - "scripts/verify-cloudflare-listening-audio.mjs"
+      - "scripts/inspect-grade2-three-set-pauses.mjs"
+      - "scripts/inspect-set01-intro-gaps.mjs"
+      - "scripts/remove-grade2-legacy-listening-explanations.mjs"
+      - "audio-generation/**"
+      - "assets/**"
+      - "audio/**"
+      - "output/pdf/**"
+      - "tools/listening-player/**"
+      - "*.html"
+      - "*.css"
+      - "*.js"
+      - "*.json"
+      - "*.jsonc"
+      - ".assetsignore"
+  workflow_call:
+    inputs:
+      qa_scope:
+        description: Browser QA scope selected by the caller
+        required: false
+        default: auto
+        type: string
   workflow_dispatch:
+    inputs:
+      qa_scope:
+        description: Browser QA scope
+        required: true
+        default: full
+        type: choice
+        options:
+          - full
+          - representative
 
 permissions:
   contents: write
@@ -28,6 +70,8 @@ jobs:
     steps:
       - name: Check out exact commit
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
 
       - name: Verify exact checked-out commit
         shell: bash
@@ -50,13 +94,7 @@ jobs:
             };
             process.stdout.write(JSON.stringify(payload));
           ')"
-          curl -fsSL \
-            -X POST \
-            -H "Authorization: Bearer $GH_TOKEN" \
-            -H 'Accept: application/vnd.github+json' \
-            -H 'X-GitHub-Api-Version: 2022-11-28' \
-            "https://api.github.com/repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" \
-            -d "$payload"
+          curl -fsSL -X POST -H "Authorization: Bearer $GH_TOKEN" -H 'Accept: application/vnd.github+json' -H 'X-GitHub-Api-Version: 2022-11-28' "https://api.github.com/repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" -d "$payload"
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -67,17 +105,59 @@ jobs:
       - name: Install repository dependencies
         run: npm ci
 
-      - name: Validate browser QA sources
+      - name: Classify changed files
+        id: changes
+        shell: bash
+        env:
+          REQUESTED_SCOPE: ${{ inputs.qa_scope }}
+        run: |
+          set -euo pipefail
+          requested="${REQUESTED_SCOPE:-auto}"
+          case "$requested" in
+            full|representative)
+              node scripts/classify-ci-changes.mjs --force="$requested"
+              exit 0
+              ;;
+            auto|'') ;;
+            *)
+              echo "Unsupported QA scope: $requested" >&2
+              exit 1
+              ;;
+          esac
+
+          before="$(node -e '
+            const fs = require("node:fs");
+            const event = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, "utf8"));
+            process.stdout.write(String(event.before || ""));
+          ')"
+
+          if [ -z "$before" ] || [[ "$before" =~ ^0+$ ]]; then
+            node scripts/classify-ci-changes.mjs --force=full
+            exit 0
+          fi
+
+          if ! git cat-file -e "$before^{commit}" 2>/dev/null; then
+            git fetch --no-tags --depth=1 origin "$before"
+          fi
+
+          git diff --name-only "$before" "$GITHUB_SHA" > /tmp/cbt-ci-changed-files.txt
+          echo "Changed files:"
+          cat /tmp/cbt-ci-changed-files.txt
+          node scripts/classify-ci-changes.mjs --files=/tmp/cbt-ci-changed-files.txt
+
+      - name: Validate QA and deployment routing
         shell: bash
         run: |
           set -euo pipefail
+          find qa -type f -name '*.cjs' -print0 | xargs -0 -n1 node --check
+          node --check scripts/classify-ci-changes.mjs
+          node --check scripts/prepare-worker-assets.mjs
+          node --check scripts/detect-listening-audio-change.mjs
           node --check grade2-review-retry.js
-          node --check qa/device-matrix.cjs
-          node --check qa/review-retry.e2e.spec.cjs
-          node --check qa/merge-report.cjs
-          node --check qa/make-contact-sheet.cjs
+          node --test tests/ci-change-routing.test.mjs tests/listening-audio-change-detection.test.mjs tests/listening-audio-sync-workflow.test.cjs tests/cloudflare-deploy-contract.test.cjs
 
       - name: Build exact commit assets for QA
+        if: steps.changes.outputs.local_scope != 'none'
         env:
           CBT_BUILD_SHA: ${{ github.sha }}
           CBT_BUILD_REF: ${{ github.ref_name }}
@@ -85,22 +165,18 @@ jobs:
         run: node scripts/prepare-worker-assets.mjs
 
       - name: Start exact commit QA site
+        if: steps.changes.outputs.local_scope != 'none'
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p qa-output
           base='http://127.0.0.1:4173'
-          nohup python3 -m http.server 4173 \
-            --bind 127.0.0.1 \
-            --directory worker-dist \
-            > qa-output/local-server.log 2>&1 &
+          nohup python3 -m http.server 4173 --bind 127.0.0.1 --directory worker-dist > qa-output/local-server.log 2>&1 &
           echo "$!" > qa-output/local-server.pid
 
           ready=0
           for attempt in $(seq 1 30); do
-            if curl -fsSL --connect-timeout 2 --max-time 5 \
-              "$base/build-info.json?qa=$GITHUB_RUN_ID&attempt=$attempt" \
-              -o /tmp/qa-build-info.json; then
+            if curl -fsSL --connect-timeout 2 --max-time 5 "$base/build-info.json?qa=$GITHUB_RUN_ID&attempt=$attempt" -o /tmp/qa-build-info.json; then
               if node -e '
                 const fs = require("node:fs");
                 const info = JSON.parse(fs.readFileSync("/tmp/qa-build-info.json", "utf8"));
@@ -136,18 +212,55 @@ jobs:
           fs.writeFileSync('qa-output/deployment.json', `${JSON.stringify(output, null, 2)}\n`);
           NODE
 
-      - name: Install Playwright 1.62.1 browsers
+      - name: Install required Playwright browsers
+        if: steps.changes.outputs.local_scope != 'none' || steps.changes.outputs.run_production_smoke == 'true'
         shell: bash
+        env:
+          LOCAL_SCOPE: ${{ steps.changes.outputs.local_scope }}
         run: |
           set -euo pipefail
           npm install --no-save --package-lock=false @playwright/test@1.62.1
-          npx playwright install --with-deps chromium webkit
+          if [ "$LOCAL_SCOPE" = 'none' ]; then
+            npx playwright install --with-deps chromium
+          else
+            npx playwright install --with-deps chromium webkit
+          fi
 
-      - name: Run CBT browser QA
+      - name: Run selected CBT browser QA
         id: browser_qa
+        if: steps.changes.outputs.local_scope != 'none'
+        shell: bash
         env:
           CI: 'true'
-        run: npx playwright test --config=qa/playwright.config.cjs
+          LOCAL_SCOPE: ${{ steps.changes.outputs.local_scope }}
+          LOCAL_SPECS: ${{ steps.changes.outputs.local_specs }}
+        run: |
+          set -euo pipefail
+          case "$LOCAL_SCOPE" in
+            full)
+              npx playwright test --config=qa/playwright.config.cjs
+              ;;
+            representative)
+              npx playwright test --config=qa/playwright.config.cjs --project=desktop-1440x900 --project=ipad-820x1180 --project=iphone-16-393x852
+              ;;
+            targeted)
+              IFS=',' read -r -a specs <<< "$LOCAL_SPECS"
+              test "${#specs[@]}" -gt 0
+              npx playwright test --config=qa/playwright.config.cjs "${specs[@]}"
+              ;;
+            *)
+              echo "Unexpected local QA scope: $LOCAL_SCOPE" >&2
+              exit 1
+              ;;
+          esac
+
+      - name: Check edited production smoke test against current production
+        if: steps.changes.outputs.run_production_smoke == 'true'
+        env:
+          CI: 'true'
+          QA_BASE_URL: https://cbt.itisnowornever271.workers.dev
+          QA_EXPECTED_SHA: ''
+        run: npx playwright test --config=qa/production-smoke.config.cjs
 
       - name: Stop local QA site
         if: always()
@@ -158,17 +271,24 @@ jobs:
           fi
 
       - name: Build combined QA report
-        if: always()
+        if: ${{ always() && steps.changes.outputs.run_report == 'true' && steps.browser_qa.outcome != 'skipped' }}
+        shell: bash
         env:
           QA_BROWSER_STEP_OUTCOME: ${{ steps.browser_qa.outcome }}
-        run: node qa/merge-report.cjs
+          LOCAL_SCOPE: ${{ steps.changes.outputs.local_scope }}
+        run: |
+          set -euo pipefail
+          if [ "$LOCAL_SCOPE" = 'representative' ]; then
+            export QA_EXPECTED_DEVICES='desktop-1440x900,ipad-820x1180,iphone-16-393x852'
+          fi
+          node qa/merge-report.cjs
 
       - name: Generate lightweight visual contact sheets
-        if: always()
+        if: ${{ always() && steps.changes.outputs.run_report == 'true' }}
         run: node qa/make-contact-sheet.cjs
 
       - name: Save latest QA evidence to qa-latest branch
-        if: always()
+        if: ${{ always() && steps.changes.outputs.local_scope != 'none' }}
         shell: bash
         run: |
           set -euo pipefail
@@ -228,22 +348,13 @@ jobs:
           QA_JOB_STATUS: ${{ job.status }}
         run: |
           set -euo pipefail
-          report_file='qa-output/report.json'
-          if [ -f /tmp/cbt-qa-latest/report.json ]; then
-            report_file='/tmp/cbt-qa-latest/report.json'
-          fi
-          report_status='unknown'
-          if [ -f "$report_file" ]; then
-            report_status="$(REPORT_FILE="$report_file" node -e 'const fs=require("node:fs"); try { process.stdout.write(JSON.parse(fs.readFileSync(process.env.REPORT_FILE,"utf8")).status || "unknown"); } catch { process.stdout.write("unknown"); }')"
-          fi
-
-          if [ "$report_status" = 'passed' ]; then
+          if [ "$QA_JOB_STATUS" = 'success' ]; then
             state='success'
-            description='CBT browser QA passed'
+            description='CBT browser QA checks passed'
           else
             case "$QA_JOB_STATUS" in
-              cancelled) state='error'; description='CBT browser QA cancelled before a passing report' ;;
-              *) state='failure'; description='CBT browser QA failed' ;;
+              cancelled) state='error'; description='CBT browser QA cancelled' ;;
+              *) state='failure'; description='CBT browser QA checks failed' ;;
             esac
           fi
 
@@ -256,10 +367,4 @@ jobs:
             };
             process.stdout.write(JSON.stringify(payload));
           ')"
-          curl -fsSL \
-            -X POST \
-            -H "Authorization: Bearer $GH_TOKEN" \
-            -H 'Accept: application/vnd.github+json' \
-            -H 'X-GitHub-Api-Version: 2022-11-28' \
-            "https://api.github.com/repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" \
-            -d "$payload"
+          curl -fsSL -X POST -H "Authorization: Bearer $GH_TOKEN" -H 'Accept: application/vnd.github+json' -H 'X-GitHub-Api-Version: 2022-11-28' "https://api.github.com/repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" -d "$payload"

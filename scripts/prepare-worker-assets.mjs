@@ -48,8 +48,7 @@ const rootFiles = [
   "tokusho.html",
   "manifest.webmanifest",
   "sw.js",
-  "sw-set02-v2.js",
-  "README.md"
+  "sw-set02-v2.js"
 ];
 
 const assetFiles = [
