@@ -254,6 +254,7 @@ jobs:
               npx playwright test --config=qa/playwright.config.cjs --project=desktop-1440x900 --project=ipad-820x1180 --project=iphone-16-393x852
               ;;
             targeted)
+              # Test-only changes cover one representative desktop, tablet, and mobile project.
               IFS=',' read -r -a specs <<< "$LOCAL_SPECS"
               test "${#specs[@]}" -gt 0
               npx playwright test \
