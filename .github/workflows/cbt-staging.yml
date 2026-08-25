@@ -22,6 +22,8 @@ jobs:
     steps:
       - name: Check out branch commit
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
 
       - name: Verify exact branch commit
         shell: bash
@@ -47,6 +49,37 @@ jobs:
             echo "CLOUDFLARE_ACCOUNT_ID=$OPTIONAL_ACCOUNT_ID" >> "$GITHUB_ENV"
           fi
 
+      - name: Detect whether Listening audio inputs changed
+        id: audio_changes
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+            node scripts/detect-listening-audio-change.mjs --force=workflow-dispatch
+            exit 0
+          fi
+
+          before="$(node -e '
+            const fs = require("node:fs");
+            const event = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, "utf8"));
+            process.stdout.write(String(event.before || ""));
+          ')"
+
+          if [ -z "$before" ] || [[ "$before" =~ ^0+$ ]]; then
+            node scripts/detect-listening-audio-change.mjs --force=missing-push-base
+            exit 0
+          fi
+
+          if ! git cat-file -e "$before^{commit}" 2>/dev/null; then
+            git fetch --no-tags --depth=1 origin "$before"
+          fi
+
+          git diff --name-only "$before" "$GITHUB_SHA" > /tmp/listening-audio-changed-files.txt
+          echo "Changed files:"
+          cat /tmp/listening-audio-changed-files.txt
+          node scripts/detect-listening-audio-change.mjs --files=/tmp/listening-audio-changed-files.txt
+
       - name: Validate staging deployment contract
         shell: bash
         run: |
@@ -65,44 +98,75 @@ jobs:
           node --check scripts/inspect-grade2-three-set-pauses.mjs
           node --check scripts/build-grade2-three-set-corrected-audio.mjs
           node --check scripts/build-set01-duplicate-question-v2-audio.mjs
+          node --check scripts/detect-listening-audio-change.mjs
           node scripts/remove-grade2-legacy-listening-explanations.mjs --check
           node tests/grade2-listening-audio-fix.test.cjs
           node tests/grade2-listening-three-set-audio-fix.test.cjs
           node tests/cloudflare-listening-route.test.mjs
           node --test tests/grade2-listening-player.test.cjs
           node --test tests/grade2-listening-r2-source.test.cjs
+          node --test tests/listening-audio-change-detection.test.mjs
+          node --test tests/listening-audio-sync-workflow.test.cjs
           node --test tests/cloudflare-deploy-contract.test.cjs
 
-      - name: Audit actual Set 01-03 listening pauses
-        run: node scripts/inspect-grade2-three-set-pauses.mjs
-
-      - name: Preflight real listening corrections
-        run: node scripts/verify-cloudflare-listening-audio.mjs --expected-only
-
-      - name: Build precomputed 90-file corrected release
-        env:
-          CBT_BUILD_SHA: ${{ github.sha }}
-        run: node scripts/build-grade2-three-set-corrected-audio.mjs --output-dir=/tmp/cbt-three-set-corrected
-
-      - name: Build exactly six Set 01 duplicate-question v2 WAVs
-        env:
-          CBT_BUILD_SHA: ${{ github.sha }}
-        run: node scripts/build-set01-duplicate-question-v2-audio.mjs --output-dir=/tmp/cbt-set01-duplicate-v2
-
       - name: Ensure isolated staging R2 buckets
+        id: staging_buckets
         shell: bash
         run: |
           set -euo pipefail
+          created='false'
           for bucket in mimilisten-audio-staging cbt-project-archive-staging; do
             if npx wrangler r2 bucket info "$bucket" --json >/dev/null 2>&1; then
               echo "R2 bucket exists: $bucket"
             else
               echo "Creating R2 bucket: $bucket"
               npx wrangler r2 bucket create "$bucket"
+              created='true'
             fi
           done
+          echo "created=$created" >> "$GITHUB_OUTPUT"
+
+      - name: Resolve staging Listening audio sync requirement
+        id: audio_sync
+        shell: bash
+        env:
+          AUDIO_CHANGED: ${{ steps.audio_changes.outputs.required }}
+          AUDIO_REASON: ${{ steps.audio_changes.outputs.reason }}
+          STAGING_BUCKET_CREATED: ${{ steps.staging_buckets.outputs.created }}
+        run: |
+          set -euo pipefail
+          required="${AUDIO_CHANGED:-false}"
+          reason="${AUDIO_REASON:-unknown}"
+          if [ "${STAGING_BUCKET_CREATED:-false}" = 'true' ]; then
+            required='true'
+            reason='staging-bucket-created'
+          fi
+          echo "required=$required" >> "$GITHUB_OUTPUT"
+          echo "reason=$reason" >> "$GITHUB_OUTPUT"
+          echo "Listening audio sync required: $required ($reason)"
+
+      - name: Audit actual Set 01-03 listening pauses
+        if: steps.audio_sync.outputs.required == 'true'
+        run: node scripts/inspect-grade2-three-set-pauses.mjs
+
+      - name: Preflight real listening corrections
+        if: steps.audio_sync.outputs.required == 'true'
+        run: node scripts/verify-cloudflare-listening-audio.mjs --expected-only
+
+      - name: Build precomputed 90-file corrected release
+        if: steps.audio_sync.outputs.required == 'true'
+        env:
+          CBT_BUILD_SHA: ${{ github.sha }}
+        run: node scripts/build-grade2-three-set-corrected-audio.mjs --output-dir=/tmp/cbt-three-set-corrected
+
+      - name: Build exactly six Set 01 duplicate-question v2 WAVs
+        if: steps.audio_sync.outputs.required == 'true'
+        env:
+          CBT_BUILD_SHA: ${{ github.sha }}
+        run: node scripts/build-set01-duplicate-question-v2-audio.mjs --output-dir=/tmp/cbt-set01-duplicate-v2
 
       - name: Seed legacy Set 01 sources into staging R2
+        if: steps.audio_sync.outputs.required == 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -125,6 +189,7 @@ jobs:
           done
 
       - name: Upload precomputed 90-file corrected release to staging R2
+        if: steps.audio_sync.outputs.required == 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -146,6 +211,7 @@ jobs:
           done
 
       - name: Upload exactly six Set 01 duplicate-question v2 WAVs to staging R2
+        if: steps.audio_sync.outputs.required == 'true'
         shell: bash
         run: |
           set -euo pipefail
