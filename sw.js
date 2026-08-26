@@ -1,4 +1,5 @@
 const CACHE_NAME = "cbt-grade2-app-shell-v87-public-entry-safety";
+// Runtime freshness is enforced by NETWORK_FIRST_RUNTIME_PATHS while the shared SW identity stays stable.
 const APP_SHELL = [
   "/",
   "/index.html",

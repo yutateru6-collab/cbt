@@ -113,7 +113,7 @@ test("Speaking completion keeps bulk and individual recording downloads", () => 
 });
 
 test("Service worker refreshes timing and UI runtime assets before stale cache", () => {
-  assert.ok(swSource.includes("v88-speaking-listening-accuracy"));
+  assert.ok(swSource.includes("v87-public-entry-safety"));
   for (const asset of [
     "/app.js",
     "/styles.css",
