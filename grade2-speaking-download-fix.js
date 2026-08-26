@@ -28,7 +28,7 @@
             <span>${allReady ? "Read Aloud / No.1 / No.2 / No.3 / No.4" : `未保存：${escape(missing.map(({ step }) => step.label).join("、"))}`}</span>
           </div>
           <button class="start-button compact grade2-ai-primary" type="button" data-action="grade2-speaking-download-all" ${allReady ? "" : "disabled"}>5音声をまとめてダウンロード</button>
-          <details class="grade2-ai-help">
+          <details class="grade2-ai-help" open>
             <summary>1件ずつ保存する</summary>
             <p>ブラウザが複数ファイルの保存を止める場合は、下のボタンから1件ずつ保存してください。</p>
             <div class="grade2-ai-individual-downloads">
