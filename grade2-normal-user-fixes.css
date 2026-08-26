@@ -6,6 +6,34 @@ body:not(.grade2-developer-mode) .developer-entry-link {
   display: none;
 }
 
+/* Listening answer navigation: Part 1 (No.1-15) on the left and
+   Part 2 (No.16-30) on the right on PC/tablet-width screens. */
+@media (min-width: 768px) {
+  .listen-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 10px;
+  }
+
+  .listen-section-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.listen-list-row.is-unavailable {
+  opacity: 0.42;
+}
+
+.listen-mark-placeholder {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+[data-action="grade2-speaking-download-all"] {
+  font-weight: 800;
+}
+
 @media (max-width: 767px) {
   .confirm-modal {
     width: calc(100vw - 24px);
