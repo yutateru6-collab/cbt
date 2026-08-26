@@ -1,3 +1,4 @@
+// Regression contract for the 2026-08-26 Grade 2 Speaking/Listening accuracy fix.
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
