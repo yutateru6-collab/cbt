@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import worker from "../cloudflare-worker.js";
+import worker, { GRADE2_SPEAKING_RELEASE } from "../cloudflare-worker.js";
 import {
   GRADE2_LISTENING_SET01_DUPLICATE_QUESTION_FIX_V2_RELEASE,
   GRADE2_LISTENING_THREE_SET_PAUSES_RELEASE,
@@ -25,6 +25,42 @@ function makeEnv() {
       ASSETS: { async fetch() { return new Response("asset fallback", { headers: { "Content-Type": "text/html" } }); } },
     },
   };
+}
+
+for (const relativePath of [
+  "common/sound-check.wav",
+  "instructions/speaking-start-ja.wav",
+  "instructions/listening-part1-ja.wav",
+  "sample/warmup-1.wav",
+  "sample/no-1.wav",
+  "sample/no-3.wav",
+  "sample/no-4.wav",
+]) {
+  const { env, requestedKeys } = makeEnv();
+  const url = `https://example.test/audio-r2/grade2/releases/${GRADE2_SPEAKING_RELEASE}/${relativePath}`;
+  const response = await worker.fetch(new Request(url, { headers: { Range: "bytes=0-3" } }), env);
+  assert.equal(response.status, 206, url);
+  assert.equal(response.headers.get("Content-Type"), "audio/wav", url);
+  assert.equal(response.headers.get("Content-Range"), `bytes 0-3/${expectedBody.byteLength}`, url);
+  assert.equal((await response.arrayBuffer()).byteLength, 4, url);
+  assert.equal(requestedKeys[0], `scbt/grade2/releases/${GRADE2_SPEAKING_RELEASE}/${relativePath}`, url);
+}
+
+{
+  const { env } = makeEnv();
+  env.MIMILISTEN_AUDIO.get = async () => null;
+  const url = `https://example.test/audio-r2/grade2/releases/${GRADE2_SPEAKING_RELEASE}/sample/no-1.wav`;
+  const response = await worker.fetch(new Request(url), env);
+  assert.equal(response.status, 404);
+  assert.match(await response.text(), /not found/i);
+}
+
+{
+  const { env } = makeEnv();
+  const url = `https://example.test/audio-r2/grade2/releases/${GRADE2_SPEAKING_RELEASE}/sample/unknown.wav`;
+  const response = await worker.fetch(new Request(url), env);
+  assert.equal(response.status, 404);
+  assert.match(await response.text(), /Unsupported Grade 2 speaking audio path/);
 }
 
 function makeMonoPcmWav(samples, sampleRate = 24000) {

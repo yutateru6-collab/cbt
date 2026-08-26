@@ -23,6 +23,8 @@ import {
 } from "./grade2-listening-set01-no05-duplicate-fix.js";
 
 const R2_KEY_PREFIX = "scbt/grade2/releases";
+export const GRADE2_SPEAKING_RELEASE = "20260815-gemini-speaking-kore-v5";
+const GRADE2_SPEAKING_AUDIO_PATH_PATTERN = /^(?:common\/(?:sound-check|warmup-intro|warmup-2|card-introduction|silent-reading|read-aloud|no-2-preparation|no-2|turn-card|why|why-not|section-finish)|instructions\/(?:speaking-start-ja|listening-part1-ja|listening-part2-ja)|(?:sample|set-0[1-5])\/(?:warmup-1|no-1|no-3|no-4))\.wav$/;
 const LISTENING_CORRECTIONS = Object.freeze([
   Object.freeze({
     release: GRADE2_LISTENING_SET01_NO05_DUPLICATE_FIX_RELEASE,
@@ -171,6 +173,36 @@ function getFixedListeningRequest(pathname) {
   return matchedRelease ? { error: "Unsupported listening correction path." } : null;
 }
 
+function getGrade2SpeakingAudioRequest(pathname) {
+  const routePrefix = `/audio-r2/grade2/releases/${GRADE2_SPEAKING_RELEASE}/`;
+  if (!pathname.startsWith(routePrefix)) return null;
+  const relativePath = pathname.slice(routePrefix.length);
+  if (!GRADE2_SPEAKING_AUDIO_PATH_PATTERN.test(relativePath)) {
+    return { error: "Unsupported Grade 2 speaking audio path." };
+  }
+  return {
+    key: `${R2_KEY_PREFIX}/${GRADE2_SPEAKING_RELEASE}/${relativePath}`,
+  };
+}
+
+async function handleGrade2SpeakingAudio(request, env, info) {
+  if (!env.MIMILISTEN_AUDIO) {
+    return new Response("Grade 2 speaking audio R2 binding is unavailable.", {
+      status: 503,
+      headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" },
+    });
+  }
+  const object = await env.MIMILISTEN_AUDIO.get(info.key);
+  if (!object) {
+    return new Response("Grade 2 speaking audio not found.", {
+      status: 404,
+      headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" },
+    });
+  }
+  const buffer = await object.arrayBuffer();
+  return respondWithAudioBuffer(request, buffer, object.httpEtag ? { ETag: object.httpEtag } : {});
+}
+
 async function backupCorrectedAudioIfNeeded(env, info, buffer, fixName) {
   if (!env.CBT_PROJECT_ARCHIVE) throw new Error("CBT_PROJECT_ARCHIVE R2 binding is unavailable");
   const existing = await env.CBT_PROJECT_ARCHIVE.head(info.targetKey);
@@ -255,6 +287,13 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const isReadableMethod = request.method === "GET" || request.method === "HEAD";
+    const speakingAudioRequest = getGrade2SpeakingAudioRequest(url.pathname);
+    if (speakingAudioRequest) {
+      if (!isReadableMethod) return new Response("Method not allowed.", { status: 405 });
+      if (speakingAudioRequest.error) return new Response(speakingAudioRequest.error, { status: 404 });
+      return handleGrade2SpeakingAudio(request, env, speakingAudioRequest);
+    }
+
     const fixedListeningRequest = getFixedListeningRequest(url.pathname);
     if (fixedListeningRequest) {
       if (!isReadableMethod) return new Response("Method not allowed.", { status: 405 });

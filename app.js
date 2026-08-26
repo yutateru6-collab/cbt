@@ -75,8 +75,8 @@ const selectedSetImported = isImportedSet(selectedGrade, selectedSet.key);
 const selectedGradeImported = selectedSetImported;
 const isGrade2SpeakingExperience = isGrade2Product && selectedGrade === "grade2";
 const isGrade2ContinuousExam = isGrade2SpeakingExperience;
-const GRADE2_SPEAKING_AUDIO_BASE =
-  "https://pub-6e10f4d8b90b42c79b09bec4ee876a01.r2.dev/scbt/grade2/releases/20260815-gemini-speaking-kore-v5";
+const GRADE2_SPEAKING_RELEASE = "20260815-gemini-speaking-kore-v5";
+const GRADE2_SPEAKING_AUDIO_BASE = `/audio-r2/grade2/releases/${GRADE2_SPEAKING_RELEASE}`;
 const GRADE2_LISTENING_INSTRUCTION_AUDIO = Object.freeze({
   part1: `${GRADE2_SPEAKING_AUDIO_BASE}/instructions/listening-part1-ja.wav`,
   part2: `${GRADE2_SPEAKING_AUDIO_BASE}/instructions/listening-part2-ja.wav`,

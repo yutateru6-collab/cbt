@@ -100,10 +100,15 @@ export function classifyCiChanges(files, { forceScope = "" } = {}) {
     };
   }
 
-  const runProductionSmoke = normalized.some((file) => PRODUCTION_SMOKE_FILES.has(file));
+  const productionSmokeChanged = normalized.some((file) => PRODUCTION_SMOKE_FILES.has(file));
   const targetedSpecs = normalized.filter((file) => ACTIVE_LOCAL_SPECS.has(file));
   const fullMatches = normalized.filter(isFullQaPath);
   const representativeMatches = normalized.filter(isRepresentativeQaPath);
+  // A smoke-test-only edit can safely check the currently deployed production.
+  // When runtime/build files also changed, current production is intentionally
+  // stale; the post-deploy production smoke workflow performs the valid check.
+  const runProductionSmoke =
+    productionSmokeChanged && fullMatches.length === 0 && representativeMatches.length === 0;
 
   if (fullMatches.length) {
     return {

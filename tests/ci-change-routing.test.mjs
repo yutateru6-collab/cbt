@@ -70,6 +70,16 @@ test("documentation mixed with a production smoke edit stays smoke-only", () => 
   assert.equal(result.runProductionSmoke, true);
 });
 
+test("production smoke edits wait for the post-deploy check when runtime files also changed", () => {
+  const representative = classify(["app.js", "qa/production-smoke.e2e.spec.cjs"]);
+  assert.equal(representative.localScope, "representative");
+  assert.equal(representative.runProductionSmoke, false);
+
+  const full = classify(["exam.html", "qa/production-smoke.e2e.spec.cjs"]);
+  assert.equal(full.localScope, "full");
+  assert.equal(full.runProductionSmoke, false);
+});
+
 test("mixed changes choose the safest required local scope", () => {
   assert.equal(classify(["qa/lp-light.e2e.spec.cjs", "app.js"]).localScope, "representative");
   assert.equal(classify(["app.js", "lp.css"]).localScope, "full");

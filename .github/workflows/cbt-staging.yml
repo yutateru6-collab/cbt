@@ -18,6 +18,8 @@ on:
       - "scripts/build-grade2-three-set-corrected-audio.mjs"
       - "scripts/build-set01-duplicate-question-v2-audio.mjs"
       - "scripts/verify-cloudflare-listening-audio.mjs"
+      - "scripts/sync-grade2-speaking-audio.mjs"
+      - "scripts/verify-grade2-speaking-audio.mjs"
       - "scripts/inspect-grade2-three-set-pauses.mjs"
       - "scripts/inspect-set01-intro-gaps.mjs"
       - "audio-generation/**"
@@ -119,6 +121,8 @@ jobs:
           node --check scripts/prepare-worker-assets.mjs
           node --check scripts/remove-grade2-legacy-listening-explanations.mjs
           node --check scripts/verify-cloudflare-listening-audio.mjs
+          node --check scripts/sync-grade2-speaking-audio.mjs
+          node --check scripts/verify-grade2-speaking-audio.mjs
           node --check scripts/inspect-set01-intro-gaps.mjs
           node --check scripts/inspect-grade2-three-set-pauses.mjs
           node --check scripts/build-grade2-three-set-corrected-audio.mjs
@@ -128,6 +132,7 @@ jobs:
           node tests/grade2-listening-audio-fix.test.cjs
           node tests/grade2-listening-three-set-audio-fix.test.cjs
           node tests/cloudflare-listening-route.test.mjs
+          node --test tests/grade2-speaking-content.test.cjs
           node --test tests/grade2-listening-player.test.cjs
           node --test tests/grade2-listening-r2-source.test.cjs
           node --test tests/listening-audio-change-detection.test.mjs
@@ -169,6 +174,32 @@ jobs:
           echo "required=$required" >> "$GITHUB_OUTPUT"
           echo "reason=$reason" >> "$GITHUB_OUTPUT"
           echo "Listening audio sync required: $required ($reason)"
+
+      - name: Resolve staging Speaking audio sync requirement
+        id: speaking_audio_sync
+        shell: bash
+        env:
+          STAGING_BUCKET_CREATED: ${{ steps.staging_buckets.outputs.created }}
+        run: |
+          set -euo pipefail
+          required='false'
+          reason='unchanged'
+          if [ "$GITHUB_EVENT_NAME" = 'workflow_dispatch' ]; then
+            required='true'
+            reason='workflow-dispatch'
+          elif [ "${STAGING_BUCKET_CREATED:-false}" = 'true' ]; then
+            required='true'
+            reason='staging-bucket-created'
+          elif [ ! -f /tmp/listening-audio-changed-files.txt ]; then
+            required='true'
+            reason='missing-change-list'
+          elif grep -Eq '^(audio-generation/20260815-gemini-speaking-kore-v5/(manifest|r2-verification)\.json|scripts/(generate|sync)-grade2-speaking-audio\.mjs|scripts/generate-grade2-speaking-audio\.py)$' /tmp/listening-audio-changed-files.txt; then
+            required='true'
+            reason='speaking-release-input-changed'
+          fi
+          echo "required=$required" >> "$GITHUB_OUTPUT"
+          echo "reason=$reason" >> "$GITHUB_OUTPUT"
+          echo "Speaking audio sync required: $required ($reason)"
 
       - name: Audit actual Set 01-03 listening pauses
         if: steps.audio_sync.outputs.required == 'true'
@@ -251,6 +282,10 @@ jobs:
               --cache-control 'public, max-age=31536000, immutable' \
               --remote
           done
+
+      - name: Sync verified Grade 2 speaking release to isolated staging R2
+        if: steps.speaking_audio_sync.outputs.required == 'true'
+        run: node scripts/sync-grade2-speaking-audio.mjs --buckets=mimilisten-audio-staging,cbt-project-archive-staging
 
       - name: Validate staging bundle
         env:
@@ -359,4 +394,5 @@ jobs:
           fi
 
           node scripts/verify-cloudflare-listening-audio.mjs "$base"
+          node scripts/verify-grade2-speaking-audio.mjs "$base"
           echo "STAGING_URL=$base/"
