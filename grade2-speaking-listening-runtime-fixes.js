@@ -199,6 +199,18 @@
     ].join("");
   };
 
+  const originalRenderGrade2SpeakingActions = renderGrade2SpeakingActions;
+  renderGrade2SpeakingActions = function renderGrade2SpeakingActionsWithRetry(step, status, replayRemaining) {
+    if (status === "error" && step?.autoStart) {
+      return `
+        <div class="speaking-primary-actions">
+          <button class="start-button compact" data-action="grade2-speaking-retry-prompt">質問・案内音声をもう一度再生</button>
+        </div>
+      `;
+    }
+    return originalRenderGrade2SpeakingActions(step, status, replayRemaining);
+  };
+
   function speakWithBrowserTtsStrict(text) {
     const speechText = String(text || "").trim();
     if (!speechText || !("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") {
@@ -251,6 +263,27 @@
       return;
     }
     originalHandleGrade2SpeakingFailure(error);
+  };
+
+  const originalHandleGrade2SpeakingAction = handleGrade2SpeakingAction;
+  handleGrade2SpeakingAction = async function handleGrade2SpeakingActionWithRetry(action, target) {
+    if (action !== "grade2-speaking-retry-prompt") {
+      return originalHandleGrade2SpeakingAction(action, target);
+    }
+
+    grade2SpeakingDeadline = 0;
+    grade2SpeakingActivationToken += 1;
+    if (isSpeakingRecordingActive()) await stopSpeakingRecording({ renderAfter: false });
+    appState.speakingPhaseStatus = "idle";
+    appState.speakingRecordMessage = "";
+    saveState();
+    render();
+
+    try {
+      await beginGrade2SpeakingStep({ replay: true });
+    } catch (error) {
+      handleGrade2SpeakingFailure(error);
+    }
   };
 
   startGrade2ChoiceRecording = async function startGrade2ChoiceRecordingReliable(choice) {

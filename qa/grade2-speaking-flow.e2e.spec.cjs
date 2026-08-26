@@ -139,6 +139,48 @@ test('Grade 2 Speaking early-finish path always plays No.1, No.3 and No.4 before
   }
 });
 
+test('Grade 2 Speaking prompt failure stops before recording and can be retried', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'desktop-1440x900', 'Technical prompt-failure recovery only needs one deterministic desktop run.');
+
+  await page.goto(examUrl({ plan: 'sample', set: 'sample' }), { waitUntil: 'domcontentloaded' });
+  await page.evaluate(() => {
+    window.__qaRecordingStarts = [];
+    startSpeakingRecording = async function qaStartSpeakingRecording() {
+      const step = speakingSteps[appState.speakingStep];
+      window.__qaRecordingStarts.push(step?.id || 'unknown');
+      return true;
+    };
+    stopSpeakingRecording = async function qaStopSpeakingRecording() {
+      return true;
+    };
+    isSpeakingRecordingActive = function qaIsSpeakingRecordingActive() {
+      return false;
+    };
+    speakGrade2Prompt = async function qaFailPrompt() {
+      throw new Error('Speaking prompt audio failed');
+    };
+  });
+
+  await moveSpeakingTo(page, 'no-1', 'idle');
+  await page.evaluate(async () => {
+    try {
+      await beginGrade2SpeakingStep();
+    } catch (error) {
+      handleGrade2SpeakingFailure(error);
+    }
+  });
+
+  await expect(page.locator('[data-action="grade2-speaking-retry-prompt"]')).toBeVisible();
+  expect(await page.evaluate(() => appState.speakingPhaseStatus)).toBe('error');
+  expect(await page.evaluate(() => window.__qaRecordingStarts)).toEqual([]);
+
+  await page.evaluate(() => {
+    speakGrade2Prompt = async function qaRecoverPrompt() {};
+  });
+  await page.locator('[data-action="grade2-speaking-retry-prompt"]').click();
+  await expect.poll(() => page.evaluate(() => window.__qaRecordingStarts.includes('no-1'))).toBe(true);
+});
+
 test('Grade 2 Speaking completion uses a readable one-column download layout', async ({ page }, testInfo) => {
   await page.goto(examUrl({ plan: 'sample', set: 'sample' }), { waitUntil: 'domcontentloaded' });
 
