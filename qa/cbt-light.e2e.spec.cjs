@@ -419,24 +419,14 @@ test('Grade 2 accuracy: Speaking end screen downloads an individual saved record
   await stubGrade2AccuracyAudio(page);
   await page.goto(makeAccuracyExamUrl({ plan: 'three', set: 'set-01' }), { waitUntil: 'domcontentloaded' });
 
-  const no2StepIndex = await page.evaluate(async () => {
+  const no2StepIndex = await page.evaluate(() => {
     const scoredIds = ['read-aloud', 'no-1', 'no-2', 'no-3', 'no-4'];
     for (const id of scoredIds) {
       const stepIndex = speakingSteps.findIndex((step) => step.id === id);
       const blob = new Blob([`qa-${id}`], { type: 'audio/webm' });
       const createdAt = new Date().toISOString();
       const fileName = buildSpeakingRecordingFileName(stepIndex, blob.type);
-      await putSpeakingRecord({
-        key: getSpeakingRecordingKey(stepIndex),
-        grade: selectedGrade,
-        setKey: selectedSet.key,
-        stepIndex,
-        fileName,
-        type: blob.type,
-        size: blob.size,
-        createdAt,
-        blob,
-      });
+      speakingRecordingUrls[stepIndex] = URL.createObjectURL(blob);
       appState.speakingRecordings[stepIndex] = { fileName, type: blob.type, size: blob.size, createdAt };
     }
     appState.started = true;
