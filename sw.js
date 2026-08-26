@@ -14,6 +14,7 @@ const APP_SHELL = [
   "/app.js",
   "/grade2-speaking-listening-runtime-fixes.js",
   "/grade2-ai-grading-flow.js",
+  "/grade2-speaking-download-fix.js",
   "/grade2-ai-grading-flow.css",
   "/grade2-result-tabs.js",
   "/grade2-result-tabs.css",
@@ -65,6 +66,7 @@ const NETWORK_FIRST_RUNTIME_PATHS = new Set([
   "/grade2-speaking-sets.js",
   "/grade2-speaking-data-fixes.js",
   "/grade2-speaking-listening-runtime-fixes.js",
+  "/grade2-speaking-download-fix.js",
   "/grade2-listening-persistent-audio.js",
   "/exam-data.js",
 ]);
