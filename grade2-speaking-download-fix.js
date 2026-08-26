@@ -1,6 +1,7 @@
 (() => {
   "use strict";
 
+  // Keep this late override after the AI grading flow so Speaking-end downloads remain visible.
   if (typeof window.renderGrade2SpeakingReviewV2 !== "function") return;
 
   function escape(value) {
