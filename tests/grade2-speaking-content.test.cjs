@@ -9,6 +9,33 @@ const source = fs.readFileSync(path.join(root, "grade2-speaking-sets.js"), "utf8
 const context = { window: {} };
 vm.runInNewContext(source, context, { filename: "grade2-speaking-sets.js" });
 const sets = context.window.scbtGrade2SpeakingSets;
+const appSource = fs.readFileSync(path.join(root, "app.js"), "utf8");
+const speakingManifest = JSON.parse(
+  fs.readFileSync(
+    path.join(root, "audio-generation", "20260815-gemini-speaking-kore-v5", "manifest.json"),
+    "utf8",
+  ),
+);
+
+test("speaking audio stays on the Worker origin and the sample release is complete", () => {
+  assert.match(
+    appSource,
+    /const GRADE2_SPEAKING_AUDIO_BASE = `\/audio-r2\/grade2\/releases\/\$\{GRADE2_SPEAKING_RELEASE\}`;/,
+  );
+  assert.doesNotMatch(appSource, /GRADE2_SPEAKING_AUDIO_BASE\s*=\s*["']https:\/\//);
+
+  const ids = new Set(speakingManifest.items.map((item) => item.id));
+  for (const id of [
+    "common/sound-check",
+    "instructions/speaking-start-ja",
+    "sample/warmup-1",
+    "sample/no-1",
+    "sample/no-3",
+    "sample/no-4",
+  ]) {
+    assert.ok(ids.has(id), `missing generated speaking audio: ${id}`);
+  }
+});
 
 test("all six speaking sets have the required No.2 storyboard structure", () => {
   assert.deepEqual(

@@ -20,7 +20,7 @@ async function expectPaidExamRedirect(request, plan) {
   expect(new URL(location, `${baseUrl}/`).href).toBe(`${baseUrl}/#pricing`);
 }
 
-test('deployed production exposes only the free sample and serves real Listening audio', async ({ page, request }) => {
+test('deployed production exposes only the free sample and serves real Speaking and Listening audio', async ({ page, request }) => {
   const consoleErrors = [];
   const pageErrors = [];
   const httpErrors = [];
@@ -64,6 +64,17 @@ test('deployed production exposes only the free sample and serves real Listening
   await expect(start).toBeVisible();
   await start.click();
   await expect(page.locator('.grade2-speaking-flow')).toBeVisible();
+
+  await page.locator('button[data-action="grade2-speaking-next"]').click();
+  await expect(page.getByText('受験前チェック 2/5', { exact: true })).toBeVisible();
+  const speakingAudioResponsePromise = page.waitForResponse((response) =>
+    response.url().includes('/audio-r2/grade2/releases/20260815-gemini-speaking-kore-v5/common/sound-check.wav'),
+  );
+  await page.getByRole('button', { name: '確認音声を再生' }).click();
+  const speakingAudioResponse = await speakingAudioResponsePromise;
+  expect(new URL(speakingAudioResponse.url()).origin).toBe(baseUrl);
+  expect([200, 206]).toContain(speakingAudioResponse.status());
+  expect(String(speakingAudioResponse.headers()['content-type'] || '')).toMatch(/^audio\//i);
 
   await page.goto(`${baseUrl}/exam.html?plan=sample&demo=1&fresh=1&dev=1&start=1&module=reading&question=1&production-smoke=1`, { waitUntil: 'domcontentloaded' });
   await expect(page.locator('.reading-frame')).toBeVisible();

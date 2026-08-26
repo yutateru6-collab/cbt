@@ -155,6 +155,7 @@ jobs:
           node --check scripts/prepare-worker-assets.mjs
           node --check scripts/remove-grade2-legacy-listening-explanations.mjs
           node --check scripts/verify-cloudflare-listening-audio.mjs
+          node --check scripts/verify-grade2-speaking-audio.mjs
           node --check scripts/build-grade2-three-set-corrected-audio.mjs
           node --check scripts/build-set01-duplicate-question-v2-audio.mjs
           node --check scripts/detect-listening-audio-change.mjs
@@ -162,6 +163,7 @@ jobs:
           node tests/grade2-listening-audio-fix.test.cjs
           node tests/grade2-listening-three-set-audio-fix.test.cjs
           node tests/cloudflare-listening-route.test.mjs
+          node --test tests/grade2-speaking-content.test.cjs
           if [ -f tests/grade2-listening-player.test.cjs ]; then
             node --test tests/grade2-listening-player.test.cjs
           fi
@@ -394,4 +396,5 @@ jobs:
           fi
 
           node scripts/verify-cloudflare-listening-audio.mjs "$base"
+          node scripts/verify-grade2-speaking-audio.mjs "$base"
           echo "PRODUCTION_URL=$base/"
