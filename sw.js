@@ -1,4 +1,4 @@
-const CACHE_NAME = "cbt-grade2-app-shell-v87-public-entry-safety";
+const CACHE_NAME = "cbt-grade2-app-shell-v88-speaking-listening-accuracy";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -11,6 +11,7 @@ const APP_SHELL = [
   "/app-config-grade2.js",
   "/grade2-scoring.js",
   "/app.js",
+  "/grade2-speaking-listening-runtime-fixes.js",
   "/grade2-ai-grading-flow.js",
   "/grade2-ai-grading-flow.css",
   "/grade2-result-tabs.js",
@@ -25,6 +26,7 @@ const APP_SHELL = [
   "/grade2-set-01.js",
   "/grade2-vocab-sets.js",
   "/grade2-speaking-sets.js",
+  "/grade2-speaking-data-fixes.js",
   "/grade2-listening-part2-sets.js",
   "/grade2-listening-set01-audio-fixes.js",
   "/grade2-legacy-explanation-cleanup.js",
@@ -54,6 +56,18 @@ const APP_SHELL = [
   "/assets/grade2-speaking-picture-story-set-05-v3.png",
 ];
 
+const NETWORK_FIRST_RUNTIME_PATHS = new Set([
+  "/exam.html",
+  "/app.js",
+  "/styles.css",
+  "/grade2-normal-user-fixes.css",
+  "/grade2-speaking-sets.js",
+  "/grade2-speaking-data-fixes.js",
+  "/grade2-speaking-listening-runtime-fixes.js",
+  "/grade2-listening-persistent-audio.js",
+  "/exam-data.js",
+]);
+
 self.addEventListener("install", (event) => {
   self.skipWaiting();
   event.waitUntil(
@@ -73,6 +87,17 @@ self.addEventListener("activate", (event) => {
   );
 });
 
+function fetchAndRefreshRuntime(request) {
+  return fetch(request)
+    .then((response) => {
+      if (response && response.status === 200 && response.type === "basic") {
+        caches.open(CACHE_NAME).then((cache) => cache.put(request, response.clone()));
+      }
+      return response;
+    })
+    .catch(() => caches.match(request));
+}
+
 self.addEventListener("fetch", (event) => {
   const request = event.request;
   const url = new URL(request.url);
@@ -89,7 +114,7 @@ self.addEventListener("fetch", (event) => {
     const isPublicSampleExam =
       url.pathname !== "/exam.html" || String(url.searchParams.get("plan") || "").toLowerCase() === "sample";
     if (!isPublicSampleExam) {
-      event.respondWith(fetch(request));
+      event.respondWith(fetchAndRefreshRuntime(request));
       return;
     }
 
@@ -103,6 +128,11 @@ self.addEventListener("fetch", (event) => {
         })
         .catch(() => caches.match(request).then((cached) => cached || caches.match("/exam.html")))
     );
+    return;
+  }
+
+  if (NETWORK_FIRST_RUNTIME_PATHS.has(url.pathname)) {
+    event.respondWith(fetchAndRefreshRuntime(request));
     return;
   }
 
