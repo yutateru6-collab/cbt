@@ -19,6 +19,7 @@ const rootFiles = [
   "app.js",
   "grade2-speaking-listening-runtime-fixes.js",
   "grade2-ai-grading-flow.js",
+  "grade2-speaking-download-fix.js",
   "grade2-ai-grading-flow.css",
   "grade2-result-tabs.js",
   "grade2-result-tabs.css",
