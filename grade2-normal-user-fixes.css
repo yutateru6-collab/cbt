@@ -34,6 +34,38 @@ body:not(.grade2-developer-mode) .developer-entry-link {
   font-weight: 800;
 }
 
+/* Speaking completion should use the whole content width. The examiner/card
+   stage is no longer useful after the final response, and keeping the normal
+   two-column layout squeezed the recording-download card into a narrow rail. */
+.grade2-speaking-body.is-review {
+  grid-template-columns: minmax(0, 1fr) !important;
+  width: min(1000px, 100%);
+  margin-inline: auto;
+}
+
+.grade2-speaking-body.is-review .grade2-speaking-stage {
+  display: none !important;
+}
+
+.grade2-speaking-body.is-review .grade2-speaking-panel {
+  width: 100%;
+  min-width: 0;
+  max-width: 1000px;
+  min-height: 0;
+  margin-inline: auto;
+}
+
+.grade2-speaking-end-downloads {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.grade2-speaking-end-downloads .grade2-ai-step-body {
+  min-width: 0;
+  width: 100%;
+}
+
 @media (max-width: 767px) {
   .confirm-modal {
     width: calc(100vw - 24px);

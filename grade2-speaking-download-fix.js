@@ -19,7 +19,7 @@
     const allReady = scoredSteps.length === 5 && missing.length === 0;
 
     return `
-      <section class="grade2-ai-step grade2-speaking-end-downloads" aria-label="スピーキング録音の保存">
+      <section class="grade2-gpt-panel grade2-ai-flow-card grade2-speaking-end-downloads" aria-label="スピーキング録音の保存">
         <div class="grade2-ai-step-body">
           <h3>録音を端末へ保存</h3>
           <p>Read Aloud と No.1〜4 の録音を、ブラウザ標準のダウンロード先へ保存できます。</p>
