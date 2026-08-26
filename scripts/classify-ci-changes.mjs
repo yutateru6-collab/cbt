@@ -8,7 +8,6 @@ const ACTIVE_LOCAL_SPECS = new Set([
   "qa/lp-service-worker.e2e.spec.cjs",
   "qa/review-retry.e2e.spec.cjs",
   "qa/progress-review.e2e.spec.cjs",
-  "qa/grade2-speaking-listening-accuracy.e2e.spec.cjs",
 ]);
 
 const PRODUCTION_SMOKE_FILES = new Set([
