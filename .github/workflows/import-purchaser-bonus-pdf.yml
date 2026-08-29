@@ -1,0 +1,148 @@
+name: Import purchaser bonus PDF
+
+on:
+  push:
+    branches:
+      - pdf-import/purchaser-bonus-10p
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out import commit
+        uses: actions/checkout@v4
+
+      - name: Download and verify approved 10-page PDF
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSL --retry 5 --retry-delay 2 --connect-timeout 15 --max-time 120 \
+            https://cbtbonus20260829.serveo.net/bonus_opt.pdf \
+            -o /tmp/purchaser-bonus.pdf
+          test "$(stat -c%s /tmp/purchaser-bonus.pdf)" = "190270"
+          echo "2b08ec58da0a758f9456849d6ea80d3246b4573311381fe33d4586ad08cb6ac8  /tmp/purchaser-bonus.pdf" | sha256sum -c -
+
+          cat > /tmp/bonus.html <<'HTML'
+          <!doctype html>
+          <html lang="ja">
+            <head>
+              <meta charset="UTF-8" />
+              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+              <meta name="theme-color" content="#263b4d" />
+              <meta name="referrer" content="no-referrer" />
+              <meta
+                name="description"
+                content="英検2級 S-CBT直前リハーサル 3回プレミアム購入者向けの10ページ本番直前最終確認PDFです。"
+              />
+              <title>3回プレミアム・購入者限定特典 | S-CBT直前リハーサル</title>
+              <link rel="icon" href="./assets/app-icon.svg" type="image/svg+xml" />
+              <link rel="stylesheet" href="./bonus.css?v=grade2-purchaser-benefits-v82" />
+            </head>
+            <body>
+              <main class="bonus-shell">
+                <div data-bonus-content hidden>
+                  <section class="bonus-hero" aria-labelledby="bonus-title">
+                    <div class="bonus-hero-copy">
+                      <span class="eyebrow">英検2級｜3回プレミアム購入者限定</span>
+                      <p class="hero-kicker">PURCHASER BENEFIT</p>
+                      <h1 id="bonus-title">本番直前は、この10ページで最終確認。</h1>
+                      <p>
+                        Speaking・Listening・Reading・Writingの確認ポイントから、前日・当日の準備、試験直前5分のチェックまでを1冊にまとめました。
+                        新しい問題を増やすのではなく、今まで練習してきたことを本番の得点につなげるための最終確認用PDFです。
+                      </p>
+                      <div class="hero-actions">
+                        <a class="bonus-button primary" href="#pdf">特典PDFを見る</a>
+                        <a class="bonus-button secondary" href="./exam.html?plan=three" data-exam-link>3回プレミアムを始める</a>
+                      </div>
+                    </div>
+                    <div class="hero-benefit-grid" style="grid-template-columns: 1fr" aria-label="購入者限定特典の一覧">
+                      <article>
+                        <span>01</span>
+                        <strong>10ページ 本番直前最終確認PDF</strong>
+                        <small>前日・当日・試験直前5分の最終チェック</small>
+                      </article>
+                    </div>
+                  </section>
+
+                  <nav class="bonus-nav" aria-label="購入者特典内の目次">
+                    <a href="#pdf">10ページ 本番直前最終確認PDF</a>
+                  </nav>
+
+                  <section class="bonus-section pdf-section" id="pdf" aria-labelledby="pdf-title">
+                    <div class="section-heading">
+                      <span>BENEFIT 01</span>
+                      <h2 id="pdf-title">10ページ 本番直前最終確認PDF</h2>
+                      <p>
+                        前日・当日の準備、S-CBT全体の流れ、Speaking・Listening・Reading・Writingの直前ポイント、
+                        Speaking / Writingで使いやすい表現、最後の5分チェックまでを10ページにまとめています。
+                      </p>
+                    </div>
+                    <div class="pdf-action-panel">
+                      <div>
+                        <strong>使うタイミング</strong>
+                        <p>本番前日、当日朝、または会場へ向かう前の最終確認に使ってください。新しいことを増やさず、必要なページだけ見直して構いません。</p>
+                      </div>
+                      <a class="bonus-button primary" href="./output/pdf/eiken-grade2-final-check-writing-template.pdf" download>10ページPDFをダウンロード</a>
+                    </div>
+                  </section>
+
+                  <section class="boundary-note" aria-label="3回プレミアム本体と購入者特典の区分">
+                    <div>
+                      <span>CBT本体に残すもの</span>
+                      <strong>模試3回・解説・Listening台本・Writing模範解答・Writing / Speaking AI採点・結果・復習</strong>
+                    </div>
+                    <div>
+                      <span>購入後に受け取るもの</span>
+                      <strong>10ページ 本番直前最終確認PDF</strong>
+                    </div>
+                    <p>AI採点は購入者特典ではなく、3回プレミアム本体の結果画面から使う機能です。</p>
+                  </section>
+                </div>
+
+                <section class="locked-card" data-bonus-locked>
+                  <span class="eyebrow">3回プレミアム購入者限定</span>
+                  <h1>購入完了後のご案内から開いてください。</h1>
+                  <p>このページでは、購入者限定の10ページ本番直前最終確認PDFを受け取れます。</p>
+                  <a class="bonus-button primary" href="./">商品ページへ戻る</a>
+                </section>
+              </main>
+
+              <footer class="bonus-footer">
+                <nav aria-label="フッターナビゲーション">
+                  <a href="./terms.html">利用規約</a>
+                  <a href="./privacy.html">プライバシーポリシー</a>
+                  <a href="./tokusho.html">特定商取引法に基づく表記</a>
+                  <a href="./support.html">お問い合わせ</a>
+                </nav>
+              </footer>
+
+              <script src="./grade2-premium-bonus.js?v=grade2-purchaser-benefits-v82"></script>
+            </body>
+          </html>
+          HTML
+
+          grep -q '10ページ 本番直前最終確認PDF' /tmp/bonus.html
+          ! grep -q '8ページ' /tmp/bonus.html
+          ! grep -q '7日' /tmp/bonus.html
+          ! grep -q '14日' /tmp/bonus.html
+          ! grep -q '弱点別' /tmp/bonus.html
+
+      - name: Commit only the approved purchaser-benefit changes
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin agent/purchaser-bonus-10p-pdf
+          git checkout -B agent/purchaser-bonus-10p-pdf origin/agent/purchaser-bonus-10p-pdf
+          cp /tmp/purchaser-bonus.pdf output/pdf/eiken-grade2-final-check-writing-template.pdf
+          cp /tmp/bonus.html bonus.html
+          git add -- bonus.html output/pdf/eiken-grade2-final-check-writing-template.pdf
+          test "$(git diff --cached --name-only | wc -l)" = "2"
+          git diff --cached --name-only | grep -Fx "bonus.html"
+          git diff --cached --name-only | grep -Fx "output/pdf/eiken-grade2-final-check-writing-template.pdf"
+          git commit -m "Replace purchaser bonus with 10-page final check PDF"
+          git push origin agent/purchaser-bonus-10p-pdf
