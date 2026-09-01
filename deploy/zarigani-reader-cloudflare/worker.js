@@ -31,7 +31,7 @@ export default {
       url.searchParams.delete('key');
       const headers = new Headers({
         Location: url.toString(),
-        'Set-Cookie': `${COOKIE_NAME}=${token}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=2592000`,
+        'Set-Cookie': `${COOKIE_NAME}=${token}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=2592000`,
         'Cache-Control': 'no-store',
         'X-Robots-Tag': 'noindex, nofollow, noarchive'
       });
