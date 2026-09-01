@@ -1,0 +1,134 @@
+name: Deploy private Zarigani reader preview
+
+on:
+  push:
+    branches:
+      - deploy/zarigani-reader-cloudflare-20260902
+    paths:
+      - '.github/workflows/zarigani-reader-cloudflare-preview.yml'
+      - 'deploy/zarigani-reader-cloudflare/**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: zarigani-reader-cloudflare-preview
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+
+    steps:
+      - name: Checkout deployment branch
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Verify Cloudflare credentials are configured
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "${CLOUDFLARE_API_TOKEN:-}"
+
+      - name: Use Cloudflare Account ID when configured
+        shell: bash
+        env:
+          OPTIONAL_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -n "${OPTIONAL_ACCOUNT_ID:-}" ]; then
+            echo "CLOUDFLARE_ACCOUNT_ID=$OPTIONAL_ACCOUNT_ID" >> "$GITHUB_ENV"
+          fi
+
+      - name: Download validated 94-chapter reader package
+        shell: bash
+        run: |
+          set -euo pipefail
+          url='https://sdmntprnznorth.oaiusercontent.com/files/00000000-80ac-820b-8e34-bc8ca7b9ee2b/raw?se=2026-09-01T15%3A40%3A29Z&sp=r&sv=2026-02-06&sr=b&scid=035fe99d-2df2-5291-bd6b-c59b0bcb0a02&skoid=f5e14fda-2af7-44a3-9d18-d372ffcad871&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-01T02%3A20%3A28Z&ske=2026-09-02T02%3A20%3A28Z&sks=b&skv=2026-02-06&sig=KiteM14hhOEWYfXb0MCD4agWbLr5Yki%2BL1RL6FJZLy8%3D'
+          curl -fsSL --retry 3 --connect-timeout 10 --max-time 60 "$url" -o /tmp/reader-artifact.zip
+          echo '6b507c6c149fe5e107bfe13749ea0a05bd17f302f12103a2285861eaa8678638  /tmp/reader-artifact.zip' | sha256sum -c -
+          rm -rf /tmp/reader-artifact deploy/zarigani-reader-cloudflare/assets
+          mkdir -p /tmp/reader-artifact deploy/zarigani-reader-cloudflare/assets
+          unzip -q /tmp/reader-artifact.zip -d /tmp/reader-artifact
+          test -f /tmp/reader-artifact/zarigani-reader-dist.zip
+          unzip -q /tmp/reader-artifact/zarigani-reader-dist.zip -d deploy/zarigani-reader-cloudflare/assets
+
+      - name: Verify publish set contains exactly the validated reader
+        shell: bash
+        run: |
+          set -euo pipefail
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const path = require('node:path');
+          const root = 'deploy/zarigani-reader-cloudflare/assets';
+          const catalog = JSON.parse(fs.readFileSync(path.join(root, 'catalog.json'), 'utf8'));
+          if (!Array.isArray(catalog) || catalog.length !== 94) {
+            throw new Error(`Expected 94 chapters, got ${catalog.length}`);
+          }
+          for (const forbidden of ['reference', 'planning', 'history']) {
+            if (fs.existsSync(path.join(root, forbidden))) throw new Error(`Forbidden publish directory: ${forbidden}`);
+          }
+          console.log('Validated Cloudflare publish set:', catalog.length, 'chapters');
+          NODE
+
+      - name: Deploy private reader Worker
+        shell: bash
+        run: npx --yes wrangler@4 deploy --config deploy/zarigani-reader-cloudflare/wrangler.jsonc
+
+      - name: Generate and install private access token
+        id: access
+        shell: bash
+        run: |
+          set -euo pipefail
+          token="$(openssl rand -hex 32)"
+          echo "::add-mask::$token"
+          printf '%s' "$token" > /tmp/zarigani-reader-token
+          printf '%s' "$token" | npx --yes wrangler@4 secret put READER_ACCESS_TOKEN --config deploy/zarigani-reader-cloudflare/wrangler.jsonc
+
+      - name: Verify private protection and 94-chapter access
+        shell: bash
+        run: |
+          set -euo pipefail
+          base='https://zarigani-reader-preview.itisnowornever271.workers.dev'
+          token="$(cat /tmp/zarigani-reader-token)"
+
+          unauth_ok=0
+          for attempt in {1..12}; do
+            status="$(curl -sS --connect-timeout 10 --max-time 30 -o /tmp/unauth.html -w '%{http_code}' "$base/?attempt=$attempt" || true)"
+            if [ "$status" = '403' ]; then unauth_ok=1; break; fi
+            sleep 2
+          done
+          test "$unauth_ok" = '1'
+
+          auth_ok=0
+          for attempt in {1..12}; do
+            rm -f /tmp/reader-cookies.txt
+            status="$(curl -sS --connect-timeout 10 --max-time 30 -c /tmp/reader-cookies.txt -o /dev/null -w '%{http_code}' "$base/?key=$token&attempt=$attempt" || true)"
+            if [ "$status" = '302' ]; then
+              if curl -fsSL --connect-timeout 10 --max-time 30 -b /tmp/reader-cookies.txt "$base/catalog.json" -o /tmp/catalog.json; then
+                if node -e "const c=require('/tmp/catalog.json');process.exit(Array.isArray(c)&&c.length===94?0:1)"; then
+                  auth_ok=1
+                  break
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          test "$auth_ok" = '1'
+          echo 'Cloudflare private reader verified: unauthorized=403, authorized chapters=94'
+
+          printf '%s/?key=%s\n' "$base" "$token" > /tmp/zarigani-reader-access.txt
+
+      - name: Store private access link for owner
+        uses: actions/upload-artifact@v4
+        with:
+          name: zarigani-reader-private-access
+          path: /tmp/zarigani-reader-access.txt
+          if-no-files-found: error
+          retention-days: 1
