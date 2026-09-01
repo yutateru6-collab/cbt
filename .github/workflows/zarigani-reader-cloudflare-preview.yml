@@ -50,9 +50,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          url='https://sdmntprnznorth.oaiusercontent.com/files/00000000-80ac-820b-8e34-bc8ca7b9ee2b/raw?se=2026-09-01T15%3A40%3A29Z&sp=r&sv=2026-02-06&sr=b&scid=035fe99d-2df2-5291-bd6b-c59b0bcb0a02&skoid=f5e14fda-2af7-44a3-9d18-d372ffcad871&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-01T02%3A20%3A28Z&ske=2026-09-02T02%3A20%3A28Z&sks=b&skv=2026-02-06&sig=KiteM14hhOEWYfXb0MCD4agWbLr5Yki%2BL1RL6FJZLy8%3D'
+          url='https://sdmntprnznorth.oaiusercontent.com/files/00000000-9710-820b-a14d-722a1851e79f/raw?se=2026-09-01T22%3A41%3A23Z&sp=r&sv=2026-02-06&sr=b&scid=ff3fbced-c368-56e3-99df-52b00d071f25&skoid=f5e14fda-2af7-44a3-9d18-d372ffcad871&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-01T22%3A30%3A56Z&ske=2026-09-02T22%3A30%3A56Z&sks=b&skv=2026-02-06&sig=x5pwNusfdWIQZKTezDEN5LuOF4lkXL0IpCl5OiDEI6E%3D'
           curl -fsSL --retry 3 --connect-timeout 10 --max-time 60 "$url" -o /tmp/reader-artifact.zip
-          echo '6b507c6c149fe5e107bfe13749ea0a05bd17f302f12103a2285861eaa8678638  /tmp/reader-artifact.zip' | sha256sum -c -
+          echo '488fc760fd1cf74949797d404f22dedba43009220d0fcf6e1a5c80b39f7cc99f  /tmp/reader-artifact.zip' | sha256sum -c -
           rm -rf /tmp/reader-artifact deploy/zarigani-reader-cloudflare/assets
           mkdir -p /tmp/reader-artifact deploy/zarigani-reader-cloudflare/assets
           unzip -q /tmp/reader-artifact.zip -d /tmp/reader-artifact
@@ -63,6 +63,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          node --check deploy/zarigani-reader-cloudflare/assets/app.js
+          node --check deploy/zarigani-reader-cloudflare/assets/sw.js
           node - <<'NODE'
           const fs = require('node:fs');
           const path = require('node:path');
@@ -74,7 +76,13 @@ jobs:
           for (const forbidden of ['reference', 'planning', 'history']) {
             if (fs.existsSync(path.join(root, forbidden))) throw new Error(`Forbidden publish directory: ${forbidden}`);
           }
-          console.log('Validated Cloudflare publish set:', catalog.length, 'chapters');
+          const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+          const js = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+          for (const marker of ['offlineButton', 'immersiveButton', 'data-weight-choice', 'data-font-choice', 'data-margin-choice', 'data-page-mode-choice']) {
+            if (!html.includes(marker)) throw new Error(`Missing reader UI marker: ${marker}`);
+          }
+          if (!js.includes("zarigani-reader-v2")) throw new Error('Expected reader v2 application bundle.');
+          console.log('Validated Cloudflare publish set:', catalog.length, 'chapters + reader v2 controls');
           NODE
 
       - name: Deploy private reader Worker
@@ -91,7 +99,7 @@ jobs:
           printf '%s' "$token" > /tmp/zarigani-reader-token
           printf '%s' "$token" | npx --yes wrangler@4 secret put READER_ACCESS_TOKEN --config deploy/zarigani-reader-cloudflare/wrangler.jsonc
 
-      - name: Verify private protection and 94-chapter access
+      - name: Verify private protection and reader v2 access
         shell: bash
         run: |
           set -euo pipefail
@@ -111,8 +119,13 @@ jobs:
             rm -f /tmp/reader-cookies.txt
             status="$(curl -sS --connect-timeout 10 --max-time 30 -c /tmp/reader-cookies.txt -o /dev/null -w '%{http_code}' "$base/?key=$token&attempt=$attempt" || true)"
             if [ "$status" = '302' ]; then
-              if curl -fsSL --connect-timeout 10 --max-time 30 -b /tmp/reader-cookies.txt "$base/catalog.json" -o /tmp/catalog.json; then
-                if node -e "const c=require('/tmp/catalog.json');process.exit(Array.isArray(c)&&c.length===94?0:1)"; then
+              if curl -fsSL --connect-timeout 10 --max-time 30 -b /tmp/reader-cookies.txt "$base/catalog.json" -o /tmp/catalog.json \
+                && curl -fsSL --connect-timeout 10 --max-time 30 -b /tmp/reader-cookies.txt "$base/index.html" -o /tmp/index.html \
+                && curl -fsSL --connect-timeout 10 --max-time 30 -b /tmp/reader-cookies.txt "$base/app.js" -o /tmp/app.js; then
+                if node -e "const c=require('/tmp/catalog.json');process.exit(Array.isArray(c)&&c.length===94?0:1)" \
+                  && grep -q 'data-weight-choice' /tmp/index.html \
+                  && grep -q 'offlineButton' /tmp/index.html \
+                  && grep -q 'zarigani-reader-v2' /tmp/app.js; then
                   auth_ok=1
                   break
                 fi
@@ -121,7 +134,7 @@ jobs:
             sleep 2
           done
           test "$auth_ok" = '1'
-          echo 'Cloudflare private reader verified: unauthorized=403, authorized chapters=94'
+          echo 'Cloudflare private reader verified: unauthorized=403, authorized chapters=94, reader=v2'
 
           printf '%s/?key=%s\n' "$base" "$token" > /tmp/zarigani-reader-access.txt
 
