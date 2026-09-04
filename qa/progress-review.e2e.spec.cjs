@@ -6,23 +6,48 @@ function makeReadingUrl() {
   return `${baseUrl}/exam.html?plan=three&fresh=1&dev=1&start=1&module=reading&question=1&qa=progress-review`;
 }
 
-test('progress review is read-only, hides future questions, and resumes at the same position', async ({ page }, testInfo) => {
-  test.skip(!['desktop-1440x900', 'iphone-16-393x852'].includes(testInfo.project.name), 'Progress-review modal is checked on desktop and iPhone-size WebKit only.');
+async function expectNoHorizontalOverflow(page) {
+  const layout = await page.evaluate(() => {
+    const shell = document.querySelector('.app-shell');
+    const shellRect = shell?.getBoundingClientRect();
+    return {
+      clientWidth: document.documentElement.clientWidth,
+      scrollWidth: document.documentElement.scrollWidth,
+      shellLeft: shellRect?.left ?? 0,
+      shellRight: shellRect?.right ?? 0,
+    };
+  });
+  expect(layout.scrollWidth).toBeLessThanOrEqual(layout.clientWidth);
+  expect(layout.shellLeft).toBeGreaterThanOrEqual(-0.5);
+  expect(layout.shellRight).toBeLessThanOrEqual(layout.clientWidth + 0.5);
+}
+
+test('progress review is read-only, hides future questions, and resumes at the same position', async ({ page }) => {
   if (!baseUrl) throw new Error('QA_BASE_URL is required.');
 
   await page.goto(makeReadingUrl(), { waitUntil: 'domcontentloaded' });
   await expect(page.locator('.reading-frame')).toBeVisible();
+  await expectNoHorizontalOverflow(page);
   const reviewButton = page.locator('[data-progress-review-open="reading"]').first();
   await expect(reviewButton).toBeVisible();
 
   const firstChoice = page.locator('[data-action="written-answer"]').first();
   await expect(firstChoice).toBeVisible();
   await firstChoice.click();
-  const stateBefore = await page.evaluate(() => JSON.stringify(appState.answers.written));
+  const reviewMark = page.locator('input[data-review-question]').first();
+  await expect(reviewMark).toBeVisible();
+  await reviewMark.check();
+  const stateBefore = await page.evaluate(() => JSON.stringify({
+    answers: appState.answers.written,
+    reviews: appState.reviews,
+    module: appState.module,
+    readingPage: appState.readingPage,
+  }));
 
   await reviewButton.click();
   const modal = page.locator('[data-progress-review-modal="reading"]');
   await expect(modal).toBeVisible();
+  await expectNoHorizontalOverflow(page);
   await expect(modal.locator('[data-progress-review-question="1"]')).toBeVisible();
   await expect(modal.locator('[data-progress-review-question="18"]')).toHaveCount(0);
   await expect(modal).toContainText('この確認画面では回答データを書き換えません');
@@ -30,7 +55,13 @@ test('progress review is read-only, hides future questions, and resumes at the s
   await modal.locator('[data-progress-review-close]').last().click();
   await expect(modal).toHaveCount(0);
   await expect(page.locator('.reading-frame')).toBeVisible();
-  const stateAfter = await page.evaluate(() => JSON.stringify(appState.answers.written));
+  await expectNoHorizontalOverflow(page);
+  const stateAfter = await page.evaluate(() => JSON.stringify({
+    answers: appState.answers.written,
+    reviews: appState.reviews,
+    module: appState.module,
+    readingPage: appState.readingPage,
+  }));
   expect(stateAfter).toBe(stateBefore);
 });
 
