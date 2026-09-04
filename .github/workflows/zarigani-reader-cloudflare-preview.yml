@@ -46,20 +46,20 @@ jobs:
             echo "CLOUDFLARE_ACCOUNT_ID=$OPTIONAL_ACCOUNT_ID" >> "$GITHUB_ENV"
           fi
 
-      - name: Download validated 94-chapter reader package
+      - name: Download validated approved reader package
         shell: bash
         run: |
           set -euo pipefail
-          url='https://sdmntprnznorth.oaiusercontent.com/files/00000000-e364-820b-8d61-be015373fc20/raw?se=2026-09-01T23%3A33%3A09Z&sp=r&sv=2026-02-06&sr=b&scid=19a9dfe7-2fd9-5f5e-93e7-5c0f1c7f56a1&skoid=f5e14fda-2af7-44a3-9d18-d372ffcad871&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-01T02%3A20%3A17Z&ske=2026-09-02T02%3A20%3A17Z&sks=b&skv=2026-02-06&sig=T/poF4gOd%2BB7VnfpM16SFqIIp9YPzBZVt5XjirKHRPw%3D'
+          url='https://sdmntprnznorth.oaiusercontent.com/files/00000000-1da4-820b-905d-a5c704a6219c/raw?se=2026-09-04T02%3A13%3A15Z&sp=r&sv=2026-02-06&sr=b&scid=702e2d1a-cd37-591a-92b5-becf65ab17ef&skoid=f5e14fda-2af7-44a3-9d18-d372ffcad871&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-03T21%3A05%3A42Z&ske=2026-09-04T21%3A05%3A42Z&sks=b&skv=2026-02-06&sig=SDJmN2Sw3WmgexUyKyxBq46B6lnxIpQO3l6KdcIvoPQ%3D'
           curl -fsSL --retry 3 --connect-timeout 10 --max-time 60 "$url" -o /tmp/reader-artifact.zip
-          echo '488fc760fd1cf74949797d404f22dedba43009220d0fcf6e1a5c80b39f7cc99f  /tmp/reader-artifact.zip' | sha256sum -c -
+          echo '7b5fce7e05218198efe9885e3ae0ad652686e6f9ea08010748dba163fa460319  /tmp/reader-artifact.zip' | sha256sum -c -
           rm -rf /tmp/reader-artifact deploy/zarigani-reader-cloudflare/assets
           mkdir -p /tmp/reader-artifact deploy/zarigani-reader-cloudflare/assets
           unzip -q /tmp/reader-artifact.zip -d /tmp/reader-artifact
-          test -f /tmp/reader-artifact/zarigani-reader-dist.zip
-          unzip -q /tmp/reader-artifact/zarigani-reader-dist.zip -d deploy/zarigani-reader-cloudflare/assets
+          test -f /tmp/reader-artifact/zarigani-approved-preview-dist.zip
+          unzip -q /tmp/reader-artifact/zarigani-approved-preview-dist.zip -d deploy/zarigani-reader-cloudflare/assets
 
-      - name: Verify publish set contains exactly the validated reader
+      - name: Verify publish set contains approved preview only
         shell: bash
         run: |
           set -euo pipefail
@@ -67,6 +67,11 @@ jobs:
           node --check deploy/zarigani-reader-cloudflare/assets/sw.js
           node --check deploy/zarigani-reader-cloudflare/worker.js
           grep -q 'SameSite=Lax' deploy/zarigani-reader-cloudflare/worker.js
+          grep -q '^文学部3年、文学専攻。$' 'deploy/zarigani-reader-cloudflare/assets/manuscript/03-第二部/02-結花、ザリガニ同盟へ.txt'
+          grep -q 'いつもの図書館へ向かった' 'deploy/zarigani-reader-cloudflare/assets/manuscript/05-第四部/23-結花の調査記録――論文の海から、一本の糸を.txt'
+          grep -q '父と湖や川へ釣りに出かけていた頃の記憶' 'deploy/zarigani-reader-cloudflare/assets/manuscript/05-第四部/22-結花の調査記録――インターネットという巨大な壁.txt'
+          ! grep -q '綺麗に整えられたジェルネイルと、' 'deploy/zarigani-reader-cloudflare/assets/manuscript/01-第一部/02-ザリガニ釣り.txt'
+          ! grep -R -n -E '[“”"]' deploy/zarigani-reader-cloudflare/assets/manuscript
           node - <<'NODE'
           const fs = require('node:fs');
           const path = require('node:path');
@@ -83,8 +88,8 @@ jobs:
           for (const marker of ['offlineButton', 'immersiveButton', 'data-weight-choice', 'data-font-choice', 'data-margin-choice', 'data-page-mode-choice']) {
             if (!html.includes(marker)) throw new Error(`Missing reader UI marker: ${marker}`);
           }
-          if (!js.includes("zarigani-reader-v2")) throw new Error('Expected reader v2 application bundle.');
-          console.log('Validated Cloudflare publish set:', catalog.length, 'chapters + reader v2 controls');
+          if (!js.includes('zarigani-reader-v2')) throw new Error('Expected reader v2 application bundle.');
+          console.log('Validated approved Cloudflare publish set:', catalog.length, 'chapters + PR21/22/23 overlays');
           NODE
 
       - name: Deploy private reader Worker
@@ -101,7 +106,7 @@ jobs:
           printf '%s' "$token" > /tmp/zarigani-reader-token
           printf '%s' "$token" | npx --yes wrangler@4 secret put READER_ACCESS_TOKEN --config deploy/zarigani-reader-cloudflare/wrangler.jsonc
 
-      - name: Verify private protection and reader v2 access
+      - name: Verify private protection and approved reader access
         shell: bash
         run: |
           set -euo pipefail
@@ -136,7 +141,7 @@ jobs:
             sleep 2
           done
           test "$auth_ok" = '1'
-          echo 'Cloudflare private reader verified: unauthorized=403, auth-cookie=SameSite-Lax, authorized chapters=94, reader=v2'
+          echo 'Cloudflare approved reader verified: unauthorized=403, auth-cookie=SameSite-Lax, authorized chapters=94, reader=v2'
 
           printf '%s/?key=%s\n' "$base" "$token" > /tmp/zarigani-reader-access.txt
 
