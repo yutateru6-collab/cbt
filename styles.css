@@ -4154,6 +4154,8 @@ body.grade2-developer-mode {
 }
 
 body.grade2-developer-mode .app-shell {
+  width: min(100%, 1360px);
+  max-width: 100%;
   height: auto;
   min-height: 100vh;
 }
