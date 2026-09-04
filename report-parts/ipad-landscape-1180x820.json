@@ -1,0 +1,195 @@
+{
+  "generatedAt": "2026-09-04T17:59:00.848Z",
+  "repository": "yutateru6-collab/cbt",
+  "commitSha": "61ce21f0cb4862fd96a3f674235e3af94eeea4e1",
+  "workflowRunId": "33903218647",
+  "target": "github-actions-local",
+  "baseUrl": "http://127.0.0.1:4173",
+  "device": "ipad-landscape-1180x820",
+  "browserName": "webkit",
+  "configuredViewport": {
+    "width": 1180,
+    "height": 820
+  },
+  "configuredDeviceScaleFactor": 2,
+  "actions": [
+    {
+      "at": "2026-09-04T17:59:00.860Z",
+      "action": "Open normal paid CBT start screen."
+    },
+    {
+      "at": "2026-09-04T17:59:01.526Z",
+      "action": "Use the real start button to enter Speaking preflight."
+    },
+    {
+      "at": "2026-09-04T17:59:01.654Z",
+      "action": "Open developer navigation only for deep-state rendering checks."
+    },
+    {
+      "at": "2026-09-04T17:59:02.140Z",
+      "action": "Render Reading and verify progress-review entry."
+    },
+    {
+      "at": "2026-09-04T17:59:02.270Z",
+      "action": "Render Writing and type a realistic answer."
+    },
+    {
+      "at": "2026-09-04T17:59:02.446Z",
+      "action": "Render Listening and verify progress-review entry."
+    },
+    {
+      "at": "2026-09-04T17:59:03.101Z",
+      "action": "Render result screen."
+    }
+  ],
+  "states": [
+    {
+      "name": "normal-start",
+      "capturedAt": "2026-09-04T17:59:01.517Z",
+      "url": "http://127.0.0.1:4173/exam.html?plan=three&qa=61ce21f0cb4862fd96a3f674235e3af94eeea4e1&mode=normal",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 1180,
+        "viewportHeight": 820,
+        "deviceScaleFactor": 2,
+        "document": {
+          "scrollWidth": 1180,
+          "scrollHeight": 820,
+          "clientWidth": 1180,
+          "clientHeight": 820,
+          "bodyScrollWidth": 1180,
+          "bodyScrollHeight": 820
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": []
+      },
+      "screenshotFiles": []
+    },
+    {
+      "name": "normal-speaking-preflight",
+      "capturedAt": "2026-09-04T17:59:01.646Z",
+      "url": "http://127.0.0.1:4173/exam.html?plan=three&qa=61ce21f0cb4862fd96a3f674235e3af94eeea4e1&mode=normal&module=speaking&start=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 1180,
+        "viewportHeight": 820,
+        "deviceScaleFactor": 2,
+        "document": {
+          "scrollWidth": 1180,
+          "scrollHeight": 820,
+          "clientWidth": 1180,
+          "clientHeight": 820,
+          "bodyScrollWidth": 1180,
+          "bodyScrollHeight": 820
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": []
+      },
+      "screenshotFiles": []
+    },
+    {
+      "name": "dev-reading-first",
+      "capturedAt": "2026-09-04T17:59:02.243Z",
+      "url": "http://127.0.0.1:4173/exam.html?plan=three&qa=61ce21f0cb4862fd96a3f674235e3af94eeea4e1&dev=1&start=1&module=reading&question=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 1180,
+        "viewportHeight": 820,
+        "deviceScaleFactor": 2,
+        "document": {
+          "scrollWidth": 1180,
+          "scrollHeight": 1040,
+          "clientWidth": 1180,
+          "clientHeight": 820,
+          "bodyScrollWidth": 1180,
+          "bodyScrollHeight": 1040
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": []
+      },
+      "screenshotFiles": []
+    },
+    {
+      "name": "dev-writing-typed",
+      "capturedAt": "2026-09-04T17:59:02.435Z",
+      "url": "http://127.0.0.1:4173/exam.html?plan=three&qa=61ce21f0cb4862fd96a3f674235e3af94eeea4e1&dev=1&start=1&module=writing&question=32",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 1180,
+        "viewportHeight": 820,
+        "deviceScaleFactor": 2,
+        "document": {
+          "scrollWidth": 1180,
+          "scrollHeight": 1040,
+          "clientWidth": 1180,
+          "clientHeight": 820,
+          "bodyScrollWidth": 1180,
+          "bodyScrollHeight": 1040
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": []
+      },
+      "screenshotFiles": []
+    },
+    {
+      "name": "dev-listening-first",
+      "capturedAt": "2026-09-04T17:59:03.094Z",
+      "url": "http://127.0.0.1:4173/exam.html?plan=three&qa=61ce21f0cb4862fd96a3f674235e3af94eeea4e1&dev=1&start=1&module=listening&question=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 1180,
+        "viewportHeight": 820,
+        "deviceScaleFactor": 2,
+        "document": {
+          "scrollWidth": 1180,
+          "scrollHeight": 1093,
+          "clientWidth": 1180,
+          "clientHeight": 820,
+          "bodyScrollWidth": 1180,
+          "bodyScrollHeight": 1093
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": []
+      },
+      "screenshotFiles": []
+    },
+    {
+      "name": "dev-result",
+      "capturedAt": "2026-09-04T17:59:03.373Z",
+      "url": "http://127.0.0.1:4173/exam.html?plan=three&qa=61ce21f0cb4862fd96a3f674235e3af94eeea4e1&dev=1&start=1&module=listening&result=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 1180,
+        "viewportHeight": 820,
+        "deviceScaleFactor": 2,
+        "document": {
+          "scrollWidth": 1180,
+          "scrollHeight": 820,
+          "clientWidth": 1180,
+          "clientHeight": 820,
+          "bodyScrollWidth": 1180,
+          "bodyScrollHeight": 820
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": []
+      },
+      "screenshotFiles": []
+    }
+  ],
+  "consoleErrors": [],
+  "pageErrors": [],
+  "requestFailures": [],
+  "httpErrors": [],
+  "stubbedAudioRequests": [
+    "http://127.0.0.1:4173/audio-r2/grade2/releases/20260817-grade2-sets01-03-listening-pauses-1s-v1/set-01/listening/part1/No01.wav",
+    "http://127.0.0.1:4173/audio-r2/grade2/releases/20260817-grade2-sets01-03-listening-pauses-1s-v1/set-01/listening/part1/No01.wav"
+  ],
+  "screenshotFiles": [],
+  "testPassed": true,
+  "failure": null,
+  "actionableRequestFailures": [],
+  "completedAt": "2026-09-04T17:59:03.402Z",
+  "currentUrl": "http://127.0.0.1:4173/exam.html?plan=three&qa=61ce21f0cb4862fd96a3f674235e3af94eeea4e1&dev=1&start=1&module=listening&result=1",
+  "pageTitle": "2級 CBT形式4技能トレーニング",
+  "actionableConsoleErrors": []
+}

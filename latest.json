@@ -1,0 +1,39 @@
+{
+  "generatedAt": "2026-09-04T18:00:38.591Z",
+  "status": "passed",
+  "repository": "yutateru6-collab/cbt",
+  "commitSha": "61ce21f0cb4862fd96a3f674235e3af94eeea4e1",
+  "target": "github-actions-local",
+  "baseUrl": "http://127.0.0.1:4173",
+  "report": "report.json",
+  "devices": [
+    {
+      "device": "android-tablet-800x1280",
+      "testPassed": true
+    },
+    {
+      "device": "desktop-1440x900",
+      "testPassed": true
+    },
+    {
+      "device": "ipad-820x1180",
+      "testPassed": true
+    },
+    {
+      "device": "ipad-boundary-768x1024",
+      "testPassed": true
+    },
+    {
+      "device": "ipad-landscape-1180x820",
+      "testPassed": true
+    },
+    {
+      "device": "iphone-16-393x852",
+      "testPassed": true
+    },
+    {
+      "device": "laptop-1366x768",
+      "testPassed": true
+    }
+  ]
+}

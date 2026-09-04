@@ -1,0 +1,478 @@
+{
+  "generatedAt": "2026-09-04T18:00:10.704Z",
+  "repository": "yutateru6-collab/cbt",
+  "commitSha": "61ce21f0cb4862fd96a3f674235e3af94eeea4e1",
+  "workflowRunId": "33903218647",
+  "target": "github-actions-local",
+  "baseUrl": "http://127.0.0.1:4173",
+  "device": "iphone-16-393x852",
+  "browserName": "webkit",
+  "configuredViewport": {
+    "width": 393,
+    "height": 852
+  },
+  "configuredDeviceScaleFactor": 3,
+  "actions": [
+    {
+      "at": "2026-09-04T18:00:10.722Z",
+      "action": "Open normal paid CBT start screen."
+    },
+    {
+      "at": "2026-09-04T18:00:11.395Z",
+      "action": "Use the real start button to enter Speaking preflight."
+    },
+    {
+      "at": "2026-09-04T18:00:11.530Z",
+      "action": "Open developer navigation only for deep-state rendering checks."
+    },
+    {
+      "at": "2026-09-04T18:00:12.017Z",
+      "action": "Render Reading and verify progress-review entry."
+    },
+    {
+      "at": "2026-09-04T18:00:12.132Z",
+      "action": "Render Writing and type a realistic answer."
+    },
+    {
+      "at": "2026-09-04T18:00:12.388Z",
+      "action": "Render Listening and verify progress-review entry."
+    },
+    {
+      "at": "2026-09-04T18:00:13.044Z",
+      "action": "Render result screen."
+    }
+  ],
+  "states": [
+    {
+      "name": "normal-start",
+      "capturedAt": "2026-09-04T18:00:11.383Z",
+      "url": "http://127.0.0.1:4173/exam.html?plan=three&qa=61ce21f0cb4862fd96a3f674235e3af94eeea4e1&mode=normal",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 3,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 852,
+          "clientWidth": 393,
+          "clientHeight": 852,
+          "bodyScrollWidth": 393,
+          "bodyScrollHeight": 852
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": [
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "3 リーディング",
+            "rect": {
+              "left": 297.5,
+              "right": 429.1,
+              "top": 512.1,
+              "bottom": 546.1,
+              "width": 131.5,
+              "height": 34
+            }
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "リーディング",
+            "rect": {
+              "left": 337.5,
+              "right": 417.1,
+              "top": 520.1,
+              "bottom": 538.1,
+              "width": 79.5,
+              "height": 18
+            }
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "4 ライティング",
+            "rect": {
+              "left": 437.1,
+              "right": 568.9,
+              "top": 512.1,
+              "bottom": 546.1,
+              "width": 131.8,
+              "height": 34
+            }
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-index",
+            "text": "4",
+            "rect": {
+              "left": 449.1,
+              "right": 469.1,
+              "top": 519.1,
+              "bottom": 539.1,
+              "width": 20,
+              "height": 20
+            }
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "ライティング",
+            "rect": {
+              "left": 477.1,
+              "right": 556.9,
+              "top": 520.1,
+              "bottom": 538.1,
+              "width": 79.8,
+              "height": 18
+            }
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "font-size-control",
+            "text": "A＋ 1/6",
+            "rect": {
+              "left": 576.9,
+              "right": 670.9,
+              "top": 512.1,
+              "bottom": 546.1,
+              "width": 94,
+              "height": 34
+            }
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-symbol",
+            "text": "A＋",
+            "rect": {
+              "left": 598.1,
+              "right": 627.4,
+              "top": 520.6,
+              "bottom": 537.6,
+              "width": 29.3,
+              "height": 17
+            }
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-step",
+            "text": "1/6",
+            "rect": {
+              "left": 634.4,
+              "right": 649.7,
+              "top": 523.1,
+              "bottom": 535.1,
+              "width": 15.3,
+              "height": 12
+            }
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "module-tab reset-tab",
+            "text": "進行リセット",
+            "rect": {
+              "left": 678.9,
+              "right": 790.9,
+              "top": 512.1,
+              "bottom": 546.1,
+              "width": 112,
+              "height": 34
+            }
+          }
+        ]
+      },
+      "screenshotFiles": []
+    },
+    {
+      "name": "normal-speaking-preflight",
+      "capturedAt": "2026-09-04T18:00:11.519Z",
+      "url": "http://127.0.0.1:4173/exam.html?plan=three&qa=61ce21f0cb4862fd96a3f674235e3af94eeea4e1&mode=normal&module=speaking&start=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 3,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 1022,
+          "clientWidth": 393,
+          "clientHeight": 852,
+          "bodyScrollWidth": 393,
+          "bodyScrollHeight": 1022
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": [
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "3 リーディング",
+            "rect": {
+              "left": 285.5,
+              "right": 417.1,
+              "top": 105.1,
+              "bottom": 139.1,
+              "width": 131.5,
+              "height": 34
+            }
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "リーディング",
+            "rect": {
+              "left": 325.5,
+              "right": 405.1,
+              "top": 113.1,
+              "bottom": 131.1,
+              "width": 79.5,
+              "height": 18
+            }
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-step is-upcoming",
+            "text": "4 ライティング",
+            "rect": {
+              "left": 425.1,
+              "right": 556.9,
+              "top": 105.1,
+              "bottom": 139.1,
+              "width": 131.8,
+              "height": 34
+            }
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "exam-flow-index",
+            "text": "4",
+            "rect": {
+              "left": 437.1,
+              "right": 457.1,
+              "top": 112.1,
+              "bottom": 132.1,
+              "width": 20,
+              "height": 20
+            }
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "",
+            "text": "ライティング",
+            "rect": {
+              "left": 465.1,
+              "right": 544.9,
+              "top": 113.1,
+              "bottom": 131.1,
+              "width": 79.8,
+              "height": 18
+            }
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "font-size-control",
+            "text": "A＋ 1/6",
+            "rect": {
+              "left": 564.9,
+              "right": 658.9,
+              "top": 105.1,
+              "bottom": 139.1,
+              "width": 94,
+              "height": 34
+            }
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-symbol",
+            "text": "A＋",
+            "rect": {
+              "left": 586.1,
+              "right": 615.4,
+              "top": 113.6,
+              "bottom": 130.6,
+              "width": 29.3,
+              "height": 17
+            }
+          },
+          {
+            "tag": "span",
+            "id": "",
+            "className": "font-size-step",
+            "text": "1/6",
+            "rect": {
+              "left": 622.4,
+              "right": 637.7,
+              "top": 116.1,
+              "bottom": 128.1,
+              "width": 15.3,
+              "height": 12
+            }
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "module-tab reset-tab",
+            "text": "進行リセット",
+            "rect": {
+              "left": 666.9,
+              "right": 778.9,
+              "top": 105.1,
+              "bottom": 139.1,
+              "width": 112,
+              "height": 34
+            }
+          }
+        ]
+      },
+      "screenshotFiles": []
+    },
+    {
+      "name": "dev-reading-first",
+      "capturedAt": "2026-09-04T18:00:12.116Z",
+      "url": "http://127.0.0.1:4173/exam.html?plan=three&qa=61ce21f0cb4862fd96a3f674235e3af94eeea4e1&dev=1&start=1&module=reading&question=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 3,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 1933,
+          "clientWidth": 393,
+          "clientHeight": 852,
+          "bodyScrollWidth": 393,
+          "bodyScrollHeight": 1933
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": [
+          {
+            "tag": "button",
+            "id": "",
+            "className": "page-pill ",
+            "text": "Part 3A メール",
+            "rect": {
+              "left": 391,
+              "right": 509,
+              "top": 774.1,
+              "bottom": 798.1,
+              "width": 118,
+              "height": 24
+            }
+          },
+          {
+            "tag": "button",
+            "id": "",
+            "className": "page-pill ",
+            "text": "Part 3B 長文",
+            "rect": {
+              "left": 515,
+              "right": 633,
+              "top": 774.1,
+              "bottom": 798.1,
+              "width": 118,
+              "height": 24
+            }
+          }
+        ]
+      },
+      "screenshotFiles": []
+    },
+    {
+      "name": "dev-writing-typed",
+      "capturedAt": "2026-09-04T18:00:12.372Z",
+      "url": "http://127.0.0.1:4173/exam.html?plan=three&qa=61ce21f0cb4862fd96a3f674235e3af94eeea4e1&dev=1&start=1&module=writing&question=32",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 3,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 2334,
+          "clientWidth": 393,
+          "clientHeight": 852,
+          "bodyScrollWidth": 393,
+          "bodyScrollHeight": 2334
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": []
+      },
+      "screenshotFiles": []
+    },
+    {
+      "name": "dev-listening-first",
+      "capturedAt": "2026-09-04T18:00:13.034Z",
+      "url": "http://127.0.0.1:4173/exam.html?plan=three&qa=61ce21f0cb4862fd96a3f674235e3af94eeea4e1&dev=1&start=1&module=listening&question=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 3,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 2273,
+          "clientWidth": 393,
+          "clientHeight": 852,
+          "bodyScrollWidth": 393,
+          "bodyScrollHeight": 2273
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": []
+      },
+      "screenshotFiles": []
+    },
+    {
+      "name": "dev-result",
+      "capturedAt": "2026-09-04T18:00:13.306Z",
+      "url": "http://127.0.0.1:4173/exam.html?plan=three&qa=61ce21f0cb4862fd96a3f674235e3af94eeea4e1&dev=1&start=1&module=listening&result=1",
+      "title": "2級 CBT形式4技能トレーニング",
+      "metrics": {
+        "viewportWidth": 393,
+        "viewportHeight": 852,
+        "deviceScaleFactor": 3,
+        "document": {
+          "scrollWidth": 393,
+          "scrollHeight": 17826,
+          "clientWidth": 393,
+          "clientHeight": 852,
+          "bodyScrollWidth": 393,
+          "bodyScrollHeight": 17826
+        },
+        "horizontalOverflow": false,
+        "overflowingElements": []
+      },
+      "screenshotFiles": []
+    }
+  ],
+  "consoleErrors": [],
+  "pageErrors": [],
+  "requestFailures": [],
+  "httpErrors": [],
+  "stubbedAudioRequests": [
+    "http://127.0.0.1:4173/audio-r2/grade2/releases/20260817-grade2-sets01-03-listening-pauses-1s-v1/set-01/listening/part1/No01.wav",
+    "http://127.0.0.1:4173/audio-r2/grade2/releases/20260817-grade2-sets01-03-listening-pauses-1s-v1/set-01/listening/part1/No01.wav"
+  ],
+  "screenshotFiles": [],
+  "testPassed": true,
+  "failure": null,
+  "actionableRequestFailures": [],
+  "completedAt": "2026-09-04T18:00:13.324Z",
+  "currentUrl": "http://127.0.0.1:4173/exam.html?plan=three&qa=61ce21f0cb4862fd96a3f674235e3af94eeea4e1&dev=1&start=1&module=listening&result=1",
+  "pageTitle": "2級 CBT形式4技能トレーニング",
+  "actionableConsoleErrors": []
+}

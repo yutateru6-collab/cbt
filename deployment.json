@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-09-04T17:56:41.661Z",
+  "status": "ready",
+  "repository": "yutateru6-collab/cbt",
+  "commitSha": "61ce21f0cb4862fd96a3f674235e3af94eeea4e1",
+  "ref": "main",
+  "target": "github-actions-local",
+  "baseUrl": "http://127.0.0.1:4173",
+  "workflowRunId": "33903218647",
+  "workflowRunAttempt": "1",
+  "observedBuildInfo": {
+    "commit": "61ce21f0cb4862fd96a3f674235e3af94eeea4e1",
+    "ref": "main",
+    "environment": "github-actions-qa"
+  }
+}
