@@ -47,20 +47,20 @@ jobs:
             echo "CLOUDFLARE_ACCOUNT_ID=$OPTIONAL_ACCOUNT_ID" >> "$GITHUB_ENV"
           fi
 
-      - name: Download verified approved reader package
+      - name: Download verified approved reader v3 package
         shell: bash
         run: |
           set -euo pipefail
-          url='https://sdmntprnznorth.oaiusercontent.com/files/00000000-2dbc-820b-a5ca-c9c1fc006224/raw?se=2026-09-05T01%3A55%3A36Z&sp=r&sv=2026-02-06&sr=b&scid=f1dac9f9-fb38-5849-a3f8-9c2dea32e10c&skoid=f5e14fda-2af7-44a3-9d18-d372ffcad871&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-05T01%3A41%3A13Z&ske=2026-09-06T01%3A41%3A13Z&sks=b&skv=2026-02-06&sig=SulDRYGjMePYXUXSA36OPjElRmFyVzXrEV%2BQmEO%2BzGE%3D'
+          url='https://sdmntprnznorth.oaiusercontent.com/files/00000000-2a7c-820b-96e8-e41e3ed2f919/raw?se=2026-09-05T02%3A26%3A54Z&sp=r&sv=2026-02-06&sr=b&scid=2369fd81-45c6-51c4-b850-7bfafbfe6317&skoid=f5e14fda-2af7-44a3-9d18-d372ffcad871&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-04T23%3A17%3A08Z&ske=2026-09-05T23%3A17%3A08Z&sks=b&skv=2026-02-06&sig=g%2B0Pr1t0/XeEpm%2BrnSKX3iqqPqhHMrZQsdhMjKKfa8k%3D'
           curl -fsSL --retry 3 --connect-timeout 10 --max-time 60 "$url" -o /tmp/reader-artifact.zip
-          echo '67ac04e667ae64a741d728b8ef06eb7fa52fd765c53e23ecbe8d670143bcf703  /tmp/reader-artifact.zip' | sha256sum -c -
+          echo 'e2ab8b93fecc087b82822c5c3b81daa3d2b6aeb5fd27ade0d586e43ec0f1d354  /tmp/reader-artifact.zip' | sha256sum -c -
           rm -rf /tmp/reader-artifact deploy/zarigani-reader-cloudflare/assets
           mkdir -p /tmp/reader-artifact deploy/zarigani-reader-cloudflare/assets
           unzip -q /tmp/reader-artifact.zip -d /tmp/reader-artifact
-          test -f /tmp/reader-artifact/zarigani-approved-preview-v2-dist.zip
-          unzip -q /tmp/reader-artifact/zarigani-approved-preview-v2-dist.zip -d deploy/zarigani-reader-cloudflare/assets
+          test -f /tmp/reader-artifact/zarigani-approved-preview-v3-dist.zip
+          unzip -q /tmp/reader-artifact/zarigani-approved-preview-v3-dist.zip -d deploy/zarigani-reader-cloudflare/assets
 
-      - name: Verify publish set and revised manuscript markers
+      - name: Verify restored literary plan publish set
         shell: bash
         run: |
           set -euo pipefail
@@ -72,14 +72,20 @@ jobs:
           ch2="$root/manuscript/04-第三部/02-それぞれの夜――宣戦布告の三文字.txt"
           ch5="$root/manuscript/04-第三部/05-完璧な朝、そして絶望の雨――それぞれの戦場.txt"
           grep -Fq 'Side：結花 〜文学少女の作戦会議〜' "$ch2"
-          grep -Fq '第四計画：【文豪たちに恋愛を相談する作戦】' "$ch2"
+          grep -Fq '第四計画：【文学的戦略の総動員（リテラチャー・ストラテジー）】' "$ch2"
+          grep -Fq '第一の軍師：太宰治' "$ch2"
+          grep -Fq '第二の軍師：ドストエフスキー' "$ch2"
+          grep -Fq '第三の軍師：川端康成' "$ch2"
+          grep -Fq '第四の軍師：サリンジャー' "$ch2"
+          grep -Fq '【採用戦略③：余韻の美学】' "$ch2"
           grep -Fq '「今度こそ湊くんにちゃんと気持ちを伝える」と。' "$ch2"
           grep -Fq '（今日こそ湊くんにちゃんと気持ちを伝える）' "$ch5"
           ! grep -R -Fq '文学的魔性の完全解放' "$root/manuscript"
           ! grep -R -Fq '湊くんを完全に堕とす' "$root/manuscript"
+          ! grep -R -Fq '余酻' "$root/manuscript"
           ! grep -R -Fq '綺麗に整えられたジェルネイルと、' "$root/manuscript"
           ! grep -R -n -E '[“”"]' "$root/manuscript"
-          grep -Fq "zarigani-reader-v3-20260905" "$root/sw.js"
+          grep -Fq 'zarigani-reader-v3-20260905' "$root/sw.js"
           grep -Fq "cache: 'no-store'" "$root/sw.js"
           node - <<'NODE'
           const fs = require('node:fs');
@@ -90,10 +96,10 @@ jobs:
           for (const forbidden of ['reference', 'planning', 'history']) {
             if (fs.existsSync(path.join(root, forbidden))) throw new Error(`Forbidden publish directory: ${forbidden}`);
           }
-          console.log('Validated revised publish set:', catalog.length, 'chapters, literary markers, reader cache v3');
+          console.log('Validated restored literary-plan publish set:', catalog.length, 'chapters, reader cache v3');
           NODE
 
-      - name: Deploy genuinely new private reader Worker
+      - name: Deploy private revised reader Worker
         shell: bash
         run: npx --yes wrangler@4 deploy --config deploy/zarigani-reader-cloudflare/wrangler.jsonc
 
@@ -106,7 +112,7 @@ jobs:
           printf '%s' "$token" > /tmp/zarigani-reader-token
           printf '%s' "$token" | npx --yes wrangler@4 secret put READER_ACCESS_TOKEN --config deploy/zarigani-reader-cloudflare/wrangler.jsonc
 
-      - name: Verify exact live URL, auth, 94 chapters and revised text
+      - name: Verify exact live URL and restored literary plan
         shell: bash
         run: |
           set -euo pipefail
@@ -138,9 +144,14 @@ jobs:
                 if curl -fsSL --connect-timeout 10 --max-time 30 -b /tmp/reader-cookies.txt "$base/$chapter_path" -o /tmp/chapter.txt \
                   && node -e "const c=require('/tmp/catalog.json');process.exit(Array.isArray(c)&&c.length===94?0:1)" \
                   && grep -Fq '文学少女の作戦会議' /tmp/chapter.txt \
-                  && grep -Fq '文豪たちに恋愛を相談する作戦' /tmp/chapter.txt \
+                  && grep -Fq '文学的戦略の総動員' /tmp/chapter.txt \
+                  && grep -Fq '第一の軍師：太宰治' /tmp/chapter.txt \
+                  && grep -Fq '第二の軍師：ドストエフスキー' /tmp/chapter.txt \
+                  && grep -Fq '第三の軍師：川端康成' /tmp/chapter.txt \
+                  && grep -Fq '第四の軍師：サリンジャー' /tmp/chapter.txt \
                   && grep -Fq '今度こそ湊くんにちゃんと気持ちを伝える' /tmp/chapter.txt \
                   && ! grep -Fq '完全に堕とす' /tmp/chapter.txt \
+                  && ! grep -Fq '余酻' /tmp/chapter.txt \
                   && grep -Fq 'zarigani-reader-v3-20260905' /tmp/sw.js; then
                   auth_ok=1
                   break
@@ -150,7 +161,7 @@ jobs:
             sleep 2
           done
           test "$auth_ok" = '1'
-          echo 'LIVE VERIFIED: exact revised worker exists; unauthorized=403; SameSite=Lax; catalog=94; literary revision present; conquest wording absent; cache=v3'
+          echo 'LIVE VERIFIED: restored literary fourth plan; unauthorized=403; SameSite=Lax; catalog=94; rejected wording absent; cache=v3'
           printf '%s/?key=%s\n' "$base" "$token" > /tmp/zarigani-reader-access.txt
 
       - name: Store verified private access link for owner
