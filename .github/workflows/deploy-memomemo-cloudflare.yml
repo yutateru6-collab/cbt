@@ -1,0 +1,95 @@
+name: Deploy memomemo to Cloudflare
+
+on:
+  push:
+    branches:
+      - deploy/memomemo-cloudflare-20260905
+    paths:
+      - .github/workflows/deploy-memomemo-cloudflare.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-memomemo-cloudflare
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+
+    steps:
+      - name: Check out memomemo main
+        uses: actions/checkout@v4
+        with:
+          repository: yutateru6-collab/memomemo
+          ref: main
+          path: memomemo
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Verify Cloudflare credentials are available
+        shell: bash
+        env:
+          OPTIONAL_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          if [ -z "${CLOUDFLARE_API_TOKEN:-}" ]; then
+            echo 'CLOUDFLARE_API_TOKEN is not available in this repository.' >&2
+            exit 1
+          fi
+          if [ -n "${OPTIONAL_ACCOUNT_ID:-}" ]; then
+            echo "CLOUDFLARE_ACCOUNT_ID=$OPTIONAL_ACCOUNT_ID" >> "$GITHUB_ENV"
+          fi
+
+      - name: Install and validate memomemo
+        working-directory: memomemo
+        run: |
+          bun install --frozen-lockfile
+          bun run lint
+          bun run build
+
+      - name: Create Cloudflare Workers static-assets config
+        working-directory: memomemo
+        shell: bash
+        run: |
+          cat > wrangler.jsonc <<'EOF'
+          {
+            "$schema": "node_modules/wrangler/config-schema.json",
+            "name": "memomemo",
+            "compatibility_date": "2026-09-05",
+            "assets": {
+              "directory": "./dist",
+              "not_found_handling": "single-page-application"
+            }
+          }
+          EOF
+
+      - name: Deploy memomemo Worker
+        working-directory: memomemo
+        run: npx --yes wrangler@4 deploy --config wrangler.jsonc
+
+      - name: Verify production URL
+        shell: bash
+        run: |
+          set -euo pipefail
+          base='https://memomemo.itisnowornever271.workers.dev'
+          ok=0
+          for attempt in {1..12}; do
+            if curl -fsSL --connect-timeout 10 --max-time 30 -H 'Cache-Control: no-cache' "$base/?verify=$GITHUB_SHA&attempt=$attempt" -o /tmp/memomemo-prod.html; then
+              if grep -q '<title>iOS Note</title>' /tmp/memomemo-prod.html; then
+                ok=1
+                break
+              fi
+            fi
+            sleep 2
+          done
+          test "$ok" = '1'
+          echo "PRODUCTION_URL=$base/"
