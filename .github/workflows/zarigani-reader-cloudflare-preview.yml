@@ -1,4 +1,4 @@
-name: Deploy private Zarigani reader preview
+name: Deploy private Zarigani revised reader preview
 
 on:
   push:
@@ -31,11 +31,12 @@ jobs:
         with:
           node-version: 22
 
-      - name: Verify Cloudflare credentials are configured
+      - name: Verify Cloudflare credentials and target Worker
         shell: bash
         run: |
           set -euo pipefail
           test -n "${CLOUDFLARE_API_TOKEN:-}"
+          grep -Fq '"name": "zarigani-reader-revised-preview-20260905"' deploy/zarigani-reader-cloudflare/wrangler.jsonc
 
       - name: Use Cloudflare Account ID when configured
         shell: bash
@@ -46,58 +47,57 @@ jobs:
             echo "CLOUDFLARE_ACCOUNT_ID=$OPTIONAL_ACCOUNT_ID" >> "$GITHUB_ENV"
           fi
 
-      - name: Download validated approved reader package
+      - name: Download verified approved reader package
         shell: bash
         run: |
           set -euo pipefail
-          url='https://sdmntprnznorth.oaiusercontent.com/files/00000000-1da4-820b-905d-a5c704a6219c/raw?se=2026-09-04T02%3A13%3A15Z&sp=r&sv=2026-02-06&sr=b&scid=702e2d1a-cd37-591a-92b5-becf65ab17ef&skoid=f5e14fda-2af7-44a3-9d18-d372ffcad871&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-03T21%3A05%3A42Z&ske=2026-09-04T21%3A05%3A42Z&sks=b&skv=2026-02-06&sig=SDJmN2Sw3WmgexUyKyxBq46B6lnxIpQO3l6KdcIvoPQ%3D'
+          url='https://sdmntprnznorth.oaiusercontent.com/files/00000000-2dbc-820b-a5ca-c9c1fc006224/raw?se=2026-09-05T01%3A55%3A36Z&sp=r&sv=2026-02-06&sr=b&scid=f1dac9f9-fb38-5849-a3f8-9c2dea32e10c&skoid=f5e14fda-2af7-44a3-9d18-d372ffcad871&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-05T01%3A41%3A13Z&ske=2026-09-06T01%3A41%3A13Z&sks=b&skv=2026-02-06&sig=SulDRYGjMePYXUXSA36OPjElRmFyVzXrEV%2BQmEO%2BzGE%3D'
           curl -fsSL --retry 3 --connect-timeout 10 --max-time 60 "$url" -o /tmp/reader-artifact.zip
-          echo '7b5fce7e05218198efe9885e3ae0ad652686e6f9ea08010748dba163fa460319  /tmp/reader-artifact.zip' | sha256sum -c -
+          echo '67ac04e667ae64a741d728b8ef06eb7fa52fd765c53e23ecbe8d670143bcf703  /tmp/reader-artifact.zip' | sha256sum -c -
           rm -rf /tmp/reader-artifact deploy/zarigani-reader-cloudflare/assets
           mkdir -p /tmp/reader-artifact deploy/zarigani-reader-cloudflare/assets
           unzip -q /tmp/reader-artifact.zip -d /tmp/reader-artifact
-          test -f /tmp/reader-artifact/zarigani-approved-preview-dist.zip
-          unzip -q /tmp/reader-artifact/zarigani-approved-preview-dist.zip -d deploy/zarigani-reader-cloudflare/assets
+          test -f /tmp/reader-artifact/zarigani-approved-preview-v2-dist.zip
+          unzip -q /tmp/reader-artifact/zarigani-approved-preview-v2-dist.zip -d deploy/zarigani-reader-cloudflare/assets
 
-      - name: Verify publish set contains approved preview only
+      - name: Verify publish set and revised manuscript markers
         shell: bash
         run: |
           set -euo pipefail
-          node --check deploy/zarigani-reader-cloudflare/assets/app.js
-          node --check deploy/zarigani-reader-cloudflare/assets/sw.js
+          root='deploy/zarigani-reader-cloudflare/assets'
+          node --check "$root/app.js"
+          node --check "$root/sw.js"
           node --check deploy/zarigani-reader-cloudflare/worker.js
-          grep -q 'SameSite=Lax' deploy/zarigani-reader-cloudflare/worker.js
-          grep -q '^文学部3年、文学専攻。$' 'deploy/zarigani-reader-cloudflare/assets/manuscript/03-第二部/02-結花、ザリガニ同盟へ.txt'
-          grep -q 'いつもの図書館へ向かった' 'deploy/zarigani-reader-cloudflare/assets/manuscript/05-第四部/23-結花の調査記録――論文の海から、一本の糸を.txt'
-          grep -q '父と湖や川へ釣りに出かけていた頃の記憶' 'deploy/zarigani-reader-cloudflare/assets/manuscript/05-第四部/22-結花の調査記録――インターネットという巨大な壁.txt'
-          ! grep -q '綺麗に整えられたジェルネイルと、' 'deploy/zarigani-reader-cloudflare/assets/manuscript/01-第一部/02-ザリガニ釣り.txt'
-          ! grep -R -n -E '[“”"]' deploy/zarigani-reader-cloudflare/assets/manuscript
+          grep -Fq 'SameSite=Lax' deploy/zarigani-reader-cloudflare/worker.js
+          ch2="$root/manuscript/04-第三部/02-それぞれの夜――宣戦布告の三文字.txt"
+          ch5="$root/manuscript/04-第三部/05-完璧な朝、そして絶望の雨――それぞれの戦場.txt"
+          grep -Fq 'Side：結花 〜文学少女の作戦会議〜' "$ch2"
+          grep -Fq '第四計画：【文豪たちに恋愛を相談する作戦】' "$ch2"
+          grep -Fq '「今度こそ湊くんにちゃんと気持ちを伝える」と。' "$ch2"
+          grep -Fq '（今日こそ湊くんにちゃんと気持ちを伝える）' "$ch5"
+          ! grep -R -Fq '文学的魔性の完全解放' "$root/manuscript"
+          ! grep -R -Fq '湊くんを完全に堕とす' "$root/manuscript"
+          ! grep -R -Fq '綺麗に整えられたジェルネイルと、' "$root/manuscript"
+          ! grep -R -n -E '[“”"]' "$root/manuscript"
+          grep -Fq "zarigani-reader-v3-20260905" "$root/sw.js"
+          grep -Fq "cache: 'no-store'" "$root/sw.js"
           node - <<'NODE'
           const fs = require('node:fs');
           const path = require('node:path');
           const root = 'deploy/zarigani-reader-cloudflare/assets';
           const catalog = JSON.parse(fs.readFileSync(path.join(root, 'catalog.json'), 'utf8'));
-          if (!Array.isArray(catalog) || catalog.length !== 94) {
-            throw new Error(`Expected 94 chapters, got ${catalog.length}`);
-          }
+          if (!Array.isArray(catalog) || catalog.length !== 94) throw new Error(`Expected 94 chapters, got ${catalog.length}`);
           for (const forbidden of ['reference', 'planning', 'history']) {
             if (fs.existsSync(path.join(root, forbidden))) throw new Error(`Forbidden publish directory: ${forbidden}`);
           }
-          const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-          const js = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
-          for (const marker of ['offlineButton', 'immersiveButton', 'data-weight-choice', 'data-font-choice', 'data-margin-choice', 'data-page-mode-choice']) {
-            if (!html.includes(marker)) throw new Error(`Missing reader UI marker: ${marker}`);
-          }
-          if (!js.includes('zarigani-reader-v2')) throw new Error('Expected reader v2 application bundle.');
-          console.log('Validated approved Cloudflare publish set:', catalog.length, 'chapters + PR21/22/23 overlays');
+          console.log('Validated revised publish set:', catalog.length, 'chapters, literary markers, reader cache v3');
           NODE
 
-      - name: Deploy private reader Worker
+      - name: Deploy genuinely new private reader Worker
         shell: bash
         run: npx --yes wrangler@4 deploy --config deploy/zarigani-reader-cloudflare/wrangler.jsonc
 
       - name: Generate and install private access token
-        id: access
         shell: bash
         run: |
           set -euo pipefail
@@ -106,15 +106,15 @@ jobs:
           printf '%s' "$token" > /tmp/zarigani-reader-token
           printf '%s' "$token" | npx --yes wrangler@4 secret put READER_ACCESS_TOKEN --config deploy/zarigani-reader-cloudflare/wrangler.jsonc
 
-      - name: Verify private protection and approved reader access
+      - name: Verify exact live URL, auth, 94 chapters and revised text
         shell: bash
         run: |
           set -euo pipefail
-          base='https://zarigani-reader-preview.itisnowornever271.workers.dev'
+          base='https://zarigani-reader-revised-preview-20260905.itisnowornever271.workers.dev'
           token="$(cat /tmp/zarigani-reader-token)"
 
           unauth_ok=0
-          for attempt in {1..12}; do
+          for attempt in {1..15}; do
             status="$(curl -sS --connect-timeout 10 --max-time 30 -o /tmp/unauth.html -w '%{http_code}' "$base/?attempt=$attempt" || true)"
             if [ "$status" = '403' ]; then unauth_ok=1; break; fi
             sleep 2
@@ -122,17 +122,26 @@ jobs:
           test "$unauth_ok" = '1'
 
           auth_ok=0
-          for attempt in {1..12}; do
+          for attempt in {1..15}; do
             rm -f /tmp/reader-cookies.txt /tmp/auth-headers.txt
             status="$(curl -sS --connect-timeout 10 --max-time 30 -D /tmp/auth-headers.txt -c /tmp/reader-cookies.txt -o /dev/null -w '%{http_code}' "$base/?key=$token&attempt=$attempt" || true)"
             if [ "$status" = '302' ] && grep -qi 'set-cookie: .*SameSite=Lax' /tmp/auth-headers.txt; then
               if curl -fsSL --connect-timeout 10 --max-time 30 -b /tmp/reader-cookies.txt "$base/catalog.json" -o /tmp/catalog.json \
-                && curl -fsSL --connect-timeout 10 --max-time 30 -b /tmp/reader-cookies.txt "$base/index.html" -o /tmp/index.html \
-                && curl -fsSL --connect-timeout 10 --max-time 30 -b /tmp/reader-cookies.txt "$base/app.js" -o /tmp/app.js; then
-                if node -e "const c=require('/tmp/catalog.json');process.exit(Array.isArray(c)&&c.length===94?0:1)" \
-                  && grep -q 'data-weight-choice' /tmp/index.html \
-                  && grep -q 'offlineButton' /tmp/index.html \
-                  && grep -q 'zarigani-reader-v2' /tmp/app.js; then
+                && curl -fsSL --connect-timeout 10 --max-time 30 -b /tmp/reader-cookies.txt "$base/sw.js" -o /tmp/sw.js; then
+                chapter_path="$(node - <<'NODE'
+          const c=require('/tmp/catalog.json');
+          const x=c.find(v=>v.title.includes('宣戦布告の三文字'));
+          if(!x) process.exit(2);
+          process.stdout.write(encodeURI(x.path));
+          NODE
+          )"
+                if curl -fsSL --connect-timeout 10 --max-time 30 -b /tmp/reader-cookies.txt "$base/$chapter_path" -o /tmp/chapter.txt \
+                  && node -e "const c=require('/tmp/catalog.json');process.exit(Array.isArray(c)&&c.length===94?0:1)" \
+                  && grep -Fq '文学少女の作戦会議' /tmp/chapter.txt \
+                  && grep -Fq '文豪たちに恋愛を相談する作戦' /tmp/chapter.txt \
+                  && grep -Fq '今度こそ湊くんにちゃんと気持ちを伝える' /tmp/chapter.txt \
+                  && ! grep -Fq '完全に堕とす' /tmp/chapter.txt \
+                  && grep -Fq 'zarigani-reader-v3-20260905' /tmp/sw.js; then
                   auth_ok=1
                   break
                 fi
@@ -141,14 +150,13 @@ jobs:
             sleep 2
           done
           test "$auth_ok" = '1'
-          echo 'Cloudflare approved reader verified: unauthorized=403, auth-cookie=SameSite-Lax, authorized chapters=94, reader=v2'
-
+          echo 'LIVE VERIFIED: exact revised worker exists; unauthorized=403; SameSite=Lax; catalog=94; literary revision present; conquest wording absent; cache=v3'
           printf '%s/?key=%s\n' "$base" "$token" > /tmp/zarigani-reader-access.txt
 
-      - name: Store private access link for owner
+      - name: Store verified private access link for owner
         uses: actions/upload-artifact@v4
         with:
-          name: zarigani-reader-private-access
+          name: zarigani-revised-reader-private-access
           path: /tmp/zarigani-reader-access.txt
           if-no-files-found: error
           retention-days: 1
