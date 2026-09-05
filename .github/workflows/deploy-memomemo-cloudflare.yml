@@ -18,7 +18,7 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
@@ -52,11 +52,13 @@ jobs:
       - name: Install and validate memomemo
         working-directory: memomemo
         run: |
+          set -euo pipefail
           bun install --frozen-lockfile
           bun run lint
           bun run build
+          node --check worker/index.js
 
-      - name: Create Cloudflare Workers static-assets config
+      - name: Configure Worker, encrypted API, and KV binding
         working-directory: memomemo
         shell: bash
         run: |
@@ -65,31 +67,204 @@ jobs:
             "$schema": "node_modules/wrangler/config-schema.json",
             "name": "memomemo",
             "compatibility_date": "2026-09-05",
+            "main": "./worker/index.js",
+            "kv_namespaces": [
+              {
+                "binding": "MEMOMEMO_KV"
+              }
+            ],
             "assets": {
               "directory": "./dist",
-              "not_found_handling": "single-page-application"
+              "binding": "ASSETS",
+              "not_found_handling": "single-page-application",
+              "run_worker_first": ["/api/*"]
             }
           }
           EOF
 
-      - name: Deploy memomemo Worker
+      - name: Deploy memomemo Worker and auto-provision KV
         working-directory: memomemo
         run: npx --yes wrangler@4 deploy --config wrangler.jsonc
 
-      - name: Verify production URL
+      - name: Verify production app and KV binding
         shell: bash
         run: |
           set -euo pipefail
           base='https://memomemo.itisnowornever271.workers.dev'
-          ok=0
-          for attempt in {1..12}; do
+          app_ok=0
+          health_ok=0
+          for attempt in {1..15}; do
             if curl -fsSL --connect-timeout 10 --max-time 30 -H 'Cache-Control: no-cache' "$base/?verify=$GITHUB_SHA&attempt=$attempt" -o /tmp/memomemo-prod.html; then
               if grep -q '<title>iOS Note</title>' /tmp/memomemo-prod.html; then
-                ok=1
-                break
+                app_ok=1
               fi
             fi
+            if curl -fsSL --connect-timeout 10 --max-time 30 -H 'Cache-Control: no-cache' "$base/api/health?verify=$GITHUB_SHA&attempt=$attempt" -o /tmp/memomemo-health.json; then
+              if node -e '
+                const fs = require("node:fs");
+                const health = JSON.parse(fs.readFileSync("/tmp/memomemo-health.json", "utf8"));
+                process.exit(health.ok === true && health.storage === true ? 0 : 1);
+              '; then
+                health_ok=1
+              fi
+            fi
+            if [ "$app_ok" = '1' ] && [ "$health_ok" = '1' ]; then
+              break
+            fi
+            echo "Waiting for app/KV binding propagation ($attempt/15)..."
             sleep 2
           done
-          test "$ok" = '1'
-          echo "PRODUCTION_URL=$base/"
+          test "$app_ok" = '1'
+          test "$health_ok" = '1'
+
+      - name: Verify encrypted KV write, read, deletion, and stale-write protection
+        shell: bash
+        env:
+          MEMOMEMO_BASE_URL: https://memomemo.itisnowornever271.workers.dev
+        run: |
+          node --input-type=module <<'NODE'
+          import { webcrypto } from 'node:crypto';
+
+          const crypto = webcrypto;
+          const encoder = new TextEncoder();
+          const decoder = new TextDecoder();
+          const base = process.env.MEMOMEMO_BASE_URL;
+          const marker = 'MEMOMEMO_PRODUCTION_ENCRYPTION_QA_MARKER';
+          const noteId = '__memomemo_production_qa__';
+
+          function concatBytes(...parts) {
+            const total = parts.reduce((sum, part) => sum + part.length, 0);
+            const out = new Uint8Array(total);
+            let offset = 0;
+            for (const part of parts) {
+              out.set(part, offset);
+              offset += part.length;
+            }
+            return out;
+          }
+
+          const sha256 = async (bytes) => new Uint8Array(await crypto.subtle.digest('SHA-256', bytes));
+          const b64 = (bytes) => Buffer.from(bytes).toString('base64url');
+
+          const secret = await sha256(encoder.encode('memomemo-production-qa-sync-code-v1'));
+          const encryptionMaterial = await sha256(
+            concatBytes(encoder.encode('memomemo-encryption-v1:'), secret)
+          );
+          const encryptionKey = await crypto.subtle.importKey(
+            'raw', encryptionMaterial, { name: 'AES-GCM' }, false, ['encrypt', 'decrypt']
+          );
+          const vaultToken = b64(await sha256(
+            concatBytes(encoder.encode('memomemo-auth-v1:'), secret)
+          ));
+
+          async function entryKey(id) {
+            return b64(await sha256(
+              concatBytes(encoder.encode('memomemo-entry-v1:'), secret, encoder.encode(':' + id))
+            ));
+          }
+
+          async function encryptEntry(payload, version, updatedAt, deleted) {
+            const iv = crypto.getRandomValues(new Uint8Array(12));
+            const ciphertext = new Uint8Array(await crypto.subtle.encrypt(
+              { name: 'AES-GCM', iv }, encryptionKey, encoder.encode(JSON.stringify(payload))
+            ));
+            return {
+              key: await entryKey(noteId),
+              version,
+              updatedAt,
+              deleted,
+              iv: b64(iv),
+              ciphertext: b64(ciphertext),
+            };
+          }
+
+          async function decryptEntry(entry) {
+            const iv = new Uint8Array(Buffer.from(entry.iv, 'base64url'));
+            const ciphertext = new Uint8Array(Buffer.from(entry.ciphertext, 'base64url'));
+            const plaintext = await crypto.subtle.decrypt(
+              { name: 'AES-GCM', iv }, encryptionKey, ciphertext
+            );
+            return JSON.parse(decoder.decode(plaintext));
+          }
+
+          async function sync(entries) {
+            const response = await fetch(base + '/api/sync', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-cache' },
+              body: JSON.stringify({
+                action: 'sync-v2',
+                vaultToken,
+                entries,
+                clientTimestamp: Date.now(),
+              }),
+            });
+            const text = await response.text();
+            if (!response.ok) throw new Error(`sync failed ${response.status}: ${text}`);
+            if (text.includes(marker)) throw new Error('Plaintext QA marker leaked in Cloudflare response.');
+            const data = JSON.parse(text);
+            if (!data.success || !Array.isArray(data.entries)) throw new Error('Invalid sync response.');
+            return data;
+          }
+
+          async function waitForStored(key, minVersion, expectedDeleted) {
+            for (let attempt = 1; attempt <= 15; attempt++) {
+              const data = await sync([]);
+              const entry = data.entries.find((candidate) => candidate.key === key);
+              if (entry && entry.version >= minVersion && entry.deleted === expectedDeleted) {
+                return entry;
+              }
+              await new Promise((resolve) => setTimeout(resolve, 2000));
+            }
+            throw new Error('KV did not expose the expected persisted entry in time.');
+          }
+
+          const baseVersion = Date.now();
+          const now = Date.now();
+          const note = {
+            id: noteId,
+            title: marker,
+            content: 'encrypted production round-trip',
+            tags: ['qa'],
+            tasks: [],
+            attachments: [],
+            createdAt: now,
+            updatedAt: now,
+            version: baseVersion,
+          };
+          const noteEntry = await encryptEntry(note, baseVersion, now, false);
+          const noteKey = noteEntry.key;
+
+          const first = await sync([noteEntry]);
+          const accepted = first.entries.find((entry) => entry.key === noteKey);
+          if (!accepted || accepted.version < baseVersion || accepted.deleted) {
+            throw new Error('Worker did not accept the encrypted note write.');
+          }
+
+          const persistedNote = await waitForStored(noteKey, baseVersion, false);
+          const decryptedNote = await decryptEntry(persistedNote);
+          if (decryptedNote.title !== marker || decryptedNote.content !== note.content) {
+            throw new Error('Encrypted KV round-trip decrypted to unexpected data.');
+          }
+
+          const tombstoneVersion = baseVersion + 1;
+          const deletedAt = Date.now() + 1;
+          const tombstone = { id: noteId, deletedAt, version: tombstoneVersion, deleted: true };
+          const tombstoneEntry = await encryptEntry(tombstone, tombstoneVersion, deletedAt, true);
+          await sync([tombstoneEntry]);
+          const persistedTombstone = await waitForStored(noteKey, tombstoneVersion, true);
+          const decryptedTombstone = await decryptEntry(persistedTombstone);
+          if (decryptedTombstone.id !== noteId || decryptedTombstone.version !== tombstoneVersion) {
+            throw new Error('Deletion tombstone did not round-trip correctly.');
+          }
+
+          const stale = await sync([noteEntry]);
+          const afterStaleWrite = stale.entries.find((entry) => entry.key === noteKey);
+          if (!afterStaleWrite || !afterStaleWrite.deleted || afterStaleWrite.version < tombstoneVersion) {
+            throw new Error('A stale note write was able to defeat a newer deletion tombstone.');
+          }
+
+          console.log('Encrypted Cloudflare KV production round-trip verified.');
+          NODE
+
+      - name: Print production URL
+        run: echo 'PRODUCTION_URL=https://memomemo.itisnowornever271.workers.dev/'
