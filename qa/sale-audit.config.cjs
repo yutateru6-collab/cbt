@@ -1,0 +1,3 @@
+const {defineConfig}=require('@playwright/test');
+const {projects}=require('./device-matrix.cjs');
+module.exports=defineConfig({testDir:__dirname,testMatch:['sale-audit.e2e.spec.cjs'],timeout:240000,expect:{timeout:15000},workers:2,retries:0,outputDir:'qa-output/audit-failures',reporter:[['line'],['json',{outputFile:'qa-output/audit-playwright.json'}]],use:{baseURL:process.env.QA_BASE_URL,locale:'ja-JP',timezoneId:'Asia/Tokyo',serviceWorkers:'block',screenshot:'only-on-failure',trace:'retain-on-failure'},projects:projects.filter(p=>['desktop-1440x900','ipad-820x1180','iphone-16-393x852'].includes(p.name))});
