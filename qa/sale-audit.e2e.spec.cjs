@@ -15,6 +15,7 @@ test('three paid sets: reading navigation, answers, writing, listening and resul
   const metrics=await page.evaluate(()=>({viewport:{width:innerWidth,height:innerHeight,dpr:devicePixelRatio},scrollWidth:document.documentElement.scrollWidth,clientWidth:document.documentElement.clientWidth,horizontalOverflow:document.documentElement.scrollWidth>document.documentElement.clientWidth+1}));
   const file='audit-shots/'+info.project.name+'-'+name+'.jpg';
   await page.screenshot({path:out+'/'+file,type:'jpeg',quality:65,scale:'css',fullPage:false,animations:'disabled'});
+  await page.screenshot({path:out+'/'+file.replace(/\.jpg$/,'.png'),type:'png',scale:'device',fullPage:false,animations:'disabled'});
   report.states.push({name,url:page.url(),title:await page.title(),metrics,screenshot:file});
   expect.soft(metrics.horizontalOverflow,name+' horizontal overflow').toBe(false);
  }
@@ -84,4 +85,18 @@ test('production build and complete paid Listening audio inventory',async({page,
   expect(audio).toHaveLength(90);
   for(const a of report.audio){expect.soft(a.error,a.set+' '+a.id).toBeUndefined();expect.soft([200,206],a.url).toContain(a.status);expect.soft(a.type||'',a.url).toMatch(/^audio\//);expect.soft(a.bytes||0,a.url).toBeGreaterThan(44);}
  }finally{fs.writeFileSync(out+'/production-inventory.json',JSON.stringify(report,null,2));}
+});
+
+test('paid route must require access regardless of HTML extension',async({page,request},info)=>{
+ test.skip(info.project.name!=='desktop-1440x900');
+ const paths=['/exam.html?plan=three','/exam?plan=three'],results=[];
+ for(const p of paths){const r=await request.get(origin+p,{maxRedirects:0});results.push({path:p,status:r.status(),location:r.headers().location||''});}
+ await page.goto(origin+'/exam?plan=three');
+ const visible=await page.getByText('3回プレミアム',{exact:true}).count();
+ const first=page.getByRole('button',{name:/第1回 リーディング全パート/});
+ const report={target:origin,cookieMode:'fresh Playwright context without checkout',responses:results,premiumLabelCount:visible,firstSetButtonVisible:await first.isVisible()};
+ fs.writeFileSync(out+'/production-route-gate.json',JSON.stringify(report,null,2));
+ await page.screenshot({path:out+'/production-route-gate.png',type:'png',scale:'device'});
+ await page.screenshot({path:out+'/production-route-gate.jpg',type:'jpeg',quality:65,scale:'css'});
+ expect(report.firstSetButtonVisible,'Unauthenticated normalized route exposes premium set selection').toBe(false);
 });
