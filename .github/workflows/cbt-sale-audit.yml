@@ -29,7 +29,7 @@ jobs:
           mkdir -p qa-output
           cp output/pdf/eiken-grade2-final-check-writing-template.pdf qa-output/bonus-source.pdf
           git rev-parse HEAD > qa-output/audit-commit.txt
-          git rev-parse HEAD^ > qa-output/source-commit.txt
+          echo c69fd06b6217b7ec714f8ed55b041b1a29a63ccd > qa-output/source-commit.txt
           python3 -m http.server 4173 --bind 127.0.0.1 > qa-output/server.log 2>&1 &
           for n in $(seq 1 30); do
             if curl -fsS http://127.0.0.1:4173/exam.html >/dev/null; then break; fi
